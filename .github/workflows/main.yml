@@ -36,10 +36,11 @@ jobs:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
       - name: Run a one-line script
+        shell: bash -l {0}
         run: |
          pip install papyri
-         papyri ingest data/*
-         papyri render
+         python -m papyri ingest data/*
+         python -m papyri render
         
 
       # Runs a set of commands using the runners shell

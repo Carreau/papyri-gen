@@ -1,0 +1,607 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Associated Legendre function of the first kind for complex arguments."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Computes the associated Legendre function of the first kind of order m and degree n, "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "Pmn(z)"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " = "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "P",
+                    "_",
+                    "n^m(z)"
+                  ],
+                  "domain": null,
+                  "role": "math"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ", and its derivative, "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "Pmn'(z)"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ". Returns two arrays of size "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "(m+1,",
+                    " ",
+                    "n+1)"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " containing "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "Pmn(z)"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " and "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "Pmn'(z)"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " for all orders from "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "0..m"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " and degrees from "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "0..n"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": "."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Parameters": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "m",
+            "type_": "int",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "|m|",
+                          " ",
+                          "<=",
+                          " ",
+                          "n"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "; the order of the Legendre function."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "n",
+            "type_": "int",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "where "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "n",
+                          " ",
+                          ">=",
+                          " ",
+                          "0"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "; the degree of the Legendre function.  Often called "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "l"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " (lower case L) in descriptions of the associated Legendre function"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "z",
+            "type_": "float or complex",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Input value."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "type",
+            "type_": "int, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "takes values 2 or 3 2: cut on the real axis "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "|x|",
+                          " ",
+                          ">",
+                          " ",
+                          "1"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " 3: cut on the real axis "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "-1",
+                          " ",
+                          "<",
+                          " ",
+                          "x",
+                          " ",
+                          "<",
+                          " ",
+                          "1"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " (default)"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Returns": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "Pmn_z",
+            "type_": "(m+1, n+1) array",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Values for all orders "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "0..m"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " and degrees `"
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "0..n"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "`"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "Pmn_d_z",
+            "type_": "(m+1, n+1) array",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Derivatives for all orders "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "0..m"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " and degrees `"
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "0..n"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "`"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Yields": {
+      "children": []
+    },
+    "Receives": {
+      "children": []
+    },
+    "Raises": {
+      "children": []
+    },
+    "Warns": {
+      "children": []
+    },
+    "Other Parameters": {
+      "children": []
+    },
+    "Attributes": {
+      "children": []
+    },
+    "Methods": {
+      "children": []
+    },
+    "Notes": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "By default, i.e. for "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "type=3"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ", phase conventions are chosen according to [1]_ such that the function is analytic. The cut lies on the interval (-1, 1). Approaching the cut from above or below in general yields a phase factor with respect to Ferrer's function of the first kind (cf. "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "lpmn"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ")."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "For "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "type=2"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " a cut at "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "|x|",
+                    " ",
+                    ">",
+                    " ",
+                    "1"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " is chosen. Approaching the real values on the interval (-1, 1) in the complex plane yields Ferrer's function of the first kind."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Warnings": {
+      "children": []
+    }
+  },
+  "refs": [
+    "lpmn"
+  ],
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References"
+  ],
+  "item_file": "/Users/bussonniermatthias/dev/scipy/scipy/special/_basic.py",
+  "item_line": 1312,
+  "item_type": "<class 'function'>",
+  "aliases": [
+    "scipy.special.clpmn"
+  ],
+  "example_section_data": {
+    "children": []
+  },
+  "see_also": [
+    {
+      "name": {
+        "name": "lpmn",
+        "ref": null,
+        "exists": null
+      },
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "associated Legendre functions of the first kind for real z"
+              }
+            }
+          ]
+        }
+      ],
+      "type": null
+    }
+  ],
+  "signature": "clpmn(m, n, z, type=3)",
+  "references": [
+    ".. [1] Zhang, Shanjie and Jin, Jianming. \"Computation of Special",
+    "       Functions\", John Wiley and Sons, 1996.",
+    "       https://people.sc.fsu.edu/~jburkardt/f_src/special_functions/special_functions.html",
+    ".. [2] NIST Digital Library of Mathematical Functions",
+    "       https://dlmf.nist.gov/14.21"
+  ]
+}

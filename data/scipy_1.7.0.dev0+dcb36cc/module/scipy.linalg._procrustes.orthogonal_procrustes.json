@@ -1,0 +1,699 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Compute the matrix solution of the orthogonal Procrustes problem."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Given matrices A and B of equal shape, find an orthogonal matrix R that most closely maps A to B using the algorithm given in [1]_."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Parameters": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "A",
+            "type_": "(M, N) array_like",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Matrix to be mapped."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "B",
+            "type_": "(M, N) array_like",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Target matrix."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "check_finite",
+            "type_": "bool, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Whether to check that the input matrices contain only finite numbers. Disabling may give a performance gain, but may result in problems (crashes, non-termination) if the inputs do contain infinities or NaNs."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Returns": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "R",
+            "type_": "(N, N) ndarray",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The matrix solution of the orthogonal Procrustes problem. Minimizes the Frobenius norm of "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "(A",
+                          " ",
+                          "@",
+                          " ",
+                          "R)",
+                          " ",
+                          "-",
+                          " ",
+                          "B"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ", subject to "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "R.T",
+                          " ",
+                          "@",
+                          " ",
+                          "R",
+                          " ",
+                          "=",
+                          " ",
+                          "I"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "scale",
+            "type_": "float",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Sum of the singular values of "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "A.T",
+                          " ",
+                          "@",
+                          " ",
+                          "B"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Yields": {
+      "children": []
+    },
+    "Receives": {
+      "children": []
+    },
+    "Raises": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "",
+            "type_": "ValueError",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "If the input array shapes don't match or if check_finite is True and the arrays contain Inf or NaN."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Warns": {
+      "children": []
+    },
+    "Other Parameters": {
+      "children": []
+    },
+    "Attributes": {
+      "children": []
+    },
+    "Methods": {
+      "children": []
+    },
+    "Notes": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Note that unlike higher level Procrustes analyses of spatial data, this function only uses orthogonal transformations like rotations and reflections, and it does not use scaling or translation."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockDirective",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": ".. versionadded:: 0.15.0",
+                  "_number": 4,
+                  "_offset": 0
+                }
+              ]
+            },
+            "wh": {
+              "_lines": []
+            },
+            "ind": {
+              "_lines": []
+            },
+            "directive_name": "versionadded",
+            "args0": [
+              " 0.15.0"
+            ],
+            "inner": null
+          }
+        }
+      ]
+    },
+    "Warnings": {
+      "children": []
+    }
+  },
+  "refs": [],
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "item_file": "/Users/bussonniermatthias/dev/scipy/scipy/linalg/_procrustes.py",
+  "item_line": 12,
+  "item_type": "<class 'function'>",
+  "aliases": [
+    "scipy.linalg.orthogonal_procrustes"
+  ],
+  "example_section_data": {
+    "children": [
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "from",
+              "",
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "scipy",
+              "",
+              "nn"
+            ],
+            [
+              ".",
+              "",
+              "nn"
+            ],
+            [
+              "linalg",
+              "",
+              "nn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "import",
+              "",
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "orthogonal_procrustes",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "A",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "array",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "-",
+              "",
+              "o"
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "",
+          "ce_status": "compiled"
+        }
+      },
+      {
+        "type": "Paragraph",
+        "data": {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "Flip the order of columns and check for the anti-diagonal mapping"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "R",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "sca",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "orthogonal_procrustes",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "A",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "fliplr",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "A",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "R",
+              "",
+              ""
+            ]
+          ],
+          "out": "array([[-5.34384992e-17,  0.00000000e+00,  1.00000000e+00],\n       [ 0.00000000e+00,  1.00000000e+00,  0.00000000e+00],\n       [ 1.00000000e+00,  0.00000000e+00, -7.85941422e-17]])",
+          "ce_status": "compiled"
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "sca",
+              "",
+              ""
+            ]
+          ],
+          "out": "9.0",
+          "ce_status": "compiled"
+        }
+      }
+    ]
+  },
+  "see_also": [],
+  "signature": "orthogonal_procrustes(A, B, check_finite=True)",
+  "references": [
+    ".. [1] Peter H. Schonemann, \"A generalized solution of the orthogonal",
+    "       Procrustes problem\", Psychometrica -- Vol. 31, No. 1, March, 1996."
+  ]
+}

@@ -1,0 +1,497 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Piecewise tensor product polynomial"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "The value at point "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "xp",
+                    " ",
+                    "=",
+                    " ",
+                    "(x',",
+                    " ",
+                    "y',",
+                    " ",
+                    "z',",
+                    " ",
+                    "...)"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " is evaluated by first computing the interval indices "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "i"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " such that::"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockVerbatim",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": "    x[0][i[0]] <= x' < x[0][i[0]+1]",
+                  "_number": 3,
+                  "_offset": 4
+                },
+                {
+                  "_line": "    x[1][i[1]] <= y' < x[1][i[1]+1]",
+                  "_number": 4,
+                  "_offset": 4
+                },
+                {
+                  "_line": "    ...",
+                  "_number": 5,
+                  "_offset": 4
+                },
+                {
+                  "_line": "",
+                  "_number": 6,
+                  "_offset": 4
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "and then computing::"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockVerbatim",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": "    S = sum(c[k0-m0-1,...,kn-mn-1,i[0],...,i[n]]",
+                  "_number": 9,
+                  "_offset": 4
+                },
+                {
+                  "_line": "            * (xp[0] - x[0][i[0]])**m0",
+                  "_number": 10,
+                  "_offset": 4
+                },
+                {
+                  "_line": "            * ...",
+                  "_number": 11,
+                  "_offset": 4
+                },
+                {
+                  "_line": "            * (xp[n] - x[n][i[n]])**mn",
+                  "_number": 12,
+                  "_offset": 4
+                },
+                {
+                  "_line": "            for m0 in range(k[0]+1)",
+                  "_number": 13,
+                  "_offset": 4
+                },
+                {
+                  "_line": "            ...",
+                  "_number": 14,
+                  "_offset": 4
+                },
+                {
+                  "_line": "            for mn in range(k[n]+1))",
+                  "_number": 15,
+                  "_offset": 4
+                },
+                {
+                  "_line": "",
+                  "_number": 16,
+                  "_offset": 4
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "where "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "k[j]"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " is the degree of the polynomial in dimension j. This representation is the piecewise multivariate power basis."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Parameters": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "c",
+            "type_": "ndarray, shape (k0, ..., kn, m0, ..., mn, ...)",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Polynomial coefficients, with polynomial order "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "kj"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " and "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "mj+1"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " intervals for each dimension "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "j"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "x",
+            "type_": "ndim-tuple of ndarrays, shapes (mj+1,)",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Polynomial breakpoints for each dimension. These must be sorted in increasing order."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "extrapolate",
+            "type_": "bool, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Whether to extrapolate to out-of-bounds points based on first and last intervals, or to return NaNs. Default: True."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Returns": {
+      "children": []
+    },
+    "Yields": {
+      "children": []
+    },
+    "Receives": {
+      "children": []
+    },
+    "Raises": {
+      "children": []
+    },
+    "Warns": {
+      "children": []
+    },
+    "Other Parameters": {
+      "children": []
+    },
+    "Attributes": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "x",
+            "type_": "tuple of ndarrays",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Breakpoints."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "c",
+            "type_": "ndarray",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Coefficients of the polynomials."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Methods": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "__call__",
+            "type_": "",
+            "desc": []
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "derivative",
+            "type_": "",
+            "desc": []
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "antiderivative",
+            "type_": "",
+            "desc": []
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "integrate",
+            "type_": "",
+            "desc": []
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "integrate_1d",
+            "type_": "",
+            "desc": []
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "construct_fast",
+            "type_": "",
+            "desc": []
+          }
+        }
+      ]
+    },
+    "Notes": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "High-order polynomials in the power basis can be numerically unstable."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Warnings": {
+      "children": []
+    }
+  },
+  "refs": [
+    "PPoly"
+  ],
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Attributes",
+    "Methods",
+    "See Also",
+    "Notes"
+  ],
+  "item_file": "/Users/bussonniermatthias/dev/scipy/scipy/interpolate/interpolate.py",
+  "item_line": 1908,
+  "item_type": "<class 'type'>",
+  "aliases": [
+    "scipy.interpolate.NdPPoly"
+  ],
+  "example_section_data": {
+    "children": []
+  },
+  "see_also": [
+    {
+      "name": {
+        "name": "PPoly",
+        "ref": null,
+        "exists": null
+      },
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "piecewise polynomials in 1D"
+              }
+            }
+          ]
+        }
+      ],
+      "type": null
+    }
+  ],
+  "signature": "NdPPoly(c, x, extrapolate=None)",
+  "references": null
+}

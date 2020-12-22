@@ -1,0 +1,356 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Compute the attenuation of a Kaiser FIR filter."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Given the number of taps "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "N"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " and the transition width "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "width"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ", compute the attenuation "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "a"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " in dB, given by Kaiser's formula:"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "    a = 2.285 * (N - 1) * pi * width + 7.95"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Parameters": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "numtaps",
+            "type_": "int",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The number of taps in the FIR filter."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "width",
+            "type_": "float",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The desired width of the transition region between passband and stopband (or, in general, at any discontinuity) for the filter, expressed as a fraction of the Nyquist frequency."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Returns": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "a",
+            "type_": "float",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The attenuation of the ripple, in dB."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Yields": {
+      "children": []
+    },
+    "Receives": {
+      "children": []
+    },
+    "Raises": {
+      "children": []
+    },
+    "Warns": {
+      "children": []
+    },
+    "Other Parameters": {
+      "children": []
+    },
+    "Attributes": {
+      "children": []
+    },
+    "Methods": {
+      "children": []
+    },
+    "Notes": {
+      "children": []
+    },
+    "Warnings": {
+      "children": []
+    }
+  },
+  "refs": [
+    "kaiser_beta",
+    "kaiserord"
+  ],
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Examples"
+  ],
+  "item_file": "/Users/bussonniermatthias/dev/scipy/scipy/signal/fir_filter_design.py",
+  "item_line": 86,
+  "item_type": "<class 'function'>",
+  "aliases": [
+    "scipy.signal.kaiser_atten"
+  ],
+  "example_section_data": {
+    "children": [
+      {
+        "type": "Paragraph",
+        "data": {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "Suppose we want to design a FIR filter using the Kaiser window method that will have 211 taps and a transition width of 9 Hz for a signal that is sampled at 480 Hz. Expressed as a fraction of the Nyquist frequency, the width is 9/(0.5*480) = 0.0375. The approximate attenuation (in dB) is computed as follows:"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "from",
+              "",
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "scipy",
+              "",
+              "nn"
+            ],
+            [
+              ".",
+              "",
+              "nn"
+            ],
+            [
+              "signal",
+              "",
+              "nn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "import",
+              "",
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "kaiser_atten",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "kaiser_atten",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "211",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "0.0375",
+              "",
+              "mf"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "64.48099630593983",
+          "ce_status": "compiled"
+        }
+      }
+    ]
+  },
+  "see_also": [
+    {
+      "name": {
+        "name": "kaiserord",
+        "ref": null,
+        "exists": null
+      },
+      "descriptions": [],
+      "type": null
+    },
+    {
+      "name": {
+        "name": "kaiser_beta",
+        "ref": null,
+        "exists": null
+      },
+      "descriptions": [],
+      "type": null
+    }
+  ],
+  "signature": "kaiser_atten(numtaps, width)",
+  "references": null
+}

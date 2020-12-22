@@ -1,0 +1,4287 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Compute a definite integral."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Integrate func from "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "a"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " to "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "b"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " (possibly infinite interval) using a technique from the Fortran library QUADPACK."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Parameters": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "func",
+            "type_": "{function, scipy.LowLevelCallable}",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "A Python function or method to integrate. If "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "func"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " takes many arguments, it is integrated along the axis corresponding to the first argument."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "If the user desires improved integration performance, then "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "f"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " may be a "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "scipy.LowLevelCallable"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " with one of the signatures::"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "BlockVerbatim",
+                "data": {
+                  "lines": {
+                    "_lines": [
+                      {
+                        "_line": "    double func(double x)",
+                        "_number": 7,
+                        "_offset": 4
+                      },
+                      {
+                        "_line": "    double func(double x, void *user_data)",
+                        "_number": 8,
+                        "_offset": 4
+                      },
+                      {
+                        "_line": "    double func(int n, double *xx)",
+                        "_number": 9,
+                        "_offset": 4
+                      },
+                      {
+                        "_line": "    double func(int n, double *xx, void *user_data)",
+                        "_number": 10,
+                        "_offset": 4
+                      },
+                      {
+                        "_line": "",
+                        "_number": 11,
+                        "_offset": 4
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "user",
+                          "_",
+                          "data"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " is the data contained in the "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "scipy.LowLevelCallable"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ". In the call forms with "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "xx"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ",  "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "n"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " is the length of the "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "xx"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " array which contains "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "xx[0]",
+                          " ",
+                          "==",
+                          " ",
+                          "x"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " and the rest of the items are numbers contained in the "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "args"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " argument of quad."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "In addition, certain ctypes call signatures are supported for backward compatibility, but those should not be used in new code."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "a",
+            "type_": "float",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Lower limit of integration (use -numpy.inf for -infinity)."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "b",
+            "type_": "float",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Upper limit of integration (use numpy.inf for +infinity)."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "args",
+            "type_": "tuple, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Extra arguments to pass to "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "func"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "full_output",
+            "type_": "int, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Non-zero to return a dictionary of integration information. If non-zero, warning messages are also suppressed and the message is appended to the output tuple."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Returns": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "y",
+            "type_": "float",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The integral of func from "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "a"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " to "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "b"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "abserr",
+            "type_": "float",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "An estimate of the absolute error in the result."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "infodict",
+            "type_": "dict",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "A dictionary containing additional information. Run scipy.integrate.quad_explain() for more information."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "",
+            "type_": "message",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "A convergence message."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "",
+            "type_": "explain",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Appended only with 'cos' or 'sin' weighting and infinite integration limits, it contains an explanation of the codes in infodict['ierlst']"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Yields": {
+      "children": []
+    },
+    "Receives": {
+      "children": []
+    },
+    "Raises": {
+      "children": []
+    },
+    "Warns": {
+      "children": []
+    },
+    "Other Parameters": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "epsabs",
+            "type_": "float or int, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Absolute error tolerance. Default is 1.49e-8. "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "quad"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " tries to obtain an accuracy of "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "abs(i-result)",
+                          " ",
+                          "<=",
+                          " ",
+                          "max(epsabs,",
+                          " ",
+                          "epsrel",
+                          "*",
+                          "abs(i))"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " where "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "i"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " = integral of "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "func"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " from "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "a"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " to "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "b"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ", and "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "result"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " is the numerical approximation. See "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "epsrel"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " below."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "epsrel",
+            "type_": "float or int, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Relative error tolerance. Default is 1.49e-8. If "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "epsabs",
+                          " ",
+                          "<=",
+                          " ",
+                          "0"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ", "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "epsrel"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " must be greater than both 5e-29 and "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "50",
+                          " ",
+                          "*",
+                          " ",
+                          "(machine",
+                          " ",
+                          "epsilon)"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ". See "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "epsabs"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " above."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "limit",
+            "type_": "float or int, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "An upper bound on the number of subintervals used in the adaptive algorithm."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "points",
+            "type_": "(sequence of floats,ints), optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "A sequence of break points in the bounded integration interval where local difficulties of the integrand may occur (e.g., singularities, discontinuities). The sequence does not have to be sorted. Note that this option cannot be used in conjunction with "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "weight"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "weight",
+            "type_": "float or int, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "String indicating weighting function. Full explanation for this and the remaining arguments can be found below."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "wvar",
+            "type_": "optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Variables for use with weighting functions."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "wopts",
+            "type_": "optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Optional input for reusing Chebyshev moments."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "maxp1",
+            "type_": "float or int, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "An upper bound on the number of Chebyshev moments."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "limlst",
+            "type_": "int, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Upper bound on the number of cycles (>=3) for use with a sinusoidal weighting and an infinite end-point."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Attributes": {
+      "children": []
+    },
+    "Methods": {
+      "children": []
+    },
+    "Notes": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "**Extra information for quad() inputs and outputs**"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "If full_output is non-zero, then the third output argument (infodict) is a dictionary with entries as tabulated below. For infinite limits, the range is transformed to (0,1) and the optional outputs are given with respect to this transformed range. Let M be the input argument limit and let K be infodict['last']. The entries are:"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "DefList",
+          "data": {
+            "children": [
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "'neval'",
+                      "_number": 9,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "    The number of function evaluations.",
+                      "_number": 10,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "dt": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "'neval'"
+                      }
+                    }
+                  ]
+                },
+                "dd": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The number of function evaluations."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "'last'",
+                      "_number": 11,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "    The number, K, of subintervals produced in the subdivision process.",
+                      "_number": 12,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "dt": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "'last'"
+                      }
+                    }
+                  ]
+                },
+                "dd": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The number, K, of subintervals produced in the subdivision process."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "'alist'",
+                      "_number": 13,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "    A rank-1 array of length M, the first K elements of which are the",
+                      "_number": 14,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    left end points of the subintervals in the partition of the",
+                      "_number": 15,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    integration range.",
+                      "_number": 16,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "dt": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "'alist'"
+                      }
+                    }
+                  ]
+                },
+                "dd": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "A rank-1 array of length M, the first K elements of which are the left end points of the subintervals in the partition of the integration range."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "'blist'",
+                      "_number": 17,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "    A rank-1 array of length M, the first K elements of which are the",
+                      "_number": 18,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    right end points of the subintervals.",
+                      "_number": 19,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "dt": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "'blist'"
+                      }
+                    }
+                  ]
+                },
+                "dd": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "A rank-1 array of length M, the first K elements of which are the right end points of the subintervals."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "'rlist'",
+                      "_number": 20,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "    A rank-1 array of length M, the first K elements of which are the",
+                      "_number": 21,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    integral approximations on the subintervals.",
+                      "_number": 22,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "dt": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "'rlist'"
+                      }
+                    }
+                  ]
+                },
+                "dd": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "A rank-1 array of length M, the first K elements of which are the integral approximations on the subintervals."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "'elist'",
+                      "_number": 23,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "    A rank-1 array of length M, the first K elements of which are the",
+                      "_number": 24,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    moduli of the absolute error estimates on the subintervals.",
+                      "_number": 25,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "dt": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "'elist'"
+                      }
+                    }
+                  ]
+                },
+                "dd": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "A rank-1 array of length M, the first K elements of which are the moduli of the absolute error estimates on the subintervals."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "'iord'",
+                      "_number": 26,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "    A rank-1 integer array of length M, the first L elements of",
+                      "_number": 27,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    which are pointers to the error estimates over the subintervals",
+                      "_number": 28,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    with ``L=K`` if ``K<=M/2+2`` or ``L=M+1-K`` otherwise. Let I be the",
+                      "_number": 29,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    sequence ``infodict['iord']`` and let E be the sequence",
+                      "_number": 30,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    ``infodict['elist']``.  Then ``E[I[1]], ..., E[I[L]]`` forms a",
+                      "_number": 31,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    decreasing sequence.",
+                      "_number": 32,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "",
+                      "_number": 33,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "dt": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "'iord'"
+                      }
+                    }
+                  ]
+                },
+                "dd": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "A rank-1 integer array of length M, the first L elements of which are pointers to the error estimates over the subintervals with "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "L=K"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " if "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "K<=M/2+2"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " or "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "L=M+1-K"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " otherwise. Let I be the sequence "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "infodict['iord']"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " and let E be the sequence "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "infodict['elist']"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ".  Then "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "E[I[1]],",
+                          " ",
+                          "...,",
+                          " ",
+                          "E[I[L]]"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " forms a decreasing sequence. "
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "If the input argument points is provided (i.e., it is not None), the following additional outputs are placed in the output dictionary. Assume the points sequence is of length P."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "DefList",
+          "data": {
+            "children": [
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "'pts'",
+                      "_number": 38,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "    A rank-1 array of length P+2 containing the integration limits",
+                      "_number": 39,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    and the break points of the intervals in ascending order.",
+                      "_number": 40,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    This is an array giving the subintervals over which integration",
+                      "_number": 41,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    will occur.",
+                      "_number": 42,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "dt": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "'pts'"
+                      }
+                    }
+                  ]
+                },
+                "dd": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "A rank-1 array of length P+2 containing the integration limits and the break points of the intervals in ascending order. This is an array giving the subintervals over which integration will occur."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "'level'",
+                      "_number": 43,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "    A rank-1 integer array of length M (=limit), containing the",
+                      "_number": 44,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    subdivision levels of the subintervals, i.e., if (aa,bb) is a",
+                      "_number": 45,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    subinterval of ``(pts[1], pts[2])`` where ``pts[0]`` and ``pts[2]``",
+                      "_number": 46,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    are adjacent elements of ``infodict['pts']``, then (aa,bb) has level l",
+                      "_number": 47,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    if ``|bb-aa| = |pts[2]-pts[1]| * 2**(-l)``.",
+                      "_number": 48,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "dt": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "'level'"
+                      }
+                    }
+                  ]
+                },
+                "dd": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "A rank-1 integer array of length M (=limit), containing the subdivision levels of the subintervals, i.e., if (aa,bb) is a subinterval of "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "(pts[1],",
+                          " ",
+                          "pts[2])"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " where "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "pts[0]"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " and "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "pts[2]"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " are adjacent elements of "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "infodict['pts']"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ", then (aa,bb) has level l if "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "|bb-aa|",
+                          " ",
+                          "=",
+                          " ",
+                          "|pts[2]-pts[1]|",
+                          " ",
+                          "*",
+                          " ",
+                          "2",
+                          "*",
+                          "*",
+                          "(-l)"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "'ndin'",
+                      "_number": 49,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "    A rank-1 integer array of length P+2. After the first integration",
+                      "_number": 50,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    over the intervals (pts[1], pts[2]), the error estimates over some",
+                      "_number": 51,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    of the intervals may have been increased artificially in order to",
+                      "_number": 52,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    put their subdivision forward. This array has ones in slots",
+                      "_number": 53,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    corresponding to the subintervals for which this happens.",
+                      "_number": 54,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "",
+                      "_number": 55,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "dt": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "'ndin'"
+                      }
+                    }
+                  ]
+                },
+                "dd": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "A rank-1 integer array of length P+2. After the first integration over the intervals (pts[1], pts[2]), the error estimates over some of the intervals may have been increased artificially in order to put their subdivision forward. This array has ones in slots corresponding to the subintervals for which this happens. "
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "**Weighting the integrand**"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "The input variables, *weight* and *wvar*, are used to weight the integrand by a select list of functions. Different integration methods are used to compute the integral with these weighting functions, and these do not support specifying break points. The possible values of weight and the corresponding weighting functions are."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "==========  ===================================   ===================== "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "weight"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": "  Weight function used                  "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "wvar"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " ==========  ===================================   ===================== 'cos'       cos(w*x)                              wvar = w 'sin'       sin(w*x)                              wvar = w 'alg'       g(x) = ((x-a)**alpha)*((b-x)**beta)   wvar = (alpha, beta) 'alg-loga'  g(x)*log(x-a)                         wvar = (alpha, beta) 'alg-logb'  g(x)*log(b-x)                         wvar = (alpha, beta) 'alg-log'   g(x)*log(x-a)*log(b-x)                wvar = (alpha, beta) 'cauchy'    1/(x-c)                               wvar = c ==========  ===================================   ====================="
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "wvar holds the parameter w, (alpha, beta), or c depending on the weight selected. In these expressions, a and b are the integration limits."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "For the 'cos' and 'sin' weighting, additional inputs and outputs are available."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "For finite integration limits, the integration is performed using a Clenshaw-Curtis method which uses Chebyshev moments. For repeated calculations, these moments are saved in the output dictionary:"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "DefList",
+          "data": {
+            "children": [
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "'momcom'",
+                      "_number": 86,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "    The maximum level of Chebyshev moments that have been computed,",
+                      "_number": 87,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    i.e., if ``M_c`` is ``infodict['momcom']`` then the moments have been",
+                      "_number": 88,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    computed for intervals of length ``|b-a| * 2**(-l)``,",
+                      "_number": 89,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    ``l=0,1,...,M_c``.",
+                      "_number": 90,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "dt": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "'momcom'"
+                      }
+                    }
+                  ]
+                },
+                "dd": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The maximum level of Chebyshev moments that have been computed, i.e., if "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "M",
+                          "_",
+                          "c"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " is "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "infodict['momcom']"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " then the moments have been computed for intervals of length "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "|b-a|",
+                          " ",
+                          "*",
+                          " ",
+                          "2",
+                          "*",
+                          "*",
+                          "(-l)"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ", "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "l=0,1,...,M",
+                          "_",
+                          "c"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "'nnlog'",
+                      "_number": 91,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "    A rank-1 integer array of length M(=limit), containing the",
+                      "_number": 92,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    subdivision levels of the subintervals, i.e., an element of this",
+                      "_number": 93,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    array is equal to l if the corresponding subinterval is",
+                      "_number": 94,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    ``|b-a|* 2**(-l)``.",
+                      "_number": 95,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "dt": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "'nnlog'"
+                      }
+                    }
+                  ]
+                },
+                "dd": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "A rank-1 integer array of length M(=limit), containing the subdivision levels of the subintervals, i.e., an element of this array is equal to l if the corresponding subinterval is "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "|b-a|",
+                          "*",
+                          " ",
+                          "2",
+                          "*",
+                          "*",
+                          "(-l)"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "'chebmo'",
+                      "_number": 96,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "    A rank-2 array of shape (25, maxp1) containing the computed",
+                      "_number": 97,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    Chebyshev moments. These can be passed on to an integration",
+                      "_number": 98,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    over the same interval by passing this array as the second",
+                      "_number": 99,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    element of the sequence wopts and passing infodict['momcom'] as",
+                      "_number": 100,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    the first element.",
+                      "_number": 101,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "",
+                      "_number": 102,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "dt": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "'chebmo'"
+                      }
+                    }
+                  ]
+                },
+                "dd": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "A rank-2 array of shape (25, maxp1) containing the computed Chebyshev moments. These can be passed on to an integration over the same interval by passing this array as the second element of the sequence wopts and passing infodict['momcom'] as the first element. "
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "If one of the integration limits is infinite, then a Fourier integral is computed (assuming w neq 0). If full_output is 1 and a numerical error is encountered, besides the error message attached to the output tuple, a dictionary is also appended to the output tuple which translates the error codes in the array "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "info['ierlst']"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " to English messages. The output information dictionary contains the following entries instead of 'last', 'alist', 'blist', 'rlist', and 'elist':"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "DefList",
+          "data": {
+            "children": [
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "'lst'",
+                      "_number": 111,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "    The number of subintervals needed for the integration (call it ``K_f``).",
+                      "_number": 112,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "dt": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "'lst'"
+                      }
+                    }
+                  ]
+                },
+                "dd": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The number of subintervals needed for the integration (call it "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "K",
+                          "_",
+                          "f"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ")."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "'rslst'",
+                      "_number": 113,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "    A rank-1 array of length M_f=limlst, whose first ``K_f`` elements",
+                      "_number": 114,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    contain the integral contribution over the interval",
+                      "_number": 115,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    ``(a+(k-1)c, a+kc)`` where ``c = (2*floor(|w|) + 1) * pi / |w|``",
+                      "_number": 116,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    and ``k=1,2,...,K_f``.",
+                      "_number": 117,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "dt": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "'rslst'"
+                      }
+                    }
+                  ]
+                },
+                "dd": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "A rank-1 array of length M_f=limlst, whose first "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "K",
+                          "_",
+                          "f"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " elements contain the integral contribution over the interval "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "(a+(k-1)c,",
+                          " ",
+                          "a+kc)"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " where "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "c",
+                          " ",
+                          "=",
+                          " ",
+                          "(2",
+                          "*",
+                          "floor(|w|)",
+                          " ",
+                          "+",
+                          " ",
+                          "1)",
+                          " ",
+                          "*",
+                          " ",
+                          "pi",
+                          " ",
+                          "/",
+                          " ",
+                          "|w|"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " and "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "k=1,2,...,K",
+                          "_",
+                          "f"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "'erlst'",
+                      "_number": 118,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "    A rank-1 array of length ``M_f`` containing the error estimate",
+                      "_number": 119,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    corresponding to the interval in the same position in",
+                      "_number": 120,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    ``infodict['rslist']``.",
+                      "_number": 121,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "dt": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "'erlst'"
+                      }
+                    }
+                  ]
+                },
+                "dd": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "A rank-1 array of length "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "M",
+                          "_",
+                          "f"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " containing the error estimate corresponding to the interval in the same position in "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "infodict['rslist']"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "'ierlst'",
+                      "_number": 122,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "    A rank-1 integer array of length ``M_f`` containing an error flag",
+                      "_number": 123,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    corresponding to the interval in the same position in",
+                      "_number": 124,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    ``infodict['rslist']``.  See the explanation dictionary (last entry",
+                      "_number": 125,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    in the output tuple) for the meaning of the codes.",
+                      "_number": 126,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "dt": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "'ierlst'"
+                      }
+                    }
+                  ]
+                },
+                "dd": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "A rank-1 integer array of length "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "M",
+                          "_",
+                          "f"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " containing an error flag corresponding to the interval in the same position in "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "infodict['rslist']"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ".  See the explanation dictionary (last entry in the output tuple) for the meaning of the codes."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Warnings": {
+      "children": []
+    }
+  },
+  "refs": [
+    "dblquad",
+    "fixed_quad",
+    "nquad",
+    "ode",
+    "odeint",
+    "quadrature",
+    "romb",
+    "scipy.special",
+    "simpson",
+    "tplquad"
+  ],
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Other Parameters",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "item_file": "/Users/bussonniermatthias/dev/scipy/scipy/integrate/quadpack.py",
+  "item_line": 49,
+  "item_type": "<class 'function'>",
+  "aliases": [
+    "scipy.integrate.quad"
+  ],
+  "example_section_data": {
+    "children": [
+      {
+        "type": "Paragraph",
+        "data": {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "Calculate "
+              }
+            },
+            {
+              "type": "Directive",
+              "data": {
+                "value": [
+                  "\\int^4",
+                  "_",
+                  "0",
+                  " ",
+                  "x^2",
+                  " ",
+                  "dx"
+                ],
+                "domain": null,
+                "role": "math"
+              }
+            },
+            {
+              "type": "Words",
+              "data": {
+                "value": " and compare with an analytic result"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "from",
+              "",
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "scipy",
+              "",
+              "nn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "import",
+              "",
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "integrate",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "x2",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "lambda",
+              "",
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "integrate",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "quad",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "x2",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "4",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "(21.333333333333332, 2.3684757858670003e-13)",
+          "ce_status": "compiled"
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "print",
+              "",
+              "nb"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "4",
+              "",
+              "mi"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "/",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "3.0",
+              "",
+              "mf"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "  ",
+              "",
+              ""
+            ],
+            [
+              "# analytical result",
+              "",
+              "c1"
+            ]
+          ],
+          "out": "21.3333333333",
+          "ce_status": "compiled"
+        }
+      },
+      {
+        "type": "Paragraph",
+        "data": {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "Calculate "
+              }
+            },
+            {
+              "type": "Directive",
+              "data": {
+                "value": [
+                  "\\int^\\infty",
+                  "_",
+                  "0",
+                  " ",
+                  "e^{-x}",
+                  " ",
+                  "dx"
+                ],
+                "domain": null,
+                "role": "math"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "invexp",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "lambda",
+              "",
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "exp",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "-",
+              "",
+              "o"
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "integrate",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "quad",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "invexp",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "inf",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "(1.0, 5.842605999138044e-11)",
+          "ce_status": "compiled"
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "f",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "lambda",
+              "",
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "a",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "a",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "y",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "err",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "integrate",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "quad",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "f",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "args",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "y",
+              "",
+              ""
+            ]
+          ],
+          "out": "0.5",
+          "ce_status": "compiled"
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "y",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "err",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "integrate",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "quad",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "f",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "args",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "y",
+              "",
+              ""
+            ]
+          ],
+          "out": "1.5",
+          "ce_status": "compiled"
+        }
+      },
+      {
+        "type": "Paragraph",
+        "data": {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "Calculate "
+              }
+            },
+            {
+              "type": "Directive",
+              "data": {
+                "value": [
+                  "\\int^1",
+                  "_",
+                  "0",
+                  " ",
+                  "x^2",
+                  " ",
+                  "+",
+                  " ",
+                  "y^2",
+                  " ",
+                  "dx"
+                ],
+                "domain": null,
+                "role": "math"
+              }
+            },
+            {
+              "type": "Words",
+              "data": {
+                "value": " with ctypes, holding y parameter as 1::"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "DefList",
+        "data": {
+          "children": [
+            {
+              "lines": {
+                "_lines": [
+                  {
+                    "_line": ":: workaround numpyoc summary/ext summary bug in take2::Line.__init__",
+                    "_number": 0,
+                    "_offset": 0
+                  }
+                ]
+              },
+              "wh": {
+                "_lines": []
+              },
+              "ind": {
+                "_lines": [
+                  {
+                    "_line": "    testlib.c =>",
+                    "_number": 0,
+                    "_offset": 0
+                  },
+                  {
+                    "_line": "        double func(int n, double args[n]){",
+                    "_number": 1,
+                    "_offset": 0
+                  },
+                  {
+                    "_line": "            return args[0]*args[0] + args[1]*args[1];}",
+                    "_number": 2,
+                    "_offset": 0
+                  },
+                  {
+                    "_line": "    compile to library testlib.*",
+                    "_number": 3,
+                    "_offset": 0
+                  }
+                ]
+              },
+              "dt": {
+                "children": [
+                  {
+                    "type": "Words",
+                    "data": {
+                      "value": ":: workaround numpyoc summary/ext summary bug in take2::Line.__init__"
+                    }
+                  }
+                ]
+              },
+              "dd": {
+                "children": [
+                  {
+                    "type": "Words",
+                    "data": {
+                      "value": "testlib.c =>     double func(int n, double args[n]){         return args[0]*args[0] + args[1]*args[1];} compile to library testlib.*"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Paragraph",
+        "data": {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "::"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "DefList",
+        "data": {
+          "children": [
+            {
+              "lines": {
+                "_lines": [
+                  {
+                    "_line": ":: workaround numpyoc summary/ext summary bug in take2::Line.__init__",
+                    "_number": 0,
+                    "_offset": 0
+                  }
+                ]
+              },
+              "wh": {
+                "_lines": []
+              },
+              "ind": {
+                "_lines": [
+                  {
+                    "_line": "   from scipy import integrate",
+                    "_number": 0,
+                    "_offset": 0
+                  },
+                  {
+                    "_line": "   import ctypes",
+                    "_number": 1,
+                    "_offset": 0
+                  },
+                  {
+                    "_line": "   lib = ctypes.CDLL('/home/.../testlib.*') #use absolute path",
+                    "_number": 2,
+                    "_offset": 0
+                  },
+                  {
+                    "_line": "   lib.func.restype = ctypes.c_double",
+                    "_number": 3,
+                    "_offset": 0
+                  },
+                  {
+                    "_line": "   lib.func.argtypes = (ctypes.c_int,ctypes.c_double)",
+                    "_number": 4,
+                    "_offset": 0
+                  },
+                  {
+                    "_line": "   integrate.quad(lib.func,0,1,(1))",
+                    "_number": 5,
+                    "_offset": 0
+                  },
+                  {
+                    "_line": "   #(1.3333333333333333, 1.4802973661668752e-14)",
+                    "_number": 6,
+                    "_offset": 0
+                  },
+                  {
+                    "_line": "   print((1.0**3/3.0 + 1.0) - (0.0**3/3.0 + 0.0)) #Analytic result",
+                    "_number": 7,
+                    "_offset": 0
+                  },
+                  {
+                    "_line": "   # 1.3333333333333333",
+                    "_number": 8,
+                    "_offset": 0
+                  }
+                ]
+              },
+              "dt": {
+                "children": [
+                  {
+                    "type": "Words",
+                    "data": {
+                      "value": ":: workaround numpyoc summary/ext summary bug in take2::Line.__init__"
+                    }
+                  }
+                ]
+              },
+              "dd": {
+                "children": [
+                  {
+                    "type": "Words",
+                    "data": {
+                      "value": "from scipy import integrate import ctypes lib = ctypes.CDLL('/home/.../testlib.*') #use absolute path lib.func.restype = ctypes.c_double lib.func.argtypes = (ctypes.c_int,ctypes.c_double) integrate.quad(lib.func,0,1,(1)) #(1.3333333333333333, 1.4802973661668752e-14) print((1.0**3/3.0 + 1.0) - (0.0**3/3.0 + 0.0)) #Analytic result # 1.3333333333333333"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Paragraph",
+        "data": {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "Be aware that pulse shapes and other sharp features as compared to the size of the integration interval may not be integrated correctly using this method. A simplified example of this limitation is integrating a y-axis reflected step function with many zero values within the integrals bounds."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "y",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "lambda",
+              "",
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "if",
+              "",
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "<",
+              "",
+              "o"
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "else",
+              "",
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "integrate",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "quad",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "y",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "-",
+              "",
+              "o"
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "(1.0, 1.1102230246251565e-14)",
+          "ce_status": "compiled"
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "integrate",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "quad",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "y",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "-",
+              "",
+              "o"
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "100",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "(1.0000000002199108, 1.0189464580163188e-08)",
+          "ce_status": "compiled"
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "integrate",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "quad",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "y",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "-",
+              "",
+              "o"
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "10000",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "(0.0, 0.0)",
+          "ce_status": "compiled"
+        }
+      }
+    ]
+  },
+  "see_also": [
+    {
+      "name": {
+        "name": "dblquad",
+        "ref": null,
+        "exists": null
+      },
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "double integral"
+              }
+            }
+          ]
+        }
+      ],
+      "type": null
+    },
+    {
+      "name": {
+        "name": "tplquad",
+        "ref": null,
+        "exists": null
+      },
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "triple integral"
+              }
+            }
+          ]
+        }
+      ],
+      "type": null
+    },
+    {
+      "name": {
+        "name": "nquad",
+        "ref": null,
+        "exists": null
+      },
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "n-dimensional integrals (uses "
+              }
+            },
+            {
+              "type": "Directive",
+              "data": {
+                "value": [
+                  "quad"
+                ],
+                "domain": null,
+                "role": null
+              }
+            },
+            {
+              "type": "Words",
+              "data": {
+                "value": " recursively)"
+              }
+            }
+          ]
+        }
+      ],
+      "type": null
+    },
+    {
+      "name": {
+        "name": "fixed_quad",
+        "ref": null,
+        "exists": null
+      },
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "fixed-order Gaussian quadrature"
+              }
+            }
+          ]
+        }
+      ],
+      "type": null
+    },
+    {
+      "name": {
+        "name": "quadrature",
+        "ref": null,
+        "exists": null
+      },
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "adaptive Gaussian quadrature"
+              }
+            }
+          ]
+        }
+      ],
+      "type": null
+    },
+    {
+      "name": {
+        "name": "odeint",
+        "ref": null,
+        "exists": null
+      },
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "ODE integrator"
+              }
+            }
+          ]
+        }
+      ],
+      "type": null
+    },
+    {
+      "name": {
+        "name": "ode",
+        "ref": null,
+        "exists": null
+      },
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "ODE integrator"
+              }
+            }
+          ]
+        }
+      ],
+      "type": null
+    },
+    {
+      "name": {
+        "name": "simpson",
+        "ref": null,
+        "exists": null
+      },
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "integrator for sampled data"
+              }
+            }
+          ]
+        }
+      ],
+      "type": null
+    },
+    {
+      "name": {
+        "name": "romb",
+        "ref": null,
+        "exists": null
+      },
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "integrator for sampled data"
+              }
+            }
+          ]
+        }
+      ],
+      "type": null
+    },
+    {
+      "name": {
+        "name": "scipy.special",
+        "ref": null,
+        "exists": null
+      },
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "for coefficients and roots of orthogonal polynomials"
+              }
+            }
+          ]
+        }
+      ],
+      "type": null
+    }
+  ],
+  "signature": "quad(func, a, b, args=(), full_output=0, epsabs=1.49e-08, epsrel=1.49e-08, limit=50, points=None, weight=None, wvar=None, wopts=None, maxp1=50, limlst=50)",
+  "references": null
+}

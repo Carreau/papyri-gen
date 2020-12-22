@@ -34,17 +34,60 @@ jobs:
           python-version: ${{ matrix.python-version }}
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: true
-
-      - name: Run a one-line script
+      - name: Install SSH key 1
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSHK }}
+          name: id_rsa
+          known_hosts: github.com
+      - name: Install SSH key 2
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSHK_CLONE_PAPYRI }}
+          name: id_rsa_2
+          known_hosts: github.com
+      - name: SSH CONFIG
+        run: |
+          echo "Host ptest" >> ~/.ssh/config
+          echo "    HostName ssh.github.com" >> ~/.ssh/config
+          echo "    user git" >> ~/.ssh/config
+          echo "    Port 443" >> ~/.ssh/config
+          echo "    IdentityFile  ~/.ssh/id_rsa" >> ~/.ssh/config
+          echo "Host clonep" >> ~/.ssh/config
+          echo "    HostName ssh.github.com" >> ~/.ssh/config
+          echo "    user git" >> ~/.ssh/config
+          echo "    Port 443" >> ~/.ssh/config
+          echo "    IdentityFile  ~/.ssh/id_rsa_2" >> ~/.ssh/config
+      - name: SSH keyscan
+        run: |
+          ssh-keyscan -H ssh.github.com >> ~/.ssh/known_hosts
+          ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+      - name: install dependency public and from prive repo
         shell: bash -l {0}
         run: |
-         pip install papyri
-         python -m papyri ingest data/*
-         python -m papyri render
-        
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+          pip install papyri flit
+          git clone ssh://clonep/carreau/papyri
+          cd papyri
+          pip install flit
+          flit install
+          cd ..
+      - name:  Ingest and render data
+        shell: bash -l {0}
         run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+          python -m papyri ingest data/*
+          python -m papyri render
+      - name: Git clone
+        run: |
+          git clone ssh://ptest/pydocs/pydocs.github.io
+          cd pydocs.github.io
+          rm -rf docs/
+          cp -r ~/.papyri/html/ docs/
+          git config --global user.email "bussonniermatthias@gmail.com"
+          git config --global user.name "Matthias Bussonnier"
+          git add docs
+          git commit -am 'auto'
+          git push
+      #    mkdir ~/.ssh/
+      #    echo $SSHK > ~/.ssh/id_rsa
+      #    eval "$(ssh-agent -s)"
+      #    ssh-add -K ~/.ssh/id_rsa

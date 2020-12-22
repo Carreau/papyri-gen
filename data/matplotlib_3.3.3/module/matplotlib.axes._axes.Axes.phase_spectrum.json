@@ -1,0 +1,760 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Plot the phase spectrum."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Compute the phase spectrum (unwrapped angle spectrum) of *x*. Data is padded to a length of *pad_to* and the windowing function *window* is applied to the signal."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Parameters": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "x",
+            "type_": "1-D array or sequence",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Array or sequence containing the data"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "Fs",
+            "type_": "float, default: 2",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The sampling frequency (samples per time unit).  It is used to calculate the Fourier frequencies, *freqs*, in cycles per time unit."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "window",
+            "type_": "callable or ndarray, default: `.window_hanning`",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "A function or a vector of length *NFFT*.  To create window vectors see "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          ".window",
+                          "_",
+                          "hanning"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ", "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          ".window",
+                          "_",
+                          "none"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ", "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "numpy.blackman"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ", "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "numpy.hamming"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ", "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "numpy.bartlett"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ", "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "scipy.signal"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ", "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "scipy.signal.get",
+                          "_",
+                          "window"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ", etc.  If a function is passed as the argument, it must take a data segment as an argument and return the windowed version of the segment."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "sides",
+            "type_": "{'default', 'onesided', 'twosided'}, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Which sides of the spectrum to return. 'default' is one-sided for real data and two-sided for complex data. 'onesided' forces the return of a one-sided spectrum, while 'twosided' forces two-sided."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "pad_to",
+            "type_": "int, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The number of points to which the data segment is padded when performing the FFT.  While not increasing the actual resolution of the spectrum (the minimum distance between resolvable peaks), this can give more points in the plot, allowing for more detail. This corresponds to the *n* parameter in the call to fft().  The default is None, which sets *pad_to* equal to the length of the input signal (i.e. no padding)."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "Fc",
+            "type_": "int, default: 0",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The center frequency of *x*, which offsets the x extents of the plot to reflect the frequency range used when a signal is acquired and then filtered and downsampled to baseband."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Returns": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "spectrum",
+            "type_": "1-D array",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The values for the phase spectrum in radians (real valued)."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "freqs",
+            "type_": "1-D array",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The frequencies corresponding to the elements in *spectrum*."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "line",
+            "type_": "`~matplotlib.lines.Line2D`",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The line created by this function."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Yields": {
+      "children": []
+    },
+    "Receives": {
+      "children": []
+    },
+    "Raises": {
+      "children": []
+    },
+    "Warns": {
+      "children": []
+    },
+    "Other Parameters": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "**kwargs",
+            "type_": "",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Keyword arguments control the "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          ".Line2D"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " properties:"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Properties: agg_filter: a filter function, which takes a (m, n, 3) float array and a dpi value, and returns a (m, n, 3) array alpha: float or None animated: bool antialiased or aa: bool clip_box: "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          ".Bbox"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " clip_on: bool clip_path: Patch or (Path, Transform) or None color or c: color contains: unknown dash_capstyle: {'butt', 'round', 'projecting'} dash_joinstyle: {'miter', 'round', 'bevel'} dashes: sequence of floats (on/off ink in points) or (None, None) data: (2, N) array or two 1D arrays drawstyle or ds: {'default', 'steps', 'steps-pre', 'steps-mid', 'steps-post'}, default: 'default' figure: "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          ".Figure"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " fillstyle: {'full', 'left', 'right', 'bottom', 'top', 'none'} gid: str in_layout: bool label: object linestyle or ls: {'-', '--', '-.', ':', '', (offset, on-off-seq), ...} linewidth or lw: float marker: marker style string, "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "~.path.Path"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " or "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "~.markers.MarkerStyle"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " markeredgecolor or mec: color markeredgewidth or mew: float markerfacecolor or mfc: color markerfacecoloralt or mfcalt: color markersize or ms: float markevery: None or int or (int, int) or slice or List[int] or float or (float, float) or List[bool] path_effects: "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          ".AbstractPathEffect"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " picker: unknown pickradius: float rasterized: bool or None sketch_params: (scale: float, length: float, randomness: float) snap: bool or None solid_capstyle: {'butt', 'round', 'projecting'} solid_joinstyle: {'miter', 'round', 'bevel'} transform: "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "matplotlib.transforms.Transform"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " url: str visible: bool xdata: 1D array ydata: 1D array zorder: float"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Attributes": {
+      "children": []
+    },
+    "Methods": {
+      "children": []
+    },
+    "Notes": {
+      "children": [
+        {
+          "type": "BlockDirective",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": ".. note::",
+                  "_number": 0,
+                  "_offset": 0
+                }
+              ]
+            },
+            "wh": {
+              "_lines": []
+            },
+            "ind": {
+              "_lines": [
+                {
+                  "_line": "    In addition to the above described arguments, this function can take",
+                  "_number": 1,
+                  "_offset": 0
+                },
+                {
+                  "_line": "    a *data* keyword argument. If such a *data* argument is given,",
+                  "_number": 2,
+                  "_offset": 0
+                },
+                {
+                  "_line": "    the following arguments can also be string ``s``, which is",
+                  "_number": 3,
+                  "_offset": 0
+                },
+                {
+                  "_line": "    interpreted as ``data[s]`` (unless this raises an exception):",
+                  "_number": 4,
+                  "_offset": 0
+                },
+                {
+                  "_line": "    *x*.",
+                  "_number": 5,
+                  "_offset": 0
+                },
+                {
+                  "_line": "",
+                  "_number": 6,
+                  "_offset": 0
+                },
+                {
+                  "_line": "    Objects passed as **data** must support item access (``data[s]``) and",
+                  "_number": 7,
+                  "_offset": 0
+                },
+                {
+                  "_line": "    membership test (``s in data``).",
+                  "_number": 8,
+                  "_offset": 0
+                }
+              ]
+            },
+            "directive_name": "note",
+            "args0": [
+              ""
+            ],
+            "inner": {
+              "children": [
+                {
+                  "type": "Words",
+                  "data": {
+                    "value": "In addition to the above described arguments, this function can take a *data* keyword argument. If such a *data* argument is given, the following arguments can also be string "
+                  }
+                },
+                {
+                  "type": "Verbatim",
+                  "data": {
+                    "value": [
+                      "s"
+                    ]
+                  }
+                },
+                {
+                  "type": "Words",
+                  "data": {
+                    "value": ", which is interpreted as "
+                  }
+                },
+                {
+                  "type": "Verbatim",
+                  "data": {
+                    "value": [
+                      "data[s]"
+                    ]
+                  }
+                },
+                {
+                  "type": "Words",
+                  "data": {
+                    "value": " (unless this raises an exception): *x*.  Objects passed as **data** must support item access ("
+                  }
+                },
+                {
+                  "type": "Verbatim",
+                  "data": {
+                    "value": [
+                      "data[s]"
+                    ]
+                  }
+                },
+                {
+                  "type": "Words",
+                  "data": {
+                    "value": ") and membership test ("
+                  }
+                },
+                {
+                  "type": "Verbatim",
+                  "data": {
+                    "value": [
+                      "s",
+                      " ",
+                      "in",
+                      " ",
+                      "data"
+                    ]
+                  }
+                },
+                {
+                  "type": "Words",
+                  "data": {
+                    "value": ")."
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "Warnings": {
+      "children": []
+    }
+  },
+  "refs": [
+    "angle_spectrum",
+    "magnitude_spectrum",
+    "specgram"
+  ],
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Other Parameters",
+    "See Also",
+    "Notes"
+  ],
+  "item_file": "/Users/bussonniermatthias/miniconda3/lib/python3.8/site-packages/matplotlib/__init__.py",
+  "item_line": 7298,
+  "item_type": "<class 'function'>",
+  "aliases": [
+    "matplotlib.pyplot.Axes.phase_spectrum"
+  ],
+  "example_section_data": {
+    "children": []
+  },
+  "see_also": [
+    {
+      "name": {
+        "name": "magnitude_spectrum",
+        "ref": null,
+        "exists": null
+      },
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "Plots the magnitudes of the corresponding frequencies."
+              }
+            }
+          ]
+        }
+      ],
+      "type": null
+    },
+    {
+      "name": {
+        "name": "angle_spectrum",
+        "ref": null,
+        "exists": null
+      },
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "Plots the wrapped version of this function."
+              }
+            }
+          ]
+        }
+      ],
+      "type": null
+    },
+    {
+      "name": {
+        "name": "specgram",
+        "ref": null,
+        "exists": null
+      },
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "Can plot the phase spectrum of segments within the signal in a colormap."
+              }
+            }
+          ]
+        }
+      ],
+      "type": null
+    }
+  ],
+  "references": null,
+  "signature": "phase_spectrum(self, x, Fs=None, Fc=None, window=None, pad_to=None, sides=None, *, data=None, **kwargs)"
+}

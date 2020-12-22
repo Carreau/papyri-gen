@@ -1,0 +1,1931 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Display a Python object in all frontends."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "By default all representations will be computed and sent to the frontends. Frontends can decide which representation is used and how."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "In terminal IPython this will be similar to using "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "print"
+                  ],
+                  "domain": null,
+                  "role": "func"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ", for use in richer frontends see Jupyter notebook examples with rich display logic."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Parameters": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "*objs",
+            "type_": "object",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The Python objects to display."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "raw",
+            "type_": "bool, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Are the objects to be displayed already mimetype-keyed dicts of raw display data, or Python objects that need to be formatted before display? [default: False]"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "include",
+            "type_": "list, tuple or set, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "A list of format type strings (MIME types) to include in the format data dict. If this is set *only* the format types included in this list will be computed."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "exclude",
+            "type_": "list, tuple or set, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "A list of format type strings (MIME types) to exclude in the format data dict. If this is set all format types will be computed, except for those included in this argument."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "metadata",
+            "type_": "dict, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "A dictionary of metadata to associate with the output. mime-type keys in this dictionary will be associated with the individual representation formats, if they exist."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "transient",
+            "type_": "dict, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "A dictionary of transient data to associate with the output. Data in this dict should not be persisted to files (e.g. notebooks)."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "display_id",
+            "type_": "str, bool optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Set an id for the display. This id can be used for updating this display area later via update_display. If given as "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "True"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ", generate a new "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "display",
+                          "_",
+                          "id"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "kwargs: additional keyword-args, optional",
+            "type_": "",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Additional keyword-arguments are passed through to the display publisher."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Returns": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "",
+            "type_": "handle: DisplayHandle",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Returns a handle on updatable displays for use with "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "update",
+                          "_",
+                          "display"
+                        ],
+                        "domain": null,
+                        "role": "func"
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ", if "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "display",
+                          "_",
+                          "id"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " is given. Returns "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "None"
+                        ],
+                        "domain": null,
+                        "role": "any"
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " if no "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "display",
+                          "_",
+                          "id"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " is given (default)."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Yields": {
+      "children": []
+    },
+    "Receives": {
+      "children": []
+    },
+    "Raises": {
+      "children": []
+    },
+    "Warns": {
+      "children": []
+    },
+    "Other Parameters": {
+      "children": []
+    },
+    "Attributes": {
+      "children": []
+    },
+    "Methods": {
+      "children": []
+    },
+    "Notes": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "In Python, objects can declare their textual representation using the "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "_",
+                    "_",
+                    "repr",
+                    "_",
+                    "_"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " method. IPython expands on this idea and allows objects to declare other, rich representations including:"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "  - HTML   - JSON   - PNG   - JPEG   - SVG   - LaTeX"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "A single object can declare some or all of these representations; all are handled by IPython's display system."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "The main idea of the first approach is that you have to implement special display methods when you define your class, one for each representation you want to use. Here is a list of the names of the special methods and the values they must return:"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "  - "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "_",
+                    "repr",
+                    "_",
+                    "html",
+                    "_"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ": return raw HTML as a string, or a tuple (see below).   - "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "_",
+                    "repr",
+                    "_",
+                    "json",
+                    "_"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ": return a JSONable dict, or a tuple (see below).   - "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "_",
+                    "repr",
+                    "_",
+                    "jpeg",
+                    "_"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ": return raw JPEG data, or a tuple (see below).   - "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "_",
+                    "repr",
+                    "_",
+                    "png",
+                    "_"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ": return raw PNG data, or a tuple (see below).   - "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "_",
+                    "repr",
+                    "_",
+                    "svg",
+                    "_"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ": return raw SVG data as a string, or a tuple (see below).   - "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "_",
+                    "repr",
+                    "_",
+                    "latex",
+                    "_"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ": return LaTeX commands in a string surrounded by \"$\","
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "                    or a tuple (see below)."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "  - "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "_",
+                    "repr",
+                    "_",
+                    "mimebundle",
+                    "_"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ": return a full mimebundle containing the mapping"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "                         from all mimetypes to data.                          Use this for any mime-type not listed above."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "The above functions may also return the object's metadata alonside the data.  If the metadata is available, the functions will return a tuple containing the data and metadata, in that order.  If there is no metadata available, then the functions will return the data only."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "When you are directly writing your own classes, you can adapt them for display in IPython by following the above approach. But in practice, you often need to work with existing classes that you can't easily modify."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "You can refer to the documentation on integrating with the display system in order to register custom formatters for already existing types ("
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "integrating",
+                    "_",
+                    "rich",
+                    "_",
+                    "display"
+                  ],
+                  "domain": null,
+                  "role": "ref"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ")."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockDirective",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": ".. versionadded:: 5.4 display available without import",
+                  "_number": 43,
+                  "_offset": 0
+                },
+                {
+                  "_line": ".. versionadded:: 6.1 display available without import",
+                  "_number": 44,
+                  "_offset": 0
+                }
+              ]
+            },
+            "wh": {
+              "_lines": [
+                {
+                  "_line": "",
+                  "_number": 45,
+                  "_offset": 0
+                }
+              ]
+            },
+            "ind": {
+              "_lines": []
+            },
+            "directive_name": "versionadded",
+            "args0": [
+              " 5.4 display available without import"
+            ],
+            "inner": null
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Since IPython 5.4 and 6.1 "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "display"
+                  ],
+                  "domain": null,
+                  "role": "func"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " is automatically made available to the user without import. If you are using display in a document that might be used in a pure python context or with older version of IPython, use the following import at the top of your file::"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockVerbatim",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": "    from IPython.display import display",
+                  "_number": 51,
+                  "_offset": 4
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "Warnings": {
+      "children": []
+    }
+  },
+  "refs": [
+    "IPython.core.display_functions.display",
+    "__main__.Json",
+    "__main__.Json.__init__",
+    "__main__.Json.__repr__",
+    "__main__.Json._repr_pretty_",
+    "__main__.int_formatter",
+    "builtins.int",
+    "builtins.object",
+    "builtins.print",
+    "builtins.str",
+    "json",
+    "json.dumps",
+    "update_display"
+  ],
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples",
+    "See Also",
+    "Notes"
+  ],
+  "item_file": "/Users/bussonniermatthias/dev/ipython/IPython/core/display_functions.py",
+  "item_line": 88,
+  "item_type": "<class 'function'>",
+  "aliases": [
+    "IPython.display.display"
+  ],
+  "example_section_data": {
+    "children": [
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "class",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "Json",
+              "__main__.Json",
+              "nc"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "object",
+              "builtins.object",
+              "nb"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "def",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "__init__",
+              "__main__.Json.__init__",
+              "fm"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "self",
+              "__main__.Json",
+              "bp"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "json",
+              null,
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "        ",
+              "",
+              ""
+            ],
+            [
+              "self",
+              "__main__.Json",
+              "bp"
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "json",
+              null,
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "json",
+              null,
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "def",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "_repr_pretty_",
+              "__main__.Json._repr_pretty_",
+              "nf"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "self",
+              "__main__.Json",
+              "bp"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "pp",
+              null,
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "cycle",
+              null,
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "        ",
+              "",
+              ""
+            ],
+            [
+              "import",
+              null,
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "json",
+              "json",
+              "nn"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "        ",
+              "",
+              ""
+            ],
+            [
+              "pp",
+              null,
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "text",
+              null,
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "json",
+              "json",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "dumps",
+              "json.dumps",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "self",
+              "__main__.Json",
+              "bp"
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "json",
+              null,
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "indent",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "def",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "__repr__",
+              "__main__.Json.__repr__",
+              "fm"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "self",
+              "__main__.Json",
+              "bp"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "        ",
+              "",
+              ""
+            ],
+            [
+              "return",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "str",
+              "builtins.str",
+              "nb"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "self",
+              "__main__.Json",
+              "bp"
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "json",
+              null,
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "...",
+          "ce_status": "execed"
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "d",
+              "__main__.Json",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "Json",
+              "__main__.Json",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "{",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "{",
+              "",
+              ""
+            ],
+            [
+              "4",
+              "",
+              "mi"
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "5",
+              "",
+              "mi"
+            ],
+            [
+              "}",
+              "",
+              ""
+            ],
+            [
+              "}",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "",
+          "ce_status": "execed"
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "print",
+              "builtins.print",
+              "nb"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "d",
+              "__main__.Json",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "{1: 2, 3: {4: 5}}",
+          "ce_status": "execed"
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "display",
+              "IPython.core.display_functions.display",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "d",
+              "__main__.Json",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "{\n  \"1\": 2,\n  \"3\": {\n    \"4\": 5\n  }\n}",
+          "ce_status": "execed"
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "def",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "int_formatter",
+              "__main__.int_formatter",
+              "nf"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "integer",
+              null,
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "pp",
+              null,
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "cycle",
+              null,
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "pp",
+              null,
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "text",
+              null,
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "I",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "integer",
+              null,
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "",
+          "ce_status": "execed"
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "plain",
+              null,
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "get_ipython",
+              null,
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "display_formatter",
+              null,
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "formatters",
+              null,
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "text/plain",
+              "",
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "plain",
+              null,
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "for_type",
+              null,
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "int",
+              "builtins.int",
+              "nb"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "int_formatter",
+              "__main__.int_formatter",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "<function _repr_pprint at 0x...>",
+          "ce_status": "exception_in_exec"
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "display",
+              "IPython.core.display_functions.display",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "7",
+              "",
+              "mi"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "-",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "5",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "II",
+          "ce_status": "execed"
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "del",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "plain",
+              null,
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "type_printers",
+              null,
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "int",
+              "builtins.int",
+              "nb"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "display",
+              "IPython.core.display_functions.display",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "7",
+              "",
+              "mi"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "-",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "5",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "2",
+          "ce_status": "exception_in_exec"
+        }
+      }
+    ]
+  },
+  "see_also": [
+    {
+      "name": {
+        "name": "update_display",
+        "ref": null,
+        "exists": null
+      },
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "func"
+              }
+            }
+          ]
+        }
+      ],
+      "type": null
+    }
+  ],
+  "references": null,
+  "signature": "display(*objs, include=None, exclude=None, metadata=None, transient=None, display_id=None, **kwargs)"
+}

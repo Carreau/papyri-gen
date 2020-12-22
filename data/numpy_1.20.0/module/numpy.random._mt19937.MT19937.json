@@ -1,0 +1,562 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Container for the Mersenne Twister pseudo-random number generator."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Extended Summary": {
+      "children": []
+    },
+    "Parameters": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "seed",
+            "type_": "{None, int, array_like[ints], SeedSequence}, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "A seed to initialize the "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "BitGenerator"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ". If None, then fresh, unpredictable entropy will be pulled from the OS. If an "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "int"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " or "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "array",
+                          "_",
+                          "like[ints]"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " is passed, then it will be passed to "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "SeedSequence"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " to derive the initial "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "BitGenerator"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " state. One may also pass in a "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "SeedSequence"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " instance."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Returns": {
+      "children": []
+    },
+    "Yields": {
+      "children": []
+    },
+    "Receives": {
+      "children": []
+    },
+    "Raises": {
+      "children": []
+    },
+    "Warns": {
+      "children": []
+    },
+    "Other Parameters": {
+      "children": []
+    },
+    "Attributes": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "lock: threading.Lock",
+            "type_": "",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Lock instance that is shared so that the same bit git generator can be used in multiple Generators without corrupting the state. Code that generates values from a bit generator should hold the bit generator's lock."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Methods": {
+      "children": []
+    },
+    "Notes": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "MT19937"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " provides a capsule containing function pointers that produce doubles, and unsigned 32 and 64- bit integers [1]_. These are not directly consumable in Python and must be consumed by a "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "Generator"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " or similar object that supports low-level access."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "The Python stdlib module \"random\" also contains a Mersenne Twister pseudo-random number generator."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "**State and Seeding**"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "The "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "MT19937"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " state vector consists of a 624-element array of 32-bit unsigned integers plus a single integer value between 0 and 624 that indexes the current position within the main array."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "The input seed is processed by "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "SeedSequence"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " to fill the whole state. The first element is reset such that only its most significant bit is set."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "**Parallel Features**"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "The preferred way to use a BitGenerator in parallel applications is to use the "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "SeedSequence.spawn"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " method to obtain entropy values, and to use these to generate new BitGenerators:"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Example",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": ">>> from numpy.random import Generator, MT19937, SeedSequence",
+                  "_number": 23,
+                  "_offset": 0
+                },
+                {
+                  "_line": ">>> sg = SeedSequence(1234)",
+                  "_number": 24,
+                  "_offset": 0
+                },
+                {
+                  "_line": ">>> rg = [Generator(MT19937(s)) for s in sg.spawn(10)]",
+                  "_number": 25,
+                  "_offset": 0
+                }
+              ]
+            },
+            "wh": {
+              "_lines": [
+                {
+                  "_line": "",
+                  "_number": 26,
+                  "_offset": 0
+                }
+              ]
+            },
+            "ind": {
+              "_lines": []
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Another method is to use "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "MT19937.jumped"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " which advances the state as-if "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "2^{128}"
+                  ],
+                  "domain": null,
+                  "role": "math"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " random numbers have been generated ([1]_, [2]_). This allows the original sequence to be split so that distinct segments can be used in each worker process. All generators should be chained to ensure that the segments come from the same sequence."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Example",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": ">>> from numpy.random import Generator, MT19937, SeedSequence",
+                  "_number": 33,
+                  "_offset": 0
+                },
+                {
+                  "_line": ">>> sg = SeedSequence(1234)",
+                  "_number": 34,
+                  "_offset": 0
+                },
+                {
+                  "_line": ">>> bit_generator = MT19937(sg)",
+                  "_number": 35,
+                  "_offset": 0
+                },
+                {
+                  "_line": ">>> rg = []",
+                  "_number": 36,
+                  "_offset": 0
+                },
+                {
+                  "_line": ">>> for _ in range(10):",
+                  "_number": 37,
+                  "_offset": 0
+                },
+                {
+                  "_line": "...    rg.append(Generator(bit_generator))",
+                  "_number": 38,
+                  "_offset": 0
+                },
+                {
+                  "_line": "...    # Chain the BitGenerators",
+                  "_number": 39,
+                  "_offset": 0
+                },
+                {
+                  "_line": "...    bit_generator = bit_generator.jumped()",
+                  "_number": 40,
+                  "_offset": 0
+                }
+              ]
+            },
+            "wh": {
+              "_lines": [
+                {
+                  "_line": "",
+                  "_number": 41,
+                  "_offset": 0
+                }
+              ]
+            },
+            "ind": {
+              "_lines": []
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "**Compatibility Guarantee**"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "MT19937"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " makes a guarantee that a fixed seed and will always produce the same random integer stream."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Warnings": {
+      "children": []
+    }
+  },
+  "refs": [],
+  "ordered_sections": [
+    "Signature",
+    "Summary",
+    "Parameters",
+    "Attributes",
+    "Notes",
+    "References"
+  ],
+  "item_file": "/Users/bussonniermatthias/miniconda3/lib/python3.8/site-packages/numpy/random/_mt19937.cpython-38-darwin.so",
+  "item_line": null,
+  "item_type": null,
+  "aliases": [
+    "numpy.random.MT19937"
+  ],
+  "example_section_data": {
+    "children": []
+  },
+  "see_also": [],
+  "signature": "MT19937(seed=None)",
+  "references": [
+    ".. [1] Hiroshi Haramoto, Makoto Matsumoto, and Pierre L'Ecuyer, \"A Fast",
+    "    Jump Ahead Algorithm for Linear Recurrences in a Polynomial Space\",",
+    "    Sequences and Their Applications - SETA, 290--298, 2008.",
+    ".. [2] Hiroshi Haramoto, Makoto Matsumoto, Takuji Nishimura, Fran\u00e7ois",
+    "    Panneton, Pierre L'Ecuyer, \"Efficient Jump Ahead for F2-Linear",
+    "    Random Number Generators\", INFORMS JOURNAL ON COMPUTING, Vol. 20,",
+    "    No. 3, Summer 2008, pp. 385-390."
+  ]
+}

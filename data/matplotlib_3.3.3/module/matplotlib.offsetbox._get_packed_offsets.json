@@ -1,0 +1,473 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Given a list of (width, xdescent) of each boxes, calculate the total width and the x-offset positions of each items according to *mode*. xdescent is analogous to the usual descent, but along the x-direction. xdescent values are currently ignored."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "For simplicity of the description, the terminology used here assumes a horizontal layout, but the function works equally for a vertical layout."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "There are three packing modes:"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "DefList",
+          "data": {
+            "children": [
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "- 'fixed': The elements are packed tight to the left with a spacing of",
+                      "_number": 5,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "  *sep* in between. If *total* is *None* the returned total will be the",
+                      "_number": 6,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "  right edge of the last box. A non-*None* total will be passed unchecked",
+                      "_number": 7,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "  to the output. In particular this means that right edge of the last",
+                      "_number": 8,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "  box may be further to the right than the returned total.",
+                      "_number": 9,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "",
+                      "_number": 10,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "dt": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "- 'fixed': The elements are packed tight to the left with a spacing of"
+                      }
+                    }
+                  ]
+                },
+                "dd": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "*sep* in between. If *total* is *None* the returned total will be the right edge of the last box. A non-*None* total will be passed unchecked to the output. In particular this means that right edge of the last box may be further to the right than the returned total. "
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "- 'expand': Distribute the boxes with equal spacing so that the left edge",
+                      "_number": 11,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "  of the first box is at 0, and the right edge of the last box is at",
+                      "_number": 12,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "  *total*. The parameter *sep* is ignored in this mode. A total of *None*",
+                      "_number": 13,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "  is accepted and considered equal to 1. The total is returned unchanged",
+                      "_number": 14,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "  (except for the conversion *None* to 1). If the total is smaller than",
+                      "_number": 15,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "  the sum of the widths, the laid out boxes will overlap.",
+                      "_number": 16,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "",
+                      "_number": 17,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "dt": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "- 'expand': Distribute the boxes with equal spacing so that the left edge"
+                      }
+                    }
+                  ]
+                },
+                "dd": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "of the first box is at 0, and the right edge of the last box is at *total*. The parameter *sep* is ignored in this mode. A total of *None* is accepted and considered equal to 1. The total is returned unchanged (except for the conversion *None* to 1). If the total is smaller than the sum of the widths, the laid out boxes will overlap. "
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "- 'equal': If *total* is given, the total space is divided in N equal",
+                      "_number": 18,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "  ranges and each box is left-aligned within its subspace.",
+                      "_number": 19,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "  Otherwise (*total* is *None*), *sep* must be provided and each box is",
+                      "_number": 20,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "  left-aligned in its subspace of width ``(max(widths) + sep)``. The",
+                      "_number": 21,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "  total width is then calculated to be ``N * (max(widths) + sep)``.",
+                      "_number": 22,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "dt": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "- 'equal': If *total* is given, the total space is divided in N equal"
+                      }
+                    }
+                  ]
+                },
+                "dd": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "ranges and each box is left-aligned within its subspace. Otherwise (*total* is *None*), *sep* must be provided and each box is left-aligned in its subspace of width "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "(max(widths)",
+                          " ",
+                          "+",
+                          " ",
+                          "sep)"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ". The total width is then calculated to be "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "N",
+                          " ",
+                          "*",
+                          " ",
+                          "(max(widths)",
+                          " ",
+                          "+",
+                          " ",
+                          "sep)"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Parameters": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "wd_list",
+            "type_": "list of (float, float)",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "(width, xdescent) of boxes to be packed."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "total",
+            "type_": "float or None",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Intended total length. *None* if not used."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "sep",
+            "type_": "float",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Spacing between boxes."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "mode",
+            "type_": "{'fixed', 'expand', 'equal'}",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The packing mode."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Returns": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "total",
+            "type_": "float",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The total width needed to accommodate the laid out boxes."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "offsets",
+            "type_": "array of float",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The left offsets of the boxes."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Yields": {
+      "children": []
+    },
+    "Receives": {
+      "children": []
+    },
+    "Raises": {
+      "children": []
+    },
+    "Warns": {
+      "children": []
+    },
+    "Other Parameters": {
+      "children": []
+    },
+    "Attributes": {
+      "children": []
+    },
+    "Methods": {
+      "children": []
+    },
+    "Notes": {
+      "children": []
+    },
+    "Warnings": {
+      "children": []
+    }
+  },
+  "refs": [],
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns"
+  ],
+  "item_file": "/Users/bussonniermatthias/miniconda3/lib/python3.8/site-packages/matplotlib/offsetbox.py",
+  "item_line": 52,
+  "item_type": "<class 'function'>",
+  "aliases": [
+    "matplotlib.offsetbox._get_packed_offsets"
+  ],
+  "example_section_data": {
+    "children": []
+  },
+  "see_also": [],
+  "references": null,
+  "signature": "_get_packed_offsets(wd_list, total, sep, mode='fixed')"
+}

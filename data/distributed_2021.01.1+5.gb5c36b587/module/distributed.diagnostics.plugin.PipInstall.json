@@ -1,0 +1,461 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "A Worker Plugin to pip install a set of packages"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "This accepts a set of packages to install on all workers. You can also optionally ask for the worker to restart itself after performing this installation."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockDirective",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": ".. note::",
+                  "_number": 4,
+                  "_offset": 0
+                }
+              ]
+            },
+            "wh": {
+              "_lines": [
+                {
+                  "_line": "",
+                  "_number": 5,
+                  "_offset": 0
+                }
+              ]
+            },
+            "ind": {
+              "_lines": [
+                {
+                  "_line": "   This will increase the time it takes to start up",
+                  "_number": 6,
+                  "_offset": 0
+                },
+                {
+                  "_line": "   each worker. If possible, we recommend including the",
+                  "_number": 7,
+                  "_offset": 0
+                },
+                {
+                  "_line": "   libraries in the worker environment or image. This is",
+                  "_number": 8,
+                  "_offset": 0
+                },
+                {
+                  "_line": "   primarily intended for experimentation and debugging.",
+                  "_number": 9,
+                  "_offset": 0
+                },
+                {
+                  "_line": "",
+                  "_number": 10,
+                  "_offset": 0
+                },
+                {
+                  "_line": "   Additional issues may arise if multiple workers share the same",
+                  "_number": 11,
+                  "_offset": 0
+                },
+                {
+                  "_line": "   file system. Each worker might try to install the packages",
+                  "_number": 12,
+                  "_offset": 0
+                },
+                {
+                  "_line": "   simultaneously.",
+                  "_number": 13,
+                  "_offset": 0
+                }
+              ]
+            },
+            "directive_name": "note",
+            "args0": [
+              ""
+            ],
+            "inner": {
+              "children": [
+                {
+                  "type": "Words",
+                  "data": {
+                    "value": "This will increase the time it takes to start up each worker. If possible, we recommend including the libraries in the worker environment or image. This is primarily intended for experimentation and debugging.  Additional issues may arise if multiple workers share the same file system. Each worker might try to install the packages simultaneously."
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "Parameters": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "packages",
+            "type_": "List[str]",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "A list of strings to place after \"pip install\" command"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "pip_options",
+            "type_": "List[str]",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Additional options to pass to pip."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "restart",
+            "type_": "bool, default False",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Whether or not to restart the worker after pip installing Only functions if the worker has an attached nanny process"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Returns": {
+      "children": []
+    },
+    "Yields": {
+      "children": []
+    },
+    "Receives": {
+      "children": []
+    },
+    "Raises": {
+      "children": []
+    },
+    "Warns": {
+      "children": []
+    },
+    "Other Parameters": {
+      "children": []
+    },
+    "Attributes": {
+      "children": []
+    },
+    "Methods": {
+      "children": []
+    },
+    "Notes": {
+      "children": []
+    },
+    "Warnings": {
+      "children": []
+    }
+  },
+  "refs": [
+    "dask",
+    "dask.distributed",
+    "distributed.diagnostics.plugin.PipInstall"
+  ],
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Examples"
+  ],
+  "item_file": "/Users/bussonniermatthias/dev/distributed/distributed/diagnostics/plugin.py",
+  "item_line": 189,
+  "item_type": "<class 'type'>",
+  "aliases": [
+    "distributed.PipInstall"
+  ],
+  "example_section_data": {
+    "children": [
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "from",
+              null,
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "dask",
+              "dask",
+              "nn"
+            ],
+            [
+              ".",
+              "",
+              "nn"
+            ],
+            [
+              "distributed",
+              "dask.distributed",
+              "nn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "import",
+              null,
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "PipInstall",
+              "distributed.diagnostics.plugin.PipInstall",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "plugin",
+              "distributed.diagnostics.plugin.PipInstall",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "PipInstall",
+              "distributed.diagnostics.plugin.PipInstall",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "packages",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "scikit-learn",
+              "",
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "pip_options",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "--upgrade",
+              "",
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "",
+          "ce_status": "compiled"
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "client",
+              null,
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "register_worker_plugin",
+              null,
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "plugin",
+              "distributed.diagnostics.plugin.PipInstall",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "",
+          "ce_status": "compiled"
+        }
+      }
+    ]
+  },
+  "see_also": [],
+  "references": null,
+  "signature": "PipInstall(packages, pip_options=None, restart=False)"
+}

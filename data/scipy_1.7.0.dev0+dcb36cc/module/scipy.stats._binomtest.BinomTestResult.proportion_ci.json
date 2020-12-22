@@ -1,0 +1,570 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Compute the confidence interval for the estimated proportion."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Extended Summary": {
+      "children": []
+    },
+    "Parameters": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "confidence_level",
+            "type_": "float, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Confidence level for the computed confidence interval of the estimated proportion. Default is 0.95."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "method",
+            "type_": "{'exact', 'wilson', 'wilsoncc'}, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Selects the method used to compute the confidence interval for the estimate of the proportion:"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DefList",
+                "data": {
+                  "children": [
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "'exact' :",
+                            "_number": 3,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "    Use the Clopper-Pearson exact method [1]_.",
+                            "_number": 4,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "'exact' :"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "Use the Clopper-Pearson exact method [1]_."
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "'wilson' :",
+                            "_number": 5,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "    Wilson's method, without continuity correction ([2]_, [3]_).",
+                            "_number": 6,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "'wilson' :"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "Wilson's method, without continuity correction ([2]_, [3]_)."
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "'wilsoncc' :",
+                            "_number": 7,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "    Wilson's method, with continuity correction ([2]_, [3]_).",
+                            "_number": 8,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "",
+                            "_number": 9,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "'wilsoncc' :"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "Wilson's method, with continuity correction ([2]_, [3]_). "
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Default is "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "'exact'"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Returns": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "ci",
+            "type_": "``ConfidenceInterval`` object",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The object has attributes "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "low"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " and "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "high"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " that hold the lower and upper bounds of the confidence interval."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Yields": {
+      "children": []
+    },
+    "Receives": {
+      "children": []
+    },
+    "Raises": {
+      "children": []
+    },
+    "Warns": {
+      "children": []
+    },
+    "Other Parameters": {
+      "children": []
+    },
+    "Attributes": {
+      "children": []
+    },
+    "Methods": {
+      "children": []
+    },
+    "Notes": {
+      "children": []
+    },
+    "Warnings": {
+      "children": []
+    }
+  },
+  "refs": [],
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "References",
+    "Examples"
+  ],
+  "item_file": "/Users/bussonniermatthias/dev/scipy/scipy/stats/_binomtest.py",
+  "item_line": 55,
+  "item_type": "<class 'function'>",
+  "aliases": [
+    "scipy.stats.BinomTestResult.proportion_ci"
+  ],
+  "example_section_data": {
+    "children": [
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "from",
+              "",
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "scipy",
+              "",
+              "nn"
+            ],
+            [
+              ".",
+              "",
+              "nn"
+            ],
+            [
+              "stats",
+              "",
+              "nn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "import",
+              "",
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "binomtest",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "result",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "binomtest",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "k",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "7",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "n",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "50",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "p",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "0.1",
+              "",
+              "mf"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "result",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "proportion_estimate",
+              "",
+              ""
+            ]
+          ],
+          "out": "0.14",
+          "ce_status": "compiled"
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "result",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "proportion_ci",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "ConfidenceInterval(low=0.05819170033997341, high=0.2673960024970084)",
+          "ce_status": "compiled"
+        }
+      }
+    ]
+  },
+  "see_also": [],
+  "signature": "proportion_ci(self, confidence_level=0.95, method='exact')",
+  "references": [
+    ".. [1] C. J. Clopper and E. S. Pearson, The use of confidence or",
+    "       fiducial limits illustrated in the case of the binomial,",
+    "       Biometrika, Vol. 26, No. 4, pp 404-413 (Dec. 1934).",
+    ".. [2] E. B. Wilson, Probable inference, the law of succession, and",
+    "       statistical inference, J. Amer. Stat. Assoc., 22, pp 209-212",
+    "       (1927).",
+    ".. [3] Robert G. Newcombe, Two-sided confidence intervals for the",
+    "       single proportion: comparison of seven methods, Statistics",
+    "       in Medicine, 17, pp 857-872 (1998)."
+  ]
+}

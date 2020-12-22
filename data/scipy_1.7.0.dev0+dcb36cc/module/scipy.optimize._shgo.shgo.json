@@ -1,0 +1,7433 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Finds the global minimum of a function using SHG optimization."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "SHGO stands for \"simplicial homology global optimization\"."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Parameters": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "func",
+            "type_": "callable",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The objective function to be minimized.  Must be in the form "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "f(x,",
+                          " ",
+                          "*",
+                          "args)"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ", where "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "x"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " is the argument in the form of a 1-D array and "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "args"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " is a tuple of any additional fixed parameters needed to completely specify the function."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "bounds",
+            "type_": "sequence",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Bounds for variables.  "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "(min,",
+                          " ",
+                          "max)"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " pairs for each element in "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "x"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ", defining the lower and upper bounds for the optimizing argument of "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "func"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ". It is required to have "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "len(bounds)",
+                          " ",
+                          "==",
+                          " ",
+                          "len(x)"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ". "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "len(bounds)"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " is used to determine the number of parameters in "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "x"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ". Use "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "None"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " for one of min or max when there is no bound in that direction. By default bounds are "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "(None,",
+                          " ",
+                          "None)"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "args",
+            "type_": "tuple, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Any additional fixed parameters needed to completely specify the objective function."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "constraints",
+            "type_": "dict or sequence of dict, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Constraints definition. Function(s) "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "R",
+                          "*",
+                          "*",
+                          "n"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " in the form::"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "BlockVerbatim",
+                "data": {
+                  "lines": {
+                    "_lines": [
+                      {
+                        "_line": "    g(x) >= 0 applied as g : R^n -> R^m",
+                        "_number": 3,
+                        "_offset": 4
+                      },
+                      {
+                        "_line": "    h(x) == 0 applied as h : R^n -> R^p",
+                        "_number": 4,
+                        "_offset": 4
+                      },
+                      {
+                        "_line": "",
+                        "_number": 5,
+                        "_offset": 4
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Each constraint is defined in a dictionary with fields:"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DefList",
+                "data": {
+                  "children": [
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "    type : str",
+                            "_number": 8,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "        Constraint type: 'eq' for equality, 'ineq' for inequality.",
+                            "_number": 9,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "type : str"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "Constraint type: 'eq' for equality, 'ineq' for inequality."
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "    fun : callable",
+                            "_number": 10,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "        The function defining the constraint.",
+                            "_number": 11,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "fun : callable"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "The function defining the constraint."
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "    jac : callable, optional",
+                            "_number": 12,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "        The Jacobian of `fun` (only for SLSQP).",
+                            "_number": 13,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "jac : callable, optional"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "The Jacobian of "
+                            }
+                          },
+                          {
+                            "type": "Directive",
+                            "data": {
+                              "value": [
+                                "fun"
+                              ],
+                              "domain": null,
+                              "role": null
+                            }
+                          },
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": " (only for SLSQP)."
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "    args : sequence, optional",
+                            "_number": 14,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "        Extra arguments to be passed to the function and Jacobian.",
+                            "_number": 15,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "",
+                            "_number": 16,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "args : sequence, optional"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "Extra arguments to be passed to the function and Jacobian. "
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Equality constraint means that the constraint function result is to be zero whereas inequality means that it is to be non-negative. Note that COBYLA only supports inequality constraints."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "BlockDirective",
+                "data": {
+                  "lines": {
+                    "_lines": [
+                      {
+                        "_line": ".. note::",
+                        "_number": 21,
+                        "_offset": 0
+                      }
+                    ]
+                  },
+                  "wh": {
+                    "_lines": [
+                      {
+                        "_line": "",
+                        "_number": 22,
+                        "_offset": 0
+                      }
+                    ]
+                  },
+                  "ind": {
+                    "_lines": [
+                      {
+                        "_line": "   Only the COBYLA and SLSQP local minimize methods currently",
+                        "_number": 23,
+                        "_offset": 0
+                      },
+                      {
+                        "_line": "   support constraint arguments. If the ``constraints`` sequence",
+                        "_number": 24,
+                        "_offset": 0
+                      },
+                      {
+                        "_line": "   used in the local optimization problem is not defined in",
+                        "_number": 25,
+                        "_offset": 0
+                      },
+                      {
+                        "_line": "   ``minimizer_kwargs`` and a constrained method is used then the",
+                        "_number": 26,
+                        "_offset": 0
+                      },
+                      {
+                        "_line": "   global ``constraints`` will be used.",
+                        "_number": 27,
+                        "_offset": 0
+                      },
+                      {
+                        "_line": "   (Defining a ``constraints`` sequence in ``minimizer_kwargs``",
+                        "_number": 28,
+                        "_offset": 0
+                      },
+                      {
+                        "_line": "   means that ``constraints`` will not be added so if equality",
+                        "_number": 29,
+                        "_offset": 0
+                      },
+                      {
+                        "_line": "   constraints and so forth need to be added then the inequality",
+                        "_number": 30,
+                        "_offset": 0
+                      },
+                      {
+                        "_line": "   functions in ``constraints`` need to be added to",
+                        "_number": 31,
+                        "_offset": 0
+                      },
+                      {
+                        "_line": "   ``minimizer_kwargs`` too).",
+                        "_number": 32,
+                        "_offset": 0
+                      }
+                    ]
+                  },
+                  "directive_name": "note",
+                  "args0": [
+                    ""
+                  ],
+                  "inner": {
+                    "children": [
+                      {
+                        "type": "Words",
+                        "data": {
+                          "value": "Only the COBYLA and SLSQP local minimize methods currently support constraint arguments. If the "
+                        }
+                      },
+                      {
+                        "type": "Verbatim",
+                        "data": {
+                          "value": [
+                            "constraints"
+                          ]
+                        }
+                      },
+                      {
+                        "type": "Words",
+                        "data": {
+                          "value": " sequence used in the local optimization problem is not defined in "
+                        }
+                      },
+                      {
+                        "type": "Verbatim",
+                        "data": {
+                          "value": [
+                            "minimizer",
+                            "_",
+                            "kwargs"
+                          ]
+                        }
+                      },
+                      {
+                        "type": "Words",
+                        "data": {
+                          "value": " and a constrained method is used then the global "
+                        }
+                      },
+                      {
+                        "type": "Verbatim",
+                        "data": {
+                          "value": [
+                            "constraints"
+                          ]
+                        }
+                      },
+                      {
+                        "type": "Words",
+                        "data": {
+                          "value": " will be used. (Defining a "
+                        }
+                      },
+                      {
+                        "type": "Verbatim",
+                        "data": {
+                          "value": [
+                            "constraints"
+                          ]
+                        }
+                      },
+                      {
+                        "type": "Words",
+                        "data": {
+                          "value": " sequence in "
+                        }
+                      },
+                      {
+                        "type": "Verbatim",
+                        "data": {
+                          "value": [
+                            "minimizer",
+                            "_",
+                            "kwargs"
+                          ]
+                        }
+                      },
+                      {
+                        "type": "Words",
+                        "data": {
+                          "value": " means that "
+                        }
+                      },
+                      {
+                        "type": "Verbatim",
+                        "data": {
+                          "value": [
+                            "constraints"
+                          ]
+                        }
+                      },
+                      {
+                        "type": "Words",
+                        "data": {
+                          "value": " will not be added so if equality constraints and so forth need to be added then the inequality functions in "
+                        }
+                      },
+                      {
+                        "type": "Verbatim",
+                        "data": {
+                          "value": [
+                            "constraints"
+                          ]
+                        }
+                      },
+                      {
+                        "type": "Words",
+                        "data": {
+                          "value": " need to be added to "
+                        }
+                      },
+                      {
+                        "type": "Verbatim",
+                        "data": {
+                          "value": [
+                            "minimizer",
+                            "_",
+                            "kwargs"
+                          ]
+                        }
+                      },
+                      {
+                        "type": "Words",
+                        "data": {
+                          "value": " too)."
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "n",
+            "type_": "int, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Number of sampling points used in the construction of the simplicial complex. Note that this argument is only used for "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "sobol"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " and other arbitrary "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "sampling",
+                          "_",
+                          "methods"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "iters",
+            "type_": "int, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Number of iterations used in the construction of the simplicial complex."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "callback",
+            "type_": "callable, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Called after each iteration, as "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "callback(xk)"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ", where "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "xk"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " is the current parameter vector."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "minimizer_kwargs",
+            "type_": "dict, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Extra keyword arguments to be passed to the minimizer "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "scipy.optimize.minimize"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " Some important options could be:"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DefList",
+                "data": {
+                  "children": [
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "    * method : str",
+                            "_number": 3,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "        The minimization method (e.g. ``SLSQP``).",
+                            "_number": 4,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "* method : str"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "The minimization method (e.g. "
+                            }
+                          },
+                          {
+                            "type": "Verbatim",
+                            "data": {
+                              "value": [
+                                "SLSQP"
+                              ]
+                            }
+                          },
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": ")."
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "    * args : tuple",
+                            "_number": 5,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "        Extra arguments passed to the objective function (``func``) and",
+                            "_number": 6,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "        its derivatives (Jacobian, Hessian).",
+                            "_number": 7,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "* args : tuple"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "Extra arguments passed to the objective function ("
+                            }
+                          },
+                          {
+                            "type": "Verbatim",
+                            "data": {
+                              "value": [
+                                "func"
+                              ]
+                            }
+                          },
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": ") and its derivatives (Jacobian, Hessian)."
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "    * options : dict, optional",
+                            "_number": 8,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "        Note that by default the tolerance is specified as",
+                            "_number": 9,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "        ``{ftol: 1e-12}``",
+                            "_number": 10,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "* options : dict, optional"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "Note that by default the tolerance is specified as `"
+                            }
+                          },
+                          {
+                            "type": "Directive",
+                            "data": {
+                              "value": [
+                                "{ftol",
+                                ":",
+                                " ",
+                                "1e-12}"
+                              ],
+                              "domain": null,
+                              "role": null
+                            }
+                          },
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "`"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "options",
+            "type_": "dict, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "A dictionary of solver options. Many of the options specified for the global routine are also passed to the scipy.optimize.minimize routine. The options that are also passed to the local routine are marked with \"(L)\"."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Stopping criteria, the algorithm will terminate if any of the specified criteria are met. However, the default algorithm does not require any to be specified:"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DefList",
+                "data": {
+                  "children": [
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "* maxfev : int (L)",
+                            "_number": 9,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "    Maximum number of function evaluations in the feasible domain.",
+                            "_number": 10,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    (Note only methods that support this option will terminate",
+                            "_number": 11,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    the routine at precisely exact specified value. Otherwise the",
+                            "_number": 12,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    criterion will only terminate during a global iteration)",
+                            "_number": 13,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "* maxfev : int (L)"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "Maximum number of function evaluations in the feasible domain. (Note only methods that support this option will terminate the routine at precisely exact specified value. Otherwise the criterion will only terminate during a global iteration)"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "* f_min",
+                            "_number": 14,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "    Specify the minimum objective function value, if it is known.",
+                            "_number": 15,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "* f_min"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "Specify the minimum objective function value, if it is known."
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "* f_tol : float",
+                            "_number": 16,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "    Precision goal for the value of f in the stopping",
+                            "_number": 17,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    criterion. Note that the global routine will also",
+                            "_number": 18,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    terminate if a sampling point in the global routine is",
+                            "_number": 19,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    within this tolerance.",
+                            "_number": 20,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "* f_tol : float"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "Precision goal for the value of f in the stopping criterion. Note that the global routine will also terminate if a sampling point in the global routine is within this tolerance."
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "* maxiter : int",
+                            "_number": 21,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "    Maximum number of iterations to perform.",
+                            "_number": 22,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "* maxiter : int"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "Maximum number of iterations to perform."
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "* maxev : int",
+                            "_number": 23,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "    Maximum number of sampling evaluations to perform (includes",
+                            "_number": 24,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    searching in infeasible points).",
+                            "_number": 25,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "* maxev : int"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "Maximum number of sampling evaluations to perform (includes searching in infeasible points)."
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "* maxtime : float",
+                            "_number": 26,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "    Maximum processing runtime allowed",
+                            "_number": 27,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "* maxtime : float"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "Maximum processing runtime allowed"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "* minhgrd : int",
+                            "_number": 28,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "    Minimum homology group rank differential. The homology group of the",
+                            "_number": 29,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    objective function is calculated (approximately) during every",
+                            "_number": 30,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    iteration. The rank of this group has a one-to-one correspondence",
+                            "_number": 31,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    with the number of locally convex subdomains in the objective",
+                            "_number": 32,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    function (after adequate sampling points each of these subdomains",
+                            "_number": 33,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    contain a unique global minimum). If the difference in the hgr is 0",
+                            "_number": 34,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    between iterations for ``maxhgrd`` specified iterations the",
+                            "_number": 35,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    algorithm will terminate.",
+                            "_number": 36,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "",
+                            "_number": 37,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "* minhgrd : int"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "Minimum homology group rank differential. The homology group of the objective function is calculated (approximately) during every iteration. The rank of this group has a one-to-one correspondence with the number of locally convex subdomains in the objective function (after adequate sampling points each of these subdomains contain a unique global minimum). If the difference in the hgr is 0 between iterations for "
+                            }
+                          },
+                          {
+                            "type": "Verbatim",
+                            "data": {
+                              "value": [
+                                "maxhgrd"
+                              ]
+                            }
+                          },
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": " specified iterations the algorithm will terminate. "
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Objective function knowledge:"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DefList",
+                "data": {
+                  "children": [
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "* symmetry : bool",
+                            "_number": 40,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "    Specify True if the objective function contains symmetric variables.",
+                            "_number": 41,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    The search space (and therefore performance) is decreased by O(n!).",
+                            "_number": 42,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "",
+                            "_number": 43,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "* symmetry : bool"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "Specify True if the objective function contains symmetric variables. The search space (and therefore performance) is decreased by O(n!). "
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "* jac : bool or callable, optional",
+                            "_number": 44,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "    Jacobian (gradient) of objective function. Only for CG, BFGS,",
+                            "_number": 45,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    Newton-CG, L-BFGS-B, TNC, SLSQP, dogleg, trust-ncg. If ``jac`` is a",
+                            "_number": 46,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    boolean and is True, ``fun`` is assumed to return the gradient along",
+                            "_number": 47,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    with the objective function. If False, the gradient will be",
+                            "_number": 48,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    estimated numerically. ``jac`` can also be a callable returning the",
+                            "_number": 49,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    gradient of the objective. In this case, it must accept the same",
+                            "_number": 50,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    arguments as ``fun``. (Passed to `scipy.optimize.minmize` automatically)",
+                            "_number": 51,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "",
+                            "_number": 52,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "* jac : bool or callable, optional"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "Jacobian (gradient) of objective function. Only for CG, BFGS, Newton-CG, L-BFGS-B, TNC, SLSQP, dogleg, trust-ncg. If "
+                            }
+                          },
+                          {
+                            "type": "Verbatim",
+                            "data": {
+                              "value": [
+                                "jac"
+                              ]
+                            }
+                          },
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": " is a boolean and is True, "
+                            }
+                          },
+                          {
+                            "type": "Verbatim",
+                            "data": {
+                              "value": [
+                                "fun"
+                              ]
+                            }
+                          },
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": " is assumed to return the gradient along with the objective function. If False, the gradient will be estimated numerically. "
+                            }
+                          },
+                          {
+                            "type": "Verbatim",
+                            "data": {
+                              "value": [
+                                "jac"
+                              ]
+                            }
+                          },
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": " can also be a callable returning the gradient of the objective. In this case, it must accept the same arguments as "
+                            }
+                          },
+                          {
+                            "type": "Verbatim",
+                            "data": {
+                              "value": [
+                                "fun"
+                              ]
+                            }
+                          },
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": ". (Passed to "
+                            }
+                          },
+                          {
+                            "type": "Directive",
+                            "data": {
+                              "value": [
+                                "scipy.optimize.minmize"
+                              ],
+                              "domain": null,
+                              "role": null
+                            }
+                          },
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": " automatically) "
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "* hess, hessp : callable, optional",
+                            "_number": 53,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "    Hessian (matrix of second-order derivatives) of objective function",
+                            "_number": 54,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    or Hessian of objective function times an arbitrary vector p.",
+                            "_number": 55,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    Only for Newton-CG, dogleg, trust-ncg. Only one of ``hessp`` or",
+                            "_number": 56,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    ``hess`` needs to be given. If ``hess`` is provided, then",
+                            "_number": 57,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    ``hessp`` will be ignored. If neither ``hess`` nor ``hessp`` is",
+                            "_number": 58,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    provided, then the Hessian product will be approximated using",
+                            "_number": 59,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    finite differences on ``jac``. ``hessp`` must compute the Hessian",
+                            "_number": 60,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    times an arbitrary vector. (Passed to `scipy.optimize.minmize`",
+                            "_number": 61,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    automatically)",
+                            "_number": 62,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "",
+                            "_number": 63,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "* hess, hessp : callable, optional"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "Hessian (matrix of second-order derivatives) of objective function or Hessian of objective function times an arbitrary vector p. Only for Newton-CG, dogleg, trust-ncg. Only one of "
+                            }
+                          },
+                          {
+                            "type": "Verbatim",
+                            "data": {
+                              "value": [
+                                "hessp"
+                              ]
+                            }
+                          },
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": " or "
+                            }
+                          },
+                          {
+                            "type": "Verbatim",
+                            "data": {
+                              "value": [
+                                "hess"
+                              ]
+                            }
+                          },
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": " needs to be given. If "
+                            }
+                          },
+                          {
+                            "type": "Verbatim",
+                            "data": {
+                              "value": [
+                                "hess"
+                              ]
+                            }
+                          },
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": " is provided, then "
+                            }
+                          },
+                          {
+                            "type": "Verbatim",
+                            "data": {
+                              "value": [
+                                "hessp"
+                              ]
+                            }
+                          },
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": " will be ignored. If neither "
+                            }
+                          },
+                          {
+                            "type": "Verbatim",
+                            "data": {
+                              "value": [
+                                "hess"
+                              ]
+                            }
+                          },
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": " nor "
+                            }
+                          },
+                          {
+                            "type": "Verbatim",
+                            "data": {
+                              "value": [
+                                "hessp"
+                              ]
+                            }
+                          },
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": " is provided, then the Hessian product will be approximated using finite differences on "
+                            }
+                          },
+                          {
+                            "type": "Verbatim",
+                            "data": {
+                              "value": [
+                                "jac"
+                              ]
+                            }
+                          },
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": ". "
+                            }
+                          },
+                          {
+                            "type": "Verbatim",
+                            "data": {
+                              "value": [
+                                "hessp"
+                              ]
+                            }
+                          },
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": " must compute the Hessian times an arbitrary vector. (Passed to "
+                            }
+                          },
+                          {
+                            "type": "Directive",
+                            "data": {
+                              "value": [
+                                "scipy.optimize.minmize"
+                              ],
+                              "domain": null,
+                              "role": null
+                            }
+                          },
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": " automatically) "
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Algorithm settings:"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DefList",
+                "data": {
+                  "children": [
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "* minimize_every_iter : bool",
+                            "_number": 66,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "    If True then promising global sampling points will be passed to a",
+                            "_number": 67,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    local minimization routine every iteration. If False then only the",
+                            "_number": 68,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    final minimizer pool will be run. Defaults to False.",
+                            "_number": 69,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "* minimize_every_iter : bool"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "If True then promising global sampling points will be passed to a local minimization routine every iteration. If False then only the final minimizer pool will be run. Defaults to False."
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "* local_iter : int",
+                            "_number": 70,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "    Only evaluate a few of the best minimizer pool candidates every",
+                            "_number": 71,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    iteration. If False all potential points are passed to the local",
+                            "_number": 72,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    minimization routine.",
+                            "_number": 73,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "* local_iter : int"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "Only evaluate a few of the best minimizer pool candidates every iteration. If False all potential points are passed to the local minimization routine."
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "* infty_constraints: bool",
+                            "_number": 74,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "    If True then any sampling points generated which are outside will",
+                            "_number": 75,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    the feasible domain will be saved and given an objective function",
+                            "_number": 76,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    value of ``inf``. If False then these points will be discarded.",
+                            "_number": 77,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    Using this functionality could lead to higher performance with",
+                            "_number": 78,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    respect to function evaluations before the global minimum is found,",
+                            "_number": 79,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    specifying False will use less memory at the cost of a slight",
+                            "_number": 80,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "    decrease in performance. Defaults to True.",
+                            "_number": 81,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "",
+                            "_number": 82,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "* infty_constraints: bool"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "If True then any sampling points generated which are outside will the feasible domain will be saved and given an objective function value of "
+                            }
+                          },
+                          {
+                            "type": "Verbatim",
+                            "data": {
+                              "value": [
+                                "inf"
+                              ]
+                            }
+                          },
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": ". If False then these points will be discarded. Using this functionality could lead to higher performance with respect to function evaluations before the global minimum is found, specifying False will use less memory at the cost of a slight decrease in performance. Defaults to True. "
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Feedback:"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DefList",
+                "data": {
+                  "children": [
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "* disp : bool (L)",
+                            "_number": 85,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "    Set to True to print convergence messages.",
+                            "_number": 86,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "* disp : bool (L)"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "Set to True to print convergence messages."
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "sampling_method",
+            "type_": "str or function, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Current built in sampling method options are "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "sobol"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " and "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "simplicial"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ". The default "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "simplicial"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " uses less memory and provides the theoretical guarantee of convergence to the global minimum in finite time. The "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "sobol"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " method is faster in terms of sampling point generation at the cost of higher memory resources and the loss of guaranteed convergence. It is more appropriate for most \"easier\" problems where the convergence is relatively fast. User defined sampling functions must accept two arguments of "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "n"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " sampling points of dimension "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "dim"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " per call and output an array of sampling points with shape "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "n",
+                          " ",
+                          "x",
+                          " ",
+                          "dim"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Returns": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "res",
+            "type_": "OptimizeResult",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The optimization result represented as a "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "OptimizeResult"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " object. Important attributes are: "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "x"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " the solution array corresponding to the global minimum, "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "fun"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " the function output at the global solution, "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "xl"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " an ordered list of local minima solutions, "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "funl"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " the function output at the corresponding local solutions, "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "success"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " a Boolean flag indicating if the optimizer exited successfully, "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "message"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " which describes the cause of the termination, "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "nfev"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " the total number of objective function evaluations including the sampling calls, "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "nlfev"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " the total number of objective function evaluations culminating from all local search optimizations, "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "nit"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " number of iterations performed by the global routine."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Yields": {
+      "children": []
+    },
+    "Receives": {
+      "children": []
+    },
+    "Raises": {
+      "children": []
+    },
+    "Warns": {
+      "children": []
+    },
+    "Other Parameters": {
+      "children": []
+    },
+    "Attributes": {
+      "children": []
+    },
+    "Methods": {
+      "children": []
+    },
+    "Notes": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Global optimization using simplicial homology global optimization [1]_. Appropriate for solving general purpose NLP and blackbox optimization problems to global optimality (low-dimensional problems)."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "In general, the optimization problems are of the form::"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockVerbatim",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": "    minimize f(x) subject to",
+                  "_number": 6,
+                  "_offset": 4
+                },
+                {
+                  "_line": "",
+                  "_number": 7,
+                  "_offset": 4
+                },
+                {
+                  "_line": "    g_i(x) >= 0,  i = 1,...,m",
+                  "_number": 8,
+                  "_offset": 4
+                },
+                {
+                  "_line": "    h_j(x)  = 0,  j = 1,...,p",
+                  "_number": 9,
+                  "_offset": 4
+                },
+                {
+                  "_line": "",
+                  "_number": 10,
+                  "_offset": 4
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "where x is a vector of one or more variables. "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "f(x)"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " is the objective function "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "R^n",
+                    " ",
+                    "->",
+                    " ",
+                    "R"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ", "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "g",
+                    "_",
+                    "i(x)"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " are the inequality constraints, and "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "h",
+                    "_",
+                    "j(x)"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " are the equality constraints."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Optionally, the lower and upper bounds for each element in x can also be specified using the "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "bounds"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " argument."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "While most of the theoretical advantages of SHGO are only proven for when "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "f(x)"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " is a Lipschitz smooth function, the algorithm is also proven to converge to the global optimum for the more general case where "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "f(x)"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " is non-continuous, non-convex and non-smooth, if the default sampling method is used [1]_."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "The local search method may be specified using the "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "minimizer",
+                    "_",
+                    "kwargs"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " parameter which is passed on to "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "scipy.optimize.minimize"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ". By default, the "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "SLSQP"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " method is used. In general, it is recommended to use the "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "SLSQP"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " or "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "COBYLA"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " local minimization if inequality constraints are defined for the problem since the other methods do not use constraints."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "The "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "sobol"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " method points are generated using the Sobol (1967) [2]_ sequence. The primitive polynomials and various sets of initial direction numbers for generating Sobol sequences is provided by [3]_ by Frances Kuo and Stephen Joe. The original program sobol.cc (MIT) is available and described at https://web.maths.unsw.edu.au/~fkuo/sobol/ translated to Python 3 by Carl Sandrock 2016-03-31."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Warnings": {
+      "children": []
+    }
+  },
+  "refs": [],
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "item_file": "/Users/bussonniermatthias/dev/scipy/scipy/optimize/_shgo.py",
+  "item_line": 18,
+  "item_type": "<class 'function'>",
+  "aliases": [
+    "scipy.optimize.shgo"
+  ],
+  "example_section_data": {
+    "children": [
+      {
+        "type": "Paragraph",
+        "data": {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "First consider the problem of minimizing the Rosenbrock function, "
+              }
+            },
+            {
+              "type": "Directive",
+              "data": {
+                "value": [
+                  "rosen"
+                ],
+                "domain": null,
+                "role": null
+              }
+            },
+            {
+              "type": "Words",
+              "data": {
+                "value": ":"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "from",
+              "",
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "scipy",
+              "",
+              "nn"
+            ],
+            [
+              ".",
+              "",
+              "nn"
+            ],
+            [
+              "optimize",
+              "",
+              "nn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "import",
+              "",
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "rosen",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "shgo",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "bounds",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "result",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "shgo",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "rosen",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "bounds",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "result",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "result",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "fun",
+              "",
+              ""
+            ]
+          ],
+          "out": "(array([ 1.,  1.,  1.,  1.,  1.]), 2.9203923741900809e-18)",
+          "ce_status": "compiled"
+        }
+      },
+      {
+        "type": "Paragraph",
+        "data": {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "Note that bounds determine the dimensionality of the objective function and is therefore a required input, however you can specify empty bounds using "
+              }
+            },
+            {
+              "type": "Verbatim",
+              "data": {
+                "value": [
+                  "None"
+                ]
+              }
+            },
+            {
+              "type": "Words",
+              "data": {
+                "value": " or objects like "
+              }
+            },
+            {
+              "type": "Verbatim",
+              "data": {
+                "value": [
+                  "np.inf"
+                ]
+              }
+            },
+            {
+              "type": "Words",
+              "data": {
+                "value": " which will be converted to large float numbers."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "bounds",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "None",
+              "",
+              "kc"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "None",
+              "",
+              "kc"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "4",
+              "",
+              "mi"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "result",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "shgo",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "rosen",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "bounds",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "result",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "x",
+              "",
+              ""
+            ]
+          ],
+          "out": "array([ 0.99999851,  0.99999704,  0.99999411,  0.9999882 ])",
+          "ce_status": "compiled"
+        }
+      },
+      {
+        "type": "Paragraph",
+        "data": {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "Next, we consider the Eggholder function, a problem with several local minima and one global minimum. We will demonstrate the use of arguments and the capabilities of "
+              }
+            },
+            {
+              "type": "Directive",
+              "data": {
+                "value": [
+                  "shgo"
+                ],
+                "domain": null,
+                "role": null
+              }
+            },
+            {
+              "type": "Words",
+              "data": {
+                "value": ". (https://en.wikipedia.org/wiki/Test_functions_for_optimization)"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "def",
+              "",
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "eggholder",
+              "",
+              "nf"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "return",
+              "",
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "-",
+              "",
+              "o"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "+",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "47.0",
+              "",
+              "mf"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "sin",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "sqrt",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "abs",
+              "",
+              "nb"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "/",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2.0",
+              "",
+              "mf"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "+",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "+",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "47.0",
+              "",
+              "mf"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "-",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "        ",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "sin",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "sqrt",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "abs",
+              "",
+              "nb"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "-",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "+",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "47.0",
+              "",
+              "mf"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "...",
+          "ce_status": "compiled"
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "bounds",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "-",
+              "",
+              "o"
+            ],
+            [
+              "512",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "512",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "-",
+              "",
+              "o"
+            ],
+            [
+              "512",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "512",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ]
+          ],
+          "out": "",
+          "ce_status": "compiled"
+        }
+      },
+      {
+        "type": "Paragraph",
+        "data": {
+          "children": [
+            {
+              "type": "Directive",
+              "data": {
+                "value": [
+                  "shgo"
+                ],
+                "domain": null,
+                "role": null
+              }
+            },
+            {
+              "type": "Words",
+              "data": {
+                "value": " has two built-in low discrepancy sampling sequences. First, we will input 30 initial sampling points of the Sobol sequence:"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "result",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "shgo",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "eggholder",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "bounds",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "n",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "30",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "sampling_method",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "sobol",
+              "",
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "result",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "result",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "fun",
+              "",
+              ""
+            ]
+          ],
+          "out": "(array([ 512.        ,  404.23180542]), -959.64066272085051)",
+          "ce_status": "compiled"
+        }
+      },
+      {
+        "type": "Paragraph",
+        "data": {
+          "children": [
+            {
+              "type": "Directive",
+              "data": {
+                "value": [
+                  "shgo"
+                ],
+                "domain": null,
+                "role": null
+              }
+            },
+            {
+              "type": "Words",
+              "data": {
+                "value": " also has a return for any other local minima that was found, these can be called using:"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "result",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "xl",
+              "",
+              ""
+            ]
+          ],
+          "out": "array([[ 512.        ,  404.23180542],\n       [ 283.07593402, -487.12566542],\n       [-294.66820039, -462.01964031],\n       [-105.87688985,  423.15324143],\n       [-242.97923629,  274.38032063],\n       [-506.25823477,    6.3131022 ],\n       [-408.71981195, -156.10117154],\n       [ 150.23210485,  301.31378508],\n       [  91.00922754, -391.28375925],\n       [ 202.8966344 , -269.38042147],\n       [ 361.66625957, -106.96490692],\n       [-219.40615102, -244.06022436],\n       [ 151.59603137, -100.61082677]])",
+          "ce_status": "compiled"
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "result",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "funl",
+              "",
+              ""
+            ]
+          ],
+          "out": "array([-959.64066272, -718.16745962, -704.80659592, -565.99778097,\n       -559.78685655, -557.36868733, -507.87385942, -493.9605115 ,\n       -426.48799655, -421.15571437, -419.31194957, -410.98477763,\n       -202.53912972])",
+          "ce_status": "compiled"
+        }
+      },
+      {
+        "type": "Paragraph",
+        "data": {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "These results are useful in applications where there are many global minima and the values of other global minima are desired or where the local minima can provide insight into the system (for example morphologies in physical chemistry [5]_)."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Paragraph",
+        "data": {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "If we want to find a larger number of local minima, we can increase the number of sampling points or the number of iterations. We'll increase the number of sampling points to 60 and the number of iterations from the default of 1 to 5. This gives us 60 x 5 = 300 initial sampling points."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "result_2",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "shgo",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "eggholder",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "bounds",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "n",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "60",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "iters",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "5",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "sampling_method",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "sobol",
+              "",
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "len",
+              "",
+              "nb"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "result",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "xl",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "len",
+              "",
+              "nb"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "result_2",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "xl",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "(13, 39)",
+          "ce_status": "compiled"
+        }
+      },
+      {
+        "type": "Paragraph",
+        "data": {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "Note the difference between, e.g., "
+              }
+            },
+            {
+              "type": "Verbatim",
+              "data": {
+                "value": [
+                  "n=180,",
+                  " ",
+                  "iters=1"
+                ]
+              }
+            },
+            {
+              "type": "Words",
+              "data": {
+                "value": " and "
+              }
+            },
+            {
+              "type": "Verbatim",
+              "data": {
+                "value": [
+                  "n=60,",
+                  " ",
+                  "iters=3"
+                ]
+              }
+            },
+            {
+              "type": "Words",
+              "data": {
+                "value": ". In the first case the promising points contained in the minimiser pool is processed only once. In the latter case it is processed every 60 sampling points for a total of 3 times."
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Paragraph",
+        "data": {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "To demonstrate solving problems with non-linear constraints consider the following example from Hock and Schittkowski problem 73 (cattle-feed) [4]_::"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "DefList",
+        "data": {
+          "children": [
+            {
+              "lines": {
+                "_lines": [
+                  {
+                    "_line": ":: workaround numpyoc summary/ext summary bug in take2::Line.__init__",
+                    "_number": 0,
+                    "_offset": 0
+                  }
+                ]
+              },
+              "wh": {
+                "_lines": []
+              },
+              "ind": {
+                "_lines": [
+                  {
+                    "_line": "    minimize: f = 24.55 * x_1 + 26.75 * x_2 + 39 * x_3 + 40.50 * x_4",
+                    "_number": 0,
+                    "_offset": 0
+                  }
+                ]
+              },
+              "dt": {
+                "children": [
+                  {
+                    "type": "Words",
+                    "data": {
+                      "value": ":: workaround numpyoc summary/ext summary bug in take2::Line.__init__"
+                    }
+                  }
+                ]
+              },
+              "dd": {
+                "children": [
+                  {
+                    "type": "Words",
+                    "data": {
+                      "value": "minimize: f = 24.55 * x_1 + 26.75 * x_2 + 39 * x_3 + 40.50 * x_4"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "DefList",
+        "data": {
+          "children": [
+            {
+              "lines": {
+                "_lines": [
+                  {
+                    "_line": ":: workaround numpyoc summary/ext summary bug in take2::Line.__init__",
+                    "_number": 0,
+                    "_offset": 0
+                  }
+                ]
+              },
+              "wh": {
+                "_lines": []
+              },
+              "ind": {
+                "_lines": [
+                  {
+                    "_line": "    subject to: 2.3 * x_1 + 5.6 * x_2 + 11.1 * x_3 + 1.3 * x_4 - 5     >= 0,",
+                    "_number": 0,
+                    "_offset": 0
+                  }
+                ]
+              },
+              "dt": {
+                "children": [
+                  {
+                    "type": "Words",
+                    "data": {
+                      "value": ":: workaround numpyoc summary/ext summary bug in take2::Line.__init__"
+                    }
+                  }
+                ]
+              },
+              "dd": {
+                "children": [
+                  {
+                    "type": "Words",
+                    "data": {
+                      "value": "subject to: 2.3 * x_1 + 5.6 * x_2 + 11.1 * x_3 + 1.3 * x_4 - 5     >= 0,"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "DefList",
+        "data": {
+          "children": [
+            {
+              "lines": {
+                "_lines": [
+                  {
+                    "_line": ":: workaround numpyoc summary/ext summary bug in take2::Line.__init__",
+                    "_number": 0,
+                    "_offset": 0
+                  }
+                ]
+              },
+              "wh": {
+                "_lines": []
+              },
+              "ind": {
+                "_lines": [
+                  {
+                    "_line": "                12 * x_1 + 11.9 * x_2 + 41.8 * x_3 + 52.1 * x_4 - 21",
+                    "_number": 0,
+                    "_offset": 0
+                  },
+                  {
+                    "_line": "                    -1.645 * sqrt(0.28 * x_1**2 + 0.19 * x_2**2 +",
+                    "_number": 1,
+                    "_offset": 0
+                  },
+                  {
+                    "_line": "                                  20.5 * x_3**2 + 0.62 * x_4**2)       >= 0,",
+                    "_number": 2,
+                    "_offset": 0
+                  }
+                ]
+              },
+              "dt": {
+                "children": [
+                  {
+                    "type": "Words",
+                    "data": {
+                      "value": ":: workaround numpyoc summary/ext summary bug in take2::Line.__init__"
+                    }
+                  }
+                ]
+              },
+              "dd": {
+                "children": [
+                  {
+                    "type": "Words",
+                    "data": {
+                      "value": "12 * x_1 + 11.9 * x_2 + 41.8 * x_3 + 52.1 * x_4 - 21     -1.645 * sqrt(0.28 * x_1**2 + 0.19 * x_2**2 +                   20.5 * x_3**2 + 0.62 * x_4**2)       >= 0,"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "DefList",
+        "data": {
+          "children": [
+            {
+              "lines": {
+                "_lines": [
+                  {
+                    "_line": ":: workaround numpyoc summary/ext summary bug in take2::Line.__init__",
+                    "_number": 0,
+                    "_offset": 0
+                  }
+                ]
+              },
+              "wh": {
+                "_lines": []
+              },
+              "ind": {
+                "_lines": [
+                  {
+                    "_line": "                x_1 + x_2 + x_3 + x_4 - 1                              == 0,",
+                    "_number": 0,
+                    "_offset": 0
+                  }
+                ]
+              },
+              "dt": {
+                "children": [
+                  {
+                    "type": "Words",
+                    "data": {
+                      "value": ":: workaround numpyoc summary/ext summary bug in take2::Line.__init__"
+                    }
+                  }
+                ]
+              },
+              "dd": {
+                "children": [
+                  {
+                    "type": "Words",
+                    "data": {
+                      "value": "x_1 + x_2 + x_3 + x_4 - 1                              == 0,"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "DefList",
+        "data": {
+          "children": [
+            {
+              "lines": {
+                "_lines": [
+                  {
+                    "_line": ":: workaround numpyoc summary/ext summary bug in take2::Line.__init__",
+                    "_number": 0,
+                    "_offset": 0
+                  }
+                ]
+              },
+              "wh": {
+                "_lines": []
+              },
+              "ind": {
+                "_lines": [
+                  {
+                    "_line": "                1 >= x_i >= 0 for all i",
+                    "_number": 0,
+                    "_offset": 0
+                  }
+                ]
+              },
+              "dt": {
+                "children": [
+                  {
+                    "type": "Words",
+                    "data": {
+                      "value": ":: workaround numpyoc summary/ext summary bug in take2::Line.__init__"
+                    }
+                  }
+                ]
+              },
+              "dd": {
+                "children": [
+                  {
+                    "type": "Words",
+                    "data": {
+                      "value": "1 >= x_i >= 0 for all i"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Paragraph",
+        "data": {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "The approximate answer given in [4]_ is::"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "DefList",
+        "data": {
+          "children": [
+            {
+              "lines": {
+                "_lines": [
+                  {
+                    "_line": ":: workaround numpyoc summary/ext summary bug in take2::Line.__init__",
+                    "_number": 0,
+                    "_offset": 0
+                  }
+                ]
+              },
+              "wh": {
+                "_lines": []
+              },
+              "ind": {
+                "_lines": [
+                  {
+                    "_line": "    f([0.6355216, -0.12e-11, 0.3127019, 0.05177655]) = 29.894378",
+                    "_number": 0,
+                    "_offset": 0
+                  }
+                ]
+              },
+              "dt": {
+                "children": [
+                  {
+                    "type": "Words",
+                    "data": {
+                      "value": ":: workaround numpyoc summary/ext summary bug in take2::Line.__init__"
+                    }
+                  }
+                ]
+              },
+              "dd": {
+                "children": [
+                  {
+                    "type": "Words",
+                    "data": {
+                      "value": "f([0.6355216, -0.12e-11, 0.3127019, 0.05177655]) = 29.894378"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "def",
+              "",
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "f",
+              "",
+              "nf"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "  ",
+              "",
+              ""
+            ],
+            [
+              "# (cattle-feed)",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "return",
+              "",
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "24.55",
+              "",
+              "mf"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "+",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "26.75",
+              "",
+              "mf"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "+",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "39",
+              "",
+              "mi"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "+",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "40.50",
+              "",
+              "mf"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ]
+          ],
+          "out": "...",
+          "ce_status": "compiled"
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "def",
+              "",
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "g1",
+              "",
+              "nf"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "return",
+              "",
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2.3",
+              "",
+              "mf"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "+",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "5.6",
+              "",
+              "mf"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "+",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "11.1",
+              "",
+              "mf"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "+",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1.3",
+              "",
+              "mf"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "-",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "5",
+              "",
+              "mi"
+            ],
+            [
+              "  ",
+              "",
+              ""
+            ],
+            [
+              "# >=0",
+              "",
+              "c1"
+            ]
+          ],
+          "out": "...",
+          "ce_status": "compiled"
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "def",
+              "",
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "g2",
+              "",
+              "nf"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "return",
+              "",
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "        ",
+              "",
+              ""
+            ],
+            [
+              "12",
+              "",
+              "mi"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "        ",
+              "",
+              ""
+            ],
+            [
+              "+",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "11.9",
+              "",
+              "mf"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "        ",
+              "",
+              ""
+            ],
+            [
+              "+",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "41.8",
+              "",
+              "mf"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "        ",
+              "",
+              ""
+            ],
+            [
+              "+",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "52.1",
+              "",
+              "mf"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "        ",
+              "",
+              ""
+            ],
+            [
+              "-",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "21",
+              "",
+              "mi"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "        ",
+              "",
+              ""
+            ],
+            [
+              "-",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1.645",
+              "",
+              "mf"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "        ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "sqrt",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "            ",
+              "",
+              ""
+            ],
+            [
+              "0.28",
+              "",
+              "mf"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "+",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "0.19",
+              "",
+              "mf"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "+",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "20.5",
+              "",
+              "mf"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "+",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "0.62",
+              "",
+              "mf"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "        ",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "  ",
+              "",
+              ""
+            ],
+            [
+              "# >=0",
+              "",
+              "c1"
+            ]
+          ],
+          "out": "...",
+          "ce_status": "compiled"
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "def",
+              "",
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "h1",
+              "",
+              "nf"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "return",
+              "",
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "+",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "+",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "+",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "-",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              "  ",
+              "",
+              ""
+            ],
+            [
+              "# == 0",
+              "",
+              "c1"
+            ]
+          ],
+          "out": "...",
+          "ce_status": "compiled"
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "cons",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "{",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "type",
+              "",
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "ineq",
+              "",
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "fun",
+              "",
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "g1",
+              "",
+              ""
+            ],
+            [
+              "}",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "{",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "type",
+              "",
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "ineq",
+              "",
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "fun",
+              "",
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "g2",
+              "",
+              ""
+            ],
+            [
+              "}",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "{",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "type",
+              "",
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "eq",
+              "",
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "fun",
+              "",
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "h1",
+              "",
+              ""
+            ],
+            [
+              "}",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "bounds",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1.0",
+              "",
+              "mf"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "4",
+              "",
+              "mi"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "res",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "shgo",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "f",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "bounds",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "iters",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "constraints",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "cons",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "res",
+              "",
+              ""
+            ]
+          ],
+          "out": "     fun: 29.894378159142136\n    funl: array([29.89437816])\n message: 'Optimization terminated successfully.'\n    nfev: 114\n     nit: 3\n   nlfev: 35\n   nlhev: 0\n   nljev: 5\n success: True\n       x: array([6.35521569e-01, 1.13700270e-13, 3.12701881e-01, 5.17765506e-02])\n      xl: array([[6.35521569e-01, 1.13700270e-13, 3.12701881e-01, 5.17765506e-02]])",
+          "ce_status": "compiled"
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "g1",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "res",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "g2",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "res",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "h1",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "res",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "x",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "(-5.0626169922907138e-14, -2.9594104944408173e-12, 0.0)",
+          "ce_status": "compiled"
+        }
+      }
+    ]
+  },
+  "see_also": [],
+  "signature": "shgo(func, bounds, args=(), constraints=None, n=100, iters=1, callback=None, minimizer_kwargs=None, options=None, sampling_method='simplicial')",
+  "references": [
+    ".. [1] Endres, SC, Sandrock, C, Focke, WW (2018) \"A simplicial homology",
+    "       algorithm for lipschitz optimisation\", Journal of Global Optimization.",
+    ".. [2] Sobol, IM (1967) \"The distribution of points in a cube and the",
+    "       approximate evaluation of integrals\", USSR Comput. Math. Math. Phys.",
+    "       7, 86-112.",
+    ".. [3] Joe, SW and Kuo, FY (2008) \"Constructing Sobol sequences with",
+    "       better  two-dimensional projections\", SIAM J. Sci. Comput. 30,",
+    "       2635-2654.",
+    ".. [4] Hoch, W and Schittkowski, K (1981) \"Test examples for nonlinear",
+    "       programming codes\", Lecture Notes in Economics and Mathematical",
+    "       Systems, 187. Springer-Verlag, New York.",
+    "       http://www.ai7.uni-bayreuth.de/test_problem_coll.pdf",
+    ".. [5] Wales, DJ (2015) \"Perspective: Insight into reaction coordinates and",
+    "       dynamics from the potential energy landscape\",",
+    "       Journal of Chemical Physics, 142(13), 2015."
+  ]
+}

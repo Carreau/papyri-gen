@@ -1,0 +1,280 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Create color map from linear mapping segments"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "segmentdata argument is a dictionary with a red, green and blue entries. Each entry should be a list of *x*, *y0*, *y1* tuples, forming rows in a table. Entries for alpha are optional."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Example: suppose you want red to increase from 0 to 1 over the bottom half, green to do the same over the middle half, and blue over the top half.  Then you would use::"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockVerbatim",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": "    cdict = {'red':   [(0.0,  0.0, 0.0),",
+                  "_number": 8,
+                  "_offset": 4
+                },
+                {
+                  "_line": "                       (0.5,  1.0, 1.0),",
+                  "_number": 9,
+                  "_offset": 4
+                },
+                {
+                  "_line": "                       (1.0,  1.0, 1.0)],",
+                  "_number": 10,
+                  "_offset": 4
+                },
+                {
+                  "_line": "",
+                  "_number": 11,
+                  "_offset": 4
+                },
+                {
+                  "_line": "             'green': [(0.0,  0.0, 0.0),",
+                  "_number": 12,
+                  "_offset": 4
+                },
+                {
+                  "_line": "                       (0.25, 0.0, 0.0),",
+                  "_number": 13,
+                  "_offset": 4
+                },
+                {
+                  "_line": "                       (0.75, 1.0, 1.0),",
+                  "_number": 14,
+                  "_offset": 4
+                },
+                {
+                  "_line": "                       (1.0,  1.0, 1.0)],",
+                  "_number": 15,
+                  "_offset": 4
+                },
+                {
+                  "_line": "",
+                  "_number": 16,
+                  "_offset": 4
+                },
+                {
+                  "_line": "             'blue':  [(0.0,  0.0, 0.0),",
+                  "_number": 17,
+                  "_offset": 4
+                },
+                {
+                  "_line": "                       (0.5,  0.0, 0.0),",
+                  "_number": 18,
+                  "_offset": 4
+                },
+                {
+                  "_line": "                       (1.0,  1.0, 1.0)]}",
+                  "_number": 19,
+                  "_offset": 4
+                },
+                {
+                  "_line": "",
+                  "_number": 20,
+                  "_offset": 4
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Each row in the table for a given color is a sequence of *x*, *y0*, *y1* tuples.  In each sequence, *x* must increase monotonically from 0 to 1.  For any input value *z* falling between *x[i]* and *x[i+1]*, the output value of a given color will be linearly interpolated between *y1[i]* and *y0[i+1]*::"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockVerbatim",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": "    row i:   x  y0  y1",
+                  "_number": 27,
+                  "_offset": 4
+                },
+                {
+                  "_line": "                   /",
+                  "_number": 28,
+                  "_offset": 4
+                },
+                {
+                  "_line": "                  /",
+                  "_number": 29,
+                  "_offset": 4
+                },
+                {
+                  "_line": "    row i+1: x  y0  y1",
+                  "_number": 30,
+                  "_offset": 4
+                },
+                {
+                  "_line": "",
+                  "_number": 31,
+                  "_offset": 4
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Hence y0 in the first row and y1 in the last row are never used."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Parameters": {
+      "children": []
+    },
+    "Returns": {
+      "children": []
+    },
+    "Yields": {
+      "children": []
+    },
+    "Receives": {
+      "children": []
+    },
+    "Raises": {
+      "children": []
+    },
+    "Warns": {
+      "children": []
+    },
+    "Other Parameters": {
+      "children": []
+    },
+    "Attributes": {
+      "children": []
+    },
+    "Methods": {
+      "children": []
+    },
+    "Notes": {
+      "children": []
+    },
+    "Warnings": {
+      "children": []
+    }
+  },
+  "refs": [
+    "LinearSegmentedColormap.from_list",
+    "makeMappingArray"
+  ],
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "See Also"
+  ],
+  "item_file": "/Users/bussonniermatthias/miniconda3/lib/python3.8/site-packages/matplotlib/colors.py",
+  "item_line": 704,
+  "item_type": "<class 'function'>",
+  "aliases": [
+    "matplotlib.colors.LinearSegmentedColormap.__init__"
+  ],
+  "example_section_data": {
+    "children": []
+  },
+  "see_also": [
+    {
+      "name": {
+        "name": "LinearSegmentedColormap.from_list",
+        "ref": null,
+        "exists": null
+      },
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "Static method; factory function for generating a smoothly-varying LinearSegmentedColormap."
+              }
+            }
+          ]
+        }
+      ],
+      "type": null
+    },
+    {
+      "name": {
+        "name": "makeMappingArray",
+        "ref": null,
+        "exists": null
+      },
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "For information about making a mapping array."
+              }
+            }
+          ]
+        }
+      ],
+      "type": null
+    }
+  ],
+  "references": null,
+  "signature": "__init__(self, name, segmentdata, N=256, gamma=1.0)"
+}

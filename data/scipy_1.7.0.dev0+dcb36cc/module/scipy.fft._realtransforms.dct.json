@@ -1,0 +1,1978 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Return the Discrete Cosine Transform of arbitrary type sequence x."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Extended Summary": {
+      "children": []
+    },
+    "Parameters": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "x",
+            "type_": "array_like",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The input array."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "type",
+            "type_": "{1, 2, 3, 4}, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Type of the DCT (see Notes). Default type is 2."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "n",
+            "type_": "int, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Length of the transform.  If "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "n",
+                          " ",
+                          "<",
+                          " ",
+                          "x.shape[axis]"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ", "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "x"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " is truncated.  If "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "n",
+                          " ",
+                          ">",
+                          " ",
+                          "x.shape[axis]"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ", "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "x"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " is zero-padded. The default results in "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "n",
+                          " ",
+                          "=",
+                          " ",
+                          "x.shape[axis]"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "axis",
+            "type_": "int, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Axis along which the dct is computed; the default is over the last axis (i.e., "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "axis=-1"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ")."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "norm",
+            "type_": "{\"backward\", \"ortho\", \"forward\"}, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Normalization mode (see Notes). Default is \"backward\"."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "overwrite_x",
+            "type_": "bool, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "If True, the contents of "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "x"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " can be destroyed; the default is False."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "workers",
+            "type_": "int, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Maximum number of workers to use for parallel computation. If negative, the value wraps around from "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "os.cpu",
+                          "_",
+                          "count()"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ". See "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "~scipy.fft.fft"
+                        ],
+                        "domain": null,
+                        "role": "func"
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " for more details."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Returns": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "y",
+            "type_": "ndarray of real",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The transformed input array."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Yields": {
+      "children": []
+    },
+    "Receives": {
+      "children": []
+    },
+    "Raises": {
+      "children": []
+    },
+    "Warns": {
+      "children": []
+    },
+    "Other Parameters": {
+      "children": []
+    },
+    "Attributes": {
+      "children": []
+    },
+    "Methods": {
+      "children": []
+    },
+    "Notes": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "For a single dimension array "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "x"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ", "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "dct(x,",
+                    " ",
+                    "norm='ortho')"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " is equal to MATLAB "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "dct(x)"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": "."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "For "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "norm=\"backward\""
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ", there is no scaling on "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "dct"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " and the "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "idct"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " is scaled by "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "1/N"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " where "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "N"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " is the \"logical\" size of the DCT. For "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "norm=\"forward\""
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " the "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "1/N"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " normalization is applied to the forward "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "dct"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " instead and the "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "idct"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " is unnormalized. For "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "norm='ortho'"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " both directions are scaled by the same factor of "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "1/sqrt(N)"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": "."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "There are, theoretically, 8 types of the DCT, only the first 4 types are implemented in SciPy.'The' DCT generally refers to DCT type 2, and 'the' Inverse DCT generally refers to DCT type 3."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "**Type I**"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "There are several definitions of the DCT-I; we use the following (for "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "norm=\"backward\""
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ")"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockDirective",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": ".. math::",
+                  "_number": 18,
+                  "_offset": 0
+                }
+              ]
+            },
+            "wh": {
+              "_lines": [
+                {
+                  "_line": "",
+                  "_number": 19,
+                  "_offset": 0
+                }
+              ]
+            },
+            "ind": {
+              "_lines": [
+                {
+                  "_line": "   y_k = x_0 + (-1)^k x_{N-1} + 2 \\sum_{n=1}^{N-2} x_n \\cos\\left(",
+                  "_number": 20,
+                  "_offset": 0
+                },
+                {
+                  "_line": "   \\frac{\\pi k n}{N-1} \\right)",
+                  "_number": 21,
+                  "_offset": 0
+                },
+                {
+                  "_line": "",
+                  "_number": 22,
+                  "_offset": 0
+                }
+              ]
+            },
+            "directive_name": "math",
+            "args0": [
+              ""
+            ],
+            "inner": {
+              "children": [
+                {
+                  "type": "Words",
+                  "data": {
+                    "value": "y_k = x_0 + (-1)^k x_{N-1} + 2 \\sum_{n=1}^{N-2} x_n \\cos\\left( \\frac{\\pi k n}{N-1} \\right) "
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "If "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "norm='ortho'"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ", "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "x[0]"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " and "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "x[N-1]"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " are multiplied by a scaling factor of "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "\\sqrt{2}"
+                  ],
+                  "domain": null,
+                  "role": "math"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ", and "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "y[k]"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " is multiplied by a scaling factor `"
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "f"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": "`"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockDirective",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": ".. math::",
+                  "_number": 27,
+                  "_offset": 0
+                }
+              ]
+            },
+            "wh": {
+              "_lines": [
+                {
+                  "_line": "",
+                  "_number": 28,
+                  "_offset": 0
+                }
+              ]
+            },
+            "ind": {
+              "_lines": [
+                {
+                  "_line": "    f = \\begin{cases}",
+                  "_number": 29,
+                  "_offset": 0
+                },
+                {
+                  "_line": "     \\frac{1}{2}\\sqrt{\\frac{1}{N-1}} & \\text{if }k=0\\text{ or }N-1, \\\\",
+                  "_number": 30,
+                  "_offset": 0
+                },
+                {
+                  "_line": "     \\frac{1}{2}\\sqrt{\\frac{2}{N-1}} & \\text{otherwise} \\end{cases}",
+                  "_number": 31,
+                  "_offset": 0
+                },
+                {
+                  "_line": "",
+                  "_number": 32,
+                  "_offset": 0
+                }
+              ]
+            },
+            "directive_name": "math",
+            "args0": [
+              ""
+            ],
+            "inner": {
+              "children": [
+                {
+                  "type": "Words",
+                  "data": {
+                    "value": "f = \\begin{cases}  \\frac{1}{2}\\sqrt{\\frac{1}{N-1}} & \\text{if }k=0\\text{ or }N-1, \\\\  \\frac{1}{2}\\sqrt{\\frac{2}{N-1}} & \\text{otherwise} \\end{cases} "
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "BlockDirective",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": ".. note::",
+                  "_number": 33,
+                  "_offset": 0
+                }
+              ]
+            },
+            "wh": {
+              "_lines": []
+            },
+            "ind": {
+              "_lines": [
+                {
+                  "_line": "   The DCT-I is only supported for input size > 1.",
+                  "_number": 34,
+                  "_offset": 0
+                },
+                {
+                  "_line": "",
+                  "_number": 35,
+                  "_offset": 0
+                }
+              ]
+            },
+            "directive_name": "note",
+            "args0": [
+              ""
+            ],
+            "inner": {
+              "children": [
+                {
+                  "type": "Words",
+                  "data": {
+                    "value": "The DCT-I is only supported for input size > 1. "
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "**Type II**"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "There are several definitions of the DCT-II; we use the following (for "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "norm=\"backward\""
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ")"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockDirective",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": ".. math::",
+                  "_number": 41,
+                  "_offset": 0
+                }
+              ]
+            },
+            "wh": {
+              "_lines": [
+                {
+                  "_line": "",
+                  "_number": 42,
+                  "_offset": 0
+                }
+              ]
+            },
+            "ind": {
+              "_lines": [
+                {
+                  "_line": "   y_k = 2 \\sum_{n=0}^{N-1} x_n \\cos\\left(\\frac{\\pi k(2n+1)}{2N} \\right)",
+                  "_number": 43,
+                  "_offset": 0
+                },
+                {
+                  "_line": "",
+                  "_number": 44,
+                  "_offset": 0
+                }
+              ]
+            },
+            "directive_name": "math",
+            "args0": [
+              ""
+            ],
+            "inner": {
+              "children": [
+                {
+                  "type": "Words",
+                  "data": {
+                    "value": "y_k = 2 \\sum_{n=0}^{N-1} x_n \\cos\\left(\\frac{\\pi k(2n+1)}{2N} \\right) "
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "If "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "norm=\"ortho\""
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ", "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "y[k]"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " is multiplied by a scaling factor `"
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "f"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": "`"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockDirective",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": ".. math::",
+                  "_number": 47,
+                  "_offset": 0
+                }
+              ]
+            },
+            "wh": {
+              "_lines": []
+            },
+            "ind": {
+              "_lines": [
+                {
+                  "_line": "   f = \\begin{cases}",
+                  "_number": 48,
+                  "_offset": 0
+                },
+                {
+                  "_line": "   \\sqrt{\\frac{1}{4N}} & \\text{if }k=0, \\\\",
+                  "_number": 49,
+                  "_offset": 0
+                },
+                {
+                  "_line": "   \\sqrt{\\frac{1}{2N}} & \\text{otherwise} \\end{cases}",
+                  "_number": 50,
+                  "_offset": 0
+                },
+                {
+                  "_line": "",
+                  "_number": 51,
+                  "_offset": 0
+                }
+              ]
+            },
+            "directive_name": "math",
+            "args0": [
+              ""
+            ],
+            "inner": {
+              "children": [
+                {
+                  "type": "Words",
+                  "data": {
+                    "value": "f = \\begin{cases} \\sqrt{\\frac{1}{4N}} & \\text{if }k=0, \\\\ \\sqrt{\\frac{1}{2N}} & \\text{otherwise} \\end{cases} "
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "which makes the corresponding matrix of coefficients orthonormal ("
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "O",
+                    " ",
+                    "@",
+                    " ",
+                    "O.T",
+                    " ",
+                    "=",
+                    " ",
+                    "np.eye(N)"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ")."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "**Type III**"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "There are several definitions, we use the following (for "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "norm=\"backward\""
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ")"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockDirective",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": ".. math::",
+                  "_number": 60,
+                  "_offset": 0
+                }
+              ]
+            },
+            "wh": {
+              "_lines": [
+                {
+                  "_line": "",
+                  "_number": 61,
+                  "_offset": 0
+                }
+              ]
+            },
+            "ind": {
+              "_lines": [
+                {
+                  "_line": "   y_k = x_0 + 2 \\sum_{n=1}^{N-1} x_n \\cos\\left(\\frac{\\pi(2k+1)n}{2N}\\right)",
+                  "_number": 62,
+                  "_offset": 0
+                },
+                {
+                  "_line": "",
+                  "_number": 63,
+                  "_offset": 0
+                }
+              ]
+            },
+            "directive_name": "math",
+            "args0": [
+              ""
+            ],
+            "inner": {
+              "children": [
+                {
+                  "type": "Words",
+                  "data": {
+                    "value": "y_k = x_0 + 2 \\sum_{n=1}^{N-1} x_n \\cos\\left(\\frac{\\pi(2k+1)n}{2N}\\right) "
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "or, for `"
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "norm=\"ortho\""
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": "`"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockDirective",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": ".. math::",
+                  "_number": 66,
+                  "_offset": 0
+                }
+              ]
+            },
+            "wh": {
+              "_lines": [
+                {
+                  "_line": "",
+                  "_number": 67,
+                  "_offset": 0
+                }
+              ]
+            },
+            "ind": {
+              "_lines": [
+                {
+                  "_line": "   y_k = \\frac{x_0}{\\sqrt{N}} + \\sqrt{\\frac{2}{N}} \\sum_{n=1}^{N-1} x_n",
+                  "_number": 68,
+                  "_offset": 0
+                },
+                {
+                  "_line": "   \\cos\\left(\\frac{\\pi(2k+1)n}{2N}\\right)",
+                  "_number": 69,
+                  "_offset": 0
+                },
+                {
+                  "_line": "",
+                  "_number": 70,
+                  "_offset": 0
+                }
+              ]
+            },
+            "directive_name": "math",
+            "args0": [
+              ""
+            ],
+            "inner": {
+              "children": [
+                {
+                  "type": "Words",
+                  "data": {
+                    "value": "y_k = \\frac{x_0}{\\sqrt{N}} + \\sqrt{\\frac{2}{N}} \\sum_{n=1}^{N-1} x_n \\cos\\left(\\frac{\\pi(2k+1)n}{2N}\\right) "
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "The (unnormalized) DCT-III is the inverse of the (unnormalized) DCT-II, up to a factor "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "2N"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ". The orthonormalized DCT-III is exactly the inverse of the orthonormalized DCT-II."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "**Type IV**"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "There are several definitions of the DCT-IV; we use the following (for "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "norm=\"backward\""
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ")"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockDirective",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": ".. math::",
+                  "_number": 80,
+                  "_offset": 0
+                }
+              ]
+            },
+            "wh": {
+              "_lines": [
+                {
+                  "_line": "",
+                  "_number": 81,
+                  "_offset": 0
+                }
+              ]
+            },
+            "ind": {
+              "_lines": [
+                {
+                  "_line": "   y_k = 2 \\sum_{n=0}^{N-1} x_n \\cos\\left(\\frac{\\pi(2k+1)(2n+1)}{4N} \\right)",
+                  "_number": 82,
+                  "_offset": 0
+                },
+                {
+                  "_line": "",
+                  "_number": 83,
+                  "_offset": 0
+                }
+              ]
+            },
+            "directive_name": "math",
+            "args0": [
+              ""
+            ],
+            "inner": {
+              "children": [
+                {
+                  "type": "Words",
+                  "data": {
+                    "value": "y_k = 2 \\sum_{n=0}^{N-1} x_n \\cos\\left(\\frac{\\pi(2k+1)(2n+1)}{4N} \\right) "
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "If "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "norm=\"ortho\""
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ", "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "y[k]"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " is multiplied by a scaling factor `"
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "f"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": "`"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockDirective",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": ".. math::",
+                  "_number": 86,
+                  "_offset": 0
+                }
+              ]
+            },
+            "wh": {
+              "_lines": [
+                {
+                  "_line": "",
+                  "_number": 87,
+                  "_offset": 0
+                }
+              ]
+            },
+            "ind": {
+              "_lines": [
+                {
+                  "_line": "    f = \\frac{1}{\\sqrt{2N}}",
+                  "_number": 88,
+                  "_offset": 0
+                }
+              ]
+            },
+            "directive_name": "math",
+            "args0": [
+              ""
+            ],
+            "inner": {
+              "children": [
+                {
+                  "type": "Words",
+                  "data": {
+                    "value": "f = \\frac{1}{\\sqrt{2N}}"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "Warnings": {
+      "children": []
+    }
+  },
+  "refs": [
+    "idct"
+  ],
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "aliases": [
+    "scipy.fft.dct"
+  ],
+  "example_section_data": {
+    "children": [
+      {
+        "type": "Paragraph",
+        "data": {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "The Type 1 DCT is equivalent to the FFT (though faster) for real, even-symmetrical inputs. The output is also real and even-symmetrical. Half of the FFT input is used to generate half of the FFT output:"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "from",
+              "",
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "scipy",
+              "",
+              "nn"
+            ],
+            [
+              ".",
+              "",
+              "nn"
+            ],
+            [
+              "fft",
+              "",
+              "nn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "import",
+              "",
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "fft",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "dct",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "fft",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "array",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "4.0",
+              "",
+              "mf"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "3.0",
+              "",
+              "mf"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "5.0",
+              "",
+              "mf"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "10.0",
+              "",
+              "mf"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "5.0",
+              "",
+              "mf"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "3.0",
+              "",
+              "mf"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "real",
+              "",
+              ""
+            ]
+          ],
+          "out": "array([ 30.,  -8.,   6.,  -2.,   6.,  -8.])",
+          "ce_status": "compiled"
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "dct",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "array",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "4.0",
+              "",
+              "mf"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "3.0",
+              "",
+              "mf"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "5.0",
+              "",
+              "mf"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "10.0",
+              "",
+              "mf"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "array([ 30.,  -8.,   6.,  -2.])",
+          "ce_status": "compiled"
+        }
+      }
+    ]
+  },
+  "see_also": [
+    {
+      "name": {
+        "name": "idct",
+        "ref": null,
+        "exists": null
+      },
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "Inverse DCT"
+              }
+            }
+          ]
+        }
+      ],
+      "type": null
+    }
+  ],
+  "signature": "dct(x, type=2, n=None, axis=-1, norm=None, overwrite_x=False, workers=None)",
+  "references": [
+    ".. [1] 'A Fast Cosine Transform in One and Two Dimensions', by J.",
+    "       Makhoul, `IEEE Transactions on acoustics, speech and signal",
+    "       processing` vol. 28(1), pp. 27-34,",
+    "       :doi:`10.1109/TASSP.1980.1163351` (1980).",
+    ".. [2] Wikipedia, \"Discrete cosine transform\",",
+    "       https://en.wikipedia.org/wiki/Discrete_cosine_transform"
+  ]
+}

@@ -1,0 +1,1302 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Return the Discrete Sine Transform of arbitrary type sequence x."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Extended Summary": {
+      "children": []
+    },
+    "Parameters": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "x",
+            "type_": "array_like",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The input array."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "type",
+            "type_": "{1, 2, 3, 4}, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Type of the DST (see Notes). Default type is 2."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "n",
+            "type_": "int, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Length of the transform. If "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "n",
+                          " ",
+                          "<",
+                          " ",
+                          "x.shape[axis]"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ", "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "x"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " is truncated.  If "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "n",
+                          " ",
+                          ">",
+                          " ",
+                          "x.shape[axis]"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ", "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "x"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " is zero-padded. The default results in "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "n",
+                          " ",
+                          "=",
+                          " ",
+                          "x.shape[axis]"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "axis",
+            "type_": "int, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Axis along which the dst is computed; the default is over the last axis (i.e., "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "axis=-1"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ")."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "norm",
+            "type_": "{\"backward\", \"ortho\", \"forward\"}, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Normalization mode (see Notes). Default is \"backward\"."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "overwrite_x",
+            "type_": "bool, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "If True, the contents of "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "x"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " can be destroyed; the default is False."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "workers",
+            "type_": "int, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Maximum number of workers to use for parallel computation. If negative, the value wraps around from "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "os.cpu",
+                          "_",
+                          "count()"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ". See "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "~scipy.fft.fft"
+                        ],
+                        "domain": null,
+                        "role": "func"
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " for more details."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Returns": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "dst",
+            "type_": "ndarray of reals",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The transformed input array."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Yields": {
+      "children": []
+    },
+    "Receives": {
+      "children": []
+    },
+    "Raises": {
+      "children": []
+    },
+    "Warns": {
+      "children": []
+    },
+    "Other Parameters": {
+      "children": []
+    },
+    "Attributes": {
+      "children": []
+    },
+    "Methods": {
+      "children": []
+    },
+    "Notes": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "For a single dimension array "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "x"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": "."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "For "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "norm=\"backward\""
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ", there is no scaling on the "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "dst"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " and the "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "idst"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " is scaled by "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "1/N"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " where "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "N"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " is the \"logical\" size of the DST. For "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "norm='ortho'"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " both directions are scaled by the same factor "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "1/sqrt(N)"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": "."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "There are, theoretically, 8 types of the DST for different combinations of even/odd boundary conditions and boundary off sets [1]_, only the first 4 types are implemented in SciPy."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "**Type I**"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "There are several definitions of the DST-I; we use the following for "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "norm=\"backward\""
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ". DST-I assumes the input is odd around "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "n=-1"
+                  ],
+                  "domain": null,
+                  "role": "math"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " and "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "n=N"
+                  ],
+                  "domain": null,
+                  "role": "math"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": "."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockDirective",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": ".. math::",
+                  "_number": 17,
+                  "_offset": 0
+                }
+              ]
+            },
+            "wh": {
+              "_lines": [
+                {
+                  "_line": "",
+                  "_number": 18,
+                  "_offset": 0
+                }
+              ]
+            },
+            "ind": {
+              "_lines": [
+                {
+                  "_line": "    y_k = 2 \\sum_{n=0}^{N-1} x_n \\sin\\left(\\frac{\\pi(k+1)(n+1)}{N+1}\\right)",
+                  "_number": 19,
+                  "_offset": 0
+                },
+                {
+                  "_line": "",
+                  "_number": 20,
+                  "_offset": 0
+                }
+              ]
+            },
+            "directive_name": "math",
+            "args0": [
+              ""
+            ],
+            "inner": {
+              "children": [
+                {
+                  "type": "Words",
+                  "data": {
+                    "value": "y_k = 2 \\sum_{n=0}^{N-1} x_n \\sin\\left(\\frac{\\pi(k+1)(n+1)}{N+1}\\right) "
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Note that the DST-I is only supported for input size > 1. The (unnormalized) DST-I is its own inverse, up to a factor "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "2(N+1)"
+                  ],
+                  "domain": null,
+                  "role": "math"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ". The orthonormalized DST-I is exactly its own inverse."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "**Type II**"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "There are several definitions of the DST-II; we use the following for "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "norm=\"backward\""
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ". DST-II assumes the input is odd around "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "n=-1/2"
+                  ],
+                  "domain": null,
+                  "role": "math"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " and "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "n=N-1/2"
+                  ],
+                  "domain": null,
+                  "role": "math"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": "; the output is odd around "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "k=-1"
+                  ],
+                  "domain": null,
+                  "role": "math"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " and even around "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "k=N-1"
+                  ],
+                  "domain": null,
+                  "role": "math"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockDirective",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": ".. math::",
+                  "_number": 31,
+                  "_offset": 0
+                }
+              ]
+            },
+            "wh": {
+              "_lines": [
+                {
+                  "_line": "",
+                  "_number": 32,
+                  "_offset": 0
+                }
+              ]
+            },
+            "ind": {
+              "_lines": [
+                {
+                  "_line": "    y_k = 2 \\sum_{n=0}^{N-1} x_n \\sin\\left(\\frac{\\pi(k+1)(2n+1)}{2N}\\right)",
+                  "_number": 33,
+                  "_offset": 0
+                },
+                {
+                  "_line": "",
+                  "_number": 34,
+                  "_offset": 0
+                }
+              ]
+            },
+            "directive_name": "math",
+            "args0": [
+              ""
+            ],
+            "inner": {
+              "children": [
+                {
+                  "type": "Words",
+                  "data": {
+                    "value": "y_k = 2 \\sum_{n=0}^{N-1} x_n \\sin\\left(\\frac{\\pi(k+1)(2n+1)}{2N}\\right) "
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "if "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "norm='ortho'"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ", "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "y[k]"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " is multiplied by a scaling factor `"
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "f"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": "`"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockDirective",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": ".. math::",
+                  "_number": 37,
+                  "_offset": 0
+                }
+              ]
+            },
+            "wh": {
+              "_lines": [
+                {
+                  "_line": "",
+                  "_number": 38,
+                  "_offset": 0
+                }
+              ]
+            },
+            "ind": {
+              "_lines": [
+                {
+                  "_line": "    f = \\begin{cases}",
+                  "_number": 39,
+                  "_offset": 0
+                },
+                {
+                  "_line": "    \\sqrt{\\frac{1}{4N}} & \\text{if }k = 0, \\\\",
+                  "_number": 40,
+                  "_offset": 0
+                },
+                {
+                  "_line": "    \\sqrt{\\frac{1}{2N}} & \\text{otherwise} \\end{cases}",
+                  "_number": 41,
+                  "_offset": 0
+                },
+                {
+                  "_line": "",
+                  "_number": 42,
+                  "_offset": 0
+                }
+              ]
+            },
+            "directive_name": "math",
+            "args0": [
+              ""
+            ],
+            "inner": {
+              "children": [
+                {
+                  "type": "Words",
+                  "data": {
+                    "value": "f = \\begin{cases} \\sqrt{\\frac{1}{4N}} & \\text{if }k = 0, \\\\ \\sqrt{\\frac{1}{2N}} & \\text{otherwise} \\end{cases} "
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "**Type III**"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "There are several definitions of the DST-III, we use the following (for "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "norm=\"backward\""
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": "). DST-III assumes the input is odd around "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "n=-1"
+                  ],
+                  "domain": null,
+                  "role": "math"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " and even around "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "n=N-1"
+                  ],
+                  "domain": null,
+                  "role": "math"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockDirective",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": ".. math::",
+                  "_number": 49,
+                  "_offset": 0
+                }
+              ]
+            },
+            "wh": {
+              "_lines": [
+                {
+                  "_line": "",
+                  "_number": 50,
+                  "_offset": 0
+                }
+              ]
+            },
+            "ind": {
+              "_lines": [
+                {
+                  "_line": "    y_k = (-1)^k x_{N-1} + 2 \\sum_{n=0}^{N-2} x_n \\sin\\left(",
+                  "_number": 51,
+                  "_offset": 0
+                },
+                {
+                  "_line": "    \\frac{\\pi(2k+1)(n+1)}{2N}\\right)",
+                  "_number": 52,
+                  "_offset": 0
+                },
+                {
+                  "_line": "",
+                  "_number": 53,
+                  "_offset": 0
+                }
+              ]
+            },
+            "directive_name": "math",
+            "args0": [
+              ""
+            ],
+            "inner": {
+              "children": [
+                {
+                  "type": "Words",
+                  "data": {
+                    "value": "y_k = (-1)^k x_{N-1} + 2 \\sum_{n=0}^{N-2} x_n \\sin\\left( \\frac{\\pi(2k+1)(n+1)}{2N}\\right) "
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "The (unnormalized) DST-III is the inverse of the (unnormalized) DST-II, up to a factor "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "2N"
+                  ],
+                  "domain": null,
+                  "role": "math"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ". The orthonormalized DST-III is exactly the inverse of the orthonormalized DST-II."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "**Type IV**"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "There are several definitions of the DST-IV, we use the following (for "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "norm=\"backward\""
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": "). DST-IV assumes the input is odd around "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "n=-0.5"
+                  ],
+                  "domain": null,
+                  "role": "math"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " and even around "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "n=N-0.5"
+                  ],
+                  "domain": null,
+                  "role": "math"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockDirective",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": ".. math::",
+                  "_number": 64,
+                  "_offset": 0
+                }
+              ]
+            },
+            "wh": {
+              "_lines": [
+                {
+                  "_line": "",
+                  "_number": 65,
+                  "_offset": 0
+                }
+              ]
+            },
+            "ind": {
+              "_lines": [
+                {
+                  "_line": "    y_k = 2 \\sum_{n=0}^{N-1} x_n \\sin\\left(\\frac{\\pi(2k+1)(2n+1)}{4N}\\right)",
+                  "_number": 66,
+                  "_offset": 0
+                },
+                {
+                  "_line": "",
+                  "_number": 67,
+                  "_offset": 0
+                }
+              ]
+            },
+            "directive_name": "math",
+            "args0": [
+              ""
+            ],
+            "inner": {
+              "children": [
+                {
+                  "type": "Words",
+                  "data": {
+                    "value": "y_k = 2 \\sum_{n=0}^{N-1} x_n \\sin\\left(\\frac{\\pi(2k+1)(2n+1)}{4N}\\right) "
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "The (unnormalized) DST-IV is its own inverse, up to a factor "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "2N"
+                  ],
+                  "domain": null,
+                  "role": "math"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ". The orthonormalized DST-IV is exactly its own inverse."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Warnings": {
+      "children": []
+    }
+  },
+  "refs": [
+    "idst"
+  ],
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References"
+  ],
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "aliases": [
+    "scipy.fft.dst"
+  ],
+  "example_section_data": {
+    "children": []
+  },
+  "see_also": [
+    {
+      "name": {
+        "name": "idst",
+        "ref": null,
+        "exists": null
+      },
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "Inverse DST"
+              }
+            }
+          ]
+        }
+      ],
+      "type": null
+    }
+  ],
+  "signature": "dst(x, type=2, n=None, axis=-1, norm=None, overwrite_x=False, workers=None)",
+  "references": [
+    ".. [1] Wikipedia, \"Discrete sine transform\",",
+    "       https://en.wikipedia.org/wiki/Discrete_sine_transform"
+  ]
+}

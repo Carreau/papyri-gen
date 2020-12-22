@@ -1,0 +1,226 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Set a custom exception handler, which will be called if any of the exceptions in exc_tuple occur in the mainloop (specifically, in the run_code() method)."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Extended Summary": {
+      "children": []
+    },
+    "Parameters": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "exc_tuple",
+            "type_": "tuple of exception classes",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "A *tuple* of exception classes, for which to call the defined handler.  It is very important that you use a tuple, and NOT A LIST here, because of the way Python's except statement works.  If you only want to trap a single exception, use a singleton tuple::"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "BlockVerbatim",
+                "data": {
+                  "lines": {
+                    "_lines": [
+                      {
+                        "_line": "    exc_tuple == (MyCustomException,)",
+                        "_number": 5,
+                        "_offset": 4
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "handler",
+            "type_": "callable",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "handler must have the following signature::"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "BlockVerbatim",
+                "data": {
+                  "lines": {
+                    "_lines": [
+                      {
+                        "_line": "    def my_handler(self, etype, value, tb, tb_offset=None):",
+                        "_number": 2,
+                        "_offset": 4
+                      },
+                      {
+                        "_line": "        ...",
+                        "_number": 3,
+                        "_offset": 4
+                      },
+                      {
+                        "_line": "        return structured_traceback",
+                        "_number": 4,
+                        "_offset": 4
+                      },
+                      {
+                        "_line": "",
+                        "_number": 5,
+                        "_offset": 4
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Your handler must return a structured traceback (a list of strings), or None."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "This will be made into an instance method (via types.MethodType) of IPython itself, and it will be called if any of the exceptions listed in the exc_tuple are caught. If the handler is None, an internal basic one is used, which just prints basic info."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "To protect IPython from crashes, if your handler ever raises an exception or returns an invalid result, it will be immediately disabled."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "WARNING: by putting in your own exception handler into IPython's main",
+            "type_": "",
+            "desc": []
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "execution loop, you run a very good chance of nasty crashes.  This",
+            "type_": "",
+            "desc": []
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "facility should only be used if you really know what you are doing.",
+            "type_": "",
+            "desc": []
+          }
+        }
+      ]
+    },
+    "Returns": {
+      "children": []
+    },
+    "Yields": {
+      "children": []
+    },
+    "Receives": {
+      "children": []
+    },
+    "Raises": {
+      "children": []
+    },
+    "Warns": {
+      "children": []
+    },
+    "Other Parameters": {
+      "children": []
+    },
+    "Attributes": {
+      "children": []
+    },
+    "Methods": {
+      "children": []
+    },
+    "Notes": {
+      "children": []
+    },
+    "Warnings": {
+      "children": []
+    }
+  },
+  "refs": [],
+  "ordered_sections": [
+    "Signature",
+    "Summary",
+    "Parameters"
+  ],
+  "item_file": "/Users/bussonniermatthias/dev/ipython/IPython/core/interactiveshell.py",
+  "item_line": 1845,
+  "item_type": "<class 'function'>",
+  "aliases": [
+    "IPython.InteractiveShell.set_custom_exc"
+  ],
+  "example_section_data": {
+    "children": []
+  },
+  "see_also": [],
+  "references": null,
+  "signature": "set_custom_exc(exc_tuple, handler)"
+}

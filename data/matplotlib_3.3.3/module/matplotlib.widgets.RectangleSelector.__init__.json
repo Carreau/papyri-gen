@@ -1,0 +1,533 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": ":: workaround numpyoc summary/ext summary bug in take2::Line.__init__"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Extended Summary": {
+      "children": []
+    },
+    "Parameters": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "ax",
+            "type_": "`~matplotlib.axes.Axes`",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The parent axes for the widget."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "onselect",
+            "type_": "function",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "A callback function that is called after a selection is completed. It must have the signature::"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "BlockVerbatim",
+                "data": {
+                  "lines": {
+                    "_lines": [
+                      {
+                        "_line": "    def onselect(eclick: MouseEvent, erelease: MouseEvent)",
+                        "_number": 3,
+                        "_offset": 4
+                      },
+                      {
+                        "_line": "",
+                        "_number": 4,
+                        "_offset": 4
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "where *eclick* and *erelease* are the mouse click and release "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          ".MouseEvent"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "\\s that start and complete the selection."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "drawtype",
+            "type_": "{\"box\", \"line\", \"none\"}, default: \"box\"",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Whether to draw the full rectangle box, the diagonal line of the rectangle, or nothing at all."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "minspanx",
+            "type_": "float, default: 0",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Selections with an x-span less than *minspanx* are ignored."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "minspany",
+            "type_": "float, default: 0",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Selections with an y-span less than *minspany* are ignored."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "useblit",
+            "type_": "bool, default: False",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Whether to use blitting for faster drawing (if supported by the backend)."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "lineprops",
+            "type_": "dict, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Properties with which the line is drawn, if "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "drawtype",
+                          " ",
+                          "==",
+                          " ",
+                          "\"line\""
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ". Default::"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "BlockVerbatim",
+                "data": {
+                  "lines": {
+                    "_lines": [
+                      {
+                        "_line": "    dict(color=\"black\", linestyle=\"-\", linewidth=2, alpha=0.5)",
+                        "_number": 3,
+                        "_offset": 4
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "rectprops",
+            "type_": "dict, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Properties with which the rectangle is drawn, if "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "drawtype",
+                          " ",
+                          "==",
+                          " ",
+                          "\"box\""
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ".  Default::"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "BlockVerbatim",
+                "data": {
+                  "lines": {
+                    "_lines": [
+                      {
+                        "_line": "    dict(facecolor=\"red\", edgecolor=\"black\", alpha=0.2, fill=True)",
+                        "_number": 3,
+                        "_offset": 4
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "spancoords",
+            "type_": "{\"data\", \"pixels\"}, default: \"data\"",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Whether to interpret *minspanx* and *minspany* in data or in pixel coordinates."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "button",
+            "type_": "`.MouseButton`, list of `.MouseButton`, default: all buttons",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Button(s) that trigger rectangle selection."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "maxdist",
+            "type_": "float, default: 10",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Distance in pixels within which the interactive tool handles can be activated."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "marker_props",
+            "type_": "dict",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Properties with which the interactive handles are drawn.  Currently not implemented and ignored."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "interactive",
+            "type_": "bool, default: False",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Whether to draw a set of handles that allow interaction with the widget after it is drawn."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "state_modifier_keys",
+            "type_": "dict, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Keyboard modifiers which affect the widget's behavior.  Values amend the defaults."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "- \"move\": Move the existing shape, default: no modifier. - \"clear\": Clear the current shape, default: \"escape\". - \"square\": Makes the shape square, default: \"shift\". - \"center\": Make the initial point the center of the shape,"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "  default: \"ctrl\"."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "\"square\" and \"center\" can be combined."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Returns": {
+      "children": []
+    },
+    "Yields": {
+      "children": []
+    },
+    "Receives": {
+      "children": []
+    },
+    "Raises": {
+      "children": []
+    },
+    "Warns": {
+      "children": []
+    },
+    "Other Parameters": {
+      "children": []
+    },
+    "Attributes": {
+      "children": []
+    },
+    "Methods": {
+      "children": []
+    },
+    "Notes": {
+      "children": []
+    },
+    "Warnings": {
+      "children": []
+    }
+  },
+  "refs": [],
+  "ordered_sections": [
+    "Parameters"
+  ],
+  "item_file": "/Users/bussonniermatthias/miniconda3/lib/python3.8/site-packages/matplotlib/widgets.py",
+  "item_line": 1906,
+  "item_type": "<class 'function'>",
+  "aliases": [
+    "matplotlib.widgets.RectangleSelector.__init__"
+  ],
+  "example_section_data": {
+    "children": []
+  },
+  "see_also": [],
+  "references": null,
+  "signature": "__init__(self, ax, onselect, drawtype='box', minspanx=0, minspany=0, useblit=False, lineprops=None, rectprops=None, spancoords='data', button=None, maxdist=10, marker_props=None, interactive=False, state_modifier_keys=None)"
+}

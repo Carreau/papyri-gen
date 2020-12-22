@@ -1,0 +1,376 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Interface to extend the Worker"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "A worker plugin enables custom code to run at different stages of the Workers' lifecycle: at setup, during task state transitions, when a task or dependency is released, and at teardown."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "A plugin enables custom code to run at each of step of a Workers's life. Whenever such an event happens, the corresponding method on this class will be called. Note that the user code always runs within the Worker's main thread."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "To implement a plugin implement some of the methods of this class and register the plugin to your client in order to have it attached to every existing and future workers with "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "Client.register",
+                    "_",
+                    "worker",
+                    "_",
+                    "plugin"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": "."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Parameters": {
+      "children": []
+    },
+    "Returns": {
+      "children": []
+    },
+    "Yields": {
+      "children": []
+    },
+    "Receives": {
+      "children": []
+    },
+    "Raises": {
+      "children": []
+    },
+    "Warns": {
+      "children": []
+    },
+    "Other Parameters": {
+      "children": []
+    },
+    "Attributes": {
+      "children": []
+    },
+    "Methods": {
+      "children": []
+    },
+    "Notes": {
+      "children": []
+    },
+    "Warnings": {
+      "children": []
+    }
+  },
+  "refs": [
+    "__main__.ErrorLogger",
+    "__main__.ErrorLogger.__init__",
+    "distributed.diagnostics.plugin.WorkerPlugin"
+  ],
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Examples"
+  ],
+  "item_file": "/Users/bussonniermatthias/dev/distributed/distributed/diagnostics/plugin.py",
+  "item_line": 93,
+  "item_type": "<class 'type'>",
+  "aliases": [
+    "distributed.WorkerPlugin"
+  ],
+  "example_section_data": {
+    "children": [
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "class",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "ErrorLogger",
+              "__main__.ErrorLogger",
+              "nc"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "WorkerPlugin",
+              "distributed.diagnostics.plugin.WorkerPlugin",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "def",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "__init__",
+              "__main__.ErrorLogger.__init__",
+              "fm"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "self",
+              "__main__.ErrorLogger",
+              "bp"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "logger",
+              null,
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "        ",
+              "",
+              ""
+            ],
+            [
+              "self",
+              "__main__.ErrorLogger",
+              "bp"
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "logger",
+              null,
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "logger",
+              null,
+              ""
+            ]
+          ],
+          "out": "...\n...     def setup(self, worker):\n...         self.worker = worker\n...\n...     def transition(self, key, start, finish, *args, **kwargs):\n...         if finish == 'error':\n...             exc = self.worker.exceptions[key]\n...             self.logger.error(\"Task '%s' has failed with exception: %s\" % (key, str(exc)))",
+          "ce_status": "compiled"
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "plugin",
+              "__main__.ErrorLogger",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "ErrorLogger",
+              "__main__.ErrorLogger",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "client",
+              null,
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "register_worker_plugin",
+              null,
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "plugin",
+              "__main__.ErrorLogger",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "  ",
+              "",
+              ""
+            ],
+            [
+              "# doctest: +SKIP",
+              "",
+              "c1"
+            ]
+          ],
+          "out": "",
+          "ce_status": "compiled"
+        }
+      }
+    ]
+  },
+  "see_also": [],
+  "references": null,
+  "signature": "WorkerPlugin()"
+}

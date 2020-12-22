@@ -1,0 +1,413 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Reconstruct skeleton matrix from ID."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "The skeleton matrix can be reconstructed from the original matrix "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "A"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " and its ID rank and indices "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "k"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " and "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "idx"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ", respectively, as::"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockVerbatim",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": "    B = A[:,idx[:k]]",
+                  "_number": 3,
+                  "_offset": 4
+                },
+                {
+                  "_line": "",
+                  "_number": 4,
+                  "_offset": 4
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "The original matrix can then be reconstructed via::"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockVerbatim",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": "    numpy.hstack([B, numpy.dot(B, proj)])[:,numpy.argsort(idx)]",
+                  "_number": 7,
+                  "_offset": 4
+                },
+                {
+                  "_line": "",
+                  "_number": 8,
+                  "_offset": 4
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "See also "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "reconstruct",
+                    "_",
+                    "matrix",
+                    "_",
+                    "from",
+                    "_",
+                    "id"
+                  ],
+                  "domain": null,
+                  "role": "func"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " and "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "reconstruct",
+                    "_",
+                    "interp",
+                    "_",
+                    "matrix"
+                  ],
+                  "domain": null,
+                  "role": "func"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": "."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockDirective",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": "..  This function automatically detects the matrix data type and calls the",
+                  "_number": 12,
+                  "_offset": 0
+                }
+              ]
+            },
+            "wh": {
+              "_lines": []
+            },
+            "ind": {
+              "_lines": [
+                {
+                  "_line": "    appropriate backend. For details, see :func:`backend.idd_copycols` and",
+                  "_number": 13,
+                  "_offset": 0
+                },
+                {
+                  "_line": "    :func:`backend.idz_copycols`.",
+                  "_number": 14,
+                  "_offset": 0
+                }
+              ]
+            },
+            "directive_name": " This function automatically detects the matrix data type and calls the",
+            "args0": [],
+            "inner": {
+              "children": [
+                {
+                  "type": "Words",
+                  "data": {
+                    "value": "appropriate backend. For details, see "
+                  }
+                },
+                {
+                  "type": "Directive",
+                  "data": {
+                    "value": [
+                      "backend.idd",
+                      "_",
+                      "copycols"
+                    ],
+                    "domain": null,
+                    "role": "func"
+                  }
+                },
+                {
+                  "type": "Words",
+                  "data": {
+                    "value": " and "
+                  }
+                },
+                {
+                  "type": "Directive",
+                  "data": {
+                    "value": [
+                      "backend.idz",
+                      "_",
+                      "copycols"
+                    ],
+                    "domain": null,
+                    "role": "func"
+                  }
+                },
+                {
+                  "type": "Words",
+                  "data": {
+                    "value": "."
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "Parameters": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "A",
+            "type_": ":class:`numpy.ndarray`",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Original matrix."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "k",
+            "type_": "int",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Rank of ID."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "idx",
+            "type_": ":class:`numpy.ndarray`",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Column index array."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Returns": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "",
+            "type_": ":class:`numpy.ndarray`",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Skeleton matrix."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Yields": {
+      "children": []
+    },
+    "Receives": {
+      "children": []
+    },
+    "Raises": {
+      "children": []
+    },
+    "Warns": {
+      "children": []
+    },
+    "Other Parameters": {
+      "children": []
+    },
+    "Attributes": {
+      "children": []
+    },
+    "Methods": {
+      "children": []
+    },
+    "Notes": {
+      "children": []
+    },
+    "Warnings": {
+      "children": []
+    }
+  },
+  "refs": [],
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns"
+  ],
+  "item_file": "/Users/bussonniermatthias/dev/scipy/scipy/linalg/interpolative.py",
+  "item_line": 666,
+  "item_type": "<class 'function'>",
+  "aliases": [
+    "scipy.linalg.interpolative.reconstruct_skel_matrix"
+  ],
+  "example_section_data": {
+    "children": []
+  },
+  "see_also": [],
+  "signature": "reconstruct_skel_matrix(A, k, idx)",
+  "references": null
+}

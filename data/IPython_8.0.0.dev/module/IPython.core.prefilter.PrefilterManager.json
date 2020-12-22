@@ -1,0 +1,404 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Main prefilter component."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "The IPython prefilter is run on all user input before it is run.  The prefilter consumes lines of input and produces transformed lines of input."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "The implementation consists of two phases:"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "1. Transformers 2. Checkers and handlers"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Over time, we plan on deprecating the checkers and handlers and doing everything in the transformers."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "The transformers are instances of "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "PrefilterTransformer"
+                  ],
+                  "domain": null,
+                  "role": "class"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " and have a single method "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "transform"
+                  ],
+                  "domain": null,
+                  "role": "meth"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " that takes a line and returns a transformed line.  The transformation can be accomplished using any tool, but our current ones use regular expressions for speed."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "After all the transformers have been run, the line is fed to the checkers, which are instances of "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "PrefilterChecker"
+                  ],
+                  "domain": null,
+                  "role": "class"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ".  The line is passed to the "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "check"
+                  ],
+                  "domain": null,
+                  "role": "meth"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " method, which either returns "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "None"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " or a "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "PrefilterHandler"
+                  ],
+                  "domain": null,
+                  "role": "class"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " instance.  If "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "None"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " is returned, the other checkers are tried.  If an "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "PrefilterHandler"
+                  ],
+                  "domain": null,
+                  "role": "class"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " instance is returned, the line is passed to the "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "handle"
+                  ],
+                  "domain": null,
+                  "role": "meth"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " method of the returned handler and no further checkers are tried."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Both transformers and checkers have a "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "priority"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " attribute, that determines the order in which they are called.  Smaller priorities are tried first."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Both transformers and checkers also have "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "enabled"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " attribute, which is a boolean that determines if the instance is used."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Users or developers can change the priority or enabled attribute of transformers or checkers, but they must call the "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "sort",
+                    "_",
+                    "checkers"
+                  ],
+                  "domain": null,
+                  "role": "meth"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " or "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "sort",
+                    "_",
+                    "transformers"
+                  ],
+                  "domain": null,
+                  "role": "meth"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " method after changing the priority."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Parameters": {
+      "children": []
+    },
+    "Returns": {
+      "children": []
+    },
+    "Yields": {
+      "children": []
+    },
+    "Receives": {
+      "children": []
+    },
+    "Raises": {
+      "children": []
+    },
+    "Warns": {
+      "children": []
+    },
+    "Other Parameters": {
+      "children": []
+    },
+    "Attributes": {
+      "children": []
+    },
+    "Methods": {
+      "children": []
+    },
+    "Notes": {
+      "children": []
+    },
+    "Warnings": {
+      "children": []
+    }
+  },
+  "refs": [],
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "item_file": "/Users/bussonniermatthias/dev/ipython/IPython/core/prefilter.py",
+  "item_line": 78,
+  "item_type": "<class 'traitlets.traitlets.MetaHasTraits'>",
+  "aliases": [
+    "IPython.core.interactiveshell.PrefilterManager"
+  ],
+  "example_section_data": {
+    "children": []
+  },
+  "see_also": [],
+  "references": null,
+  "signature": "PrefilterManager(*args, **kwargs)"
+}

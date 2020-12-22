@@ -1,0 +1,587 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "[*Deprecated*] Create an *N* -element 1-d lookup table."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "This assumes a mapping "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "f",
+                    " ",
+                    ":",
+                    " ",
+                    "[0,",
+                    " ",
+                    "1]",
+                    " ",
+                    "\\rightarrow",
+                    " ",
+                    "[0,",
+                    " ",
+                    "1]"
+                  ],
+                  "domain": null,
+                  "role": "math"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ". The returned data is an array of N values "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "y",
+                    " ",
+                    "=",
+                    " ",
+                    "f(x)"
+                  ],
+                  "domain": null,
+                  "role": "math"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " where x is sampled from [0, 1]."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "By default (*gamma* = 1) x is equidistantly sampled from [0, 1]. The *gamma* correction factor "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "\\gamma"
+                  ],
+                  "domain": null,
+                  "role": "math"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " distorts this equidistant sampling by "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "x",
+                    " ",
+                    "\\rightarrow",
+                    " ",
+                    "x^\\gamma"
+                  ],
+                  "domain": null,
+                  "role": "math"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": "."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Parameters": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "N",
+            "type_": "int",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The number of elements of the created lookup table; at least 1."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "data",
+            "type_": "Mx3 array-like or callable",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Defines the mapping "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "f"
+                        ],
+                        "domain": null,
+                        "role": "math"
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "If a Mx3 array-like, the rows define values (x, y0, y1). The x values must start with x=0, end with x=1, and all x values be in increasing order."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "A value between "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "x",
+                          "_",
+                          "i"
+                        ],
+                        "domain": null,
+                        "role": "math"
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " and "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "x",
+                          "_",
+                          "{i+1}"
+                        ],
+                        "domain": null,
+                        "role": "math"
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " is mapped to the range "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "y^1",
+                          "_",
+                          "{i-1}",
+                          " ",
+                          "\\ldots",
+                          " ",
+                          "y^0",
+                          "_",
+                          "i"
+                        ],
+                        "domain": null,
+                        "role": "math"
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " by linear interpolation."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "For the simple case of a y-continuous mapping, y0 and y1 are identical."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The two values of y are to allow for discontinuous mapping functions. E.g. a sawtooth with a period of 0.2 and an amplitude of 1 would be::"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "BlockVerbatim",
+                "data": {
+                  "lines": {
+                    "_lines": [
+                      {
+                        "_line": "    [(0, 1, 0), (0.2, 1, 0), (0.4, 1, 0), ..., [(1, 1, 0)]",
+                        "_number": 14,
+                        "_offset": 4
+                      },
+                      {
+                        "_line": "",
+                        "_number": 15,
+                        "_offset": 4
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "In the special case of "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "N",
+                          " ",
+                          "==",
+                          " ",
+                          "1"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ", by convention the returned value is y0 for x == 1."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "If *data* is a callable, it must accept and return numpy arrays::"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "BlockVerbatim",
+                "data": {
+                  "lines": {
+                    "_lines": [
+                      {
+                        "_line": "   data(x : ndarray) -> ndarray",
+                        "_number": 21,
+                        "_offset": 3
+                      },
+                      {
+                        "_line": "",
+                        "_number": 22,
+                        "_offset": 3
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "and map values between 0 - 1 to 0 - 1."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "gamma",
+            "type_": "float",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Gamma correction factor for input distribution x of the mapping."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "See also https://en.wikipedia.org/wiki/Gamma_correction."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Returns": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "",
+            "type_": "array",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The lookup table where "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "lut[x",
+                          " ",
+                          "*",
+                          " ",
+                          "(N-1)]"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " gives the closest value for values of x between 0 and 1."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Yields": {
+      "children": []
+    },
+    "Receives": {
+      "children": []
+    },
+    "Raises": {
+      "children": []
+    },
+    "Warns": {
+      "children": []
+    },
+    "Other Parameters": {
+      "children": []
+    },
+    "Attributes": {
+      "children": []
+    },
+    "Methods": {
+      "children": []
+    },
+    "Notes": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "This function is internally used for "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    ".LinearSegmentedColormap"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": "."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockDirective",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": ".. deprecated:: 3.2",
+                  "_number": 2,
+                  "_offset": 0
+                }
+              ]
+            },
+            "wh": {
+              "_lines": []
+            },
+            "ind": {
+              "_lines": []
+            },
+            "directive_name": "deprecated",
+            "args0": [
+              " 3.2"
+            ],
+            "inner": null
+          }
+        }
+      ]
+    },
+    "Warnings": {
+      "children": []
+    }
+  },
+  "refs": [],
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes"
+  ],
+  "item_file": "/Users/bussonniermatthias/miniconda3/lib/python3.8/site-packages/matplotlib/cbook/deprecation.py",
+  "item_line": 490,
+  "item_type": "<class 'function'>",
+  "aliases": [
+    "matplotlib.colors.makeMappingArray"
+  ],
+  "example_section_data": {
+    "children": []
+  },
+  "see_also": [],
+  "references": null,
+  "signature": "makeMappingArray(N, data, gamma=1.0)"
+}

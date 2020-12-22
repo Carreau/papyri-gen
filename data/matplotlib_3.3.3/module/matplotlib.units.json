@@ -1,0 +1,281 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "The classes here provide support for using custom classes with Matplotlib, e.g., those that do not expose the array interface but know how to convert themselves to arrays.  It also supports classes with units and units conversion.  Use cases include converters for custom objects, e.g., a list of datetime objects, as well as for objects that are unit aware.  We don't assume any particular units implementation; rather a units implementation must provide the register with the Registry converter dictionary and a "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "ConversionInterface"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ".  For example, here is a complete implementation which supports plotting with native datetime objects::"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "type": "DefList",
+          "data": {
+            "children": [
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": ":: workaround numpyoc summary/ext summary bug in take2::Line.__init__",
+                      "_number": 0,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "    import matplotlib.units as units",
+                      "_number": 0,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    import matplotlib.dates as dates",
+                      "_number": 1,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    import matplotlib.ticker as ticker",
+                      "_number": 2,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    import datetime",
+                      "_number": 3,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "",
+                      "_number": 4,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    class DateConverter(units.ConversionInterface):",
+                      "_number": 5,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "",
+                      "_number": 6,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "        @staticmethod",
+                      "_number": 7,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "        def convert(value, unit, axis):",
+                      "_number": 8,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "            'Convert a datetime value to a scalar or array'",
+                      "_number": 9,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "            return dates.date2num(value)",
+                      "_number": 10,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "",
+                      "_number": 11,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "        @staticmethod",
+                      "_number": 12,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "        def axisinfo(unit, axis):",
+                      "_number": 13,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "            'Return major and minor tick locators and formatters'",
+                      "_number": 14,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "            if unit!='date': return None",
+                      "_number": 15,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "            majloc = dates.AutoDateLocator()",
+                      "_number": 16,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "            majfmt = dates.AutoDateFormatter(majloc)",
+                      "_number": 17,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "            return AxisInfo(majloc=majloc,",
+                      "_number": 18,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "                            majfmt=majfmt,",
+                      "_number": 19,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "                            label='date')",
+                      "_number": 20,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "",
+                      "_number": 21,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "        @staticmethod",
+                      "_number": 22,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "        def default_units(x, axis):",
+                      "_number": 23,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "            'Return the default unit for x or None'",
+                      "_number": 24,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "            return 'date'",
+                      "_number": 25,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "",
+                      "_number": 26,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    # Finally we register our object type with the Matplotlib units registry.",
+                      "_number": 27,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    units.registry[datetime.date] = DateConverter()",
+                      "_number": 28,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "dt": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ":: workaround numpyoc summary/ext summary bug in take2::Line.__init__"
+                      }
+                    }
+                  ]
+                },
+                "dd": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "import matplotlib.units as units import matplotlib.dates as dates import matplotlib.ticker as ticker import datetime  class DateConverter(units.ConversionInterface):      @staticmethod     def convert(value, unit, axis):         'Convert a datetime value to a scalar or array'         return dates.date2num(value)      @staticmethod     def axisinfo(unit, axis):         'Return major and minor tick locators and formatters'         if unit!='date': return None         majloc = dates.AutoDateLocator()         majfmt = dates.AutoDateFormatter(majloc)         return AxisInfo(majloc=majloc,                         majfmt=majfmt,                         label='date')      @staticmethod     def default_units(x, axis):         'Return the default unit for x or None'         return 'date'  # Finally we register our object type with the Matplotlib units registry. units.registry[datetime.date] = DateConverter()"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Parameters": {
+      "children": []
+    },
+    "Returns": {
+      "children": []
+    },
+    "Yields": {
+      "children": []
+    },
+    "Receives": {
+      "children": []
+    },
+    "Raises": {
+      "children": []
+    },
+    "Warns": {
+      "children": []
+    },
+    "Other Parameters": {
+      "children": []
+    },
+    "Attributes": {
+      "children": []
+    },
+    "Methods": {
+      "children": []
+    },
+    "Notes": {
+      "children": []
+    },
+    "Warnings": {
+      "children": []
+    }
+  },
+  "refs": [],
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "item_file": "/Users/bussonniermatthias/miniconda3/lib/python3.8/site-packages/matplotlib/units.py",
+  "item_line": 0,
+  "item_type": "<class 'module'>",
+  "aliases": [
+    "matplotlib.units"
+  ],
+  "example_section_data": {
+    "children": []
+  },
+  "see_also": [],
+  "references": null,
+  "signature": null
+}

@@ -1,0 +1,326 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "A "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    ".Formatter"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " which attempts to figure out the best format to use.  This is most useful when used with the "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "AutoDateLocator"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": "."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "The AutoDateFormatter has a scale dictionary that maps the scale of the tick (the distance in days between one major tick) and a format string.  The default looks like this::"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockVerbatim",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": "    self.scaled = {",
+                  "_number": 4,
+                  "_offset": 4
+                },
+                {
+                  "_line": "        DAYS_PER_YEAR: rcParams['date.autoformat.year'],",
+                  "_number": 5,
+                  "_offset": 4
+                },
+                {
+                  "_line": "        DAYS_PER_MONTH: rcParams['date.autoformat.month'],",
+                  "_number": 6,
+                  "_offset": 4
+                },
+                {
+                  "_line": "        1.0: rcParams['date.autoformat.day'],",
+                  "_number": 7,
+                  "_offset": 4
+                },
+                {
+                  "_line": "        1. / HOURS_PER_DAY: rcParams['date.autoformat.hour'],",
+                  "_number": 8,
+                  "_offset": 4
+                },
+                {
+                  "_line": "        1. / (MINUTES_PER_DAY): rcParams['date.autoformat.minute'],",
+                  "_number": 9,
+                  "_offset": 4
+                },
+                {
+                  "_line": "        1. / (SEC_PER_DAY): rcParams['date.autoformat.second'],",
+                  "_number": 10,
+                  "_offset": 4
+                },
+                {
+                  "_line": "        1. / (MUSECONDS_PER_DAY): rcParams['date.autoformat.microsecond'],",
+                  "_number": 11,
+                  "_offset": 4
+                },
+                {
+                  "_line": "    }",
+                  "_number": 12,
+                  "_offset": 4
+                },
+                {
+                  "_line": "",
+                  "_number": 13,
+                  "_offset": 4
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "The algorithm picks the key in the dictionary that is >= the current scale and uses that format string.  You can customize this dictionary by doing::"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Example",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": ">>> locator = AutoDateLocator()",
+                  "_number": 18,
+                  "_offset": 0
+                },
+                {
+                  "_line": ">>> formatter = AutoDateFormatter(locator)",
+                  "_number": 19,
+                  "_offset": 0
+                },
+                {
+                  "_line": ">>> formatter.scaled[1/(24.*60.)] = '%M:%S' # only show min and sec",
+                  "_number": 20,
+                  "_offset": 0
+                }
+              ]
+            },
+            "wh": {
+              "_lines": [
+                {
+                  "_line": "",
+                  "_number": 21,
+                  "_offset": 0
+                }
+              ]
+            },
+            "ind": {
+              "_lines": []
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "A custom "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    ".FuncFormatter"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " can also be used.  The following example shows how to use a custom format function to strip trailing zeros from decimal seconds and adds the date to the first ticklabel::"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockVerbatim",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": "    >>> def my_format_function(x, pos=None):",
+                  "_number": 26,
+                  "_offset": 4
+                },
+                {
+                  "_line": "    ...     x = matplotlib.dates.num2date(x)",
+                  "_number": 27,
+                  "_offset": 4
+                },
+                {
+                  "_line": "    ...     if pos == 0:",
+                  "_number": 28,
+                  "_offset": 4
+                },
+                {
+                  "_line": "    ...         fmt = '%D %H:%M:%S.%f'",
+                  "_number": 29,
+                  "_offset": 4
+                },
+                {
+                  "_line": "    ...     else:",
+                  "_number": 30,
+                  "_offset": 4
+                },
+                {
+                  "_line": "    ...         fmt = '%H:%M:%S.%f'",
+                  "_number": 31,
+                  "_offset": 4
+                },
+                {
+                  "_line": "    ...     label = x.strftime(fmt)",
+                  "_number": 32,
+                  "_offset": 4
+                },
+                {
+                  "_line": "    ...     label = label.rstrip(\"0\")",
+                  "_number": 33,
+                  "_offset": 4
+                },
+                {
+                  "_line": "    ...     label = label.rstrip(\".\")",
+                  "_number": 34,
+                  "_offset": 4
+                },
+                {
+                  "_line": "    ...     return label",
+                  "_number": 35,
+                  "_offset": 4
+                },
+                {
+                  "_line": "    >>> from matplotlib.ticker import FuncFormatter",
+                  "_number": 36,
+                  "_offset": 4
+                },
+                {
+                  "_line": "    >>> formatter.scaled[1/(24.*60.)] = FuncFormatter(my_format_function)",
+                  "_number": 37,
+                  "_offset": 4
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "Parameters": {
+      "children": []
+    },
+    "Returns": {
+      "children": []
+    },
+    "Yields": {
+      "children": []
+    },
+    "Receives": {
+      "children": []
+    },
+    "Raises": {
+      "children": []
+    },
+    "Warns": {
+      "children": []
+    },
+    "Other Parameters": {
+      "children": []
+    },
+    "Attributes": {
+      "children": []
+    },
+    "Methods": {
+      "children": []
+    },
+    "Notes": {
+      "children": []
+    },
+    "Warnings": {
+      "children": []
+    }
+  },
+  "refs": [],
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "item_file": "/Users/bussonniermatthias/miniconda3/lib/python3.8/site-packages/matplotlib/dates.py",
+  "item_line": 836,
+  "item_type": "<class 'type'>",
+  "aliases": [
+    "matplotlib.dates.AutoDateFormatter"
+  ],
+  "example_section_data": {
+    "children": []
+  },
+  "see_also": [],
+  "references": null,
+  "signature": "AutoDateFormatter(locator, tz=None, defaultfmt='%Y-%m-%d')"
+}

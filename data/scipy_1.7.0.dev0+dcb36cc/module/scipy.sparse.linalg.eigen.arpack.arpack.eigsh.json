@@ -1,0 +1,2082 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Find k eigenvalues and eigenvectors of the real symmetric square matrix or complex Hermitian matrix A."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Solves "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "A",
+                    " ",
+                    "*",
+                    " ",
+                    "x[i]",
+                    " ",
+                    "=",
+                    " ",
+                    "w[i]",
+                    " ",
+                    "*",
+                    " ",
+                    "x[i]"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ", the standard eigenvalue problem for w[i] eigenvalues with corresponding eigenvectors x[i]."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "If M is specified, solves "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "A",
+                    " ",
+                    "*",
+                    " ",
+                    "x[i]",
+                    " ",
+                    "=",
+                    " ",
+                    "w[i]",
+                    " ",
+                    "*",
+                    " ",
+                    "M",
+                    " ",
+                    "*",
+                    " ",
+                    "x[i]"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ", the generalized eigenvalue problem for w[i] eigenvalues with corresponding eigenvectors x[i]."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Note that there is no specialized routine for the case when A is a complex Hermitian matrix. In this case, "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "eigsh()"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " will call "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "eigs()"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " and return the real parts of the eigenvalues thus obtained."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Parameters": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "A",
+            "type_": "ndarray, sparse matrix or LinearOperator",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "A square operator representing the operation "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "A",
+                          " ",
+                          "*",
+                          " ",
+                          "x"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ", where "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "A"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " is real symmetric or complex Hermitian. For buckling mode (see below) "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "A"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " must additionally be positive-definite."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "k",
+            "type_": "int, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The number of eigenvalues and eigenvectors desired. "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "k"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " must be smaller than N. It is not possible to compute all eigenvectors of a matrix."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Returns": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "w",
+            "type_": "array",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Array of k eigenvalues."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "v",
+            "type_": "array",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "An array representing the "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "k"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " eigenvectors.  The column "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "v[",
+                          ":",
+                          ",",
+                          " ",
+                          "i]"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " is the eigenvector corresponding to the eigenvalue "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "w[i]"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Yields": {
+      "children": []
+    },
+    "Receives": {
+      "children": []
+    },
+    "Raises": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "",
+            "type_": "ArpackNoConvergence",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "When the requested convergence is not obtained."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The currently converged eigenvalues and eigenvectors can be found as "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "eigenvalues"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " and "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "eigenvectors"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " attributes of the exception object."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Warns": {
+      "children": []
+    },
+    "Other Parameters": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "M",
+            "type_": "An N x N matrix, array, sparse matrix, or linear operator representing",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "the operation "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "M",
+                          " ",
+                          "@",
+                          " ",
+                          "x"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " for the generalized eigenvalue problem"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "    A @ x = w * M @ x."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "M must represent a real symmetric matrix if A is real, and must represent a complex Hermitian matrix if A is complex. For best results, the data type of M should be the same as that of A. Additionally:"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "    If sigma is None, M is symmetric positive definite."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "    If sigma is specified, M is symmetric positive semi-definite."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "    In buckling mode, M is symmetric indefinite."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "If sigma is None, eigsh requires an operator to compute the solution of the linear equation "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "M",
+                          " ",
+                          "@",
+                          " ",
+                          "x",
+                          " ",
+                          "=",
+                          " ",
+                          "b"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ". This is done internally via a (sparse) LU decomposition for an explicit matrix M, or via an iterative solver for a general linear operator.  Alternatively, the user can supply the matrix or operator Minv, which gives "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "x",
+                          " ",
+                          "=",
+                          " ",
+                          "Minv",
+                          " ",
+                          "@",
+                          " ",
+                          "b",
+                          " ",
+                          "=",
+                          " ",
+                          "M^-1",
+                          " ",
+                          "@",
+                          " ",
+                          "b"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "sigma",
+            "type_": "real",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Find eigenvalues near sigma using shift-invert mode.  This requires an operator to compute the solution of the linear system "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "[A",
+                          " ",
+                          "-",
+                          " ",
+                          "sigma",
+                          " ",
+                          "*",
+                          " ",
+                          "M]",
+                          " ",
+                          "x",
+                          " ",
+                          "=",
+                          " ",
+                          "b"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ", where M is the identity matrix if unspecified.  This is computed internally via a (sparse) LU decomposition for explicit matrices A & M, or via an iterative solver if either A or M is a general linear operator. Alternatively, the user can supply the matrix or operator OPinv, which gives "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "x",
+                          " ",
+                          "=",
+                          " ",
+                          "OPinv",
+                          " ",
+                          "@",
+                          " ",
+                          "b",
+                          " ",
+                          "=",
+                          " ",
+                          "[A",
+                          " ",
+                          "-",
+                          " ",
+                          "sigma",
+                          " ",
+                          "*",
+                          " ",
+                          "M]^-1",
+                          " ",
+                          "@",
+                          " ",
+                          "b"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ". Note that when sigma is specified, the keyword 'which' refers to the shifted eigenvalues "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "w'[i]"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " where:"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "    if mode == 'normal', "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "w'[i]",
+                          " ",
+                          "=",
+                          " ",
+                          "1",
+                          " ",
+                          "/",
+                          " ",
+                          "(w[i]",
+                          " ",
+                          "-",
+                          " ",
+                          "sigma)"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "    if mode == 'cayley', "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "w'[i]",
+                          " ",
+                          "=",
+                          " ",
+                          "(w[i]",
+                          " ",
+                          "+",
+                          " ",
+                          "sigma)",
+                          " ",
+                          "/",
+                          " ",
+                          "(w[i]",
+                          " ",
+                          "-",
+                          " ",
+                          "sigma)"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "    if mode == 'buckling', "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "w'[i]",
+                          " ",
+                          "=",
+                          " ",
+                          "w[i]",
+                          " ",
+                          "/",
+                          " ",
+                          "(w[i]",
+                          " ",
+                          "-",
+                          " ",
+                          "sigma)"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "(see further discussion in 'mode' below)"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "v0",
+            "type_": "ndarray, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Starting vector for iteration. Default: random"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "ncv",
+            "type_": "int, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The number of Lanczos vectors generated ncv must be greater than k and smaller than n; it is recommended that "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "ncv",
+                          " ",
+                          ">",
+                          " ",
+                          "2",
+                          "*",
+                          "k"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ". Default: `"
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "min(n,",
+                          " ",
+                          "max(2",
+                          "*",
+                          "k",
+                          " ",
+                          "+",
+                          " ",
+                          "1,",
+                          " ",
+                          "20))"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "`"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "which",
+            "type_": "str ['LM' | 'SM' | 'LA' | 'SA' | 'BE']",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "If A is a complex Hermitian matrix, 'BE' is invalid. Which "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "k"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " eigenvectors and eigenvalues to find:"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "    'LM' : Largest (in magnitude) eigenvalues."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "    'SM' : Smallest (in magnitude) eigenvalues."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "    'LA' : Largest (algebraic) eigenvalues."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "    'SA' : Smallest (algebraic) eigenvalues."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "    'BE' : Half (k/2) from each end of the spectrum."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "When k is odd, return one more (k/2+1) from the high end. When sigma != None, 'which' refers to the shifted eigenvalues "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "w'[i]"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " (see discussion in 'sigma', above).  ARPACK is generally better at finding large values than small values.  If small eigenvalues are desired, consider using shift-invert mode for better performance."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "maxiter",
+            "type_": "int, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Maximum number of Arnoldi update iterations allowed. Default: `"
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "n",
+                          "*",
+                          "10"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "`"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "tol",
+            "type_": "float",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Relative accuracy for eigenvalues (stopping criterion). The default value of 0 implies machine precision."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "Minv",
+            "type_": "N x N matrix, array, sparse matrix, or LinearOperator",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "See notes in M, above."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "OPinv",
+            "type_": "N x N matrix, array, sparse matrix, or LinearOperator",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "See notes in sigma, above."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "return_eigenvectors",
+            "type_": "bool",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Return eigenvectors (True) in addition to eigenvalues. This value determines the order in which eigenvalues are sorted. The sort order is also dependent on the "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "which"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " variable."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DefList",
+                "data": {
+                  "children": [
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "    For which = 'LM' or 'SA':",
+                            "_number": 4,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "        If `return_eigenvectors` is True, eigenvalues are sorted by",
+                            "_number": 5,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "        algebraic value.",
+                            "_number": 6,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "",
+                            "_number": 7,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "        If `return_eigenvectors` is False, eigenvalues are sorted by",
+                            "_number": 8,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "        absolute value.",
+                            "_number": 9,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "",
+                            "_number": 10,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "For which = 'LM' or 'SA':"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "If "
+                            }
+                          },
+                          {
+                            "type": "Directive",
+                            "data": {
+                              "value": [
+                                "return",
+                                "_",
+                                "eigenvectors"
+                              ],
+                              "domain": null,
+                              "role": null
+                            }
+                          },
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": " is True, eigenvalues are sorted by algebraic value.  If "
+                            }
+                          },
+                          {
+                            "type": "Directive",
+                            "data": {
+                              "value": [
+                                "return",
+                                "_",
+                                "eigenvectors"
+                              ],
+                              "domain": null,
+                              "role": null
+                            }
+                          },
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": " is False, eigenvalues are sorted by absolute value. "
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "    For which = 'BE' or 'LA':",
+                            "_number": 11,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "        eigenvalues are always sorted by algebraic value.",
+                            "_number": 12,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "",
+                            "_number": 13,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "For which = 'BE' or 'LA':"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "eigenvalues are always sorted by algebraic value. "
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "    For which = 'SM':",
+                            "_number": 14,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "        If `return_eigenvectors` is True, eigenvalues are sorted by",
+                            "_number": 15,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "        algebraic value.",
+                            "_number": 16,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "",
+                            "_number": 17,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "        If `return_eigenvectors` is False, eigenvalues are sorted by",
+                            "_number": 18,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "        decreasing absolute value.",
+                            "_number": 19,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "For which = 'SM':"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "If "
+                            }
+                          },
+                          {
+                            "type": "Directive",
+                            "data": {
+                              "value": [
+                                "return",
+                                "_",
+                                "eigenvectors"
+                              ],
+                              "domain": null,
+                              "role": null
+                            }
+                          },
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": " is True, eigenvalues are sorted by algebraic value.  If "
+                            }
+                          },
+                          {
+                            "type": "Directive",
+                            "data": {
+                              "value": [
+                                "return",
+                                "_",
+                                "eigenvectors"
+                              ],
+                              "domain": null,
+                              "role": null
+                            }
+                          },
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": " is False, eigenvalues are sorted by decreasing absolute value."
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "mode",
+            "type_": "string ['normal' | 'buckling' | 'cayley']",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Specify strategy to use for shift-invert mode.  This argument applies only for real-valued A and sigma != None.  For shift-invert mode, ARPACK internally solves the eigenvalue problem "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "OP",
+                          " ",
+                          "*",
+                          " ",
+                          "x'[i]",
+                          " ",
+                          "=",
+                          " ",
+                          "w'[i]",
+                          " ",
+                          "*",
+                          " ",
+                          "B",
+                          " ",
+                          "*",
+                          " ",
+                          "x'[i]"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " and transforms the resulting Ritz vectors x'[i] and Ritz values w'[i] into the desired eigenvectors and eigenvalues of the problem "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "A",
+                          " ",
+                          "*",
+                          " ",
+                          "x[i]",
+                          " ",
+                          "=",
+                          " ",
+                          "w[i]",
+                          " ",
+                          "*",
+                          " ",
+                          "M",
+                          " ",
+                          "*",
+                          " ",
+                          "x[i]"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ". The modes are as follows:"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DefList",
+                "data": {
+                  "children": [
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "    'normal' :",
+                            "_number": 9,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "        OP = [A - sigma * M]^-1 @ M,",
+                            "_number": 10,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "        B = M,",
+                            "_number": 11,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "        w'[i] = 1 / (w[i] - sigma)",
+                            "_number": 12,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "",
+                            "_number": 13,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "'normal' :"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "OP = [A - sigma * M]^-1 @ M, B = M, w'[i] = 1 / (w[i] - sigma) "
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "    'buckling' :",
+                            "_number": 14,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "        OP = [A - sigma * M]^-1 @ A,",
+                            "_number": 15,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "        B = A,",
+                            "_number": 16,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "        w'[i] = w[i] / (w[i] - sigma)",
+                            "_number": 17,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "",
+                            "_number": 18,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "'buckling' :"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "OP = [A - sigma * M]^-1 @ A, B = A, w'[i] = w[i] / (w[i] - sigma) "
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "    'cayley' :",
+                            "_number": 19,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "        OP = [A - sigma * M]^-1 @ [A + sigma * M],",
+                            "_number": 20,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "        B = M,",
+                            "_number": 21,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "        w'[i] = (w[i] + sigma) / (w[i] - sigma)",
+                            "_number": 22,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "",
+                            "_number": 23,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "'cayley' :"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "OP = [A - sigma * M]^-1 @ [A + sigma * M], B = M, w'[i] = (w[i] + sigma) / (w[i] - sigma) "
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The choice of mode will affect which eigenvalues are selected by the keyword 'which', and can also impact the stability of convergence (see [2] for a discussion)."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Attributes": {
+      "children": []
+    },
+    "Methods": {
+      "children": []
+    },
+    "Notes": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "This function is a wrapper to the ARPACK [1]_ SSEUPD and DSEUPD functions which use the Implicitly Restarted Lanczos Method to find the eigenvalues and eigenvectors [2]_."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Warnings": {
+      "children": []
+    }
+  },
+  "refs": [
+    "eigs",
+    "svds"
+  ],
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Other Parameters",
+    "Raises",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "item_file": "/Users/bussonniermatthias/dev/scipy/scipy/sparse/linalg/eigen/arpack/arpack.py",
+  "item_line": 1351,
+  "item_type": "<class 'function'>",
+  "aliases": [
+    "scipy.sparse.linalg.eigsh"
+  ],
+  "example_section_data": {
+    "children": [
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "from",
+              "",
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "scipy",
+              "",
+              "nn"
+            ],
+            [
+              ".",
+              "",
+              "nn"
+            ],
+            [
+              "sparse",
+              "",
+              "nn"
+            ],
+            [
+              ".",
+              "",
+              "nn"
+            ],
+            [
+              "linalg",
+              "",
+              "nn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "import",
+              "",
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "eigsh",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "identity",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "eye",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "13",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "eigenvalues",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "eigenvectors",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "eigsh",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "identity",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "k",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "6",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "eigenvalues",
+              "",
+              ""
+            ]
+          ],
+          "out": "array([1., 1., 1., 1., 1., 1.])",
+          "ce_status": "compiled"
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "eigenvectors",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "shape",
+              "",
+              ""
+            ]
+          ],
+          "out": "(13, 6)",
+          "ce_status": "compiled"
+        }
+      }
+    ]
+  },
+  "see_also": [
+    {
+      "name": {
+        "name": "eigs",
+        "ref": null,
+        "exists": null
+      },
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "eigenvalues and eigenvectors for a general (nonsymmetric) matrix A"
+              }
+            }
+          ]
+        }
+      ],
+      "type": null
+    },
+    {
+      "name": {
+        "name": "svds",
+        "ref": null,
+        "exists": null
+      },
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "singular value decomposition for a matrix A"
+              }
+            }
+          ]
+        }
+      ],
+      "type": null
+    }
+  ],
+  "signature": "eigsh(A, k=6, M=None, sigma=None, which='LM', v0=None, ncv=None, maxiter=None, tol=0, return_eigenvectors=True, Minv=None, OPinv=None, mode='normal')",
+  "references": [
+    ".. [1] ARPACK Software, http://www.caam.rice.edu/software/ARPACK/",
+    ".. [2] R. B. Lehoucq, D. C. Sorensen, and C. Yang,  ARPACK USERS GUIDE:",
+    "   Solution of Large Scale Eigenvalue Problems by Implicitly Restarted",
+    "   Arnoldi Methods. SIAM, Philadelphia, PA, 1998."
+  ]
+}

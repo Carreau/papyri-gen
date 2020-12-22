@@ -1,0 +1,804 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Plot identical parallel lines at the given positions."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "This type of plot is commonly used in neuroscience for representing neural events, where it is usually called a spike raster, dot raster, or raster plot."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "However, it is useful in any situation where you wish to show the timing or position of multiple sets of discrete events, such as the arrival times of people to a business on each day of the month or the date of hurricanes each year of the last century."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Parameters": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "positions",
+            "type_": "array-like or list of array-like",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "A 1D array-like defines the positions of one sequence of events."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Multiple groups of events may be passed as a list of array-likes. Each group can be styled independently by passing lists of values to *lineoffsets*, *linelengths*, *linewidths*, *colors* and *linestyles*."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Note that *positions* can be a 2D array, but in practice different event groups usually have different counts so that one will use a list of different-length arrays rather than a 2D array."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "orientation",
+            "type_": "{'horizontal', 'vertical'}, default: 'horizontal'",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The direction of the event sequence:"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DefList",
+                "data": {
+                  "children": [
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "- 'horizontal': the events are arranged horizontally.",
+                            "_number": 2,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "  The indicator lines are vertical.",
+                            "_number": 3,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "- 'horizontal': the events are arranged horizontally."
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "The indicator lines are vertical."
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "- 'vertical': the events are arranged vertically.",
+                            "_number": 4,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "  The indicator lines are horizontal.",
+                            "_number": 5,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "- 'vertical': the events are arranged vertically."
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "The indicator lines are horizontal."
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "lineoffsets",
+            "type_": "float or array-like, default: 1",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The offset of the center of the lines from the origin, in the direction orthogonal to *orientation*."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "If *positions* is 2D, this can be a sequence with length matching the length of *positions*."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "linelengths",
+            "type_": "float or array-like, default: 1",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The total height of the lines (i.e. the lines stretches from "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "lineoffset",
+                          " ",
+                          "-",
+                          " ",
+                          "linelength/2"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " to "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "lineoffset",
+                          " ",
+                          "+",
+                          " ",
+                          "linelength/2"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ")."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "If *positions* is 2D, this can be a sequence with length matching the length of *positions*."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "linewidths",
+            "type_": "float or array-like, default: :rc:`lines.linewidth`",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The line width(s) of the event lines, in points."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "If *positions* is 2D, this can be a sequence with length matching the length of *positions*."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "colors",
+            "type_": "color or list of colors, default: :rc:`lines.color`",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The color(s) of the event lines."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "If *positions* is 2D, this can be a sequence with length matching the length of *positions*."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "linestyles",
+            "type_": "str or tuple or list of such values, default: 'solid'",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Default is 'solid'. Valid strings are ['solid', 'dashed', 'dashdot', 'dotted', '-', '--', '-.', ':']. Dash tuples should be of the form::"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "BlockVerbatim",
+                "data": {
+                  "lines": {
+                    "_lines": [
+                      {
+                        "_line": "    (offset, onoffseq),",
+                        "_number": 4,
+                        "_offset": 4
+                      },
+                      {
+                        "_line": "",
+                        "_number": 5,
+                        "_offset": 4
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "where *onoffseq* is an even length tuple of on and off ink in points."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "If *positions* is 2D, this can be a sequence with length matching the length of *positions*."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "**kwargs",
+            "type_": "",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Other keyword arguments are line collection properties.  See "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          ".LineCollection"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " for a list of the valid properties."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Returns": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "",
+            "type_": "list of `.EventCollection`",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          ".EventCollection"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " that were added."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Yields": {
+      "children": []
+    },
+    "Receives": {
+      "children": []
+    },
+    "Raises": {
+      "children": []
+    },
+    "Warns": {
+      "children": []
+    },
+    "Other Parameters": {
+      "children": []
+    },
+    "Attributes": {
+      "children": []
+    },
+    "Methods": {
+      "children": []
+    },
+    "Notes": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "For *linelengths*, *linewidths*, *colors*, and *linestyles*, if only a single value is given, that value is applied to all lines.  If an array-like is given, it must have the same length as *positions*, and each value will be applied to the corresponding row of the array."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Warnings": {
+      "children": []
+    }
+  },
+  "refs": [],
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "Examples"
+  ],
+  "item_file": "/Users/bussonniermatthias/miniconda3/lib/python3.8/site-packages/matplotlib/pyplot.py",
+  "item_line": 2613,
+  "item_type": "<class 'function'>",
+  "aliases": [
+    "matplotlib.pyplot.eventplot"
+  ],
+  "example_section_data": {
+    "children": [
+      {
+        "type": "BlockDirective",
+        "data": {
+          "lines": {
+            "_lines": [
+              {
+                "_line": ".. plot:: gallery/lines_bars_and_markers/eventplot_demo.py",
+                "_number": 0,
+                "_offset": 0
+              }
+            ]
+          },
+          "wh": {
+            "_lines": []
+          },
+          "ind": {
+            "_lines": []
+          },
+          "directive_name": "plot",
+          "args0": [
+            " gallery/lines_bars_and_markers/eventplot_demo.py"
+          ],
+          "inner": null
+        }
+      },
+      {
+        "type": "BlockDirective",
+        "data": {
+          "lines": {
+            "_lines": [
+              {
+                "_line": ".. note::",
+                "_number": 0,
+                "_offset": 0
+              }
+            ]
+          },
+          "wh": {
+            "_lines": []
+          },
+          "ind": {
+            "_lines": [
+              {
+                "_line": "    In addition to the above described arguments, this function can take",
+                "_number": 1,
+                "_offset": 0
+              },
+              {
+                "_line": "    a *data* keyword argument. If such a *data* argument is given,",
+                "_number": 2,
+                "_offset": 0
+              },
+              {
+                "_line": "    the following arguments can also be string ``s``, which is",
+                "_number": 3,
+                "_offset": 0
+              },
+              {
+                "_line": "    interpreted as ``data[s]`` (unless this raises an exception):",
+                "_number": 4,
+                "_offset": 0
+              },
+              {
+                "_line": "    *positions*, *lineoffsets*, *linelengths*, *linewidths*, *colors*, *linestyles*.",
+                "_number": 5,
+                "_offset": 0
+              }
+            ]
+          },
+          "directive_name": "note",
+          "args0": [
+            ""
+          ],
+          "inner": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "In addition to the above described arguments, this function can take a *data* keyword argument. If such a *data* argument is given, the following arguments can also be string "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "s"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ", which is interpreted as "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "data[s]"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " (unless this raises an exception): *positions*, *lineoffsets*, *linelengths*, *linewidths*, *colors*, *linestyles*."
+                }
+              }
+            ]
+          }
+        }
+      },
+      {
+        "type": "DefList",
+        "data": {
+          "children": [
+            {
+              "lines": {
+                "_lines": [
+                  {
+                    "_line": ":: workaround numpyoc summary/ext summary bug in take2::Line.__init__",
+                    "_number": 0,
+                    "_offset": 0
+                  }
+                ]
+              },
+              "wh": {
+                "_lines": []
+              },
+              "ind": {
+                "_lines": [
+                  {
+                    "_line": "    Objects passed as **data** must support item access (``data[s]``) and",
+                    "_number": 0,
+                    "_offset": 0
+                  },
+                  {
+                    "_line": "    membership test (``s in data``).",
+                    "_number": 1,
+                    "_offset": 0
+                  }
+                ]
+              },
+              "dt": {
+                "children": [
+                  {
+                    "type": "Words",
+                    "data": {
+                      "value": ":: workaround numpyoc summary/ext summary bug in take2::Line.__init__"
+                    }
+                  }
+                ]
+              },
+              "dd": {
+                "children": [
+                  {
+                    "type": "Words",
+                    "data": {
+                      "value": "Objects passed as **data** must support item access ("
+                    }
+                  },
+                  {
+                    "type": "Verbatim",
+                    "data": {
+                      "value": [
+                        "data[s]"
+                      ]
+                    }
+                  },
+                  {
+                    "type": "Words",
+                    "data": {
+                      "value": ") and membership test ("
+                    }
+                  },
+                  {
+                    "type": "Verbatim",
+                    "data": {
+                      "value": [
+                        "s",
+                        " ",
+                        "in",
+                        " ",
+                        "data"
+                      ]
+                    }
+                  },
+                  {
+                    "type": "Words",
+                    "data": {
+                      "value": ")."
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "see_also": [],
+  "references": null,
+  "signature": "eventplot(positions, orientation='horizontal', lineoffsets=1, linelengths=1, linewidths=None, colors=None, linestyles='solid', *, data=None, **kwargs)"
+}

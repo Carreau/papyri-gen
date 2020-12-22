@@ -1,0 +1,300 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Rectified stereo image pair with ground-truth disparities."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "The two images are rectified such that every pixel in the left image has its corresponding pixel on the same scanline in the right image. That means that both images are warped such that they have the same orientation but a horizontal spatial offset (baseline). The ground-truth pixel offset in column direction is specified by the included disparity map."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "The two images are part of the Middlebury 2014 stereo benchmark. The dataset was created by Nera Nesic, Porter Westling, Xi Wang, York Kitajima, Greg Krathwohl, and Daniel Scharstein at Middlebury College. A detailed description of the acquisition process can be found in [1]_."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "The images included here are down-sampled versions of the default exposure images in the benchmark. The images are down-sampled by a factor of 4 using the function "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "skimage.transform.downscale",
+                    "_",
+                    "local",
+                    "_",
+                    "mean"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ". The calibration data in the following and the included ground-truth disparity map are valid for the down-sampled images::"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockVerbatim",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": "    Focal length:           994.978px",
+                  "_number": 17,
+                  "_offset": 4
+                },
+                {
+                  "_line": "    Principal point x:      311.193px",
+                  "_number": 18,
+                  "_offset": 4
+                },
+                {
+                  "_line": "    Principal point y:      254.877px",
+                  "_number": 19,
+                  "_offset": 4
+                },
+                {
+                  "_line": "    Principal point dx:      31.086px",
+                  "_number": 20,
+                  "_offset": 4
+                },
+                {
+                  "_line": "    Baseline:               193.001mm",
+                  "_number": 21,
+                  "_offset": 4
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "Parameters": {
+      "children": []
+    },
+    "Returns": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "img_left",
+            "type_": "(500, 741, 3) uint8 ndarray",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Left stereo image."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "img_right",
+            "type_": "(500, 741, 3) uint8 ndarray",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Right stereo image."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "disp",
+            "type_": "(500, 741, 3) float ndarray",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Ground-truth disparity map, where each value describes the offset in column direction between corresponding pixels in the left and the right stereo images. E.g. the corresponding pixel of "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "img",
+                          "_",
+                          "left[10,",
+                          " ",
+                          "10",
+                          " ",
+                          "+",
+                          " ",
+                          "disp[10,",
+                          " ",
+                          "10]]"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " is "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "img",
+                          "_",
+                          "right[10,",
+                          " ",
+                          "10]"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ". NaNs denote pixels in the left image that do not have ground-truth."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Yields": {
+      "children": []
+    },
+    "Receives": {
+      "children": []
+    },
+    "Raises": {
+      "children": []
+    },
+    "Warns": {
+      "children": []
+    },
+    "Other Parameters": {
+      "children": []
+    },
+    "Attributes": {
+      "children": []
+    },
+    "Methods": {
+      "children": []
+    },
+    "Notes": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "The original resolution images, images with different exposure and lighting, and ground-truth depth maps can be found at the Middlebury website [2]_."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Warnings": {
+      "children": []
+    }
+  },
+  "refs": [],
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Returns",
+    "Notes",
+    "References"
+  ],
+  "item_file": "/Users/bussonniermatthias/miniconda3/lib/python3.8/site-packages/skimage/data/__init__.py",
+  "item_line": 668,
+  "item_type": "<class 'function'>",
+  "aliases": [
+    "skimage.data.stereo_motorcycle"
+  ],
+  "example_section_data": {
+    "children": []
+  },
+  "see_also": [],
+  "references": [
+    ".. [1] D. Scharstein, H. Hirschmueller, Y. Kitajima, G. Krathwohl, N.",
+    "       Nesic, X. Wang, and P. Westling. High-resolution stereo datasets",
+    "       with subpixel-accurate ground truth. In German Conference on Pattern",
+    "       Recognition (GCPR 2014), Muenster, Germany, September 2014.",
+    ".. [2] http://vision.middlebury.edu/stereo/data/scenes2014/"
+  ],
+  "signature": "stereo_motorcycle()"
+}

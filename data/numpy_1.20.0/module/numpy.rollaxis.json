@@ -1,0 +1,1033 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Roll the specified axis backwards, until it lies in a given position."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "This function continues to be supported for backward compatibility, but you should prefer "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "moveaxis"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ". The "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "moveaxis"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " function was added in NumPy 1.11."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Parameters": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "a",
+            "type_": "ndarray",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Input array."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "axis",
+            "type_": "int",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The axis to be rolled. The positions of the other axes do not change relative to one another."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "start",
+            "type_": "int, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "When "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "start",
+                          " ",
+                          "<=",
+                          " ",
+                          "axis"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ", the axis is rolled back until it lies in this position. When "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "start",
+                          " ",
+                          ">",
+                          " ",
+                          "axis"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ", the axis is rolled until it lies before this position. The default, 0, results in a \"complete\" roll. The following table describes how negative values of "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "start"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " are interpreted:"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "BlockDirective",
+                "data": {
+                  "lines": {
+                    "_lines": [
+                      {
+                        "_line": ".. table::",
+                        "_number": 6,
+                        "_offset": 0
+                      }
+                    ]
+                  },
+                  "wh": {
+                    "_lines": []
+                  },
+                  "ind": {
+                    "_lines": [
+                      {
+                        "_line": "   :align: left",
+                        "_number": 7,
+                        "_offset": 0
+                      },
+                      {
+                        "_line": "",
+                        "_number": 8,
+                        "_offset": 0
+                      },
+                      {
+                        "_line": "   +-------------------+----------------------+",
+                        "_number": 9,
+                        "_offset": 0
+                      },
+                      {
+                        "_line": "   |     ``start``     | Normalized ``start`` |",
+                        "_number": 10,
+                        "_offset": 0
+                      },
+                      {
+                        "_line": "   +===================+======================+",
+                        "_number": 11,
+                        "_offset": 0
+                      },
+                      {
+                        "_line": "   | ``-(arr.ndim+1)`` | raise ``AxisError``  |",
+                        "_number": 12,
+                        "_offset": 0
+                      },
+                      {
+                        "_line": "   +-------------------+----------------------+",
+                        "_number": 13,
+                        "_offset": 0
+                      },
+                      {
+                        "_line": "   | ``-arr.ndim``     | 0                    |",
+                        "_number": 14,
+                        "_offset": 0
+                      },
+                      {
+                        "_line": "   +-------------------+----------------------+",
+                        "_number": 15,
+                        "_offset": 0
+                      },
+                      {
+                        "_line": "   | |vdots|           | |vdots|              |",
+                        "_number": 16,
+                        "_offset": 0
+                      },
+                      {
+                        "_line": "   +-------------------+----------------------+",
+                        "_number": 17,
+                        "_offset": 0
+                      },
+                      {
+                        "_line": "   | ``-1``            | ``arr.ndim-1``       |",
+                        "_number": 18,
+                        "_offset": 0
+                      },
+                      {
+                        "_line": "   +-------------------+----------------------+",
+                        "_number": 19,
+                        "_offset": 0
+                      },
+                      {
+                        "_line": "   | ``0``             | ``0``                |",
+                        "_number": 20,
+                        "_offset": 0
+                      },
+                      {
+                        "_line": "   +-------------------+----------------------+",
+                        "_number": 21,
+                        "_offset": 0
+                      },
+                      {
+                        "_line": "   | |vdots|           | |vdots|              |",
+                        "_number": 22,
+                        "_offset": 0
+                      },
+                      {
+                        "_line": "   +-------------------+----------------------+",
+                        "_number": 23,
+                        "_offset": 0
+                      },
+                      {
+                        "_line": "   | ``arr.ndim``      | ``arr.ndim``         |",
+                        "_number": 24,
+                        "_offset": 0
+                      },
+                      {
+                        "_line": "   +-------------------+----------------------+",
+                        "_number": 25,
+                        "_offset": 0
+                      },
+                      {
+                        "_line": "   | ``arr.ndim + 1``  | raise ``AxisError``  |",
+                        "_number": 26,
+                        "_offset": 0
+                      },
+                      {
+                        "_line": "   +-------------------+----------------------+",
+                        "_number": 27,
+                        "_offset": 0
+                      },
+                      {
+                        "_line": "",
+                        "_number": 28,
+                        "_offset": 0
+                      }
+                    ]
+                  },
+                  "directive_name": "table",
+                  "args0": [
+                    ""
+                  ],
+                  "inner": {
+                    "children": [
+                      {
+                        "type": "Words",
+                        "data": {
+                          "value": ":align: left  +-------------------+----------------------+ |     "
+                        }
+                      },
+                      {
+                        "type": "Verbatim",
+                        "data": {
+                          "value": [
+                            "start"
+                          ]
+                        }
+                      },
+                      {
+                        "type": "Words",
+                        "data": {
+                          "value": "     | Normalized "
+                        }
+                      },
+                      {
+                        "type": "Verbatim",
+                        "data": {
+                          "value": [
+                            "start"
+                          ]
+                        }
+                      },
+                      {
+                        "type": "Words",
+                        "data": {
+                          "value": " | +===================+======================+ | "
+                        }
+                      },
+                      {
+                        "type": "Verbatim",
+                        "data": {
+                          "value": [
+                            "-(arr.ndim+1)"
+                          ]
+                        }
+                      },
+                      {
+                        "type": "Words",
+                        "data": {
+                          "value": " | raise "
+                        }
+                      },
+                      {
+                        "type": "Verbatim",
+                        "data": {
+                          "value": [
+                            "AxisError"
+                          ]
+                        }
+                      },
+                      {
+                        "type": "Words",
+                        "data": {
+                          "value": "  | +-------------------+----------------------+ | "
+                        }
+                      },
+                      {
+                        "type": "Verbatim",
+                        "data": {
+                          "value": [
+                            "-arr.ndim"
+                          ]
+                        }
+                      },
+                      {
+                        "type": "Words",
+                        "data": {
+                          "value": "     | 0                    | +-------------------+----------------------+ | |vdots|           | |vdots|              | +-------------------+----------------------+ | "
+                        }
+                      },
+                      {
+                        "type": "Verbatim",
+                        "data": {
+                          "value": [
+                            "-1"
+                          ]
+                        }
+                      },
+                      {
+                        "type": "Words",
+                        "data": {
+                          "value": "            | "
+                        }
+                      },
+                      {
+                        "type": "Verbatim",
+                        "data": {
+                          "value": [
+                            "arr.ndim-1"
+                          ]
+                        }
+                      },
+                      {
+                        "type": "Words",
+                        "data": {
+                          "value": "       | +-------------------+----------------------+ | "
+                        }
+                      },
+                      {
+                        "type": "Verbatim",
+                        "data": {
+                          "value": [
+                            "0"
+                          ]
+                        }
+                      },
+                      {
+                        "type": "Words",
+                        "data": {
+                          "value": "             | "
+                        }
+                      },
+                      {
+                        "type": "Verbatim",
+                        "data": {
+                          "value": [
+                            "0"
+                          ]
+                        }
+                      },
+                      {
+                        "type": "Words",
+                        "data": {
+                          "value": "                | +-------------------+----------------------+ | |vdots|           | |vdots|              | +-------------------+----------------------+ | "
+                        }
+                      },
+                      {
+                        "type": "Verbatim",
+                        "data": {
+                          "value": [
+                            "arr.ndim"
+                          ]
+                        }
+                      },
+                      {
+                        "type": "Words",
+                        "data": {
+                          "value": "      | "
+                        }
+                      },
+                      {
+                        "type": "Verbatim",
+                        "data": {
+                          "value": [
+                            "arr.ndim"
+                          ]
+                        }
+                      },
+                      {
+                        "type": "Words",
+                        "data": {
+                          "value": "         | +-------------------+----------------------+ | "
+                        }
+                      },
+                      {
+                        "type": "Verbatim",
+                        "data": {
+                          "value": [
+                            "arr.ndim",
+                            " ",
+                            "+",
+                            " ",
+                            "1"
+                          ]
+                        }
+                      },
+                      {
+                        "type": "Words",
+                        "data": {
+                          "value": "  | raise "
+                        }
+                      },
+                      {
+                        "type": "Verbatim",
+                        "data": {
+                          "value": [
+                            "AxisError"
+                          ]
+                        }
+                      },
+                      {
+                        "type": "Words",
+                        "data": {
+                          "value": "  | +-------------------+----------------------+ "
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "BlockDirective",
+                "data": {
+                  "lines": {
+                    "_lines": [
+                      {
+                        "_line": ".. |vdots|   unicode:: U+22EE .. Vertical Ellipsis",
+                        "_number": 29,
+                        "_offset": 0
+                      }
+                    ]
+                  },
+                  "wh": {
+                    "_lines": []
+                  },
+                  "ind": {
+                    "_lines": []
+                  },
+                  "directive_name": "|vdots|   unicode",
+                  "args0": [
+                    " U+22EE .. Vertical Ellipsis"
+                  ],
+                  "inner": null
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Returns": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "res",
+            "type_": "ndarray",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "For NumPy >= 1.10.0 a view of "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "a"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " is always returned. For earlier NumPy versions a view of "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "a"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " is returned only if the order of the axes is changed, otherwise the input array is returned."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Yields": {
+      "children": []
+    },
+    "Receives": {
+      "children": []
+    },
+    "Raises": {
+      "children": []
+    },
+    "Warns": {
+      "children": []
+    },
+    "Other Parameters": {
+      "children": []
+    },
+    "Attributes": {
+      "children": []
+    },
+    "Methods": {
+      "children": []
+    },
+    "Notes": {
+      "children": []
+    },
+    "Warnings": {
+      "children": []
+    }
+  },
+  "refs": [
+    "moveaxis",
+    "numpy",
+    "numpy.ndarray",
+    "numpy.ones",
+    "numpy.rollaxis",
+    "roll"
+  ],
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Examples"
+  ],
+  "item_file": "<__array_function__ internals>",
+  "item_line": 1251,
+  "item_type": "<class 'function'>",
+  "aliases": [
+    "numpy.rollaxis"
+  ],
+  "example_section_data": {
+    "children": [
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "a",
+              null,
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "ones",
+              "numpy.ones",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "4",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "5",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "6",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "rollaxis",
+              "numpy.rollaxis",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "a",
+              "numpy.ndarray",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "shape",
+              null,
+              ""
+            ]
+          ],
+          "out": "(3, 6, 4, 5)",
+          "ce_status": "execed"
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "rollaxis",
+              "numpy.rollaxis",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "a",
+              "numpy.ndarray",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "shape",
+              null,
+              ""
+            ]
+          ],
+          "out": "(5, 3, 4, 6)",
+          "ce_status": "execed"
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "rollaxis",
+              "numpy.rollaxis",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "a",
+              "numpy.ndarray",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "4",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "shape",
+              null,
+              ""
+            ]
+          ],
+          "out": "(3, 5, 6, 4)",
+          "ce_status": "execed"
+        }
+      }
+    ]
+  },
+  "see_also": [
+    {
+      "name": {
+        "name": "moveaxis",
+        "ref": null,
+        "exists": null
+      },
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "Move array axes to new positions."
+              }
+            }
+          ]
+        }
+      ],
+      "type": null
+    },
+    {
+      "name": {
+        "name": "roll",
+        "ref": null,
+        "exists": null
+      },
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "Roll the elements of an array by a number of positions along a given axis."
+              }
+            }
+          ]
+        }
+      ],
+      "type": null
+    }
+  ],
+  "signature": "rollaxis(a, axis, start=0)",
+  "references": null
+}

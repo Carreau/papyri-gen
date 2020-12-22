@@ -1,0 +1,183 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Conversion from ctypes to dtype."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "In an ideal world, we could achieve this through the PEP3118 buffer protocol, something like::"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockVerbatim",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": "    def dtype_from_ctypes_type(t):",
+                  "_number": 3,
+                  "_offset": 4
+                },
+                {
+                  "_line": "        # needed to ensure that the shape of `t` is within memoryview.format",
+                  "_number": 4,
+                  "_offset": 4
+                },
+                {
+                  "_line": "        class DummyStruct(ctypes.Structure):",
+                  "_number": 5,
+                  "_offset": 4
+                },
+                {
+                  "_line": "            _fields_ = [('a', t)]",
+                  "_number": 6,
+                  "_offset": 4
+                },
+                {
+                  "_line": "",
+                  "_number": 7,
+                  "_offset": 4
+                },
+                {
+                  "_line": "        # empty to avoid memory allocation",
+                  "_number": 8,
+                  "_offset": 4
+                },
+                {
+                  "_line": "        ctype_0 = (DummyStruct * 0)()",
+                  "_number": 9,
+                  "_offset": 4
+                },
+                {
+                  "_line": "        mv = memoryview(ctype_0)",
+                  "_number": 10,
+                  "_offset": 4
+                },
+                {
+                  "_line": "",
+                  "_number": 11,
+                  "_offset": 4
+                },
+                {
+                  "_line": "        # convert the struct, and slice back out the field",
+                  "_number": 12,
+                  "_offset": 4
+                },
+                {
+                  "_line": "        return _dtype_from_pep3118(mv.format)['a']",
+                  "_number": 13,
+                  "_offset": 4
+                },
+                {
+                  "_line": "",
+                  "_number": 14,
+                  "_offset": 4
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Unfortunately, this fails because:"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "* ctypes cannot handle length-0 arrays with PEP3118 (bpo-32782) * PEP3118 cannot represent unions, but both numpy and ctypes can * ctypes cannot handle big-endian structs with PEP3118 (bpo-32780)"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Parameters": {
+      "children": []
+    },
+    "Returns": {
+      "children": []
+    },
+    "Yields": {
+      "children": []
+    },
+    "Receives": {
+      "children": []
+    },
+    "Raises": {
+      "children": []
+    },
+    "Warns": {
+      "children": []
+    },
+    "Other Parameters": {
+      "children": []
+    },
+    "Attributes": {
+      "children": []
+    },
+    "Methods": {
+      "children": []
+    },
+    "Notes": {
+      "children": []
+    },
+    "Warnings": {
+      "children": []
+    }
+  },
+  "refs": [],
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "item_file": "/Users/bussonniermatthias/miniconda3/lib/python3.8/site-packages/numpy/core/_dtype_ctypes.py",
+  "item_line": 0,
+  "item_type": "<class 'module'>",
+  "aliases": [
+    "numpy.core._dtype_ctypes"
+  ],
+  "example_section_data": {
+    "children": []
+  },
+  "see_also": [],
+  "signature": null,
+  "references": null
+}

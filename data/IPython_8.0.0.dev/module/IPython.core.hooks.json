@@ -1,0 +1,227 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Hooks for IPython."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "In Python, it is possible to overwrite any method of any object if you really want to.  But IPython exposes a few 'hooks', methods which are *designed* to be overwritten by users for customization purposes.  This module defines the default versions of all such hooks, which get used by IPython if not overridden by the user."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Hooks are simple functions, but they should be declared with "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "self"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " as their first argument, because when activated they are registered into IPython as instance methods. The self argument will be the IPython running instance itself, so hooks have full access to the entire IPython object."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "If you wish to define a new hook and activate it, you can make an "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "extension",
+                    " ",
+                    "</config/extensions/index>"
+                  ],
+                  "domain": null,
+                  "role": "doc"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " or a "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "startup",
+                    " ",
+                    "script",
+                    " ",
+                    "<startup",
+                    "_",
+                    "files>"
+                  ],
+                  "domain": null,
+                  "role": "ref"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ". For example, you could use a startup file like this::"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockVerbatim",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": "    import os",
+                  "_number": 15,
+                  "_offset": 4
+                },
+                {
+                  "_line": "",
+                  "_number": 16,
+                  "_offset": 4
+                },
+                {
+                  "_line": "    def calljed(self,filename, linenum):",
+                  "_number": 17,
+                  "_offset": 4
+                },
+                {
+                  "_line": "        \"My editor hook calls the jed editor directly.\"",
+                  "_number": 18,
+                  "_offset": 4
+                },
+                {
+                  "_line": "        print \"Calling my own editor, jed ...\"",
+                  "_number": 19,
+                  "_offset": 4
+                },
+                {
+                  "_line": "        if os.system('jed +%d %s' % (linenum,filename)) != 0:",
+                  "_number": 20,
+                  "_offset": 4
+                },
+                {
+                  "_line": "            raise TryNext()",
+                  "_number": 21,
+                  "_offset": 4
+                },
+                {
+                  "_line": "",
+                  "_number": 22,
+                  "_offset": 4
+                },
+                {
+                  "_line": "    def load_ipython_extension(ip):",
+                  "_number": 23,
+                  "_offset": 4
+                },
+                {
+                  "_line": "        ip.set_hook('editor', calljed)",
+                  "_number": 24,
+                  "_offset": 4
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "Parameters": {
+      "children": []
+    },
+    "Returns": {
+      "children": []
+    },
+    "Yields": {
+      "children": []
+    },
+    "Receives": {
+      "children": []
+    },
+    "Raises": {
+      "children": []
+    },
+    "Warns": {
+      "children": []
+    },
+    "Other Parameters": {
+      "children": []
+    },
+    "Attributes": {
+      "children": []
+    },
+    "Methods": {
+      "children": []
+    },
+    "Notes": {
+      "children": []
+    },
+    "Warnings": {
+      "children": []
+    }
+  },
+  "refs": [],
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "item_file": "/Users/bussonniermatthias/dev/ipython/IPython/core/hooks.py",
+  "item_line": 0,
+  "item_type": "<class 'module'>",
+  "aliases": [
+    "IPython.core.hooks"
+  ],
+  "example_section_data": {
+    "children": []
+  },
+  "see_also": [],
+  "references": null,
+  "signature": null
+}

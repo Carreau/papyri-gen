@@ -1,0 +1,353 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Base class for Collections. Must be subclassed to be usable."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "A Collection represents a sequence of "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    ".Patch"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": "\\es that can be drawn more efficiently together than individually. For example, when a single path is being drawn repeatedly at different offsets, the renderer can typically execute a "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "draw",
+                    "_",
+                    "marker()"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " call much more efficiently than a series of repeated calls to "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "draw",
+                    "_",
+                    "path()"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " with the offsets put in one-by-one."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Most properties of a collection can be configured per-element. Therefore, Collections have \"plural\" versions of many of the properties of a "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    ".Patch"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " (e.g. "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    ".Collection.get",
+                    "_",
+                    "paths"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " instead of "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    ".Patch.get",
+                    "_",
+                    "path"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": "). Exceptions are the *zorder*, *hatch*, *pickradius*, *capstyle* and *joinstyle* properties, which can only be set globally for the whole collection."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Besides these exceptions, all properties can be specified as single values (applying to all elements) or sequences of values. The property of the "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "i"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": "\\th element of the collection is::"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockVerbatim",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": "  prop[i % len(prop)]",
+                  "_number": 17,
+                  "_offset": 2
+                },
+                {
+                  "_line": "",
+                  "_number": 18,
+                  "_offset": 2
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Each Collection can optionally be used as its own "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    ".ScalarMappable"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " by passing the *norm* and *cmap* parameters to its constructor. If the Collection's "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    ".ScalarMappable"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " matrix "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "_",
+                    "A"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " has been set (via a call to "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    ".Collection.set",
+                    "_",
+                    "array"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": "), then at draw time this internal scalar mappable will be used to set the "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "facecolors"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " and "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "edgecolors"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ", ignoring those that were manually passed in."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Parameters": {
+      "children": []
+    },
+    "Returns": {
+      "children": []
+    },
+    "Yields": {
+      "children": []
+    },
+    "Receives": {
+      "children": []
+    },
+    "Raises": {
+      "children": []
+    },
+    "Warns": {
+      "children": []
+    },
+    "Other Parameters": {
+      "children": []
+    },
+    "Attributes": {
+      "children": []
+    },
+    "Methods": {
+      "children": []
+    },
+    "Notes": {
+      "children": []
+    },
+    "Warnings": {
+      "children": []
+    }
+  },
+  "refs": [],
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "item_file": "/Users/bussonniermatthias/miniconda3/lib/python3.8/site-packages/matplotlib/collections.py",
+  "item_line": 29,
+  "item_type": "<class 'type'>",
+  "aliases": [
+    "matplotlib.collections.Collection"
+  ],
+  "example_section_data": {
+    "children": []
+  },
+  "see_also": [],
+  "references": null,
+  "signature": "Collection(edgecolors=None, facecolors=None, linewidths=None, linestyles='solid', capstyle=None, joinstyle=None, antialiaseds=None, offsets=None, transOffset=None, norm=None, cmap=None, pickradius=5.0, hatch=None, urls=None, offset_position=<deprecated parameter>, zorder=1, **kwargs)"
+}

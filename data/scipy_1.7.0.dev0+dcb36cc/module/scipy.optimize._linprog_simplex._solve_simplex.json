@@ -1,0 +1,1166 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Solve a linear programming problem in \"standard form\" using the Simplex Method. Linear Programming is intended to solve the following problem form:"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Minimize::"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockVerbatim",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": "    c @ x",
+                  "_number": 2,
+                  "_offset": 4
+                },
+                {
+                  "_line": "",
+                  "_number": 3,
+                  "_offset": 4
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Subject to::"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "BlockVerbatim",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": "    A @ x == b",
+                  "_number": 6,
+                  "_offset": 4
+                },
+                {
+                  "_line": "        x >= 0",
+                  "_number": 7,
+                  "_offset": 4
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "Parameters": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "T",
+            "type_": "2-D array",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "A 2-D array representing the simplex tableau, T, corresponding to the linear programming problem. It should have the form:"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DefList",
+                "data": {
+                  "children": [
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "[[A[0, 0], A[0, 1], ..., A[0, n_total], b[0]],",
+                            "_number": 3,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": " [A[1, 0], A[1, 1], ..., A[1, n_total], b[1]],",
+                            "_number": 4,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": " .",
+                            "_number": 5,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": " .",
+                            "_number": 6,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": " .",
+                            "_number": 7,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": " [A[m, 0], A[m, 1], ..., A[m, n_total], b[m]],",
+                            "_number": 8,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": " [c[0],   c[1], ...,   c[n_total],    0]]",
+                            "_number": 9,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "",
+                            "_number": 10,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "[[A[0, 0], A[0, 1], ..., A[0, n_total], b[0]],"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "[A[1, 0], A[1, 1], ..., A[1, n_total], b[1]], . . . [A[m, 0], A[m, 1], ..., A[m, n_total], b[m]], [c[0],   c[1], ...,   c[n_total],    0]] "
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "for a Phase 2 problem, or the form:"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DefList",
+                "data": {
+                  "children": [
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "[[A[0, 0], A[0, 1], ..., A[0, n_total], b[0]],",
+                            "_number": 13,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": " [A[1, 0], A[1, 1], ..., A[1, n_total], b[1]],",
+                            "_number": 14,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": " .",
+                            "_number": 15,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": " .",
+                            "_number": 16,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": " .",
+                            "_number": 17,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": " [A[m, 0], A[m, 1], ..., A[m, n_total], b[m]],",
+                            "_number": 18,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": " [c[0],   c[1], ...,   c[n_total],   0],",
+                            "_number": 19,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": " [c'[0],  c'[1], ...,  c'[n_total],  0]]",
+                            "_number": 20,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": "",
+                            "_number": 21,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": " for a Phase 1 problem (a problem in which a basic feasible solution is",
+                            "_number": 22,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": " sought prior to maximizing the actual objective. ``T`` is modified in",
+                            "_number": 23,
+                            "_offset": 0
+                          },
+                          {
+                            "_line": " place by ``_solve_simplex``.",
+                            "_number": 24,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "[[A[0, 0], A[0, 1], ..., A[0, n_total], b[0]],"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "[A[1, 0], A[1, 1], ..., A[1, n_total], b[1]], . . . [A[m, 0], A[m, 1], ..., A[m, n_total], b[m]], [c[0],   c[1], ...,   c[n_total],   0], [c'[0],  c'[1], ...,  c'[n_total],  0]]  for a Phase 1 problem (a problem in which a basic feasible solution is sought prior to maximizing the actual objective. "
+                            }
+                          },
+                          {
+                            "type": "Verbatim",
+                            "data": {
+                              "value": [
+                                "T"
+                              ]
+                            }
+                          },
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": " is modified in place by "
+                            }
+                          },
+                          {
+                            "type": "Verbatim",
+                            "data": {
+                              "value": [
+                                "_",
+                                "solve",
+                                "_",
+                                "simplex"
+                              ]
+                            }
+                          },
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "."
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "n",
+            "type_": "int",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The number of true variables in the problem."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "basis",
+            "type_": "1-D array",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "An array of the indices of the basic variables, such that basis[i] contains the column corresponding to the basic variable for row i. Basis is modified in place by _solve_simplex"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "callback",
+            "type_": "callable, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "If a callback function is provided, it will be called within each iteration of the algorithm. The callback must accept a "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "scipy.optimize.OptimizeResult"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " consisting of the following fields:"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "DefList",
+                "data": {
+                  "children": [
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "    x : 1-D array",
+                            "_number": 4,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "        Current solution vector",
+                            "_number": 5,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "x : 1-D array"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "Current solution vector"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "    fun : float",
+                            "_number": 6,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "        Current value of the objective function",
+                            "_number": 7,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "fun : float"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "Current value of the objective function"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "    success : bool",
+                            "_number": 8,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "        True only when a phase has completed successfully. This",
+                            "_number": 9,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "        will be False for most iterations.",
+                            "_number": 10,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "success : bool"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "True only when a phase has completed successfully. This will be False for most iterations."
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "    slack : 1-D array",
+                            "_number": 11,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "        The values of the slack variables. Each slack variable",
+                            "_number": 12,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "        corresponds to an inequality constraint. If the slack is zero,",
+                            "_number": 13,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "        the corresponding constraint is active.",
+                            "_number": 14,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "slack : 1-D array"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "The values of the slack variables. Each slack variable corresponds to an inequality constraint. If the slack is zero, the corresponding constraint is active."
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "    con : 1-D array",
+                            "_number": 15,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "        The (nominally zero) residuals of the equality constraints,",
+                            "_number": 16,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "        that is, ``b - A_eq @ x``",
+                            "_number": 17,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "con : 1-D array"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "The (nominally zero) residuals of the equality constraints, that is, `"
+                            }
+                          },
+                          {
+                            "type": "Directive",
+                            "data": {
+                              "value": [
+                                "b",
+                                " ",
+                                "-",
+                                " ",
+                                "A",
+                                "_",
+                                "eq",
+                                " ",
+                                "@",
+                                " ",
+                                "x"
+                              ],
+                              "domain": null,
+                              "role": null
+                            }
+                          },
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "`"
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "    phase : int",
+                            "_number": 18,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "        The phase of the optimization being executed. In phase 1 a basic",
+                            "_number": 19,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "        feasible solution is sought and the T has an additional row",
+                            "_number": 20,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "        representing an alternate objective function.",
+                            "_number": 21,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "phase : int"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "The phase of the optimization being executed. In phase 1 a basic feasible solution is sought and the T has an additional row representing an alternate objective function."
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "    status : int",
+                            "_number": 22,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "        An integer representing the exit status of the optimization::",
+                            "_number": 23,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "",
+                            "_number": 24,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "             0 : Optimization terminated successfully",
+                            "_number": 25,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "             1 : Iteration limit reached",
+                            "_number": 26,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "             2 : Problem appears to be infeasible",
+                            "_number": 27,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "             3 : Problem appears to be unbounded",
+                            "_number": 28,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "             4 : Serious numerical difficulties encountered",
+                            "_number": 29,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "",
+                            "_number": 30,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "status : int"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "An integer representing the exit status of the optimization::       0 : Optimization terminated successfully      1 : Iteration limit reached      2 : Problem appears to be infeasible      3 : Problem appears to be unbounded      4 : Serious numerical difficulties encountered "
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "    nit : int",
+                            "_number": 31,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "        The number of iterations performed.",
+                            "_number": 32,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "nit : int"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "The number of iterations performed."
+                            }
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "    message : str",
+                            "_number": 33,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "        A string descriptor of the exit status of the optimization.",
+                            "_number": 34,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "message : str"
+                            }
+                          }
+                        ]
+                      },
+                      "dd": {
+                        "children": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "A string descriptor of the exit status of the optimization."
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "postsolve_args",
+            "type_": "tuple",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Data needed by _postsolve to convert the solution to the standard-form problem into the solution to the original problem."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "maxiter",
+            "type_": "int",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The maximum number of iterations to perform before aborting the optimization."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "tol",
+            "type_": "float",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The tolerance which determines when a solution is \"close enough\" to zero in Phase 1 to be considered a basic feasible solution or close enough to positive to serve as an optimal solution."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "phase",
+            "type_": "int",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The phase of the optimization being executed. In phase 1 a basic feasible solution is sought and the T has an additional row representing an alternate objective function."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "bland",
+            "type_": "bool",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "If True, choose pivots using Bland's rule [3]_. In problems which fail to converge due to cycling, using Bland's rule can provide convergence at the expense of a less optimal path about the simplex."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "nit0",
+            "type_": "int",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The initial iteration number used to keep an accurate iteration total in a two-phase problem."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Returns": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "nit",
+            "type_": "int",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The number of iterations. Used to keep an accurate iteration total in the two-phase problem."
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "status",
+            "type_": "int",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "An integer representing the exit status of the optimization::"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "BlockVerbatim",
+                "data": {
+                  "lines": {
+                    "_lines": [
+                      {
+                        "_line": " 0 : Optimization terminated successfully",
+                        "_number": 2,
+                        "_offset": 1
+                      },
+                      {
+                        "_line": " 1 : Iteration limit reached",
+                        "_number": 3,
+                        "_offset": 1
+                      },
+                      {
+                        "_line": " 2 : Problem appears to be infeasible",
+                        "_number": 4,
+                        "_offset": 1
+                      },
+                      {
+                        "_line": " 3 : Problem appears to be unbounded",
+                        "_number": 5,
+                        "_offset": 1
+                      },
+                      {
+                        "_line": " 4 : Serious numerical difficulties encountered",
+                        "_number": 6,
+                        "_offset": 1
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Yields": {
+      "children": []
+    },
+    "Receives": {
+      "children": []
+    },
+    "Raises": {
+      "children": []
+    },
+    "Warns": {
+      "children": []
+    },
+    "Other Parameters": {
+      "children": []
+    },
+    "Attributes": {
+      "children": []
+    },
+    "Methods": {
+      "children": []
+    },
+    "Notes": {
+      "children": []
+    },
+    "Warnings": {
+      "children": []
+    }
+  },
+  "refs": [],
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns"
+  ],
+  "item_file": "/Users/bussonniermatthias/dev/scipy/scipy/optimize/_linprog_simplex.py",
+  "item_line": 232,
+  "item_type": "<class 'function'>",
+  "aliases": [
+    "scipy.optimize._linprog_simplex._solve_simplex"
+  ],
+  "example_section_data": {
+    "children": []
+  },
+  "see_also": [],
+  "signature": "_solve_simplex(T, n, basis, callback, postsolve_args, maxiter=1000, tol=1e-09, phase=2, bland=False, nit0=0)",
+  "references": null
+}

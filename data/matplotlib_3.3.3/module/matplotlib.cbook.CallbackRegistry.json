@@ -1,0 +1,361 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Handle registering and disconnecting for a set of signals and callbacks:"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "type": "DefList",
+          "data": {
+            "children": [
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": ":: workaround numpyoc summary/ext summary bug in take2::Line.__init__",
+                      "_number": 0,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "    >>> def oneat(x):",
+                      "_number": 0,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    ...    print('eat', x)",
+                      "_number": 1,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    >>> def ondrink(x):",
+                      "_number": 2,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    ...    print('drink', x)",
+                      "_number": 3,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "",
+                      "_number": 4,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    >>> from matplotlib.cbook import CallbackRegistry",
+                      "_number": 5,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    >>> callbacks = CallbackRegistry()",
+                      "_number": 6,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "",
+                      "_number": 7,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    >>> id_eat = callbacks.connect('eat', oneat)",
+                      "_number": 8,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    >>> id_drink = callbacks.connect('drink', ondrink)",
+                      "_number": 9,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "",
+                      "_number": 10,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    >>> callbacks.process('drink', 123)",
+                      "_number": 11,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    drink 123",
+                      "_number": 12,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    >>> callbacks.process('eat', 456)",
+                      "_number": 13,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    eat 456",
+                      "_number": 14,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    >>> callbacks.process('be merry', 456) # nothing will be called",
+                      "_number": 15,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    >>> callbacks.disconnect(id_eat)",
+                      "_number": 16,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "    >>> callbacks.process('eat', 456)      # nothing will be called",
+                      "_number": 17,
+                      "_offset": 0
+                    },
+                    {
+                      "_line": "",
+                      "_number": 18,
+                      "_offset": 0
+                    }
+                  ]
+                },
+                "dt": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ":: workaround numpyoc summary/ext summary bug in take2::Line.__init__"
+                      }
+                    }
+                  ]
+                },
+                "dd": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ">>> def oneat(x): ...    print('eat', x) >>> def ondrink(x): ...    print('drink', x)  >>> from matplotlib.cbook import CallbackRegistry >>> callbacks = CallbackRegistry()  >>> id_eat = callbacks.connect('eat', oneat) >>> id_drink = callbacks.connect('drink', ondrink)  >>> callbacks.process('drink', 123) drink 123 >>> callbacks.process('eat', 456) eat 456 >>> callbacks.process('be merry', 456) # nothing will be called >>> callbacks.disconnect(id_eat) >>> callbacks.process('eat', 456)      # nothing will be called "
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "children": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "In practice, one should always disconnect all callbacks when they are no longer needed to avoid dangling references (and thus memory leaks). However, real code in Matplotlib rarely does so, and due to its design, it is rather difficult to place this kind of code.  To get around this, and prevent this class of memory leaks, we instead store weak references to bound methods only, so when the destination object needs to die, the CallbackRegistry won't keep it alive."
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Parameters": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "exception_handler",
+            "type_": "callable, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "If provided must have signature ::"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "BlockVerbatim",
+                "data": {
+                  "lines": {
+                    "_lines": [
+                      {
+                        "_line": "   def handler(exc: Exception) -> None:",
+                        "_number": 2,
+                        "_offset": 3
+                      },
+                      {
+                        "_line": "",
+                        "_number": 3,
+                        "_offset": 3
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "If not None this function will be called with any "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "Exception"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " subclass raised by the callbacks in "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "CallbackRegistry.process"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ". The handler may either consume the exception or re-raise."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The callable must be pickle-able."
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "children": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The default handler is ::"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "BlockVerbatim",
+                "data": {
+                  "lines": {
+                    "_lines": [
+                      {
+                        "_line": "   def h(exc):",
+                        "_number": 12,
+                        "_offset": 3
+                      },
+                      {
+                        "_line": "       traceback.print_exc()",
+                        "_number": 13,
+                        "_offset": 3
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Returns": {
+      "children": []
+    },
+    "Yields": {
+      "children": []
+    },
+    "Receives": {
+      "children": []
+    },
+    "Raises": {
+      "children": []
+    },
+    "Warns": {
+      "children": []
+    },
+    "Other Parameters": {
+      "children": []
+    },
+    "Attributes": {
+      "children": []
+    },
+    "Methods": {
+      "children": []
+    },
+    "Notes": {
+      "children": []
+    },
+    "Warnings": {
+      "children": []
+    }
+  },
+  "refs": [],
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters"
+  ],
+  "item_file": "/Users/bussonniermatthias/miniconda3/lib/python3.8/site-packages/matplotlib/cbook/__init__.py",
+  "item_line": 104,
+  "item_type": "<class 'type'>",
+  "aliases": [
+    "matplotlib.cbook.CallbackRegistry"
+  ],
+  "example_section_data": {
+    "children": []
+  },
+  "see_also": [],
+  "references": null,
+  "signature": "CallbackRegistry(exception_handler=<function _exception_printer at 0x122939b80>)"
+}

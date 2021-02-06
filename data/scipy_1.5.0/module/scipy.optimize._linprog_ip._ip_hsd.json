@@ -1,0 +1,1650 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Solve a linear programming problem in standard form:"
+                }
+              }
+            ],
+            "inner": []
+          }
+        }
+      ],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Minimize::"
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "BlockVerbatim",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": "    c @ x",
+                  "_number": 2,
+                  "_offset": 4
+                },
+                {
+                  "_line": "",
+                  "_number": 3,
+                  "_offset": 4
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Subject to::"
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "BlockVerbatim",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": "    A @ x == b",
+                  "_number": 6,
+                  "_offset": 4
+                },
+                {
+                  "_line": "        x >= 0",
+                  "_number": 7,
+                  "_offset": 4
+                },
+                {
+                  "_line": "",
+                  "_number": 8,
+                  "_offset": 4
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "using the interior point method of [4]."
+                }
+              }
+            ],
+            "inner": []
+          }
+        }
+      ],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "A",
+            "type_": "2-D array",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "2-D array such that "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "A",
+                          " ",
+                          "@",
+                          " ",
+                          "x"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ", gives the values of the equality constraints at "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "x"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "b",
+            "type_": "1-D array",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "1-D array of values representing the RHS of each equality constraint (row) in "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "A"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " (for standard form problem)."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "c",
+            "type_": "1-D array",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Coefficients of the linear objective function to be minimized (for standard form problem)."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "c0",
+            "type_": "float",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Constant term in objective function due to fixed (and eliminated) variables. (Purely for display.)"
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "alpha0",
+            "type_": "float",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The maximal step size for Mehrota's predictor-corrector search direction; see "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "\\beta",
+                          "_",
+                          "3"
+                        ],
+                        "domain": null,
+                        "role": "math"
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "of [4] Table 8.1"
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "beta",
+            "type_": "float",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The desired reduction of the path parameter "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "\\mu"
+                        ],
+                        "domain": null,
+                        "role": "math"
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " (see  [6]_)"
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "maxiter",
+            "type_": "int",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The maximum number of iterations of the algorithm."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "disp",
+            "type_": "bool",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Set to "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "True"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " if indicators of optimization status are to be printed to the console each iteration."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "tol",
+            "type_": "float",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Termination tolerance; see [4]_ Section 4.5."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "sparse",
+            "type_": "bool",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Set to "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "True"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " if the problem is to be treated as sparse. However, the inputs "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "A",
+                          "_",
+                          "eq"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " and "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "A",
+                          "_",
+                          "ub"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " should nonetheless be provided as (dense) arrays rather than sparse matrices."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "lstsq",
+            "type_": "bool",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Set to "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "True"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " if the problem is expected to be very poorly conditioned. This should always be left as "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "False"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " unless severe numerical difficulties are frequently encountered, and a better option would be to improve the formulation of the problem."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "sym_pos",
+            "type_": "bool",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Leave "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "True"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " if the problem is expected to yield a well conditioned symmetric positive definite normal equation matrix (almost always)."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "cholesky",
+            "type_": "bool",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Set to "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "True"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " if the normal equations are to be solved by explicit Cholesky decomposition followed by explicit forward/backward substitution. This is typically faster for moderate, dense problems that are numerically well-behaved."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "pc",
+            "type_": "bool",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Leave "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "True"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " if the predictor-corrector method of Mehrota is to be used. This is almost always (if not always) beneficial."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "ip",
+            "type_": "bool",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Set to "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "True"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " if the improved initial point suggestion due to [4]_ Section 4.3 is desired. It's unclear whether this is beneficial."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "permc_spec",
+            "type_": "str (default = 'MMD_AT_PLUS_A')",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "(Has effect only with "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "sparse",
+                          " ",
+                          "=",
+                          " ",
+                          "True"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ", "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "lstsq",
+                          " ",
+                          "=",
+                          " ",
+                          "False"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ", "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "sym",
+                          "_",
+                          "pos",
+                          " ",
+                          "=",
+                          " ",
+                          "True"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ".) A matrix is factorized in each iteration of the algorithm. This option specifies how to permute the columns of the matrix for sparsity preservation. Acceptable values are:"
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "- "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "NATURAL"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ": natural ordering. - "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "MMD",
+                          "_",
+                          "ATA"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ": minimum degree ordering on the structure of A^T A. - "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "MMD",
+                          "_",
+                          "AT",
+                          "_",
+                          "PLUS",
+                          "_",
+                          "A"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ": minimum degree ordering on the structure of A^T+A. - "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "COLAMD"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ": approximate minimum degree column ordering."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "This option can impact the convergence of the interior point algorithm; test different values to determine which performs best for your problem. For more information, refer to "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "scipy.sparse.linalg.splu"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "callback",
+            "type_": "callable, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "If a callback function is provided, it will be called within each iteration of the algorithm. The callback function must accept a single "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "scipy.optimize.OptimizeResult"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " consisting of the following fields:"
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              },
+              {
+                "type": "DefList",
+                "data": {
+                  "children": [
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "    x : 1-D array",
+                            "_number": 4,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "        Current solution vector",
+                            "_number": 5,
+                            "_offset": 8
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "inline": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "x : 1-D array"
+                            }
+                          }
+                        ],
+                        "inner": []
+                      },
+                      "dd": [
+                        {
+                          "type": "Paragraph",
+                          "data": {
+                            "inline": [
+                              {
+                                "type": "Words",
+                                "data": {
+                                  "value": "Current solution vector"
+                                }
+                              }
+                            ],
+                            "inner": []
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "    fun : float",
+                            "_number": 6,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "        Current value of the objective function",
+                            "_number": 7,
+                            "_offset": 8
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "inline": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "fun : float"
+                            }
+                          }
+                        ],
+                        "inner": []
+                      },
+                      "dd": [
+                        {
+                          "type": "Paragraph",
+                          "data": {
+                            "inline": [
+                              {
+                                "type": "Words",
+                                "data": {
+                                  "value": "Current value of the objective function"
+                                }
+                              }
+                            ],
+                            "inner": []
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "    success : bool",
+                            "_number": 8,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "        True only when an algorithm has completed successfully,",
+                            "_number": 9,
+                            "_offset": 8
+                          },
+                          {
+                            "_line": "        so this is always False as the callback function is called",
+                            "_number": 10,
+                            "_offset": 8
+                          },
+                          {
+                            "_line": "        only while the algorithm is still iterating.",
+                            "_number": 11,
+                            "_offset": 8
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "inline": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "success : bool"
+                            }
+                          }
+                        ],
+                        "inner": []
+                      },
+                      "dd": [
+                        {
+                          "type": "Paragraph",
+                          "data": {
+                            "inline": [
+                              {
+                                "type": "Words",
+                                "data": {
+                                  "value": "True only when an algorithm has completed successfully, so this is always False as the callback function is called only while the algorithm is still iterating."
+                                }
+                              }
+                            ],
+                            "inner": []
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "    slack : 1-D array",
+                            "_number": 12,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "        The values of the slack variables. Each slack variable",
+                            "_number": 13,
+                            "_offset": 8
+                          },
+                          {
+                            "_line": "        corresponds to an inequality constraint. If the slack is zero,",
+                            "_number": 14,
+                            "_offset": 8
+                          },
+                          {
+                            "_line": "        the corresponding constraint is active.",
+                            "_number": 15,
+                            "_offset": 8
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "inline": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "slack : 1-D array"
+                            }
+                          }
+                        ],
+                        "inner": []
+                      },
+                      "dd": [
+                        {
+                          "type": "Paragraph",
+                          "data": {
+                            "inline": [
+                              {
+                                "type": "Words",
+                                "data": {
+                                  "value": "The values of the slack variables. Each slack variable corresponds to an inequality constraint. If the slack is zero, the corresponding constraint is active."
+                                }
+                              }
+                            ],
+                            "inner": []
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "    con : 1-D array",
+                            "_number": 16,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "        The (nominally zero) residuals of the equality constraints,",
+                            "_number": 17,
+                            "_offset": 8
+                          },
+                          {
+                            "_line": "        that is, ``b - A_eq @ x``",
+                            "_number": 18,
+                            "_offset": 8
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "inline": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "con : 1-D array"
+                            }
+                          }
+                        ],
+                        "inner": []
+                      },
+                      "dd": [
+                        {
+                          "type": "Paragraph",
+                          "data": {
+                            "inline": [
+                              {
+                                "type": "Words",
+                                "data": {
+                                  "value": "The (nominally zero) residuals of the equality constraints, that is, `"
+                                }
+                              },
+                              {
+                                "type": "Directive",
+                                "data": {
+                                  "value": [
+                                    "b",
+                                    " ",
+                                    "-",
+                                    " ",
+                                    "A",
+                                    "_",
+                                    "eq",
+                                    " ",
+                                    "@",
+                                    " ",
+                                    "x"
+                                  ],
+                                  "domain": null,
+                                  "role": null
+                                }
+                              },
+                              {
+                                "type": "Words",
+                                "data": {
+                                  "value": "`"
+                                }
+                              }
+                            ],
+                            "inner": []
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "    phase : int",
+                            "_number": 19,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "        The phase of the algorithm being executed. This is always",
+                            "_number": 20,
+                            "_offset": 8
+                          },
+                          {
+                            "_line": "        1 for the interior-point method because it has only one phase.",
+                            "_number": 21,
+                            "_offset": 8
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "inline": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "phase : int"
+                            }
+                          }
+                        ],
+                        "inner": []
+                      },
+                      "dd": [
+                        {
+                          "type": "Paragraph",
+                          "data": {
+                            "inline": [
+                              {
+                                "type": "Words",
+                                "data": {
+                                  "value": "The phase of the algorithm being executed. This is always 1 for the interior-point method because it has only one phase."
+                                }
+                              }
+                            ],
+                            "inner": []
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "    status : int",
+                            "_number": 22,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "        For revised simplex, this is always 0 because if a different",
+                            "_number": 23,
+                            "_offset": 8
+                          },
+                          {
+                            "_line": "        status is detected, the algorithm terminates.",
+                            "_number": 24,
+                            "_offset": 8
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "inline": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "status : int"
+                            }
+                          }
+                        ],
+                        "inner": []
+                      },
+                      "dd": [
+                        {
+                          "type": "Paragraph",
+                          "data": {
+                            "inline": [
+                              {
+                                "type": "Words",
+                                "data": {
+                                  "value": "For revised simplex, this is always 0 because if a different status is detected, the algorithm terminates."
+                                }
+                              }
+                            ],
+                            "inner": []
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "    nit : int",
+                            "_number": 25,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "        The number of iterations performed.",
+                            "_number": 26,
+                            "_offset": 8
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "inline": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "nit : int"
+                            }
+                          }
+                        ],
+                        "inner": []
+                      },
+                      "dd": [
+                        {
+                          "type": "Paragraph",
+                          "data": {
+                            "inline": [
+                              {
+                                "type": "Words",
+                                "data": {
+                                  "value": "The number of iterations performed."
+                                }
+                              }
+                            ],
+                            "inner": []
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "    message : str",
+                            "_number": 27,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "        A string descriptor of the exit status of the optimization.",
+                            "_number": 28,
+                            "_offset": 8
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "inline": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "message : str"
+                            }
+                          }
+                        ],
+                        "inner": []
+                      },
+                      "dd": [
+                        {
+                          "type": "Paragraph",
+                          "data": {
+                            "inline": [
+                              {
+                                "type": "Words",
+                                "data": {
+                                  "value": "A string descriptor of the exit status of the optimization."
+                                }
+                              }
+                            ],
+                            "inner": []
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "postsolve_args",
+            "type_": "tuple",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Data needed by _postsolve to convert the solution to the standard-form problem into the solution to the original problem."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "x_hat",
+            "type_": "float",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Solution vector (for standard form problem)."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "status",
+            "type_": "int",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "An integer representing the exit status of the optimization::"
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              },
+              {
+                "type": "BlockVerbatim",
+                "data": {
+                  "lines": {
+                    "_lines": [
+                      {
+                        "_line": " 0 : Optimization terminated successfully",
+                        "_number": 2,
+                        "_offset": 1
+                      },
+                      {
+                        "_line": " 1 : Iteration limit reached",
+                        "_number": 3,
+                        "_offset": 1
+                      },
+                      {
+                        "_line": " 2 : Problem appears to be infeasible",
+                        "_number": 4,
+                        "_offset": 1
+                      },
+                      {
+                        "_line": " 3 : Problem appears to be unbounded",
+                        "_number": 5,
+                        "_offset": 1
+                      },
+                      {
+                        "_line": " 4 : Serious numerical difficulties encountered",
+                        "_number": 6,
+                        "_offset": 1
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "message",
+            "type_": "str",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "A string descriptor of the exit status of the optimization."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "iteration",
+            "type_": "int",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The number of iterations taken to solve the problem"
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    }
+  },
+  "refs": [],
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "References"
+  ],
+  "item_file": "/Users/bussonniermatthias/miniconda3/lib/python3.8/site-packages/scipy/optimize/_linprog_ip.py",
+  "item_line": 550,
+  "item_type": "<class 'function'>",
+  "aliases": [
+    "scipy.optimize._linprog_ip._ip_hsd"
+  ],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "see_also": [],
+  "signature": "_ip_hsd(A, b, c, c0, alpha0, beta, maxiter, disp, tol, sparse, lstsq, sym_pos, cholesky, pc, ip, permc_spec, callback, postsolve_args)",
+  "references": [
+    ".. [4] Andersen, Erling D., and Knud D. Andersen. \"The MOSEK interior point",
+    "       optimizer for linear programming: an implementation of the",
+    "       homogeneous algorithm.\" High performance optimization. Springer US,",
+    "       2000. 197-232.",
+    ".. [6] Freund, Robert M. \"Primal-Dual Interior-Point Methods for Linear",
+    "       Programming based on Newton's Method.\" Unpublished Course Notes,",
+    "       March 2004. Available 2/25/2017 at:",
+    "       https://ocw.mit.edu/courses/sloan-school-of-management/15-084j-nonlinear-programming-spring-2004/lecture-notes/lec14_int_pt_mthd.pdf"
+  ],
+  "arbitrary": []
+}

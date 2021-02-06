@@ -1,0 +1,503 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Combine p-values from independent tests bearing upon the same hypothesis."
+                }
+              }
+            ],
+            "inner": []
+          }
+        }
+      ],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "pvalues",
+            "type_": "array_like, 1-D",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Array of p-values assumed to come from independent tests."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "method",
+            "type_": "{'fisher', 'pearson', 'tippett', 'stouffer', 'mudholkar_george'}, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Name of method to use to combine p-values. The following methods are available (default is 'fisher'):"
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              },
+              {
+                "type": "DefList",
+                "data": {
+                  "children": [
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "  * 'fisher': Fisher's method (Fisher's combined probability test), the",
+                            "_number": 3,
+                            "_offset": 2
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "    sum of the logarithm of the p-values",
+                            "_number": 4,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "inline": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "* 'fisher': Fisher's method (Fisher's combined probability test), the"
+                            }
+                          }
+                        ],
+                        "inner": []
+                      },
+                      "dd": [
+                        {
+                          "type": "Paragraph",
+                          "data": {
+                            "inline": [
+                              {
+                                "type": "Words",
+                                "data": {
+                                  "value": "sum of the logarithm of the p-values"
+                                }
+                              }
+                            ],
+                            "inner": []
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "  * 'pearson': Pearson's method (similar to Fisher's but uses sum of the",
+                            "_number": 5,
+                            "_offset": 2
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "    complement of the p-values inside the logarithms)",
+                            "_number": 6,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "inline": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "* 'pearson': Pearson's method (similar to Fisher's but uses sum of the"
+                            }
+                          }
+                        ],
+                        "inner": []
+                      },
+                      "dd": [
+                        {
+                          "type": "Paragraph",
+                          "data": {
+                            "inline": [
+                              {
+                                "type": "Words",
+                                "data": {
+                                  "value": "complement of the p-values inside the logarithms)"
+                                }
+                              }
+                            ],
+                            "inner": []
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "  * 'tippett': Tippett's method (minimum of p-values)   * 'stouffer': Stouffer's Z-score method   * 'mudholkar_george': the difference of Fisher's and Pearson's methods"
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "    divided by 2"
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "weights",
+            "type_": "array_like, 1-D, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Optional array of weights used only for Stouffer's Z-score method."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "",
+            "type_": "statistic: float",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The statistic calculated by the specified method."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "",
+            "type_": "pval: float",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The combined p-value."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Fisher's method (also known as Fisher's combined probability test) [1]_ uses a chi-squared statistic to compute a combined p-value. The closely related Stouffer's Z-score method [2]_ uses Z-scores rather than p-values. The advantage of Stouffer's method is that it is straightforward to introduce weights, which can make Stouffer's method more powerful than Fisher's method when the p-values are from studies of different size [6]_ [7]_. The Pearson's method uses "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "log(1-p",
+                    "_",
+                    "i)"
+                  ],
+                  "domain": null,
+                  "role": "math"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " inside the sum whereas Fisher's method uses "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "log(p",
+                    "_",
+                    "i)"
+                  ],
+                  "domain": null,
+                  "role": "math"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " [4]_. For Fisher's and Pearson's method, the sum of the logarithms is multiplied by -2 in the implementation. This quantity has a chi-square distribution that determines the p-value. The "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "mudholkar",
+                    "_",
+                    "george"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " method is the difference of the Fisher's and Pearson's test statistics, each of which include the -2 factor [4]_. However, the "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "mudholkar",
+                    "_",
+                    "george"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " method does not include these -2 factors. The test statistic of "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "mudholkar",
+                    "_",
+                    "george"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " is the sum of logisitic random variables and equation 3.6 in [3]_ is used to approximate the p-value based on Student's t-distribution."
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Fisher's method may be extended to combine p-values from dependent tests [5]_. Extensions such as Brown's method and Kost's method are not currently implemented."
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "BlockDirective",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": ".. versionadded:: 0.15.0",
+                  "_number": 21,
+                  "_offset": 0
+                }
+              ]
+            },
+            "wh": {
+              "_lines": []
+            },
+            "ind": {
+              "_lines": []
+            },
+            "directive_name": "versionadded",
+            "args0": [
+              " 0.15.0"
+            ],
+            "inner": null
+          }
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    }
+  },
+  "refs": [],
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References"
+  ],
+  "item_file": "/Users/bussonniermatthias/miniconda3/lib/python3.8/site-packages/scipy/stats/stats.py",
+  "item_line": 7457,
+  "item_type": "<class 'function'>",
+  "aliases": [
+    "scipy.stats.combine_pvalues"
+  ],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "see_also": [],
+  "signature": "combine_pvalues(pvalues, method='fisher', weights=None)",
+  "references": [
+    ".. [1] https://en.wikipedia.org/wiki/Fisher%27s_method",
+    ".. [2] https://en.wikipedia.org/wiki/Fisher%27s_method#Relation_to_Stouffer.27s_Z-score_method",
+    ".. [3] George, E. O., and G. S. Mudholkar. \"On the convolution of logistic",
+    "       random variables.\" Metrika 30.1 (1983): 1-13.",
+    ".. [4] Heard, N. and Rubin-Delanchey, P. \"Choosing between methods of",
+    "       combining p-values.\"  Biometrika 105.1 (2018): 239-246.",
+    ".. [5] Whitlock, M. C. \"Combining probability from independent tests: the",
+    "       weighted Z-method is superior to Fisher's approach.\" Journal of",
+    "       Evolutionary Biology 18, no. 5 (2005): 1368-1373.",
+    ".. [6] Zaykin, Dmitri V. \"Optimally weighted Z-test is a powerful method",
+    "       for combining probabilities in meta-analysis.\" Journal of",
+    "       Evolutionary Biology 24, no. 8 (2011): 1836-1841.",
+    ".. [7] https://en.wikipedia.org/wiki/Extensions_of_Fisher%27s_method"
+  ],
+  "arbitrary": []
+}

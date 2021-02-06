@@ -1,0 +1,3592 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "A generic interface class to numeric integrators."
+                }
+              }
+            ],
+            "inner": []
+          }
+        }
+      ],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Solve an equation system "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "y'(t)",
+                    " ",
+                    "=",
+                    " ",
+                    "f(t,y)"
+                  ],
+                  "domain": null,
+                  "role": "math"
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " with (optional) "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "jac",
+                    " ",
+                    "=",
+                    " ",
+                    "df/dy"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": "."
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "*Note*: The first two arguments of "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "f(t,",
+                    " ",
+                    "y,",
+                    " ",
+                    "...)"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " are in the opposite order of the arguments in the system definition function used by "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "scipy.integrate.odeint"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": "."
+                }
+              }
+            ],
+            "inner": []
+          }
+        }
+      ],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "f",
+            "type_": "callable ``f(t, y, *f_args)``",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Right-hand side of the differential equation. t is a scalar, "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "y.shape",
+                          " ",
+                          "==",
+                          " ",
+                          "(n,)"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ". "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "f",
+                          "_",
+                          "args"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " is set by calling "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "set",
+                          "_",
+                          "f",
+                          "_",
+                          "params(",
+                          "*",
+                          "args)"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ". "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "f"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " should return a scalar, array or list (not a tuple)."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "jac",
+            "type_": "callable ``jac(t, y, *jac_args)``, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Jacobian of the right-hand side, "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "jac[i,j]",
+                          " ",
+                          "=",
+                          " ",
+                          "d",
+                          " ",
+                          "f[i]",
+                          " ",
+                          "/",
+                          " ",
+                          "d",
+                          " ",
+                          "y[j]"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ". "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "jac",
+                          "_",
+                          "args"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " is set by calling "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "set",
+                          "_",
+                          "jac",
+                          "_",
+                          "params(",
+                          "*",
+                          "args)"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Attributes": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "t",
+            "type_": "float",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Current time."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "y",
+            "type_": "ndarray",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Current variable values."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Available integrators are listed below. They can be selected using the "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "set",
+                    "_",
+                    "integrator"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " method."
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "\"vode\""
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "    Real-valued Variable-coefficient Ordinary Differential Equation     solver, with fixed-leading-coefficient implementation. It provides     implicit Adams method (for non-stiff problems) and a method based on     backward differentiation formulas (BDF) (for stiff problems)."
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "    Source: http://www.netlib.org/ode/vode.f"
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "    .. warning::"
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "BlockVerbatim",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": "       This integrator is not re-entrant. You cannot have two `ode`",
+                  "_number": 14,
+                  "_offset": 7
+                },
+                {
+                  "_line": "       instances using the \"vode\" integrator at the same time.",
+                  "_number": 15,
+                  "_offset": 7
+                },
+                {
+                  "_line": "",
+                  "_number": 16,
+                  "_offset": 7
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "    This integrator accepts the following parameters in "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "set",
+                    "_",
+                    "integrator"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": "     method of the "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "ode"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " class:"
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "DefList",
+          "data": {
+            "children": [
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "    - atol : float or sequence",
+                      "_number": 20,
+                      "_offset": 4
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "      absolute tolerance for solution",
+                      "_number": 21,
+                      "_offset": 6
+                    }
+                  ]
+                },
+                "dt": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "- atol : float or sequence"
+                      }
+                    }
+                  ],
+                  "inner": []
+                },
+                "dd": [
+                  {
+                    "type": "Paragraph",
+                    "data": {
+                      "inline": [
+                        {
+                          "type": "Words",
+                          "data": {
+                            "value": "absolute tolerance for solution"
+                          }
+                        }
+                      ],
+                      "inner": []
+                    }
+                  }
+                ]
+              },
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "    - rtol : float or sequence",
+                      "_number": 22,
+                      "_offset": 4
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "      relative tolerance for solution",
+                      "_number": 23,
+                      "_offset": 6
+                    }
+                  ]
+                },
+                "dt": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "- rtol : float or sequence"
+                      }
+                    }
+                  ],
+                  "inner": []
+                },
+                "dd": [
+                  {
+                    "type": "Paragraph",
+                    "data": {
+                      "inline": [
+                        {
+                          "type": "Words",
+                          "data": {
+                            "value": "relative tolerance for solution"
+                          }
+                        }
+                      ],
+                      "inner": []
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "    - lband : None or int     - uband : None or int"
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "      Jacobian band width, jac[i,j] != 0 for i-lband <= j <= i+uband.       Setting these requires your jac routine to return the jacobian       in packed format, jac_packed[i-j+uband, j] = jac[i,j]. The       dimension of the matrix must be (lband+uband+1, len(y))."
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "DefList",
+          "data": {
+            "children": [
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "    - method: 'adams' or 'bdf'",
+                      "_number": 30,
+                      "_offset": 4
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "      Which solver to use, Adams (non-stiff) or BDF (stiff)",
+                      "_number": 31,
+                      "_offset": 6
+                    }
+                  ]
+                },
+                "dt": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "- method: 'adams' or 'bdf'"
+                      }
+                    }
+                  ],
+                  "inner": []
+                },
+                "dd": [
+                  {
+                    "type": "Paragraph",
+                    "data": {
+                      "inline": [
+                        {
+                          "type": "Words",
+                          "data": {
+                            "value": "Which solver to use, Adams (non-stiff) or BDF (stiff)"
+                          }
+                        }
+                      ],
+                      "inner": []
+                    }
+                  }
+                ]
+              },
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "    - with_jacobian : bool",
+                      "_number": 32,
+                      "_offset": 4
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "      This option is only considered when the user has not supplied a",
+                      "_number": 33,
+                      "_offset": 6
+                    },
+                    {
+                      "_line": "      Jacobian function and has not indicated (by setting either band)",
+                      "_number": 34,
+                      "_offset": 6
+                    },
+                    {
+                      "_line": "      that the Jacobian is banded. In this case, `with_jacobian` specifies",
+                      "_number": 35,
+                      "_offset": 6
+                    },
+                    {
+                      "_line": "      whether the iteration method of the ODE solver's correction step is",
+                      "_number": 36,
+                      "_offset": 6
+                    },
+                    {
+                      "_line": "      chord iteration with an internally generated full Jacobian or",
+                      "_number": 37,
+                      "_offset": 6
+                    },
+                    {
+                      "_line": "      functional iteration with no Jacobian.",
+                      "_number": 38,
+                      "_offset": 6
+                    }
+                  ]
+                },
+                "dt": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "- with_jacobian : bool"
+                      }
+                    }
+                  ],
+                  "inner": []
+                },
+                "dd": [
+                  {
+                    "type": "Paragraph",
+                    "data": {
+                      "inline": [
+                        {
+                          "type": "Words",
+                          "data": {
+                            "value": "This option is only considered when the user has not supplied a Jacobian function and has not indicated (by setting either band) that the Jacobian is banded. In this case, "
+                          }
+                        },
+                        {
+                          "type": "Directive",
+                          "data": {
+                            "value": [
+                              "with",
+                              "_",
+                              "jacobian"
+                            ],
+                            "domain": null,
+                            "role": null
+                          }
+                        },
+                        {
+                          "type": "Words",
+                          "data": {
+                            "value": " specifies whether the iteration method of the ODE solver's correction step is chord iteration with an internally generated full Jacobian or functional iteration with no Jacobian."
+                          }
+                        }
+                      ],
+                      "inner": []
+                    }
+                  }
+                ]
+              },
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "    - nsteps : int",
+                      "_number": 39,
+                      "_offset": 4
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "      Maximum number of (internally defined) steps allowed during one",
+                      "_number": 40,
+                      "_offset": 6
+                    },
+                    {
+                      "_line": "      call to the solver.",
+                      "_number": 41,
+                      "_offset": 6
+                    }
+                  ]
+                },
+                "dt": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "- nsteps : int"
+                      }
+                    }
+                  ],
+                  "inner": []
+                },
+                "dd": [
+                  {
+                    "type": "Paragraph",
+                    "data": {
+                      "inline": [
+                        {
+                          "type": "Words",
+                          "data": {
+                            "value": "Maximum number of (internally defined) steps allowed during one call to the solver."
+                          }
+                        }
+                      ],
+                      "inner": []
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "    - first_step : float     - min_step : float     - max_step : float"
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "      Limits for the step sizes used by the integrator."
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "DefList",
+          "data": {
+            "children": [
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "    - order : int",
+                      "_number": 46,
+                      "_offset": 4
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "      Maximum order used by the integrator,",
+                      "_number": 47,
+                      "_offset": 6
+                    },
+                    {
+                      "_line": "      order <= 12 for Adams, <= 5 for BDF.",
+                      "_number": 48,
+                      "_offset": 6
+                    },
+                    {
+                      "_line": "",
+                      "_number": 49,
+                      "_offset": 6
+                    }
+                  ]
+                },
+                "dt": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "- order : int"
+                      }
+                    }
+                  ],
+                  "inner": []
+                },
+                "dd": [
+                  {
+                    "type": "Paragraph",
+                    "data": {
+                      "inline": [
+                        {
+                          "type": "Words",
+                          "data": {
+                            "value": "Maximum order used by the integrator, order <= 12 for Adams, <= 5 for BDF. "
+                          }
+                        }
+                      ],
+                      "inner": []
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "\"zvode\""
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "    Complex-valued Variable-coefficient Ordinary Differential Equation     solver, with fixed-leading-coefficient implementation. It provides     implicit Adams method (for non-stiff problems) and a method based on     backward differentiation formulas (BDF) (for stiff problems)."
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "    Source: http://www.netlib.org/ode/zvode.f"
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "    .. warning::"
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "BlockVerbatim",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": "       This integrator is not re-entrant. You cannot have two `ode`",
+                  "_number": 61,
+                  "_offset": 7
+                },
+                {
+                  "_line": "       instances using the \"zvode\" integrator at the same time.",
+                  "_number": 62,
+                  "_offset": 7
+                },
+                {
+                  "_line": "",
+                  "_number": 63,
+                  "_offset": 7
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "    This integrator accepts the same parameters in "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "set",
+                    "_",
+                    "integrator"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": "     as the \"vode\" solver."
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "    .. note::"
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "BlockVerbatim",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": "        When using ZVODE for a stiff system, it should only be used for",
+                  "_number": 69,
+                  "_offset": 8
+                },
+                {
+                  "_line": "        the case in which the function f is analytic, that is, when each f(i)",
+                  "_number": 70,
+                  "_offset": 8
+                },
+                {
+                  "_line": "        is an analytic function of each y(j). Analyticity means that the",
+                  "_number": 71,
+                  "_offset": 8
+                },
+                {
+                  "_line": "        partial derivative df(i)/dy(j) is a unique complex number, and this",
+                  "_number": 72,
+                  "_offset": 8
+                },
+                {
+                  "_line": "        fact is critical in the way ZVODE solves the dense or banded linear",
+                  "_number": 73,
+                  "_offset": 8
+                },
+                {
+                  "_line": "        systems that arise in the stiff case. For a complex stiff ODE system",
+                  "_number": 74,
+                  "_offset": 8
+                },
+                {
+                  "_line": "        in which f is not analytic, ZVODE is likely to have convergence",
+                  "_number": 75,
+                  "_offset": 8
+                },
+                {
+                  "_line": "        failures, and for this problem one should instead use DVODE on the",
+                  "_number": 76,
+                  "_offset": 8
+                },
+                {
+                  "_line": "        equivalent real system (in the real and imaginary parts of y).",
+                  "_number": 77,
+                  "_offset": 8
+                },
+                {
+                  "_line": "",
+                  "_number": 78,
+                  "_offset": 8
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "\"lsoda\""
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "    Real-valued Variable-coefficient Ordinary Differential Equation     solver, with fixed-leading-coefficient implementation. It provides     automatic method switching between implicit Adams method (for non-stiff     problems) and a method based on backward differentiation formulas (BDF)     (for stiff problems)."
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "    Source: http://www.netlib.org/odepack"
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "    .. warning::"
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "BlockVerbatim",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": "       This integrator is not re-entrant. You cannot have two `ode`",
+                  "_number": 91,
+                  "_offset": 7
+                },
+                {
+                  "_line": "       instances using the \"lsoda\" integrator at the same time.",
+                  "_number": 92,
+                  "_offset": 7
+                },
+                {
+                  "_line": "",
+                  "_number": 93,
+                  "_offset": 7
+                }
+              ]
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "    This integrator accepts the following parameters in "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "set",
+                    "_",
+                    "integrator"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": "     method of the "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "ode"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " class:"
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "DefList",
+          "data": {
+            "children": [
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "    - atol : float or sequence",
+                      "_number": 97,
+                      "_offset": 4
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "      absolute tolerance for solution",
+                      "_number": 98,
+                      "_offset": 6
+                    }
+                  ]
+                },
+                "dt": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "- atol : float or sequence"
+                      }
+                    }
+                  ],
+                  "inner": []
+                },
+                "dd": [
+                  {
+                    "type": "Paragraph",
+                    "data": {
+                      "inline": [
+                        {
+                          "type": "Words",
+                          "data": {
+                            "value": "absolute tolerance for solution"
+                          }
+                        }
+                      ],
+                      "inner": []
+                    }
+                  }
+                ]
+              },
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "    - rtol : float or sequence",
+                      "_number": 99,
+                      "_offset": 4
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "      relative tolerance for solution",
+                      "_number": 100,
+                      "_offset": 6
+                    }
+                  ]
+                },
+                "dt": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "- rtol : float or sequence"
+                      }
+                    }
+                  ],
+                  "inner": []
+                },
+                "dd": [
+                  {
+                    "type": "Paragraph",
+                    "data": {
+                      "inline": [
+                        {
+                          "type": "Words",
+                          "data": {
+                            "value": "relative tolerance for solution"
+                          }
+                        }
+                      ],
+                      "inner": []
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "    - lband : None or int     - uband : None or int"
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "      Jacobian band width, jac[i,j] != 0 for i-lband <= j <= i+uband.       Setting these requires your jac routine to return the jacobian       in packed format, jac_packed[i-j+uband, j] = jac[i,j]."
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "DefList",
+          "data": {
+            "children": [
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "    - with_jacobian : bool",
+                      "_number": 106,
+                      "_offset": 4
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "      *Not used.*",
+                      "_number": 107,
+                      "_offset": 6
+                    }
+                  ]
+                },
+                "dt": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "- with_jacobian : bool"
+                      }
+                    }
+                  ],
+                  "inner": []
+                },
+                "dd": [
+                  {
+                    "type": "Paragraph",
+                    "data": {
+                      "inline": [
+                        {
+                          "type": "Words",
+                          "data": {
+                            "value": "*Not used.*"
+                          }
+                        }
+                      ],
+                      "inner": []
+                    }
+                  }
+                ]
+              },
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "    - nsteps : int",
+                      "_number": 108,
+                      "_offset": 4
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "      Maximum number of (internally defined) steps allowed during one",
+                      "_number": 109,
+                      "_offset": 6
+                    },
+                    {
+                      "_line": "      call to the solver.",
+                      "_number": 110,
+                      "_offset": 6
+                    }
+                  ]
+                },
+                "dt": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "- nsteps : int"
+                      }
+                    }
+                  ],
+                  "inner": []
+                },
+                "dd": [
+                  {
+                    "type": "Paragraph",
+                    "data": {
+                      "inline": [
+                        {
+                          "type": "Words",
+                          "data": {
+                            "value": "Maximum number of (internally defined) steps allowed during one call to the solver."
+                          }
+                        }
+                      ],
+                      "inner": []
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "    - first_step : float     - min_step : float     - max_step : float"
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "      Limits for the step sizes used by the integrator."
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "DefList",
+          "data": {
+            "children": [
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "    - max_order_ns : int",
+                      "_number": 115,
+                      "_offset": 4
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "      Maximum order used in the nonstiff case (default 12).",
+                      "_number": 116,
+                      "_offset": 6
+                    }
+                  ]
+                },
+                "dt": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "- max_order_ns : int"
+                      }
+                    }
+                  ],
+                  "inner": []
+                },
+                "dd": [
+                  {
+                    "type": "Paragraph",
+                    "data": {
+                      "inline": [
+                        {
+                          "type": "Words",
+                          "data": {
+                            "value": "Maximum order used in the nonstiff case (default 12)."
+                          }
+                        }
+                      ],
+                      "inner": []
+                    }
+                  }
+                ]
+              },
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "    - max_order_s : int",
+                      "_number": 117,
+                      "_offset": 4
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "      Maximum order used in the stiff case (default 5).",
+                      "_number": 118,
+                      "_offset": 6
+                    }
+                  ]
+                },
+                "dt": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "- max_order_s : int"
+                      }
+                    }
+                  ],
+                  "inner": []
+                },
+                "dd": [
+                  {
+                    "type": "Paragraph",
+                    "data": {
+                      "inline": [
+                        {
+                          "type": "Words",
+                          "data": {
+                            "value": "Maximum order used in the stiff case (default 5)."
+                          }
+                        }
+                      ],
+                      "inner": []
+                    }
+                  }
+                ]
+              },
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "    - max_hnil : int",
+                      "_number": 119,
+                      "_offset": 4
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "      Maximum number of messages reporting too small step size (t + h = t)",
+                      "_number": 120,
+                      "_offset": 6
+                    },
+                    {
+                      "_line": "      (default 0)",
+                      "_number": 121,
+                      "_offset": 6
+                    }
+                  ]
+                },
+                "dt": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "- max_hnil : int"
+                      }
+                    }
+                  ],
+                  "inner": []
+                },
+                "dd": [
+                  {
+                    "type": "Paragraph",
+                    "data": {
+                      "inline": [
+                        {
+                          "type": "Words",
+                          "data": {
+                            "value": "Maximum number of messages reporting too small step size (t + h = t) (default 0)"
+                          }
+                        }
+                      ],
+                      "inner": []
+                    }
+                  }
+                ]
+              },
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "    - ixpr : int",
+                      "_number": 122,
+                      "_offset": 4
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "      Whether to generate extra printing at method switches (default False).",
+                      "_number": 123,
+                      "_offset": 6
+                    },
+                    {
+                      "_line": "",
+                      "_number": 124,
+                      "_offset": 6
+                    }
+                  ]
+                },
+                "dt": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "- ixpr : int"
+                      }
+                    }
+                  ],
+                  "inner": []
+                },
+                "dd": [
+                  {
+                    "type": "Paragraph",
+                    "data": {
+                      "inline": [
+                        {
+                          "type": "Words",
+                          "data": {
+                            "value": "Whether to generate extra printing at method switches (default False). "
+                          }
+                        }
+                      ],
+                      "inner": []
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "\"dopri5\""
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "    This is an explicit runge-kutta method of order (4)5 due to Dormand &     Prince (with stepsize control and dense output)."
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "    Authors:"
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "        E. Hairer and G. Wanner         Universite de Geneve, Dept. de Mathematiques         CH-1211 Geneve 24, Switzerland         e-mail:  ernst.hairer@math.unige.ch, gerhard.wanner@math.unige.ch"
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "    This code is described in [HNW93]_."
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "    This integrator accepts the following parameters in set_integrator()     method of the ode class:"
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "DefList",
+          "data": {
+            "children": [
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "    - atol : float or sequence",
+                      "_number": 142,
+                      "_offset": 4
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "      absolute tolerance for solution",
+                      "_number": 143,
+                      "_offset": 6
+                    }
+                  ]
+                },
+                "dt": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "- atol : float or sequence"
+                      }
+                    }
+                  ],
+                  "inner": []
+                },
+                "dd": [
+                  {
+                    "type": "Paragraph",
+                    "data": {
+                      "inline": [
+                        {
+                          "type": "Words",
+                          "data": {
+                            "value": "absolute tolerance for solution"
+                          }
+                        }
+                      ],
+                      "inner": []
+                    }
+                  }
+                ]
+              },
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "    - rtol : float or sequence",
+                      "_number": 144,
+                      "_offset": 4
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "      relative tolerance for solution",
+                      "_number": 145,
+                      "_offset": 6
+                    }
+                  ]
+                },
+                "dt": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "- rtol : float or sequence"
+                      }
+                    }
+                  ],
+                  "inner": []
+                },
+                "dd": [
+                  {
+                    "type": "Paragraph",
+                    "data": {
+                      "inline": [
+                        {
+                          "type": "Words",
+                          "data": {
+                            "value": "relative tolerance for solution"
+                          }
+                        }
+                      ],
+                      "inner": []
+                    }
+                  }
+                ]
+              },
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "    - nsteps : int",
+                      "_number": 146,
+                      "_offset": 4
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "      Maximum number of (internally defined) steps allowed during one",
+                      "_number": 147,
+                      "_offset": 6
+                    },
+                    {
+                      "_line": "      call to the solver.",
+                      "_number": 148,
+                      "_offset": 6
+                    }
+                  ]
+                },
+                "dt": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "- nsteps : int"
+                      }
+                    }
+                  ],
+                  "inner": []
+                },
+                "dd": [
+                  {
+                    "type": "Paragraph",
+                    "data": {
+                      "inline": [
+                        {
+                          "type": "Words",
+                          "data": {
+                            "value": "Maximum number of (internally defined) steps allowed during one call to the solver."
+                          }
+                        }
+                      ],
+                      "inner": []
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "    - first_step : float     - max_step : float     - safety : float"
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "      Safety factor on new step selection (default 0.9)"
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "    - ifactor : float     - dfactor : float"
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "      Maximum factor to increase/decrease step size by in one step"
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "DefList",
+          "data": {
+            "children": [
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "    - beta : float",
+                      "_number": 156,
+                      "_offset": 4
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "      Beta parameter for stabilised step size control.",
+                      "_number": 157,
+                      "_offset": 6
+                    }
+                  ]
+                },
+                "dt": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "- beta : float"
+                      }
+                    }
+                  ],
+                  "inner": []
+                },
+                "dd": [
+                  {
+                    "type": "Paragraph",
+                    "data": {
+                      "inline": [
+                        {
+                          "type": "Words",
+                          "data": {
+                            "value": "Beta parameter for stabilised step size control."
+                          }
+                        }
+                      ],
+                      "inner": []
+                    }
+                  }
+                ]
+              },
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "    - verbosity : int",
+                      "_number": 158,
+                      "_offset": 4
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "      Switch for printing messages (< 0 for no messages).",
+                      "_number": 159,
+                      "_offset": 6
+                    },
+                    {
+                      "_line": "",
+                      "_number": 160,
+                      "_offset": 6
+                    }
+                  ]
+                },
+                "dt": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "- verbosity : int"
+                      }
+                    }
+                  ],
+                  "inner": []
+                },
+                "dd": [
+                  {
+                    "type": "Paragraph",
+                    "data": {
+                      "inline": [
+                        {
+                          "type": "Words",
+                          "data": {
+                            "value": "Switch for printing messages (< 0 for no messages). "
+                          }
+                        }
+                      ],
+                      "inner": []
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "\"dop853\""
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "    This is an explicit runge-kutta method of order 8(5,3) due to Dormand     & Prince (with stepsize control and dense output)."
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "    Options and references the same as \"dopri5\"."
+                }
+              }
+            ],
+            "inner": []
+          }
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    }
+  },
+  "refs": [
+    "__main__.f",
+    "__main__.jac",
+    "builtins.complex",
+    "builtins.float",
+    "builtins.int",
+    "builtins.list",
+    "builtins.print",
+    "odeint",
+    "quad",
+    "scipy",
+    "scipy.integrate",
+    "scipy.integrate._ode.ode",
+    "scipy.integrate._ode.ode.integrate",
+    "scipy.integrate._ode.ode.set_f_params",
+    "scipy.integrate._ode.ode.set_initial_value",
+    "scipy.integrate._ode.ode.set_integrator",
+    "scipy.integrate._ode.ode.set_jac_params",
+    "scipy.integrate._ode.ode.successful"
+  ],
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Attributes",
+    "See Also",
+    "Notes",
+    "Examples",
+    "References"
+  ],
+  "item_file": "/Users/bussonniermatthias/miniconda3/lib/python3.8/site-packages/scipy/integrate/_ode.py",
+  "item_line": 18,
+  "item_type": "<class 'type'>",
+  "aliases": [
+    "scipy.integrate.ode"
+  ],
+  "example_section_data": {
+    "children": [
+      {
+        "type": "Paragraph",
+        "data": {
+          "inline": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "A problem to integrate and the corresponding jacobian:"
+              }
+            }
+          ],
+          "inner": []
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "from",
+              null,
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "scipy",
+              "scipy",
+              "nn"
+            ],
+            [
+              ".",
+              "",
+              "nn"
+            ],
+            [
+              "integrate",
+              "scipy.integrate",
+              "nn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "import",
+              null,
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "ode",
+              "scipy.integrate._ode.ode",
+              ""
+            ]
+          ],
+          "out": ">>>",
+          "ce_status": "execed"
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "y0",
+              "builtins.list",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "t0",
+              "builtins.int",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "1.0",
+              "",
+              "mf"
+            ],
+            [
+              "j",
+              "builtins.complex",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2.0",
+              "",
+              "mf"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ]
+          ],
+          "out": ">>>",
+          "ce_status": "execed"
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "def",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "f",
+              "__main__.f",
+              "nf"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "t",
+              null,
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "y",
+              null,
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "arg1",
+              null,
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "return",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              "j",
+              "builtins.complex",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "arg1",
+              null,
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "y",
+              null,
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "+",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "y",
+              null,
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "-",
+              "",
+              "o"
+            ],
+            [
+              "arg1",
+              null,
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "y",
+              null,
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "def",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "jac",
+              "__main__.jac",
+              "nf"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "t",
+              null,
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "y",
+              null,
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "arg1",
+              null,
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "return",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              "j",
+              "builtins.complex",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "arg1",
+              null,
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "-",
+              "",
+              "o"
+            ],
+            [
+              "arg1",
+              null,
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "y",
+              null,
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ]
+          ],
+          "out": "",
+          "ce_status": "execed"
+        }
+      },
+      {
+        "type": "Paragraph",
+        "data": {
+          "inline": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "The integration:"
+              }
+            }
+          ],
+          "inner": []
+        }
+      },
+      {
+        "type": "Code",
+        "data": {
+          "entries": [
+            [
+              "r",
+              "scipy.integrate._ode.ode",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "ode",
+              "scipy.integrate._ode.ode",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "f",
+              "__main__.f",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "jac",
+              "__main__.jac",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "set_integrator",
+              "scipy.integrate._ode.ode.set_integrator",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "zvode",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "method",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "bdf",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "r",
+              "scipy.integrate._ode.ode",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "set_initial_value",
+              "scipy.integrate._ode.ode.set_initial_value",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "y0",
+              "builtins.list",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "t0",
+              "builtins.int",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "set_f_params",
+              "scipy.integrate._ode.ode.set_f_params",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "2.0",
+              "",
+              "mf"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "set_jac_params",
+              "scipy.integrate._ode.ode.set_jac_params",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "2.0",
+              "",
+              "mf"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "t1",
+              "builtins.int",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "10",
+              "",
+              "mi"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "dt",
+              "builtins.int",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "while",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "r",
+              "scipy.integrate._ode.ode",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "successful",
+              "scipy.integrate._ode.ode.successful",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "and",
+              null,
+              "ow"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "r",
+              "scipy.integrate._ode.ode",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "t",
+              "builtins.float",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "<",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "t1",
+              "builtins.int",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "print",
+              "builtins.print",
+              "nb"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "r",
+              "scipy.integrate._ode.ode",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "t",
+              "builtins.float",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "+",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "dt",
+              "builtins.int",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "r",
+              "scipy.integrate._ode.ode",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "integrate",
+              "scipy.integrate._ode.ode.integrate",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "r",
+              "scipy.integrate._ode.ode",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "t",
+              "builtins.float",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "+",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "dt",
+              "builtins.int",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "1 [-0.71038232+0.23749653j  0.40000271+0.j        ]\n2.0 [0.19098503-0.52359246j 0.22222356+0.j        ]\n3.0 [0.47153208+0.52701229j 0.15384681+0.j        ]\n4.0 [-0.61905937+0.30726255j  0.11764744+0.j        ]\n5.0 [0.02340997-0.61418799j 0.09523835+0.j        ]\n6.0 [0.58643071+0.339819j 0.08000018+0.j      ]\n7.0 [-0.52070105+0.44525141j  0.06896565+0.j        ]\n8.0 [-0.15986733-0.61234476j  0.06060616+0.j        ]\n9.0 [0.64850462+0.15048982j 0.05405414+0.j        ]\n10.0 [-0.38404699+0.56382299j  0.04878055+0.j        ]",
+          "ce_status": "execed"
+        }
+      }
+    ],
+    "title": null
+  },
+  "see_also": [
+    {
+      "name": {
+        "name": "odeint",
+        "ref": null,
+        "exists": null
+      },
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "an integrator with a simpler interface based on lsoda from ODEPACK"
+              }
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "type": null
+    },
+    {
+      "name": {
+        "name": "quad",
+        "ref": null,
+        "exists": null
+      },
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "type": "Words",
+              "data": {
+                "value": "for finding the area under a curve"
+              }
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "type": null
+    }
+  ],
+  "signature": "ode(f, jac=None)",
+  "references": [
+    ".. [HNW93] E. Hairer, S.P. Norsett and G. Wanner, Solving Ordinary",
+    "    Differential Equations i. Nonstiff Problems. 2nd edition.",
+    "    Springer Series in Computational Mathematics,",
+    "    Springer-Verlag (1993)"
+  ],
+  "arbitrary": []
+}

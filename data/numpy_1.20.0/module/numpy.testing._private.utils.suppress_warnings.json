@@ -5,7 +5,7 @@
         {
           "type": "Paragraph",
           "data": {
-            "children": [
+            "inline": [
               {
                 "type": "Words",
                 "data": {
@@ -28,40 +28,45 @@
                   "value": "."
                 }
               }
-            ]
+            ],
+            "inner": []
           }
         }
-      ]
+      ],
+      "title": null
     },
     "Extended Summary": {
       "children": [
         {
           "type": "Paragraph",
           "data": {
-            "children": [
+            "inline": [
               {
                 "type": "Words",
                 "data": {
                   "value": "However, it also provides a filter mechanism to work around https://bugs.python.org/issue4180."
                 }
               }
-            ]
+            ],
+            "inner": []
           }
         },
         {
           "type": "Paragraph",
           "data": {
-            "children": [
+            "inline": [
               {
                 "type": "Words",
                 "data": {
                   "value": "This bug causes Python before 3.4 to not reliably show warnings again after they have been ignored once (even within catch_warnings). It means that no \"ignore\" filter can be used easily, since following tests might need to see the warning. Additionally it allows easier specificity for testing warnings and can be nested."
                 }
               }
-            ]
+            ],
+            "inner": []
           }
         }
-      ]
+      ],
+      "title": null
     },
     "Parameters": {
       "children": [
@@ -74,64 +79,75 @@
               {
                 "type": "Paragraph",
                 "data": {
-                  "children": [
+                  "inline": [
                     {
                       "type": "Words",
                       "data": {
                         "value": "One of \"always\", \"once\", \"module\", or \"location\". Analogous to the usual warnings module filter mode, it is useful to reduce noise mostly on the outmost level. Unsuppressed and unrecorded warnings will be forwarded based on this rule. Defaults to \"always\". \"location\" is equivalent to the warnings \"default\", match by exact location the warning warning originated from."
                       }
                     }
-                  ]
+                  ],
+                  "inner": []
                 }
               }
             ]
           }
         }
-      ]
+      ],
+      "title": null
     },
     "Returns": {
-      "children": []
+      "children": [],
+      "title": null
     },
     "Yields": {
-      "children": []
+      "children": [],
+      "title": null
     },
     "Receives": {
-      "children": []
+      "children": [],
+      "title": null
     },
     "Raises": {
-      "children": []
+      "children": [],
+      "title": null
     },
     "Warns": {
-      "children": []
+      "children": [],
+      "title": null
     },
     "Other Parameters": {
-      "children": []
+      "children": [],
+      "title": null
     },
     "Attributes": {
-      "children": []
+      "children": [],
+      "title": null
     },
     "Methods": {
-      "children": []
+      "children": [],
+      "title": null
     },
     "Notes": {
       "children": [
         {
           "type": "Paragraph",
           "data": {
-            "children": [
+            "inline": [
               {
                 "type": "Words",
                 "data": {
                   "value": "Filters added inside the context manager will be discarded again when leaving it. Upon entering all filters defined outside a context will be applied automatically."
                 }
               }
-            ]
+            ],
+            "inner": []
           }
         },
         {
           "type": "Paragraph",
           "data": {
-            "children": [
+            "inline": [
               {
                 "type": "Words",
                 "data": {
@@ -166,13 +182,14 @@
                   "value": "."
                 }
               }
-            ]
+            ],
+            "inner": []
           }
         },
         {
           "type": "Paragraph",
           "data": {
-            "children": [
+            "inline": [
               {
                 "type": "Words",
                 "data": {
@@ -193,26 +210,28 @@
                   "value": " keyword is given, the warning registry of this module will additionally be cleared when applying it, entering the context, or exiting it. This could cause warnings to appear a second time after leaving the context if they were configured to be printed once (default) and were already printed before the context was entered."
                 }
               }
-            ]
+            ],
+            "inner": []
           }
         },
         {
           "type": "Paragraph",
           "data": {
-            "children": [
+            "inline": [
               {
                 "type": "Words",
                 "data": {
                   "value": "Nesting this context manager will work as expected when the forwarding rule is \"always\" (default). Unfiltered and unrecorded warnings will be passed out and be matched by the outer level. On the outmost level they will be printed (or caught by another warnings context). The forwarding rule argument can modify this behaviour."
                 }
               }
-            ]
+            ],
+            "inner": []
           }
         },
         {
           "type": "Paragraph",
           "data": {
-            "children": [
+            "inline": [
               {
                 "type": "Words",
                 "data": {
@@ -235,13 +254,16 @@
                   "value": " this context manager is not threadsafe."
                 }
               }
-            ]
+            ],
+            "inner": []
           }
         }
-      ]
+      ],
+      "title": null
     },
     "Warnings": {
-      "children": []
+      "children": [],
+      "title": null
     }
   },
   "refs": [],
@@ -263,14 +285,15 @@
       {
         "type": "Paragraph",
         "data": {
-          "children": [
+          "inline": [
             {
               "type": "Words",
               "data": {
                 "value": "With a context manager::"
               }
             }
-          ]
+          ],
+          "inner": []
         }
       },
       {
@@ -345,25 +368,32 @@
                 ]
               },
               "dt": {
-                "children": [
+                "inline": [
                   {
                     "type": "Words",
                     "data": {
                       "value": ":: workaround numpyoc summary/ext summary bug in take2::Line.__init__"
                     }
                   }
-                ]
+                ],
+                "inner": []
               },
-              "dd": {
-                "children": [
-                  {
-                    "type": "Words",
-                    "data": {
-                      "value": "with np.testing.suppress_warnings() as sup:     sup.filter(DeprecationWarning, \"Some text\")     sup.filter(module=np.ma.core)     log = sup.record(FutureWarning, \"Does this occur?\")     command_giving_warnings()     # The FutureWarning was given once, the filtered warnings were     # ignored. All other warnings abide outside settings (may be     # printed/error)     assert_(len(log) == 1)     assert_(len(sup.log) == 1)  # also stored in log attribute"
-                    }
+              "dd": [
+                {
+                  "type": "Paragraph",
+                  "data": {
+                    "inline": [
+                      {
+                        "type": "Words",
+                        "data": {
+                          "value": "with np.testing.suppress_warnings() as sup:     sup.filter(DeprecationWarning, \"Some text\")     sup.filter(module=np.ma.core)     log = sup.record(FutureWarning, \"Does this occur?\")     command_giving_warnings()     # The FutureWarning was given once, the filtered warnings were     # ignored. All other warnings abide outside settings (may be     # printed/error)     assert_(len(log) == 1)     assert_(len(sup.log) == 1)  # also stored in log attribute"
+                        }
+                      }
+                    ],
+                    "inner": []
                   }
-                ]
-              }
+                }
+              ]
             }
           ]
         }
@@ -371,14 +401,15 @@
       {
         "type": "Paragraph",
         "data": {
-          "children": [
+          "inline": [
             {
               "type": "Words",
               "data": {
                 "value": "Or as a decorator::"
               }
             }
-          ]
+          ],
+          "inner": []
         }
       },
       {
@@ -433,32 +464,41 @@
                 ]
               },
               "dt": {
-                "children": [
+                "inline": [
                   {
                     "type": "Words",
                     "data": {
                       "value": ":: workaround numpyoc summary/ext summary bug in take2::Line.__init__"
                     }
                   }
-                ]
+                ],
+                "inner": []
               },
-              "dd": {
-                "children": [
-                  {
-                    "type": "Words",
-                    "data": {
-                      "value": "sup = np.testing.suppress_warnings() sup.filter(module=np.ma.core)  # module must match exactly @sup def some_function():     # do something which causes a warning in np.ma.core     pass"
-                    }
+              "dd": [
+                {
+                  "type": "Paragraph",
+                  "data": {
+                    "inline": [
+                      {
+                        "type": "Words",
+                        "data": {
+                          "value": "sup = np.testing.suppress_warnings() sup.filter(module=np.ma.core)  # module must match exactly @sup def some_function():     # do something which causes a warning in np.ma.core     pass"
+                        }
+                      }
+                    ],
+                    "inner": []
                   }
-                ]
-              }
+                }
+              ]
             }
           ]
         }
       }
-    ]
+    ],
+    "title": null
   },
   "see_also": [],
   "signature": "suppress_warnings(forwarding_rule='always')",
-  "references": null
+  "references": null,
+  "arbitrary": []
 }

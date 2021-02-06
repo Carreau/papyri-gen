@@ -1,0 +1,796 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": ":: workaround numpyoc summary/ext summary bug in take2::Line.__init__"
+                }
+              }
+            ],
+            "inner": []
+          }
+        }
+      ],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "nit",
+            "type_": "int, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Number of iterations to make. If omitted (default), make as many as required to meet tolerances."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "disp",
+            "type_": "bool, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Print status to stdout on every iteration."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "maxiter",
+            "type_": "int, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Maximum number of iterations to make. If more are needed to meet convergence, "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "NoConvergence"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " is raised."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "ftol",
+            "type_": "float, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Relative tolerance for the residual. If omitted, not used."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "fatol",
+            "type_": "float, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Absolute tolerance (in max-norm) for the residual. If omitted, default is 6e-6."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "xtol",
+            "type_": "float, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Relative minimum step size. If omitted, not used."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "xatol",
+            "type_": "float, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Absolute minimum step size, as determined from the Jacobian approximation. If the step size is smaller than this, optimization is terminated as successful. If omitted, not used."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "tol_norm",
+            "type_": "function(vector) -> scalar, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Norm to use in convergence check. Default is the maximum norm."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "line_search",
+            "type_": "{None, 'armijo' (default), 'wolfe'}, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Which type of a line search to use to determine the step size in the direction given by the Jacobian approximation. Defaults to 'armijo'."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "jac_options",
+            "type_": "dict, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Options for the respective Jacobian approximation."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              },
+              {
+                "type": "DefList",
+                "data": {
+                  "children": [
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "rdiff : float, optional",
+                            "_number": 2,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "    Relative step size to use in numerical differentiation.",
+                            "_number": 3,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "inline": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "rdiff : float, optional"
+                            }
+                          }
+                        ],
+                        "inner": []
+                      },
+                      "dd": [
+                        {
+                          "type": "Paragraph",
+                          "data": {
+                            "inline": [
+                              {
+                                "type": "Words",
+                                "data": {
+                                  "value": "Relative step size to use in numerical differentiation."
+                                }
+                              }
+                            ],
+                            "inner": []
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "method : {'lgmres', 'gmres', 'bicgstab', 'cgs', 'minres'} or function",
+                            "_number": 4,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "    Krylov method to use to approximate the Jacobian.",
+                            "_number": 5,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "    Can be a string, or a function implementing the same",
+                            "_number": 6,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "    interface as the iterative solvers in",
+                            "_number": 7,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "    `scipy.sparse.linalg`.",
+                            "_number": 8,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "",
+                            "_number": 9,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "    The default is `scipy.sparse.linalg.lgmres`.",
+                            "_number": 10,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "inline": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "method : {'lgmres', 'gmres', 'bicgstab', 'cgs', 'minres'} or function"
+                            }
+                          }
+                        ],
+                        "inner": []
+                      },
+                      "dd": [
+                        {
+                          "type": "Paragraph",
+                          "data": {
+                            "inline": [
+                              {
+                                "type": "Words",
+                                "data": {
+                                  "value": "Krylov method to use to approximate the Jacobian. Can be a string, or a function implementing the same interface as the iterative solvers in "
+                                }
+                              },
+                              {
+                                "type": "Directive",
+                                "data": {
+                                  "value": [
+                                    "scipy.sparse.linalg"
+                                  ],
+                                  "domain": null,
+                                  "role": null
+                                }
+                              },
+                              {
+                                "type": "Words",
+                                "data": {
+                                  "value": ".  The default is "
+                                }
+                              },
+                              {
+                                "type": "Directive",
+                                "data": {
+                                  "value": [
+                                    "scipy.sparse.linalg.lgmres"
+                                  ],
+                                  "domain": null,
+                                  "role": null
+                                }
+                              },
+                              {
+                                "type": "Words",
+                                "data": {
+                                  "value": "."
+                                }
+                              }
+                            ],
+                            "inner": []
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "inner_M : LinearOperator or InverseJacobian",
+                            "_number": 11,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "    Preconditioner for the inner Krylov iteration.",
+                            "_number": 12,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "    Note that you can use also inverse Jacobians as (adaptive)",
+                            "_number": 13,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "    preconditioners. For example,",
+                            "_number": 14,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "",
+                            "_number": 15,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "    >>> jac = BroydenFirst()",
+                            "_number": 16,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "    >>> kjac = KrylovJacobian(inner_M=jac.inverse).",
+                            "_number": 17,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "",
+                            "_number": 18,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "    If the preconditioner has a method named 'update', it will",
+                            "_number": 19,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "    be called as ``update(x, f)`` after each nonlinear step,",
+                            "_number": 20,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "    with ``x`` giving the current point, and ``f`` the current",
+                            "_number": 21,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "    function value.",
+                            "_number": 22,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "inline": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "inner_M : LinearOperator or InverseJacobian"
+                            }
+                          }
+                        ],
+                        "inner": []
+                      },
+                      "dd": [
+                        {
+                          "type": "Paragraph",
+                          "data": {
+                            "inline": [
+                              {
+                                "type": "Words",
+                                "data": {
+                                  "value": "Preconditioner for the inner Krylov iteration. Note that you can use also inverse Jacobians as (adaptive) preconditioners. For example,  >>> jac = BroydenFirst() >>> kjac = KrylovJacobian(inner_M=jac.inverse).  If the preconditioner has a method named 'update', it will be called as "
+                                }
+                              },
+                              {
+                                "type": "Verbatim",
+                                "data": {
+                                  "value": [
+                                    "update(x,",
+                                    " ",
+                                    "f)"
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "Words",
+                                "data": {
+                                  "value": " after each nonlinear step, with "
+                                }
+                              },
+                              {
+                                "type": "Verbatim",
+                                "data": {
+                                  "value": [
+                                    "x"
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "Words",
+                                "data": {
+                                  "value": " giving the current point, and "
+                                }
+                              },
+                              {
+                                "type": "Verbatim",
+                                "data": {
+                                  "value": [
+                                    "f"
+                                  ]
+                                }
+                              },
+                              {
+                                "type": "Words",
+                                "data": {
+                                  "value": " the current function value."
+                                }
+                              }
+                            ],
+                            "inner": []
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "inner_tol, inner_maxiter, ...",
+                            "_number": 23,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "    Parameters to pass on to the \"inner\" Krylov solver.",
+                            "_number": 24,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "    See `scipy.sparse.linalg.gmres` for details.",
+                            "_number": 25,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "inline": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "inner_tol, inner_maxiter, ..."
+                            }
+                          }
+                        ],
+                        "inner": []
+                      },
+                      "dd": [
+                        {
+                          "type": "Paragraph",
+                          "data": {
+                            "inline": [
+                              {
+                                "type": "Words",
+                                "data": {
+                                  "value": "Parameters to pass on to the \"inner\" Krylov solver. See "
+                                }
+                              },
+                              {
+                                "type": "Directive",
+                                "data": {
+                                  "value": [
+                                    "scipy.sparse.linalg.gmres"
+                                  ],
+                                  "domain": null,
+                                  "role": null
+                                }
+                              },
+                              {
+                                "type": "Words",
+                                "data": {
+                                  "value": " for details."
+                                }
+                              }
+                            ],
+                            "inner": []
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "lines": {
+                        "_lines": [
+                          {
+                            "_line": "outer_k : int, optional",
+                            "_number": 26,
+                            "_offset": 0
+                          }
+                        ]
+                      },
+                      "wh": {
+                        "_lines": []
+                      },
+                      "ind": {
+                        "_lines": [
+                          {
+                            "_line": "    Size of the subspace kept across LGMRES nonlinear",
+                            "_number": 27,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "    iterations.",
+                            "_number": 28,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "",
+                            "_number": 29,
+                            "_offset": 4
+                          },
+                          {
+                            "_line": "    See `scipy.sparse.linalg.lgmres` for details.",
+                            "_number": 30,
+                            "_offset": 4
+                          }
+                        ]
+                      },
+                      "dt": {
+                        "inline": [
+                          {
+                            "type": "Words",
+                            "data": {
+                              "value": "outer_k : int, optional"
+                            }
+                          }
+                        ],
+                        "inner": []
+                      },
+                      "dd": [
+                        {
+                          "type": "Paragraph",
+                          "data": {
+                            "inline": [
+                              {
+                                "type": "Words",
+                                "data": {
+                                  "value": "Size of the subspace kept across LGMRES nonlinear iterations.  See "
+                                }
+                              },
+                              {
+                                "type": "Directive",
+                                "data": {
+                                  "value": [
+                                    "scipy.sparse.linalg.lgmres"
+                                  ],
+                                  "domain": null,
+                                  "role": null
+                                }
+                              },
+                              {
+                                "type": "Words",
+                                "data": {
+                                  "value": " for details."
+                                }
+                              }
+                            ],
+                            "inner": []
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    }
+  },
+  "refs": [],
+  "ordered_sections": [
+    "Parameters"
+  ],
+  "item_file": "/Users/bussonniermatthias/miniconda3/lib/python3.8/site-packages/scipy/optimize/_root.py",
+  "item_line": 589,
+  "item_type": "<class 'function'>",
+  "aliases": [
+    "scipy.optimize._root._root_krylov_doc"
+  ],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "see_also": [],
+  "signature": "_root_krylov_doc()",
+  "references": null,
+  "arbitrary": []
+}

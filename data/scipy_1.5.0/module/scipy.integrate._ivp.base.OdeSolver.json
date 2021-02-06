@@ -1,0 +1,1395 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Base class for ODE solvers."
+                }
+              }
+            ],
+            "inner": []
+          }
+        }
+      ],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "In order to implement a new solver you need to follow the guidelines:"
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "DefList",
+          "data": {
+            "children": [
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "    1. A constructor must accept parameters presented in the base class",
+                      "_number": 2,
+                      "_offset": 4
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "       (listed below) along with any other parameters specific to a solver.",
+                      "_number": 3,
+                      "_offset": 7
+                    }
+                  ]
+                },
+                "dt": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "1. A constructor must accept parameters presented in the base class"
+                      }
+                    }
+                  ],
+                  "inner": []
+                },
+                "dd": [
+                  {
+                    "type": "Paragraph",
+                    "data": {
+                      "inline": [
+                        {
+                          "type": "Words",
+                          "data": {
+                            "value": "(listed below) along with any other parameters specific to a solver."
+                          }
+                        }
+                      ],
+                      "inner": []
+                    }
+                  }
+                ]
+              },
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "    2. A constructor must accept arbitrary extraneous arguments",
+                      "_number": 4,
+                      "_offset": 4
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "       ``**extraneous``, but warn that these arguments are irrelevant",
+                      "_number": 5,
+                      "_offset": 7
+                    },
+                    {
+                      "_line": "       using `common.warn_extraneous` function. Do not pass these",
+                      "_number": 6,
+                      "_offset": 7
+                    },
+                    {
+                      "_line": "       arguments to the base class.",
+                      "_number": 7,
+                      "_offset": 7
+                    }
+                  ]
+                },
+                "dt": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "2. A constructor must accept arbitrary extraneous arguments"
+                      }
+                    }
+                  ],
+                  "inner": []
+                },
+                "dd": [
+                  {
+                    "type": "Paragraph",
+                    "data": {
+                      "inline": [
+                        {
+                          "type": "Verbatim",
+                          "data": {
+                            "value": [
+                              "*",
+                              "*",
+                              "extraneous"
+                            ]
+                          }
+                        },
+                        {
+                          "type": "Words",
+                          "data": {
+                            "value": ", but warn that these arguments are irrelevant using "
+                          }
+                        },
+                        {
+                          "type": "Directive",
+                          "data": {
+                            "value": [
+                              "common.warn",
+                              "_",
+                              "extraneous"
+                            ],
+                            "domain": null,
+                            "role": null
+                          }
+                        },
+                        {
+                          "type": "Words",
+                          "data": {
+                            "value": " function. Do not pass these arguments to the base class."
+                          }
+                        }
+                      ],
+                      "inner": []
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "    3. A solver must implement a private method "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "_",
+                    "step",
+                    "_",
+                    "impl(self)"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " which"
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "       propagates a solver one step further. It must return tuple        "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "(success,",
+                    " ",
+                    "message)"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ", where "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "success"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " is a boolean indicating        whether a step was successful, and "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "message"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " is a string        containing description of a failure if a step failed or None        otherwise."
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "    4. A solver must implement a private method "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "_",
+                    "dense",
+                    "_",
+                    "output",
+                    "_",
+                    "impl(self)"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ","
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "       which returns a "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "DenseOutput"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " object covering the last successful        step."
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "DefList",
+          "data": {
+            "children": [
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "    5. A solver must have attributes listed below in Attributes section.",
+                      "_number": 17,
+                      "_offset": 4
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "       Note that ``t_old`` and ``step_size`` are updated automatically.",
+                      "_number": 18,
+                      "_offset": 7
+                    }
+                  ]
+                },
+                "dt": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "5. A solver must have attributes listed below in Attributes section."
+                      }
+                    }
+                  ],
+                  "inner": []
+                },
+                "dd": [
+                  {
+                    "type": "Paragraph",
+                    "data": {
+                      "inline": [
+                        {
+                          "type": "Words",
+                          "data": {
+                            "value": "Note that "
+                          }
+                        },
+                        {
+                          "type": "Verbatim",
+                          "data": {
+                            "value": [
+                              "t",
+                              "_",
+                              "old"
+                            ]
+                          }
+                        },
+                        {
+                          "type": "Words",
+                          "data": {
+                            "value": " and "
+                          }
+                        },
+                        {
+                          "type": "Verbatim",
+                          "data": {
+                            "value": [
+                              "step",
+                              "_",
+                              "size"
+                            ]
+                          }
+                        },
+                        {
+                          "type": "Words",
+                          "data": {
+                            "value": " are updated automatically."
+                          }
+                        }
+                      ],
+                      "inner": []
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "    6. Use "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "fun(self,",
+                    " ",
+                    "t,",
+                    " ",
+                    "y)"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " method for the system rhs evaluation, this"
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "       way the number of function evaluations ("
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "nfev"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": ") will be tracked        automatically."
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "    7. For convenience, a base class provides "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "fun",
+                    "_",
+                    "single(self,",
+                    " ",
+                    "t,",
+                    " ",
+                    "y)"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " and"
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "       "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "fun",
+                    "_",
+                    "vectorized(self,",
+                    " ",
+                    "t,",
+                    " ",
+                    "y)"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " for evaluating the rhs in        non-vectorized and vectorized fashions respectively (regardless of        how "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "fun"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " from the constructor is implemented). These calls don't        increment "
+                }
+              },
+              {
+                "type": "Directive",
+                "data": {
+                  "value": [
+                    "nfev"
+                  ],
+                  "domain": null,
+                  "role": null
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": "."
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "DefList",
+          "data": {
+            "children": [
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "    8. If a solver uses a Jacobian matrix and LU decompositions, it should",
+                      "_number": 27,
+                      "_offset": 4
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "       track the number of Jacobian evaluations (`njev`) and the number of",
+                      "_number": 28,
+                      "_offset": 7
+                    },
+                    {
+                      "_line": "       LU decompositions (`nlu`).",
+                      "_number": 29,
+                      "_offset": 7
+                    }
+                  ]
+                },
+                "dt": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "8. If a solver uses a Jacobian matrix and LU decompositions, it should"
+                      }
+                    }
+                  ],
+                  "inner": []
+                },
+                "dd": [
+                  {
+                    "type": "Paragraph",
+                    "data": {
+                      "inline": [
+                        {
+                          "type": "Words",
+                          "data": {
+                            "value": "track the number of Jacobian evaluations ("
+                          }
+                        },
+                        {
+                          "type": "Directive",
+                          "data": {
+                            "value": [
+                              "njev"
+                            ],
+                            "domain": null,
+                            "role": null
+                          }
+                        },
+                        {
+                          "type": "Words",
+                          "data": {
+                            "value": ") and the number of LU decompositions ("
+                          }
+                        },
+                        {
+                          "type": "Directive",
+                          "data": {
+                            "value": [
+                              "nlu"
+                            ],
+                            "domain": null,
+                            "role": null
+                          }
+                        },
+                        {
+                          "type": "Words",
+                          "data": {
+                            "value": ")."
+                          }
+                        }
+                      ],
+                      "inner": []
+                    }
+                  }
+                ]
+              },
+              {
+                "lines": {
+                  "_lines": [
+                    {
+                      "_line": "    9. By convention, the function evaluations used to compute a finite",
+                      "_number": 30,
+                      "_offset": 4
+                    }
+                  ]
+                },
+                "wh": {
+                  "_lines": []
+                },
+                "ind": {
+                  "_lines": [
+                    {
+                      "_line": "       difference approximation of the Jacobian should not be counted in",
+                      "_number": 31,
+                      "_offset": 7
+                    },
+                    {
+                      "_line": "       `nfev`, thus use `fun_single(self, t, y)` or",
+                      "_number": 32,
+                      "_offset": 7
+                    },
+                    {
+                      "_line": "       `fun_vectorized(self, t, y)` when computing a finite difference",
+                      "_number": 33,
+                      "_offset": 7
+                    },
+                    {
+                      "_line": "       approximation of the Jacobian.",
+                      "_number": 34,
+                      "_offset": 7
+                    }
+                  ]
+                },
+                "dt": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "9. By convention, the function evaluations used to compute a finite"
+                      }
+                    }
+                  ],
+                  "inner": []
+                },
+                "dd": [
+                  {
+                    "type": "Paragraph",
+                    "data": {
+                      "inline": [
+                        {
+                          "type": "Words",
+                          "data": {
+                            "value": "difference approximation of the Jacobian should not be counted in "
+                          }
+                        },
+                        {
+                          "type": "Directive",
+                          "data": {
+                            "value": [
+                              "nfev"
+                            ],
+                            "domain": null,
+                            "role": null
+                          }
+                        },
+                        {
+                          "type": "Words",
+                          "data": {
+                            "value": ", thus use "
+                          }
+                        },
+                        {
+                          "type": "Directive",
+                          "data": {
+                            "value": [
+                              "fun",
+                              "_",
+                              "single(self,",
+                              " ",
+                              "t,",
+                              " ",
+                              "y)"
+                            ],
+                            "domain": null,
+                            "role": null
+                          }
+                        },
+                        {
+                          "type": "Words",
+                          "data": {
+                            "value": " or "
+                          }
+                        },
+                        {
+                          "type": "Directive",
+                          "data": {
+                            "value": [
+                              "fun",
+                              "_",
+                              "vectorized(self,",
+                              " ",
+                              "t,",
+                              " ",
+                              "y)"
+                            ],
+                            "domain": null,
+                            "role": null
+                          }
+                        },
+                        {
+                          "type": "Words",
+                          "data": {
+                            "value": " when computing a finite difference approximation of the Jacobian."
+                          }
+                        }
+                      ],
+                      "inner": []
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "fun",
+            "type_": "callable",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Right-hand side of the system. The calling signature is "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "fun(t,",
+                          " ",
+                          "y)"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ". Here "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "t"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " is a scalar and there are two options for ndarray "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "y"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ". It can either have shape (n,), then "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "fun"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " must return array_like with shape (n,). Or, alternatively, it can have shape (n, n_points), then "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "fun"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " must return array_like with shape (n, n_points) (each column corresponds to a single column in "
+                      }
+                    },
+                    {
+                      "type": "Verbatim",
+                      "data": {
+                        "value": [
+                          "y"
+                        ]
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "). The choice between the two options is determined by "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "vectorized"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " argument (see below)."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "t0",
+            "type_": "float",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Initial time."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "y0",
+            "type_": "array_like, shape (n,)",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Initial state."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "t_bound",
+            "type_": "float",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Boundary time --- the integration won't continue beyond it. It also determines the direction of the integration."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "vectorized",
+            "type_": "bool",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Whether "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "fun"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": " is implemented in a vectorized fashion."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "support_complex",
+            "type_": "bool, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Whether integration in a complex domain should be supported. Generally determined by a derived solver class capabilities. Default is False."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Attributes": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "n",
+            "type_": "int",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Number of equations."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "status",
+            "type_": "string",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Current status of the solver: 'running', 'finished' or 'failed'."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "t_bound",
+            "type_": "float",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Boundary time."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "direction",
+            "type_": "float",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Integration direction: +1 or -1."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "t",
+            "type_": "float",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Current time."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "y",
+            "type_": "ndarray",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Current state."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "t_old",
+            "type_": "float",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Previous time. None if no steps were made yet."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "step_size",
+            "type_": "float",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Size of the last successful step. None if no steps were made yet."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "nfev",
+            "type_": "int",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Number of the system's rhs evaluations."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "njev",
+            "type_": "int",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Number of the Jacobian evaluations."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "nlu",
+            "type_": "int",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Number of LU decompositions."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    }
+  },
+  "refs": [],
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Attributes"
+  ],
+  "item_file": "/Users/bussonniermatthias/miniconda3/lib/python3.8/site-packages/scipy/integrate/_ivp/base.py",
+  "item_line": 25,
+  "item_type": "<class 'type'>",
+  "aliases": [
+    "scipy.integrate.OdeSolver"
+  ],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "see_also": [],
+  "signature": "OdeSolver(fun, t0, y0, t_bound, vectorized, support_complex=False)",
+  "references": null,
+  "arbitrary": []
+}

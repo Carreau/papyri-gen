@@ -1,0 +1,310 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Transform a continuous to a discrete state-space system."
+                }
+              }
+            ],
+            "inner": []
+          }
+        }
+      ],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "system",
+            "type_": "a tuple describing the system or an instance of `lti`",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The following gives the number of elements in the tuple and the interpretation:"
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "    * 1: (instance of "
+                      }
+                    },
+                    {
+                      "type": "Directive",
+                      "data": {
+                        "value": [
+                          "lti"
+                        ],
+                        "domain": null,
+                        "role": null
+                      }
+                    },
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": ")     * 2: (num, den)     * 3: (zeros, poles, gain)     * 4: (A, B, C, D)"
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "dt",
+            "type_": "float",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The discretization time step."
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "method",
+            "type_": "str, optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Which method to use:"
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "    * gbt: generalized bilinear transformation     * bilinear: Tustin's approximation (\"gbt\" with alpha=0.5)     * euler: Euler (or forward differencing) method (\"gbt\" with alpha=0)     * backward_diff: Backwards differencing (\"gbt\" with alpha=1.0)     * zoh: zero-order hold (default)     * foh: first-order hold (*versionadded: 1.3.0*)     * impulse: equivalent impulse response (*versionadded: 1.3.0*)"
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "Param",
+          "data": {
+            "param": "alpha",
+            "type_": "float within [0, 1], optional",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "The generalized bilinear transformation weighting parameter, which should only be specified with method=\"gbt\", and is ignored otherwise"
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "type": "Param",
+          "data": {
+            "param": "sysd",
+            "type_": "tuple containing the discrete system",
+            "desc": [
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "Based on the input type, the output will be of the form"
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              },
+              {
+                "type": "Paragraph",
+                "data": {
+                  "inline": [
+                    {
+                      "type": "Words",
+                      "data": {
+                        "value": "* (num, den, dt)   for transfer function input * (zeros, poles, gain, dt)   for zeros-poles-gain input * (A, B, C, D, dt) for state-space system input"
+                      }
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "By default, the routine uses a Zero-Order Hold (zoh) method to perform the transformation. Alternatively, a generalized bilinear transformation may be used, which includes the common Tustin's bilinear approximation, an Euler's method technique, or a backwards differencing technique."
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "The Zero-Order Hold (zoh) method is based on [1]_, the generalized bilinear approximation is based on [2]_ and [3]_, the First-Order Hold (foh) method is based on [4]_."
+                }
+              }
+            ],
+            "inner": []
+          }
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    }
+  },
+  "refs": [],
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References"
+  ],
+  "item_file": "/Users/bussonniermatthias/miniconda3/lib/python3.8/site-packages/scipy/signal/lti_conversion.py",
+  "item_line": 335,
+  "item_type": "<class 'function'>",
+  "aliases": [
+    "scipy.signal.cont2discrete"
+  ],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "see_also": [],
+  "signature": "cont2discrete(system, dt, method='zoh', alpha=None)",
+  "references": [
+    ".. [1] https://en.wikipedia.org/wiki/Discretization#Discretization_of_linear_state_space_models",
+    "",
+    ".. [2] http://techteach.no/publications/discretetime_signals_systems/discrete.pdf",
+    "",
+    ".. [3] G. Zhang, X. Chen, and T. Chen, Digital redesign via the generalized",
+    "    bilinear transformation, Int. J. Control, vol. 82, no. 4, pp. 741-754,",
+    "    2009.",
+    "    (https://www.mypolyuweb.hk/~magzhang/Research/ZCC09_IJC.pdf)",
+    "",
+    ".. [4] G. F. Franklin, J. D. Powell, and M. L. Workman, Digital control",
+    "    of dynamic systems, 3rd ed. Menlo Park, Calif: Addison-Wesley,",
+    "    pp. 204-206, 1998."
+  ],
+  "arbitrary": []
+}

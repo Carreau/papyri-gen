@@ -1,0 +1,409 @@
+{
+  "_content": {
+    "Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Base class for using the callback mechanism"
+                }
+              }
+            ],
+            "inner": []
+          }
+        }
+      ],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Create a callback with functions of the following signatures:"
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Example",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": ">>> def start(dsk):",
+                  "_number": 2,
+                  "_offset": 0
+                },
+                {
+                  "_line": "...     pass",
+                  "_number": 3,
+                  "_offset": 0
+                },
+                {
+                  "_line": ">>> def start_state(dsk, state):",
+                  "_number": 4,
+                  "_offset": 0
+                },
+                {
+                  "_line": "...     pass",
+                  "_number": 5,
+                  "_offset": 0
+                },
+                {
+                  "_line": ">>> def pretask(key, dsk, state):",
+                  "_number": 6,
+                  "_offset": 0
+                },
+                {
+                  "_line": "...     pass",
+                  "_number": 7,
+                  "_offset": 0
+                },
+                {
+                  "_line": ">>> def posttask(key, result, dsk, state, worker_id):",
+                  "_number": 8,
+                  "_offset": 0
+                },
+                {
+                  "_line": "...     pass",
+                  "_number": 9,
+                  "_offset": 0
+                },
+                {
+                  "_line": ">>> def finish(dsk, state, failed):",
+                  "_number": 10,
+                  "_offset": 0
+                },
+                {
+                  "_line": "...     pass",
+                  "_number": 11,
+                  "_offset": 0
+                }
+              ]
+            },
+            "wh": {
+              "_lines": [
+                {
+                  "_line": "",
+                  "_number": 12,
+                  "_offset": 0
+                }
+              ]
+            },
+            "ind": {
+              "_lines": []
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "You may then construct a callback object with any number of them"
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Example",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": ">>> cb = Callback(pretask=pretask, finish=finish) # doctest: +SKIP",
+                  "_number": 15,
+                  "_offset": 0
+                }
+              ]
+            },
+            "wh": {
+              "_lines": [
+                {
+                  "_line": "",
+                  "_number": 16,
+                  "_offset": 0
+                }
+              ]
+            },
+            "ind": {
+              "_lines": []
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "And use it either as a context manager over a compute/get call"
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Example",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": ">>> with cb:            # doctest: +SKIP",
+                  "_number": 19,
+                  "_offset": 0
+                },
+                {
+                  "_line": "...     x.compute()     # doctest: +SKIP",
+                  "_number": 20,
+                  "_offset": 0
+                }
+              ]
+            },
+            "wh": {
+              "_lines": [
+                {
+                  "_line": "",
+                  "_number": 21,
+                  "_offset": 0
+                }
+              ]
+            },
+            "ind": {
+              "_lines": []
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Or globally with the "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "register"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " method"
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Example",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": ">>> cb.register()       # doctest: +SKIP",
+                  "_number": 24,
+                  "_offset": 0
+                },
+                {
+                  "_line": ">>> cb.unregister()     # doctest: +SKIP",
+                  "_number": 25,
+                  "_offset": 0
+                }
+              ]
+            },
+            "wh": {
+              "_lines": [
+                {
+                  "_line": "",
+                  "_number": 26,
+                  "_offset": 0
+                }
+              ]
+            },
+            "ind": {
+              "_lines": []
+            }
+          }
+        },
+        {
+          "type": "Paragraph",
+          "data": {
+            "inline": [
+              {
+                "type": "Words",
+                "data": {
+                  "value": "Alternatively subclass the "
+                }
+              },
+              {
+                "type": "Verbatim",
+                "data": {
+                  "value": [
+                    "Callback"
+                  ]
+                }
+              },
+              {
+                "type": "Words",
+                "data": {
+                  "value": " class with your own methods."
+                }
+              }
+            ],
+            "inner": []
+          }
+        },
+        {
+          "type": "Example",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": ">>> class PrintKeys(Callback):      # doctest: +SKIP",
+                  "_number": 29,
+                  "_offset": 0
+                },
+                {
+                  "_line": "...     def _pretask(self, key, dask, state):",
+                  "_number": 30,
+                  "_offset": 0
+                },
+                {
+                  "_line": "...         print(\"Computing: {0}!\".format(repr(key)))",
+                  "_number": 31,
+                  "_offset": 0
+                }
+              ]
+            },
+            "wh": {
+              "_lines": [
+                {
+                  "_line": "",
+                  "_number": 32,
+                  "_offset": 0
+                }
+              ]
+            },
+            "ind": {
+              "_lines": []
+            }
+          }
+        },
+        {
+          "type": "Example",
+          "data": {
+            "lines": {
+              "_lines": [
+                {
+                  "_line": ">>> with PrintKeys():   # doctest: +SKIP",
+                  "_number": 33,
+                  "_offset": 0
+                },
+                {
+                  "_line": "...     x.compute()     # doctest: +SKIP",
+                  "_number": 34,
+                  "_offset": 0
+                }
+              ]
+            },
+            "wh": {
+              "_lines": []
+            },
+            "ind": {
+              "_lines": []
+            }
+          }
+        }
+      ],
+      "title": null
+    },
+    "Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    }
+  },
+  "refs": [],
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "item_file": "/Users/bussonniermatthias/dev/dask/dask/callbacks.py",
+  "item_line": 6,
+  "item_type": "<class 'type'>",
+  "aliases": [
+    "dask.callbacks.Callback"
+  ],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "see_also": [],
+  "signature": "Callback(start=None, start_state=None, pretask=None, posttask=None, finish=None)",
+  "references": null,
+  "arbitrary": []
+}

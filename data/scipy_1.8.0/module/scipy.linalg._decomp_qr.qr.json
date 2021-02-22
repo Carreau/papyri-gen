@@ -1,0 +1,1876 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Calculate the decomposition "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "A = Q R"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " where Q is unitary/orthogonal and R upper triangular."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "This is an interface to the LAPACK routines dgeqrf, zgeqrf, dorgqr, zungqr, dgeqp3, and zgeqp3."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "If "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "mode=economic"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", the shapes of Q and R are (M, K) and (K, N) instead of (M,M) and (M,N), with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "K=min(M,N)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Matrix to be decomposed"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "a",
+            "type_": "(M, N) array_like"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Whether data in "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "a",
+                          "version": null
+                        },
+                        "value": "a"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " is overwritten (may improve performance if "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "overwrite_a",
+                          "version": null
+                        },
+                        "value": "overwrite_a"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " is set to True by reusing the existing input data structure rather than creating a new one.)"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "overwrite_a",
+            "type_": "bool, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Work array size, lwork >= a.shape[1]. If None or -1, an optimal size is computed."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "lwork",
+            "type_": "int, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Determines what information is to be returned: either both Q and R ('full', default), only R ('r') or both Q and R but computed in economy-size ('economic', see Notes). The final option 'raw' (added in SciPy 0.11) makes the function return two matrices (Q, TAU) in the internal format used by LAPACK."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "mode",
+            "type_": "{'full', 'r', 'economic', 'raw'}, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Whether or not factorization should include pivoting for rank-revealing qr decomposition. If pivoting, compute the decomposition "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "A P = Q R"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " as above, but where P is chosen such that the diagonal of R is non-increasing."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "pivoting",
+            "type_": "bool, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Whether to check that the input matrix contains only finite numbers. Disabling may give a performance gain, but may result in problems (crashes, non-termination) if the inputs do contain infinities or NaNs."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "check_finite",
+            "type_": "bool, optional"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Raised if decomposition fails"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "",
+            "type_": "LinAlgError"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Of shape (M, M), or (M, K) for "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "mode='economic'"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ". Not returned if "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "mode='r'"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": "."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "Q",
+            "type_": "float or complex ndarray"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Of shape (M, N), or (K, N) for "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "mode='economic'"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ". "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "K = min(M, N)"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": "."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "R",
+            "type_": "float or complex ndarray"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Of shape (N,) for "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "pivoting=True"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ". Not returned if "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "pivoting=False"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": "."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "P",
+            "type_": "int ndarray"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Compute QR decomposition of a matrix."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "scipy.signal._ltisys.s_qr"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "from",
+              null,
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "scipy",
+              "scipy",
+              "nn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "import",
+              null,
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "linalg",
+              "scipy.linalg",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "rng",
+              "numpy.random._generator.Generator",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "random",
+              "numpy.random",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "default_rng",
+              "numpy.random._generator.default_rng",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "a",
+              "builtins.float",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "rng",
+              "numpy.random._generator.Generator",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "standard_normal",
+              "builtins.Generator.standard_normal",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "9",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "6",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": ""
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "q",
+              "builtins.tuple",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "r",
+              "builtins.int",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "linalg",
+              "scipy.linalg",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "qr",
+              "scipy.linalg._decomp_qr.qr",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "a",
+              "builtins.float",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "allclose",
+              "numpy.allclose",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "a",
+              "builtins.float",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "dot",
+              "numpy.core.multiarray.dot",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "q",
+              "builtins.tuple",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "r",
+              "builtins.int",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "True"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "q",
+              "builtins.tuple",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "shape",
+              "numpy.ndarray.shape",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "r",
+              "builtins.int",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "shape",
+              "numpy.ndarray.shape",
+              ""
+            ]
+          ],
+          "out": "((9, 9), (9, 6))"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "r2",
+              "builtins.tuple",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "linalg",
+              "scipy.linalg",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "qr",
+              "scipy.linalg._decomp_qr.qr",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "a",
+              "builtins.float",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "mode",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              "r",
+              null,
+              "s1"
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "allclose",
+              "numpy.allclose",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "r",
+              "builtins.int",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "r2",
+              "builtins.tuple",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "True"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "q3",
+              "builtins.tuple",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "r3",
+              "builtins.int",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "linalg",
+              "scipy.linalg",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "qr",
+              "scipy.linalg._decomp_qr.qr",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "a",
+              "builtins.float",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "mode",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              "economic",
+              null,
+              "s1"
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "q3",
+              "builtins.tuple",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "shape",
+              "numpy.ndarray.shape",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "r3",
+              "builtins.int",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "shape",
+              "numpy.ndarray.shape",
+              ""
+            ]
+          ],
+          "out": "((9, 6), (6, 6))"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "q4",
+              "builtins.tuple",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "r4",
+              "builtins.int",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "p4",
+              "builtins.int",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "linalg",
+              "scipy.linalg",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "qr",
+              "scipy.linalg._decomp_qr.qr",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "a",
+              "builtins.float",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "pivoting",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "True",
+              null,
+              "kc"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "d",
+              null,
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "abs",
+              "numpy.ufunc",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "diag",
+              "numpy.diag",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "r4",
+              "builtins.int",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "all",
+              "numpy.all",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "d",
+              "numpy.ndarray",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "<",
+              "",
+              "o"
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "d",
+              "numpy.ndarray",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "-",
+              "",
+              "o"
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "True"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "jedi failed",
+              "jedi failed",
+              ""
+            ]
+          ],
+          "out": "True"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "q4",
+              "builtins.tuple",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "shape",
+              "numpy.ndarray.shape",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "r4",
+              "builtins.int",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "shape",
+              "numpy.ndarray.shape",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "p4",
+              "builtins.int",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "shape",
+              null,
+              ""
+            ]
+          ],
+          "out": "((9, 9), (9, 6), (6,))"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "q5",
+              "builtins.tuple",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "r5",
+              "builtins.int",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "p5",
+              "builtins.int",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "linalg",
+              "scipy.linalg",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "qr",
+              "scipy.linalg._decomp_qr.qr",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "a",
+              "builtins.float",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "mode",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              "economic",
+              null,
+              "s1"
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "pivoting",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "True",
+              null,
+              "kc"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "q5",
+              "builtins.tuple",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "shape",
+              null,
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "r5",
+              "builtins.int",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "shape",
+              null,
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "p5",
+              "builtins.int",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "shape",
+              null,
+              ""
+            ]
+          ],
+          "out": "((9, 6), (6, 6), (6,))"
+        },
+        "type": "Code"
+      }
+    ],
+    "title": null
+  },
+  "item_file": "/scipy/linalg/_decomp_qr.py",
+  "item_line": 26,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "refs": [
+    "builtins.Generator.standard_normal",
+    "builtins.float",
+    "builtins.int",
+    "builtins.tuple",
+    "jedi failed",
+    "numpy",
+    "numpy.all",
+    "numpy.allclose",
+    "numpy.dot",
+    "numpy.diag",
+    "numpy.ndarray",
+    "numpy.ndarray.shape",
+    "numpy.random",
+    "numpy.random._generator.Generator",
+    "numpy.random._generator.default_rng",
+    "numpy.ufunc",
+    "scipy",
+    "scipy.linalg",
+    "scipy.linalg._decomp_qr.qr"
+  ],
+  "see_also": [],
+  "signature": {
+    "value": "qr(a, overwrite_a=False, lwork=None, mode='full', pivoting=False, check_finite=True)"
+  }
+}

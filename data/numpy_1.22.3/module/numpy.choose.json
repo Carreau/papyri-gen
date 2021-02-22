@@ -1,0 +1,2776 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "First of all, if confused or uncertain, definitely look at the Examples - in its full generality, this function is less simple than it might seem from the following code description (below ndi = "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.lib.index_tricks",
+                    "version": "1.22.3"
+                  },
+                  "value": "numpy.lib.index_tricks"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": "):"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": [
+                    "np.choose(a,c) == np.array([c[a[I]][I] for I in ndi.ndindex(a.shape)])"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "But this omits some subtleties.  Here is a fully general summary:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Given an \"index\" array ("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "a",
+                    "version": null
+                  },
+                  "value": "a"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": ") of integers and a sequence of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "n"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " arrays ("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "choices",
+                    "version": null
+                  },
+                  "value": "choices"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": "), "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "a",
+                    "version": null
+                  },
+                  "value": "a"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " and each choice array are first broadcast, as necessary, to arrays of a common shape; calling these "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "Ba"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "Bchoices[i], i =\n0,...,n-1"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " we have that, necessarily, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "Ba.shape == Bchoices[i].shape"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " for each "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "i"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ".  Then, a new array with shape "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "Ba.shape"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is created as follows:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "if "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "mode='raise'"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " (the default), then, first of all, each element of   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "a"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " (and thus "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "Ba"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ") must be in the range "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "[0, n-1]"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "; now, suppose   that "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "i"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " (in that range) is the value at the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "(j0, j1, ..., jm)"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "   position in "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "Ba"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " - then the value at the same position in the new array   is the value in "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "Bchoices[i]"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " at that same position;"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "if "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "mode='wrap'"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", values in "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "a",
+                              "version": null
+                            },
+                            "value": "a"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " (and thus "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "Ba"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ") may be any (signed)   integer; modular arithmetic is used to map integers outside the range   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "[0, n-1]"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": " back into that range; and then the new array is constructed   as above;"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "if "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "mode='clip'"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", values in "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "a",
+                              "version": null
+                            },
+                            "value": "a"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " (and thus "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "Ba"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ") may be any (signed)   integer; negative integers are mapped to 0; values greater than "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "n-1"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "   are mapped to "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "n-1"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "; and then the new array is constructed as above."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        }
+      ],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "To reduce the chance of misinterpretation, even though the following \"abuse\" is nominally supported, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "choices",
+                    "version": null
+                  },
+                  "value": "choices"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " should neither be, nor be thought of as, a single array, i.e., the outermost sequence-like container should be either a list or a tuple."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "This array must contain integers in "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "[0, n-1]"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ", where "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "n"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " is the number of choices, unless "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "mode=wrap"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " or "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "mode=clip"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ", in which cases any integers are permissible."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "a",
+            "type_": "int array"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Choice arrays. "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "a",
+                          "version": null
+                        },
+                        "value": "a"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " and all of the choices must be broadcastable to the same shape.  If "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "choices",
+                          "version": null
+                        },
+                        "value": "choices"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " is itself an array (not recommended), then its outermost dimension (i.e., the one corresponding to "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "choices.shape[0]"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ") is taken as defining the \"sequence\"."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "choices",
+            "type_": "sequence of arrays"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If provided, the result will be inserted into this array. It should be of the appropriate shape and dtype. Note that "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "out",
+                          "version": null
+                        },
+                        "value": "out"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " is always buffered if "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "mode='raise'"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": "; use other modes for better performance."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "out",
+            "type_": "array, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Specifies how indices outside "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "[0, n-1]"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " will be treated:"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "mode",
+            "type_": "{'raise' (default), 'wrap', 'clip'}, optional"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "a",
+                          "version": null
+                        },
+                        "value": "a"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " and each choice array are not all broadcastable to the same shape."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "",
+            "type_": "ValueError: shape mismatch"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "The merged result."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "merged_array",
+            "type_": "array"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Construct an array from an index array and a list of arrays to choose from."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "numpy.choose"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "choices",
+              "builtins.list",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "10",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "11",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "12",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "13",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "  ",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "20",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "21",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "22",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "23",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "30",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "31",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "32",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "33",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "choose",
+              "numpy.choose",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "choices",
+              "builtins.list",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "# the first element of the result will be the first element of the",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "# third (2+1) \"array\" in choices, namely, 20; the second element",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "# will be the second element of the fourth (3+1) choice array, i.e.,",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "# 31, etc.",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "array([20, 31, 12,  3])"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "choose",
+              "numpy.choose",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "4",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "choices",
+              "builtins.list",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "mode",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              "clip",
+              null,
+              "s1"
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "# 4 goes to 3 (4-1)",
+              "",
+              "c1"
+            ]
+          ],
+          "out": "array([20, 31, 12,  3])"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "# because there are 4 choice arrays",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "choose",
+              "numpy.choose",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "4",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "choices",
+              "builtins.list",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "mode",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              "wrap",
+              null,
+              "s1"
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "# 4 goes to (4 mod 4)",
+              "",
+              "c1"
+            ]
+          ],
+          "out": "array([20,  1, 12,  3])"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "# i.e., 0",
+              "",
+              "c1"
+            ]
+          ],
+          "out": ""
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "inline": [
+            {
+              "data": {
+                "value": "A couple examples illustrating how choose broadcasts:"
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "a",
+              "builtins.list",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "choices",
+              "builtins.list",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "-",
+              "",
+              "o"
+            ],
+            [
+              "10",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "10",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "choose",
+              "numpy.choose",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "a",
+              "builtins.list",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "choices",
+              "builtins.list",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "array([[ 10, -10,  10],\n       [-10,  10, -10],\n       [ 10, -10,  10]])"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "# With thanks to Anne Archibald",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "a",
+              "numpy.ndarray",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "array",
+              "numpy.array",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "reshape",
+              "numpy.ndarray.reshape",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "c1",
+              "numpy.ndarray",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "array",
+              "numpy.array",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "reshape",
+              "numpy.ndarray.reshape",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "c2",
+              "numpy.ndarray",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "array",
+              "numpy.array",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "-",
+              "",
+              "o"
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "-",
+              "",
+              "o"
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "-",
+              "",
+              "o"
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "-",
+              "",
+              "o"
+            ],
+            [
+              "4",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "-",
+              "",
+              "o"
+            ],
+            [
+              "5",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "reshape",
+              "numpy.ndarray.reshape",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "5",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "choose",
+              "numpy.choose",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "a",
+              "numpy.ndarray",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "c1",
+              "numpy.ndarray",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "c2",
+              "numpy.ndarray",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "# result is 2x3x5, res[0,:,:]=c1, res[1,:,:]=c2",
+              "",
+              "c1"
+            ]
+          ],
+          "out": "array([[[ 1,  1,  1,  1,  1],\n        [ 2,  2,  2,  2,  2],\n        [ 3,  3,  3,  3,  3]],\n       [[-1, -2, -3, -4, -5],\n        [-1, -2, -3, -4, -5],\n        [-1, -2, -3, -4, -5]]])"
+        },
+        "type": "Code"
+      }
+    ],
+    "title": null
+  },
+  "item_file": "/numpy/core/fromnumeric.py",
+  "item_line": 307,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "refs": [
+    "builtins.list",
+    "ndarray.choose",
+    "numpy",
+    "numpy.array",
+    "numpy.choose",
+    "numpy.ndarray",
+    "numpy.ndarray.reshape",
+    "numpy.take_along_axis"
+  ],
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "equivalent method"
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": null,
+        "name": "ndarray.choose",
+        "ref": null
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "Preferable if "
+              },
+              "type": "Words"
+            },
+            {
+              "data": {
+                "domain": null,
+                "role": null,
+                "value": "choices"
+              },
+              "type": "Directive"
+            },
+            {
+              "data": {
+                "value": " is an array"
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": true,
+        "name": "numpy.take_along_axis",
+        "ref": "numpy.take_along_axis"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "value": "choose(a, choices, out=None, mode='raise')"
+  }
+}

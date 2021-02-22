@@ -1,0 +1,576 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Given a table name and a SQLAlchemy connectable, returns a DataFrame. This function does not support DBAPI connections."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Any datetime values with time zone information will be converted to UTC."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Name of SQL table in database."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "table_name",
+            "type_": "str"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "A database URI could be provided as str. SQLite DBAPI connection mode not supported."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "con",
+            "type_": "SQLAlchemy connectable or str"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Name of SQL schema in database to query (if database flavor supports this). Uses default schema if None (default)."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "schema",
+            "type_": "str, default None"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Column(s) to set as index(MultiIndex)."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "index_col",
+            "type_": "str or list of str, optional, default: None"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Attempts to convert values of non-string, non-numeric objects (like decimal.Decimal) to floating point. Can result in loss of Precision."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "coerce_float",
+            "type_": "bool, default True"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "value": [
+                        {
+                          "data": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "value": "List of column names to parse as dates."
+                                },
+                                "type": "Words"
+                              }
+                            ],
+                            "inner": []
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "value": [
+                        {
+                          "data": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "value": "Dict of "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "{column_name: format string}"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": " where format string is   strftime compatible in case of parsing string times or is one of   (D, s, ns, ms, us) in case of parsing integer timestamps."
+                                },
+                                "type": "Words"
+                              }
+                            ],
+                            "inner": []
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "value": [
+                        {
+                          "data": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "value": "Dict of "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "{column_name: arg dict}"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": ", where the arg dict corresponds   to the keyword arguments of "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "pandas.to_datetime"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": "   Especially useful with databases without native Datetime support,   such as SQLite."
+                                },
+                                "type": "Words"
+                              }
+                            ],
+                            "inner": []
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "type": "BulletList"
+              }
+            ],
+            "param": "parse_dates",
+            "type_": "list or dict, default None"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "List of column names to select from SQL table."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "columns",
+            "type_": "list, default None"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If specified, returns an iterator where "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "chunksize",
+                          "version": null
+                        },
+                        "value": "chunksize"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " is the number of rows to include in each chunk."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "chunksize",
+            "type_": "int, default None"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "A SQL table is returned as two-dimensional data structure with labeled axes."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "",
+            "type_": "DataFrame or Iterator[DataFrame]"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Read SQL database table into a DataFrame."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "pandas.read_sql_table"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [
+      {
+        "data": {
+          "ce_status": "compiled",
+          "entries": [
+            [
+              "pd",
+              null,
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "read_sql_table",
+              null,
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              "table_name",
+              null,
+              "s1"
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              "postgres:///db_name",
+              "",
+              "s1"
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "  ",
+              "",
+              ""
+            ],
+            [
+              "# doctest:+SKIP",
+              "",
+              "c1"
+            ]
+          ],
+          "out": ""
+        },
+        "type": "Code"
+      }
+    ],
+    "title": null
+  },
+  "item_file": "/pandas/io/sql.py",
+  "item_line": 219,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "refs": [
+    "read_sql",
+    "read_sql_query"
+  ],
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "Read SQL query into a DataFrame."
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": true,
+        "name": "read_sql_query",
+        "ref": "pandas.io.sql.read_sql_query"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "Read SQL query or database table into a DataFrame."
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": true,
+        "name": "read_sql",
+        "ref": "pandas.io.sql.read_sql"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "value": "read_sql_table(table_name: 'str', con, schema: 'str | None' = None, index_col: 'str | Sequence[str] | None' = None, coerce_float: 'bool' = True, parse_dates=None, columns=None, chunksize: 'int | None' = None) -> 'DataFrame | Iterator[DataFrame]'"
+  }
+}

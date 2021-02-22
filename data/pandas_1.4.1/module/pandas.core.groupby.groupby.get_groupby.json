@@ -1,0 +1,397 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "See aggregate, transform, and apply functions on this object."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "It's easiest to use obj.groupby(...) to use GroupBy, but you can also do:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "grouped = groupby(obj, ...)"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "After grouping, see aggregate, apply, and transform functions. Here are some other brief notes about usage. When grouping by multiple groups, the result index will be a MultiIndex (hierarchical) by default."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Iteration produces (key, group) tuples, i.e. chunking the data by group. So you can write code like:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "grouped = obj.groupby(keys, axis=axis)\nfor key, group in grouped:\n    # do something with the data"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Function calls on GroupBy, if not specially implemented, \"dispatch\" to the grouped data. So if you group a DataFrame and wish to invoke the std() method on each group, you can simply do:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "df.groupby(mapper).std()"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "rather than"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "df.groupby(mapper).aggregate(np.std)"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "You can pass arguments to these \"wrapped\" functions, too."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "See the online documentation for full exposition on these topics and much more"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [],
+            "param": "obj",
+            "type_": "pandas object"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [],
+            "param": "axis",
+            "type_": "int, default 0"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Level of MultiIndex"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "level",
+            "type_": "int, default None"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Most users should ignore this"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "groupings",
+            "type_": "list of Grouping objects"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "List of columns to exclude"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "exclusions",
+            "type_": "array-like, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Most users should ignore this"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "name",
+            "type_": "str"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "desc": [],
+            "param": "",
+            "type_": "**Attributes**"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "{group name -> group labels}"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "groups",
+            "type_": "dict"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Number of groups"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "len(grouped)",
+            "type_": "int"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Class for grouping and aggregating relational data."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "pandas.core.groupby.groupby.get_groupby"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": "/pandas/core/groupby/groupby.py",
+  "item_line": 3816,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes"
+  ],
+  "references": null,
+  "refs": [],
+  "see_also": [],
+  "signature": {
+    "value": "get_groupby(obj: 'NDFrame', by: '_KeysArgType | None' = None, axis: 'int' = 0, level=None, grouper: 'ops.BaseGrouper | None' = None, exclusions=None, selection=None, as_index: 'bool' = True, sort: 'bool' = True, group_keys: 'bool' = True, squeeze: 'bool' = False, observed: 'bool' = False, mutated: 'bool' = False, dropna: 'bool' = True) -> 'GroupBy'"
+  }
+}

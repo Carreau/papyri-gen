@@ -1,0 +1,1777 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Some inconsistencies with the Dask version may exist."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Create an array."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "When order is 'A' and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "object",
+                    "version": null
+                  },
+                  "value": "object"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " is an array in neither 'C' nor 'F' order, and a copy is forced by a change in dtype, then the order of the result is not necessarily 'C' as expected. This is likely a bug."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "An array, any object exposing the array interface, an object whose __array__ method returns an array, or any (nested) sequence. If object is a scalar, a 0-dimensional array containing object is returned."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "object",
+            "type_": "array_like"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "The desired data-type for the array.  If not given, then the type will be determined as the minimum type required to hold the objects in the sequence."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "dtype",
+            "type_": "data-type, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If true (default), then the object is copied.  Otherwise, a copy will only be made if __array__ returns a copy, if obj is a nested sequence, or if a copy is needed to satisfy any of the other requirements ("
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "dtype",
+                          "version": null
+                        },
+                        "value": "dtype"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "order",
+                          "version": null
+                        },
+                        "value": "order"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": ", etc.)."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "copy",
+            "type_": "bool, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Specify the memory layout of the array. If object is not an array, the newly created array will be in C order (row major) unless 'F' is specified, in which case it will be in Fortran order (column major). If object is an array the following holds."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "===== ========= =================================================== order  no copy                     copy=True ===== ========= =================================================== 'K'   unchanged F & C order preserved, otherwise most similar order 'A'   unchanged F order if input is F and not C, otherwise C order 'C'   C order   C order 'F'   F order   F order ===== ========= ==================================================="
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "When "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "copy=False"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " and a copy is made for other reasons, the result is the same as if "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "copy=True"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ", with some exceptions for 'A', see the Notes section. The default order is 'K'."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "order",
+            "type_": "{'K', 'A', 'C', 'F'}, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If True, then sub-classes will be passed-through, otherwise the returned array will be forced to be a base-class array (default)."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "subok",
+            "type_": "bool, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Specifies the minimum number of dimensions that the resulting array should have.  Ones will be pre-pended to the shape as needed to meet this requirement."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "ndmin",
+            "type_": "int, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Reference object to allow the creation of arrays which are not NumPy arrays. If an array-like passed in as "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "like"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " supports the "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "__array_function__"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " protocol, the result will be defined by it. In this case, it ensures the creation of an array object compatible with that passed in via this argument."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "children": [
+                    {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "1.20.0 "
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    }
+                  ],
+                  "kind": "versionadded",
+                  "title": "TODO"
+                },
+                "type": "Admonition"
+              }
+            ],
+            "param": "like",
+            "type_": "array_like"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "An array object satisfying the specified requirements."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "out",
+            "type_": "ndarray"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "This docstring was copied from numpy.array."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "dask.array.array"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [
+      {
+        "data": {
+          "ce_status": "compiled",
+          "entries": [
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "array",
+              "numpy.array",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "  ",
+              "",
+              ""
+            ],
+            [
+              "# doctest: +SKIP",
+              "",
+              "c1"
+            ]
+          ],
+          "out": "array([1, 2, 3])"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "inline": [
+            {
+              "data": {
+                "value": "Upcasting:"
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "ce_status": "compiled",
+          "entries": [
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "array",
+              "numpy.array",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "3.0",
+              "",
+              "mf"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "  ",
+              "",
+              ""
+            ],
+            [
+              "# doctest: +SKIP",
+              "",
+              "c1"
+            ]
+          ],
+          "out": "array([ 1.,  2.,  3.])"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "inline": [
+            {
+              "data": {
+                "value": "More than one dimension:"
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "ce_status": "compiled",
+          "entries": [
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "array",
+              "numpy.array",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "4",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "  ",
+              "",
+              ""
+            ],
+            [
+              "# doctest: +SKIP",
+              "",
+              "c1"
+            ]
+          ],
+          "out": "array([[1, 2],\n       [3, 4]])"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "inline": [
+            {
+              "data": {
+                "value": "Minimum dimensions 2:"
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "ce_status": "compiled",
+          "entries": [
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "array",
+              "numpy.array",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "ndmin",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "  ",
+              "",
+              ""
+            ],
+            [
+              "# doctest: +SKIP",
+              "",
+              "c1"
+            ]
+          ],
+          "out": "array([[1, 2, 3]])"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "inline": [
+            {
+              "data": {
+                "value": "Type provided:"
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "ce_status": "compiled",
+          "entries": [
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "array",
+              "numpy.array",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "dtype",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "complex",
+              "builtins.complex",
+              "nb"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "  ",
+              "",
+              ""
+            ],
+            [
+              "# doctest: +SKIP",
+              "",
+              "c1"
+            ]
+          ],
+          "out": "array([ 1.+0.j,  2.+0.j,  3.+0.j])"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "inline": [
+            {
+              "data": {
+                "value": "Data-type consisting of more than one element:"
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "ce_status": "compiled",
+          "entries": [
+            [
+              "x",
+              "numpy.ndarray",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "array",
+              "numpy.array",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "4",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "dtype",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              "a",
+              null,
+              "s1"
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              "<i4",
+              "",
+              "s1"
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              "b",
+              null,
+              "s1"
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              "<i4",
+              "",
+              "s1"
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "  ",
+              "",
+              ""
+            ],
+            [
+              "# doctest: +SKIP",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "numpy.ndarray",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              "a",
+              null,
+              "s1"
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              "  ",
+              "",
+              ""
+            ],
+            [
+              "# doctest: +SKIP",
+              "",
+              "c1"
+            ]
+          ],
+          "out": "array([1, 3])"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "inline": [
+            {
+              "data": {
+                "value": "Creating an array from sub-classes:"
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "ce_status": "compiled",
+          "entries": [
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "array",
+              "numpy.array",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "mat",
+              "numpy.asmatrix",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              "1 2; 3 4",
+              "",
+              "s1"
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "  ",
+              "",
+              ""
+            ],
+            [
+              "# doctest: +SKIP",
+              "",
+              "c1"
+            ]
+          ],
+          "out": "array([[1, 2],\n       [3, 4]])"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "compiled",
+          "entries": [
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "array",
+              "numpy.array",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "mat",
+              "numpy.asmatrix",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              "1 2; 3 4",
+              "",
+              "s1"
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "subok",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "True",
+              null,
+              "kc"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "  ",
+              "",
+              ""
+            ],
+            [
+              "# doctest: +SKIP",
+              "",
+              "c1"
+            ]
+          ],
+          "out": "matrix([[1, 2],\n        [3, 4]])"
+        },
+        "type": "Code"
+      }
+    ],
+    "title": null
+  },
+  "item_file": "/dask/array/routines.py",
+  "item_line": 44,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Signature",
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "refs": [
+    "builtins.complex",
+    "empty",
+    "empty_like",
+    "full",
+    "full_like",
+    "numpy",
+    "numpy.array",
+    "numpy.asmatrix",
+    "numpy.ndarray",
+    "ones",
+    "ones_like",
+    "zeros",
+    "zeros_like"
+  ],
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "Return an empty array with shape and type of input."
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": true,
+        "name": "empty_like",
+        "ref": "dask.array.creation.empty_like"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "Return an array of ones with shape and type of input."
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": true,
+        "name": "ones_like",
+        "ref": "dask.array.creation.ones_like"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "Return an array of zeros with shape and type of input."
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": true,
+        "name": "zeros_like",
+        "ref": "dask.array.creation.zeros_like"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "Return a new array with shape of input filled with value."
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": null,
+        "name": "full_like",
+        "ref": null
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "Return a new uninitialized array."
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": true,
+        "name": "empty",
+        "ref": "dask.utils.empty"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "Return a new array setting values to one."
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": true,
+        "name": "ones",
+        "ref": "dask.array.creation.ones_like"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "Return a new array setting values to zero."
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": true,
+        "name": "zeros",
+        "ref": "dask.array.creation.zeros_like"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "Return a new array of given shape filled with value."
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": true,
+        "name": "full",
+        "ref": "dask.array.wrap.full"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "value": "array(object, dtype=None, *, copy=True, order='K', subok=False, ndmin=0, like=None)"
+  }
+}

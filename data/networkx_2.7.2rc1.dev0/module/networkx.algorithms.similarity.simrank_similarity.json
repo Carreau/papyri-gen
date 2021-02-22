@@ -1,0 +1,1419 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "SimRank is a similarity metric that says \"two objects are considered to be similar if they are referenced by similar objects.\" ."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The pseudo-code definition from the paper is::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "def simrank(G, u, v):\n    in_neighbors_u = G.predecessors(u)\n    in_neighbors_v = G.predecessors(v)\n    scale = C / (len(in_neighbors_u) * len(in_neighbors_v))\n    return scale * sum(simrank(G, w, x)\n                       for w, x in product(in_neighbors_u,\n                                           in_neighbors_v))"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "where "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "G"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is the graph, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "u"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is the source, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "v"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is the target, and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "C"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is a float decay or importance factor between 0 and 1."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The SimRank algorithm for determining node similarity is defined in ."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "A NetworkX graph"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "G",
+            "type_": "NetworkX graph"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If this is specified, the returned dictionary maps each node "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "v"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " in the graph to the similarity between "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "source"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " and "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "v"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": "."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "source",
+            "type_": "node"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If both "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "source"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " and "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "target"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " are specified, the similarity value between "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "source"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " and "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "target"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " is returned. If "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "target"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " is specified but "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "source"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " is not, this argument is ignored."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "target",
+            "type_": "node"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "The relative importance of indirect neighbors with respect to direct neighbors."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "importance_factor",
+            "type_": "float"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Maximum number of iterations."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "max_iterations",
+            "type_": "integer"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Error tolerance used to check convergence. When an iteration of the algorithm finds that no similarity value changes more than this amount, the algorithm halts."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "tolerance",
+            "type_": "float"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "source"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " and "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "target"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " are both "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "None"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ", this returns a dictionary of dictionaries, where keys are node pairs and value are similarity of the pair of nodes."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "source"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " is not "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "None"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " but "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "target"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " is, this returns a dictionary mapping node to the similarity of "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "source"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " and that node."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If neither "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "source"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " nor "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "target"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " is "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "None"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ", this returns the similarity value for the given pair of nodes."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "similarity",
+            "type_": "dictionary or float"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Returns the SimRank similarity of nodes in the graph "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "G"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "networkx.simrank_similarity"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "G",
+              "typing.Generator",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "nx",
+              "networkx",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "cycle_graph",
+              "networkx.generators.classic.cycle_graph",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "nx",
+              "networkx",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "simrank_similarity",
+              "networkx.algorithms.similarity.simrank_similarity",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "typing.Generator",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "{0: {0: 1.0, 1: 0.0}, 1: {0: 0.0, 1: 1.0}}"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "nx",
+              "networkx",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "simrank_similarity",
+              "networkx.algorithms.similarity.simrank_similarity",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "typing.Generator",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "source",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "{0: 1.0, 1: 0.0}"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "nx",
+              "networkx",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "simrank_similarity",
+              "networkx.algorithms.similarity.simrank_similarity",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "typing.Generator",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "source",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "target",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "1.0"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "inline": [
+            {
+              "data": {
+                "value": "The result of this function can be converted to a numpy array representing the SimRank matrix by using the node order of the graph to determine which row and column represent each node. Other ordering of nodes is also possible."
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "import",
+              null,
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "numpy",
+              "numpy",
+              "nn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "as",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              "nn"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "sim",
+              "builtins.dict",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "nx",
+              "networkx",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "simrank_similarity",
+              "networkx.algorithms.similarity.simrank_similarity",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "typing.Generator",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "array",
+              "numpy.array",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "sim",
+              "builtins.dict",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "u",
+              null,
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "v",
+              null,
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "for",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "v",
+              null,
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "in",
+              null,
+              "ow"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "typing.Generator",
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "for",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "u",
+              null,
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "in",
+              null,
+              "ow"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "typing.Generator",
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "array([[1., 0.],\n       [0., 1.]])"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "sim_1d",
+              "builtins.dict",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "nx",
+              "networkx",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "simrank_similarity",
+              "networkx.algorithms.similarity.simrank_similarity",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "typing.Generator",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "source",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "array",
+              "numpy.array",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "sim",
+              "builtins.dict",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "v",
+              null,
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "for",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "v",
+              null,
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "in",
+              null,
+              "ow"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "typing.Generator",
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "array([1., 0.])"
+        },
+        "type": "Code"
+      }
+    ],
+    "title": null
+  },
+  "item_file": "networkx/algorithms/similarity.py",
+  "item_line": 1199,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples",
+    "References"
+  ],
+  "references": null,
+  "refs": [
+    "builtins.dict",
+    "networkx",
+    "networkx.algorithms.similarity.simrank_similarity",
+    "networkx.generators.classic.cycle_graph",
+    "numpy",
+    "numpy.array",
+    "typing.Generator"
+  ],
+  "see_also": [],
+  "signature": {
+    "value": "simrank_similarity(G, source=None, target=None, importance_factor=0.9, max_iterations=1000, tolerance=0.0001)"
+  }
+}

@@ -1,0 +1,2287 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The function used in the flow_func parameter has to return a residual network that follows NetworkX conventions:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The residual network "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "R"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " from an input graph "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "G"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " has the same nodes as "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "G"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "R"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is a DiGraph that contains a pair of edges "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(u, v)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(v, u)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " iff "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(u, v)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is not a self-loop, and at least one of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(u, v)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(v, u)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " exists in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "G"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "For each edge "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(u, v)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "R"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "R[u][v]['capacity']"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is equal to the capacity of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(u, v)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "G"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " if it exists in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "G"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " or zero otherwise. If the capacity is infinite, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "R[u][v]['capacity']"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " will have a high arbitrary finite value that does not affect the solution of the problem. This value is stored in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "R.graph['inf']"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". For each edge "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(u, v)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "R"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "R[u][v]['flow']"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " represents the flow function of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(u, v)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and satisfies "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "R[u][v]['flow'] == -R[v][u]['flow']"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The flow value, defined as the total flow into "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "t"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", the sink, is stored in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "R.graph['flow_value']"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". Reachability to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "t"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " using only edges "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(u, v)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " such that "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "R[u][v]['flow'] < R[u][v]['capacity']"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " induces a minimum "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "s"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "-"
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "t"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " cut."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Specific algorithms may store extra data in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "R"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The function should supports an optional boolean parameter value_only. When True, it can optionally terminate the algorithm as soon as the maximum flow value and the minimum cut can be determined."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Edges of the graph are expected to have an attribute called 'capacity'. If this attribute is not present, the edge is considered to have infinite capacity."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "flowG",
+            "type_": "NetworkX graph"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Source node for the flow."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "_s",
+            "type_": "node"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Sink node for the flow."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "_t",
+            "type_": "node"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Edges of the graph G are expected to have an attribute capacity that indicates how much flow the edge can support. If this attribute is not present, the edge is considered to have infinite capacity. Default value: 'capacity'."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "capacity",
+            "type_": "string"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "A function for computing the maximum flow among a pair of nodes in a capacitated graph. The function has to accept at least three parameters: a Graph or Digraph, a source node, and a target node. And return a residual network that follows NetworkX conventions (see Notes). If flow_func is None, the default maximum flow function ("
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "preflow_push"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ") is used. See below for alternative algorithms. The choice of the default function may change from version to version and should not be relied on. Default value: None."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "flow_func",
+            "type_": "function"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "computes the maximum flow."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "kwargs",
+            "type_": "Any other keyword parameter is passed to the function that"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "The algorithm does not support MultiGraph and MultiDiGraph. If the input graph is an instance of one of these two classes, a NetworkXError is raised."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "",
+            "type_": "NetworkXError"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If the graph has a path of infinite capacity, the value of a feasible flow on the graph is unbounded above and the function raises a NetworkXUnbounded."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "",
+            "type_": "NetworkXUnbounded"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Value of the maximum flow, i.e., net outflow from the source."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "flow_value",
+            "type_": "integer, float"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "A dictionary containing the value of the flow that went through each edge."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "flow_dict",
+            "type_": "dict"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Find a maximum single-commodity flow."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "networkx.maximum_flow"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "G",
+              "networkx.classes.digraph.DiGraph",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "nx",
+              "networkx",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "DiGraph",
+              "networkx.classes.digraph.DiGraph",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "networkx.classes.digraph.DiGraph",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "add_edge",
+              "networkx.classes.digraph.DiGraph.add_edge",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "x",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "a",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "capacity",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "3.0",
+              "",
+              "mf"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "networkx.classes.digraph.DiGraph",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "add_edge",
+              "networkx.classes.digraph.DiGraph.add_edge",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "x",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "b",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "capacity",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "1.0",
+              "",
+              "mf"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "networkx.classes.digraph.DiGraph",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "add_edge",
+              "networkx.classes.digraph.DiGraph.add_edge",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "a",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "c",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "capacity",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "3.0",
+              "",
+              "mf"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "networkx.classes.digraph.DiGraph",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "add_edge",
+              "networkx.classes.digraph.DiGraph.add_edge",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "b",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "c",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "capacity",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "5.0",
+              "",
+              "mf"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "networkx.classes.digraph.DiGraph",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "add_edge",
+              "networkx.classes.digraph.DiGraph.add_edge",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "b",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "d",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "capacity",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "4.0",
+              "",
+              "mf"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "networkx.classes.digraph.DiGraph",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "add_edge",
+              "networkx.classes.digraph.DiGraph.add_edge",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "d",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "e",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "capacity",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "2.0",
+              "",
+              "mf"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "networkx.classes.digraph.DiGraph",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "add_edge",
+              "networkx.classes.digraph.DiGraph.add_edge",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "c",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "y",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "capacity",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "2.0",
+              "",
+              "mf"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "networkx.classes.digraph.DiGraph",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "add_edge",
+              "networkx.classes.digraph.DiGraph.add_edge",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "e",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "y",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "capacity",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "3.0",
+              "",
+              "mf"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": ""
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "inline": [
+            {
+              "data": {
+                "value": "maximum_flow returns both the value of the maximum flow and a dictionary with all flows."
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "flow_value",
+              null,
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "flow_dict",
+              "builtins.dict",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "nx",
+              "networkx",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "maximum_flow",
+              "networkx.algorithms.flow.maxflow.maximum_flow",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "networkx.classes.digraph.DiGraph",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "x",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "y",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "flow_value",
+              "builtins.float",
+              ""
+            ]
+          ],
+          "out": "3.0"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "print",
+              "builtins.print",
+              "nb"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "flow_dict",
+              "builtins.dict",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "x",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "b",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "1.0"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "inline": [
+            {
+              "data": {
+                "value": "You can also use alternative algorithms for computing the maximum flow by using the flow_func parameter."
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "from",
+              null,
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "networkx",
+              "networkx",
+              "nn"
+            ],
+            [
+              ".",
+              "",
+              "nn"
+            ],
+            [
+              "algorithms",
+              "networkx.algorithms",
+              "nn"
+            ],
+            [
+              ".",
+              "",
+              "nn"
+            ],
+            [
+              "flow",
+              "networkx.algorithms.flow",
+              "nn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "import",
+              null,
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "shortest_augmenting_path",
+              "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "flow_value",
+              "builtins.float",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "==",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "nx",
+              "networkx",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "maximum_flow",
+              "networkx.algorithms.flow.maxflow.maximum_flow",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "networkx.classes.digraph.DiGraph",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "x",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "y",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "flow_func",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "shortest_augmenting_path",
+              "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ]
+          ],
+          "out": "True"
+        },
+        "type": "Code"
+      }
+    ],
+    "title": null
+  },
+  "item_file": "networkx/algorithms/flow/maxflow.py",
+  "item_line": 27,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "refs": [
+    "builtins.dict",
+    "builtins.float",
+    "builtins.print",
+    "edmonds_karp",
+    "maximum_flow_value",
+    "minimum_cut",
+    "minimum_cut_value",
+    "networkx",
+    "networkx.algorithms",
+    "networkx.algorithms.flow",
+    "networkx.algorithms.flow.maxflow.maximum_flow",
+    "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path",
+    "networkx.classes.digraph.DiGraph",
+    "networkx.classes.digraph.DiGraph.add_edge",
+    "preflow_push",
+    "shortest_augmenting_path"
+  ],
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "meth"
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": true,
+        "name": "maximum_flow_value",
+        "ref": "networkx.algorithms.flow.maxflow.maximum_flow_value"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "meth"
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": true,
+        "name": "minimum_cut",
+        "ref": "networkx.algorithms.flow.maxflow.minimum_cut"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "meth"
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": true,
+        "name": "minimum_cut_value",
+        "ref": "networkx.algorithms.flow.maxflow.minimum_cut_value"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "meth"
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": true,
+        "name": "edmonds_karp",
+        "ref": "networkx.algorithms.flow.edmondskarp.edmonds_karp"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "meth"
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": true,
+        "name": "preflow_push",
+        "ref": "networkx.algorithms.flow.preflowpush.preflow_push"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "meth"
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": true,
+        "name": "shortest_augmenting_path",
+        "ref": "networkx.algorithms.flow.shortestaugmentingpath.shortest_augmenting_path"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "value": "maximum_flow(flowG, _s, _t, capacity='capacity', flow_func=None, **kwargs)"
+  }
+}

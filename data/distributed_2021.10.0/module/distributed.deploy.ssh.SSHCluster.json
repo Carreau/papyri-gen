@@ -1,0 +1,1772 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The SSHCluster function deploys a Dask Scheduler and Workers for you on a set of machine addresses that you provide.  The first address will be used for the scheduler while the rest will be used for the workers (feel free to repeat the first hostname if you want to have the scheduler and worker co-habitate one machine.)"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "You may configure the scheduler and workers by passing "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "scheduler_options"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "worker_options"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " dictionary keywords.  See the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "dask.distributed.Scheduler"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "dask.distributed.Worker"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " classes for details on the available options, but the defaults should work in most situations."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "You may configure your use of SSH itself using the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "connect_options"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " keyword, which passes values to the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "asyncssh.connect"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " function.  For more information on these see the documentation for the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "asyncssh"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " library https://asyncssh.readthedocs.io ."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "List of hostnames or addresses on which to launch our cluster. The first will be used for the scheduler and the rest for workers."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "hosts",
+            "type_": "list[str]"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Keywords to pass through to "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "asyncssh.connect"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ". This could include things such as "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "port"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "username"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "password"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " or "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "known_hosts"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ". See docs for "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "asyncssh.connect"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " and "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "asyncssh.SSHClientConnectionOptions"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " for full information. If a list it must have the same length as "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "hosts"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": "."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "connect_options",
+            "type_": "dict or list of dict, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Keywords to pass on to workers."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "worker_options",
+            "type_": "dict, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Keywords to pass on to scheduler."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "scheduler_options",
+            "type_": "dict, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "The python class to use to create the worker(s)."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "worker_class: str",
+            "type_": ""
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Path to Python on remote nodes."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "remote_python",
+            "type_": "str or list of str, optional"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Deploy a Dask cluster using SSH"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "distributed.SSHCluster"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [
+      {
+        "data": {
+          "inline": [
+            {
+              "data": {
+                "value": "Create a cluster with one worker:"
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "ce_status": "compiled",
+          "entries": [
+            [
+              "from",
+              null,
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "dask",
+              "dask",
+              "nn"
+            ],
+            [
+              ".",
+              "",
+              "nn"
+            ],
+            [
+              "distributed",
+              "dask.distributed",
+              "nn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "import",
+              null,
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "Client",
+              "distributed.client.Client",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "SSHCluster",
+              "distributed.deploy.ssh.SSHCluster",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "cluster",
+              "distributed.deploy.old_ssh.SSHCluster",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "SSHCluster",
+              "distributed.deploy.ssh.SSHCluster",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "localhost",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "localhost",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "client",
+              "distributed.client.Client",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "Client",
+              "distributed.client.Client",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "cluster",
+              "distributed.deploy.old_ssh.SSHCluster",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": ""
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "inline": [
+            {
+              "data": {
+                "value": "Create a cluster with three workers, each with two threads and host the dashdoard on port 8797:"
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "ce_status": "compiled",
+          "entries": [
+            [
+              "from",
+              null,
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "dask",
+              "dask",
+              "nn"
+            ],
+            [
+              ".",
+              "",
+              "nn"
+            ],
+            [
+              "distributed",
+              "dask.distributed",
+              "nn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "import",
+              null,
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "Client",
+              "distributed.client.Client",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "SSHCluster",
+              "distributed.deploy.ssh.SSHCluster",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "cluster",
+              "distributed.deploy.old_ssh.SSHCluster",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "SSHCluster",
+              "distributed.deploy.ssh.SSHCluster",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "localhost",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "localhost",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "localhost",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "localhost",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "connect_options",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "{",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "known_hosts",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "None",
+              null,
+              "kc"
+            ],
+            [
+              "}",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "worker_options",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "{",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "nthreads",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              "}",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "scheduler_options",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "{",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "port",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "dashboard_address",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ":8797",
+              "",
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "}",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "client",
+              "distributed.client.Client",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "Client",
+              "distributed.client.Client",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "cluster",
+              "distributed.deploy.old_ssh.SSHCluster",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": ""
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "inline": [
+            {
+              "data": {
+                "value": "An example using a different worker class, in particular the "
+              },
+              "type": "Words"
+            },
+            {
+              "data": {
+                "value": [
+                  "CUDAWorker"
+                ]
+              },
+              "type": "Verbatim"
+            },
+            {
+              "data": {
+                "value": " from the "
+              },
+              "type": "Words"
+            },
+            {
+              "data": {
+                "value": [
+                  "dask-cuda"
+                ]
+              },
+              "type": "Verbatim"
+            },
+            {
+              "data": {
+                "value": " project:"
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "ce_status": "compiled",
+          "entries": [
+            [
+              "from",
+              null,
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "dask",
+              "dask",
+              "nn"
+            ],
+            [
+              ".",
+              "",
+              "nn"
+            ],
+            [
+              "distributed",
+              "dask.distributed",
+              "nn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "import",
+              null,
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "Client",
+              "distributed.client.Client",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "SSHCluster",
+              "distributed.deploy.ssh.SSHCluster",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "cluster",
+              "distributed.deploy.old_ssh.SSHCluster",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "SSHCluster",
+              "distributed.deploy.ssh.SSHCluster",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "localhost",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "hostwithgpus",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "anothergpuhost",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "connect_options",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "{",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "known_hosts",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "None",
+              null,
+              "kc"
+            ],
+            [
+              "}",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "scheduler_options",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "{",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "port",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "dashboard_address",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ":8797",
+              "",
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "}",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "worker_class",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "dask_cuda.CUDAWorker",
+              "",
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "client",
+              "distributed.client.Client",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "Client",
+              "distributed.client.Client",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "cluster",
+              "distributed.deploy.old_ssh.SSHCluster",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": ""
+        },
+        "type": "Code"
+      }
+    ],
+    "title": null
+  },
+  "item_file": "/distributed/deploy/ssh.py",
+  "item_line": 250,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Examples",
+    "See Also"
+  ],
+  "references": null,
+  "refs": [
+    "asyncssh.connect",
+    "dask",
+    "dask.distributed",
+    "distributed.scheduler.Scheduler",
+    "distributed.worker.Worker",
+    "distributed.client.Client",
+    "distributed.deploy.old_ssh.SSHCluster",
+    "distributed.deploy.ssh.SSHCluster"
+  ],
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "exists": null,
+        "name": "dask.distributed.Scheduler",
+        "ref": "distributed.scheduler.Scheduler"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "exists": null,
+        "name": "dask.distributed.Worker",
+        "ref": "distributed.worker.Worker"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "exists": null,
+        "name": "asyncssh.connect",
+        "ref": null
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "value": "SSHCluster(hosts: 'list[str] | None' = None, connect_options: 'dict | list[dict]' = {}, worker_options: 'dict' = {}, scheduler_options: 'dict' = {}, worker_module: 'str' = 'deprecated', worker_class: 'str' = 'distributed.Nanny', remote_python: 'str | list[str] | None' = None, **kwargs)"
+  }
+}

@@ -1,0 +1,4563 @@
+{
+  "_content": {},
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "args0": [],
+            "directive_name": "currentmodule",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "numpy "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "title": null
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "This NumPy release contains a number of new features that should substantially improve its performance and usefulness, see Highlights below for a summary. The Python versions supported are 3.5-3.7, note that Python 2.7 has been dropped. Python 3.8b2 should work with the released source packages, but there are no future guarantees."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Downstream developers should use Cython >= 0.29.11 for Python 3.8 support and OpenBLAS >= 3.7 (not currently out) to avoid problems on the Skylake architecture. The NumPy wheels on PyPI are built from the OpenBLAS development branch in order to avoid those problems."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "NumPy 1.17.0 Release Notes"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "A new extensible "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "exists": true,
+                            "kind": "module",
+                            "reference": {
+                              "kind": "api",
+                              "module": "random",
+                              "path": "random",
+                              "version": "*"
+                            },
+                            "value": "random"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " module along with four selectable "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "random number\n  generators <random.BitGenerators>"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": " and improved seeding designed for use in parallel   processes has been added. The currently available bit generators are "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "MT19937\n  <random.mt19937.MT19937>"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ", "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "PCG64 <random.pcg64.PCG64>"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ", "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "Philox\n  <random.philox.Philox>"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ", and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "SFC64 <random.sfc64.SFC64>"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ". See below under   New Features."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "NumPy's "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "FFT <fft>"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": " implementation was changed from fftpack to pocketfft,   resulting in faster, more accurate transforms and better handling of datasets   of prime length. See below under Improvements."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "New radix sort and timsort sorting methods. It is currently not possible to   choose which will be used. They are hardwired to the datatype and used   when either "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "stable"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " or "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "mergesort"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " is passed as the method. See below   under Improvements."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "Overriding numpy functions is now possible by default,   see "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "__array_function__"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " below."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        }
+      ],
+      "title": "Highlights"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "exists": true,
+                            "kind": "module",
+                            "reference": {
+                              "kind": "api",
+                              "module": "numpy",
+                              "path": "numpy.errstate",
+                              "version": "*"
+                            },
+                            "value": "numpy.errstate"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " is now also a function decorator"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        }
+      ],
+      "title": "New functions"
+    },
+    {
+      "children": [],
+      "title": "Deprecations"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Previously functions in this module would accept "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "float"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " values provided they were integral ("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "1.0"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "2.0"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", etc). For consistency with the rest of numpy, doing so is now deprecated, and in future will raise a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "TypeError"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Similarly, passing a float like "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "0.5"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " in place of an integer will now raise a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "TypeError"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " instead of the previous "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ValueError"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "`numpy.polynomial` functions warn when passed ``float`` in place of ``int``"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The internal use of these functions has been refactored and there are better alternatives. Replace "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "exec_command"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "subprocess",
+                    "path": "subprocess.Popen",
+                    "version": "*"
+                  },
+                  "value": "subprocess.Popen"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "temp_file_name <numpy.distutils.exec_command>"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "tempfile",
+                    "path": "tempfile.mkstemp",
+                    "version": "*"
+                  },
+                  "value": "tempfile.mkstemp"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Deprecate `numpy.distutils.exec_command` and ``temp_file_name``"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "When an array is created from the C-API to wrap a pointer to data, the only indication we have of the read-write nature of the data is the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "writeable"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " flag set during creation. It is dangerous to force the flag to writeable. In the future it will not be possible to switch the writeable flag to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "True"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " from python. This deprecation should not affect many users since arrays created in such a manner are very rare in practice and only available through the NumPy C-API."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Writeable flag of C-API wrapped arrays"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The behavior of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "numpy",
+                    "path": "numpy.nonzero",
+                    "version": "*"
+                  },
+                  "value": "numpy.nonzero"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " on 0d arrays was surprising, making uses of it almost always incorrect. If the old behavior was intended, it can be preserved without a warning by using "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "nonzero(atleast_1d(arr))"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " instead of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "nonzero(arr)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ".  In a future release, it is most likely this will raise a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ValueError"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "`numpy.nonzero` should no longer be called on 0d arrays"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Commonly "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "numpy",
+                    "path": "numpy.broadcast_arrays",
+                    "version": "*"
+                  },
+                  "value": "numpy.broadcast_arrays"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " returns a writeable array with internal overlap, making it unsafe to write to. A future version will set the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "writeable"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " flag to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "False"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", and require users to manually set it to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "True"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " if they are sure that is what they want to do. Now writing to it will emit a deprecation warning with instructions to set the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "writeable"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " flag "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "True"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ".  Note that if one were to inspect the flag before setting it, one would find it would already be "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "True"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ".  Explicitly setting it, though, as one will need to do in future versions, clears an internal flag that is used to produce the deprecation warning. To help alleviate confusion, an additional "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "FutureWarning"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " will be emitted when accessing the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "writeable"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " flag state to clarify the contradiction."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Note that for the C-side buffer protocol such an array will return a readonly buffer immediately unless a writable buffer is requested. If a writeable buffer is requested a warning will be given. When using cython, the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "const"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " qualifier should be used with such arrays to avoid the warning (e.g. "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "cdef const double[::1] view"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ")."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Writing to the result of `numpy.broadcast_arrays` will warn"
+    },
+    {
+      "children": [],
+      "title": "Future Changes"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Currently, a field specified as "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "[(name, dtype, 1)]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " or "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "\"1type\""
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is interpreted as a scalar field (i.e., the same as "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "[(name, dtype)]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " or "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "[(name, dtype, ()]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "). This now raises a FutureWarning; in a future version, it will be interpreted as a shape-(1,) field, i.e. the same as "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "[(name,\ndtype, (1,))]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " or "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "\"(1,)type\""
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " (consistently with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "[(name, dtype, n)]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " / "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "\"ntype\""
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "n>1"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", which is already equivalent to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "[(name, dtype,\n(n,)]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " / "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "\"(n,)type\""
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ")."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Shape-1 fields in dtypes won't be collapsed to scalars in a future version"
+    },
+    {
+      "children": [],
+      "title": "Compatibility notes"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Casting from a different floating point precision to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "float16"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " used incorrect rounding in some edge cases. This means in rare cases, subnormal results will now be rounded up instead of down, changing the last bit (ULP) of the result."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "``float16`` subnormal rounding"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Starting in version "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "1.12.0"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", numpy incorrectly returned a negatively signed zero when using the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "divmod"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "floor_divide"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " functions when the result was zero. For example::     "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> np.zeros(10)//1\narray([-0., -0., -0., -0., -0., -0., -0., -0., -0., -0.])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "With this release, the result is correctly returned as a positively signed zero::     "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> np.zeros(10)//1\narray([0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "title": "Signed zero when using divmod"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Returning the mask itself was unsafe, as it could be reshaped in place which would violate expectations of the masked array code. The behavior of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "mask\n<ma.MaskedArray.mask>"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " is now consistent with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "data <ma.MaskedArray.data>"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", which also returns a view."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The underlying mask can still be accessed with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "._mask"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " if it is needed. Tests that contain "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "assert x.mask is not y.mask"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " or similar will need to be updated."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "``MaskedArray.mask`` now returns a view of the mask, not the mask itself"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Looking up "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__buffer__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " attribute in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "numpy",
+                    "path": "numpy.frombuffer",
+                    "version": "*"
+                  },
+                  "value": "numpy.frombuffer"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " was undocumented and non-functional. This code was removed. If needed, use "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "frombuffer(memoryview(obj), ...)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " instead."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Do not lookup ``__buffer__`` attribute in `numpy.frombuffer`"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "If the out argument to these functions is provided and has memory overlap with the other arguments, it is now buffered to avoid order-dependent behavior."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "``out`` is buffered for memory overlaps in `take`, `choose`, `put`"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The functions "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "load"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "lib.format.read_array"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " take an "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "allow_pickle"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " keyword which now defaults to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "False"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " in response to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://nvd.nist.gov/vuln/detail/CVE-2019-6446",
+                  "value": "CVE-2019-6446"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "args0": [],
+            "directive_name": "currentmodule",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "numpy.random "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "title": "Unpickling while loading requires explicit opt-in"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Due to bugs in the application of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "log"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " to random floating point numbers, the stream may change when sampling from "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "~RandomState.beta"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "~RandomState.binomial"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "~RandomState.laplace"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "~RandomState.logistic"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "~RandomState.logseries"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " or "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "~RandomState.multinomial"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " if a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "0"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is generated in the underlying "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "MT19937"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " random stream.  There is a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "1"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "10^{53}"
+                  ]
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " chance of this occurring, so the probability that the stream changes for any given seed is extremely small. If a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "0"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is encountered in the underlying generator, then the incorrect value produced (either "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "numpy.inf"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " or "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "numpy.nan"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ") is now dropped."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "args0": [],
+            "directive_name": "currentmodule",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "numpy "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "title": "Potential changes to the random stream in old random module"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Previously, the output was squeezed, such that, e.g., input with just a single element would lead to an array scalar being returned, and inputs with shapes such as "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(10, 1)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " would yield results that would not broadcast against the input."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Note that we generally recommend the SciPy implementation over the numpy one: it is a proper ufunc written in C, and more than an order of magnitude faster."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "`i0` now always returns a result with the same shape as the input"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Previously, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "can_cast"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " returned "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "True"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " for almost all inputs for "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "casting='unsafe'"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", even for cases where casting was not possible, such as from a structured dtype to a regular one.  This has been fixed, making it more consistent with actual casting using, e.g., the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": ".astype <ndarray.astype>"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " method."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "`can_cast` no longer assumes all unsafe casting is allowed"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "In rare cases, it was not possible to switch an array from not writeable to writeable, although a base array is writeable. This can happen if an intermediate "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "ndarray.base"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " object is writeable. Previously, only the deepest base object was considered for this decision. However, in rare cases this object does not have the necessary information. In that case switching to writeable was never allowed. This has now been fixed."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "``ndarray.flags.writeable`` can be switched to true slightly more often"
+    },
+    {
+      "children": [],
+      "title": "C API changes"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Previously these function arguments were declared as the more strict "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "npy_intp*"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", which prevented the caller passing constant data. This change is backwards compatible, but now allows code like::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "npy_intp const fixed_dims[] = {1, 2, 3};\n// no longer complains that the const-qualifier is discarded\nnpy_intp size = PyArray_MultiplyList(fixed_dims, 3);"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "title": "dimension or stride input arguments are now passed by ``npy_intp const*``"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "args0": [],
+            "directive_name": "currentmodule",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "numpy.random "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "title": "New Features"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "A new extensible "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "numpy",
+                    "path": "numpy.random",
+                    "version": "*"
+                  },
+                  "value": "numpy.random"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " module along with four selectable random number generators and improved seeding designed for use in parallel processes has been added. The currently available "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "Bit Generators"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " are "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "~mt19937.MT19937"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "~pcg64.PCG64"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "~philox.Philox"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "~sfc64.SFC64"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ". "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "PCG64"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is the new default while "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "MT19937"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is retained for backwards compatibility. Note that the legacy random module is unchanged and is now frozen, your current results will not change. More information is available in the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "API change description <new-or-different>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and in the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "top-level view\n<numpy.random>"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " documentation."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "args0": [],
+            "directive_name": "currentmodule",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "numpy "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "title": "New extensible `numpy.random` module with selectable random number generators"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Support for building NumPy with the libFLAME linear algebra package as the LAPACK, implementation, see "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://www.cs.utexas.edu/~flame/web/libFLAME.html",
+                  "value": "libFLAME"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": " for details."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "libFLAME"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "distutils",
+                    "path": "distutils",
+                    "version": "*"
+                  },
+                  "value": "distutils"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " now uses an environment variable, comma-separated and case insensitive, to determine the detection order for BLAS libraries. By default "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "NPY_BLAS_ORDER=mkl,blis,openblas,atlas,accelerate,blas"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". However, to force the use of OpenBLAS simply do::     "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "NPY_BLAS_ORDER=openblas python setup.py build"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "which forces the use of OpenBLAS. This may be helpful for users which have a MKL installation but wishes to try out different implementations."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "User-defined BLAS detection order"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": [
+                    "numpy.distutils"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " now uses an environment variable, comma-separated and case insensitive, to determine the detection order for LAPACK libraries. By default "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "NPY_LAPACK_ORDER=mkl,openblas,flame,atlas,accelerate,lapack"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". However, to force the use of OpenBLAS simply do::     "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "NPY_LAPACK_ORDER=openblas python setup.py build"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "which forces the use of OpenBLAS. This may be helpful for users which have a MKL installation but wishes to try out different implementations."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "User-defined LAPACK detection order"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "ufunc.reduce"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "sum"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "prod"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "min"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "max"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " all now accept a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "where"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " keyword argument, which can be used to tell which elements to include in the reduction.  For reductions that do not have an identity, it is necessary to also pass in an initial value (e.g., "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "initial=np.inf"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " for "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "min"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ").  For instance, the equivalent of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "nansum"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " would be "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "np.sum(a, where=~np.isnan(a))"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "`ufunc.reduce` and related functions now accept a ``where`` mask"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Both radix sort and timsort have been implemented and are now used in place of mergesort. Due to the need to maintain backward compatibility, the sorting "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "kind"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " options "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "\"stable\""
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "\"mergesort\""
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " have been made aliases of each other with the actual sort implementation depending on the array type. Radix sort is used for small integer types of 16 bits or less and timsort for the remaining types.  Timsort features improved performance on data containing already or nearly sorted data and performs like mergesort on random data and requires "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "O(n/2)"
+                  ]
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " working space.  Details of the timsort algorithm can be found at "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/python/cpython/blob/3.7/Objects/listsort.txt",
+                  "value": "CPython listsort.txt"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Timsort and radix sort have replaced mergesort for stable sorting"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "order"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " keyword defaults to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "big"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", and will order the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "content": {
+                    "value": "bits"
+                  }
+                },
+                "type": "Strong"
+              },
+              {
+                "data": {
+                  "value": " accordingly. For "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "'order=big'"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " 3 will become "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "[0, 0, 0, 0, 0, 0, 1, 1]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "[1, 1, 0, 0, 0, 0, 0, 0]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " for "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "order=little"
+                  ]
+                },
+                "type": "Verbatim"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "`packbits` and `unpackbits` accept an ``order`` keyword"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": [
+                    "count"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " allows subsetting the number of bits that will be unpacked up-front, rather than reshaping and subsetting later, making the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "packbits"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " operation invertible, and the unpacking less wasteful. Counts larger than the number of available bits add zero padding. Negative counts trim bits off the end instead of counting from the beginning. None counts implement the existing behavior of unpacking everything."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "`unpackbits` now accepts a ``count`` parameter"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "These functions now accept a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "hermitian"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " argument, matching the one added to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "linalg.matrix_rank"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " in 1.14.0."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "`linalg.svd` and `linalg.pinv` can be faster on hermitian inputs"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The divmod operator now handles two "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "timedelta64"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " operands, with type signature "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "mm->qm"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "divmod operation is now supported for two ``timedelta64`` operands"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "This function now takes an "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "offset"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " keyword argument for binary files, which specifics the offset (in bytes) from the file's current position. Defaults to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "0"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "`fromfile` now takes an ``offset`` argument"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "This mode pads an array to a desired shape without initializing the new entries."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "New mode \"empty\" for `pad`"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "empty_like"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "full_like"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "ones_like"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "zeros_like"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " now accept a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "shape"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " keyword argument, which can be used to create a new array as the prototype, overriding its shape as well. This is particularly useful when combined with the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array_function__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " protocol, allowing the creation of new arbitrary-shape arrays from NumPy-like libraries when such an array is used as the prototype."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "`empty_like` and related functions now accept a ``shape`` argument"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "This returns a (numerator, denominator) pair, which can be used to construct a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "fractions",
+                    "path": "fractions.Fraction",
+                    "version": "*"
+                  },
+                  "value": "fractions.Fraction"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Floating point scalars implement ``as_integer_ratio`` to match the builtin float"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": [
+                    "arr.dtype[['a', 'b']]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " now returns a dtype that is equivalent to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "arr[['a', 'b']].dtype"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", for consistency with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "arr.dtype['a'] == arr['a'].dtype"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Like the dtype of structured arrays indexed with a list of fields, this dtype has the same "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "itemsize"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " as the original, but only keeps a subset of the fields."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "This means that "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "arr[['a', 'b']]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "arr.view(arr.dtype[['a', 'b']])"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " are equivalent."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Structured ``dtype`` objects can be indexed with multiple fields names"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "A new format version of 3.0 has been introduced, which enables structured types with non-latin1 field names. This is used automatically when needed."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "``.npy`` files support unicode field names"
+    },
+    {
+      "children": [],
+      "title": "Improvements"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Error messages from array comparison tests such as "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "testing.assert_allclose"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " now include \"max absolute difference\" and \"max relative difference,\" in addition to the previous \"mismatch\" percentage. This information makes it easier to update absolute and relative error tolerances."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Array comparison assertions include maximum differences"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Both implementations have the same ancestor (Fortran77 FFTPACK by Paul N. Swarztrauber), but pocketfft contains additional modifications which improve both accuracy and performance in some circumstances. For FFT lengths containing large prime factors, pocketfft uses Bluestein's algorithm, which maintains "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "O(N log N)"
+                  ]
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " run time complexity instead of deteriorating towards "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "O(N*N)"
+                  ]
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " for prime lengths. Also, accuracy for real valued FFTs with near prime lengths has improved and is on par with complex valued FFTs."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Replacement of the fftpack based `fft` module by the pocketfft library"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "A new "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "numpy",
+                    "path": "numpy.ctypeslib.as_ctypes_type",
+                    "version": "*"
+                  },
+                  "value": "numpy.ctypeslib.as_ctypes_type"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " function has been added, which can be used to converts a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "dtype"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " into a best-guess "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "ctypes",
+                    "path": "ctypes",
+                    "version": "*"
+                  },
+                  "value": "ctypes"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " type. Thanks to this new function, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "numpy",
+                    "path": "numpy.ctypeslib.as_ctypes",
+                    "version": "*"
+                  },
+                  "value": "numpy.ctypeslib.as_ctypes"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " now supports a much wider range of array types, including structures, booleans, and integers of non-native endianness."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Further improvements to ``ctypes`` support in `numpy.ctypeslib`"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Currently, if you have a function like::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "def foo():\n    pass"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "and you want to wrap the whole thing in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "errstate"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", you have to rewrite it like so::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "def foo():\n    with np.errstate(...):\n        pass"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "but with this change, you can do::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "@np.errstate(...)\ndef foo():\n    pass"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "thereby saving a level of indentation"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "`numpy.errstate` is now also a function decorator"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "float32 implementation of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "exp"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "log"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " now benefit from AVX2/AVX512 instruction set which are detected during runtime. "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "exp"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " has a max ulp error of 2.52 and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "log"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " has a max ulp error or 3.83."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "`numpy.exp` and `numpy.log` speed up for float32 implementation"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The performance of the function has been improved for most cases by filling in a preallocated array with the desired padded shape instead of using concatenation."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Improve performance of `numpy.pad`"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "In some cases where "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "interp"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " would previously return "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "nan"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", it now returns an appropriate infinity."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "`numpy.interp` handles infinities more robustly"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "fromfile"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "ndarray.ndarray.tofile"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "ndarray.dump"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " now support the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "pathlib",
+                    "path": "pathlib.Path",
+                    "version": "*"
+                  },
+                  "value": "pathlib.Path"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " type for the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "file"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "/"
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "fid"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " parameter."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Pathlib support for `fromfile`, `tofile` and `ndarray.dump`"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The boolean and integer types are incapable of storing "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "nan"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "inf"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " values, which allows us to provide specialized ufuncs that are up to 250x faster than the previous approach."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Specialized `isnan`, `isinf`, and `isfinite` ufuncs for bool and int types"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Previously, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "isfinite"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " used to raise a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "TypeError"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " on being used on these two types."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "`isfinite` supports ``datetime64`` and ``timedelta64`` types"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "nan_to_num"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " now accepts keywords "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "nan"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "posinf"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "neginf"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " allowing the user to define the value to replace the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "nan"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", positive and negative "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "np.inf"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " values respectively."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "New keywords added to `nan_to_num`"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Often the cause of a MemoryError is incorrect broadcasting, which results in a very large and incorrect shape. The message of the error now includes this shape to help diagnose the cause of failure."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "MemoryErrors caused by allocated overly large arrays are more descriptive"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "These ufuncs now call the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__floor__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__ceil__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__trunc__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " methods when called on object arrays, making them compatible with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "decimal",
+                    "path": "decimal.Decimal",
+                    "version": "*"
+                  },
+                  "value": "decimal.Decimal"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "fractions",
+                    "path": "fractions.Fraction",
+                    "version": "*"
+                  },
+                  "value": "fractions.Fraction"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " objects."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "`floor`, `ceil`, and `trunc` now respect builtin magic methods"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "In general, this handles object arrays more gracefully, and avoids floating- point operations if exact arithmetic types are used."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "`quantile` now works on `fraction.Fraction` and `decimal.Decimal` objects"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "It is now possible to use "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "matmul"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " (or the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "@"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " operator) with object arrays. For instance, it is now possible to do::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "from fractions import Fraction\na = np.array([[Fraction(1, 2), Fraction(1, 3)], [Fraction(1, 3), Fraction(1, 2)]])\nb = a @ a"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "title": "Support of object arrays in `matmul`"
+    },
+    {
+      "children": [],
+      "title": "Changes"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "numpy",
+                    "path": "numpy.median",
+                    "version": "*"
+                  },
+                  "value": "numpy.median"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "numpy",
+                    "path": "numpy.percentile",
+                    "version": "*"
+                  },
+                  "value": "numpy.percentile"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": ", and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "numpy",
+                    "path": "numpy.quantile",
+                    "version": "*"
+                  },
+                  "value": "numpy.quantile"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " used to emit a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "RuntimeWarning"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " when encountering an "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "nan"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ". Since they return the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "nan"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " value, the warning is redundant and has been removed."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "`median` and `percentile` family of functions no longer warn about ``nan``"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The modulus operation with two "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "np.timedelta64"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " operands now returns "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "NaT"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " in the case of division by zero, rather than returning zero"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "``timedelta64 % 0`` behavior adjusted to return ``NaT``"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "NumPy now always checks the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array_function__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " method to implement overrides of NumPy functions on non-NumPy arrays, as described in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "NEP 18"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ". The feature was available for testing with NumPy 1.16 if appropriate environment variables are set, but is now always enabled."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "placeholder": "inline_target",
+                            "value": "_`NEP 18`"
+                          },
+                          "type": "Unimplemented"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "inline": [
+                    {
+                      "data": {
+                        "placeholder": "inline_target",
+                        "value": "_`NEP 18`"
+                      },
+                      "type": "Unimplemented"
+                    }
+                  ],
+                  "inner": []
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": [
+                              "casting=\"unsafe\""
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " explicitly will silence this warning."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "* Using \"unsafe\" casting by default when an "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "out"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " argument is passed. Using"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Additionally, there are some corner cases with behavior changes:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "Padding "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "max < min"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " has changed to be more consistent across dtypes, but"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "should not be relied upon. * Scalar "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "min"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "max"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " take part in promotion rules like they do in all   other ufuncs."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "NumPy functions now always support overrides with ``__array_function__``"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The interface may use an "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "offset"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " value that was mistakenly ignored."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "``__array_interface__`` offset now works as documented"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "savez"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " was not using the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "force_zip64"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " flag, which limited the size of the archive to 2GB. But using the flag requires us to use pickle protocol 3 to write "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "object"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " arrays. The protocol used was bumped to 3, meaning the archive will be unreadable by Python2."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Pickle protocol in `savez` set to 3 for ``force zip64`` flag"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": [
+                    "arr['bad_field']"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " on a structured type raises "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "KeyError"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", for consistency with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "dict['bad_field']"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Structured arrays indexed with non-existent fields raise ``KeyError`` not ``ValueError``"
+    }
+  ],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "refs": [],
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

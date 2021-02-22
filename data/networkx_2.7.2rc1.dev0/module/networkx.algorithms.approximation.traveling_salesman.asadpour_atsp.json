@@ -1,0 +1,1074 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "This approximate solution is one of the best known approximations for the asymmetric traveling salesman problem developed by Asadpour et al, . The algorithm first solves the Held-Karp relaxation to find a lower bound for the weight of the cycle. Next, it constructs an exponential distribution of undirected spanning trees where the probability of an edge being in the tree corresponds to the weight of that edge using a maximum entropy rounding scheme. Next we sample that distribution $2 \\lceil \\ln n \\rceil$ times and save the minimum sampled tree once the direction of the arcs is added back to the edges. Finally, we augment then short circuit that graph to find the approximate tour for the salesman."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "The graph should be a complete weighted directed graph. The distance between all paris of nodes should be included and the triangle inequality should hold. That is, the direct edge between any two nodes should be the path of least cost."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "G",
+            "type_": "nx.DiGraph"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Edge data key corresponding to the edge weight. If any edge does not have this attribute the weight is set to 1."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "weight",
+            "type_": "string, optional (default=\"weight\")"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Indicator of random number generation state. See "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "Randomness<randomness>"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": "."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "seed",
+            "type_": "integer, random_state, or None (default)"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If given, return the cycle starting and ending at the given node."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "source",
+            "type_": "node label (default=`None`)"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "G",
+                          "version": null
+                        },
+                        "value": "G"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " is not complete or has less than two nodes, the algorithm raises an exception."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "",
+            "type_": "NetworkXError"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If 'source` is not "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "None"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " and is not a node in "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "G",
+                          "version": null
+                        },
+                        "value": "G"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": ", the algorithm raises an exception."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "",
+            "type_": "NetworkXError"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "G",
+                          "version": null
+                        },
+                        "value": "G"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " is an undirected graph."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "",
+            "type_": "NetworkXNotImplemented"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Returns the cycle (list of nodes) that a salesman can follow to minimize the total weight of the trip."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "cycle",
+            "type_": "list of nodes"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Returns an approximate solution to the traveling salesman problem."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "networkx.approximation.asadpour_atsp"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "import",
+              null,
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "networkx",
+              "networkx",
+              "nn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "as",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "nx",
+              "networkx",
+              "nn"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "import",
+              null,
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "networkx",
+              "networkx",
+              "nn"
+            ],
+            [
+              ".",
+              "",
+              "nn"
+            ],
+            [
+              "algorithms",
+              "networkx.algorithms",
+              "nn"
+            ],
+            [
+              ".",
+              "",
+              "nn"
+            ],
+            [
+              "approximation",
+              "networkx.algorithms.approximation",
+              "nn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "as",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "approx",
+              "networkx.algorithms.approximation",
+              "nn"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "typing.Generator",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "nx",
+              "networkx",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "complete_graph",
+              null,
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "create_using",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "nx",
+              "networkx",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "DiGraph",
+              "networkx.classes.digraph.DiGraph",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "nx",
+              "networkx",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "set_edge_attributes",
+              "networkx.classes.function.set_edge_attributes",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "typing.Generator",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "{",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              "}",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "weight",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "tour",
+              "typing.Generator",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "approx",
+              "networkx.algorithms.approximation",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "asadpour_atsp",
+              null,
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "typing.Generator",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "source",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "tour",
+              "typing.Generator",
+              ""
+            ]
+          ],
+          "out": "[0, 2, 1, 0]"
+        },
+        "type": "Code"
+      }
+    ],
+    "title": null
+  },
+  "item_file": "networkx/algorithms/approximation/traveling_salesman.py",
+  "item_line": 336,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "refs": [
+    "networkx",
+    "networkx.algorithms",
+    "networkx.algorithms.approximation",
+    "networkx.classes.digraph.DiGraph",
+    "networkx.classes.function.set_edge_attributes",
+    "typing.Generator"
+  ],
+  "see_also": [],
+  "signature": {
+    "value": "asadpour_atsp(G, weight='weight', seed=None, source=None)"
+  }
+}

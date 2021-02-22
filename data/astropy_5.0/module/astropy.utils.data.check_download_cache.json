@@ -1,0 +1,326 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "inline": [
+                  {
+                    "data": {
+                      "value": "Since v5.0, this function no longer returns anything. "
+                    },
+                    "type": "Words"
+                  }
+                ],
+                "inner": []
+              }
+            ],
+            "kind": "note",
+            "title": ""
+          },
+          "type": "Admonition"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Because the cache is shared by all versions of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "astropy"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " in all virtualenvs run by your user, possibly concurrently, it could accumulate problems. This could lead to hard-to-debug problems or wasted space. This function detects a number of incorrect conditions, including nonexistent files that are indexed, files that are indexed but in the wrong place, and, if you request it, files whose content does not match the hash that is indexed."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "This function also returns a list of non-indexed files. A few will be associated with the shelve object; their exact names depend on the backend used but will probably be based on "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "urlmap"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". The presence of other files probably indicates that something has gone wrong and inaccessible files have accumulated in the cache. These can be removed with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "clear_download_cache"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", either passing the filename returned here, or with no arguments to empty the entire cache and return it to a reasonable, if empty, state."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "The package name to use to locate the download cache, i.e., for "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "pkgname='astropy'"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " the default cache location is "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "~/.astropy/cache"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": "."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "pkgname",
+            "type_": "str, optional"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "To indicate a problem with the cache contents; the exception contains a "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          ".bad_files"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " attribute containing a set of filenames to allow the user to use "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "clear_download_cache"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " to remove the offending items."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "",
+            "type_": "`~astropy.utils.data.CacheDamaged`"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "To indicate some problem with the cache structure. This may need a full "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "clear_download_cache"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " to resolve, or may indicate some kind of misconfiguration."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "",
+            "type_": "OSError, RuntimeError"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Do a consistency check on the cache."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "astropy.utils.data.check_download_cache"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": "/astropy/utils/data.py",
+  "item_line": 1762,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Raises"
+  ],
+  "references": null,
+  "refs": [],
+  "see_also": [],
+  "signature": {
+    "value": "check_download_cache(pkgname='astropy')"
+  }
+}

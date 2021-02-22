@@ -1,0 +1,2404 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "A Gomory-Hu tree of an undirected graph with capacities is a weighted tree that represents the minimum s-t cuts for all s-t pairs in the graph."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "It only requires "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "n-1"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " minimum cut computations instead of the obvious "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "n(n-1)/2"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ". The tree represents all s-t cuts as the minimum cut value among any pair of nodes is the minimum edge weight in the shortest path between the two nodes in the Gomory-Hu tree."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The Gomory-Hu tree also has the property that removing the edge with the minimum weight in the shortest path between any two nodes leaves two connected components that form a partition of the nodes in G that defines the minimum s-t cut."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "See Examples section below for details."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "This implementation is based on Gusfield approach  to compute Comory-Hu trees, which does not require node contractions and has the same computational complexity than the original method."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Undirected graph"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "G",
+            "type_": "NetworkX graph"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Edges of the graph G are expected to have an attribute capacity that indicates how much flow the edge can support. If this attribute is not present, the edge is considered to have infinite capacity. Default value: 'capacity'."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "capacity",
+            "type_": "string"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Function to perform the underlying flow computations. Default value "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "edmonds_karp"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ". This function performs better in sparse graphs with right tailed degree distributions. "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "shortest_augmenting_path"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " will perform better in denser graphs."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "flow_func",
+            "type_": "function"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Raised if the input graph is directed."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "",
+            "type_": "NetworkXNotImplemented"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Raised if the input graph is an empty Graph."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "",
+            "type_": "NetworkXError"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "A NetworkX graph representing the Gomory-Hu tree of the input graph."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "Tree",
+            "type_": "NetworkX graph"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Returns the Gomory-Hu tree of an undirected graph G."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "networkx.gomory_hu_tree"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "G",
+              "networkx.classes.graph.Graph",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "nx",
+              "networkx",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "karate_club_graph",
+              "networkx.generators.social.karate_club_graph",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "nx",
+              "networkx",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "set_edge_attributes",
+              "networkx.classes.function.set_edge_attributes",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "networkx.classes.graph.Graph",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "capacity",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "T",
+              "networkx.classes.graph.Graph",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "nx",
+              "networkx",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "gomory_hu_tree",
+              "networkx.algorithms.flow.gomory_hu.gomory_hu_tree",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "networkx.classes.graph.Graph",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "# The value of the minimum cut between any pair",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "# of nodes in G is the minimum edge weight in the",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "# shortest path between the two nodes in the",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "# Gomory-Hu tree.",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "def",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "minimum_edge_weight_in_shortest_path",
+              "__main__.minimum_edge_weight_in_shortest_path",
+              "nf"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "T",
+              "networkx.classes.graph.Graph",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "u",
+              "builtins.int",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "v",
+              "builtins.int",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "path",
+              "builtins.dict",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "nx",
+              "networkx",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "shortest_path",
+              "networkx.algorithms.shortest_paths.generic.shortest_path",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "T",
+              "networkx.classes.graph.Graph",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "u",
+              "builtins.int",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "v",
+              "builtins.int",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "weight",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "weight",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "return",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "min",
+              "builtins.min",
+              "nb"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "T",
+              "networkx.classes.graph.Graph",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "u",
+              "builtins.NoneType",
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "v",
+              "builtins.NoneType",
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "weight",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "u",
+              "builtins.NoneType",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "v",
+              "builtins.NoneType",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "for",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "u",
+              "builtins.NoneType",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "v",
+              "builtins.NoneType",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "in",
+              null,
+              "ow"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "zip",
+              "builtins.zip",
+              "nb"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "path",
+              "builtins.dict",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "path",
+              "builtins.dict",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "u",
+              "builtins.int",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "v",
+              "builtins.int",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "33",
+              "",
+              "mi"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "cut_value",
+              null,
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "edge",
+              null,
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "minimum_edge_weight_in_shortest_path",
+              "__main__.minimum_edge_weight_in_shortest_path",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "T",
+              "networkx.classes.graph.Graph",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "u",
+              "builtins.int",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "v",
+              "builtins.int",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "cut_value",
+              "builtins.int",
+              ""
+            ]
+          ],
+          "out": "10"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "nx",
+              "networkx",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "minimum_cut_value",
+              "networkx.algorithms.flow.maxflow.minimum_cut_value",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "networkx.classes.graph.Graph",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "u",
+              "builtins.int",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "v",
+              "builtins.int",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "10"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "# The Comory-Hu tree also has the property that removing the",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "# edge with the minimum weight in the shortest path between",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "# any two nodes leaves two connected components that form",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "# a partition of the nodes in G that defines the minimum s-t",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "# cut.",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "cut_value",
+              null,
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "edge",
+              null,
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "minimum_edge_weight_in_shortest_path",
+              "__main__.minimum_edge_weight_in_shortest_path",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "T",
+              "networkx.classes.graph.Graph",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "u",
+              "builtins.int",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "v",
+              "builtins.int",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "T",
+              "networkx.classes.graph.Graph",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "remove_edge",
+              "networkx.classes.graph.Graph.remove_edge",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              "edge",
+              "builtins.tuple",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "U",
+              "builtins.set",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "V",
+              null,
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "list",
+              "builtins.list",
+              "nb"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "nx",
+              "networkx",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "connected_components",
+              "networkx.algorithms.components.connected.connected_components",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "T",
+              "networkx.classes.graph.Graph",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "# Thus U and V form a partition that defines a minimum cut",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "# between u and v in G. You can compute the edge cut set,",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "# that is, the set of edges that if removed from G will",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "# disconnect u from v in G, with this information:",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "cutset",
+              "builtins.set",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "set",
+              "builtins.set",
+              "nb"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "for",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "x",
+              null,
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "nbrs",
+              "networkx.classes.coreviews.AtlasView",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "in",
+              null,
+              "ow"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "n",
+              null,
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "networkx.classes.graph.Graph",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "n",
+              null,
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "for",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "n",
+              null,
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "in",
+              null,
+              "ow"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "U",
+              "builtins.set",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "cutset",
+              "builtins.set",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "update",
+              "builtins.set.update",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "builtins.int",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "y",
+              null,
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "for",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "y",
+              null,
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "in",
+              null,
+              "ow"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "nbrs",
+              "networkx.classes.coreviews.AtlasView",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "if",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "y",
+              null,
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "in",
+              null,
+              "ow"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "V",
+              "builtins.set",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "# Because we have set the capacities of all edges to 1",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "# the cutset contains ten edges",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "len",
+              "builtins.len",
+              "nb"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "cutset",
+              "builtins.set",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "10"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "# You can use any maximum flow algorithm for the underlying",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "# flow computations using the argument flow_func",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "from",
+              null,
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "networkx",
+              "networkx",
+              "nn"
+            ],
+            [
+              ".",
+              "",
+              "nn"
+            ],
+            [
+              "algorithms",
+              "networkx.algorithms",
+              "nn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "import",
+              null,
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "flow",
+              "networkx.algorithms.flow",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "T",
+              "networkx.classes.graph.Graph",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "nx",
+              "networkx",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "gomory_hu_tree",
+              "networkx.algorithms.flow.gomory_hu.gomory_hu_tree",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "networkx.classes.graph.Graph",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "flow_func",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "flow",
+              "networkx.algorithms.flow",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "boykov_kolmogorov",
+              "networkx.algorithms.flow.boykovkolmogorov.boykov_kolmogorov",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "cut_value",
+              null,
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "edge",
+              null,
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "minimum_edge_weight_in_shortest_path",
+              "__main__.minimum_edge_weight_in_shortest_path",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "T",
+              "networkx.classes.graph.Graph",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "u",
+              "builtins.int",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "v",
+              "builtins.int",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "cut_value",
+              "builtins.int",
+              ""
+            ]
+          ],
+          "out": "10"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "nx",
+              "networkx",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "minimum_cut_value",
+              "networkx.algorithms.flow.maxflow.minimum_cut_value",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "networkx.classes.graph.Graph",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "u",
+              "builtins.int",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "v",
+              "builtins.int",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "flow_func",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "flow",
+              "networkx.algorithms.flow",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "boykov_kolmogorov",
+              "networkx.algorithms.flow.boykovkolmogorov.boykov_kolmogorov",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "10"
+        },
+        "type": "Code"
+      }
+    ],
+    "title": null
+  },
+  "item_file": "networkx/algorithms/flow/gomory_hu.py",
+  "item_line": 15,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "Examples",
+    "Notes",
+    "See Also",
+    "References"
+  ],
+  "references": null,
+  "refs": [
+    "__main__.minimum_edge_weight_in_shortest_path",
+    "builtins.NoneType",
+    "builtins.dict",
+    "builtins.int",
+    "builtins.len",
+    "builtins.list",
+    "builtins.min",
+    "builtins.set",
+    "builtins.set.update",
+    "builtins.tuple",
+    "builtins.zip",
+    "maximum_flow",
+    "minimum_cut",
+    "networkx",
+    "networkx.algorithms",
+    "networkx.algorithms.components.connected.connected_components",
+    "networkx.algorithms.flow",
+    "networkx.algorithms.flow.boykovkolmogorov.boykov_kolmogorov",
+    "networkx.algorithms.flow.gomory_hu.gomory_hu_tree",
+    "networkx.algorithms.flow.maxflow.minimum_cut_value",
+    "networkx.algorithms.shortest_paths.generic.shortest_path",
+    "networkx.classes.coreviews.AtlasView",
+    "networkx.classes.function.set_edge_attributes",
+    "networkx.classes.graph.Graph",
+    "networkx.classes.graph.Graph.remove_edge",
+    "networkx.generators.social.karate_club_graph"
+  ],
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "func"
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": true,
+        "name": "minimum_cut",
+        "ref": "networkx.algorithms.flow.maxflow.minimum_cut"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "func"
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": true,
+        "name": "maximum_flow",
+        "ref": "networkx.algorithms.flow.maxflow.maximum_flow"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "value": "gomory_hu_tree(G, capacity='capacity', flow_func=None)"
+  }
+}

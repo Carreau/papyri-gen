@@ -1,0 +1,1869 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "For directed graphs, entry "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "i, j"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " corresponds to an edge from "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "i"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "j"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Entries in the adjacency matrix are given by the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "weight",
+                    "version": null
+                  },
+                  "value": "weight"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " edge attribute. When an edge does not have a weight attribute, the value of the entry is set to the number 1.  For multiple (parallel) edges, the values of the entries are determined by the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "multigraph_weight",
+                    "version": null
+                  },
+                  "value": "multigraph_weight"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " parameter. The default is to sum the weight attributes for each of the parallel edges."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "When "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "nodelist",
+                    "version": null
+                  },
+                  "value": "nodelist"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " does not contain every node in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "G",
+                    "version": null
+                  },
+                  "value": "G"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": ", the adjacency matrix is built from the subgraph of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "G",
+                    "version": null
+                  },
+                  "value": "G"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " that is induced by the nodes in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "nodelist",
+                    "version": null
+                  },
+                  "value": "nodelist"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The convention used for self-loop edges in graphs is to assign the diagonal array entry value to the weight attribute of the edge (or the number 1 if the edge has no weight attribute). If the alternate convention of doubling the edge weight is desired the resulting NumPy array can be modified as follows:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> import numpy as np\n>>> G = nx.Graph([(1, 1)])\n>>> A = nx.to_numpy_array(G)\n>>> A\narray([[1.]])\n>>> A[np.diag_indices_from(A)] *= 2\n>>> A\narray([[2.]])"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "The NetworkX graph used to construct the NumPy array."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "G",
+            "type_": "graph"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "The rows and columns are ordered according to the nodes in "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "nodelist",
+                          "version": null
+                        },
+                        "value": "nodelist"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": ". If "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "nodelist",
+                          "version": null
+                        },
+                        "value": "nodelist"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " is "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "None"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ", then the ordering is produced by "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "G.nodes()"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": "."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "nodelist",
+            "type_": "list, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "A NumPy data type used to initialize the array. If None, then the NumPy default is used. The dtype can be structured if "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "weight=None"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": ", in which case the dtype field names are used to look up edge attributes. The result is a structured array where each named field in the dtype corresponds to the adjaceny for that edge attribute. See examples for details."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "dtype",
+            "type_": "NumPy data type, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Whether to store multidimensional data in C- or Fortran-contiguous (row- or column-wise) order in memory. If None, then the NumPy default is used."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "order",
+            "type_": "{'C', 'F'}, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "An function that determines how weights in multigraphs are handled. The function should accept a sequence of weights and return a single value. The default is to sum the weights of the multiple edges."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "multigraph_weight",
+            "type_": "callable, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "The edge attribute that holds the numerical value used for the edge weight. If an edge does not have that attribute, then the value 1 is used instead. "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "weight",
+                          "version": null
+                        },
+                        "value": "weight"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " must be "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "None"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " if a structured dtype is used."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "weight",
+            "type_": "string or None optional (default = 'weight')"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "The value used to represent non-edges in the adjaceny matrix. The array values corresponding to nonedges are typically set to zero. However, this could be undesirable if there are array values corresponding to actual edges that also have the value zero. If so, one might prefer nonedges to have some other value, such as "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "nan"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": "."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "nonedge",
+            "type_": "array_like (default = 0.0)"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "dtype",
+                          "version": null
+                        },
+                        "value": "dtype"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " is a structured dtype and "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "G",
+                          "version": null
+                        },
+                        "value": "G"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " is a multigraph"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "",
+            "type_": "NetworkXError"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "dtype",
+                          "version": null
+                        },
+                        "value": "dtype"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " is a structured dtype and "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "weight",
+                          "version": null
+                        },
+                        "value": "weight"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " is not "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "None"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "",
+            "type_": "ValueError"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Graph adjacency matrix"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "A",
+            "type_": "NumPy ndarray"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Returns the graph adjacency matrix as a NumPy array."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "networkx.to_numpy_array"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "G",
+              "networkx.classes.multidigraph.MultiDiGraph",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "nx",
+              "networkx",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "MultiDiGraph",
+              "networkx.classes.multidigraph.MultiDiGraph",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "networkx.classes.multidigraph.MultiDiGraph",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "add_edge",
+              "networkx.classes.multidigraph.MultiDiGraph.add_edge",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "weight",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "0"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "G",
+              "networkx.classes.multidigraph.MultiDiGraph",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "add_edge",
+              "networkx.classes.multidigraph.MultiDiGraph.add_edge",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "0"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "G",
+              "networkx.classes.multidigraph.MultiDiGraph",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "add_edge",
+              "networkx.classes.multidigraph.MultiDiGraph.add_edge",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "weight",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "0"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "G",
+              "networkx.classes.multidigraph.MultiDiGraph",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "add_edge",
+              "networkx.classes.multidigraph.MultiDiGraph.add_edge",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "1"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "nx",
+              "networkx",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "to_numpy_array",
+              "networkx.convert_matrix.to_numpy_array",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "networkx.classes.multidigraph.MultiDiGraph",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "nodelist",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "array([[0., 2., 0.],\n       [1., 0., 0.],\n       [0., 0., 4.]])"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "inline": [
+            {
+              "data": {
+                "value": "This function can also be used to create adjacency matrices for multiple edge attributes with structured dtypes:"
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "G",
+              "networkx.classes.graph.Graph",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "nx",
+              "networkx",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "Graph",
+              "networkx.classes.graph.Graph",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "networkx.classes.graph.Graph",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "add_edge",
+              "networkx.classes.graph.Graph.add_edge",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "weight",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "10",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "networkx.classes.graph.Graph",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "add_edge",
+              "networkx.classes.graph.Graph.add_edge",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "cost",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "5",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "networkx.classes.graph.Graph",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "add_edge",
+              "networkx.classes.graph.Graph.add_edge",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "weight",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "cost",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "-",
+              "",
+              "o"
+            ],
+            [
+              "4.0",
+              "",
+              "mf"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "dtype",
+              "numpy.dtype",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "dtype",
+              "numpy.dtype",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "weight",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "int",
+              "builtins.int",
+              "nb"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "cost",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "float",
+              "builtins.float",
+              "nb"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "A",
+              "numpy.ndarray",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "nx",
+              "networkx",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "to_numpy_array",
+              "networkx.convert_matrix.to_numpy_array",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "networkx.classes.graph.Graph",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "dtype",
+              "numpy.dtype",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "dtype",
+              "numpy.dtype",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "weight",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "None",
+              null,
+              "kc"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "A",
+              "numpy.ndarray",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "weight",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ]
+          ],
+          "out": "array([[ 0, 10,  0,  0],\n       [10,  0,  1,  0],\n       [ 0,  1,  0,  3],\n       [ 0,  0,  3,  0]])"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "A",
+              "numpy.ndarray",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "cost",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ]
+          ],
+          "out": "array([[ 0.,  1.,  0.,  0.],\n       [ 1.,  0.,  5.,  0.],\n       [ 0.,  5.,  0., -4.],\n       [ 0.,  0., -4.,  0.]])"
+        },
+        "type": "Code"
+      }
+    ],
+    "title": null
+  },
+  "item_file": "networkx/convert_matrix.py",
+  "item_line": 1273,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "refs": [
+    "builtins.float",
+    "builtins.int",
+    "from_numpy_array",
+    "networkx",
+    "networkx.classes.graph.Graph",
+    "networkx.classes.graph.Graph.add_edge",
+    "networkx.classes.multidigraph.MultiDiGraph",
+    "networkx.classes.multidigraph.MultiDiGraph.add_edge",
+    "networkx.convert_matrix.to_numpy_array",
+    "numpy",
+    "numpy.dtype",
+    "numpy.ndarray"
+  ],
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "exists": true,
+        "name": "from_numpy_array",
+        "ref": "networkx.convert_matrix.from_numpy_array"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "value": "to_numpy_array(G, nodelist=None, dtype=None, order=None, multigraph_weight=<built-in function sum>, weight='weight', nonedge=0.0)"
+  }
+}

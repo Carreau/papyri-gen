@@ -1,0 +1,1131 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "From the given frequencies "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "freq",
+                    "version": null
+                  },
+                  "value": "freq"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " and corresponding gains "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "gain",
+                    "version": null
+                  },
+                  "value": "gain"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": ", this function constructs an FIR filter with linear phase and (approximately) the given frequency response."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "From the given set of frequencies and gains, the desired response is constructed in the frequency domain. The inverse FFT is applied to the desired response to create the associated convolution kernel, and the first "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "numtaps",
+                    "version": null
+                  },
+                  "value": "numtaps"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " coefficients of this kernel, scaled by "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "window",
+                    "version": null
+                  },
+                  "value": "window"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": ", are returned."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The FIR filter will have linear phase. The type of filter is determined by the value of 'numtaps` and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "antisymmetric",
+                    "version": null
+                  },
+                  "value": "antisymmetric"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " flag. There are four possible combinations:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              "- odd  `numtaps`, `antisymmetric` is False, type I filter is produced",
+              "- even `numtaps`, `antisymmetric` is False, type II filter is produced",
+              "- odd  `numtaps`, `antisymmetric` is True, type III filter is produced",
+              "- even `numtaps`, `antisymmetric` is True, type IV filter is produced"
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Magnitude response of all but type I filters are subjects to following constraints:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              "- type II  -- zero at the Nyquist frequency",
+              "- type III -- zero at zero and Nyquist frequencies",
+              "- type IV  -- zero at zero frequency"
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "inline": [
+                  {
+                    "data": {
+                      "value": "0.9.0 "
+                    },
+                    "type": "Words"
+                  }
+                ],
+                "inner": []
+              }
+            ],
+            "kind": "versionadded",
+            "title": "TODO"
+          },
+          "type": "Admonition"
+        }
+      ],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "The number of taps in the FIR filter.  "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "numtaps",
+                          "version": null
+                        },
+                        "value": "numtaps"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " must be less than "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "nfreqs",
+                          "version": null
+                        },
+                        "value": "nfreqs"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": "."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "numtaps",
+            "type_": "int"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "The frequency sampling points. Typically 0.0 to 1.0 with 1.0 being Nyquist.  The Nyquist frequency is half "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "fs",
+                          "version": null
+                        },
+                        "value": "fs"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": ". The values in "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "freq",
+                          "version": null
+                        },
+                        "value": "freq"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " must be nondecreasing. A value can be repeated once to implement a discontinuity. The first value in "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "freq",
+                          "version": null
+                        },
+                        "value": "freq"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " must be 0, and the last value must be "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "fs/2"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ". Values 0 and "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "fs/2"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " must not be repeated."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "freq",
+            "type_": "array_like, 1-D"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "The filter gains at the frequency sampling points. Certain constraints to gain values, depending on the filter type, are applied, see Notes for details."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "gain",
+            "type_": "array_like"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "The size of the interpolation mesh used to construct the filter. For most efficient behavior, this should be a power of 2 plus 1 (e.g, 129, 257, etc). The default is one more than the smallest power of 2 that is not less than "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "numtaps",
+                          "version": null
+                        },
+                        "value": "numtaps"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": ". "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "nfreqs",
+                          "version": null
+                        },
+                        "value": "nfreqs"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " must be greater than "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "numtaps",
+                          "version": null
+                        },
+                        "value": "numtaps"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": "."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "nfreqs",
+            "type_": "int, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Window function to use. Default is \"hamming\". See "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "module",
+                        "reference": {
+                          "kind": "api",
+                          "module": "scipy",
+                          "path": "scipy.signal.windows._windows.get_window",
+                          "version": "*"
+                        },
+                        "value": "scipy.signal.get_window"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " for the complete list of possible values. If None, no window function is applied."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "window",
+            "type_": "string or (string, float) or float, or None, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": {
+                          "value": "Deprecated. Use `fs` instead."
+                        }
+                      },
+                      "type": "Emph"
+                    },
+                    {
+                      "data": {
+                        "value": " This is the Nyquist frequency. Each frequency in "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "freq",
+                          "version": null
+                        },
+                        "value": "freq"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " must be between 0 and "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "nyq",
+                          "version": null
+                        },
+                        "value": "nyq"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": ".  Default is 1."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "nyq",
+            "type_": "float, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Whether resulting impulse response is symmetric/antisymmetric. See Notes for more details."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "antisymmetric",
+            "type_": "bool, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "The sampling frequency of the signal. Each frequency in "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "cutoff"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " must be between 0 and "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "fs/2"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ". Default is 2."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "fs",
+            "type_": "float, optional"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "The filter coefficients of the FIR filter, as a 1-D array of length "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "numtaps",
+                          "version": null
+                        },
+                        "value": "numtaps"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": "."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "taps",
+            "type_": "ndarray"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "FIR filter design using the window method."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "scipy.signal.firwin2"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [
+      {
+        "data": {
+          "inline": [
+            {
+              "data": {
+                "value": "A lowpass FIR filter with a response that is 1 on [0.0, 0.5], and that decreases linearly on [0.5, 1.0] from 1 to 0:"
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "from",
+              null,
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "scipy",
+              "scipy",
+              "nn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "import",
+              null,
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "signal",
+              "scipy.signal",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "taps",
+              "builtins.int",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "signal",
+              "scipy.signal",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "firwin2",
+              "scipy.signal._fir_filter_design.firwin2",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "150",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "0.0",
+              "",
+              "mf"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "0.5",
+              "",
+              "mf"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1.0",
+              "",
+              "mf"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "1.0",
+              "",
+              "mf"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1.0",
+              "",
+              "mf"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "0.0",
+              "",
+              "mf"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "print",
+              "builtins.print",
+              "nb"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "taps",
+              "builtins.int",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "72",
+              "",
+              "mi"
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "78",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "[-0.02286961 -0.06362756  0.57310236  0.57310236 -0.06362756 -0.02286961]"
+        },
+        "type": "Code"
+      }
+    ],
+    "title": null
+  },
+  "item_file": "/scipy/signal/_fir_filter_design.py",
+  "item_line": 487,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "refs": [
+    "builtins.int",
+    "builtins.print",
+    "firls",
+    "firwin",
+    "minimum_phase",
+    "remez",
+    "scipy",
+    "scipy.signal",
+    "scipy.signal._fir_filter_design.firwin2"
+  ],
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "exists": true,
+        "name": "firls",
+        "ref": "scipy.signal._fir_filter_design.firls"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "exists": true,
+        "name": "firwin",
+        "ref": "scipy.signal._fir_filter_design.firwin"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "exists": true,
+        "name": "minimum_phase",
+        "ref": "scipy.signal._fir_filter_design.minimum_phase"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "exists": true,
+        "name": "remez",
+        "ref": "scipy.signal._fir_filter_design.remez"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "value": "firwin2(numtaps, freq, gain, nfreqs=None, window='hamming', nyq=None, antisymmetric=False, fs=None)"
+  }
+}

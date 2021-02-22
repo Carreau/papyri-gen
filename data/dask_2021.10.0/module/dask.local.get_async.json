@@ -1,0 +1,545 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "This is a general version of various asynchronous schedulers for dask.  It takes a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "concurrent.futures.Executor.submit"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " function to form a more specific "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "get"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " method that walks through the dask array with parallel workers, avoiding repeat computation and minimizing memory use."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "A "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "concurrent.futures.Executor.submit"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " function"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "submit",
+            "type_": "function"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "The number of workers that task submissions can be spread over"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "num_workers",
+            "type_": "int"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "A dask dictionary specifying a workflow"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "dsk",
+            "type_": "dict"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Keys corresponding to desired data"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "result",
+            "type_": "key or list of keys"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Temporary storage of results"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "cache",
+            "type_": "dict-like, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Function to return the worker id, takes no arguments. Examples are "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "module",
+                        "reference": {
+                          "kind": "api",
+                          "module": "threading",
+                          "path": "threading.current_thread",
+                          "version": "*"
+                        },
+                        "value": "threading.current_thread"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " and "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "module",
+                        "reference": {
+                          "kind": "api",
+                          "module": "multiprocessing",
+                          "path": "multiprocessing.process.current_process",
+                          "version": "*"
+                        },
+                        "value": "multiprocessing.current_process"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": "."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "get_id",
+            "type_": "callable, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Whether to rerun failing tasks in local process to enable debugging (False by default)"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "rerun_exceptions_locally",
+            "type_": "bool, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Function to take an exception and "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "dumps"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " method, and return a serialized tuple of "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "(exception, traceback)"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " to send back to the scheduler. Default is to just raise the exception."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "pack_exception",
+            "type_": "callable, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Function that takes an exception and a traceback, and raises an error."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "raise_exception",
+            "type_": "callable, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Callbacks are passed in as tuples of length 5. Multiple sets of callbacks may be passed in as a list of tuples. For more information, see the dask.diagnostics documentation."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "callbacks",
+            "type_": "tuple or list of tuples, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Function to serialize task data and results to communicate between worker and parent.  Defaults to identity."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "dumps: callable, optional",
+            "type_": ""
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Inverse function of "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "dumps"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": ".  Defaults to identity."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "loads: callable, optional",
+            "type_": ""
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Size of chunks to use when dispatching work. Defaults to 1. If -1, will be computed to evenly divide ready work across workers."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "chunksize: int, optional",
+            "type_": ""
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Asynchronous get function"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "dask.local.get_async"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": "/dask/local.py",
+  "item_line": 346,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "See Also"
+  ],
+  "references": null,
+  "refs": [
+    "threaded.get"
+  ],
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "exists": true,
+        "name": "threaded.get",
+        "ref": "dask.threaded.get"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "value": "get_async(submit, num_workers, dsk, result, cache=None, get_id=<function default_get_id at 0x0000000>, rerun_exceptions_locally=None, pack_exception=<function default_pack_exception at 0x0000000>, raise_exception=<function reraise at 0x0000000>, callbacks=None, dumps=<function identity at 0x0000000>, loads=<function identity at 0x0000000>, chunksize=None, **kwargs)"
+  }
+}

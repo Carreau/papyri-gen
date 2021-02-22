@@ -1,0 +1,711 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "This algorithm computes the medial axis transform of an image as the ridges of its distance transform."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "value": [
+                            {
+                              "data": {
+                                "inline": [
+                                  {
+                                    "data": {
+                                      "value": "A lookup table is used, that assigns 0 or 1 to each configuration of    the 3x3 binary square, whether the central pixel should be removed    or kept. We want a point to be removed if it has more than one neighbor    and if removing it does not change the number of connected components."
+                                    },
+                                    "type": "Words"
+                                  }
+                                ],
+                                "inner": []
+                              },
+                              "type": "Paragraph"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "type": "BulletList"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "value": [
+                            {
+                              "data": {
+                                "inline": [
+                                  {
+                                    "data": {
+                                      "value": "The distance transform to the background is computed, as well as    the cornerness of the pixel."
+                                    },
+                                    "type": "Words"
+                                  }
+                                ],
+                                "inner": []
+                              },
+                              "type": "Paragraph"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "type": "BulletList"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "value": [
+                            {
+                              "data": {
+                                "inline": [
+                                  {
+                                    "data": {
+                                      "value": "The foreground (value of 1) points are ordered by    the distance transform, then the cornerness."
+                                    },
+                                    "type": "Words"
+                                  }
+                                ],
+                                "inner": []
+                              },
+                              "type": "Paragraph"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "type": "BulletList"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "value": [
+                            {
+                              "data": {
+                                "inline": [
+                                  {
+                                    "data": {
+                                      "value": "A cython function is called to reduce the image to its skeleton. It    processes pixels in the order determined at the previous step, and    removes or maintains a pixel according to the lookup table. Because    of the ordering, it is possible to process all pixels in only one    pass."
+                                    },
+                                    "type": "Words"
+                                  }
+                                ],
+                                "inner": []
+                              },
+                              "type": "Paragraph"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "type": "BulletList"
+                  }
+                ],
+                "dt": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "The different steps of the algorithm are as follows"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        }
+      ],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "The image of the shape to be skeletonized."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "image",
+            "type_": "binary ndarray, shape (M, N)"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If a mask is given, only those elements in "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "image",
+                          "version": null
+                        },
+                        "value": "image"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " with a true value in "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "mask",
+                          "version": null
+                        },
+                        "value": "mask"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " are used for computing the medial axis."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "mask",
+            "type_": "binary ndarray, shape (M, N), optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If true, the distance transform is returned as well as the skeleton."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "return_distance",
+            "type_": "bool, optional"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Medial axis transform of the image"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "out",
+            "type_": "ndarray of bools"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Distance transform of the image (only returned if "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "return_distance",
+                          "version": null
+                        },
+                        "value": "return_distance"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " is True)"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "dist",
+            "type_": "ndarray of ints, optional"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Compute the medial axis transform of a binary image"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "skimage.morphology.medial_axis"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [
+      {
+        "data": {
+          "ce_status": "compiled",
+          "entries": [
+            [
+              "square",
+              "numpy.ndarray",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "zeros",
+              "numpy.zeros",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "7",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "7",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "dtype",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "uint8",
+              "numpy.unsignedinteger",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "square",
+              "numpy.ndarray",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "-",
+              "",
+              "o"
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "-",
+              "",
+              "o"
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "square",
+              "numpy.ndarray",
+              ""
+            ]
+          ],
+          "out": "array([[0, 0, 0, 0, 0, 0, 0],\n       [0, 0, 1, 1, 1, 0, 0],\n       [0, 0, 1, 1, 1, 0, 0],\n       [0, 0, 1, 1, 1, 0, 0],\n       [0, 0, 1, 1, 1, 0, 0],\n       [0, 0, 1, 1, 1, 0, 0],\n       [0, 0, 0, 0, 0, 0, 0]], dtype=uint8)"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "compiled",
+          "entries": [
+            [
+              "medial_axis",
+              "skimage.morphology._skeletonize.medial_axis",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "square",
+              "numpy.ndarray",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "astype",
+              null,
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "uint8",
+              "numpy.unsignedinteger",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "array([[0, 0, 0, 0, 0, 0, 0],\n       [0, 0, 1, 0, 1, 0, 0],\n       [0, 0, 0, 1, 0, 0, 0],\n       [0, 0, 0, 1, 0, 0, 0],\n       [0, 0, 0, 1, 0, 0, 0],\n       [0, 0, 1, 0, 1, 0, 0],\n       [0, 0, 0, 0, 0, 0, 0]], dtype=uint8)"
+        },
+        "type": "Code"
+      }
+    ],
+    "title": null
+  },
+  "item_file": "/skimage/morphology/_skeletonize.py",
+  "item_line": 364,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "refs": [
+    "numpy",
+    "numpy.ndarray",
+    "numpy.unsignedinteger",
+    "numpy.zeros",
+    "skeletonize",
+    "skimage.morphology._skeletonize.medial_axis"
+  ],
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "exists": null,
+        "name": "skeletonize",
+        "ref": null
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "value": "medial_axis(image, mask=None, return_distance=False)"
+  }
+}

@@ -1,0 +1,788 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "It is not always possible to change the shape of an array without copying the data. If you want an error to be raised when the data is copied, you should assign the new shape to the shape attribute of the array::   "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> a = np.zeros((10, 2))\n\n# A transpose makes the array non-contiguous\n>>> b = a.T\n\n# Taking a view makes it possible to modify the shape without modifying\n# the initial object.\n>>> c = b.view()\n>>> c.shape = (20)\nTraceback (most recent call last):\n   ...\nAttributeError: Incompatible shape for in-place modification. Use\n`.reshape()` to make a copy with the desired shape."
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "order",
+                    "version": null
+                  },
+                  "value": "order"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " keyword gives the index ordering both for "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "fetching"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " the values from "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "a",
+                    "version": null
+                  },
+                  "value": "a"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": ", and then "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "placing"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " the values into the output array. For example, let's say you have an array:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> a = np.arange(6).reshape((3, 2))\n>>> a\narray([[0, 1],\n       [2, 3],\n       [4, 5]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "You can think of reshaping as first raveling the array (using the given index order), then inserting the elements from the raveled array into the new array using the same kind of index ordering as was used for the raveling."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> np.reshape(a, (2, 3)) # C-like index ordering\narray([[0, 1, 2],\n       [3, 4, 5]])\n>>> np.reshape(np.ravel(a), (2, 3)) # equivalent to C ravel then C reshape\narray([[0, 1, 2],\n       [3, 4, 5]])\n>>> np.reshape(a, (2, 3), order='F') # Fortran-like index ordering\narray([[0, 4, 3],\n       [2, 1, 5]])\n>>> np.reshape(np.ravel(a, order='F'), (2, 3), order='F')\narray([[0, 4, 3],\n       [2, 1, 5]])"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Array to be reshaped."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "a",
+            "type_": "array_like"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "The new shape should be compatible with the original shape. If an integer, then the result will be a 1-D array of that length. One shape dimension can be -1. In this case, the value is inferred from the length of the array and remaining dimensions."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "newshape",
+            "type_": "int or tuple of ints"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Read the elements of "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "a",
+                          "version": null
+                        },
+                        "value": "a"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " using this index order, and place the elements into the reshaped array using this index order.  'C' means to read / write the elements using C-like index order, with the last axis index changing fastest, back to the first axis index changing slowest. 'F' means to read / write the elements using Fortran-like index order, with the first index changing fastest, and the last index changing slowest. Note that the 'C' and 'F' options take no account of the memory layout of the underlying array, and only refer to the order of indexing. 'A' means to read / write the elements in Fortran-like index order if "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "a",
+                          "version": null
+                        },
+                        "value": "a"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " is Fortran "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": {
+                          "value": "contiguous"
+                        }
+                      },
+                      "type": "Emph"
+                    },
+                    {
+                      "data": {
+                        "value": " in memory, C-like order otherwise."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "order",
+            "type_": "{'C', 'F', 'A'}, optional"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "This will be a new view object if possible; otherwise, it will be a copy.  Note there is no guarantee of the "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": {
+                          "value": "memory layout"
+                        }
+                      },
+                      "type": "Emph"
+                    },
+                    {
+                      "data": {
+                        "value": " (C- or Fortran- contiguous) of the returned array."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "reshaped_array",
+            "type_": "ndarray"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Gives a new shape to an array without changing its data."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "numpy.reshape"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "a",
+              "numpy.ndarray",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "array",
+              "numpy.array",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "4",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "5",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "6",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "reshape",
+              "numpy.reshape",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "a",
+              "numpy.ndarray",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "6",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "array([1, 2, 3, 4, 5, 6])"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "reshape",
+              "numpy.reshape",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "a",
+              "numpy.ndarray",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "6",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "order",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              "F",
+              null,
+              "s1"
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "array([1, 4, 2, 5, 3, 6])"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "reshape",
+              "numpy.reshape",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "a",
+              "numpy.ndarray",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "-",
+              "",
+              "o"
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "       ",
+              "",
+              ""
+            ],
+            [
+              "# the unspecified value is inferred to be 2",
+              "",
+              "c1"
+            ]
+          ],
+          "out": "array([[1, 2],\n       [3, 4],\n       [5, 6]])"
+        },
+        "type": "Code"
+      }
+    ],
+    "title": null
+  },
+  "item_file": "/numpy/core/fromnumeric.py",
+  "item_line": 198,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "refs": [
+    "ndarray.reshape",
+    "numpy",
+    "numpy.array",
+    "numpy.ndarray",
+    "numpy.reshape"
+  ],
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "Equivalent method."
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": null,
+        "name": "ndarray.reshape",
+        "ref": null
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "value": "reshape(a, newshape, order='C')"
+  }
+}

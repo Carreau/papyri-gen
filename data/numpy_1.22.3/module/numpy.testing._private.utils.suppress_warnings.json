@@ -1,0 +1,320 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "However, it also provides a filter mechanism to work around https://bugs.python.org/issue4180."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "This bug causes Python before 3.4 to not reliably show warnings again after they have been ignored once (even within catch_warnings). It means that no \"ignore\" filter can be used easily, since following tests might need to see the warning. Additionally it allows easier specificity for testing warnings and can be nested."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Filters added inside the context manager will be discarded again when leaving it. Upon entering all filters defined outside a context will be applied automatically."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "When a recording filter is added, matching warnings are stored in the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "log"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " attribute as well as in the list returned by "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "record"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "If filters are added and the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "module"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " keyword is given, the warning registry of this module will additionally be cleared when applying it, entering the context, or exiting it. This could cause warnings to appear a second time after leaving the context if they were configured to be printed once (default) and were already printed before the context was entered."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Nesting this context manager will work as expected when the forwarding rule is \"always\" (default). Unfiltered and unrecorded warnings will be passed out and be matched by the outer level. On the outmost level they will be printed (or caught by another warnings context). The forwarding rule argument can modify this behaviour."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Like "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "catch_warnings"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " this context manager is not threadsafe."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "One of \"always\", \"once\", \"module\", or \"location\". Analogous to the usual warnings module filter mode, it is useful to reduce noise mostly on the outmost level. Unsuppressed and unrecorded warnings will be forwarded based on this rule. Defaults to \"always\". \"location\" is equivalent to the warnings \"default\", match by exact location the warning warning originated from."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "forwarding_rule",
+            "type_": "str, optional"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Context manager and decorator doing much the same as "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "warnings.catch_warnings"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "numpy.testing.suppress_warnings"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [
+      {
+        "data": {
+          "value": [
+            "with np.testing.suppress_warnings() as sup:",
+            "    sup.filter(DeprecationWarning, \"Some text\")",
+            "    sup.filter(module=np.ma.core)",
+            "    log = sup.record(FutureWarning, \"Does this occur?\")",
+            "    command_giving_warnings()",
+            "    # The FutureWarning was given once, the filtered warnings were",
+            "    # ignored. All other warnings abide outside settings (may be",
+            "    # printed/error)",
+            "    assert_(len(log) == 1)",
+            "    assert_(len(sup.log) == 1)  # also stored in log attribute"
+          ]
+        },
+        "type": "BlockQuote"
+      },
+      {
+        "data": {
+          "value": [
+            "sup = np.testing.suppress_warnings()",
+            "sup.filter(module=np.ma.core)  # module must match exactly",
+            "@sup",
+            "def some_function():",
+            "    # do something which causes a warning in np.ma.core",
+            "    pass"
+          ]
+        },
+        "type": "BlockQuote"
+      }
+    ],
+    "title": null
+  },
+  "item_file": "/numpy/testing/_private/utils.py",
+  "item_line": 2030,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "refs": [],
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

@@ -1,0 +1,1138 @@
+{
+  "_content": {},
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _basics.dispatch:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "title": null
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Numpy's dispatch mechanism, introduced in numpy version v1.16 is the recommended approach for writing custom N-dimensional array containers that are compatible with the numpy API and provide custom implementations of numpy functionality. Applications include "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "http://dask.pydata.org",
+                  "value": "dask"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": " arrays, an N-dimensional array distributed across multiple nodes, and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://docs-cupy.chainer.org/en/stable/",
+                  "value": "cupy"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": " arrays, an N-dimensional array on a GPU."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "To get a feel for writing custom array containers, we'll begin with a simple example that has rather narrow utility but illustrates the concepts involved."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> import numpy as np\n>>> class DiagonalArray:\n...     def __init__(self, N, value):\n...         self._N = N\n...         self._i = value\n...     def __repr__(self):\n...         return f\"{self.__class__.__name__}(N={self._N}, value={self._i})\"\n...     def __array__(self, dtype=None):\n...         return self._i * np.eye(self._N, dtype=dtype)"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Our custom array can be instantiated like:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> arr = DiagonalArray(5, 1)\n>>> arr\nDiagonalArray(N=5, value=1)"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "We can convert to a numpy array using "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.array"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " or "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.asarray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", which will call its "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " method to obtain a standard "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.ndarray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> np.asarray(arr)\narray([[1., 0., 0., 0., 0.],\n       [0., 1., 0., 0., 0.],\n       [0., 0., 1., 0., 0.],\n       [0., 0., 0., 1., 0.],\n       [0., 0., 0., 0., 1.]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "If we operate on "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "arr"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " with a numpy function, numpy will again use the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " interface to convert it to an array and then apply the function in the usual way."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> np.multiply(arr, 2)\narray([[2., 0., 0., 0., 0.],\n       [0., 2., 0., 0., 0.],\n       [0., 0., 2., 0., 0.],\n       [0., 0., 0., 2., 0.],\n       [0., 0., 0., 0., 2.]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Notice that the return type is a standard "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.ndarray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> type(np.multiply(arr, 2))\n<class 'numpy.ndarray'>"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "How can we pass our custom array type through this function? Numpy allows a class to indicate that it would like to handle computations in a custom-defined way through the interfaces "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array_ufunc__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array_function__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". Let's take one at a time, starting with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "_array_ufunc__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". This method covers "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ufuncs"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", a class of functions that includes, for example, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.multiply"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.sin"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array_ufunc__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " receives:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": [
+                              "ufunc"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", a function like "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "numpy.multiply"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": [
+                              "method"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", a string, differentiating between "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "numpy.multiply(...)"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and   variants like "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "numpy.multiply.outer"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "numpy.multiply.accumulate"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", and so   on.  For the common case, "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "numpy.multiply(...)"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "method == '__call__'"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": [
+                              "inputs"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", which could be a mixture of different types"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": [
+                              "kwargs"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", keyword arguments passed to the function"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "For this example we will only handle the method "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__call__"
+                  ]
+                },
+                "type": "Verbatim"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> from numbers import Number\n>>> class DiagonalArray:\n...     def __init__(self, N, value):\n...         self._N = N\n...         self._i = value\n...     def __repr__(self):\n...         return f\"{self.__class__.__name__}(N={self._N}, value={self._i})\"\n...     def __array__(self, dtype=None):\n...         return self._i * np.eye(self._N, dtype=dtype)\n...     def __array_ufunc__(self, ufunc, method, *inputs, **kwargs):\n...         if method == '__call__':\n...             N = None\n...             scalars = []\n...             for input in inputs:\n...                 if isinstance(input, Number):\n...                     scalars.append(input)\n...                 elif isinstance(input, self.__class__):\n...                     scalars.append(input._i)\n...                     if N is not None:\n...                         if N != self._N:\n...                             raise TypeError(\"inconsistent sizes\")\n...                     else:\n...                         N = self._N\n...                 else:\n...                     return NotImplemented\n...             return self.__class__(N, ufunc(*scalars, **kwargs))\n...         else:\n...             return NotImplemented"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Now our custom array type passes through numpy functions."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> arr = DiagonalArray(5, 1)\n>>> np.multiply(arr, 3)\nDiagonalArray(N=5, value=3)\n>>> np.add(arr, 3)\nDiagonalArray(N=5, value=4)\n>>> np.sin(arr)\nDiagonalArray(N=5, value=0.8414709848078965)"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "At this point "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "arr + 3"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " does not work."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> arr + 3\nTraceback (most recent call last):\n...\nTypeError: unsupported operand type(s) for +: 'DiagonalArray' and 'int'"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "To support it, we need to define the Python interfaces "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__add__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__lt__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", and so on to dispatch to the corresponding ufunc. We can achieve this conveniently by inheriting from the mixin "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~numpy.lib.mixins.NDArrayOperatorsMixin"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> import numpy.lib.mixins\n>>> class DiagonalArray(numpy.lib.mixins.NDArrayOperatorsMixin):\n...     def __init__(self, N, value):\n...         self._N = N\n...         self._i = value\n...     def __repr__(self):\n...         return f\"{self.__class__.__name__}(N={self._N}, value={self._i})\"\n...     def __array__(self, dtype=None):\n...         return self._i * np.eye(self._N, dtype=dtype)\n...     def __array_ufunc__(self, ufunc, method, *inputs, **kwargs):\n...         if method == '__call__':\n...             N = None\n...             scalars = []\n...             for input in inputs:\n...                 if isinstance(input, Number):\n...                     scalars.append(input)\n...                 elif isinstance(input, self.__class__):\n...                     scalars.append(input._i)\n...                     if N is not None:\n...                         if N != self._N:\n...                             raise TypeError(\"inconsistent sizes\")\n...                     else:\n...                         N = self._N\n...                 else:\n...                     return NotImplemented\n...             return self.__class__(N, ufunc(*scalars, **kwargs))\n...         else:\n...             return NotImplemented"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "value": ">>> arr = DiagonalArray(5, 1)\n>>> arr + 3\nDiagonalArray(N=5, value=4)\n>>> arr > 0\nDiagonalArray(N=5, value=True)"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Now let's tackle "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array_function__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". We'll create dict that maps numpy functions to our custom variants."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> HANDLED_FUNCTIONS = {}\n>>> class DiagonalArray(numpy.lib.mixins.NDArrayOperatorsMixin):\n...     def __init__(self, N, value):\n...         self._N = N\n...         self._i = value\n...     def __repr__(self):\n...         return f\"{self.__class__.__name__}(N={self._N}, value={self._i})\"\n...     def __array__(self, dtype=None):\n...         return self._i * np.eye(self._N, dtype=dtype)\n...     def __array_ufunc__(self, ufunc, method, *inputs, **kwargs):\n...         if method == '__call__':\n...             N = None\n...             scalars = []\n...             for input in inputs:\n...                 # In this case we accept only scalar numbers or DiagonalArrays.\n...                 if isinstance(input, Number):\n...                     scalars.append(input)\n...                 elif isinstance(input, self.__class__):\n...                     scalars.append(input._i)\n...                     if N is not None:\n...                         if N != self._N:\n...                             raise TypeError(\"inconsistent sizes\")\n...                     else:\n...                         N = self._N\n...                 else:\n...                     return NotImplemented\n...             return self.__class__(N, ufunc(*scalars, **kwargs))\n...         else:\n...             return NotImplemented\n...     def __array_function__(self, func, types, args, kwargs):\n...         if func not in HANDLED_FUNCTIONS:\n...             return NotImplemented\n...         # Note: this allows subclasses that don't override\n...         # __array_function__ to handle DiagonalArray objects.\n...         if not all(issubclass(t, self.__class__) for t in types):\n...             return NotImplemented\n...         return HANDLED_FUNCTIONS[func](*args, **kwargs)\n..."
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "A convenient pattern is to define a decorator "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "implements"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " that can be used to add functions to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "HANDLED_FUNCTIONS"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> def implements(np_function):\n...    \"Register an __array_function__ implementation for DiagonalArray objects.\"\n...    def decorator(func):\n...        HANDLED_FUNCTIONS[np_function] = func\n...        return func\n...    return decorator\n..."
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Now we write implementations of numpy functions for "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "DiagonalArray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". For completeness, to support the usage "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "arr.sum()"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " add a method "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "sum"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " that calls "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.sum(self)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", and the same for "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "mean"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> @implements(np.sum)\n... def sum(arr):\n...     \"Implementation of np.sum for DiagonalArray objects\"\n...     return arr._i * arr._N\n...\n>>> @implements(np.mean)\n... def mean(arr):\n...     \"Implementation of np.mean for DiagonalArray objects\"\n...     return arr._i / arr._N\n...\n>>> arr = DiagonalArray(5, 1)\n>>> np.sum(arr)\n5\n>>> np.mean(arr)\n0.2"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "If the user tries to use any numpy functions not included in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "HANDLED_FUNCTIONS"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "TypeError"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " will be raised by numpy, indicating that this operation is not supported. For example, concatenating two "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "DiagonalArrays"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " does not produce another diagonal array, so it is not supported."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> np.concatenate([arr, arr])\nTraceback (most recent call last):\n...\nTypeError: no implementation found for 'numpy.concatenate' on types that implement __array_function__: [<class '__main__.DiagonalArray'>]"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Additionally, our implementations of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "sum"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "mean"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " do not accept the optional arguments that numpy's implementation does."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> np.sum(arr, axis=0)\nTraceback (most recent call last):\n...\nTypeError: sum() got an unexpected keyword argument 'axis'"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The user always has the option of converting to a normal "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.ndarray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.asarray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and using standard numpy from there."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> np.concatenate([np.asarray(arr), np.asarray(arr)])\narray([[1., 0., 0., 0., 0.],\n       [0., 1., 0., 0., 0.],\n       [0., 0., 1., 0., 0.],\n       [0., 0., 0., 1., 0.],\n       [0., 0., 0., 0., 1.],\n       [1., 0., 0., 0., 0.],\n       [0., 1., 0., 0., 0.],\n       [0., 0., 1., 0., 0.],\n       [0., 0., 0., 1., 0.],\n       [0., 0., 0., 0., 1.]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Refer to the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/dask/dask",
+                  "value": "dask source code"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/cupy/cupy",
+                  "value": "cupy source code"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": "  for more fully-worked examples of custom array containers."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "See also "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "NEP 18<neps:nep-0018-array-function-protocol>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Writing custom array containers"
+    }
+  ],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "refs": [],
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

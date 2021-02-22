@@ -1,0 +1,1512 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "A minimum spanning tree is a subgraph of the graph (a tree) with the minimum sum of edge weights.  A spanning forest is a union of the spanning trees for each connected component of the graph."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "For Bor\u016fvka's algorithm, each edge must have a weight attribute, and each edge weight must be distinct."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "For the other algorithms, if the graph edges do not have a weight attribute a default weight of 1 will be used."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Modified code from David Eppstein, April 2006 http://www.ics.uci.edu/~eppstein/PADS/"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "An undirected graph. If "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "G",
+                          "version": null
+                        },
+                        "value": "G"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " is connected, then the algorithm finds a spanning tree. Otherwise, a spanning forest is found."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "G",
+            "type_": "undirected Graph"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "The algorithm to use when finding a minimum spanning tree. Valid choices are 'kruskal', 'prim', or 'boruvka'. The default is 'kruskal'."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "algorithm",
+            "type_": "string"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Edge data key to use for weight (default 'weight')."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "weight",
+            "type_": "string"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Whether to yield edge key in multigraphs in addition to the edge. If "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "G",
+                          "version": null
+                        },
+                        "value": "G"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " is not a multigraph, this is ignored."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "keys",
+            "type_": "bool"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If True yield the edge data along with the edge."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "data",
+            "type_": "bool, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If a NaN is found as an edge weight normally an exception is raised. If "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "ignore_nan is True"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " then that edge is ignored instead."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "ignore_nan",
+            "type_": "bool (default: False)"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "An iterator over edges in a maximum spanning tree of "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "G",
+                          "version": null
+                        },
+                        "value": "G"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": ". Edges connecting nodes "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "u"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " and "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "v"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " are represented as tuples: "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "(u, v, k, d)"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " or "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "(u, v, k)"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " or "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "(u, v, d)"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " or "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "(u, v)"
+                      },
+                      "type": "Directive"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "G",
+                          "version": null
+                        },
+                        "value": "G"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " is a multigraph, "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "keys",
+                          "version": null
+                        },
+                        "value": "keys"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " indicates whether the edge key "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "k"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " will be reported in the third position in the edge tuple. "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "data",
+                          "version": null
+                        },
+                        "value": "data"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " indicates whether the edge datadict "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "d"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " will appear at the end of the edge tuple."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "G",
+                          "version": null
+                        },
+                        "value": "G"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " is not a multigraph, the tuples are "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "(u, v, d)"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " if "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "data",
+                          "version": null
+                        },
+                        "value": "data"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " is True or "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "(u, v)"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " if "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "data",
+                          "version": null
+                        },
+                        "value": "data"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " is False."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "edges",
+            "type_": "iterator"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Generate edges in a minimum spanning forest of an undirected weighted graph."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "networkx.minimum_spanning_edges"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "from",
+              null,
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "networkx",
+              "networkx",
+              "nn"
+            ],
+            [
+              ".",
+              "",
+              "nn"
+            ],
+            [
+              "algorithms",
+              "networkx.algorithms",
+              "nn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "import",
+              null,
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "tree",
+              "networkx.algorithms.tree",
+              ""
+            ]
+          ],
+          "out": ""
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "inline": [
+            {
+              "data": {
+                "value": "Find minimum spanning edges by Kruskal's algorithm"
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "G",
+              "typing.Generator",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "nx",
+              "networkx",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "cycle_graph",
+              "networkx.generators.classic.cycle_graph",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "4",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "typing.Generator",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "add_edge",
+              null,
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "weight",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "mst",
+              "typing.Generator",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "tree",
+              "networkx.algorithms.tree",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "minimum_spanning_edges",
+              null,
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "typing.Generator",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "algorithm",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "kruskal",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "data",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "False",
+              null,
+              "kc"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "edgelist",
+              "builtins.list",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "list",
+              "builtins.list",
+              "nb"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "mst",
+              "typing.Generator",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "sorted",
+              "builtins.sorted",
+              "nb"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "sorted",
+              "builtins.sorted",
+              "nb"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "e",
+              null,
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "for",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "e",
+              null,
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "in",
+              null,
+              "ow"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "edgelist",
+              "builtins.list",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "[[0, 1], [1, 2], [2, 3]]"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "inline": [
+            {
+              "data": {
+                "value": "Find minimum spanning edges by Prim's algorithm"
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "G",
+              "typing.Generator",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "nx",
+              "networkx",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "cycle_graph",
+              "networkx.generators.classic.cycle_graph",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "4",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "typing.Generator",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "add_edge",
+              null,
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "weight",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "mst",
+              "typing.Generator",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "tree",
+              "networkx.algorithms.tree",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "minimum_spanning_edges",
+              null,
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "typing.Generator",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "algorithm",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "prim",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "data",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "False",
+              null,
+              "kc"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "edgelist",
+              "builtins.list",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "list",
+              "builtins.list",
+              "nb"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "mst",
+              "typing.Generator",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "sorted",
+              "builtins.sorted",
+              "nb"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "sorted",
+              "builtins.sorted",
+              "nb"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "e",
+              null,
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "for",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "e",
+              null,
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "in",
+              null,
+              "ow"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "edgelist",
+              "builtins.list",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "[[0, 1], [1, 2], [2, 3]]"
+        },
+        "type": "Code"
+      }
+    ],
+    "title": null
+  },
+  "item_file": "networkx/algorithms/tree/mst.py",
+  "item_line": 353,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples",
+    "Notes"
+  ],
+  "references": null,
+  "refs": [
+    "builtins.list",
+    "builtins.sorted",
+    "networkx",
+    "networkx.algorithms",
+    "networkx.algorithms.tree",
+    "networkx.generators.classic.cycle_graph",
+    "typing.Generator"
+  ],
+  "see_also": [],
+  "signature": {
+    "value": "minimum_spanning_edges(G, algorithm='kruskal', weight='weight', keys=True, data=True, ignore_nan=False)"
+  }
+}

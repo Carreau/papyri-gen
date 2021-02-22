@@ -1,0 +1,828 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Returns the Chebyshev series coefficients "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "c",
+                    "version": null
+                  },
+                  "value": "c"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " differentiated "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "m",
+                    "version": null
+                  },
+                  "value": "m"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " times along "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "axis",
+                    "version": null
+                  },
+                  "value": "axis"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": ".  At each iteration the result is multiplied by "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "scl",
+                    "version": null
+                  },
+                  "value": "scl"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " (the scaling factor is for use in a linear change of variable). The argument "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "c",
+                    "version": null
+                  },
+                  "value": "c"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " is an array of coefficients from low to high degree along each axis, e.g., [1,2,3] represents the series "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "1*T_0 + 2*T_1 + 3*T_2"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " while [[1,2],[1,2]] represents "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "1*T_0(x)*T_0(y) + 1*T_1(x)*T_0(y) +\n2*T_0(x)*T_1(y) + 2*T_1(x)*T_1(y)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " if axis=0 is "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and axis=1 is "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "y"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "In general, the result of differentiating a C-series needs to be \"reprojected\" onto the C-series basis set. Thus, typically, the result of this function is \"unintuitive,\" albeit correct; see Examples section below."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Array of Chebyshev series coefficients. If c is multidimensional the different axis correspond to different variables with the degree in each axis given by the corresponding index."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "c",
+            "type_": "array_like"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Number of derivatives taken, must be non-negative. (Default: 1)"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "m",
+            "type_": "int, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Each differentiation is multiplied by "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "scl",
+                          "version": null
+                        },
+                        "value": "scl"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": ".  The end result is multiplication by "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "scl**m"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ".  This is for use in a linear change of variable. (Default: 1)"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "scl",
+            "type_": "scalar, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Axis over which the derivative is taken. (Default: 0)."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "children": [
+                    {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "1.7.0 "
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    }
+                  ],
+                  "kind": "versionadded",
+                  "title": "TODO"
+                },
+                "type": "Admonition"
+              }
+            ],
+            "param": "axis",
+            "type_": "int, optional"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Chebyshev series of the derivative."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "der",
+            "type_": "ndarray"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Differentiate a Chebyshev series."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "numpy.polynomial.chebyshev.chebder"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "from",
+              null,
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "numpy",
+              "numpy",
+              "nn"
+            ],
+            [
+              ".",
+              "",
+              "nn"
+            ],
+            [
+              "polynomial",
+              "numpy.polynomial",
+              "nn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "import",
+              null,
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "chebyshev",
+              "numpy.polynomial.chebyshev",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "as",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "C",
+              "numpy.polynomial.chebyshev",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "c",
+              "builtins.tuple",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "4",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "C",
+              "numpy.polynomial.chebyshev",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "chebder",
+              "numpy.polynomial.chebyshev.chebder",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "c",
+              "builtins.tuple",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "array([14., 12., 24.])"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "C",
+              "numpy.polynomial.chebyshev",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "chebder",
+              "numpy.polynomial.chebyshev.chebder",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "c",
+              "builtins.tuple",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "array([96.])"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "C",
+              "numpy.polynomial.chebyshev",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "chebder",
+              "numpy.polynomial.chebyshev.chebder",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "c",
+              "builtins.tuple",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "scl",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "-",
+              "",
+              "o"
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "array([-14., -12., -24.])"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "C",
+              "numpy.polynomial.chebyshev",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "chebder",
+              "numpy.polynomial.chebyshev.chebder",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "c",
+              "builtins.tuple",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              "-",
+              "",
+              "o"
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "array([12.,  96.])"
+        },
+        "type": "Code"
+      }
+    ],
+    "title": null
+  },
+  "item_file": "/numpy/polynomial/chebyshev.py",
+  "item_line": 875,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "refs": [
+    "builtins.tuple",
+    "chebint",
+    "numpy",
+    "numpy.polynomial",
+    "numpy.polynomial.chebyshev",
+    "numpy.polynomial.chebyshev.chebder"
+  ],
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "exists": true,
+        "name": "chebint",
+        "ref": "numpy.polynomial.chebyshev.chebint"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "value": "chebder(c, m=1, scl=1, axis=0)"
+  }
+}

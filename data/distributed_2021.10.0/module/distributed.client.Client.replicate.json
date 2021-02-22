@@ -1,0 +1,810 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Copy data onto many workers.  This helps to broadcast frequently accessed data and it helps to improve resilience."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "This performs a tree copy of the data throughout the network individually on each piece of data.  This operation blocks until complete.  It does not guarantee replication of data to future workers."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Futures we wish to replicate"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "futures",
+            "type_": "list of futures"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Number of processes on the cluster on which to replicate the data. Defaults to all."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "n",
+            "type_": "int, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Workers on which we want to restrict the replication. Defaults to all."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "workers",
+            "type_": "list of worker addresses"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "The number of workers that can copy data in each generation"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "branching_factor",
+            "type_": "int, optional"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Set replication of futures within network"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "distributed.Client.replicate"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [
+      {
+        "data": {
+          "ce_status": "compiled",
+          "entries": [
+            [
+              "x",
+              null,
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "c",
+              null,
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "submit",
+              null,
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "func",
+              null,
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              "args",
+              null,
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "  ",
+              "",
+              ""
+            ],
+            [
+              "# doctest: +SKIP",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "c",
+              null,
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "replicate",
+              null,
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "builtins.list",
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "  ",
+              "",
+              ""
+            ],
+            [
+              "# send to all workers  # doctest: +SKIP",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "c",
+              null,
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "replicate",
+              null,
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "builtins.list",
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "n",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "  ",
+              "",
+              ""
+            ],
+            [
+              "# send to three workers  # doctest: +SKIP",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "c",
+              null,
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "replicate",
+              null,
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "builtins.list",
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "workers",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              "alice",
+              null,
+              "s1"
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              "bob",
+              null,
+              "s1"
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "  ",
+              "",
+              ""
+            ],
+            [
+              "# send to specific  # doctest: +SKIP",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "c",
+              null,
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "replicate",
+              null,
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "builtins.list",
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "n",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "workers",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              "alice",
+              null,
+              "s1"
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              "bob",
+              null,
+              "s1"
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "  ",
+              "",
+              ""
+            ],
+            [
+              "# send to one of specific workers  # doctest: +SKIP",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "c",
+              null,
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "replicate",
+              null,
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "builtins.list",
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "n",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "  ",
+              "",
+              ""
+            ],
+            [
+              "# reduce replications # doctest: +SKIP",
+              "",
+              "c1"
+            ]
+          ],
+          "out": ""
+        },
+        "type": "Code"
+      }
+    ],
+    "title": null
+  },
+  "item_file": "/distributed/client.py",
+  "item_line": 3122,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Examples",
+    "See Also"
+  ],
+  "references": null,
+  "refs": [
+    "Client.rebalance",
+    "builtins.list"
+  ],
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "exists": true,
+        "name": "Client.rebalance",
+        "ref": "distributed.client.Client.rebalance"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "value": "replicate(self, futures, n=None, workers=None, branching_factor=2, **kwargs)"
+  }
+}

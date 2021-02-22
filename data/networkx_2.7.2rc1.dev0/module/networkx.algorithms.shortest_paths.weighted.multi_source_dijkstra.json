@@ -1,0 +1,1109 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Uses Dijkstra's algorithm to compute the shortest paths and lengths between one of the source nodes and the given "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "target",
+                    "version": null
+                  },
+                  "value": "target"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": ", or all other reachable nodes if not specified, for a weighted graph."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Edge weight attributes must be numerical. Distances are calculated as sums of weighted edges traversed."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The weight function can be used to hide edges by returning None. So "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "weight = lambda u, v, d: 1 if d['color']==\"red\" else None"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " will find the shortest red path."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Based on the Python cookbook recipe (119466) at https://code.activestate.com/recipes/119466/"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "This algorithm is not guaranteed to work if edge weights are negative or are floating point numbers (overflows and roundoff errors can cause problems)."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [],
+            "param": "G",
+            "type_": "NetworkX graph"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Starting nodes for paths. If this is just a set containing a single node, then all paths computed by this function will start from that node. If there are two or more nodes in the set, the computed paths may begin from any one of the start nodes."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "sources",
+            "type_": "non-empty set of nodes"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Ending node for path"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "target",
+            "type_": "node label, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Length (sum of edge weights) at which the search is stopped. If cutoff is provided, only return paths with summed weight <= cutoff."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "cutoff",
+            "type_": "integer or float, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If this is a string, then edge weights will be accessed via the edge attribute with this key (that is, the weight of the edge joining "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "u"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " to "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "v"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " will be "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "G.edges[u, v][weight]"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": "). If no such edge attribute exists, the weight of the edge is assumed to be one."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If this is a function, the weight of an edge is the value returned by the function. The function must accept exactly three positional arguments: the two endpoints of an edge and the dictionary of edge attributes for that edge. The function must return a number."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "weight",
+            "type_": "string or function"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "sources",
+                          "version": null
+                        },
+                        "value": "sources"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " is empty."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "",
+            "type_": "ValueError"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If any of "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "sources",
+                          "version": null
+                        },
+                        "value": "sources"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " is not in "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "G",
+                          "version": null
+                        },
+                        "value": "G"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": "."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "",
+            "type_": "NodeNotFound"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If target is None, returns a tuple of two dictionaries keyed by node. The first dictionary stores distance from one of the source nodes. The second stores the path from one of the sources to that node. If target is not None, returns a tuple of (distance, path) where distance is the distance from source to target and path is a list representing the path from source to target."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "distance, path",
+            "type_": "pair of dictionaries, or numeric and list"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Find shortest weighted paths and lengths from a given set of source nodes."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "networkx.multi_source_dijkstra"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "G",
+              "typing.Generator",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "nx",
+              "networkx",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "path_graph",
+              "networkx.generators.classic.path_graph",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "5",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "length",
+              "builtins.dict",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "path",
+              "builtins.dict",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "nx",
+              "networkx",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "multi_source_dijkstra",
+              "networkx.algorithms.shortest_paths.weighted.multi_source_dijkstra",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "typing.Generator",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "{",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "4",
+              "",
+              "mi"
+            ],
+            [
+              "}",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "for",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "node",
+              "builtins.int",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "in",
+              null,
+              "ow"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "4",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "print",
+              "builtins.print",
+              "nb"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "f",
+              "builtins.NoneType",
+              "sa"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "{",
+              "",
+              "si"
+            ],
+            [
+              "node",
+              "builtins.int",
+              ""
+            ],
+            [
+              "}",
+              "",
+              "si"
+            ],
+            [
+              ": ",
+              "",
+              "s2"
+            ],
+            [
+              "{",
+              "",
+              "si"
+            ],
+            [
+              "length",
+              "builtins.dict",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "node",
+              "builtins.int",
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              "}",
+              "",
+              "si"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "0: 0\n1: 1\n2: 2\n3: 1\n4: 0"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "path",
+              "builtins.dict",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ]
+          ],
+          "out": "[0, 1]"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "path",
+              "builtins.dict",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ]
+          ],
+          "out": "[4, 3]"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "length",
+              "builtins.int",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "path",
+              "builtins.list",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "nx",
+              "networkx",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "multi_source_dijkstra",
+              "networkx.algorithms.shortest_paths.weighted.multi_source_dijkstra",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "typing.Generator",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "{",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "4",
+              "",
+              "mi"
+            ],
+            [
+              "}",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "length",
+              "builtins.int",
+              ""
+            ]
+          ],
+          "out": "1"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "path",
+              "builtins.list",
+              ""
+            ]
+          ],
+          "out": "[0, 1]"
+        },
+        "type": "Code"
+      }
+    ],
+    "title": null
+  },
+  "item_file": "networkx/algorithms/shortest_paths/weighted.py",
+  "item_line": 631,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples",
+    "Notes",
+    "Raises",
+    "See Also"
+  ],
+  "references": null,
+  "refs": [
+    "builtins.NoneType",
+    "builtins.dict",
+    "builtins.int",
+    "builtins.list",
+    "builtins.print",
+    "multi_source_dijkstra_path",
+    "multi_source_dijkstra_path_length",
+    "networkx",
+    "networkx.algorithms.shortest_paths.weighted.multi_source_dijkstra",
+    "networkx.generators.classic.path_graph",
+    "typing.Generator"
+  ],
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "exists": true,
+        "name": "multi_source_dijkstra_path",
+        "ref": "networkx.algorithms.shortest_paths.weighted.multi_source_dijkstra_path"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "exists": true,
+        "name": "multi_source_dijkstra_path_length",
+        "ref": "networkx.algorithms.shortest_paths.weighted.multi_source_dijkstra_path_length"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "value": "multi_source_dijkstra(G, sources, target=None, cutoff=None, weight='weight')"
+  }
+}

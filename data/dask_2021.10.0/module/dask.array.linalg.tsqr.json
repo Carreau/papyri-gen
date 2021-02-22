@@ -1,0 +1,512 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "As presented in:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              "A. Benson, D. Gleich, and J. Demmel.",
+              "Direct QR factorizations for tall-and-skinny matrices in",
+              "MapReduce architectures.",
+              "IEEE International Conference on Big Data, 2013.",
+              "https://arxiv.org/abs/1301.1071"
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "This algorithm is used to compute both the QR decomposition and the Singular Value Decomposition.  It requires that the input array have a single column of blocks, each of which fit in memory."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "With "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "k"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " blocks of size "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(m, n)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", this algorithm has memory use that scales as "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "k * n * n"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The implementation here is the recursive variant due to the ultimate need for one \"single core\" QR decomposition. In the non-recursive version of the algorithm, given "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "k"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " blocks, after "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "k"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "m * n"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " QR decompositions, there will be a \"single core\" QR decomposition that will have to work with a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(k * n, n)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " matrix."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Here, recursion is applied as necessary to ensure that "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "k * n"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is not larger than "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "m"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " (if "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "m / n >= 2"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "). In particular, this is done to ensure that single core computations do not have to work on blocks larger than "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(m, n)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Where blocks are irregular, the above logic is applied with the \"height\" of the \"tallest\" block used in place of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "m"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Consider use of the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "rechunk"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " method to control this behavior. Taller blocks will reduce overall memory use (assuming that many of them still fit in memory at once)."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [],
+            "param": "data: Array",
+            "type_": ""
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Whether to compute the SVD rather than the QR decomposition"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "compute_svd: bool",
+            "type_": ""
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Used internally in recursion to set the maximum row dimension of chunks in subsequent recursive calls."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "_max_vchunk_size: Integer",
+            "type_": ""
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Direct Tall-and-Skinny QR algorithm"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "dask.array.linalg.tsqr"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": "/dask/array/linalg.py",
+  "item_line": 52,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Notes",
+    "See Also"
+  ],
+  "references": null,
+  "refs": [
+    "dask.array.linalg.qr",
+    "dask.array.linalg.sfqr",
+    "dask.array.linalg.svd"
+  ],
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "Powered by this algorithm"
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": true,
+        "name": "dask.array.linalg.qr",
+        "ref": "dask.array.linalg.qr"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "Powered by this algorithm"
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": true,
+        "name": "dask.array.linalg.svd",
+        "ref": "dask.array.linalg.svd"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "Variant for short-and-fat arrays"
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": true,
+        "name": "dask.array.linalg.sfqr",
+        "ref": "dask.array.linalg.sfqr"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "value": "tsqr(data, compute_svd=False, _max_vchunk_size=None)"
+  }
+}

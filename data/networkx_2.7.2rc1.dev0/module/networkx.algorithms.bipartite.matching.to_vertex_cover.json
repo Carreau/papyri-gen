@@ -1,0 +1,397 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "This function is implemented using the procedure guaranteed by "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://en.wikipedia.org/wiki/K%C3%B6nig%27s_theorem_%28graph_theory%29",
+                  "value": "Konig's\ntheorem"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ", which proves an equivalence between a maximum matching and a minimum vertex cover in bipartite graphs."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Since a minimum vertex cover is the complement of a maximum independent set for any graph, one can compute the maximum independent set of a bipartite graph this way:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> G = nx.complete_bipartite_graph(2, 3)\n>>> matching = nx.bipartite.maximum_matching(G)\n>>> vertex_cover = nx.bipartite.to_vertex_cover(G, matching)\n>>> independent_set = set(G) - vertex_cover\n>>> print(list(independent_set))\n[2, 3, 4]"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "See "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "bipartite documentation <networkx.algorithms.bipartite>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " for further details on how bipartite graphs are handled in NetworkX."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Undirected bipartite graph"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "G",
+            "type_": "NetworkX graph"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "A dictionary whose keys are vertices in "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "G",
+                          "version": null
+                        },
+                        "value": "G"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " and whose values are the distinct neighbors comprising the maximum matching for "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "G",
+                          "version": null
+                        },
+                        "value": "G"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": ", as returned by, for example, "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "maximum_matching"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ". The dictionary "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": {
+                          "value": "must"
+                        }
+                      },
+                      "type": "Emph"
+                    },
+                    {
+                      "data": {
+                        "value": " represent the maximum matching."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "matching",
+            "type_": "dictionary"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Container with all nodes in one bipartite node set. If not supplied it will be computed. But if more than one solution exists an exception will be raised."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "top_nodes",
+            "type_": "container"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Raised if the input bipartite graph is disconnected and no container with all nodes in one bipartite set is provided. When determining the nodes in each bipartite set more than one valid solution is possible if the input graph is disconnected."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "",
+            "type_": "AmbiguousSolution"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "The minimum vertex cover in "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "G",
+                          "version": null
+                        },
+                        "value": "G"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": "."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "vertex_cover",
+            "type_": ":class:`set`"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Returns the minimum vertex cover corresponding to the given maximum matching of the bipartite graph "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "G",
+                    "version": null
+                  },
+                  "value": "G"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "networkx.bipartite.to_vertex_cover"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": "networkx/algorithms/bipartite/matching.py",
+  "item_line": 415,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "Notes"
+  ],
+  "references": null,
+  "refs": [],
+  "see_also": [],
+  "signature": {
+    "value": "to_vertex_cover(G, matching, top_nodes=None)"
+  }
+}

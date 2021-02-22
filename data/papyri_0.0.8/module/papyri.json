@@ -1,0 +1,1546 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "To remove in the future \u2013\u2013 papyri"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "papyri"
+  ],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Papyri \u2013 in progress"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Here are a couple of documents, or docstrings that are of interest to see how papyri works, generally because they crashed papyri at some point during the development, and/or do not work yet.  You likely want to see the readme.md file for now which is kept up do date more often."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "args0": [],
+            "directive_name": "code",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "pip install papyri "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "title": "Installation"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "You may need to get a modified version of numpydoc depending on the stage of development."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              "git clone https://github.com/jupyter/papyri",
+              "cd papyri",
+              "pip install -e ."
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Build the TreeSitter rst parser:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Some functionality require "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "tree_sitter_rst"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", see run "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "papyri build-parser"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", and CI config file on how to build the tree-sitter shared object locally::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "git clone https://github.com/stsewd/tree-sitter-rst\npapyri build-parser"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "title": "dev install"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "There are mostly 3 stages to run papyri, so far you need to do the 3 steps/roles on your local machine, but it will not be necessary once papyri is production ready. The three stages are:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "As a library maintainer, generate and publish papyri IRD file."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "As a system operator, install IRD files on your system"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "As a user, view the documentation in your IDE, webbrowser... with your preferences."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "To generate IRD files::    "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "$ papyri gen <config file>"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "You can look in the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "examples"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " folder to see some of these config files. Those will put IRD files in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~/.papyri/data"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " there is no upload mechanism yet."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "To install those files::    "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "$ papyri ingest ~/.papyri/data/library_version/"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "And finally to view the docs, either follow your IED documentation or use some of the built-in renderer::     "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "$ papyri render\n\n$ papyri browse ....\n\n$ papyri serve"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "title": "Usage"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Here are a couple of function that are of interest to explore what papyri can do and render."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "one of the parameter of the docstring has multiple paragraphs."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "inline": [
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "module",
+                        "reference": {
+                          "kind": "api",
+                          "module": "dask",
+                          "path": "dask.delayed.delayed",
+                          "version": "*"
+                        },
+                        "value": "dask.delayed"
+                      },
+                      "type": "Link"
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "Block Verbatim in params ?"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "inline": [
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "module",
+                        "reference": {
+                          "kind": "api",
+                          "module": "IPython",
+                          "path": "IPython.core.display.Video.__init__",
+                          "version": "*"
+                        },
+                        "value": "IPython.core.display.Video.__init__"
+                      },
+                      "type": "Link"
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "contain a "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "exists": true,
+                            "kind": "module",
+                            "reference": {
+                              "kind": "module",
+                              "module": "papyri",
+                              "path": "papyri.take2.DefListItem",
+                              "version": "0.0.8"
+                            },
+                            "value": "DefListItem"
+                          },
+                          "type": "Link"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "inline": [
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "module",
+                        "reference": {
+                          "kind": "api",
+                          "module": "IPython",
+                          "path": "IPython.core.interactiveshell.InteractiveShell.complete",
+                          "version": "*"
+                        },
+                        "value": "IPython.core.interactiveshell.InteractiveShell.complete"
+                      },
+                      "type": "Link"
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "parsing of example is completely incorrect."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "inline": [
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "module",
+                        "reference": {
+                          "kind": "api",
+                          "module": "matplotlib",
+                          "path": "matplotlib.transforms.Bbox",
+                          "version": "*"
+                        },
+                        "value": "matplotlib.transforms.Bbox"
+                      },
+                      "type": "Link"
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "misparse example as well."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "inline": [
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "module",
+                        "reference": {
+                          "kind": "api",
+                          "module": "matplotlib",
+                          "path": "matplotlib.axes._axes.Axes.text",
+                          "version": "*"
+                        },
+                        "value": "matplotlib.axes._axes.Axes.text"
+                      },
+                      "type": "Link"
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "item list"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "inline": [
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "module",
+                        "reference": {
+                          "kind": "api",
+                          "module": "IPython",
+                          "path": "IPython.core.completer.Completion",
+                          "version": "*"
+                        },
+                        "value": "IPython.core.completer.Completion"
+                      },
+                      "type": "Link"
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "custom double dot example"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "inline": [
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "module",
+                        "reference": {
+                          "kind": "api",
+                          "module": "matplotlib",
+                          "path": "matplotlib.figure.FigureBase.add_subplot",
+                          "version": "*"
+                        },
+                        "value": "matplotlib.figure.Figure.add_subplot"
+                      },
+                      "type": "Link"
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "unnumbered list with indent."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "inline": [
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "module",
+                        "reference": {
+                          "kind": "api",
+                          "module": "matplotlib",
+                          "path": "matplotlib.colors",
+                          "version": "*"
+                        },
+                        "value": "matplotlib.colors"
+                      },
+                      "type": "Link"
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "contain a reference via "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              ".. _palettable: value"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and autolink "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "paletable_"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "inline": [
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "module",
+                        "reference": {
+                          "kind": "api",
+                          "module": "matplotlib",
+                          "path": "matplotlib.colors",
+                          "version": "*"
+                        },
+                        "value": "matplotlib.colors"
+                      },
+                      "type": "Link"
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "hase warning sections."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "inline": [
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "module",
+                        "reference": {
+                          "kind": "api",
+                          "module": "numpy",
+                          "path": "numpy.__getattr__.<locals>._expired",
+                          "version": "*"
+                        },
+                        "value": "numpy.npv"
+                      },
+                      "type": "Link"
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "contains multiple figure"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "inline": [
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "module",
+                        "reference": {
+                          "kind": "api",
+                          "module": "scipy",
+                          "path": "scipy.signal._ltisys.bode",
+                          "version": "*"
+                        },
+                        "value": "scipy.signal.ltisys.bode"
+                      },
+                      "type": "Link"
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "multiple figures"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "inline": [
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "module",
+                        "reference": {
+                          "kind": "api",
+                          "module": "scipy",
+                          "path": "scipy.signal.barthann",
+                          "version": "*"
+                        },
+                        "value": "scipy.signal.barthann"
+                      },
+                      "type": "Link"
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "The Parameter section have a pair of parameter separated with the coma in     the name field; and those parameter should be properly detected as local     references in the rest of the docstrings."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "inline": [
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "module",
+                        "reference": {
+                          "kind": "api",
+                          "module": "numpy",
+                          "path": "numpy.where",
+                          "version": "*"
+                        },
+                        "value": "numpy.where"
+                      },
+                      "type": "Link"
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "should have plenty of math items"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "inline": [
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "module",
+                        "reference": {
+                          "kind": "api",
+                          "module": "numpy",
+                          "path": "numpy.polynomial.laguerre.lagfit",
+                          "version": "*"
+                        },
+                        "value": "numpy.polynomial.laguerre.lagfit"
+                      },
+                      "type": "Link"
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "The see also section links to "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "exists": true,
+                            "kind": "module",
+                            "reference": {
+                              "kind": "api",
+                              "module": "scipy",
+                              "path": "scipy.interpolate._fitpack2.UnivariateSpline",
+                              "version": "*"
+                            },
+                            "value": "scipy.interpolate.UnivariateSpline"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " which     will not resolve (yet) as the fully qualified name is     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "exists": true,
+                            "kind": "module",
+                            "reference": {
+                              "kind": "api",
+                              "module": "scipy",
+                              "path": "scipy.interpolate._fitpack2.UnivariateSpline",
+                              "version": "*"
+                            },
+                            "value": "scipy.interpolate.fitpack2.UnivariateSpline"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": "; this should be fixed at some     points via aliases; in the intro one link as a "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "name <value>"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " syntax which     is also not yet recognized."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "inline": [
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "module",
+                        "reference": {
+                          "kind": "api",
+                          "module": "numpy",
+                          "path": "numpy.polyfit",
+                          "version": "*"
+                        },
+                        "value": "numpy.polyfit"
+                      },
+                      "type": "Link"
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "multi blocks in enumerated list"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "inline": [
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "module",
+                        "reference": {
+                          "kind": "api",
+                          "module": "scipy",
+                          "path": "scipy.signal._filter_design.zpk2sos",
+                          "version": "*"
+                        },
+                        "value": "scipy.signal.filter_design.zpk2sos"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": ":"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "blockquote insted of enumerate list (to fix upstream)"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "inline": [
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "module",
+                        "reference": {
+                          "kind": "api",
+                          "module": "scipy",
+                          "path": "scipy.signal._filter_design.zpk2sos",
+                          "version": "*"
+                        },
+                        "value": "scipy.signal.filter_design.zpk2sos"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": ":"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "has lineblocks, which I belive is wrong."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "inline": [
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "module",
+                        "reference": {
+                          "kind": "api",
+                          "module": "scipy",
+                          "path": "scipy.optimize._lsq.trf",
+                          "version": "*"
+                        },
+                        "value": "scipy.optimize._lsq.trf"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": ":"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "multiple figures"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "inline": [
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "module",
+                        "reference": {
+                          "kind": "api",
+                          "module": "scipy",
+                          "path": "scipy.signal.exponential",
+                          "version": "*"
+                        },
+                        "value": "scipy.signal.exponential"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": ":"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "one of the longest numpy docstring/document, or at least one of the longest to render, with     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "exists": true,
+                            "kind": "module",
+                            "reference": {
+                              "kind": "api",
+                              "module": "scipy",
+                              "path": "scipy.signal.windows._windows.dpss",
+                              "version": "*"
+                            },
+                            "value": "scipy.signal.windows.windows.dpss"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " , "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "exists": true,
+                            "kind": "module",
+                            "reference": {
+                              "kind": "api",
+                              "module": "scipy",
+                              "path": "scipy.optimize._minimize.minimize",
+                              "version": "*"
+                            },
+                            "value": "scipy.optimize._minimize.minimize"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " and     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "exists": true,
+                            "kind": "module",
+                            "reference": {
+                              "kind": "api",
+                              "module": "scipy",
+                              "path": "scipy.optimize._basinhopping.basinhopping",
+                              "version": "*"
+                            },
+                            "value": "scipy.optimize._basinhopping.basinhopping"
+                          },
+                          "type": "Link"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "inline": [
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "module",
+                        "reference": {
+                          "kind": "api",
+                          "module": "numpy",
+                          "path": "numpy.einsum",
+                          "version": "*"
+                        },
+                        "value": "numpy.einsum"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": ":"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        }
+      ],
+      "title": "Of Interest"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Papyri parsing might be a bit different from docutils/sphinx parsing. As docutils try to keep backward compatibility for historical reason, we may be a bit stricter on some of the syntax you use to. This allows us to catch more errors. Feel free to report differences in parsing, here we document the one we do on purpose."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Directive must not have spaces before double colon."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              ".. directive :: will be seen as a comment.",
+              "        and thus this will not appear in final output.",
+              "",
+              ".. directive:: is the proper way to write block directive.",
+              "        it will be properly interpreted."
+            ]
+          },
+          "type": "BlockQuote"
+        }
+      ],
+      "title": "Changes in behavior"
+    }
+  ],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": "/papyri/__init__.py",
+  "item_line": 0,
+  "item_type": "<class 'module'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "refs": [],
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

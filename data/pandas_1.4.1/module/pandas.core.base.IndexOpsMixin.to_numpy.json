@@ -1,0 +1,1151 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The returned array will be the same up to equality (values equal in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "self"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " will be equal in the returned array; likewise for values that are not equal). When "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "self"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " contains an ExtensionArray, the dtype may be different. For example, for a category-dtype Series, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "to_numpy()"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " will return a NumPy array and the categorical dtype will be lost."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "For NumPy dtypes, this will be a reference to the actual data stored in this Series or Index (assuming "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "copy=False"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "). Modifying the result in place will modify the data stored in the Series or Index (not that we recommend doing that)."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "For extension types, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "to_numpy()"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "may"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " require copying data and coercing the result to a NumPy type (possibly object), which may be expensive. When you need a no-copy reference to the underlying data, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "Series.array"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " should be used instead."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "This table lays out the different dtypes and default return types of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "to_numpy()"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " for various dtypes within pandas."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "================== ================================ dtype              array type ================== ================================ category[T]        ndarray[T] (same dtype as input) period             ndarray[object] (Periods) interval           ndarray[object] (Intervals) IntegerNA          ndarray[object] datetime64[ns]     datetime64[ns] datetime64[ns, tz] ndarray[object] (Timestamps) ================== ================================"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "The dtype to pass to "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "numpy.asarray"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": "."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "dtype",
+            "type_": "str or numpy.dtype, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Whether to ensure that the returned value is not a view on another array. Note that "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "copy=False"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " does not "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": {
+                          "value": "ensure"
+                        }
+                      },
+                      "type": "Emph"
+                    },
+                    {
+                      "data": {
+                        "value": " that "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "to_numpy()"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " is no-copy. Rather, "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "copy=True"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " ensure that a copy is made, even if not strictly necessary."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "copy",
+            "type_": "bool, default False"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "The value to use for missing values. The default value depends on "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "dtype",
+                          "version": null
+                        },
+                        "value": "dtype"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " and the type of the array."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "children": [
+                    {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "1.0.0 "
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    }
+                  ],
+                  "kind": "versionadded",
+                  "title": "TODO"
+                },
+                "type": "Admonition"
+              }
+            ],
+            "param": "na_value",
+            "type_": "Any, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Additional keywords passed through to the "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "to_numpy"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " method of the underlying array (for extension arrays)."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "children": [
+                    {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "1.0.0 "
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    }
+                  ],
+                  "kind": "versionadded",
+                  "title": "TODO"
+                },
+                "type": "Admonition"
+              }
+            ],
+            "param": "**kwargs",
+            "type_": ""
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "desc": [],
+            "param": "",
+            "type_": "numpy.ndarray"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "A NumPy ndarray representing the values in this Series or Index."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "pandas.core.base.IndexOpsMixin.to_numpy"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [
+      {
+        "data": {
+          "ce_status": "compiled",
+          "entries": [
+            [
+              "ser",
+              null,
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "pd",
+              null,
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "Series",
+              null,
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "pd",
+              null,
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "Categorical",
+              null,
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              "a",
+              null,
+              "s1"
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              "b",
+              null,
+              "s1"
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              "a",
+              null,
+              "s1"
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "ser",
+              null,
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "to_numpy",
+              null,
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "array(['a', 'b', 'a'], dtype=object)"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "inline": [
+            {
+              "data": {
+                "value": "Specify the "
+              },
+              "type": "Words"
+            },
+            {
+              "data": {
+                "exists": true,
+                "kind": "local",
+                "reference": {
+                  "kind": "local",
+                  "module": null,
+                  "path": "dtype",
+                  "version": null
+                },
+                "value": "dtype"
+              },
+              "type": "Link"
+            },
+            {
+              "data": {
+                "value": " to control how datetime-aware data is represented. Use "
+              },
+              "type": "Words"
+            },
+            {
+              "data": {
+                "value": [
+                  "dtype=object"
+                ]
+              },
+              "type": "Verbatim"
+            },
+            {
+              "data": {
+                "value": " to return an ndarray of pandas "
+              },
+              "type": "Words"
+            },
+            {
+              "data": {
+                "value": [
+                  "Timestamp"
+                ]
+              },
+              "type": "Verbatim"
+            },
+            {
+              "data": {
+                "value": " objects, each with the correct "
+              },
+              "type": "Words"
+            },
+            {
+              "data": {
+                "value": [
+                  "tz"
+                ]
+              },
+              "type": "Verbatim"
+            },
+            {
+              "data": {
+                "value": "."
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "ce_status": "compiled",
+          "entries": [
+            [
+              "ser",
+              null,
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "pd",
+              null,
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "Series",
+              null,
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "pd",
+              null,
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "date_range",
+              null,
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              "2000",
+              "",
+              "s1"
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "periods",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "tz",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "CET",
+              null,
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "ser",
+              null,
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "to_numpy",
+              null,
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "dtype",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "object",
+              "builtins.object",
+              "nb"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "array([Timestamp('2000-01-01 00:00:00+0100', tz='CET'),\n       Timestamp('2000-01-02 00:00:00+0100', tz='CET')],\n      dtype=object)"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "inline": [
+            {
+              "data": {
+                "value": "Or "
+              },
+              "type": "Words"
+            },
+            {
+              "data": {
+                "value": [
+                  "dtype='datetime64[ns]'"
+                ]
+              },
+              "type": "Verbatim"
+            },
+            {
+              "data": {
+                "value": " to return an ndarray of native datetime64 values. The values are converted to UTC and the timezone info is dropped."
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "ce_status": "compiled",
+          "entries": [
+            [
+              "ser",
+              null,
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "to_numpy",
+              null,
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "dtype",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "datetime64[ns]",
+              "",
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "# doctest: +ELLIPSIS",
+              "",
+              "c1"
+            ]
+          ],
+          "out": "array(['1999-12-31T23:00:00.000000000', '2000-01-01T23:00:00...'],\n      dtype='datetime64[ns]')"
+        },
+        "type": "Code"
+      }
+    ],
+    "title": null
+  },
+  "item_file": "/pandas/core/base.py",
+  "item_line": 430,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "refs": [
+    "DataFrame.to_numpy",
+    "Index.array",
+    "Series.array",
+    "builtins.object"
+  ],
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "Get the actual data stored within."
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": null,
+        "name": "Series.array",
+        "ref": null
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "Get the actual data stored within."
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": null,
+        "name": "Index.array",
+        "ref": null
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "Similar method for DataFrame."
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": true,
+        "name": "DataFrame.to_numpy",
+        "ref": "pandas.core.frame.DataFrame.to_numpy"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "value": "to_numpy(self, dtype: 'npt.DTypeLike | None' = None, copy: 'bool' = False, na_value=<no_default>, **kwargs) -> 'np.ndarray'"
+  }
+}

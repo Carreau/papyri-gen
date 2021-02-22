@@ -1,0 +1,283 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "value": [
+              "For square empty arrays the result is returned True by convention.",
+              "",
+              "`numpy.inf` will be treated as a number, that is to say ``[[1, inf],",
+              "[inf, 2]]`` will return ``True``. On the other hand `numpy.NaN` is never",
+              "symmetric, say, ``[[1, nan], [nan, 2]]`` will return ``False``.",
+              "",
+              "When ``atol`` and/or ``rtol`` are set to , then the comparison is performed",
+              "by `numpy.allclose` and the tolerance values are passed to it. Otherwise an",
+              "exact comparison against zero is performed by internal functions. Hence",
+              "performance can improve or degrade depending on the size and dtype of the",
+              "array. If one of ``atol`` or ``rtol`` given the other one is automatically",
+              "set to zero."
+            ]
+          },
+          "type": "BlockQuote"
+        }
+      ],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Input array of size (N, N)"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "a",
+            "type_": "ndarray"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Absolute error bound"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "atol",
+            "type_": "float, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Relative error bound"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "rtol",
+            "type_": "float, optional"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If the dtype of the array is not supported, in particular, NumPy float16, float128 and complex256 dtypes."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "",
+            "type_": "TypeError"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Returns True if the array Hermitian."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "her",
+            "type_": "bool"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "ishermitian(a, atol=None, rtol=None) Check if a square 2D array is Hermitian."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "scipy.signal._lti_conversion.linalg.ishermitian"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [
+      {
+        "data": {
+          "value": [
+            ">>> from scipy.linalg import ishermitian",
+            ">>> A = np.arange(9).reshape(3, 3)",
+            ">>> A = A + A.T",
+            ">>> ishermitian(A)",
+            "True",
+            ">>> A = np.array([[1., 2. + 3.j], [2. - 3.j, 4.]])",
+            ">>> ishermitian(A)",
+            "True",
+            ">>> Ac = np.array([[1. + 1.j, 3.j], [3.j, 2.]])",
+            ">>> ishermitian(Ac)  # not Hermitian but symmetric",
+            "False",
+            ">>> Af = np.array([[0, 1 + 1j], [1 - (1+1e-12)*1j, 0]])",
+            ">>> ishermitian(Af)",
+            "False",
+            ">>> ishermitian(Af, atol=5e-11) # almost hermitian with atol",
+            "True"
+          ]
+        },
+        "type": "BlockQuote"
+      }
+    ],
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": "<class 'builtin_function_or_method'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "Raises",
+    "See Also",
+    "Examples"
+  ],
+  "references": null,
+  "refs": [
+    "issymmetric"
+  ],
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "Check if a square 2D array is symmetric"
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": true,
+        "name": "issymmetric",
+        "ref": "scipy.linalg._cythonized_array_utils.issymmetric"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "value": null
+  }
+}

@@ -1,0 +1,590 @@
+{
+  "_content": {},
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [],
+      "title": "Miscellaneous"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Special values defined in numpy: nan, inf,"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "NaNs can be used as a poor-man's mask (if you don't care what the original value was)"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Note: cannot use equality to test NaNs. E.g.: ::   "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> myarr = np.array([1., 0., np.nan, 3.])\n>>> np.nonzero(myarr == np.nan)\n(array([], dtype=int64),)\n>>> np.nan == np.nan  # is always False! Use special numpy functions instead.\nFalse\n>>> myarr[myarr == np.nan] = 0. # doesn't work\n>>> myarr\narray([  1.,   0.,  nan,   3.])\n>>> myarr[np.isnan(myarr)] = 0. # use this instead find\n>>> myarr\narray([1.,  0.,  0.,  3.])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Other related special value functions: ::   "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "isinf():    True if value is inf\nisfinite(): True if not nan or inf\nnan_to_num(): Map nan to 0, inf to max float, -inf to min float"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The following corresponds to the usual functions except that nans are excluded from the results: ::   "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "nansum()\nnanmax()\nnanmin()\nnanargmax()\nnanargmin()\n\n>>> x = np.arange(10.)\n>>> x[3] = np.nan\n>>> x.sum()\nnan\n>>> np.nansum(x)\n42.0"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "title": "IEEE 754 Floating Point Special Values"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The default is to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "'warn'"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " for "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "invalid"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "divide"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "overflow"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "'ignore'"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " for "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "underflow"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ".  But this can be changed, and it can be set individually for different kinds of exceptions. The different behaviors are:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              "- 'ignore' : Take no action when the exception occurs.",
+              "- 'warn'   : Print a `RuntimeWarning` (via the Python `warnings` module).",
+              "- 'raise'  : Raise a `FloatingPointError`.",
+              "- 'call'   : Call a function specified using the `seterrcall` function.",
+              "- 'print'  : Print a warning directly to ``stdout``.",
+              "- 'log'    : Record error in a Log object specified by `seterrcall`.",
+              "",
+              "hese behaviors can be set for all kinds of errors or specific ones:",
+              "",
+              "- all       : apply to all numeric exceptions",
+              "- invalid   : when NaNs are generated",
+              "- divide    : divide by zero (for integers as well!)",
+              "- overflow  : floating point overflows",
+              "- underflow : floating point underflows",
+              "",
+              "ote that integer divide-by-zero is handled by the same machinery.",
+              "hese behaviors are set on a per-thread basis.",
+              "",
+              "xamples",
+              "-------",
+              "",
+              ":",
+              "",
+              ">>> oldsettings = np.seterr(all='warn')",
+              ">>> np.zeros(5,dtype=np.float32)/0.",
+              "Traceback (most recent call last):",
+              "...",
+              "RuntimeWarning: invalid value encountered in divide",
+              ">>> j = np.seterr(under='ignore')",
+              ">>> np.array([1.e-100])**10",
+              "array([0.])",
+              ">>> j = np.seterr(invalid='raise')",
+              ">>> np.sqrt(np.array([-1.]))",
+              "Traceback (most recent call last):",
+              "...",
+              "FloatingPointError: invalid value encountered in sqrt",
+              ">>> def errorhandler(errstr, errflag):",
+              "...      print(\"saw stupid error!\")",
+              ">>> np.seterrcall(errorhandler)",
+              ">>> j = np.seterr(all='call')",
+              ">>> np.zeros(5, dtype=np.int32)/0",
+              "saw stupid error!",
+              "array([nan, nan, nan, nan, nan])",
+              ">>> j = np.seterr(**oldsettings) # restore previous",
+              "...                              # error-handling settings",
+              "",
+              "nterfacing to C",
+              "---------------",
+              "nly a survey of the choices. Little detail on how each works.",
+              "",
+              ") Bare metal, wrap your own C-code manually.",
+              "",
+              "- Plusses:",
+              "",
+              "  - Efficient",
+              "  - No dependencies on other tools",
+              "",
+              "- Minuses:",
+              "",
+              "  - Lots of learning overhead:",
+              "",
+              "    - need to learn basics of Python C API",
+              "    - need to learn basics of numpy C API",
+              "    - need to learn how to handle reference counting and love it.",
+              "",
+              "  - Reference counting often difficult to get right.",
+              "",
+              "    - getting it wrong leads to memory leaks, and worse, segfaults",
+              "",
+              "  - API will change for Python 3.0!"
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "Cython"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "EnumeratedList"
+        },
+        {
+          "data": {
+            "value": [
+              "- Plusses:",
+              "",
+              "  - avoid learning C API's",
+              "  - no dealing with reference counting",
+              "  - can code in pseudo python and generate C code",
+              "  - can also interface to existing C code",
+              "  - should shield you from changes to Python C api",
+              "  - has become the de-facto standard within the scientific Python community",
+              "  - fast indexing support for arrays",
+              "",
+              "- Minuses:",
+              "",
+              "  - Can write code in non-standard form which may become obsolete",
+              "  - Not as flexible as manual wrapping"
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "ctypes"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "EnumeratedList"
+        },
+        {
+          "data": {
+            "value": [
+              "- Plusses:",
+              "",
+              "  - part of Python standard library",
+              "  - good for interfacing to existing shareable libraries, particularly",
+              "    Windows DLLs",
+              "  - avoids API/reference counting issues",
+              "  - good numpy support: arrays have all these in their ctypes",
+              "    attribute: ::",
+              "",
+              "      a.ctypes.data",
+              "      a.ctypes.data_as",
+              "      a.ctypes.shape",
+              "      a.ctypes.shape_as",
+              "      a.ctypes.strides",
+              "      a.ctypes.strides_as",
+              "",
+              "- Minuses:",
+              "",
+              "  - can't use for writing code to be turned into C extensions, only a wrapper",
+              "    tool."
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "SWIG (automatic wrapper generator)"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "EnumeratedList"
+        },
+        {
+          "data": {
+            "value": [
+              "- Plusses:",
+              "",
+              "  - around a long time",
+              "  - multiple scripting language support",
+              "  - C++ support",
+              "  - Good for wrapping large (many functions) existing C libraries",
+              "",
+              "- Minuses:",
+              "",
+              "  - generates lots of code between Python and the C code",
+              "  - can cause performance problems that are nearly impossible to optimize",
+              "    out",
+              "  - interface files can be hard to write",
+              "  - doesn't necessarily avoid reference counting issues or needing to know",
+              "    API's"
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "scipy.weave"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "EnumeratedList"
+        },
+        {
+          "data": {
+            "value": [
+              "- Plusses:",
+              "",
+              "  - can turn many numpy expressions into C code",
+              "  - dynamic compiling and loading of generated C code",
+              "  - can embed pure C code in Python module and have weave extract, generate",
+              "    interfaces and compile, etc.",
+              "",
+              "- Minuses:",
+              "",
+              "  - Future very uncertain: it's the only part of Scipy not ported to Python 3",
+              "    and is effectively deprecated in favor of Cython."
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "Psyco"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "EnumeratedList"
+        },
+        {
+          "data": {
+            "value": [
+              "- Plusses:",
+              "",
+              "  - Turns pure python into efficient machine code through jit-like",
+              "    optimizations",
+              "  - very fast when it optimizes well",
+              "",
+              "- Minuses:",
+              "",
+              "  - Only on intel (windows?)",
+              "  - Doesn't do much for numpy?"
+            ]
+          },
+          "type": "BlockQuote"
+        }
+      ],
+      "title": "How numpy handles numerical exceptions"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The clear choice to wrap Fortran code is "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://docs.scipy.org/doc/numpy/f2py/",
+                  "value": "f2py"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Pyfort is an older alternative, but not supported any longer. Fwrap is a newer project that looked promising but isn't being developed any longer."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Interfacing to Fortran:"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "value": [
+              "1) Cython",
+              "2) CXX",
+              "3) Boost.python",
+              "4) SWIG",
+              "5) SIP (used mainly in PyQT)"
+            ]
+          },
+          "type": "BlockQuote"
+        }
+      ],
+      "title": "Interfacing to C++:"
+    }
+  ],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "refs": [],
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

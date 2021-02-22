@@ -1,0 +1,189 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Handles a single index by a single list"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Mimics "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "np.take"
+                  ]
+                },
+                "type": "Verbatim"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> from pprint import pprint\n>>> chunks, dsk = take('y', 'x', [(20, 20, 20, 20)], [5, 1, 47, 3], 8, axis=0)\n>>> chunks\n((2, 1, 1),)\n>>> pprint(dsk)   # doctest: +ELLIPSIS\n{('y', 0): (<function getitem at ...>, ('x', 0), (array([5, 1]),)),\n ('y', 1): (<function getitem at ...>, ('x', 2), (array([7]),)),\n ('y', 2): (<function getitem at ...>, ('x', 0), (array([3]),))}"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "When list is sorted we retain original block structure"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> chunks, dsk = take('y', 'x', [(20, 20, 20, 20)], [1, 3, 5, 47], 8, axis=0)\n>>> chunks\n((3, 1),)\n>>> pprint(dsk)     # doctest: +ELLIPSIS\n{('y', 0): (<function getitem at ...>,\n            ('x', 0),\n            (array([1, 3, 5]),)),\n ('y', 1): (<function getitem at ...>, ('x', 2), (array([7]),))}"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "When any indexed blocks would otherwise grow larger than dask.config.array.chunk-size, we might split them, depending on the value of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "dask.config.slicing.split-large-chunks"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> import dask\n>>> with dask.config.set({\"array.slicing.split-large-chunks\": True}):\n...      chunks, dsk = take('y', 'x', [(1, 1, 1), (1000, 1000), (1000, 1000)],\n...                        [0] + [1] * 6 + [2], axis=0, itemsize=8)\n>>> chunks\n((1, 3, 3, 1), (1000, 1000), (1000, 1000))"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Index array with an iterable of index"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "dask.array.slicing.take"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": "/dask/array/slicing.py",
+  "item_line": 585,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "refs": [],
+  "see_also": [],
+  "signature": {
+    "value": "take(outname, inname, chunks, index, itemsize, axis=0)"
+  }
+}

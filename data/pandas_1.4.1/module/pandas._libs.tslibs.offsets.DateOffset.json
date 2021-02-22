@@ -1,0 +1,1081 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Works exactly like the keyword argument form of relativedelta. Note that the positional argument form of relativedelata is not supported. Use of the keyword n is discouraged-- you would be better off specifying n in the keywords you use, but regardless it is there for you. n is needed for DateOffset subclasses."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "DateOffset works as follows.  Each offset specify a set of dates that conform to the DateOffset.  For example, Bday defines this set to be the set of dates that are weekdays (M-F).  To test if a date is in the set of a DateOffset dateOffset we can use the is_on_offset method: dateOffset.is_on_offset(date)."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "If a date is not on a valid date, the rollback and rollforward methods can be used to roll the date to the nearest valid date before/after the date."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "DateOffsets can be created to move dates forward a given number of valid dates.  For example, Bday(2) can be added to a date to move it two business days forward.  If the date does not start on a valid date, first it is moved to a valid date.  Thus pseudo code is:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "date = rollback(date) # does nothing if date is valid   return date + <n number of periods>"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "def __add__(date):"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "When a date offset is created for a negative number of periods, the date is first rolled forward.  The pseudo code is:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "date = rollforward(date) # does nothing is date is valid   return date + <n number of periods>"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "def __add__(date):"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Zero presents a problem.  Should it roll forward or back?  We arbitrarily have it rollforward:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "date + BDay(0) == BDay.rollforward(date)"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Since 0 is a bit weird, we suggest avoiding its use."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "The number of time periods the offset represents. If specified without a temporal pattern, defaults to n days."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "n",
+            "type_": "int, default 1"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Whether to round the result of a DateOffset addition down to the previous midnight."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "normalize",
+            "type_": "bool, default False"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Temporal parameter that add to or replace the offset value."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Parameters that "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "add"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": " to the offset (like Timedelta):"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "children": [
+                    {
+                      "value": [
+                        {
+                          "data": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "value": "years"
+                                },
+                                "type": "Words"
+                              }
+                            ],
+                            "inner": []
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "value": [
+                        {
+                          "data": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "value": "months"
+                                },
+                                "type": "Words"
+                              }
+                            ],
+                            "inner": []
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "value": [
+                        {
+                          "data": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "value": "weeks"
+                                },
+                                "type": "Words"
+                              }
+                            ],
+                            "inner": []
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "value": [
+                        {
+                          "data": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "value": "days"
+                                },
+                                "type": "Words"
+                              }
+                            ],
+                            "inner": []
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "value": [
+                        {
+                          "data": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "value": "hours"
+                                },
+                                "type": "Words"
+                              }
+                            ],
+                            "inner": []
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "value": [
+                        {
+                          "data": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "value": "minutes"
+                                },
+                                "type": "Words"
+                              }
+                            ],
+                            "inner": []
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "value": [
+                        {
+                          "data": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "value": "seconds"
+                                },
+                                "type": "Words"
+                              }
+                            ],
+                            "inner": []
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "value": [
+                        {
+                          "data": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "value": "microseconds"
+                                },
+                                "type": "Words"
+                              }
+                            ],
+                            "inner": []
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "value": [
+                        {
+                          "data": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "value": "nanoseconds"
+                                },
+                                "type": "Words"
+                              }
+                            ],
+                            "inner": []
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "type": "BulletList"
+              },
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Parameters that "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "replace"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": " the offset value:"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "children": [
+                    {
+                      "value": [
+                        {
+                          "data": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "value": "year"
+                                },
+                                "type": "Words"
+                              }
+                            ],
+                            "inner": []
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "value": [
+                        {
+                          "data": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "value": "month"
+                                },
+                                "type": "Words"
+                              }
+                            ],
+                            "inner": []
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "value": [
+                        {
+                          "data": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "value": "day"
+                                },
+                                "type": "Words"
+                              }
+                            ],
+                            "inner": []
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "value": [
+                        {
+                          "data": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "value": "weekday"
+                                },
+                                "type": "Words"
+                              }
+                            ],
+                            "inner": []
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "value": [
+                        {
+                          "data": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "value": "hour"
+                                },
+                                "type": "Words"
+                              }
+                            ],
+                            "inner": []
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "value": [
+                        {
+                          "data": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "value": "minute"
+                                },
+                                "type": "Words"
+                              }
+                            ],
+                            "inner": []
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "value": [
+                        {
+                          "data": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "value": "second"
+                                },
+                                "type": "Words"
+                              }
+                            ],
+                            "inner": []
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "value": [
+                        {
+                          "data": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "value": "microsecond"
+                                },
+                                "type": "Words"
+                              }
+                            ],
+                            "inner": []
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "value": [
+                        {
+                          "data": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "value": "nanosecond."
+                                },
+                                "type": "Words"
+                              }
+                            ],
+                            "inner": []
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "type": "BulletList"
+              }
+            ],
+            "param": "**kwds",
+            "type_": ""
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Standard kind of date increment used for a date range."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "pandas.DateOffset"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [
+      {
+        "data": {
+          "ce_status": "compiled",
+          "entries": [
+            [
+              "from",
+              null,
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "pandas",
+              "pandas",
+              "nn"
+            ],
+            [
+              ".",
+              "",
+              "nn"
+            ],
+            [
+              "tseries",
+              "pandas.tseries",
+              "nn"
+            ],
+            [
+              ".",
+              "",
+              "nn"
+            ],
+            [
+              "offsets",
+              "pandas.tseries.offsets",
+              "nn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "import",
+              null,
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "DateOffset",
+              "pandas._libs.tslibs.offsets.DateOffset",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "ts",
+              null,
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "pd",
+              null,
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "Timestamp",
+              null,
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              "2017-01-01 09:10:11",
+              "",
+              "s1"
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "ts",
+              null,
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "+",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "DateOffset",
+              "pandas._libs.tslibs.offsets.DateOffset",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "months",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "Timestamp('2017-04-01 09:10:11')"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "compiled",
+          "entries": [
+            [
+              "ts",
+              null,
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "pd",
+              null,
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "Timestamp",
+              null,
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              "2017-01-01 09:10:11",
+              "",
+              "s1"
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "ts",
+              null,
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "+",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "DateOffset",
+              "pandas._libs.tslibs.offsets.DateOffset",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "months",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "Timestamp('2017-03-01 09:10:11')"
+        },
+        "type": "Code"
+      }
+    ],
+    "title": null
+  },
+  "item_file": "/pandas/_libs/tslibs/offsets.cpython-39-darwin.so",
+  "item_line": null,
+  "item_type": "<class 'pandas._libs.tslibs.offsets.OffsetMeta'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "See Also",
+    "Examples"
+  ],
+  "references": null,
+  "refs": [
+    "dateutil.relativedelta.relativedelta",
+    "pandas",
+    "pandas._libs.tslibs.offsets.DateOffset",
+    "pandas.tseries",
+    "pandas.tseries.offsets"
+  ],
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "The relativedelta type is designed to be applied to an existing datetime an can replace specific components of that datetime, or represents an interval of time."
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": null,
+        "name": "dateutil.relativedelta.relativedelta",
+        "ref": "dateutil.relativedelta.relativedelta"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "value": null
+  }
+}

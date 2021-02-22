@@ -1,0 +1,2786 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "A "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "dask.array.Array"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " can contain any sufficiently \"NumPy-like\" array in its chunks. These are also referred to as \"duck arrays\" since they match the most important parts of NumPy's array API, and so, behave the same way when relying on duck typing."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "However, for multiple duck array types to interoperate properly, they need to properly defer to each other in arithmetic operations and NumPy functions/ufuncs according to a well-defined type casting hierarchy ( "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://numpy.org/neps/nep-0013-ufunc-overrides.html#type-casting-hierarchy",
+                  "value": "see NEP 13"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": " ). In an effort to maintain this hierarchy, Dask defers to all other duck array types except those in its internal registry. By default, this registry contains"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": [
+                              "numpy.ndarray"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": [
+                              "numpy.ma.MaskedArray"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": [
+                              "cupy.ndarray"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": [
+                              "sparse.SparseArray"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": [
+                              "scipy.sparse.spmatrix"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "This function exists to append any other types to this registry. If a type is not in this registry, and yet is a downcast type (it comes below "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "dask.array.Array"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " in the type casting hierarchy), a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "TypeError"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " will be raised due to all operand types returning "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "NotImplemented"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Duck array type to be registered as a type Dask can safely wrap as a chunk and to which Dask does not defer in arithmetic operations and NumPy functions/ufuncs."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "type",
+            "type_": "type"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Register the given type as a valid chunk and downcast array type"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "dask.array.register_chunk_type"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [
+      {
+        "data": {
+          "inline": [
+            {
+              "data": {
+                "value": "Using a mock "
+              },
+              "type": "Words"
+            },
+            {
+              "data": {
+                "value": [
+                  "FlaggedArray"
+                ]
+              },
+              "type": "Verbatim"
+            },
+            {
+              "data": {
+                "value": " class as an example chunk type unknown to Dask with minimal duck array API:"
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "ce_status": "compiled",
+          "entries": [
+            [
+              "import",
+              null,
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "numpy",
+              "numpy",
+              "nn"
+            ],
+            [
+              ".",
+              "",
+              "nn"
+            ],
+            [
+              "lib",
+              "numpy.lib",
+              "nn"
+            ],
+            [
+              ".",
+              "",
+              "nn"
+            ],
+            [
+              "mixins",
+              "numpy.lib.mixins",
+              "nn"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "class",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "FlaggedArray",
+              "__main__.FlaggedArray",
+              "nc"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "numpy",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "lib",
+              "numpy.lib",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "mixins",
+              "numpy.lib.mixins",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "NDArrayOperatorsMixin",
+              "numpy.lib.mixins.NDArrayOperatorsMixin",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "def",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "__init__",
+              "__main__.FlaggedArray.__init__",
+              "fm"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "self",
+              "__main__.FlaggedArray",
+              "bp"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "a",
+              null,
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "flag",
+              "builtins.bool",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "False",
+              null,
+              "kc"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "        ",
+              "",
+              ""
+            ],
+            [
+              "self",
+              "__main__.FlaggedArray",
+              "bp"
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "a",
+              null,
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "a",
+              null,
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "        ",
+              "",
+              ""
+            ],
+            [
+              "self",
+              "__main__.FlaggedArray",
+              "bp"
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "flag",
+              "builtins.bool",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "flag",
+              "builtins.bool",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "def",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "__repr__",
+              "__main__.FlaggedArray.__repr__",
+              "fm"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "self",
+              "__main__.FlaggedArray",
+              "bp"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "        ",
+              "",
+              ""
+            ],
+            [
+              "return",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "f",
+              "builtins.str",
+              "sa"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              "Flag: ",
+              "",
+              "s2"
+            ],
+            [
+              "{",
+              "",
+              "si"
+            ],
+            [
+              "self",
+              "__main__.FlaggedArray",
+              "bp"
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "flag",
+              "builtins.bool",
+              ""
+            ],
+            [
+              "}",
+              "",
+              "si"
+            ],
+            [
+              ", Array: ",
+              "",
+              "s2"
+            ],
+            [
+              "\"",
+              "",
+              "s2"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "+",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "repr",
+              "builtins.repr",
+              "nb"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "self",
+              "__main__.FlaggedArray",
+              "bp"
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "a",
+              null,
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "def",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "__array__",
+              "__main__.FlaggedArray.__array__",
+              "nf"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "self",
+              "__main__.FlaggedArray",
+              "bp"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "        ",
+              "",
+              ""
+            ],
+            [
+              "return",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "asarray",
+              "numpy.asarray",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "self",
+              "__main__.FlaggedArray",
+              "bp"
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "a",
+              null,
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "def",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "__array_ufunc__",
+              "__main__.FlaggedArray.__array_ufunc__",
+              "nf"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "self",
+              "__main__.FlaggedArray",
+              "bp"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "ufunc",
+              null,
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "method",
+              null,
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              "inputs",
+              "builtins.tuple",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              "kwargs",
+              "builtins.dict",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "        ",
+              "",
+              ""
+            ],
+            [
+              "if",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "method",
+              null,
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "==",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              "__call__",
+              null,
+              "s1"
+            ],
+            [
+              "'",
+              "",
+              "s1"
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "            ",
+              "",
+              ""
+            ],
+            [
+              "downcast_inputs",
+              "builtins.list",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "            ",
+              "",
+              ""
+            ],
+            [
+              "flag",
+              "builtins.bool",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "False",
+              null,
+              "kc"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "            ",
+              "",
+              ""
+            ],
+            [
+              "for",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "input",
+              null,
+              "nb"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "in",
+              null,
+              "ow"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "inputs",
+              "builtins.tuple",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "                ",
+              "",
+              ""
+            ],
+            [
+              "if",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "isinstance",
+              "builtins.isinstance",
+              "nb"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "input",
+              null,
+              "nb"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "self",
+              "__main__.FlaggedArray",
+              "bp"
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "__class__",
+              "__main__.FlaggedArray",
+              "vm"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "                    ",
+              "",
+              ""
+            ],
+            [
+              "flag",
+              null,
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "flag",
+              "builtins.bool",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "or",
+              null,
+              "ow"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "input",
+              null,
+              "nb"
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "flag",
+              null,
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "                    ",
+              "",
+              ""
+            ],
+            [
+              "downcast_inputs",
+              "builtins.list",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "append",
+              "builtins.list.append",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "input",
+              null,
+              "nb"
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "a",
+              null,
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "                ",
+              "",
+              ""
+            ],
+            [
+              "elif",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "isinstance",
+              "builtins.isinstance",
+              "nb"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "input",
+              null,
+              "nb"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "ndarray",
+              "numpy.ndarray",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "                    ",
+              "",
+              ""
+            ],
+            [
+              "downcast_inputs",
+              "builtins.list",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "append",
+              "builtins.list.append",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "input",
+              "numpy.ndarray",
+              "nb"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "                ",
+              "",
+              ""
+            ],
+            [
+              "else",
+              null,
+              "k"
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "                    ",
+              "",
+              ""
+            ],
+            [
+              "return",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "NotImplemented",
+              "builtins._NotImplementedType",
+              "bp"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "            ",
+              "",
+              ""
+            ],
+            [
+              "return",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "self",
+              "__main__.FlaggedArray",
+              "bp"
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "__class__",
+              "__main__.FlaggedArray",
+              "vm"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "ufunc",
+              null,
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              "downcast_inputs",
+              "builtins.list",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              "kwargs",
+              "builtins.dict",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "flag",
+              "builtins.bool",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "        ",
+              "",
+              ""
+            ],
+            [
+              "else",
+              null,
+              "k"
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "            ",
+              "",
+              ""
+            ],
+            [
+              "return",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "NotImplemented",
+              "builtins._NotImplementedType",
+              "bp"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "@property",
+              "",
+              "nd"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "def",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "shape",
+              "__main__.FlaggedArray.shape",
+              "nf"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "self",
+              "__main__.FlaggedArray",
+              "bp"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "        ",
+              "",
+              ""
+            ],
+            [
+              "return",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "self",
+              "__main__.FlaggedArray",
+              "bp"
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "a",
+              null,
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "shape",
+              null,
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "@property",
+              "",
+              "nd"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "def",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "ndim",
+              "__main__.FlaggedArray.ndim",
+              "nf"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "self",
+              "__main__.FlaggedArray",
+              "bp"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "        ",
+              "",
+              ""
+            ],
+            [
+              "return",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "self",
+              "__main__.FlaggedArray",
+              "bp"
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "a",
+              null,
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "ndim",
+              null,
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "@property",
+              "",
+              "nd"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "def",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "dtype",
+              "__main__.FlaggedArray.dtype",
+              "nf"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "self",
+              "__main__.FlaggedArray",
+              "bp"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "        ",
+              "",
+              ""
+            ],
+            [
+              "return",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "self",
+              "__main__.FlaggedArray",
+              "bp"
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "a",
+              null,
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "dtype",
+              null,
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "def",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "__getitem__",
+              "__main__.FlaggedArray.__getitem__",
+              "fm"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "self",
+              "__main__.FlaggedArray",
+              "bp"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "key",
+              null,
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "        ",
+              "",
+              ""
+            ],
+            [
+              "return",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "type",
+              "builtins.type",
+              "nb"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "self",
+              "__main__.FlaggedArray",
+              "bp"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "self",
+              "__main__.FlaggedArray",
+              "bp"
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "a",
+              null,
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "key",
+              null,
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "self",
+              "__main__.FlaggedArray",
+              "bp"
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "flag",
+              "builtins.bool",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "    ",
+              "",
+              ""
+            ],
+            [
+              "def",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "__setitem__",
+              "__main__.FlaggedArray.__setitem__",
+              "fm"
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "self",
+              "__main__.FlaggedArray",
+              "bp"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "key",
+              null,
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "value",
+              null,
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "        ",
+              "",
+              ""
+            ],
+            [
+              "self",
+              "__main__.FlaggedArray",
+              "bp"
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "a",
+              null,
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "key",
+              null,
+              ""
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "value",
+              null,
+              ""
+            ]
+          ],
+          "out": ""
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "inline": [
+            {
+              "data": {
+                "value": "Before registering "
+              },
+              "type": "Words"
+            },
+            {
+              "data": {
+                "value": [
+                  "FlaggedArray"
+                ]
+              },
+              "type": "Verbatim"
+            },
+            {
+              "data": {
+                "value": ", both types will attempt to defer to the other:"
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "ce_status": "compiled",
+          "entries": [
+            [
+              "import",
+              null,
+              "kn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "dask",
+              "dask",
+              "nn"
+            ],
+            [
+              ".",
+              "",
+              "nn"
+            ],
+            [
+              "array",
+              "dask.array",
+              "nn"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "as",
+              null,
+              "k"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "da",
+              "dask.array",
+              "nn"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "da",
+              "dask.array",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "ones",
+              "dask.array.core.Array",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "5",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "-",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "FlaggedArray",
+              "__main__.FlaggedArray",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "ones",
+              "numpy.ones",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "5",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "True",
+              null,
+              "kc"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "Traceback (most recent call last):\n...\nTypeError: operand type(s) all returned NotImplemented ..."
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "inline": [
+            {
+              "data": {
+                "value": "However, once registered, Dask will be able to handle operations with this new type:"
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "ce_status": "compiled",
+          "entries": [
+            [
+              "da",
+              "dask.array",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "register_chunk_type",
+              "dask.array.chunk_types.register_chunk_type",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "FlaggedArray",
+              "__main__.FlaggedArray",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "__main__.FlaggedArray",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "da",
+              "dask.array",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "ones",
+              "dask.array.core.Array",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "5",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "-",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "FlaggedArray",
+              "__main__.FlaggedArray",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "ones",
+              "numpy.ones",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "5",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "True",
+              null,
+              "kc"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "x",
+              "__main__.FlaggedArray",
+              ""
+            ]
+          ],
+          "out": "dask.array<sub, shape=(5,), dtype=float64, chunksize=(5,), chunktype=dask.FlaggedArray>"
+        },
+        "type": "Code"
+      },
+      {
+        "data": {
+          "ce_status": "compiled",
+          "entries": [
+            [
+              "x",
+              "__main__.FlaggedArray",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "compute",
+              null,
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "Flag: True, Array: array([0., 0., 0., 0., 0.])"
+        },
+        "type": "Code"
+      }
+    ],
+    "title": null
+  },
+  "item_file": "/dask/array/chunk_types.py",
+  "item_line": 7,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "refs": [
+    "__main__.FlaggedArray",
+    "__main__.FlaggedArray.__array__",
+    "__main__.FlaggedArray.__array_ufunc__",
+    "__main__.FlaggedArray.__getitem__",
+    "__main__.FlaggedArray.__init__",
+    "__main__.FlaggedArray.__repr__",
+    "__main__.FlaggedArray.__setitem__",
+    "__main__.FlaggedArray.dtype",
+    "__main__.FlaggedArray.ndim",
+    "__main__.FlaggedArray.shape",
+    "builtins._NotImplementedType",
+    "builtins.bool",
+    "builtins.dict",
+    "builtins.isinstance",
+    "builtins.list",
+    "builtins.list.append",
+    "builtins.repr",
+    "builtins.str",
+    "builtins.tuple",
+    "builtins.type",
+    "dask",
+    "dask.array",
+    "dask.array.chunk_types.register_chunk_type",
+    "dask.array.core.Array",
+    "numpy",
+    "numpy.asarray",
+    "numpy.lib",
+    "numpy.lib.mixins",
+    "numpy.lib.mixins.NDArrayOperatorsMixin",
+    "numpy.ndarray",
+    "numpy.ones"
+  ],
+  "see_also": [],
+  "signature": {
+    "value": "register_chunk_type(type)"
+  }
+}

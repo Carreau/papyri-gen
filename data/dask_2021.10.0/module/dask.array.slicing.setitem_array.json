@@ -1,0 +1,339 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "This function, that is intended to be called by "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "dask",
+                    "path": "dask.array.core.Array.__setitem__",
+                    "version": "2021.10.0"
+                  },
+                  "value": "Array.__setitem__"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": ", creates a new dask that assigns values to each block that is touched by the indices, leaving other blocks unchanged."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Each block that overlaps the indices is assigned from the approriate part of the assignment value. The dasks of these value parts are included in the output dask dictionary, as are the dasks of any 1-d dask array indices. This ensures that the dask array assignment value and any dask array indices are not computed until the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "dask",
+                    "path": "dask.array.core.Array.__setitem__",
+                    "version": "2021.10.0"
+                  },
+                  "value": "Array.__setitem__"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " operation is computed."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The part of the assignment value applies to block is created as a \"getitem\" slice of the full asignment value."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "The dask variable output name."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "out_name",
+            "type_": "`str`"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "The dask array that is being assigned to."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "array",
+            "type_": "dask array"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Indices to array defining the elements to be assigned."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "indices",
+            "type_": "numpy-style indices"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "The assignment value, i.e. the values which will be assigned to elements of array."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "value",
+            "type_": "dask array"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "value": [
+                    "A dictionary where the keys are new unique tokens for each",
+                    "block of the form",
+                    "",
+                    "    (out_name, dim_index[, dim_index[, ...]])"
+                  ]
+                },
+                "type": "BlockQuote"
+              },
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "and the values are either"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(key,)"
+                  ]
+                },
+                "type": "BlockQuote"
+              },
+              {
+                "data": {
+                  "value": [
+                    "or",
+                    "",
+                    "    (setitem, key, v_key, block_indices)",
+                    "",
+                    "where key is an existing top-level dask key of array.",
+                    "",
+                    "The first case occurs when the block represented by key does",
+                    "not overlap the indices.",
+                    "",
+                    "The second case occurs when the block represented by key does",
+                    "overlap the indices. setitem is the chunk assignment function;",
+                    "v_key is the dask key of the the part of the assignment value",
+                    "that corresponds to the block; and block_indices are the",
+                    "assigment indices that apply to the block.",
+                    "",
+                    "The dictionary also includes any additional key/value pairs",
+                    "needed to define v_key, as well as any any additional",
+                    "key/value pairs needed to define dask keys contained in the",
+                    "block_indices list as references to dask array indices."
+                  ]
+                },
+                "type": "BlockQuote"
+              }
+            ],
+            "param": "dsk",
+            "type_": "`dict`"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Master function for array assignment."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "dask.array.core.setitem_array"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": "/dask/array/slicing.py",
+  "item_line": 1549,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns"
+  ],
+  "references": null,
+  "refs": [],
+  "see_also": [],
+  "signature": {
+    "value": "setitem_array(out_name, array, indices, value)"
+  }
+}

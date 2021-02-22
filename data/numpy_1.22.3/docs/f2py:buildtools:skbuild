@@ -1,0 +1,670 @@
+{
+  "_content": {},
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _f2py-skbuild:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "title": null
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": [
+                    "scikit-build"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " provides two separate concepts geared towards the users of Python extension modules."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "A "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "setuptools"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " replacement (legacy behaviour)"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "A series of "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "cmake"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " modules with definitions which help building Python extensions"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "EnumeratedList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "inline": [
+                  {
+                    "data": {
+                      "value": "It is possible to use ``scikit - build`` ' s ``cmake`` modules to `bypass the cmake setup mechanism`_ completely, and to write targets which call ``f2py - c``. This usage is **not recommended** since the point of these build system documents are to move away from the internal ``numpy.distutils`` methods. "
+                    },
+                    "type": "Words"
+                  }
+                ],
+                "inner": []
+              }
+            ],
+            "kind": "note",
+            "title": ""
+          },
+          "type": "Admonition"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "For situations where no "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "setuptools"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " replacements are required or wanted (i.e. if "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "wheels"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " are not needed), it is recommended to instead use the vanilla "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "cmake"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " setup described in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "f2py-cmake"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Using via ``scikit-build``"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "We will consider the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "fib"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "  example from "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "f2py-getting-started"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " section."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "args0": [
+              "./../code/fib1.f"
+            ],
+            "directive_name": "literalinclude",
+            "inner": {
+              "inline": [],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "title": "Fibonacci Walkthrough (F77)"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Consider using the following "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "CMakeLists.txt"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "args0": [
+              "./../code/CMakeLists_skbuild.txt"
+            ],
+            "directive_name": "literalinclude",
+            "inner": {
+              "inline": [],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Much of the logic is the same as in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "f2py-cmake"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", however notably here the appropriate module suffix is generated via "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "sysconfig.get_config_var(\"SO\")"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". The resulting extension can be built and loaded in the standard workflow."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "args0": [
+              "bash"
+            ],
+            "directive_name": "code",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "ls . # CMakeLists.txt fib1.f cmake - S . - B build cmake - - build build cd build python - c \" import numpy as np; import fibby; a = np.zeros ( 9); fibby.fib ( a); print ( a) \" # [ 0. 1. 1. 2. 3. 5. 8. 13. 21.] "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "title": "``CMake`` modules only"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "inline": [
+                  {
+                    "data": {
+                      "value": "**As of November 2021** The behavior described here of driving the ``cmake`` build of a module is considered to be legacy behaviour and should not be depended on. "
+                    },
+                    "type": "Words"
+                  }
+                ],
+                "inner": []
+              }
+            ],
+            "kind": "note",
+            "title": ""
+          },
+          "type": "Admonition"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The utility of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "scikit-build"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " lies in being able to drive the generation of more than extension modules, in particular a common usage pattern is the generation of Python distributables (for example for PyPI)."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The workflow with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "scikit-build"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " straightforwardly supports such packaging requirements. Consider augmenting the project with a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "setup.py"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " as defined:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "args0": [
+              "./../code/setup_skbuild.py"
+            ],
+            "directive_name": "literalinclude",
+            "inner": {
+              "inline": [],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Along with a commensurate "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "pyproject.toml"
+                  ]
+                },
+                "type": "Verbatim"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "args0": [
+              "./../code/pyproj_skbuild.toml"
+            ],
+            "directive_name": "literalinclude",
+            "inner": {
+              "inline": [],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Together these can build the extension using "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "cmake"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " in tandem with other standard "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "setuptools"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " outputs. Running "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "cmake"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " through "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "setup.py"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is mostly used when it is necessary to integrate with extension modules not built with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "cmake"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "args0": [
+              "bash"
+            ],
+            "directive_name": "code",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "ls . # CMakeLists.txt fib1.f pyproject.toml setup.py python setup.py build_ext - - inplace python - c \" import numpy as np; import fibby.fibby; a = np.zeros ( 9); fibby.fibby.fib ( a); print ( a) \" # [ 0. 1. 1. 2. 3. 5. 8. 13. 21.] "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Where we have modified the path to the module as "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "--inplace"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " places the extension module in a subfolder."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _bypass the cmake setup mechanism: https://scikit-build.readthedocs.io/en/latest/cmake-modules/F2PY.html"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "title": "``setuptools`` replacement"
+    }
+  ],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "refs": [],
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

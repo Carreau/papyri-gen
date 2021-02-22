@@ -1,0 +1,548 @@
+{
+  "_content": {},
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "args0": [],
+            "directive_name": "currentmodule",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "numpy.random "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _legacy:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "title": null
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "RandomState"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " provides access to legacy generators. This generator is considered frozen and will have no further improvements.  It is guaranteed to produce the same values as the final point release of NumPy v1.16. These all depend on Box-Muller normals or inverse CDF exponentials or gammas. This class should only be used if it is essential to have randoms that are identical to what would have been produced by previous versions of NumPy."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "RandomState"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " adds additional information to the state which is required when using Box-Muller normals since these are produced in pairs. It is important to use "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "RandomState.get_state"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", and not the underlying bit generators "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "state"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", when accessing the state so that these extra values are saved."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Although we provide the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "MT19937"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " BitGenerator for use independent of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "RandomState"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", note that its default seeding uses "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "SeedSequence"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " rather than the legacy seeding algorithm. "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "RandomState"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " will use the legacy seeding algorithm. The methods to use the legacy seeding algorithm are currently private as the main reason to use them is just to implement "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "RandomState"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ". However, one can reset the state of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "MT19937"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " using the state of the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "RandomState"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ":"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "args0": [
+              "python"
+            ],
+            "directive_name": "code-block",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "from numpy.random import MT19937 from numpy.random import RandomState rs = RandomState ( 12345) mt19937 = MT19937 ( ) mt19937.state = rs.get_state ( ) rs2 = RandomState ( mt19937) # Same output rs.standard_normal ( ) rs2.standard_normal ( ) rs.random ( ) rs2.random ( ) rs.standard_exponential ( ) rs2.standard_exponential ( ) "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "RandomState"
+            ],
+            "directive_name": "autoclass",
+            "inner": {
+              "inline": [],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "title": "Legacy Random Generation"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "args0": [
+              ":toctree: generated/"
+            ],
+            "directive_name": "autosummary",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "~RandomState.get_state ~RandomState.set_state ~RandomState.seed "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "title": "Seeding and State"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "args0": [
+              ":toctree: generated/"
+            ],
+            "directive_name": "autosummary",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "~RandomState.rand ~RandomState.randn ~RandomState.randint ~RandomState.random_integers ~RandomState.random_sample ~RandomState.choice ~RandomState.bytes "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "title": "Simple random data"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "args0": [
+              ":toctree: generated/"
+            ],
+            "directive_name": "autosummary",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "~RandomState.shuffle ~RandomState.permutation "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "title": "Permutations"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "args0": [
+              ":toctree: generated/"
+            ],
+            "directive_name": "autosummary",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "~RandomState.beta ~RandomState.binomial ~RandomState.chisquare ~RandomState.dirichlet ~RandomState.exponential ~RandomState.f ~RandomState.gamma ~RandomState.geometric ~RandomState.gumbel ~RandomState.hypergeometric ~RandomState.laplace ~RandomState.logistic ~RandomState.lognormal ~RandomState.logseries ~RandomState.multinomial ~RandomState.multivariate_normal ~RandomState.negative_binomial ~RandomState.noncentral_chisquare ~RandomState.noncentral_f ~RandomState.normal ~RandomState.pareto ~RandomState.poisson ~RandomState.power ~RandomState.rayleigh ~RandomState.standard_cauchy ~RandomState.standard_exponential ~RandomState.standard_gamma ~RandomState.standard_normal ~RandomState.standard_t ~RandomState.triangular ~RandomState.uniform ~RandomState.vonmises ~RandomState.wald ~RandomState.weibull ~RandomState.zipf "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "title": "Distributions"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Many of the RandomState methods above are exported as functions in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "numpy",
+                    "path": "numpy.random",
+                    "version": "*"
+                  },
+                  "value": "numpy.random"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " This usage is discouraged, as it is implemented via a global "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "RandomState"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " instance which is not advised on two counts:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "It uses global state, which means results will change as the code changes"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "It uses a "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "RandomState"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": " rather than the more modern "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "Generator"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "For backward compatible legacy reasons, we cannot change this. See "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "random-quick-start"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "args0": [],
+            "directive_name": "autosummary",
+            "inner": {
+              "inline": [],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "title": "Functions in `numpy.random`"
+    }
+  ],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "refs": [],
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

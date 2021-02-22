@@ -1,0 +1,673 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "args0": [
+              "key: str"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "The key is the unique identifier of a task, generally formed from the name of the function, followed by a hash of the function and arguments, like `` ' inc - ab31c010444977004d656610d2d421ec ' ``. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "prefix: TaskPrefix"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "The broad class of tasks to which this task belongs like \" inc \" or \" read_csv \" "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "run_spec: object"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "A specification of how to run the task. The type and meaning of this value is opaque to the scheduler, as it is only interpreted by the worker to which the task is sent for executing. As a special case, this attribute may also be ``None``, in which case the task is \" pure data \" ( such as, for example, a piece of data loaded in the scheduler using : meth : `Client.scatter`). A \" pure data \" task cannot be computed again if its value is lost. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "priority: tuple"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "The priority provides each task with a relative ranking which is used to break ties when many tasks are being considered for execution. This ranking is generally a 2 - item tuple. The first ( and dominant) item corresponds to when it was submitted. Generally, earlier tasks take precedence. The second item is determined by the client, and is a way to prioritize tasks within a large graph that may be important, such as if they are on the critical path, or good to run in order to release many dependencies. This is explained further in : doc : `Scheduling Policy < scheduling - policies>`. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "state: str"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "This task ' s current state. Valid states include ``released``, ``waiting``, ``no - worker``, ``processing``, ``memory``, ``erred`` and ``forgotten``. If it is ``forgotten``, the task isn ' t stored in the ``tasks`` dictionary anymore and will probably disappear soon from memory. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "dependencies: {TaskState}"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "The set of tasks this task depends on for proper execution. Only tasks still alive are listed in this set. If, for whatever reason, this task also depends on a forgotten task, the : attr : `has_lost_dependencies` flag is set. A task can only be executed once all its dependencies have already been successfully executed and have their result stored on at least one worker. This is tracked by progressively draining the : attr : `waiting_on` set. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "dependents: {TaskState}"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "The set of tasks which depend on this task. Only tasks still alive are listed in this set. This is the reverse mapping of : attr : `dependencies`. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "has_lost_dependencies: bool"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "Whether any of the dependencies of this task has been forgotten. For memory consumption reasons, forgotten tasks are not kept in memory even though they may have dependent tasks. When a task is forgotten, therefore, each of its dependents has their : attr : `has_lost_dependencies` attribute set to ``True``. If : attr : `has_lost_dependencies` is true, this task cannot go into the \" processing \" state anymore. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "waiting_on: {TaskState}"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "The set of tasks this task is waiting on *before* it can be executed. This is always a subset of : attr : `dependencies`. Each time one of the dependencies has finished processing, it is removed from the : attr : `waiting_on` set. Once : attr : `waiting_on` becomes empty, this task can move from the \" waiting \" state to the \" processing \" state ( unless one of the dependencies errored out, in which case this task is instead marked \" erred \" ). "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "waiters: {TaskState}"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "The set of tasks which need this task to remain alive. This is always a subset of : attr : `dependents`. Each time one of the dependents has finished processing, it is removed from the : attr : `waiters` set. Once both : attr : `waiters` and : attr : `who_wants` become empty, this task can be released ( if it has a non - empty : attr : `run_spec`) or forgotten ( otherwise) by the scheduler, and by any workers in : attr : `who_has`. .. note : : Counter - intuitively, : attr : `waiting_on` and : attr : `waiters` are not reverse mappings of each other. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "who_wants: {ClientState}"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "The set of clients who want this task ' s result to remain alive. This is the reverse mapping of : attr : `ClientState.wants_what`. When a client submits a graph to the scheduler it also specifies which output tasks it desires, such that their results are not released from memory. Once a task has finished executing ( i.e. moves into the \" memory \" or \" erred \" state), the clients in : attr : `who_wants` are notified. Once both : attr : `waiters` and : attr : `who_wants` become empty, this task can be released ( if it has a non - empty : attr : `run_spec`) or forgotten ( otherwise) by the scheduler, and by any workers in : attr : `who_has`. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "who_has: {WorkerState}"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "The set of workers who have this task ' s result in memory. It is non - empty iff the task is in the \" memory \" state. There can be more than one worker in this set if, for example, : meth : `Client.scatter` or : meth : `Client.replicate` was used. This is the reverse mapping of : attr : `WorkerState.has_what`. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "processing_on: WorkerState (or None)"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "If this task is in the \" processing \" state, which worker is currently processing it. Otherwise this is ``None``. This attribute is kept in sync with : attr : `WorkerState.processing`. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "retries: int"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "The number of times this task can automatically be retried in case of failure. If a task fails executing ( the worker returns with an error), its : attr : `retries` attribute is checked. If it is equal to 0, the task is marked \" erred \" . If it is greater than 0, the : attr : `retries` attribute is decremented and execution is attempted again. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "nbytes: int (or None)"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "The number of bytes, as determined by ``sizeof``, of the result of a finished task. This number is used for diagnostics and to help prioritize work. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "type: str"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "The type of the object as a string. Only present for tasks that have been computed. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "exception: object"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "If this task failed executing, the exception object is stored here. Otherwise this is ``None``. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "traceback: object"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "If this task failed executing, the traceback object is stored here. Otherwise this is ``None``. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "exception_blame: TaskState (or None)"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "If this task or one of its dependencies failed executing, the failed task is stored here ( possibly itself). Otherwise this is ``None``. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "erred_on: set(str)"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "Worker addresses on which errors appeared causing this task to be in an error state. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "suspicious: int"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "The number of times this task has been involved in a worker death. Some tasks may cause workers to die ( such as calling ``os._exit ( 0)``). When a worker dies, all of the tasks on that worker are reassigned to others. This combination of behaviors can cause a bad task to catastrophically destroy all workers on the cluster, one after another. Whenever a worker dies, we mark each task currently processing on that worker ( as recorded by : attr : `WorkerState.processing`) as suspicious. If a task is involved in three deaths ( or some other fixed constant) then we mark the task as ``erred``. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "host_restrictions: {hostnames}"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "A set of hostnames where this task can be run ( or ``None`` if empty). Usually this is empty unless the task has been specifically restricted to only run on certain hosts. A hostname may correspond to one or several connected workers. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "worker_restrictions: {worker addresses}"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "A set of complete worker addresses where this can be run ( or ``None`` if empty). Usually this is empty unless the task has been specifically restricted to only run on certain workers. Note this is tracking worker addresses, not worker states, since the specific workers may not be connected at this time. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "resource_restrictions: {resource: quantity}"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "Resources required by this task, such as `` { ' gpu ' : 1}`` or `` { ' memory ' : 1e9}`` ( or ``None`` if empty). These are user - defined names and are matched against the contents of each : attr : `WorkerState.resources` dictionary. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "loose_restrictions: bool"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "If ``False``, each of : attr : `host_restrictions`, : attr : `worker_restrictions` and : attr : `resource_restrictions` is a hard constraint : if no worker is available satisfying those restrictions, the task cannot go into the \" processing \" state and will instead go into the \" no - worker \" state. If ``True``, the above restrictions are mere preferences : if no worker is available satisfying those restrictions, the task can still go into the \" processing \" state and be sent for execution to another connected worker. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "metadata: dict"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "Metadata related to task. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "actor: bool"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "Whether or not this task is an Actor. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "group: TaskGroup"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "The group of tasks to which this one belongs. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "annotations: dict"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "Task annotations "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "A simple object holding information about a task."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "distributed.scheduler.TaskState"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": "/distributed/scheduler.py",
+  "item_line": 1142,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "refs": [],
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

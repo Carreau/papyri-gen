@@ -1,0 +1,675 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "An ID of a matrix "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "A",
+                    "version": null
+                  },
+                  "value": "A"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " is a factorization defined by a rank "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "k",
+                    "version": null
+                  },
+                  "value": "k"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": ", a column index array "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "idx",
+                    "version": null
+                  },
+                  "value": "idx"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": ", and interpolation coefficients "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "proj",
+                    "version": null
+                  },
+                  "value": "proj"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " such that::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "numpy.dot(A[:,idx[:k]], proj) = A[:,idx[k:]]"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The original matrix can then be reconstructed as::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "numpy.hstack([A[:,idx[:k]],\n                            numpy.dot(A[:,idx[:k]], proj)]\n                        )[:,numpy.argsort(idx)]"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "or via the routine "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "reconstruct_matrix_from_id"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". This can equivalently be written as::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "numpy.dot(A[:,idx[:k]],\n                    numpy.hstack([numpy.eye(k), proj])\n                  )[:,np.argsort(idx)]"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "in terms of the skeleton and interpolation matrices::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "B = A[:,idx[:k]]"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "and::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "P = numpy.hstack([numpy.eye(k), proj])[:,np.argsort(idx)]"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "respectively. See also "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "reconstruct_interp_matrix"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "reconstruct_skel_matrix"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The ID can be computed to any relative precision or rank (depending on the value of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "eps_or_k",
+                    "version": null
+                  },
+                  "value": "eps_or_k"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": "). If a precision is specified ("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "eps_or_k < 1"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": "), then this function has the output signature::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "k, idx, proj = interp_decomp(A, eps_or_k)"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Otherwise, if a rank is specified ("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "eps_or_k >= 1"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": "), then the output signature is::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "idx, proj = interp_decomp(A, eps_or_k)"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "value": "..  This function automatically detects the form of the input parameters\n    and passes them to the appropriate backend. For details, see\n    :func:`_backend.iddp_id`, :func:`_backend.iddp_aid`,\n    :func:`_backend.iddp_rid`, :func:`_backend.iddr_id`,\n    :func:`_backend.iddr_aid`, :func:`_backend.iddr_rid`,\n    :func:`_backend.idzp_id`, :func:`_backend.idzp_aid`,\n    :func:`_backend.idzp_rid`, :func:`_backend.idzr_id`,\n    :func:`_backend.idzr_aid`, and :func:`_backend.idzr_rid`."
+          },
+          "type": "Comment"
+        }
+      ],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Matrix to be factored"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "A",
+            "type_": ":class:`numpy.ndarray` or :class:`scipy.sparse.linalg.LinearOperator` with `rmatvec`"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Relative error (if "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "eps_or_k < 1"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": ") or rank (if "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "eps_or_k >= 1"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": ") of approximation."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "eps_or_k",
+            "type_": "float or int"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Whether to use random sampling if "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "A",
+                          "version": null
+                        },
+                        "value": "A"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " is of type "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "numpy.ndarray"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " (randomized algorithms are always used if "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "A",
+                          "version": null
+                        },
+                        "value": "A"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " is of type "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "scipy.sparse.linalg.LinearOperator"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ")."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "rand",
+            "type_": "bool, optional"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Rank required to achieve specified relative precision if "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "eps_or_k < 1"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": "."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "k",
+            "type_": "int"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Column index array."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "idx",
+            "type_": ":class:`numpy.ndarray`"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Interpolation coefficients."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "proj",
+            "type_": ":class:`numpy.ndarray`"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Compute ID of a matrix."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "scipy.signal._filter_design.optimize._remove_redundancy.interp_decomp"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": "/scipy/linalg/interpolative.py",
+  "item_line": 482,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns"
+  ],
+  "references": null,
+  "refs": [],
+  "see_also": [],
+  "signature": {
+    "value": "interp_decomp(A, eps_or_k, rand=True)"
+  }
+}

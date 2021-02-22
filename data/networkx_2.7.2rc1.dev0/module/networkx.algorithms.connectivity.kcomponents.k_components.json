@@ -1,0 +1,568 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "A "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "k"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": "-component is a maximal subgraph of a graph G that has, at least, node connectivity "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "k"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ": we need to remove at least "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "k"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " nodes to break it into more components. "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "k"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": "-components have an inherent hierarchical structure because they are nested in terms of connectivity: a connected graph can contain several 2-components, each of which can contain one or more 3-components, and so forth."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Moody and White  (appendix A) provide an algorithm for identifying k-components in a graph, which is based on Kanevsky's algorithm  for finding all minimum-size node cut-sets of a graph (implemented in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "all_node_cuts"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " function):"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              "1. Compute node connectivity, k, of the input graph G.",
+              "",
+              "2. Identify all k-cutsets at the current level of connectivity using",
+              "   Kanevsky's algorithm.",
+              "",
+              "3. Generate new graph components based on the removal of",
+              "   these cutsets. Nodes in a cutset belong to both sides",
+              "   of the induced cut.",
+              "",
+              "4. If the graph is neither complete nor trivial, return to 1;",
+              "   else end."
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "This implementation also uses some heuristics (see  for details) to speed up the computation."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [],
+            "param": "G",
+            "type_": "NetworkX graph"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Function to perform the underlying flow computations. Default value "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "edmonds_karp"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ". This function performs better in sparse graphs with right tailed degree distributions. "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "shortest_augmenting_path"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " will perform better in denser graphs."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "flow_func",
+            "type_": "function"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If the input graph is directed."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "",
+            "type_": "NetworkXNotImplemented"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Dictionary with all connectivity levels "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "k"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " in the input Graph as keys and a list of sets of nodes that form a k-component of level "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "k"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " as values."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "k_components",
+            "type_": "dict"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Returns the k-component structure of a graph G."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "networkx.k_components"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            [
+              "# Petersen graph has 10 nodes and it is triconnected, thus all",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "# nodes are in a single component on all three connectivity levels",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "typing.Generator",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "nx",
+              "networkx",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "petersen_graph",
+              "networkx.generators.small.petersen_graph",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "k_components",
+              "builtins.dict",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "nx",
+              "networkx",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "k_components",
+              "networkx.algorithms.connectivity.kcomponents.k_components",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "G",
+              "typing.Generator",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": ""
+        },
+        "type": "Code"
+      }
+    ],
+    "title": null
+  },
+  "item_file": "networkx/algorithms/connectivity/kcomponents.py",
+  "item_line": 19,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "Examples",
+    "Notes",
+    "See Also",
+    "References"
+  ],
+  "references": null,
+  "refs": [
+    "all_node_cuts",
+    "biconnected_components",
+    "builtins.dict",
+    "k_edge_components",
+    "networkx",
+    "networkx.algorithms.connectivity.kcomponents.k_components",
+    "networkx.generators.small.petersen_graph",
+    "node_connectivity",
+    "typing.Generator"
+  ],
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "exists": null,
+        "name": "node_connectivity",
+        "ref": null
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "exists": true,
+        "name": "all_node_cuts",
+        "ref": "networkx.algorithms.connectivity.kcutsets.all_node_cuts"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "special case of this function when k=2"
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": true,
+        "name": "biconnected_components",
+        "ref": "networkx.algorithms.components.biconnected.biconnected_components"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "similar to this function, but uses edge-connectivity instead of node-connectivity"
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": null,
+        "name": "k_edge_components",
+        "ref": null
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "value": "k_components(G, flow_func=None)"
+  }
+}

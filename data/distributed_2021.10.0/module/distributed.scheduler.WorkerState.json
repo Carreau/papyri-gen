@@ -1,0 +1,353 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "args0": [
+              "address: str"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "This worker ' s unique key. This can be its connected address ( such as `` ' tcp : / / 127.0.0.1 : 8891 ' ``) or an alias ( such as `` ' alice ' ``). "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "processing: {TaskState: cost}"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "A dictionary of tasks that have been submitted to this worker. Each task state is associated with the expected cost in seconds of running that task, summing both the task ' s expected computation time and the expected communication time of its result. If a task is already executing on the worker and the excecution time is twice the learned average TaskGroup duration, this will be set to twice the current executing time. If the task is unknown, the default task duration is used instead of the TaskGroup average. Multiple tasks may be submitted to a worker in advance and the worker will run them eventually, depending on its execution resources ( but see : doc : `work - stealing`). All the tasks here are in the \" processing \" state. This attribute is kept in sync with : attr : `TaskState.processing_on`. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "executing: {TaskState: duration}"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "A dictionary of tasks that are currently being run on this worker. Each task state is asssociated with the duration in seconds which the task has been running. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "has_what: {TaskState}"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "An insertion - sorted set - like of tasks which currently reside on this worker. All the tasks here are in the \" memory \" state. This is the reverse mapping of : class : `TaskState.who_has`. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "nbytes: int"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "The total memory size, in bytes, used by the tasks this worker holds in memory ( i.e. the tasks in this worker ' s : attr : `has_what`). "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "nthreads: int"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "The number of CPU threads made available on this worker. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "resources: {str: Number}"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "The available resources on this worker like `` { ' gpu ' : 2}``. These are abstract quantities that constrain certain tasks from running at the same time on this worker. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "used_resources: {str: Number}"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "The sum of each resource used by all tasks allocated to this worker. The numbers in this dictionary can only be less or equal than those in this worker ' s : attr : `resources`. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "occupancy: double"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "The total expected runtime, in seconds, of all tasks currently processing on this worker. This is the sum of all the costs in this worker ' s : attr : `processing` dictionary. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "status: Status"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "Read - only worker status, synced one way from the remote Worker object "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "nanny: str"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "Address of the associated Nanny, if present "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "last_seen: Py_ssize_t"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "The last time we received a heartbeat from this worker, in local scheduler time. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [
+              "actors: {TaskState}"
+            ],
+            "directive_name": "attribute",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "A set of all TaskStates on this worker that are actors. This only includes those actors whose state actually lives on this worker, not actors to which this worker has a reference. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "A simple object holding information about a worker."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "distributed.scheduler.WorkerState"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": "/distributed/scheduler.py",
+  "item_line": 388,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "refs": [],
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

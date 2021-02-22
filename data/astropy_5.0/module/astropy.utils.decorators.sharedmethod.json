@@ -1,0 +1,283 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "When using "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "astropy",
+                    "path": "astropy.utils.decorators.sharedmethod",
+                    "version": "5.0"
+                  },
+                  "value": "sharedmethod"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " on a method defined in a class's body, it may be called on an instance, or on a class.  In the former case it behaves like a normal instance method (a reference to the instance is automatically passed as the first "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "self"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " argument of the method)::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> class Example:\n...     @sharedmethod\n...     def identify(self, *args):\n...         print('self was', self)\n...         print('additional args were', args)\n...\n>>> ex = Example()\n>>> ex.identify(1, 2)\nself was <astropy.utils.decorators.Example object at 0x...>\nadditional args were (1, 2)"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "In the latter case, when the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "astropy",
+                    "path": "astropy.utils.decorators.sharedmethod",
+                    "version": "5.0"
+                  },
+                  "value": "sharedmethod"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " is called directly from a class, it behaves like a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "classmethod"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": "      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> Example.identify(3, 4)\nself was <class 'astropy.utils.decorators.Example'>\nadditional args were (3, 4)"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "This also supports a more advanced usage, where the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "classmethod"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " implementation can be written separately.  If the class's "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "metaclass"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " has a method of the same name as the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "astropy",
+                    "path": "astropy.utils.decorators.sharedmethod",
+                    "version": "5.0"
+                  },
+                  "value": "sharedmethod"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": ", the version on the metaclass is delegated to::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> class ExampleMeta(type):\n...     def identify(self):\n...         print('this implements the {0}.identify '\n...               'classmethod'.format(self.__name__))\n...\n>>> class Example(metaclass=ExampleMeta):\n...     @sharedmethod\n...     def identify(self):\n...         print('this implements the instancemethod')\n...\n>>> Example().identify()\nthis implements the instancemethod\n>>> Example.identify()\nthis implements the Example.identify classmethod"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "This is a method decorator that allows both an instancemethod and a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "classmethod"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " to share the same name."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "astropy.utils.sharedmethod"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": "/astropy/utils/decorators.py",
+  "item_line": 803,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "refs": [],
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

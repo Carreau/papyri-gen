@@ -66,22 +66,33 @@ jobs:
         shell: bash -l {0}
         run: |
           pip install papyri flit
-          git clone ssh://clonep/carreau/papyri
+          git clone https://github.com/jupyter/papyri
           cd papyri
-          pip install flit
-          flit install
+          pip install flit tree_sitter
+          flit install 
+          git clone https://github.com/stsewd/tree-sitter-rst
+          papyri build-parser
           cd ..
-      - name:  Ingest and render data
+      - name:  Ingest data
         shell: bash -l {0}
         run: |
           python -m papyri ingest data/*
+      - name:  Render data
+        shell: bash -l {0}
+        run: |
           python -m papyri render
+      - name:  Compress artifact for installation
+        shell: bash -l {0}
+        run: |
+          python zip_py.py
       - name: Git clone
         run: |
           git clone ssh://ptest/pydocs/pydocs.github.io
           cd pydocs.github.io
           rm -rf docs/
           cp -r ~/.papyri/html/ docs/
+          mkdir docs/pkg/
+          cp ../*.zip docs/pkg/
           git config --global user.email "bussonniermatthias@gmail.com"
           git config --global user.name "Matthias Bussonnier"
           git add docs

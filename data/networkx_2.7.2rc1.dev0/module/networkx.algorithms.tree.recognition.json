@@ -1,0 +1,502 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "To remove in the future \u2013\u2013 networkx.algorithms.tree.recognition"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "networkx.tree.recognition"
+  ],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "A "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "forest"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " is an acyclic, undirected graph, and a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "tree"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " is a connected forest. Depending on the subfield, there are various conventions for generalizing these definitions to directed graphs."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "In one convention, directed variants of forest and tree are defined in an identical manner, except that the direction of the edges is ignored. In effect, each directed edge is treated as a single undirected edge. Then, additional restrictions are imposed to define "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "branchings"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "arborescences"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "In another convention, directed variants of forest and tree correspond to the previous convention's branchings and arborescences, respectively. Then two new terms, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "polyforest"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "polytree"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": ", are defined to correspond to the other convention's forest and tree."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Summarizing::     "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "+-----------------------------+\n| Convention A | Convention B |\n+=============================+\n| forest       | polyforest   |\n| tree         | polytree     |\n| branching    | forest       |\n| arborescence | tree         |\n+-----------------------------+"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Each convention has its reasons. The first convention emphasizes definitional similarity in that directed forests and trees are only concerned with acyclicity and do not have an in-degree constraint, just as their undirected counterparts do not. The second convention emphasizes functional similarity in the sense that the directed analog of a spanning tree is a spanning arborescence. That is, take any spanning tree and choose one node as the root. Then every edge is assigned a direction such there is a directed path from the root to every other node. The result is a spanning arborescence."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "NetworkX follows convention \"A\". Explicitly, these are:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "An undirected graph with no undirected cycles."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "undirected forest"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "A connected, undirected forest."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "undirected tree"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "A directed graph with no undirected cycles. Equivalently, the underlying    graph structure (which ignores edge orientations) is an undirected forest.    In convention B, this is known as a polyforest."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "directed forest"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "A weakly connected, directed forest. Equivalently, the underlying graph    structure (which ignores edge orientations) is an undirected tree. In    convention B, this is known as a polytree."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "directed tree"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "A directed forest with each node having, at most, one parent. So the maximum    in-degree is equal to 1. In convention B, this is known as a forest."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "branching"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "A directed tree with each node having, at most, one parent. So the maximum    in-degree is equal to 1. In convention B, this is known as a tree."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "arborescence"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "For trees and arborescences, the adjective \"spanning\" may be added to designate that the graph, when considered as a forest/branching, consists of a single tree/arborescence that includes all nodes in the graph. It is true, by definition, that every tree/arborescence is spanning with respect to the nodes that define the tree/arborescence and so, it might seem redundant to introduce the notion of \"spanning\". However, the nodes may represent a subset of nodes from a larger graph, and it is in this context that the term \"spanning\" becomes a useful notion."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Recognition Tests"
+    }
+  ],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": "networkx/algorithms/tree/recognition.py",
+  "item_line": 0,
+  "item_type": "<class 'module'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "refs": [],
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

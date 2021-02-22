@@ -1,0 +1,1679 @@
+{
+  "_content": {},
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _how-to-io:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "title": null
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "This page tackles common applications; for the full collection of I/O routines, see "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "routines.io"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Reading and writing files"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _CSV: https://en.wikipedia.org/wiki/Comma-separated_values"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "title": "Reading text and CSV_ files"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Use "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.loadtxt"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "With no missing values"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Use "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.genfromtxt"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": [
+                    "numpy.genfromtxt"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " will either"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              "- return a :ref:`masked array<maskedarray.generic>`",
+              "  **masking out missing values** (if ``usemask=True``), or",
+              "",
+              "- **fill in the missing value** with the value specified in",
+              "  ``filling_values`` (default is ``np.nan`` for float, -1 for int)."
+            ]
+          },
+          "type": "BlockQuote"
+        }
+      ],
+      "title": "With missing values"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "value": ">>> print(open(\"csv.txt\").read())  # doctest: +SKIP\n1, 2, 3\n4,, 6\n7, 8, 9"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "title": "With non-whitespace delimiters"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "value": ">>> np.genfromtxt(\"csv.txt\", delimiter=\",\", usemask=True)  # doctest: +SKIP\nmasked_array(\n  data=[[1.0, 2.0, 3.0],\n        [4.0, --, 6.0],\n        [7.0, 8.0, 9.0]],\n  mask=[[False, False, False],\n        [False,  True, False],\n        [False, False, False]],\n  fill_value=1e+20)"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "title": "Masked-array output"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "value": ">>> np.genfromtxt(\"csv.txt\", delimiter=\",\")  # doctest: +SKIP\narray([[ 1.,  2.,  3.],\n       [ 4., nan,  6.],\n       [ 7.,  8.,  9.]])"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "title": "Array output"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "value": ">>> np.genfromtxt(\"csv.txt\", delimiter=\",\", dtype=np.int8, filling_values=99)  # doctest: +SKIP\narray([[ 1,  2,  3],\n       [ 4, 99,  6],\n       [ 7,  8,  9]], dtype=int8)"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "title": "Array output, specified fill-in value"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": [
+                    "numpy.genfromtxt"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " can also parse whitespace-delimited data files that have missing values if"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "content": {
+                              "value": "Each field has a fixed width"
+                            }
+                          },
+                          "type": "Strong"
+                        },
+                        {
+                          "data": {
+                            "value": ": Use the width as the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "delimiter"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": " argument.   ::"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": [
+                        "# File with width=4. The data does not have to be justified (for example,",
+                        "# the 2 in row 1), the last column can be less than width (for example, the 6",
+                        "# in row 2), and no delimiting character is required (for instance 8888 and 9",
+                        "# in row 3)",
+                        "",
+                        ">>> f = open(\"fixedwidth.txt\").read()  # doctest: +SKIP",
+                        ">>> print(f)  # doctest: +SKIP",
+                        "1   2      3",
+                        "44      6",
+                        "7   88889",
+                        "",
+                        "# Showing spaces as ^",
+                        ">>> print(f.replace(\" \",\"^\"))  # doctest: +SKIP",
+                        "1^^^2^^^^^^3",
+                        "44^^^^^^6",
+                        "7^^^88889",
+                        "",
+                        ">>> np.genfromtxt(\"fixedwidth.txt\", delimiter=4)  # doctest: +SKIP",
+                        "array([[1.000e+00, 2.000e+00, 3.000e+00],",
+                        "       [4.400e+01,       nan, 6.000e+00],",
+                        "       [7.000e+00, 8.888e+03, 9.000e+00]])"
+                      ]
+                    },
+                    "type": "BlockQuote"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "content": {
+                              "value": "A special value (e.g. \"x\") indicates a missing field"
+                            }
+                          },
+                          "type": "Strong"
+                        },
+                        {
+                          "data": {
+                            "value": ": Use it as the   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "missing_values"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": " argument.   ::"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": [
+                        ">>> print(open(\"nan.txt\").read())  # doctest: +SKIP",
+                        "1 2 3",
+                        "44 x 6",
+                        "7  8888 9",
+                        "",
+                        ">>> np.genfromtxt(\"nan.txt\", missing_values=\"x\")  # doctest: +SKIP",
+                        "array([[1.000e+00, 2.000e+00, 3.000e+00],",
+                        "       [4.400e+01,       nan, 6.000e+00],",
+                        "       [7.000e+00, 8.888e+03, 9.000e+00]])"
+                      ]
+                    },
+                    "type": "BlockQuote"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "content": {
+                              "value": "You want to skip the rows with missing values"
+                            }
+                          },
+                          "type": "Strong"
+                        },
+                        {
+                          "data": {
+                            "value": ": Set   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "invalid_raise=False"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ".   ::"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": [
+                        ">>> print(open(\"skip.txt\").read())  # doctest: +SKIP",
+                        "1 2   3",
+                        "44    6",
+                        "7 888 9",
+                        "",
+                        ">>> np.genfromtxt(\"skip.txt\", invalid_raise=False)  # doctest: +SKIP",
+                        "__main__:1: ConversionWarning: Some errors were detected !",
+                        "    Line #2 (got 2 columns instead of 3)",
+                        "array([[  1.,   2.,   3.],",
+                        "       [  7., 888.,   9.]])"
+                      ]
+                    },
+                    "type": "BlockQuote"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "content": {
+                              "value": "The delimiter whitespace character is different from the whitespace that\n  indicates missing data"
+                            }
+                          },
+                          "type": "Strong"
+                        },
+                        {
+                          "data": {
+                            "value": ". For instance, if columns are delimited by "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "\\t"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ",   then missing data will be recognized if it consists of one   or more spaces.   ::"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": [
+                        ">>> f = open(\"tabs.txt\").read()  # doctest: +SKIP",
+                        ">>> print(f)  # doctest: +SKIP",
+                        "1       2       3",
+                        "44              6",
+                        "7       888     9",
+                        "",
+                        "# Tabs vs. spaces",
+                        ">>> print(f.replace(\"\\t\",\"^\"))  # doctest: +SKIP",
+                        "1^2^3",
+                        "44^ ^6",
+                        "7^888^9",
+                        "",
+                        ">>> np.genfromtxt(\"tabs.txt\", delimiter=\"\\t\", missing_values=\" +\")  # doctest: +SKIP",
+                        "array([[  1.,   2.,   3.],",
+                        "       [ 44.,  nan,   6.],",
+                        "       [  7., 888.,   9.]])"
+                      ]
+                    },
+                    "type": "BlockQuote"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        }
+      ],
+      "title": "Whitespace-delimited"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Choices:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              "- Use :func:`numpy.load`. It can read files generated by any of",
+              "  :func:`numpy.save`, :func:`numpy.savez`, or :func:`numpy.savez_compressed`.",
+              "",
+              "- Use memory mapping. See `numpy.lib.format.open_memmap`."
+            ]
+          },
+          "type": "BlockQuote"
+        }
+      ],
+      "title": "Read a file in .npy or .npz format"
+    },
+    {
+      "children": [],
+      "title": "Write to a file to be read back by NumPy"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Use "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.save"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", or to store multiple arrays "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.savez"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " or "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.savez_compressed"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "For "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "security and portability <how-to-io-pickle-file>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", set "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "allow_pickle=False"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " unless the dtype contains Python objects, which requires pickling."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Masked arrays "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "can't currently be saved <MaskedArray.tofile>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", nor can other arbitrary array subclasses."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Binary"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": [
+                    "numpy.save"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.savez"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " create binary files. To "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "content": {
+                    "value": "write a\nhuman-readable file"
+                  }
+                },
+                "type": "Strong"
+              },
+              {
+                "data": {
+                  "value": ", use "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.savetxt"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". The array can only be 1- or 2-dimensional, and there's no ` savetxtz` for multiple files."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Human-readable"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "See "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "how-to-io-large-arrays"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Large arrays"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Use a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "structured array <basics.rec>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "content": {
+                    "value": "Example:"
+                  }
+                },
+                "type": "Strong"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    ".wav"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " file header is a 44-byte block preceding "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "data_size"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " bytes of the actual sound data::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "chunk_id         \"RIFF\"\nchunk_size       4-byte unsigned little-endian integer\nformat           \"WAVE\"\nfmt_id           \"fmt \"\nfmt_size         4-byte unsigned little-endian integer\naudio_fmt        2-byte unsigned little-endian integer\nnum_channels     2-byte unsigned little-endian integer\nsample_rate      4-byte unsigned little-endian integer\nbyte_rate        4-byte unsigned little-endian integer\nblock_align      2-byte unsigned little-endian integer\nbits_per_sample  2-byte unsigned little-endian integer\ndata_id          \"data\"\ndata_size        4-byte unsigned little-endian integer"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    ".wav"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " file header as a NumPy structured dtype::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "wav_header_dtype = np.dtype([\n    (\"chunk_id\", (bytes, 4)), # flexible-sized scalar type, item size 4\n    (\"chunk_size\", \"<u4\"),    # little-endian unsigned 32-bit integer\n    (\"format\", \"S4\"),         # 4-byte string, alternate spelling of (bytes, 4)\n    (\"fmt_id\", \"S4\"),\n    (\"fmt_size\", \"<u4\"),\n    (\"audio_fmt\", \"<u2\"),     #\n    (\"num_channels\", \"<u2\"),  # .. more of the same ...\n    (\"sample_rate\", \"<u4\"),   #\n    (\"byte_rate\", \"<u4\"),\n    (\"block_align\", \"<u2\"),\n    (\"bits_per_sample\", \"<u2\"),\n    (\"data_id\", \"S4\"),\n    (\"data_size\", \"<u4\"),\n    #\n    # the sound data itself cannot be represented here:\n    # it does not have a fixed size\n])\n\nheader = np.fromfile(f, dtype=wave_header_dtype, count=1)[0]"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "This "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    ".wav"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " example is for illustration; to read a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    ".wav"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " file in real life, use Python's built-in module "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "wave"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "(Adapted from Pauli Virtanen, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "advanced_numpy"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", licensed under "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://creativecommons.org/licenses/by/4.0/",
+                  "value": "CC BY 4.0"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ".)"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _how-to-io-large-arrays:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "title": "Read an arbitrarily formatted binary file (\"binary blob\")"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "content": {
+                    "value": "Arrays too large to fit in memory"
+                  }
+                },
+                "type": "Strong"
+              },
+              {
+                "data": {
+                  "value": " can be treated like ordinary in-memory arrays using memory mapping."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "Raw array data written with "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "numpy.ndarray.tofile"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " or   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "numpy.ndarray.tobytes"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " can be read with "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "numpy.memmap"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "        "
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": "array = numpy.memmap(\"mydata/myarray.arr\", mode=\"r\", dtype=np.int16, shape=(1024, 1024))"
+                    },
+                    "type": "BlockVerbatim"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "Files output by "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "numpy.save"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " (that is, using the numpy format) can be read   using "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "numpy.load"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " with the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "mmap_mode"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " keyword argument::        "
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": "large_array[some_slice] = np.load(\"path/to/small_array\", mmap_mode=\"r\")"
+                    },
+                    "type": "BlockVerbatim"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Memory mapping lacks features like data chunking and compression; more full-featured formats and libraries usable with NumPy include:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "content": {
+                              "value": "HDF5"
+                            }
+                          },
+                          "type": "Strong"
+                        },
+                        {
+                          "data": {
+                            "value": ": "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://www.h5py.org/",
+                            "value": "h5py"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": " or "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://www.pytables.org/",
+                            "value": "PyTables"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "content": {
+                              "value": "Zarr"
+                            }
+                          },
+                          "type": "Strong"
+                        },
+                        {
+                          "data": {
+                            "value": ": "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://zarr.readthedocs.io/en/stable/tutorial.html#reading-and-writing-data",
+                            "value": "here"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "content": {
+                              "value": "NetCDF"
+                            }
+                          },
+                          "type": "Strong"
+                        },
+                        {
+                          "data": {
+                            "value": ": "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "scipy.io.netcdf_file"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "For tradeoffs among memmap, Zarr, and HDF5, see "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://pythonspeed.com/articles/mmap-vs-zarr-hdf5/",
+                  "value": "pythonspeed.com"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Write or read large arrays"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Formats for "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "content": {
+                    "value": "exchanging data"
+                  }
+                },
+                "type": "Strong"
+              },
+              {
+                "data": {
+                  "value": " with other tools include HDF5, Zarr, and NetCDF (see "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "how-to-io-large-arrays"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ")."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Write files for reading by other (non-NumPy) tools"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "NumPy arrays are "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "content": {
+                    "value": "not"
+                  }
+                },
+                "type": "Strong"
+              },
+              {
+                "data": {
+                  "value": " directly "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/numpy/numpy/issues/12481",
+                  "value": "JSON serializable"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _how-to-io-pickle-file:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "title": "Write or read a JSON file"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Avoid when possible; "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "pickles <python:library/pickle>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " are not secure against erroneous or maliciously constructed data."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Use "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.save"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.load"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ".  Set "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "allow_pickle=False"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", unless the array dtype includes Python objects, in which case pickling is required."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Save/restore using a pickle file"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "See "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "pandas.DataFrame.to_numpy"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Convert from a pandas DataFrame to a NumPy array"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "In general, prefer "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.save"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.load"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": [
+                    "numpy.ndarray.tofile"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.fromfile"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " lose information on endianness and precision and so are unsuitable for anything but scratch storage."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Save/restore using `~numpy.ndarray.tofile` and `~numpy.fromfile`"
+    }
+  ],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "refs": [],
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

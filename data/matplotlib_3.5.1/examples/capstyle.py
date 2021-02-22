@@ -1,0 +1,200 @@
+{
+  "children": [
+    {
+      "data": {
+        "ce_status": "execed",
+        "entries": [
+          [
+            "\"\"\"\n=========\nCapStyle\n=========\n\nThe `matplotlib._enums.CapStyle` controls how Matplotlib draws the corners\nwhere two different line segments meet. For more details, see the\n`~matplotlib._enums.CapStyle` docs.\n\"\"\"",
+            "",
+            "sd"
+          ],
+          [
+            "\n",
+            "",
+            ""
+          ],
+          [
+            "\n",
+            "",
+            ""
+          ],
+          [
+            "import",
+            null,
+            "kn"
+          ],
+          [
+            " ",
+            "",
+            ""
+          ],
+          [
+            "matplotlib",
+            "matplotlib",
+            "nn"
+          ],
+          [
+            ".",
+            "",
+            "nn"
+          ],
+          [
+            "pyplot",
+            "matplotlib.pyplot",
+            "nn"
+          ],
+          [
+            " ",
+            "",
+            ""
+          ],
+          [
+            "as",
+            null,
+            "k"
+          ],
+          [
+            " ",
+            "",
+            ""
+          ],
+          [
+            "plt",
+            "matplotlib.pyplot",
+            "nn"
+          ],
+          [
+            "\n",
+            "",
+            ""
+          ],
+          [
+            "from",
+            null,
+            "kn"
+          ],
+          [
+            " ",
+            "",
+            ""
+          ],
+          [
+            "matplotlib",
+            "matplotlib",
+            "nn"
+          ],
+          [
+            ".",
+            "",
+            "nn"
+          ],
+          [
+            "_enums",
+            "matplotlib._enums",
+            "nn"
+          ],
+          [
+            " ",
+            "",
+            ""
+          ],
+          [
+            "import",
+            null,
+            "kn"
+          ],
+          [
+            " ",
+            "",
+            ""
+          ],
+          [
+            "CapStyle",
+            "matplotlib._enums.CapStyle",
+            ""
+          ],
+          [
+            "\n",
+            "",
+            ""
+          ],
+          [
+            "\n",
+            "",
+            ""
+          ],
+          [
+            "CapStyle",
+            "matplotlib._enums.CapStyle",
+            ""
+          ],
+          [
+            ".",
+            "",
+            "o"
+          ],
+          [
+            "demo",
+            "matplotlib._enums.CapStyle.demo",
+            ""
+          ],
+          [
+            "(",
+            "",
+            ""
+          ],
+          [
+            ")",
+            "",
+            ""
+          ],
+          [
+            "\n",
+            "",
+            ""
+          ],
+          [
+            "plt",
+            "matplotlib.pyplot",
+            ""
+          ],
+          [
+            ".",
+            "",
+            "o"
+          ],
+          [
+            "show",
+            "matplotlib.pyplot.show",
+            ""
+          ],
+          [
+            "(",
+            "",
+            ""
+          ],
+          [
+            ")",
+            "",
+            ""
+          ],
+          [
+            "\n",
+            "",
+            ""
+          ]
+        ],
+        "out": ""
+      },
+      "type": "Code"
+    },
+    {
+      "data": {
+        "value": "ex-capstyle.py-0.png"
+      },
+      "type": "Fig"
+    }
+  ],
+  "title": null
+}

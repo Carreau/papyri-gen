@@ -1,0 +1,538 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "To remove in the future \u2013\u2013 dask.order"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "dask.order"
+  ],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Static order of nodes in dask graph"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Dask makes decisions on what tasks to prioritize both"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "Dynamically at runtime"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "Statically before runtime"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Dynamically we prefer to run tasks that were just made available.  However when several tasks become available at the same time we have an opportunity to break ties in an intelligent way"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              "d",
+              "|"
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "dd": [
+                            {
+                              "data": {
+                                "inline": [
+                                  {
+                                    "data": {
+                                      "value": "a"
+                                    },
+                                    "type": "Words"
+                                  }
+                                ],
+                                "inner": []
+                              },
+                              "type": "Paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "value": "\\ /"
+                                },
+                                "type": "Words"
+                              }
+                            ],
+                            "inner": []
+                          }
+                        }
+                      ]
+                    },
+                    "type": "DefList"
+                  }
+                ],
+                "dt": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "b   c"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "For example after we finish "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "a"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " we can choose to run either "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "b"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " or "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "c"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " next.  Making small decisions like this can greatly affect our performance, especially because the order in which we run tasks affects the order in which we can release memory, which operationally we find to have a large affect on many computation.  We want to run tasks in such a way that we keep only a small amount of data in memory at any given time."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "And so we create a total ordering over all nodes to serve as a tie breaker.  We represent this ordering with a dictionary mapping keys to integer values. Lower scores have higher priority.  These scores correspond to the order in which a sequential scheduler would visit each node."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              "{'a': 0,",
+              " 'c': 1,",
+              " 'd': 2,",
+              " 'b': 3}"
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "There are several ways in which we might order our keys.  This is a nuanced process that has to take into account many different kinds of workflows, and operate efficiently in linear time.  We strongly recommend that readers look at the docstrings of tests in dask/tests/test_order.py.  These tests usually have graph types laid out very carefully to show the kinds of situations that often arise, and the order we would like to be determined."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Static Ordering"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Work towards "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "small goals"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "big steps"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "content": {
+                              "value": "Small goals"
+                            }
+                          },
+                          "type": "Strong"
+                        },
+                        {
+                          "data": {
+                            "value": ": prefer tasks that have few total dependents and whose final     dependents have few total dependencies."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "We prefer to prioritize those tasks that help branches of computation that     can terminate quickly."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "With more detail, we compute the total number of dependencies that each     task depends on (both its own dependencies, and the dependencies of its     dependencies, and so on), and then we choose those tasks that drive towards     results with a low number of total dependencies.  We choose to prioritize     tasks that work towards finishing shorter computations first."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "content": {
+                              "value": "Big steps"
+                            }
+                          },
+                          "type": "Strong"
+                        },
+                        {
+                          "data": {
+                            "value": ": prefer tasks with many dependents"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "However, many tasks work towards the same final dependents.  Among those,     we choose those tasks with the most work left to do.  We want to finish     the larger portions of a sub-computation before we start on the smaller     ones."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "content": {
+                              "value": "Name comparison"
+                            }
+                          },
+                          "type": "Strong"
+                        },
+                        {
+                          "data": {
+                            "value": ": break ties with key name"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "Often graphs are made with regular keynames.  When no other structural     difference exists between two keys, use the key name to break ties.     This relies on the regularity of graph constructors like dask.array to be a     good proxy for ordering.  This is usually a good idea and a sane default."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "EnumeratedList"
+        }
+      ],
+      "title": "Policy"
+    }
+  ],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": "/dask/order.py",
+  "item_line": 0,
+  "item_type": "<class 'module'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "refs": [],
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

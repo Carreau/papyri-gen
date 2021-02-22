@@ -1,0 +1,510 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Certain applications and mesh processing algorithms require all faces to be oriented in a consistent way. Generally, this means a normal vector points \"out\" of the meshed shapes. This algorithm corrects the output from "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "skimage",
+                    "path": "skimage.measure._marching_cubes_classic.marching_cubes_classic",
+                    "version": "*"
+                  },
+                  "value": "skimage.measure.marching_cubes_classic"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " by flipping the orientation of mis-oriented faces."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Because marching cubes could be used to find isosurfaces either on gradient descent (where the desired object has greater values than the exterior) or ascent (where the desired object has lower values than the exterior), the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "gradient_direction"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " kwarg allows the user to inform this algorithm which is correct. If the resulting mesh appears to be oriented completely incorrectly, try changing this option."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The arguments expected by this function are the exact outputs from "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "skimage",
+                    "path": "skimage.measure._marching_cubes_classic.marching_cubes_classic",
+                    "version": "*"
+                  },
+                  "value": "skimage.measure.marching_cubes_classic"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " except "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "actual_verts",
+                    "version": null
+                  },
+                  "value": "actual_verts"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": ", which is an uncorrected version of the fancy indexing operation "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "verts[faces]"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ". Only "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "faces",
+                    "version": null
+                  },
+                  "value": "faces"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " is corrected and returned as the vertices do not change, only the order in which they are referenced."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "This algorithm assumes "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "faces"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " provided are exclusively triangles."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Input data volume to find isosurfaces. Will be cast to "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "np.float64"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": "."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "volume",
+            "type_": "(M, N, P) array of doubles"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Array with (face, vertex, coords) index coordinates."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "actual_verts",
+            "type_": "(F, 3, 3) array of floats"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "List of length-3 lists of integers, referencing vertex coordinates as provided in "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "module",
+                        "reference": {
+                          "kind": "module",
+                          "module": "skimage",
+                          "path": "skimage.measure._marching_cubes_classic_cy.unpack_unique_verts",
+                          "version": "0.17.2"
+                        },
+                        "value": "verts"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": "."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "faces",
+            "type_": "(F, 3) array of ints"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Voxel spacing in spatial dimensions corresponding to numpy array indexing dimensions (M, N, P) as in "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "volume",
+                          "version": null
+                        },
+                        "value": "volume"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": "."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "spacing",
+            "type_": "length-3 tuple of floats"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Controls if the mesh was generated from an isosurface with gradient descent toward objects of interest (the default), or the opposite. The two options are: * descent : Object was greater than exterior * ascent : Exterior was greater than object"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "gradient_direction",
+            "type_": "string"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Corrected list of faces referencing vertex coordinates in "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "module",
+                        "reference": {
+                          "kind": "module",
+                          "module": "skimage",
+                          "path": "skimage.measure._marching_cubes_classic_cy.unpack_unique_verts",
+                          "version": "0.17.2"
+                        },
+                        "value": "verts"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": "."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "",
+            "type_": "faces_corrected (F, 3) array of ints"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Correct orientations of mesh faces."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "skimage.measure._marching_cubes_classic._correct_mesh_orientation"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": "/skimage/measure/_marching_cubes_classic.py",
+  "item_line": 197,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "See Also"
+  ],
+  "references": null,
+  "refs": [
+    "skimage.measure._marching_cubes_classic.marching_cubes_classic",
+    "skimage.measure._marching_cubes_classic.mesh_surface_area"
+  ],
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "exists": true,
+        "name": "skimage.measure.marching_cubes_classic",
+        "ref": "skimage.measure._marching_cubes_classic.marching_cubes_classic"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "exists": true,
+        "name": "skimage.measure.mesh_surface_area",
+        "ref": "skimage.measure._marching_cubes_classic.mesh_surface_area"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "value": "_correct_mesh_orientation(volume, actual_verts, faces, spacing=(1.0, 1.0, 1.0), gradient_direction='descent')"
+  }
+}

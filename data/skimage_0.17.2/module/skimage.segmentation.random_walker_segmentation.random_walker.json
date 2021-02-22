@@ -1,0 +1,1479 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Random walker algorithm is implemented for gray-level or multichannel images."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Multichannel inputs are scaled with all channel data combined. Ensure all channels are separately normalized prior to running this algorithm."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "spacing",
+                    "version": null
+                  },
+                  "value": "spacing"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " argument is specifically for anisotropic datasets, where data points are spaced differently in one or more spatial dimensions. Anisotropic data is commonly encountered in medical imaging."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The algorithm was first proposed in ."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The algorithm solves the diffusion equation at infinite times for sources placed on markers of each phase in turn. A pixel is labeled with the phase that has the greatest probability to diffuse first to the pixel."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The diffusion equation is solved by minimizing x.T L x for each phase, where L is the Laplacian of the weighted graph of the image, and x is the probability that a marker of the given phase arrives first at a pixel by diffusion (x=1 on markers of the phase, x=0 on the other markers, and the other coefficients are looked for). Each pixel is attributed the label for which it has a maximal value of x. The Laplacian L of the image is defined as:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              "- L_ii = d_i, the number of neighbors of pixel i (the degree of i)",
+              "- L_ij = -w_ij if i and j are adjacent pixels"
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The weight w_ij is a decreasing function of the norm of the local gradient. This ensures that diffusion is easier between pixels of similar values."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "When the Laplacian is decomposed into blocks of marked and unmarked pixels::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "L = M B.T\n    B A"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "with first indices corresponding to marked pixels, and then to unmarked pixels, minimizing x.T L x for one phase amount to solving::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "A x = - B x_m"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "where x_m = 1 on markers of the given phase, and 0 on other markers. This linear system is solved in the algorithm using a direct method for small images, and an iterative method for larger images."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Image to be segmented in phases. Gray-level "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "data",
+                          "version": null
+                        },
+                        "value": "data"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " can be two- or three-dimensional; multichannel data can be three- or four- dimensional (multichannel=True) with the highest dimension denoting channels. Data spacing is assumed isotropic unless the "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "spacing",
+                          "version": null
+                        },
+                        "value": "spacing"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " keyword argument is used."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "data",
+            "type_": "array_like"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Array of seed markers labeled with different positive integers for different phases. Zero-labeled pixels are unlabeled pixels. Negative labels correspond to inactive pixels that are not taken into account (they are removed from the graph). If labels are not consecutive integers, the labels array will be transformed so that labels are consecutive. In the multichannel case, "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "labels",
+                          "version": null
+                        },
+                        "value": "labels"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " should have the same shape as a single channel of "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "data",
+                          "version": null
+                        },
+                        "value": "data"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": ", i.e. without the final dimension denoting channels."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "labels",
+            "type_": "array of ints, of same shape as `data` without channels dimension"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Penalization coefficient for the random walker motion (the greater "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "beta",
+                          "version": null
+                        },
+                        "value": "beta"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": ", the more difficult the diffusion)."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "beta",
+            "type_": "float, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Mode for solving the linear system in the random walker algorithm."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "children": [
+                    {
+                      "value": [
+                        {
+                          "data": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "value": "'bf' (brute force): an LU factorization of the Laplacian is   computed. This is fast for small images (<1024x1024), but very slow   and memory-intensive for large images (e.g., 3-D volumes)."
+                                },
+                                "type": "Words"
+                              }
+                            ],
+                            "inner": []
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "value": [
+                        {
+                          "data": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "value": "'cg' (conjugate gradient): the linear system is solved iteratively   using the Conjugate Gradient method from scipy.sparse.linalg. This is   less memory-consuming than the brute force method for large images,   but it is quite slow."
+                                },
+                                "type": "Words"
+                              }
+                            ],
+                            "inner": []
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "value": [
+                        {
+                          "data": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "value": "'cg_j' (conjugate gradient with Jacobi preconditionner): the   Jacobi preconditionner is applyed during the Conjugate   gradient method iterations. This may accelerate the   convergence of the 'cg' method."
+                                },
+                                "type": "Words"
+                              }
+                            ],
+                            "inner": []
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "value": [
+                        {
+                          "data": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "value": "'cg_mg' (conjugate gradient with multigrid preconditioner): a   preconditioner is computed using a multigrid solver, then the   solution is computed with the Conjugate Gradient method. This mode   requires that the pyamg module is installed."
+                                },
+                                "type": "Words"
+                              }
+                            ],
+                            "inner": []
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "type": "BulletList"
+              }
+            ],
+            "param": "mode",
+            "type_": "string, available options {'cg', 'cg_j', 'cg_mg', 'bf'}"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "tolerance to achieve when solving the linear system using the conjugate gradient based modes ('cg', 'cg_j' and 'cg_mg')."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "tol",
+            "type_": "float, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If copy is False, the "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "labels",
+                          "version": null
+                        },
+                        "value": "labels"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " array will be overwritten with the result of the segmentation. Use copy=False if you want to save on memory."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "copy",
+            "type_": "bool, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If True, input data is parsed as multichannel data (see 'data' above for proper input format in this case)."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "multichannel",
+            "type_": "bool, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If True, the probability that a pixel belongs to each of the labels will be returned, instead of only the most likely label."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "return_full_prob",
+            "type_": "bool, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Spacing between voxels in each spatial dimension. If "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "None"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ", then the spacing between pixels/voxels in each dimension is assumed 1."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "spacing",
+            "type_": "iterable of floats, optional"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "value": [
+                        {
+                          "data": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "value": "If "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "exists": true,
+                                  "kind": "local",
+                                  "reference": {
+                                    "kind": "local",
+                                    "module": null,
+                                    "path": "return_full_prob",
+                                    "version": null
+                                  },
+                                  "value": "return_full_prob"
+                                },
+                                "type": "Link"
+                              },
+                              {
+                                "data": {
+                                  "value": " is False, array of ints of same shape   and data type as "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "exists": true,
+                                  "kind": "local",
+                                  "reference": {
+                                    "kind": "local",
+                                    "module": null,
+                                    "path": "labels",
+                                    "version": null
+                                  },
+                                  "value": "labels"
+                                },
+                                "type": "Link"
+                              },
+                              {
+                                "data": {
+                                  "value": ", in which each pixel has been   labeled according to the marker that reached the pixel first   by anisotropic diffusion."
+                                },
+                                "type": "Words"
+                              }
+                            ],
+                            "inner": []
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "value": [
+                        {
+                          "data": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "value": "If "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "exists": true,
+                                  "kind": "local",
+                                  "reference": {
+                                    "kind": "local",
+                                    "module": null,
+                                    "path": "return_full_prob",
+                                    "version": null
+                                  },
+                                  "value": "return_full_prob"
+                                },
+                                "type": "Link"
+                              },
+                              {
+                                "data": {
+                                  "value": " is True, array of floats of shape   "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "domain": null,
+                                  "role": null,
+                                  "value": "(nlabels, labels.shape)"
+                                },
+                                "type": "Directive"
+                              },
+                              {
+                                "data": {
+                                  "value": ". "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "domain": null,
+                                  "role": null,
+                                  "value": "output[label_nb, i, j]"
+                                },
+                                "type": "Directive"
+                              },
+                              {
+                                "data": {
+                                  "value": " is the   probability that label "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "domain": null,
+                                  "role": null,
+                                  "value": "label_nb"
+                                },
+                                "type": "Directive"
+                              },
+                              {
+                                "data": {
+                                  "value": " reaches the pixel "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "domain": null,
+                                  "role": null,
+                                  "value": "(i, j)"
+                                },
+                                "type": "Directive"
+                              },
+                              {
+                                "data": {
+                                  "value": "   first."
+                                },
+                                "type": "Words"
+                              }
+                            ],
+                            "inner": []
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "type": "BulletList"
+              }
+            ],
+            "param": "output",
+            "type_": "ndarray"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Random walker algorithm for segmentation from markers."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "skimage.segmentation.random_walker"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [
+      {
+        "data": {
+          "ce_status": "compiled",
+          "entries": [
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "random",
+              "numpy.random",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "seed",
+              "builtins.RandomState.seed",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "0",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "a",
+              "builtins.float",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "zeros",
+              "numpy.zeros",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "10",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "10",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "+",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "0.2",
+              "",
+              "mf"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "*",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "random",
+              "numpy.random",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "rand",
+              "builtins.RandomState.rand",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "10",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "10",
+              "",
+              "mi"
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "a",
+              "builtins.float",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "5",
+              "",
+              "mi"
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "8",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "5",
+              "",
+              "mi"
+            ],
+            [
+              ":",
+              "",
+              ""
+            ],
+            [
+              "8",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "+",
+              "",
+              "o"
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "b",
+              "builtins.float",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "zeros_like",
+              "numpy.zeros_like",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "a",
+              "builtins.float",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "dtype",
+              null,
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              "np",
+              "numpy",
+              ""
+            ],
+            [
+              ".",
+              "",
+              "o"
+            ],
+            [
+              "int32",
+              "numpy.signedinteger",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "b",
+              "builtins.float",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "3",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "1",
+              "",
+              "mi"
+            ],
+            [
+              "  ",
+              "",
+              ""
+            ],
+            [
+              "# Marker for first phase",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "b",
+              "builtins.float",
+              ""
+            ],
+            [
+              "[",
+              "",
+              ""
+            ],
+            [
+              "6",
+              "",
+              "mi"
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "6",
+              "",
+              "mi"
+            ],
+            [
+              "]",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "=",
+              "",
+              "o"
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "2",
+              "",
+              "mi"
+            ],
+            [
+              "  ",
+              "",
+              ""
+            ],
+            [
+              "# Marker for second phase",
+              "",
+              "c1"
+            ],
+            [
+              "\n",
+              "",
+              ""
+            ],
+            [
+              "random_walker",
+              "skimage.segmentation.random_walker_segmentation.random_walker",
+              ""
+            ],
+            [
+              "(",
+              "",
+              ""
+            ],
+            [
+              "a",
+              "builtins.float",
+              ""
+            ],
+            [
+              ",",
+              "",
+              ""
+            ],
+            [
+              " ",
+              "",
+              ""
+            ],
+            [
+              "b",
+              "builtins.float",
+              ""
+            ],
+            [
+              ")",
+              "",
+              ""
+            ]
+          ],
+          "out": "array([[1, 1, 1, 1, 1, 1, 1, 1, 1, 1],\n       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],\n       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],\n       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],\n       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],\n       [1, 1, 1, 1, 1, 2, 2, 2, 1, 1],\n       [1, 1, 1, 1, 1, 2, 2, 2, 1, 1],\n       [1, 1, 1, 1, 1, 2, 2, 2, 1, 1],\n       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],\n       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]], dtype=int32)"
+        },
+        "type": "Code"
+      }
+    ],
+    "title": null
+  },
+  "item_file": "/skimage/segmentation/random_walker_segmentation.py",
+  "item_line": 266,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "refs": [
+    "builtins.RandomState.rand",
+    "builtins.RandomState.seed",
+    "builtins.float",
+    "numpy",
+    "numpy.random",
+    "numpy.signedinteger",
+    "numpy.zeros",
+    "numpy.zeros_like",
+    "skimage.morphology._deprecated.watershed",
+    "skimage.segmentation.random_walker_segmentation.random_walker"
+  ],
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "watershed segmentation A segmentation algorithm based on mathematical morphology and \"flooding\" of regions from markers."
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": true,
+        "name": "skimage.morphology.watershed",
+        "ref": "skimage.morphology._deprecated.watershed"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "value": "random_walker(data, labels, beta=130, mode='cg_j', tol=0.001, copy=True, multichannel=False, return_full_prob=False, spacing=None)"
+  }
+}

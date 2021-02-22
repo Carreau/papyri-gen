@@ -1,0 +1,446 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "An algorithm for local contrast enhancement, that uses histograms computed over different tile regions of the image. Local details can therefore be enhanced even in regions that are darker or lighter than most of the image."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "dd": [
+                            {
+                              "data": {
+                                "children": [
+                                  {
+                                    "value": [
+                                      {
+                                        "data": {
+                                          "inline": [
+                                            {
+                                              "data": {
+                                                "value": "The image is converted to HSV color space"
+                                              },
+                                              "type": "Words"
+                                            }
+                                          ],
+                                          "inner": []
+                                        },
+                                        "type": "Paragraph"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "value": [
+                                      {
+                                        "data": {
+                                          "inline": [
+                                            {
+                                              "data": {
+                                                "value": "The CLAHE algorithm is run on the V (Value) channel"
+                                              },
+                                              "type": "Words"
+                                            }
+                                          ],
+                                          "inner": []
+                                        },
+                                        "type": "Paragraph"
+                                      }
+                                    ]
+                                  },
+                                  {
+                                    "value": [
+                                      {
+                                        "data": {
+                                          "inline": [
+                                            {
+                                              "data": {
+                                                "value": "The image is converted back to RGB space and returned"
+                                              },
+                                              "type": "Words"
+                                            }
+                                          ],
+                                          "inner": []
+                                        },
+                                        "type": "Paragraph"
+                                      }
+                                    ]
+                                  }
+                                ]
+                              },
+                              "type": "BulletList"
+                            }
+                          ],
+                          "dt": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "value": "For color images, the following steps are performed:"
+                                },
+                                "type": "Words"
+                              }
+                            ],
+                            "inner": []
+                          }
+                        }
+                      ]
+                    },
+                    "type": "DefList"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "For RGBA images, the original alpha channel is removed."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "inline": [
+                  {
+                    "data": {
+                      "value": "The values returned by this function are slightly shifted upwards because of an internal change in rounding behavior. "
+                    },
+                    "type": "Words"
+                  }
+                ],
+                "inner": []
+              }
+            ],
+            "kind": "versionchanged",
+            "title": "0.17"
+          },
+          "type": "Admonition"
+        }
+      ],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Input image."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "image",
+            "type_": "(N1, ...,NN[, C]) ndarray"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Defines the shape of contextual regions used in the algorithm. If iterable is passed, it must have the same number of elements as "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "image.ndim"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " (without color channel). If integer, it is broadcasted to each "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "image",
+                          "version": null
+                        },
+                        "value": "image"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " dimension. By default, "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "kernel_size"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " is 1/8 of "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "image"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " height by 1/8 of its width."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "kernel_size: int or array_like, optional",
+            "type_": ""
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Clipping limit, normalized between 0 and 1 (higher values give more contrast)."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "clip_limit",
+            "type_": "float, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Number of gray bins for histogram (\"data range\")."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "nbins",
+            "type_": "int, optional"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Equalized image with float64 dtype."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "out",
+            "type_": "(N1, ...,NN[, C]) ndarray"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Contrast Limited Adaptive Histogram Equalization (CLAHE)."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "skimage.exposure.equalize_adapthist"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": "/skimage/exposure/_adapthist.py",
+  "item_line": 26,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "refs": [
+    "equalize_hist",
+    "rescale_intensity"
+  ],
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "exists": true,
+        "name": "equalize_hist",
+        "ref": "skimage.exposure.exposure.equalize_hist"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "exists": true,
+        "name": "rescale_intensity",
+        "ref": "skimage.exposure.exposure.rescale_intensity"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "value": "equalize_adapthist(image, kernel_size=None, clip_limit=0.01, nbins=256)"
+  }
+}

@@ -1,0 +1,330 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Default node and edge attributes are not propagated to each node and edge. They can be obtained from "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "G.graph"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " and applied to node and edge attributes if desired using something like this:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> default_color = G.graph[\"node_default\"][\"color\"]  # doctest: +SKIP\n>>> for node, data in G.nodes(data=True):  # doctest: +SKIP\n...     if \"color\" not in data:\n...         data[\"color\"] = default_color\n>>> default_color = G.graph[\"edge_default\"][\"color\"]  # doctest: +SKIP\n>>> for u, v, data in G.edges(data=True):  # doctest: +SKIP\n...     if \"color\" not in data:\n...         data[\"color\"] = default_color"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "This implementation does not support mixed graphs (directed and unidirected edges together), hypergraphs, nested graphs, or ports."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "For multigraphs the GraphML edge \"id\" will be used as the edge key.  If not specified then they \"key\" attribute will be used.  If there is no \"key\" attribute a default NetworkX multigraph edge key will be provided."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Files with the yEd \"yfiles\" extension can be read. The type of the node's shape is preserved in the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "shape_type"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " node attribute."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "yEd compressed files (\"file.graphmlz\" extension) can be read by renaming the file to \"file.graphml.gz\"."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "File or filename to write. Filenames ending in .gz or .bz2 will be compressed."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "path",
+            "type_": "file or string"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Convert node ids to this type"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "node_type: Python type (default: str)",
+            "type_": ""
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Convert graphml edge ids to this type. Multigraphs use id as edge key. Non-multigraphs add to edge attribute dict with name \"id\"."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "edge_key_type: Python type (default: int)",
+            "type_": ""
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If True, return a multigraph with edge keys. If False (the default) return a multigraph when multiedges are in the graph."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "force_multigraph",
+            "type_": "bool (default: False)"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If parallel edges are present or "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "force_multigraph=True"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " then a MultiGraph or MultiDiGraph is returned. Otherwise a Graph/DiGraph. The returned graph is directed if the file indicates it should be."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "",
+            "type_": "graph: NetworkX graph"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Read graph in GraphML format from path."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "networkx.read_graphml"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": "networkx/readwrite/graphml.py",
+  "item_line": 236,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes"
+  ],
+  "references": null,
+  "refs": [],
+  "see_also": [],
+  "signature": {
+    "value": "read_graphml(path, node_type=<class 'str'>, edge_key_type=<class 'int'>, force_multigraph=False)"
+  }
+}

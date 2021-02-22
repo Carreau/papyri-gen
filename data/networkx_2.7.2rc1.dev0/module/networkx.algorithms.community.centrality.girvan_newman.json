@@ -1,0 +1,315 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The Girvan\u2013Newman algorithm detects communities by progressively removing edges from the original graph. The algorithm removes the \"most valuable\" edge, traditionally the edge with the highest betweenness centrality, at each step. As the graph breaks down into pieces, the tightly knit community structure is exposed and the result can be depicted as a dendrogram."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [],
+            "param": "G",
+            "type_": "NetworkX graph"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Function that takes a graph as input and outputs an edge. The edge returned by this function will be recomputed and removed at each iteration of the algorithm."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If not specified, the edge with the highest "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "networkx.edge_betweenness_centrality"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " will be used."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "most_valuable_edge",
+            "type_": "function"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Iterator over tuples of sets of nodes in "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "local",
+                        "reference": {
+                          "kind": "local",
+                          "module": null,
+                          "path": "G",
+                          "version": null
+                        },
+                        "value": "G"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": ". Each set of node is a community, each tuple is a sequence of communities at a particular level of the algorithm."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "",
+            "type_": "iterator"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Finds communities in a graph using the Girvan\u2013Newman method."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "networkx.community.girvan_newman"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [
+      {
+        "data": {
+          "value": [
+            ">>> G = nx.path_graph(10)",
+            ">>> comp = girvan_newman(G)",
+            ">>> tuple(sorted(c) for c in next(comp))",
+            "([0, 1, 2, 3, 4], [5, 6, 7, 8, 9])"
+          ]
+        },
+        "type": "BlockQuote"
+      },
+      {
+        "data": {
+          "value": [
+            ">>> import itertools",
+            ">>> G = nx.path_graph(8)",
+            ">>> k = 2",
+            ">>> comp = girvan_newman(G)",
+            ">>> for communities in itertools.islice(comp, k):",
+            "...     print(tuple(sorted(c) for c in communities))",
+            "...",
+            "([0, 1, 2, 3], [4, 5, 6, 7])",
+            "([0, 1], [2, 3], [4, 5, 6, 7])"
+          ]
+        },
+        "type": "BlockQuote"
+      },
+      {
+        "data": {
+          "value": [
+            ">>> import itertools",
+            ">>> G = nx.path_graph(8)",
+            ">>> k = 4",
+            ">>> comp = girvan_newman(G)",
+            ">>> limited = itertools.takewhile(lambda c: len(c) <= k, comp)",
+            ">>> for communities in limited:",
+            "...     print(tuple(sorted(c) for c in communities))",
+            "...",
+            "([0, 1, 2, 3], [4, 5, 6, 7])",
+            "([0, 1], [2, 3], [4, 5, 6, 7])",
+            "([0, 1], [2, 3], [4, 5], [6, 7])"
+          ]
+        },
+        "type": "BlockQuote"
+      },
+      {
+        "data": {
+          "value": [
+            ">>> from operator import itemgetter",
+            ">>> G = nx.path_graph(10)",
+            ">>> edges = G.edges()",
+            ">>> nx.set_edge_attributes(G, {(u, v): v for u, v in edges}, \"weight\")",
+            ">>> def heaviest(G):",
+            "...     u, v, w = max(G.edges(data=\"weight\"), key=itemgetter(2))",
+            "...     return (u, v)",
+            "...",
+            ">>> comp = girvan_newman(G, most_valuable_edge=heaviest)",
+            ">>> tuple(sorted(c) for c in next(comp))",
+            "([0, 1, 2, 3, 4, 5, 6, 7, 8], [9])"
+          ]
+        },
+        "type": "BlockQuote"
+      },
+      {
+        "data": {
+          "value": [
+            ">>> from networkx import edge_betweenness_centrality as betweenness",
+            ">>> def most_central_edge(G):",
+            "...     centrality = betweenness(G, weight=\"weight\")",
+            "...     return max(centrality, key=centrality.get)",
+            "...",
+            ">>> G = nx.path_graph(10)",
+            ">>> comp = girvan_newman(G, most_valuable_edge=most_central_edge)",
+            ">>> tuple(sorted(c) for c in next(comp))",
+            "([0, 1, 2, 3, 4], [5, 6, 7, 8, 9])"
+          ]
+        },
+        "type": "BlockQuote"
+      },
+      {
+        "data": {
+          "value": [
+            ">>> from networkx import edge_betweenness_centrality",
+            ">>> from random import random",
+            ">>> def most_central_edge(G):",
+            "...     centrality = edge_betweenness_centrality(G)",
+            "...     max_cent = max(centrality.values())",
+            "...     # Scale the centrality values so they are between 0 and 1,",
+            "...     # and add some random noise.",
+            "...     centrality = {e: c / max_cent for e, c in centrality.items()}",
+            "...     # Add some random noise.",
+            "...     centrality = {e: c + random() for e, c in centrality.items()}",
+            "...     return max(centrality, key=centrality.get)",
+            "...",
+            ">>> G = nx.path_graph(10)",
+            ">>> comp = girvan_newman(G, most_valuable_edge=most_central_edge)"
+          ]
+        },
+        "type": "BlockQuote"
+      }
+    ],
+    "title": null
+  },
+  "item_file": "networkx/algorithms/community/centrality.py",
+  "item_line": 8,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Examples",
+    "Notes"
+  ],
+  "references": null,
+  "refs": [],
+  "see_also": [],
+  "signature": {
+    "value": "girvan_newman(G, most_valuable_edge=None)"
+  }
+}

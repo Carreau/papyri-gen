@@ -1,0 +1,205 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "value": [
+              "This helper function simply runs over the array looking for the nonzero",
+              "entries whether there exists a banded structure in the array or not. Hence,",
+              "the performance depends on the density of nonzero entries and also",
+              "memory-layout. Fortran- or C- contiguous arrays are handled best and",
+              "otherwise suffers from extra random memory access cost.",
+              "",
+              "The strategy is to look for only untested band elements in the upper",
+              "and lower triangular parts separately; depending on the memory layout",
+              "we scan row-wise or column-wise. Moreover, say we are scanning rows",
+              "and in the 6th row, 4th entry is nonzero then, on the succeeding rows",
+              "the horizontal search is done only up to that band entries since we know",
+              "that band is occupied. Therefore, a completely dense matrix scan cost is",
+              "in the the order of n."
+            ]
+          },
+          "type": "BlockQuote"
+        }
+      ],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Input array of size (N, M)"
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "a",
+            "type_": "ndarray"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If the dtype of the array is not supported, in particular, NumPy float16, float128 and complex256 dtypes."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "",
+            "type_": "TypeError"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "2-tuple of ints indicating the lower and upper bandwith. A zero denotes no sub- or super-diagonal on that side (triangular), and, say for N rows (N-1) means that side is full. Same example applies to the upper triangular part with (M-1)."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "lu",
+            "type_": "tuple"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "bandwidth(a) Return the lower and upper bandwidth of a 2D numeric array."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "scipy.signal._lti_conversion.linalg.bandwidth"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [
+      {
+        "data": {
+          "value": [
+            ">>> from scipy.linalg import bandwidth",
+            ">>> A = np.array([[3., 0., 0., 0., 0.],",
+            "...               [0., 4., 0., 0., 0.],",
+            "...               [0., 0., 5., 1., 0.],",
+            "...               [8., 0., 0., 6., 2.],",
+            "...               [0., 9., 0., 0., 7.]])",
+            ">>> bandwidth(A)",
+            "(3, 1)"
+          ]
+        },
+        "type": "BlockQuote"
+      }
+    ],
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": "<class 'builtin_function_or_method'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "Raises",
+    "Examples"
+  ],
+  "references": null,
+  "refs": [],
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

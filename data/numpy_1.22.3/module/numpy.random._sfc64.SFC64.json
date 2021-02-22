@@ -1,0 +1,486 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": [
+                    "SFC64"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is a 256-bit implementation of Chris Doty-Humphrey's Small Fast Chaotic PRNG (). "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "SFC64"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " has a few different cycles that one might be on, depending on the seed; the expected period will be about "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "2^{255}"
+                  ]
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " (). "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "SFC64"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " incorporates a 64-bit counter which means that the absolute minimum cycle length is "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "2^{64}"
+                  ]
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " and that distinct seeds will not run into each other for at least "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "2^{64}"
+                  ]
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " iterations."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": [
+                    "SFC64"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " provides a capsule containing function pointers that produce doubles, and unsigned 32 and 64- bit integers. These are not directly consumable in Python and must be consumed by a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "Generator"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " or similar object that supports low-level access."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "content": {
+                    "value": "State and Seeding"
+                  }
+                },
+                "type": "Strong"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "SFC64"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " state vector consists of 4 unsigned 64-bit values. The last is a 64-bit counter that increments by 1 each iteration."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The input seed is processed by "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.random.bit_generator.SeedSequence",
+                    "version": "1.22.3"
+                  },
+                  "value": "SeedSequence"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " to generate the first 3 values, then the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "SFC64"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " algorithm is iterated a small number of times to mix."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "content": {
+                    "value": "Compatibility Guarantee"
+                  }
+                },
+                "type": "Strong"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": [
+                    "SFC64"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " makes a guarantee that a fixed seed will always produce the same random integer stream."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "A seed to initialize the "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "module",
+                        "reference": {
+                          "kind": "module",
+                          "module": "numpy",
+                          "path": "numpy.random.bit_generator.BitGenerator",
+                          "version": "1.22.3"
+                        },
+                        "value": "BitGenerator"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": ". If None, then fresh, unpredictable entropy will be pulled from the OS. If an "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "int"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " or "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "array_like[ints]"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " is passed, then it will be passed to "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "module",
+                        "reference": {
+                          "kind": "module",
+                          "module": "numpy",
+                          "path": "numpy.random.bit_generator.SeedSequence",
+                          "version": "1.22.3"
+                        },
+                        "value": "SeedSequence"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " to derive the initial "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "module",
+                        "reference": {
+                          "kind": "module",
+                          "module": "numpy",
+                          "path": "numpy.random.bit_generator.BitGenerator",
+                          "version": "1.22.3"
+                        },
+                        "value": "BitGenerator"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " state. One may also pass in a "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "module",
+                        "reference": {
+                          "kind": "module",
+                          "module": "numpy",
+                          "path": "numpy.random.bit_generator.SeedSequence",
+                          "version": "1.22.3"
+                        },
+                        "value": "SeedSequence"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " instance."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "seed",
+            "type_": "{None, int, array_like[ints], SeedSequence}, optional"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "BitGenerator for Chris Doty-Humphrey's Small Fast Chaotic PRNG."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "numpy.random.SFC64"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": "/numpy/random/_sfc64.cpython-39-darwin.so",
+  "item_line": null,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Signature",
+    "Summary",
+    "Parameters",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "refs": [],
+  "see_also": [],
+  "signature": {
+    "value": "SFC64(seed=None)"
+  }
+}

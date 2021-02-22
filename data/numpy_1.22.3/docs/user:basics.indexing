@@ -1,0 +1,5434 @@
+{
+  "_content": {},
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "value": ".. for doctest:\n    >>> import numpy as np"
+          },
+          "type": "Comment"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _basics.indexing:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "title": null
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "args0": [],
+            "directive_name": "seealso",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": ": ref : `Indexing routines < routines.indexing>` "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [],
+            "directive_name": "sectionauthor",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "adapted from \" Guide to NumPy \" by Travis E. Oliphant "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [],
+            "directive_name": "currentmodule",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "numpy "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "args0": [],
+            "directive_name": "index",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "indexing, slicing "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": [
+                    "ndarrays <ndarray>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " can be indexed using the standard Python "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x[obj]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " syntax, where "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "x"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " is the array and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "obj"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " the selection. There are different kinds of indexing available depending on "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "obj"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": ": basic indexing, advanced indexing and field access."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Most of the following examples show the use of indexing when referencing data in an array. The examples work just as well when assigning to an array. See "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "assigning-values-to-indexed-arrays"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " for specific examples and explanations on how assignments work."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Note that in Python, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x[(exp1, exp2, ..., expN)]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is equivalent to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x[exp1, exp2, ..., expN]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "; the latter is just syntactic sugar for the former."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _basic-indexing:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "title": "Indexing on :class:`ndarrays <.ndarray>`"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _single-element-indexing:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "title": "Basic indexing"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Single element indexing works exactly like that for other standard Python sequences. It is 0-based, and accepts negative indices for indexing from the end of the array. ::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x = np.arange(10)\n>>> x[2]\n2\n>>> x[-2]\n8"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "It is not necessary to separate each dimension's index into its own set of square brackets. ::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x.shape = (2, 5)  # now x is 2-dimensional\n>>> x[1, 3]\n8\n>>> x[1, -1]\n9"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Note that if one indexes a multidimensional array with fewer indices than dimensions, one gets a subdimensional array. For example: ::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x[0]\narray([0, 1, 2, 3, 4])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "That is, each index specified selects the array corresponding to the rest of the dimensions selected. In the above example, choosing 0 means that the remaining dimension of length 5 is being left unspecified, and that what is returned is an array of that dimensionality and size. It must be noted that the returned array is a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "view"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", i.e., it is not a copy of the original, but points to the same values in memory as does the original array. In  this case, the 1-D array at the first position (0) is returned. So using a single index on the returned array, results in a single element being returned. That is: ::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x[0][2]\n2"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "So note that "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x[0, 2] == x[0][2]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " though the second case is more inefficient as a new temporary array is created after the first index that is subsequently indexed by 2."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "inline": [
+                  {
+                    "data": {
+                      "value": "NumPy uses C - order indexing. That means that the last index usually represents the most rapidly changing memory location, unlike Fortran or IDL, where the first index represents the most rapidly changing location in memory. This difference represents a great potential for confusion. "
+                    },
+                    "type": "Words"
+                  }
+                ],
+                "inner": []
+              }
+            ],
+            "kind": "note",
+            "title": ""
+          },
+          "type": "Admonition"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _slicing-and-striding:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "title": "Single element indexing"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Basic slicing extends Python's basic concept of slicing to N dimensions. Basic slicing occurs when "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "obj"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " is a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "slice"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " object (constructed by "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "start:stop:step"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " notation inside of brackets), an integer, or a tuple of slice objects and integers. "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "Ellipsis"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "newaxis"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " objects can be interspersed with these as well."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "args0": [],
+            "directive_name": "index",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "triple : ndarray; special methods; getitem triple : ndarray; special methods; setitem single : ellipsis single : newaxis "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The simplest case of indexing with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "N"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " integers returns an "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "array\nscalar <arrays.scalars>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " representing the corresponding item.  As in Python, all indices are zero-based: for the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "i"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": "-th index "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "n_i"
+                  ]
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": ", the valid range is "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "0 \\le n_i < d_i"
+                  ]
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " where "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "d_i"
+                  ]
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " is the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "i"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": "-th element of the shape of the array.  Negative indices are interpreted as counting from the end of the array ("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "i.e."
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": ", if "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "n_i < 0"
+                  ]
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": ", it means "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "n_i + d_i"
+                  ]
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": ")."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "All arrays generated by basic slicing are always "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "views <view>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " of the original array."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "inline": [
+                  {
+                    "data": {
+                      "value": "NumPy slicing creates a : term : `view` instead of a copy as in the case of built - in Python sequences such as string, tuple and list. Care must be taken when extracting a small portion from a large array which becomes useless after the extraction, because the small portion extracted contains a reference to the large original array whose memory will not be released until all arrays derived from it are garbage - collected. In such cases an explicit ``copy ( )`` is recommended. "
+                    },
+                    "type": "Words"
+                  }
+                ],
+                "inner": []
+              }
+            ],
+            "kind": "note",
+            "title": ""
+          },
+          "type": "Admonition"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The standard rules of sequence slicing apply to basic slicing on a per-dimension basis (including using a step index). Some useful concepts to remember include:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "The basic slice syntax is "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "i:j:k"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " where "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "i"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " is the starting index,   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "j"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " is the stopping index, and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "k"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " is the step ("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "k\\neq0"
+                            ]
+                          },
+                          "type": "Math"
+                        },
+                        {
+                          "data": {
+                            "value": ").   This selects the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "m"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " elements (in the corresponding dimension) with   index values "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "i"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": ", "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "i + k"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": ", ..., "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "i + (m - 1) k"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " where   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "m = q + (r\\neq0)"
+                            ]
+                          },
+                          "type": "Math"
+                        },
+                        {
+                          "data": {
+                            "value": " and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "q"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "r"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " are the quotient and remainder   obtained by dividing "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "j - i"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " by "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "k"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": ": "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "j - i = q k + r"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": ", so that   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "i + (m - 1) k < j"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": ".    For example::       "
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": ">>> x = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])\n>>> x[1:7:2]\narray([1, 3, 5])"
+                    },
+                    "type": "BlockVerbatim"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "Negative "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "i"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "j"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " are interpreted as "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "n + i"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "n + j"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " where   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "n"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " is the number of elements in the corresponding dimension.   Negative "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "k"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " makes stepping go towards smaller indices.   From the above example::        "
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": ">>> x[-2:10]\narray([8, 9])\n>>> x[-3:3:-1]\narray([7, 6, 5, 4])"
+                    },
+                    "type": "BlockVerbatim"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "Assume "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "n"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " is the number of elements in the dimension being   sliced. Then, if "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "i"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " is not given it defaults to 0 for "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "k > 0"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " and   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "n - 1"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " for "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "k < 0"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " . If "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "j"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " is not given it defaults to "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "n"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " for "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "k > 0"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": "   and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "-n-1"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " for "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "k < 0"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " . If "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "k"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " is not given it defaults to 1. Note that   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "::"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " is the same as "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              ":"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and means select all indices along this   axis.   From the above example::        "
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": ">>> x[5:]\narray([5, 6, 7, 8, 9])"
+                    },
+                    "type": "BlockVerbatim"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "If the number of objects in the selection tuple is less than   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "N"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": ", then "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              ":"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " is assumed for any subsequent dimensions.   For example::        "
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": ">>> x = np.array([[[1],[2],[3]], [[4],[5],[6]]])\n>>> x.shape\n(2, 3, 1)\n>>> x[1:2]\narray([[[4],\n        [5],\n        [6]]])"
+                    },
+                    "type": "BlockVerbatim"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "An integer, "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "i"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": ", returns the same values as "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "i:i+1"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "content": {
+                              "value": "except"
+                            }
+                          },
+                          "type": "Strong"
+                        },
+                        {
+                          "data": {
+                            "value": " the dimensionality of the returned object is reduced by   1. In particular, a selection tuple with the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "p"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": "-th   element an integer (and all other entries "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              ":"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ") returns the   corresponding sub-array with dimension "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "N - 1"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": ". If "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "N = 1"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": "   then the returned object is an array scalar. These objects are   explained in "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "arrays.scalars"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "If the selection tuple has all entries "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              ":"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " except the   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "p"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": "-th entry which is a slice object "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "i:j:k"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ",   then the returned array has dimension "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "N"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " formed by   concatenating the sub-arrays returned by integer indexing of   elements "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "i"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": ", "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "i+k"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": ", ..., "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "i + (m - 1) k < j"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": ","
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "Basic slicing with more than one non-"
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              ":"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " entry in the slicing   tuple, acts like repeated application of slicing using a single   non-"
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              ":"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " entry, where the non-"
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              ":"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " entries are successively taken   (with all other non-"
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              ":"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " entries replaced by "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              ":"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "). Thus,   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "x[ind1, ..., ind2,:]"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " acts like "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "x[ind1][..., ind2, :]"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " under basic   slicing."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "inline": [
+                            {
+                              "data": {
+                                "value": "The above is **not** true for advanced indexing. "
+                              },
+                              "type": "Words"
+                            }
+                          ],
+                          "inner": []
+                        }
+                      ],
+                      "kind": "warning",
+                      "title": ""
+                    },
+                    "type": "Admonition"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "You may use slicing to set values in the array, but (unlike lists) you   can never grow the array. The size of the value to be set in   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "x[obj] = value"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " must be (broadcastable) to the same shape as   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "x[obj]"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "A slicing tuple can always be constructed as "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "obj"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": "   and used in the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "x[obj]"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " notation. Slice objects can be used in   the construction in place of the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "[start:stop:step]"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "   notation. For example, "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "x[1:10:5, ::-1]"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " can also be implemented   as "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "obj = (slice(1, 10, 5), slice(None, None, -1)); x[obj]"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " . This   can be useful for constructing generic code that works on arrays   of arbitrary dimensions. See "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "dealing-with-variable-indices"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "   for more information."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "args0": [],
+            "directive_name": "index",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "pair : ndarray; view "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _dimensional-indexing-tools:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "title": "Slicing and striding"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "There are some tools to facilitate the easy matching of array shapes with expressions and in assignments."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": [
+                    "Ellipsis"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " expands to the number of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    ":"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " objects needed for the selection tuple to index all dimensions. In most cases, this means that the length of the expanded selection tuple is "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x.ndim"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". There may only be a single ellipsis present. From the above example::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x[..., 0]\narray([[1, 2, 3],\n      [4, 5, 6]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "This is equivalent to::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x[:, :, 0]\narray([[1, 2, 3],\n      [4, 5, 6]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Each "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "newaxis"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " object in the selection tuple serves to expand the dimensions of the resulting selection by one unit-length dimension.  The added dimension is the position of the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "newaxis"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " object in the selection tuple. "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "newaxis"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is an alias for "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "None"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "None"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " can be used in place of this with the same result. From the above example::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x[:, np.newaxis, :, :].shape\n(2, 1, 3, 1)\n>>> x[:, None, :, :].shape\n(2, 1, 3, 1)"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "This can be handy to combine two arrays in a way that otherwise would require explicit reshaping operations. For example::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x = np.arange(5)\n>>> x[:, np.newaxis] + x[np.newaxis, :]\narray([[0, 1, 2, 3, 4],\n      [1, 2, 3, 4, 5],\n      [2, 3, 4, 5, 6],\n      [3, 4, 5, 6, 7],\n      [4, 5, 6, 7, 8]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _advanced-indexing:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "title": "Dimensional indexing tools"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Advanced indexing is triggered when the selection object, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "obj"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": ", is a non-tuple sequence object, an "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ndarray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " (of data type integer or bool), or a tuple with at least one sequence object or ndarray (of data type integer or bool). There are two types of advanced indexing: integer and Boolean."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Advanced indexing always returns a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "copy"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " of the data (contrast with basic slicing that returns a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "view"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ")."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "inline": [
+                  {
+                    "data": {
+                      "value": "The definition of advanced indexing means that ``x [ ( 1, 2, 3),]`` is fundamentally different than ``x [ ( 1, 2, 3)]``. The latter is equivalent to ``x [ 1, 2, 3]`` which will trigger basic selection while the former will trigger advanced indexing. Be sure to understand why this occurs. Also recognize that ``x [ [ 1, 2, 3]]`` will trigger advanced indexing, whereas due to the deprecated Numeric compatibility mentioned above, ``x [ [ 1, 2, slice ( None)]]`` will trigger basic slicing. "
+                    },
+                    "type": "Words"
+                  }
+                ],
+                "inner": []
+              }
+            ],
+            "kind": "warning",
+            "title": ""
+          },
+          "type": "Admonition"
+        }
+      ],
+      "title": "Advanced indexing"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Integer array indexing allows selection of arbitrary items in the array based on their "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "N"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": "-dimensional index. Each integer array represents a number of indices into that dimension."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Negative values are permitted in the index arrays and work as they do with single indices or slices::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x = np.arange(10, 1, -1)\n>>> x\narray([10,  9,  8,  7,  6,  5,  4,  3,  2])\n>>> x[np.array([3, 3, 1, 8])]\narray([7, 7, 9, 2])\n>>> x[np.array([3, 3, -3, 8])]\narray([7, 7, 4, 2])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "If the index values are out of bounds then an "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "IndexError"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is thrown::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x = np.array([[1, 2], [3, 4], [5, 6]])\n>>> x[np.array([1, -1])]\narray([[3, 4],\n      [5, 6]])\n>>> x[np.array([3, 4])]\nTraceback (most recent call last):\n  ...\nIndexError: index 3 is out of bounds for axis 0 with size 3"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "When the index consists of as many integer arrays as dimensions of the array being indexed, the indexing is straightforward, but different from slicing."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Advanced indices always are "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "broadcast<basics.broadcasting>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and iterated as "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "one"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": "       "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "result[i_1, ..., i_M] == x[ind_1[i_1, ..., i_M], ind_2[i_1, ..., i_M],\n                           ..., ind_N[i_1, ..., i_M]]"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Note that the resulting shape is identical to the (broadcast) indexing array shapes "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ind_1, ..., ind_N"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". If the indices cannot be broadcast to the same shape, an exception "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "IndexError: shape mismatch: indexing arrays could\nnot be broadcast together with shapes..."
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is raised."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Indexing with multidimensional index arrays tend to be more unusual uses, but they are permitted, and they are useful for some problems. We\u2019ll start with the simplest multidimensional case::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> y = np.arange(35).reshape(5, 7)\n>>> y\narray([[ 0,  1,  2,  3,  4,  5,  6],\n       [ 7,  8,  9, 10, 11, 12, 13],\n       [14, 15, 16, 17, 18, 19, 20],\n       [21, 22, 23, 24, 25, 26, 27],\n       [28, 29, 30, 31, 32, 33, 34]])\n>>> y[np.array([0, 2, 4]), np.array([0, 1, 2])]\narray([ 0, 15, 30])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "In this case, if the index arrays have a matching shape, and there is an index array for each dimension of the array being indexed, the resultant array has the same shape as the index arrays, and the values correspond to the index set for each position in the index arrays. In this example, the first index value is 0 for both index arrays, and thus the first value of the resultant array is "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "y[0, 0]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". The next value is "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "y[2, 1]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", and the last is "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "y[4, 2]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "If the index arrays do not have the same shape, there is an attempt to broadcast them to the same shape. If they cannot be broadcast to the same shape, an exception is raised::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> y[np.array([0, 2, 4]), np.array([0, 1])]\nTraceback (most recent call last):\n  ...\nIndexError: shape mismatch: indexing arrays could not be broadcast\ntogether with shapes (3,) (2,)"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The broadcasting mechanism permits index arrays to be combined with scalars for other indices. The effect is that the scalar value is used for all the corresponding values of the index arrays::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> y[np.array([0, 2, 4]), 1]\narray([ 1, 15, 29])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Jumping to the next level of complexity, it is possible to only partially index an array with index arrays. It takes a bit of thought to understand what happens in such cases. For example if we just use one index array with y::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> y[np.array([0, 2, 4])]\narray([[ 0,  1,  2,  3,  4,  5,  6],\n      [14, 15, 16, 17, 18, 19, 20],\n      [28, 29, 30, 31, 32, 33, 34]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "It results in the construction of a new array where each value of the index array selects one row from the array being indexed and the resultant array has the resulting shape (number of index elements, size of row)."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "In general, the shape of the resultant array will be the concatenation of the shape of the index array (or the shape that all the index arrays were broadcast to) with the shape of any unused dimensions (those not indexed) in the array being indexed."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "args0": [],
+            "directive_name": "rubric",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "Example "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "From each row, a specific element should be selected. The row index is just "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "[0, 1, 2]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and the column index specifies the element to choose for the corresponding row, here "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "[0, 1, 0]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". Using both together the task can be solved using advanced indexing::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x = np.array([[1, 2], [3, 4], [5, 6]])\n>>> x[[0, 1, 2], [0, 1, 0]]\narray([1, 4, 5])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "To achieve a behaviour similar to the basic slicing above, broadcasting can be used. The function "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ix_"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " can help with this broadcasting. This is best understood with an example."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "args0": [],
+            "directive_name": "rubric",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "Example "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "From a 4x3 array the corner elements should be selected using advanced indexing. Thus all elements for which the column is one of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "[0, 2]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and the row is one of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "[0, 3]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " need to be selected. To use advanced indexing one needs to select all elements "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "explicitly"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": ". Using the method explained previously one could write::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x = np.array([[ 0,  1,  2],\n...               [ 3,  4,  5],\n...               [ 6,  7,  8],\n...               [ 9, 10, 11]])\n>>> rows = np.array([[0, 0],\n...                  [3, 3]], dtype=np.intp)\n>>> columns = np.array([[0, 2],\n...                     [0, 2]], dtype=np.intp)\n>>> x[rows, columns]\narray([[ 0,  2],\n       [ 9, 11]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "However, since the indexing arrays above just repeat themselves, broadcasting can be used (compare operations such as "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "rows[:, np.newaxis] + columns"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ") to simplify this::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> rows = np.array([0, 3], dtype=np.intp)\n>>> columns = np.array([0, 2], dtype=np.intp)\n>>> rows[:, np.newaxis]\narray([[0],\n       [3]])\n>>> x[rows[:, np.newaxis], columns]\narray([[ 0,  2],\n       [ 9, 11]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "This broadcasting can also be achieved using the function "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ix_"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ":"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              ">>> x[np.ix_(rows, columns)]",
+              "array([[ 0,  2],",
+              "       [ 9, 11]])"
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Note that without the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "np.ix_"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " call, only the diagonal elements would be selected::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x[rows, columns]\narray([ 0, 11])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "This difference is the most important thing to remember about indexing with multiple advanced indices."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "args0": [],
+            "directive_name": "rubric",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "Example "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "A real-life example of where advanced indexing may be useful is for a color lookup table where we want to map the values of an image into RGB triples for display. The lookup table could have a shape (nlookup, 3). Indexing such an array with an image with shape (ny, nx) with dtype=np.uint8 (or any integer type so long as values are with the bounds of the lookup table) will result in an array of shape (ny, nx, 3) where a triple of RGB values is associated with each pixel location."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _boolean-indexing:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "title": "Integer array indexing"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "This advanced indexing occurs when "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "obj"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " is an array object of Boolean type, such as may be returned from comparison operators. A single boolean index array is practically identical to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x[obj.nonzero()]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " where, as described above, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "obj.nonzero() <ndarray.nonzero>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " returns a tuple (of length "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "obj.ndim <ndarray.ndim>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ") of integer index arrays showing the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "True"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " elements of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "obj"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": ". However, it is faster when "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "obj.shape == x.shape"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "If "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "obj.ndim == x.ndim"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x[obj]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " returns a 1-dimensional array filled with the elements of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "x"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " corresponding to the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "True"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " values of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "obj"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": ".  The search order will be "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "row-major"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", C-style. If "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "obj"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " has "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "True"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " values at entries that are outside of the bounds of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "x"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": ", then an index error will be raised. If "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "obj"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " is smaller than "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "x"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " it is identical to filling it with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "False"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "A common use case for this is filtering for desired element values. For example, one may wish to select all entries from an array which are not "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "NaN"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x = np.array([[1., 2.], [np.nan, 3.], [np.nan, np.nan]])\n>>> x[~np.isnan(x)]\narray([1., 2., 3.])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Or wish to add a constant to all negative elements::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x = np.array([1., -1., -2., 3])\n>>> x[x < 0] += 20\n>>> x\narray([ 1., 19., 18., 3.])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "In general if an index includes a Boolean array, the result will be identical to inserting "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "obj.nonzero()"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " into the same position and using the integer array indexing mechanism described above. "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x[ind_1, boolean_array, ind_2]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is equivalent to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x[(ind_1,) + boolean_array.nonzero() + (ind_2,)]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "If there is only one Boolean array and no integer indexing array present, this is straightforward. Care must only be taken to make sure that the boolean index has "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "exactly"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " as many dimensions as it is supposed to work with."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "In general, when the boolean array has fewer dimensions than the array being indexed, this is equivalent to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x[b, ...]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", which means x is indexed by b followed by as many "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    ":"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " as are needed to fill out the rank of x. Thus the shape of the result is one dimension containing the number of True elements of the boolean array, followed by the remaining dimensions of the array being indexed::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x = np.arange(35).reshape(5, 7)\n>>> b = x > 20\n>>> b[:, 5]\narray([False, False, False,  True,  True])\n>>> x[b[:, 5]]\narray([[21, 22, 23, 24, 25, 26, 27],\n      [28, 29, 30, 31, 32, 33, 34]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Here the 4th and 5th rows are selected from the indexed array and combined to make a 2-D array."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "args0": [],
+            "directive_name": "rubric",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "Example "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "From an array, select all rows which sum up to less or equal two::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x = np.array([[0, 1], [1, 1], [2, 2]])\n>>> rowsum = x.sum(-1)\n>>> x[rowsum <= 2, :]\narray([[0, 1],\n       [1, 1]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Combining multiple Boolean indexing arrays or a Boolean with an integer indexing array can best be understood with the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "obj.nonzero() <ndarray.nonzero>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " analogy. The function "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ix_"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " also supports boolean arrays and will work without any surprises."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "args0": [],
+            "directive_name": "rubric",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "Example "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Use boolean indexing to select all rows adding up to an even number. At the same time columns 0 and 2 should be selected with an advanced integer index. Using the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ix_"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " function this can be done with::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x = np.array([[ 0,  1,  2],\n...               [ 3,  4,  5],\n...               [ 6,  7,  8],\n...               [ 9, 10, 11]])\n>>> rows = (x.sum(-1) % 2) == 0\n>>> rows\narray([False,  True, False,  True])\n>>> columns = [0, 2]\n>>> x[np.ix_(rows, columns)]\narray([[ 3,  5],\n       [ 9, 11]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Without the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "np.ix_"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " call, only the diagonal elements would be selected."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Or without "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "np.ix_"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " (compare the integer array examples)::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> rows = rows.nonzero()[0]\n>>> x[rows[:, np.newaxis], columns]\narray([[ 3,  5],\n       [ 9, 11]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "args0": [],
+            "directive_name": "rubric",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "Example "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Use a 2-D boolean array of shape (2, 3) with four True elements to select rows from a 3-D array of shape (2, 3, 5) results in a 2-D result of shape (4, 5)::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x = np.arange(30).reshape(2, 3, 5)\n>>> x\narray([[[ 0,  1,  2,  3,  4],\n        [ 5,  6,  7,  8,  9],\n        [10, 11, 12, 13, 14]],\n      [[15, 16, 17, 18, 19],\n        [20, 21, 22, 23, 24],\n        [25, 26, 27, 28, 29]]])\n>>> b = np.array([[True, True, False], [False, True, True]])\n>>> x[b]\narray([[ 0,  1,  2,  3,  4],\n      [ 5,  6,  7,  8,  9],\n      [20, 21, 22, 23, 24],\n      [25, 26, 27, 28, 29]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _combining-advanced-and-basic-indexing:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "title": "Boolean array indexing"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "When there is at least one slice ("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    ":"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "), ellipsis ("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "..."
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ") or "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "newaxis"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " in the index (or the array has more dimensions than there are advanced indices), then the behaviour can be more complicated. It is like concatenating the indexing result for each advanced index element."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "In the simplest case, there is only a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "single"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " advanced index combined with a slice. For example::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> y = np.arange(35).reshape(5,7)\n>>> y[np.array([0, 2, 4]), 1:3]\narray([[ 1,  2],\n       [15, 16],\n       [29, 30]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "In effect, the slice and index array operation are independent. The slice operation extracts columns with index 1 and 2, (i.e. the 2nd and 3rd columns), followed by the index array operation which extracts rows with index 0, 2 and 4 (i.e the first, third and fifth rows). This is equivalent to::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> y[:, 1:3][np.array([0, 2, 4]), :]\narray([[ 1,  2],\n       [15, 16],\n       [29, 30]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "A single advanced index can, for example, replace a slice and the result array will be the same. However, it is a copy and may have a different memory layout. A slice is preferable when it is possible. For example::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x = np.array([[ 0,  1,  2],\n...               [ 3,  4,  5],\n...               [ 6,  7,  8],\n...               [ 9, 10, 11]])\n>>> x[1:2, 1:3]\narray([[4, 5]])\n>>> x[1:2, [1, 2]]\narray([[4, 5]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The easiest way to understand a combination of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "multiple"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " advanced indices may be to think in terms of the resulting shape. There are two parts to the indexing operation, the subspace defined by the basic indexing (excluding integers) and the subspace from the advanced indexing part. Two cases of index combination need to be distinguished:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "The advanced indices are separated by a slice, "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "Ellipsis"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " or   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "newaxis"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ". For example "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "x[arr1, :, arr2]"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "The advanced indices are all next to each other.   For example "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "x[..., arr1, arr2, :]"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " but "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "not"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "x[arr1, :, 1]"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "   since "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "1"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " is an advanced index in this regard."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "In the first case, the dimensions resulting from the advanced indexing operation come first in the result array, and the subspace dimensions after that. In the second case, the dimensions from the advanced indexing operations are inserted into the result array at the same spot as they were in the initial array (the latter logic is what makes simple advanced indexing behave just like slicing)."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "args0": [],
+            "directive_name": "rubric",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "Example "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Suppose "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x.shape"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is (10, 20, 30) and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ind"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is a (2, 3, 4)-shaped indexing "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "intp"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " array, then "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "result = x[..., ind, :]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " has shape (10, 2, 3, 4, 30) because the (20,)-shaped subspace has been replaced with a (2, 3, 4)-shaped broadcasted indexing subspace. If we let "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "i, j, k"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " loop over the (2, 3, 4)-shaped subspace then "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "result[..., i, j, k, :] = x[..., ind[i, j, k], :]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". This example produces the same result as "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x.take(ind, axis=-2) <ndarray.take>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "args0": [],
+            "directive_name": "rubric",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "Example "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Let "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x.shape"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " be (10, 20, 30, 40, 50) and suppose "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ind_1"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ind_2"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " can be broadcast to the shape (2, 3, 4). Then "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x[:, ind_1, ind_2]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " has shape (10, 2, 3, 4, 40, 50) because the (20, 30)-shaped subspace from X has been replaced with the (2, 3, 4) subspace from the indices. However, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x[:, ind_1, :, ind_2]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " has shape (2, 3, 4, 10, 30, 50) because there is no unambiguous place to drop in the indexing subspace, thus it is tacked-on to the beginning. It is always possible to use "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    ".transpose() <ndarray.transpose>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " to move the subspace anywhere desired. Note that this example cannot be replicated using "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "take"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "args0": [],
+            "directive_name": "rubric",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "Example "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Slicing can be combined with broadcasted boolean indices::      "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x = np.arange(35).reshape(5, 7)\n>>> b = x > 20\n>>> b\narray([[False, False, False, False, False, False, False],\n      [False, False, False, False, False, False, False],\n      [False, False, False, False, False, False, False],\n      [ True,  True,  True,  True,  True,  True,  True],\n      [ True,  True,  True,  True,  True,  True,  True]])\n>>> x[b[:, 5], 1:3]\narray([[22, 23],\n      [29, 30]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _arrays.indexing.fields:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "title": "Combining advanced and basic indexing"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "args0": [],
+            "directive_name": "seealso",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": ": ref : `structured_arrays` "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "If the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ndarray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " object is a structured array the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "fields <field>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " of the array can be accessed by indexing the array with strings, dictionary-like."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Indexing "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x['field-name']"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " returns a new "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "view"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " to the array, which is of the same shape as "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "x"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " (except when the field is a sub-array) but of data type "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x.dtype['field-name']"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and contains only the part of the data in the specified field. Also, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "record array <arrays.classes.rec>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " scalars can be \"indexed\" this way."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Indexing into a structured array can also be done with a list of field names, e.g. "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x[['field-name1', 'field-name2']]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". As of NumPy 1.16, this returns a view containing only those fields. In older versions of NumPy, it returned a copy. See the user guide section on "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "structured_arrays"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " for more information on multifield indexing."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "If the accessed field is a sub-array, the dimensions of the sub-array are appended to the shape of the result. For example::     "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x = np.zeros((2, 2), dtype=[('a', np.int32), ('b', np.float64, (3, 3))])\n>>> x['a'].shape\n(2, 2)\n>>> x['a'].dtype\ndtype('int32')\n>>> x['b'].shape\n(2, 2, 3, 3)\n>>> x['b'].dtype\ndtype('float64')"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _flat-iterator-indexing:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "title": "Field access"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": [
+                    "x.flat <ndarray.flat>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " returns an iterator that will iterate over the entire array (in C-contiguous style with the last index varying the fastest). This iterator object can also be indexed using basic slicing or advanced indexing as long as the selection object is not a tuple. This should be clear from the fact that "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x.flat\n<ndarray.flat>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is a 1-dimensional view. It can be used for integer indexing with 1-dimensional C-style-flat indices. The shape of any returned array is therefore the shape of the integer indexing object."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "args0": [],
+            "directive_name": "index",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "single : indexing single : ndarray "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _assigning-values-to-indexed-arrays:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "title": "Flat Iterator indexing"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "As mentioned, one can select a subset of an array to assign to using a single index, slices, and index and mask arrays. The value being assigned to the indexed array must be shape consistent (the same shape or broadcastable to the shape the index produces). For example, it is permitted to assign a constant to a slice: ::   "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x = np.arange(10)\n>>> x[2:7] = 1"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "or an array of the right size: ::   "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x[2:7] = np.arange(5)"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Note that assignments may result in changes if assigning higher types to lower types (like floats to ints) or even exceptions (assigning complex to floats or ints): ::   "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x[1] = 1.2\n>>> x[1]\n1\n>>> x[1] = 1.2j\nTraceback (most recent call last):\n  ...\nTypeError: can't convert complex to int"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Unlike some of the references (such as array and mask indices) assignments are always made to the original data in the array (indeed, nothing else would make sense!). Note though, that some actions may not work as one may naively expect. This particular example is often surprising to people: ::   "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x = np.arange(0, 50, 10)\n>>> x\narray([ 0, 10, 20, 30, 40])\n>>> x[np.array([1, 1, 3, 1])] += 1\n>>> x\narray([ 0, 11, 20, 31, 40])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Where people expect that the 1st location will be incremented by 3. In fact, it will only be incremented by 1. The reason is that a new array is extracted from the original (as a temporary) containing the values at 1, 1, 3, 1, then the value 1 is added to the temporary, and then the temporary is assigned back to the original array. Thus the value of the array at "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x[1] + 1"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is assigned to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x[1]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " three times, rather than being incremented 3 times."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _dealing-with-variable-indices:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "title": "Assigning values to indexed arrays"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The indexing syntax is very powerful but limiting when dealing with a variable number of indices. For example, if you want to write a function that can handle arguments with various numbers of dimensions without having to write special case code for each number of possible dimensions, how can that be done? If one supplies to the index a tuple, the tuple will be interpreted as a list of indices. For example::   "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> z = np.arange(81).reshape(3, 3, 3, 3)\n>>> indices = (1, 1, 1, 1)\n>>> z[indices]\n40"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "So one can use code to construct tuples of any number of indices and then use these within an index."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Slices can be specified within programs by using the slice() function in Python. For example: ::   "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> indices = (1, 1, 1, slice(0, 2))  # same as [1, 1, 1, 0:2]\n>>> z[indices]\narray([39, 40])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Likewise, ellipsis can be specified by code by using the Ellipsis object: ::   "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> indices = (1, Ellipsis, 1)  # same as [1, ..., 1]\n>>> z[indices]\narray([[28, 31, 34],\n       [37, 40, 43],\n       [46, 49, 52]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "For this reason, it is possible to use the output from the  "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "np.nonzero() <ndarray.nonzero>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " function directly as an index since it always returns a tuple of index arrays."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Because of the special treatment of tuples, they are not automatically converted to an array as a list would be. As an example: ::   "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> z[[1, 1, 1, 1]]  # produces a large array\narray([[[[27, 28, 29],\n         [30, 31, 32], ...\n>>> z[(1, 1, 1, 1)]  # returns a single value\n40"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "title": "Dealing with variable numbers of indices within programs"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "These are some detailed notes, which are not of importance for day to day indexing (in no particular order):"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "The native NumPy indexing type is "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "intp"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and may differ from the   default integer array type. "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "intp"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " is the smallest data type   sufficient to safely index any array; for advanced indexing it may be   faster than other types."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "For advanced assignments, there is in general no guarantee for the   iteration order. This means that if an element is set more than once,   it is not possible to predict the final result."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "An empty (tuple) index is a full scalar index into a zero-dimensional array.   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "x[()]"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " returns a "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "scalar"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " if "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "x"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " is zero-dimensional and a view   otherwise. On the other hand, "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "x[...]"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " always returns a view."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "If a zero-dimensional array is present in the index "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "and"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " it is a full   integer index the result will be a "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "scalar"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " and not a zero-dimensional array.   (Advanced indexing is not triggered.)"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "When an ellipsis ("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "..."
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ") is present but has no size (i.e. replaces zero   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              ":"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ") the result will still always be an array. A view if no advanced index   is present, otherwise a copy."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "The "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "nonzero"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " equivalence for Boolean arrays does not hold for zero   dimensional boolean arrays."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "When the result of an advanced indexing operation has no elements but an   individual index is out of bounds, whether or not an "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "IndexError"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " is   raised is undefined (e.g. "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "x[[], [123]]"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " with "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "123"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " being out of bounds)."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "When a "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "casting"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " error occurs during assignment (for example updating a   numerical array using a sequence of strings), the array being assigned   to may end up in an unpredictable partially updated state.   However, if any other error (such as an out of bounds index) occurs, the   array will remain unchanged."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "The memory layout of an advanced indexing result is optimized for each   indexing operation and no particular memory order can be assumed."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "When using a subclass (especially one which manipulates its shape), the   default "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "ndarray.__setitem__"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " behaviour will call "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "__getitem__"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " for   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "basic"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " indexing but not for "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "advanced"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " indexing. For such a subclass it may   be preferable to call "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "ndarray.__setitem__"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " with a "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "base class"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " ndarray   view on the data. This "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "must"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " be done if the subclasses "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "__getitem__"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " does   not return views."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        }
+      ],
+      "title": "Detailed notes"
+    }
+  ],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "refs": [],
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

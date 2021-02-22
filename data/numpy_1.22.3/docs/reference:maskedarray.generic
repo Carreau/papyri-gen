@@ -1,0 +1,2156 @@
+{
+  "_content": {},
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "args0": [],
+            "directive_name": "currentmodule",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "numpy.ma "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _maskedarray.generic:"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "args0": [],
+            "directive_name": "module",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "numpy.ma "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "title": null
+    },
+    {
+      "children": [],
+      "title": "The :mod:`numpy.ma` module"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Masked arrays are arrays that may have missing or invalid entries. The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.ma"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " module provides a nearly work-alike replacement for numpy that supports data arrays with masks."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Rationale"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "In many circumstances, datasets can be incomplete or tainted by the presence of invalid data. For example, a sensor may have failed to record a data, or recorded an invalid value. The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.ma"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " module provides a convenient way to address this issue, by introducing masked arrays."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "A masked array is the combination of a standard "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.ndarray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and a mask. A mask is either "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "nomask"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", indicating that no value of the associated array is invalid, or an array of booleans that determines for each element of the associated array whether the value is valid or not. When an element of the mask is "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "False"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", the corresponding element of the associated array is valid and is said to be unmasked. When an element of the mask is "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "True"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", the corresponding element of the associated array is said to be masked (invalid)."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The package ensures that masked entries are not used in computations."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "As an illustration, let's consider the following dataset::     "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> import numpy as np\n>>> import numpy.ma as ma\n>>> x = np.array([1, 2, 3, -1, 5])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "We wish to mark the fourth entry as invalid. The easiest is to create a masked array::     "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> mx = ma.masked_array(x, mask=[0, 0, 0, 1, 0])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "We can now compute the mean of the dataset, without taking the invalid data into account::     "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> mx.mean()\n2.75"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "title": "What is a masked array?"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The main feature of the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.ma"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " module is the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "MaskedArray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " class, which is a subclass of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.ndarray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". The class, its attributes and methods are described in more details in the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "MaskedArray class <maskedarray.baseclass>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " section."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.ma"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " module can be used as an addition to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ": ::     "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> import numpy as np\n>>> import numpy.ma as ma"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "To create an array with the second element invalid, we would do::     "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> y = ma.array([1, 2, 3], mask = [0, 1, 0])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "To create a masked array where all values close to 1.e20 are invalid, we would do::     "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> z = ma.masked_values([1.0, 1.e20, 3.0, 4.0], 1.e20)"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "For a complete discussion of creation methods for masked arrays please see section "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "Constructing masked arrays <maskedarray.generic.constructing>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "The :mod:`numpy.ma` module"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _maskedarray.generic.constructing:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "title": "Using numpy.ma"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "There are several ways to construct a masked array."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "A first possibility is to directly invoke the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "MaskedArray"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " class."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "A second possibility is to use the two masked array constructors,   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "array"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "masked_array"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "args0": [
+                        ":toctree: generated/"
+                      ],
+                      "directive_name": "autosummary",
+                      "inner": {
+                        "inline": [
+                          {
+                            "data": {
+                              "value": "array masked_array "
+                            },
+                            "type": "Words"
+                          }
+                        ],
+                        "inner": []
+                      }
+                    },
+                    "type": "BlockDirective"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "A third option is to take the view of an existing array. In that case, the   mask of the view is set to "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "nomask"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " if the array has no named fields,   or an array of boolean with the same structure as the array otherwise."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": [
+                        ">>> x = np.array([1, 2, 3])",
+                        ">>> x.view(ma.MaskedArray)",
+                        "masked_array(data=[1, 2, 3],",
+                        "             mask=False,",
+                        "       fill_value=999999)",
+                        ">>> x = np.array([(1, 1.), (2, 2.)], dtype=[('a',int), ('b', float)])",
+                        ">>> x.view(ma.MaskedArray)",
+                        "masked_array(data=[(1, 1.0), (2, 2.0)],",
+                        "             mask=[(False, False), (False, False)],",
+                        "       fill_value=(999999, 1.e+20),",
+                        "            dtype=[('a', '<i8'), ('b', '<f8')])"
+                      ]
+                    },
+                    "type": "BlockQuote"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "Yet another possibility is to use any of the following functions:"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "args0": [
+                        ":toctree: generated/"
+                      ],
+                      "directive_name": "autosummary",
+                      "inner": {
+                        "inline": [
+                          {
+                            "data": {
+                              "value": "asarray asanyarray fix_invalid masked_equal masked_greater masked_greater_equal masked_inside masked_invalid masked_less masked_less_equal masked_not_equal masked_object masked_outside masked_values masked_where "
+                            },
+                            "type": "Words"
+                          }
+                        ],
+                        "inner": []
+                      }
+                    },
+                    "type": "BlockDirective"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        }
+      ],
+      "title": "Constructing masked arrays"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The underlying data of a masked array can be accessed in several ways:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "through the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "~MaskedArray.data"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " attribute. The output is a view of the   array as a "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "numpy.ndarray"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " or one of its subclasses, depending on the   type of the underlying data at the masked array creation."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "through the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "~MaskedArray.__array__"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " method. The output is then a   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "numpy.ndarray"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "by directly taking a view of the masked array as a "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "numpy.ndarray"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "   or one of its subclass (which is actually what using the   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "~MaskedArray.data"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " attribute does)."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "by using the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "getdata"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " function."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "None of these methods is completely satisfactory if some entries have been marked as invalid. As a general rule, where a representation of the array is required without any masked entries, it is recommended to fill the array with the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "filled"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " method."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Accessing the data"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The mask of a masked array is accessible through its "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~MaskedArray.mask"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " attribute. We must keep in mind that a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "True"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " entry in the mask indicates an "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "invalid"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " data."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Another possibility is to use the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "getmask"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "getmaskarray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " functions. "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "getmask(x)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " outputs the mask of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " if "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is a masked array, and the special value "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "nomask"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " otherwise. "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "getmaskarray(x)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " outputs the mask of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " if "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is a masked array. If "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " has no invalid entry or is not a masked array, the function outputs  a boolean array of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "False"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " with as many elements as "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Accessing the mask"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "To retrieve only the valid entries, we can use the inverse of the mask as an index. The inverse of the mask can be calculated with the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.logical_not"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " function or simply with the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " operator::     "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x = ma.array([[1, 2], [3, 4]], mask=[[0, 1], [1, 0]])\n>>> x[~x.mask]\nmasked_array(data=[1, 4],\n             mask=[False, False],\n       fill_value=999999)"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Another way to retrieve the valid data is to use the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "compressed"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " method, which returns a one-dimensional "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~numpy.ndarray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " (or one of its subclasses, depending on the value of the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~MaskedArray.baseclass"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " attribute)::     "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x.compressed()\narray([1, 4])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Note that the output of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "compressed"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is always 1D."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Accessing only the valid entries"
+    },
+    {
+      "children": [],
+      "title": "Modifying the mask"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The recommended way to mark one or several specific entries of a masked array as invalid is to assign the special value "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "masked"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " to them::     "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x = ma.array([1, 2, 3])\n>>> x[0] = ma.masked\n>>> x\nmasked_array(data=[--, 2, 3],\n             mask=[ True, False, False],\n       fill_value=999999)\n>>> y = ma.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])\n>>> y[(0, 1, 2), (1, 2, 0)] = ma.masked\n>>> y\nmasked_array(\n  data=[[1, --, 3],\n        [4, 5, --],\n        [--, 8, 9]],\n  mask=[[False,  True, False],\n        [False, False,  True],\n        [ True, False, False]],\n  fill_value=999999)\n>>> z = ma.array([1, 2, 3, 4])\n>>> z[:-2] = ma.masked\n>>> z\nmasked_array(data=[--, --, 3, 4],\n             mask=[ True,  True, False, False],\n       fill_value=999999)"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "A second possibility is to modify the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~MaskedArray.mask"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " directly, but this usage is discouraged."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "inline": [
+                  {
+                    "data": {
+                      "value": "When creating a new masked array with a simple, non - structured datatype, the mask is initially set to the special value : attr : `nomask`, that corresponds roughly to the boolean ``False``. Trying to set an element of : attr : `nomask` will fail with a : exc : `TypeError` exception, as a boolean does not support item assignment. "
+                    },
+                    "type": "Words"
+                  }
+                ],
+                "inner": []
+              }
+            ],
+            "kind": "note",
+            "title": ""
+          },
+          "type": "Admonition"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "All the entries of an array can be masked at once by assigning "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "True"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " to the mask::     "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x = ma.array([1, 2, 3], mask=[0, 0, 1])\n>>> x.mask = True\n>>> x\nmasked_array(data=[--, --, --],\n             mask=[ True,  True,  True],\n       fill_value=999999,\n            dtype=int64)"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Finally, specific entries can be masked and/or unmasked by assigning to the mask a sequence of booleans::     "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x = ma.array([1, 2, 3])\n>>> x.mask = [0, 1, 0]\n>>> x\nmasked_array(data=[1, --, 3],\n             mask=[False,  True, False],\n       fill_value=999999)"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "title": "Masking an entry"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "To unmask one or several specific entries, we can just assign one or several new valid values to them::     "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x = ma.array([1, 2, 3], mask=[0, 0, 1])\n>>> x\nmasked_array(data=[1, 2, --],\n             mask=[False, False,  True],\n       fill_value=999999)\n>>> x[-1] = 5\n>>> x\nmasked_array(data=[1, 2, 5],\n             mask=[False, False, False],\n       fill_value=999999)"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "inline": [
+                  {
+                    "data": {
+                      "value": "Unmasking an entry by direct assignment will silently fail if the masked array has a *hard* mask, as shown by the : attr : `~MaskedArray.hardmask` attribute. This feature was introduced to prevent overwriting the mask. To force the unmasking of an entry where the array has a hard mask, the mask must first to be softened using the : meth : `soften_mask` method before the allocation. It can be re - hardened with : meth : `harden_mask` : : >>> x = ma.array ( [ 1, 2, 3], mask= [ 0, 0, 1], hard_mask=True) >>> x masked_array ( data= [ 1, 2, - - ], mask= [ False, False, True], fill_value=999999) >>> x [ - 1] = 5 >>> x masked_array ( data= [ 1, 2, - - ], mask= [ False, False, True], fill_value=999999) >>> x.soften_mask ( ) masked_array ( data= [ 1, 2, - - ], mask= [ False, False, True], fill_value=999999) >>> x [ - 1] = 5 >>> x masked_array ( data= [ 1, 2, 5], mask= [ False, False, False], fill_value=999999) >>> x.harden_mask ( ) masked_array ( data= [ 1, 2, 5], mask= [ False, False, False], fill_value=999999) "
+                    },
+                    "type": "Words"
+                  }
+                ],
+                "inner": []
+              }
+            ],
+            "kind": "note",
+            "title": ""
+          },
+          "type": "Admonition"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "To unmask all masked entries of a masked array (provided the mask isn't a hard mask), the simplest solution is to assign the constant "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "nomask"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " to the mask::     "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x = ma.array([1, 2, 3], mask=[0, 0, 1])\n>>> x\nmasked_array(data=[1, 2, --],\n             mask=[False, False,  True],\n       fill_value=999999)\n>>> x.mask = ma.nomask\n>>> x\nmasked_array(data=[1, 2, 3],\n             mask=[False, False, False],\n       fill_value=999999)"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "title": "Unmasking an entry"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "As a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "MaskedArray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is a subclass of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.ndarray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", it inherits its mechanisms for indexing and slicing."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "When accessing a single entry of a masked array with no named fields, the output is either a scalar (if the corresponding entry of the mask is "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "False"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ") or the special value "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "masked"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " (if the corresponding entry of the mask is "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "True"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ")::     "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x = ma.array([1, 2, 3], mask=[0, 0, 1])\n>>> x[0]\n1\n>>> x[-1]\nmasked\n>>> x[-1] is ma.masked\nTrue"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "If the masked array has named fields, accessing a single entry returns a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.void"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " object if none of the fields are masked, or a 0d masked array with the same dtype as the initial array if at least one of the fields is masked."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              ">>> y = ma.masked_array([(1,2), (3, 4)],",
+              "...                mask=[(0, 0), (0, 1)],",
+              "...               dtype=[('a', int), ('b', int)])",
+              ">>> y[0]",
+              "(1, 2)",
+              ">>> y[-1]",
+              "(3, --)"
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "When accessing a slice, the output is a masked array whose "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~MaskedArray.data"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " attribute is a view of the original data, and whose mask is either "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "nomask"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " (if there was no invalid entries in the original array) or a view of the corresponding slice of the original mask. The view is required to ensure propagation of any modification of the mask to the original."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              ">>> x = ma.array([1, 2, 3, 4, 5], mask=[0, 1, 0, 0, 1])",
+              ">>> mx = x[:3]",
+              ">>> mx",
+              "masked_array(data=[1, --, 3],",
+              "             mask=[False,  True, False],",
+              "       fill_value=999999)",
+              ">>> mx[1] = -1",
+              ">>> mx",
+              "masked_array(data=[1, -1, 3],",
+              "             mask=[False, False, False],",
+              "       fill_value=999999)",
+              ">>> x.mask",
+              "array([False, False, False, False,  True])",
+              ">>> x.data",
+              "array([ 1, -1,  3,  4,  5])"
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Accessing a field of a masked array with structured datatype returns a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "MaskedArray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Indexing and slicing"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Arithmetic and comparison operations are supported by masked arrays. As much as possible, invalid entries of a masked array are not processed, meaning that the corresponding "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~MaskedArray.data"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " entries "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "should"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " be the same before and after the operation."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "inline": [
+                  {
+                    "data": {
+                      "value": "We need to stress that this behavior may not be systematic, that masked data may be affected by the operation in some cases and therefore users should not rely on this data remaining unchanged. "
+                    },
+                    "type": "Words"
+                  }
+                ],
+                "inner": []
+              }
+            ],
+            "kind": "warning",
+            "title": ""
+          },
+          "type": "Admonition"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.ma"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " module comes with a specific implementation of most ufuncs. Unary and binary functions that have a validity domain (such as "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~numpy.log"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " or "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~numpy.divide"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ") return the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "masked"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " constant whenever the input is masked or falls outside the validity domain::     "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> ma.log([-1, 0, 1, 2])\nmasked_array(data=[--, --, 0.0, 0.6931471805599453],\n             mask=[ True,  True, False, False],\n       fill_value=1e+20)"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Masked arrays also support standard numpy ufuncs. The output is then a masked array. The result of a unary ufunc is masked wherever the input is masked. The result of a binary ufunc is masked wherever any of the input is masked. If the ufunc also returns the optional context output (a 3-element tuple containing the name of the ufunc, its arguments and its domain), the context is processed and entries of the output masked array are masked wherever the corresponding input fall outside the validity domain::     "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x = ma.array([-1, 1, 0, 2, 3], mask=[0, 0, 0, 0, 1])\n>>> np.log(x)\nmasked_array(data=[--, 0.0, --, 0.6931471805599453, --],\n             mask=[ True, False,  True, False,  True],\n       fill_value=1e+20)"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "title": "Operations on masked arrays"
+    },
+    {
+      "children": [],
+      "title": "Examples"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Let's consider a list of elements, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", where values of -9999. represent missing data. We wish to compute the average value of the data and the vector of anomalies (deviations from the average)::     "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> import numpy.ma as ma\n>>> x = [0.,1.,-9999.,3.,4.]\n>>> mx = ma.masked_values (x, -9999.)\n>>> print(mx.mean())\n2.0\n>>> print(mx - mx.mean())\n[-2.0 -1.0 -- 1.0 2.0]\n>>> print(mx.anom())\n[-2.0 -1.0 -- 1.0 2.0]"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "title": "Data with a given value representing missing data"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Suppose now that we wish to print that same data, but with the missing values replaced by the average value."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              ">>> print(mx.filled(mx.mean()))",
+              "[0.  1.  2.  3.  4.]"
+            ]
+          },
+          "type": "BlockQuote"
+        }
+      ],
+      "title": "Filling in the missing data"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Numerical operations can be easily performed without worrying about missing values, dividing by zero, square roots of negative numbers, etc.::     "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> import numpy.ma as ma\n>>> x = ma.array([1., -1., 3., 4., 5., 6.], mask=[0,0,0,0,1,0])\n>>> y = ma.array([1., 2., 0., 4., 5., 6.], mask=[0,0,0,0,0,1])\n>>> print(ma.sqrt(x/y))\n[1.0 -- -- 1.0 -- --]"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Four values of the output are invalid: the first one comes from taking the square root of a negative number, the second from the division by zero, and the last two where the inputs were masked."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Numerical operations"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Let's consider an array "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "d"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " of floats between 0 and 1. We wish to compute the average of the values of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "d"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " while ignoring any data outside the range "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "[0.2, 0.9]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "     "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> d = np.linspace(0, 1, 20)\n>>> print(d.mean() - ma.masked_outside(d, 0.2, 0.9).mean())\n-0.05263157894736836"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "title": "Ignoring extreme values"
+    }
+  ],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "refs": [],
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

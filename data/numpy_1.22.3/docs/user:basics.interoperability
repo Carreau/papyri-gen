@@ -1,0 +1,3288 @@
+{
+  "_content": {},
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "NumPy's ndarray objects provide both a high-level API for operations on array-structured data and a concrete implementation of the API based on "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "strided in-RAM storage <arrays>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". While this API is powerful and fairly general, its concrete implementation has limitations. As datasets grow and NumPy becomes used in a variety of new environments and architectures, there are cases where the strided in-RAM storage strategy is inappropriate, which has caused different libraries to reimplement this API for their own uses. This includes GPU arrays ("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "CuPy_"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": "), Sparse arrays ("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "scipy",
+                    "path": "scipy.sparse",
+                    "version": "*"
+                  },
+                  "value": "scipy.sparse"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "PyData/Sparse <Sparse_>"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ") and parallel arrays ("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "Dask_"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " arrays) as well as various NumPy-like implementations in deep learning frameworks, like "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "TensorFlow_"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "PyTorch_"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ". Similarly, there are many projects that build on top of the NumPy API for labeled and indexed arrays ("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "XArray_"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": "), automatic differentiation ("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "JAX_"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": "), masked arrays ("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "numpy",
+                    "path": "numpy.ma",
+                    "version": "*"
+                  },
+                  "value": "numpy.ma"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": "), physical units ("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "astropy.units_"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "pint_"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "unyt_"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": "), among others that add additional functionality on top of the NumPy API."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Yet, users still want to work with these arrays using the familiar NumPy API and re-use existing code with minimal (ideally zero) porting overhead. With this goal in mind, various protocols are defined for implementations of multi-dimensional arrays with high-level APIs matching NumPy."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Broadly speaking, there are three groups of features used for interoperability with NumPy:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "Methods of turning a foreign object into an ndarray;"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "Methods of deferring execution from a NumPy function to another array    library;"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "Methods that use NumPy functions and return an instance of a foreign object."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "EnumeratedList"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "We describe these features below."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "Using arbitrary objects in NumPy"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "EnumeratedList"
+        },
+        {
+          "data": {},
+          "type": "Transition"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The first set of interoperability features from the NumPy API allows foreign objects to be treated as NumPy arrays whenever possible. When NumPy functions encounter a foreign object, they will try (in order):"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "The buffer protocol, described "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "in the Python C-API documentation\n   <c-api/buffer>"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "The "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "__array_interface__"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " protocol, described    "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "in this page <arrays.interface>"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ". A precursor to Python's buffer    protocol, it defines a way to access the contents of a NumPy array from other    C extensions."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "The "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "__array__()"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " method, which asks an arbitrary object to convert    itself into an array."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "EnumeratedList"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "For both the buffer and the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array_interface__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " protocols, the object describes its memory layout and NumPy does everything else (zero-copy if possible). If that's not possible, the object itself is responsible for returning a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ndarray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " from "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array__()"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": [
+                    "DLPack <dlpack:index>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is yet another protocol to convert foriegn objects to NumPy arrays in a language and device agnostic manner. NumPy doesn't implicitly convert objects to ndarrays using DLPack. It provides the function "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "numpy.from_dlpack"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " that accepts any object implementing the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__dlpack__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " method and outputs a NumPy ndarray (which is generally a view of the input object's data buffer). The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "dlpack:python-spec"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " page explains the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__dlpack__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " protocol in detail."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Interoperability with NumPy"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "array interface protocol <arrays.interface>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " defines a way for array-like objects to re-use each other's data buffers. Its implementation relies on the existence of the following attributes or methods:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": [
+                              "__array_interface__"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ": a Python dictionary containing the shape, the    element type, and optionally, the data buffer address and the strides of an    array-like object;"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": [
+                              "__array__()"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ": a method returning the NumPy ndarray view of an array-like    object;"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array_interface__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " attribute can be inspected directly:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              ">>> import numpy as np",
+              ">>> x = np.array([1, 2, 5.0, 8])",
+              ">>> x.__array_interface__",
+              "{'data': (94708397920832, False), 'strides': None, 'descr': [('', '<f8')], 'typestr': '<f8', 'shape': (4,), 'version': 3}"
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array_interface__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " attribute can also be used to manipulate the object data in place:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              ">>> class wrapper():",
+              "...     pass",
+              "... ",
+              ">>> arr = np.array([1, 2, 3, 4])",
+              ">>> buf = arr.__array_interface__",
+              ">>> buf",
+              "{'data': (140497590272032, False), 'strides': None, 'descr': [('', '<i8')], 'typestr': '<i8', 'shape': (4,), 'version': 3}",
+              ">>> buf['shape'] = (2, 2)",
+              ">>> w = wrapper()",
+              ">>> w.__array_interface__ = buf",
+              ">>> new_arr = np.array(w, copy=False)",
+              ">>> new_arr",
+              "array([[1, 2],",
+              "       [3, 4]])"
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "We can check that "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "arr"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "new_arr"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " share the same data buffer:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              ">>> new_arr[0, 0] = 1000",
+              ">>> new_arr",
+              "array([[1000,    2],",
+              "       [   3,    4]])",
+              ">>> arr",
+              "array([1000, 2, 3, 4])"
+            ]
+          },
+          "type": "BlockQuote"
+        }
+      ],
+      "title": "The array interface protocol"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array__()"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " method ensures that any NumPy-like object (an array, any object exposing the array interface, an object whose "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array__()"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " method returns an array or any nested sequence) that implements it can be used as a NumPy array. If possible, this will mean using "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array__()"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " to create a NumPy ndarray view of the array-like object. Otherwise, this copies the data into a new ndarray object. This is not optimal, as coercing arrays into ndarrays may cause performance problems or create the need for copies and loss of metadata, as the original object and any attributes/behavior it may have had, is lost."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "To see an example of a custom array implementation including the use of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array__()"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", see "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "basics.dispatch"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "The ``__array__()`` method"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "DLPack <dlpack:index>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " protocol defines a memory-layout of strided n-dimensional array objects. It offers the following syntax for data exchange:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "A "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "numpy.from_dlpack"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": " function, which accepts (array) objects with a    "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "__dlpack__"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " method and uses that method to construct a new array    containing the data from "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "x"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": [
+                              "__dlpack__(self, stream=None)"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "__dlpack_device__"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " methods on the    array object, which will be called from within "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "from_dlpack"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", to query    what device the array is on (may be needed to pass in the correct    stream, e.g. in the case of multiple GPUs) and to access the data."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "EnumeratedList"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Unlike the buffer protocol, DLPack allows exchanging arrays containing data on devices other than the CPU (e.g. Vulkan or GPU). Since NumPy only supports CPU, it can only convert objects whose data exists on the CPU. But other libraries, like "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "PyTorch_"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "CuPy_"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", may exchange data on GPU using this protocol."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "Operating on foreign objects without converting"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "EnumeratedList"
+        },
+        {
+          "data": {},
+          "type": "Transition"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "A second set of methods defined by the NumPy API allows us to defer the execution from a NumPy function to another array library."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Consider the following function."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              ">>> import numpy as np",
+              ">>> def f(x):",
+              "...     return np.mean(np.exp(x))"
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Note that "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "np.exp <numpy.exp>"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " is a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ufunc <ufuncs-basics>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", which means that it operates on ndarrays in an element-by-element fashion. On the other hand, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "np.mean <numpy.mean>"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " operates along one of the array's axes."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "We can apply "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "f"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " to a NumPy ndarray object directly:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              ">>> x = np.array([1, 2, 3, 4])",
+              ">>> f(x)",
+              "21.1977562209304"
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "We would like this function to work equally well with any NumPy-like array object."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "NumPy allows a class to indicate that it would like to handle computations in a custom-defined way through the following interfaces:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": [
+                              "__array_ufunc__"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ": allows third-party objects to support and override    "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "ufuncs <ufuncs-basics>"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": [
+                              "__array_function__"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ": a catch-all for NumPy functionality that is not    covered by the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "__array_ufunc__"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " protocol for universal functions."
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "As long as foreign objects implement the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array_ufunc__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " or "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array_function__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " protocols, it is possible to operate on them without the need for explicit conversion."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "The DLPack Protocol"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "A "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "universal function (or ufunc for short) <ufuncs-basics>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is a \u201cvectorized\u201d wrapper for a function that takes a fixed number of specific inputs and produces a fixed number of specific outputs. The output of the ufunc (and its methods) is not necessarily a ndarray, if not all input arguments are ndarrays. Indeed, if any input defines an "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array_ufunc__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " method, control will be passed completely to that function, i.e., the ufunc is overridden. The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array_ufunc__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " method defined on that (non-ndarray) object has access to the NumPy ufunc. Because ufuncs have a well-defined structure, the foreign "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array_ufunc__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " method may rely on ufunc attributes like "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    ".at()"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    ".reduce()"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", and others."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "A subclass can override what happens when executing NumPy ufuncs on it by overriding the default "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ndarray.__array_ufunc__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " method. This method is executed instead of the ufunc and should return either the result of the operation, or "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "NotImplemented"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " if the operation requested is not implemented."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "The ``__array_ufunc__`` protocol"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "To achieve enough coverage of the NumPy API to support downstream projects, there is a need to go beyond "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array_ufunc__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and implement a protocol that allows arguments of a NumPy function to take control and divert execution to another function (for example, a GPU or parallel implementation) in a way that is safe and consistent across projects."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The semantics of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array_function__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " are very similar to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array_ufunc__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", except the operation is specified by an arbitrary callable object rather than a ufunc instance and method. For more details, see "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "NEP18"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": "Returning foreign objects"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "EnumeratedList"
+        },
+        {
+          "data": {},
+          "type": "Transition"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "A third type of feature set is meant to use the NumPy function implementation and then convert the return value back into an instance of the foreign object. The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array_finalize__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array_wrap__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " methods act behind the scenes to ensure that the return type of a NumPy function can be specified as needed."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array_finalize__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " method is the mechanism that NumPy provides to allow subclasses to handle the various ways that new instances get created. This method is called whenever the system internally allocates a new array from an object which is a subclass (subtype) of the ndarray. It can be used to change attributes after construction, or to update meta-information from the \u201cparent.\u201d"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array_wrap__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " method \u201cwraps up the action\u201d in the sense of allowing any object (such as user-defined functions) to set the type of its return value and update attributes and metadata. This can be seen as the opposite of the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " method. At the end of every object that implements "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array_wrap__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", this method is called on the input object with the highest "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "array priority"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": ", or the output object if one was specified. The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array_priority__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " attribute is used to determine what type of object to return in situations where there is more than one possibility for the Python type of the returned object. For example, subclasses may opt to use this method to transform the output array into an instance of the subclass and update metadata before returning the array to the user."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "For more information on these methods, see "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "basics.subclassing"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "specific-array-subtyping"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "The ``__array_function__`` protocol"
+    },
+    {
+      "children": [],
+      "title": "Interoperability examples"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Consider the following:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              ">>> import pandas as pd",
+              ">>> ser = pd.Series([1, 2, 3, 4])",
+              ">>> type(ser)",
+              "pandas.core.series.Series"
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Now, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ser"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "content": {
+                    "value": "not"
+                  }
+                },
+                "type": "Strong"
+              },
+              {
+                "data": {
+                  "value": " a ndarray, but because it "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://pandas.pydata.org/docs/user_guide/dsintro.html#dataframe-interoperability-with-numpy-functions",
+                  "value": "implements the __array_ufunc__ protocol"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ", we can apply ufuncs to it as if it were a ndarray:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              ">>> np.exp(ser)",
+              "   0     2.718282",
+              "   1     7.389056",
+              "   2    20.085537",
+              "   3    54.598150",
+              "   dtype: float64",
+              ">>> np.sin(ser)",
+              "   0    0.841471",
+              "   1    0.909297",
+              "   2    0.141120",
+              "   3   -0.756802",
+              "   dtype: float64"
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "We can even do operations with other ndarrays:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              ">>> np.add(ser, np.array([5, 6, 7, 8]))",
+              "   0     6",
+              "   1     8",
+              "   2    10",
+              "   3    12",
+              "   dtype: int64",
+              ">>> f(ser)",
+              "21.1977562209304",
+              ">>> result = ser.__array__()",
+              ">>> type(result)",
+              "numpy.ndarray"
+            ]
+          },
+          "type": "BlockQuote"
+        }
+      ],
+      "title": "Example: Pandas ``Series`` objects"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "target": "https://pytorch.org/",
+                  "value": "PyTorch"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": " is an optimized tensor library for deep learning using GPUs and CPUs. PyTorch arrays are commonly called "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "tensors"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": ". Tensors are similar to NumPy's ndarrays, except that tensors can run on GPUs or other hardware accelerators. In fact, tensors and NumPy arrays can often share the same underlying memory, eliminating the need to copy data."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              ">>> import torch",
+              ">>> data = [[1, 2],[3, 4]]",
+              ">>> x_np = np.array(data)",
+              ">>> x_tensor = torch.tensor(data)"
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Note that "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x_np"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x_tensor"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " are different kinds of objects:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              ">>> x_np",
+              "array([[1, 2],",
+              "       [3, 4]])",
+              ">>> x_tensor",
+              "tensor([[1, 2],",
+              "        [3, 4]])"
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "However, we can treat PyTorch tensors as NumPy arrays without the need for explicit conversion:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              ">>> np.exp(x_tensor)",
+              "tensor([[ 2.7183,  7.3891],",
+              "        [20.0855, 54.5982]], dtype=torch.float64)"
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Also, note that the return type of this function is compatible with the initial data type."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "args0": [
+              "Warning"
+            ],
+            "directive_name": "admonition",
+            "inner": {
+              "inline": [
+                {
+                  "data": {
+                    "value": "While this mixing of ndarrays and tensors may be convenient, it is not recommended. It will not work for non - CPU tensors, and will have unexpected behavior in corner cases. Users should prefer explicitly converting the ndarray to a tensor. "
+                  },
+                  "type": "Words"
+                }
+              ],
+              "inner": []
+            }
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "inline": [
+                  {
+                    "data": {
+                      "value": "PyTorch does not implement ``__array_function__`` or ``__array_ufunc__``. Under the hood, the ``Tensor.__array__ ( )`` method returns a NumPy ndarray as a view of the tensor data buffer. See `this issue < https : / / github.com / pytorch / pytorch / issues / 24015>`__ and the `__torch_function__ implementation < https : / / github.com / pytorch / pytorch / blob / master / torch / overrides.py>`__ for details. "
+                    },
+                    "type": "Words"
+                  }
+                ],
+                "inner": []
+              }
+            ],
+            "kind": "note",
+            "title": ""
+          },
+          "type": "Admonition"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Note also that we can see "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array_wrap__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " in action here, even though "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "torch.Tensor"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is not a subclass of ndarray::     "
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> import torch\n>>> t = torch.arange(4)\n>>> np.abs(t)\ntensor([0, 1, 2, 3])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "PyTorch implements "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array_wrap__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " to be able to get tensors back from NumPy functions, and we can modify it directly to control which type of objects are returned from these functions."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Example: PyTorch tensors"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "CuPy is a NumPy/SciPy-compatible array library for GPU-accelerated computing with Python. CuPy implements a subset of the NumPy interface by implementing "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "cupy.ndarray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://docs.cupy.dev/en/stable/reference/ndarray.html",
+                  "value": "a counterpart to NumPy ndarrays"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              ">>> import cupy as cp",
+              ">>> x_gpu = cp.array([1, 2, 3, 4])"
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "cupy.ndarray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " object implements the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array_ufunc__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " interface. This enables NumPy ufuncs to be applied to CuPy arrays (this will defer operation to the matching CuPy CUDA/ROCm implementation of the ufunc):"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              ">>> np.mean(np.exp(x_gpu))",
+              "array(21.19775622)"
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Note that the return type of these operations is still consistent with the initial type:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              ">>> arr = cp.random.randn(1, 2, 3, 4).astype(cp.float32)",
+              ">>> result = np.sum(arr)",
+              ">>> print(type(result))",
+              "<class 'cupy._core.core.ndarray'>"
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "See "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://docs.cupy.dev/en/stable/reference/ufunc.html",
+                  "value": "this page in the CuPy documentation for details"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": [
+                    "cupy.ndarray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " also implements the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array_function__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " interface, meaning it is possible to do operations such as"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              ">>> a = np.random.randn(100, 100)",
+              ">>> a_gpu = cp.asarray(a)",
+              ">>> qr_gpu = np.linalg.qr(a_gpu)"
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "CuPy implements many NumPy functions on "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "cupy.ndarray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " objects, but not all. See "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://docs.cupy.dev/en/stable/user_guide/difference.html",
+                  "value": "the CuPy documentation"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": " for details."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Example: CuPy arrays"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Dask is a flexible library for parallel computing in Python. Dask Array implements a subset of the NumPy ndarray interface using blocked algorithms, cutting up the large array into many small arrays. This allows computations on larger-than-memory arrays using multiple cores."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Dask supports "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array__()"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__array_ufunc__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              ">>> import dask.array as da",
+              ">>> x = da.random.normal(1, 0.1, size=(20, 20), chunks=(10, 10))",
+              ">>> np.mean(np.exp(x))",
+              "dask.array<mean_agg-aggregate, shape=(), dtype=float64, chunksize=(), chunktype=numpy.ndarray>",
+              ">>> np.mean(np.exp(x)).compute()",
+              "5.090097550553843"
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "inline": [
+                  {
+                    "data": {
+                      "value": "Dask is lazily evaluated, and the result from a computation isn ' t computed until you ask for it by invoking ``compute ( )``. "
+                    },
+                    "type": "Words"
+                  }
+                ],
+                "inner": []
+              }
+            ],
+            "kind": "note",
+            "title": ""
+          },
+          "type": "Admonition"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "See "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://docs.dask.org/en/stable/array.html",
+                  "value": "the Dask array documentation"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": " and the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://docs.dask.org/en/stable/array.html#scope",
+                  "value": "scope of Dask arrays interoperability with NumPy arrays"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": " for details."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Example: Dask arrays"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Several Python data science libraries implement the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__dlpack__"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " protocol. Among them are "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "PyTorch_"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "CuPy_"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ". A full list of libraries that implement this protocol can be found on "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "this page of DLPack documentation <dlpack:index>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Convert a PyTorch CPU tensor to NumPy array:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              ">>> import torch",
+              ">>> x_torch = torch.arange(5)",
+              ">>> x_torch",
+              "tensor([0, 1, 2, 3, 4])",
+              ">>> x_np = np.from_dlpack(x_torch)",
+              ">>> x_np",
+              "array([0, 1, 2, 3, 4])",
+              ">>> # note that x_np is a view of x_torch",
+              ">>> x_torch[1] = 100",
+              ">>> x_torch",
+              "tensor([  0, 100,   2,   3,   4])",
+              ">>> x_np",
+              "array([  0, 100,   2,   3,   4])"
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The imported arrays are read-only so writing or operating in-place will fail:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              ">>> x.flags.writeable",
+              "False",
+              ">>> x_np[1] = 1",
+              "Traceback (most recent call last):",
+              "  File \"<stdin>\", line 1, in <module>",
+              "ValueError: assignment destination is read-only"
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "A copy must be created in order to operate on the imported arrays in-place, but will mean duplicating the memory. Do not do this for very large arrays:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              ">>> x_np_copy = x_np.copy()",
+              ">>> x_np_copy.sort()  # works"
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "inline": [
+                  {
+                    "data": {
+                      "value": "Note that GPU tensors can ' t be converted to NumPy arrays since NumPy doesn ' t support GPU devices : >>> x_torch = torch.arange ( 5, device= ' cuda ' ) >>> np.from_dlpack ( x_torch) Traceback ( most recent call last) : File \" < stdin> \" , line 1, in < module> RuntimeError : Unsupported device in DLTensor. But, if both libraries support the device the data buffer is on, it is possible to use the ``__dlpack__`` protocol ( e.g. PyTorch_ and CuPy_) : >>> x_torch = torch.arange ( 5, device= ' cuda ' ) >>> x_cupy = cupy.from_dlpack ( x_torch) "
+                    },
+                    "type": "Words"
+                  }
+                ],
+                "inner": []
+              }
+            ],
+            "kind": "note",
+            "title": ""
+          },
+          "type": "Admonition"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Similarly, a NumPy array can be converted to a PyTorch tensor:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              ">>> x_np = np.arange(5)",
+              ">>> x_torch = torch.from_dlpack(x_np)"
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Read-only arrays cannot be exported:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": [
+              ">>> x_np = np.arange(5)",
+              ">>> x_np.flags.writeable = False",
+              ">>> torch.from_dlpack(x_np)  # doctest: +ELLIPSIS",
+              "Traceback (most recent call last):",
+              "  File \"<stdin>\", line 1, in <module>",
+              "  File \".../site-packages/torch/utils/dlpack.py\", line 63, in from_dlpack",
+              "    dlpack = ext_tensor.__dlpack__()",
+              "TypeError: NumPy currently only supports dlpack for writeable arrays"
+            ]
+          },
+          "type": "BlockQuote"
+        }
+      ],
+      "title": "Example: DLPack"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": [
+                              "arrays.interface"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": [
+                              "basics.dispatch"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": [
+                              "special-attributes-and-methods"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " (details on the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "__array_ufunc__"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and    "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "__array_function__"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " protocols)"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": [
+                              "basics.subclassing"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " (details on the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "__array_wrap__"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and    "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "__array_finalize__"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " methods)"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": [
+                              "specific-array-subtyping"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " (more details on the implementation of    "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "__array_finalize__"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "__array_wrap__"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "__array_priority__"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ")"
+                          },
+                          "type": "Words"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "value": [
+                              "NumPy roadmap: interoperability <neps:roadmap>"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "inline": [
+                        {
+                          "data": {
+                            "target": "https://pytorch.org/tutorials/beginner/blitz/tensor_tutorial.html#bridge-to-np-label",
+                            "value": "PyTorch documentation on the Bridge with NumPy"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ],
+                      "inner": []
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _CuPy: https://cupy.dev/"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _Sparse: https://sparse.pydata.org/"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _Dask: https://docs.dask.org/"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _TensorFlow: https://www.tensorflow.org/"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _PyTorch: https://pytorch.org/"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _XArray: http://xarray.pydata.org/"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _JAX: https://jax.readthedocs.io/"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _astropy.units: https://docs.astropy.org/en/stable/units/"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _pint: https://pint.readthedocs.io/"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _unyt: https://unyt.readthedocs.io/"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "title": "Further reading"
+    }
+  ],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "refs": [],
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

@@ -1,0 +1,751 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Tracks the current state of workers, data, and computations."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Handles transitions between different task states. Notifies the Scheduler of changes by messaging passing through Queues, which the Scheduler listens to responds accordingly."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "All events are handled quickly, in linear time with respect to their input (which is often of constant size) and generally within a millisecond. Additionally when Cythonized, this can be faster still. To accomplish this the scheduler tracks a lot of state.  Every operation maintains the consistency of this state."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Users typically do not interact with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "Transitions"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " directly. Instead users interact with the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "Client"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", which in turn engages the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "Scheduler"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " affecting different transitions here under-the-hood. In the background "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "Worker``s also engage with the ``Scheduler"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " affecting these state transitions as well."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "content": {
+                    "value": "State"
+                  }
+                },
+                "type": "Strong"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "Transitions"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " object contains the following state variables. Each variable is listed along with what it stores and a brief description."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "dd": [
+                            {
+                              "data": {
+                                "inline": [
+                                  {
+                                    "data": {
+                                      "value": "Tasks currently known to the scheduler"
+                                    },
+                                    "type": "Words"
+                                  }
+                                ],
+                                "inner": []
+                              },
+                              "type": "Paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "content": {
+                                    "value": "tasks:"
+                                  }
+                                },
+                                "type": "Strong"
+                              },
+                              {
+                                "data": {
+                                  "value": " "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "{task key: TaskState}"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              }
+                            ],
+                            "inner": []
+                          }
+                        }
+                      ]
+                    },
+                    "type": "DefList"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "dd": [
+                            {
+                              "data": {
+                                "inline": [
+                                  {
+                                    "data": {
+                                      "value": "Tasks in the \"no-worker\" state"
+                                    },
+                                    "type": "Words"
+                                  }
+                                ],
+                                "inner": []
+                              },
+                              "type": "Paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "content": {
+                                    "value": "unrunnable:"
+                                  }
+                                },
+                                "type": "Strong"
+                              },
+                              {
+                                "data": {
+                                  "value": " "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "{TaskState}"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              }
+                            ],
+                            "inner": []
+                          }
+                        }
+                      ]
+                    },
+                    "type": "DefList"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "dd": [
+                            {
+                              "data": {
+                                "inline": [
+                                  {
+                                    "data": {
+                                      "value": "Workers currently connected to the scheduler"
+                                    },
+                                    "type": "Words"
+                                  }
+                                ],
+                                "inner": []
+                              },
+                              "type": "Paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "content": {
+                                    "value": "workers:"
+                                  }
+                                },
+                                "type": "Strong"
+                              },
+                              {
+                                "data": {
+                                  "value": " "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "{worker key: WorkerState}"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              }
+                            ],
+                            "inner": []
+                          }
+                        }
+                      ]
+                    },
+                    "type": "DefList"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "dd": [
+                            {
+                              "data": {
+                                "inline": [
+                                  {
+                                    "data": {
+                                      "value": "Set of workers that are not fully utilized"
+                                    },
+                                    "type": "Words"
+                                  }
+                                ],
+                                "inner": []
+                              },
+                              "type": "Paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "content": {
+                                    "value": "idle:"
+                                  }
+                                },
+                                "type": "Strong"
+                              },
+                              {
+                                "data": {
+                                  "value": " "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "{WorkerState}"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": ":"
+                                },
+                                "type": "Words"
+                              }
+                            ],
+                            "inner": []
+                          }
+                        }
+                      ]
+                    },
+                    "type": "DefList"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "dd": [
+                            {
+                              "data": {
+                                "inline": [
+                                  {
+                                    "data": {
+                                      "value": "Set of workers that are not over-utilized"
+                                    },
+                                    "type": "Words"
+                                  }
+                                ],
+                                "inner": []
+                              },
+                              "type": "Paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "content": {
+                                    "value": "saturated:"
+                                  }
+                                },
+                                "type": "Strong"
+                              },
+                              {
+                                "data": {
+                                  "value": " "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "{WorkerState}"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": ":"
+                                },
+                                "type": "Words"
+                              }
+                            ],
+                            "inner": []
+                          }
+                        }
+                      ]
+                    },
+                    "type": "DefList"
+                  }
+                ]
+              },
+              {
+                "value": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "dd": [
+                            {
+                              "data": {
+                                "inline": [
+                                  {
+                                    "data": {
+                                      "value": "Set of workers that are currently in running state"
+                                    },
+                                    "type": "Words"
+                                  }
+                                ],
+                                "inner": []
+                              },
+                              "type": "Paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "content": {
+                                    "value": "running:"
+                                  }
+                                },
+                                "type": "Strong"
+                              },
+                              {
+                                "data": {
+                                  "value": " "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "{WorkerState}"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": ":"
+                                },
+                                "type": "Words"
+                              }
+                            ],
+                            "inner": []
+                          }
+                        }
+                      ]
+                    },
+                    "type": "DefList"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "dd": [
+                            {
+                              "data": {
+                                "inline": [
+                                  {
+                                    "data": {
+                                      "value": "Clients currently connected to the scheduler"
+                                    },
+                                    "type": "Words"
+                                  }
+                                ],
+                                "inner": []
+                              },
+                              "type": "Paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "content": {
+                                    "value": "clients:"
+                                  }
+                                },
+                                "type": "Strong"
+                              },
+                              {
+                                "data": {
+                                  "value": " "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "{client key: ClientState}"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              }
+                            ],
+                            "inner": []
+                          }
+                        }
+                      ]
+                    },
+                    "type": "DefList"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "value": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "dd": [
+                            {
+                              "data": {
+                                "inline": [
+                                  {
+                                    "data": {
+                                      "value": "Time we expect certain functions to take, e.g. "
+                                    },
+                                    "type": "Words"
+                                  },
+                                  {
+                                    "data": {
+                                      "value": [
+                                        "{'sum': 0.25}"
+                                      ]
+                                    },
+                                    "type": "Verbatim"
+                                  }
+                                ],
+                                "inner": []
+                              },
+                              "type": "Paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "inline": [
+                              {
+                                "data": {
+                                  "content": {
+                                    "value": "task_duration:"
+                                  }
+                                },
+                                "type": "Strong"
+                              },
+                              {
+                                "data": {
+                                  "value": " "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "{key-prefix: time}"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              }
+                            ],
+                            "inner": []
+                          }
+                        }
+                      ]
+                    },
+                    "type": "DefList"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        }
+      ],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Underlying task state of dynamic scheduler"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "distributed.scheduler.SchedulerState"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": "/distributed/scheduler.py",
+  "item_line": 1840,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "refs": [],
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

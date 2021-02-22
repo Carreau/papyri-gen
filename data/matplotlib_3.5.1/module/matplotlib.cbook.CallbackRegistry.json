@@ -1,0 +1,259 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "value": [
+              ">>> def oneat(x):",
+              "...    print('eat', x)",
+              ">>> def ondrink(x):",
+              "...    print('drink', x)",
+              "",
+              ">>> from matplotlib.cbook import CallbackRegistry",
+              ">>> callbacks = CallbackRegistry()",
+              "",
+              ">>> id_eat = callbacks.connect('eat', oneat)",
+              ">>> id_drink = callbacks.connect('drink', ondrink)",
+              "",
+              ">>> callbacks.process('drink', 123)",
+              "drink 123",
+              ">>> callbacks.process('eat', 456)",
+              "eat 456",
+              ">>> callbacks.process('be merry', 456) # nothing will be called",
+              "",
+              ">>> callbacks.disconnect(id_eat)",
+              ">>> callbacks.process('eat', 456)      # nothing will be called",
+              "",
+              ">>> with callbacks.blocked(signal='drink'):",
+              "...     callbacks.process('drink', 123) # nothing will be called",
+              ">>> callbacks.process('drink', 123)",
+              "drink 123"
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "In practice, one should always disconnect all callbacks when they are no longer needed to avoid dangling references (and thus memory leaks). However, real code in Matplotlib rarely does so, and due to its design, it is rather difficult to place this kind of code.  To get around this, and prevent this class of memory leaks, we instead store weak references to bound methods only, so when the destination object needs to die, the CallbackRegistry won't keep it alive."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "If not None, "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": {
+                          "value": "exception_handler"
+                        }
+                      },
+                      "type": "Emph"
+                    },
+                    {
+                      "data": {
+                        "value": " must be a function that takes an "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "Exception"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " as single parameter.  It gets called with any "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "Exception"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " raised by the callbacks during "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "module",
+                        "reference": {
+                          "kind": "module",
+                          "module": "matplotlib",
+                          "path": "matplotlib.cbook.CallbackRegistry.process",
+                          "version": "3.5.1"
+                        },
+                        "value": "CallbackRegistry.process"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": ", and may either re-raise the exception or handle it in another manner."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "The default handler prints the exception (with "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "module",
+                        "reference": {
+                          "kind": "api",
+                          "module": "traceback",
+                          "path": "traceback.print_exc",
+                          "version": "*"
+                        },
+                        "value": "traceback.print_exc"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": ") if an interactive event loop is running; it re-raises the exception if no interactive event loop is running."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "exception_handler",
+            "type_": "callable, optional"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Handle registering, processing, blocking, and disconnecting for a set of signals and callbacks:"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "matplotlib.cbook.CallbackRegistry"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": "/matplotlib/cbook/__init__.py",
+  "item_line": 129,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters"
+  ],
+  "references": null,
+  "refs": [],
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

@@ -1,0 +1,897 @@
+{
+  "_content": {
+    "Attributes": {
+      "children": [],
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Computes the discrete Hankel transform of a logarithmically spaced periodic sequence using the FFTLog algorithm , ."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "This function computes a discrete version of the Hankel transform"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "A ( k) = \\int_ { 0}^ { \\infty} \\! a ( r) \\, J_\\mu ( kr) \\, k \\, dr \\;, "
+          },
+          "type": "BlockMath"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "where "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "J_\\mu"
+                  ]
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " is the Bessel function of order "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "\\mu"
+                  ]
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": ".  The index "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "\\mu"
+                  ]
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " may be any real number, positive or negative."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The input array "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "a",
+                    "version": null
+                  },
+                  "value": "a"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " is a periodic sequence of length "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "n"
+                  ]
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": ", uniformly logarithmically spaced with spacing "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "dln",
+                    "version": null
+                  },
+                  "value": "dln"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": ","
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "a_j = a ( r_j) \\;, \\quad r_j = r_c \\exp [ ( j - j_c) \\, \\mathtt { dln}] "
+          },
+          "type": "BlockMath"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "centred about the point "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "r_c"
+                  ]
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": ".  Note that the central index "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "j_c = (n+1)/2"
+                  ]
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " is half-integral if "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "n"
+                  ]
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " is even, so that "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "r_c"
+                  ]
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " falls between two input elements.  Similarly, the output array "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "A",
+                    "version": null
+                  },
+                  "value": "A"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " is a periodic sequence of length "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "n"
+                  ]
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": ", also uniformly logarithmically spaced with spacing "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "dln",
+                    "version": null
+                  },
+                  "value": "dln"
+                },
+                "type": "Link"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "A_j = A ( k_j) \\;, \\quad k_j = k_c \\exp [ ( j - j_c) \\, \\mathtt { dln}] "
+          },
+          "type": "BlockMath"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "centred about the point "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "k_c"
+                  ]
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "The centre points "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "r_c"
+                  ]
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "k_c"
+                  ]
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " of the periodic intervals may be chosen arbitrarily, but it would be usual to choose the product "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "k_c r_c = k_j r_{n-1-j} = k_{n-1-j} r_j"
+                  ]
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " to be unity.  This can be changed using the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "offset",
+                    "version": null
+                  },
+                  "value": "offset"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " parameter, which controls the logarithmic offset "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "\\log(k_c) = \\mathtt{offset} - \\log(r_c)"
+                  ]
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " of the output array. Choosing an optimal value for "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "offset",
+                    "version": null
+                  },
+                  "value": "offset"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " may reduce ringing of the discrete Hankel transform."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "If the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "bias",
+                    "version": null
+                  },
+                  "value": "bias"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " parameter is nonzero, this function computes a discrete version of the biased Hankel transform"
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "A ( k) = \\int_ { 0}^ { \\infty} \\! a_q ( r) \\, ( kr)^q \\, J_\\mu ( kr) \\, k \\, dr "
+          },
+          "type": "BlockMath"
+        },
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "where "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "q"
+                  ]
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " is the value of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "bias",
+                    "version": null
+                  },
+                  "value": "bias"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": ", and a power law bias "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "a_q(r) = a(r) \\, (kr)^{-q}"
+                  ]
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " is applied to the input sequence. Biasing the transform can help approximate the continuous transform of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "a(r)"
+                  ]
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " if there is a value "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "q"
+                  ]
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " such that "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "a_q(r)"
+                  ]
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " is close to a periodic sequence, in which case the resulting "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "A(k)"
+                  ]
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " will be close to the continuous transform."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Real periodic input array, uniformly logarithmically spaced.  For multidimensional input, the transform is performed over the last axis."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "a",
+            "type_": "array_like (..., n)"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Uniform logarithmic spacing of the input array."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "dln",
+            "type_": "float"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Order of the Hankel transform, any positive or negative real number."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "mu",
+            "type_": "float"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Offset of the uniform logarithmic spacing of the output array."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "offset",
+            "type_": "float, optional"
+          },
+          "type": "Param"
+        },
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "Exponent of power law bias, any positive or negative real number."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "bias",
+            "type_": "float, optional"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "desc": [
+              {
+                "data": {
+                  "inline": [
+                    {
+                      "data": {
+                        "value": "The transformed output array, which is real, periodic, uniformly logarithmically spaced, and of the same shape as the input array."
+                      },
+                      "type": "Words"
+                    }
+                  ],
+                  "inner": []
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "param": "A",
+            "type_": "array_like (..., n)"
+          },
+          "type": "Param"
+        }
+      ],
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "inline": [
+              {
+                "data": {
+                  "value": "Compute the fast Hankel transform."
+                },
+                "type": "Words"
+              }
+            ],
+            "inner": []
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "title": null
+    }
+  },
+  "aliases": [
+    "scipy.signal._filter_design.sp_fft.fht"
+  ],
+  "arbitrary": [],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": "/scipy/fft/_fftlog.py",
+  "item_line": 23,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "refs": [
+    "fhtoffset",
+    "ifht"
+  ],
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "The inverse of "
+              },
+              "type": "Words"
+            },
+            {
+              "data": {
+                "domain": null,
+                "role": null,
+                "value": "fht"
+              },
+              "type": "Directive"
+            },
+            {
+              "data": {
+                "value": "."
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": true,
+        "name": "ifht",
+        "ref": "scipy.fft._fftlog.ifht"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "inline": [
+            {
+              "data": {
+                "value": "Return an optimal offset for "
+              },
+              "type": "Words"
+            },
+            {
+              "data": {
+                "domain": null,
+                "role": null,
+                "value": "fht"
+              },
+              "type": "Directive"
+            },
+            {
+              "data": {
+                "value": "."
+              },
+              "type": "Words"
+            }
+          ],
+          "inner": []
+        }
+      ],
+      "name": {
+        "exists": true,
+        "name": "fhtoffset",
+        "ref": "scipy.fft._fftlog.fhtoffset"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "value": "fht(a, dln, mu, offset=0.0, bias=0.0)"
+  }
+}

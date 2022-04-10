@@ -8,29 +8,27 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Since FORTRAN uses 1-indexing and LAPACK uses different start points for upper and lower formats there are certain offsets in the indices used below."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Let's assume a result where the matrix is 6x6 and there are two 2x2 and two 1x1 blocks reported by the routine. To ease the coding efforts, we still populate a 6-sized array and fill zeros as the following ::      "
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -42,15 +40,14 @@
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "This denotes a diagonal matrix of the form ::      "
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -62,15 +59,14 @@
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "In other words, we write 2 when the 2x2 block is first encountered and automatically write 0 to the next entry and skip the next spin of the loop. Thus, a separate counter or array appends to keep track of block sizes are avoided. If needed, zeros can be filtered out later without losing the block structure."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -93,49 +89,48 @@
       "children": [
         {
           "data": {
-            "desc": [
+            "children": [
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "The permutation array ipiv returned by LAPACK"
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "a",
-            "type_": "ndarray"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The permutation array ipiv returned by LAPACK"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "a",
+                "type_": "ndarray"
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "The switch to select whether upper or lower triangle is chosen in the LAPACK call."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The switch to select whether upper or lower triangle is chosen in the LAPACK call."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "lower",
+                "type_": "bool, optional"
               }
-            ],
-            "param": "lower",
-            "type_": "bool, optional"
+            ]
           },
-          "type": "Param"
+          "type": "Parameters"
         }
       ],
       "title": null
@@ -152,49 +147,48 @@
       "children": [
         {
           "data": {
-            "desc": [
+            "children": [
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "The array that defines the row/column swap operations. For example, if row two is swapped with row four, the result is [0, 3, 2, 3]."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "swap_",
-            "type_": "ndarray"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The array that defines the row/column swap operations. For example, if row two is swapped with row four, the result is [0, 3, 2, 3]."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "swap_",
+                "type_": "ndarray"
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "The array that defines the block diagonal structure as given above."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The array that defines the block diagonal structure as given above."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "pivots",
+                "type_": "ndarray"
               }
-            ],
-            "param": "pivots",
-            "type_": "ndarray"
+            ]
           },
-          "type": "Param"
+          "type": "Parameters"
         }
       ],
       "title": null
@@ -203,15 +197,14 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "This helper function takes the rather strangely encoded permutation array returned by the LAPACK routines ?(HE/SY)TRF and converts it into regularized permutation and diagonal pivot size format."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }

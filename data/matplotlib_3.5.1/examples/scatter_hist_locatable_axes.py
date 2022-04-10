@@ -4,1969 +4,3963 @@
       "data": {
         "ce_status": "execed",
         "entries": [
-          [
-            "\"\"\"\n==================================\nScatter Histogram (Locatable Axes)\n==================================\n\nShow the marginal distributions of a scatter as histograms at the sides of\nthe plot.\n\nFor a nice alignment of the main axes with the marginals, the axes positions\nare defined by a ``Divider``, produced via `.make_axes_locatable`.\n\nAn alternative method to produce a similar figure is shown in the\n:doc:`/gallery/lines_bars_and_markers/scatter_hist` example. The advantage of\nthe locatable axes method shown below is that the marginal axes follow the\nfixed aspect ratio of the main axes.\n\"\"\"",
-            "",
-            "sd"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "import",
-            null,
-            "kn"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "numpy",
-            "numpy",
-            "nn"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "as",
-            null,
-            "k"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "np",
-            "numpy",
-            "nn"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "import",
-            null,
-            "kn"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "matplotlib",
-            "matplotlib",
-            "nn"
-          ],
-          [
-            ".",
-            "",
-            "nn"
-          ],
-          [
-            "pyplot",
-            "matplotlib.pyplot",
-            "nn"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "as",
-            null,
-            "k"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "plt",
-            "matplotlib.pyplot",
-            "nn"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "from",
-            null,
-            "kn"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "mpl_toolkits",
-            "mpl_toolkits",
-            "nn"
-          ],
-          [
-            ".",
-            "",
-            "nn"
-          ],
-          [
-            "axes_grid1",
-            "mpl_toolkits.axes_grid1",
-            "nn"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "import",
-            null,
-            "kn"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "make_axes_locatable",
-            "mpl_toolkits.axes_grid1.axes_divider.make_axes_locatable",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "# Fixing random state for reproducibility",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "np",
-            "numpy",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "random",
-            "numpy.random",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "seed",
-            "numpy.random.mtrand.RandomState.seed",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "19680801",
-            "",
-            "mi"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "# the random data",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "x",
-            "builtins.float",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "np",
-            "numpy",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "random",
-            "numpy.random",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "randn",
-            "numpy.random.mtrand.RandomState.randn",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "1000",
-            "",
-            "mi"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "y",
-            "builtins.float",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "np",
-            "numpy",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "random",
-            "numpy.random",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "randn",
-            "numpy.random.mtrand.RandomState.randn",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "1000",
-            "",
-            "mi"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "fig",
-            "builtins.int",
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "plt",
-            "matplotlib.pyplot",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "subplots",
-            "matplotlib.pyplot.subplots",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "figsize",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "5.5",
-            "",
-            "mf"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "5.5",
-            "",
-            "mf"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "# the scatter plot:",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "scatter",
-            null,
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "x",
-            "builtins.float",
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "y",
-            "builtins.float",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "# Set aspect of the main axes.",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "set_aspect",
-            null,
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "1.",
-            "",
-            "mf"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "# create new axes on the right and on the top of the current axes",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "divider",
-            "mpl_toolkits.axes_grid1.axes_divider.AxesDivider",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "make_axes_locatable",
-            "mpl_toolkits.axes_grid1.axes_divider.make_axes_locatable",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "# below height and pad are in inches",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "ax_histx",
-            "functools.partial",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "divider",
-            "mpl_toolkits.axes_grid1.axes_divider.AxesDivider",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "append_axes",
-            "functools.partial",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "\"",
-            "",
-            "s2"
-          ],
-          [
-            "top",
-            null,
-            "s2"
-          ],
-          [
-            "\"",
-            "",
-            "s2"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "1.2",
-            "",
-            "mf"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "pad",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "0.1",
-            "",
-            "mf"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "sharex",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "ax_histy",
-            "functools.partial",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "divider",
-            "mpl_toolkits.axes_grid1.axes_divider.AxesDivider",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "append_axes",
-            "functools.partial",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "\"",
-            "",
-            "s2"
-          ],
-          [
-            "right",
-            null,
-            "s2"
-          ],
-          [
-            "\"",
-            "",
-            "s2"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "1.2",
-            "",
-            "mf"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "pad",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "0.1",
-            "",
-            "mf"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "sharey",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "# make some labels invisible",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "ax_histx",
-            "functools.partial",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "xaxis",
-            null,
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "set_tick_params",
-            null,
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "labelbottom",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "False",
-            null,
-            "kc"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "ax_histy",
-            "functools.partial",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "yaxis",
-            null,
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "set_tick_params",
-            null,
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "labelleft",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "False",
-            null,
-            "kc"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "# now determine nice limits by hand:",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "binwidth",
-            "builtins.float",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "0.25",
-            "",
-            "mf"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "xymax",
-            "_typeshed.SupportsLessThan",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "max",
-            "builtins.max",
-            "nb"
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "np",
-            "numpy",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "max",
-            "numpy.core.fromnumeric.amax",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "np",
-            "numpy",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "abs",
-            "numpy.ufunc",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "x",
-            "builtins.float",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "np",
-            "numpy",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "max",
-            "numpy.core.fromnumeric.amax",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "np",
-            "numpy",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "abs",
-            "numpy.ufunc",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "y",
-            "builtins.float",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "lim",
-            "builtins.int",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "int",
-            "builtins.int",
-            "nb"
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "xymax",
-            "_typeshed.SupportsLessThan",
-            ""
-          ],
-          [
-            "/",
-            "",
-            "o"
-          ],
-          [
-            "binwidth",
-            "builtins.float",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "+",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "1",
-            "",
-            "mi"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "*",
-            "",
-            "o"
-          ],
-          [
-            "binwidth",
-            "builtins.float",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "bins",
-            "numpy.ndarray",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "np",
-            "numpy",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "arange",
-            "numpy.arange",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "-",
-            "",
-            "o"
-          ],
-          [
-            "lim",
-            "builtins.int",
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "lim",
-            "builtins.int",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "+",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "binwidth",
-            "builtins.float",
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "binwidth",
-            "builtins.float",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "ax_histx",
-            "functools.partial",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "hist",
-            null,
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "x",
-            "builtins.float",
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "bins",
-            "numpy.ndarray",
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "bins",
-            "numpy.ndarray",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "ax_histy",
-            "functools.partial",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "hist",
-            null,
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "y",
-            "builtins.float",
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "bins",
-            "numpy.ndarray",
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "bins",
-            "numpy.ndarray",
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "orientation",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            "horizontal",
-            null,
-            "s1"
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "# the xaxis of ax_histx and yaxis of ax_histy are shared with ax,",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "# thus there is no need to manually adjust the xlim and ylim of these",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "# axis.",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "ax_histx",
-            "functools.partial",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "set_yticks",
-            null,
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "[",
-            "",
-            ""
-          ],
-          [
-            "0",
-            "",
-            "mi"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "50",
-            "",
-            "mi"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "100",
-            "",
-            "mi"
-          ],
-          [
-            "]",
-            "",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "ax_histy",
-            "functools.partial",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "set_xticks",
-            null,
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "[",
-            "",
-            ""
-          ],
-          [
-            "0",
-            "",
-            "mi"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "50",
-            "",
-            "mi"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "100",
-            "",
-            "mi"
-          ],
-          [
-            "]",
-            "",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "plt",
-            "matplotlib.pyplot",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "show",
-            "matplotlib.pyplot.show",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "#############################################################################",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "#",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "# .. admonition:: References",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "#",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "#    The use of the following functions, methods, classes and modules is shown",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "#    in this example:",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "#",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "#    - `mpl_toolkits.axes_grid1.axes_divider.make_axes_locatable`",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "#    - `matplotlib.axes.Axes.set_aspect`",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "#    - `matplotlib.axes.Axes.scatter`",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "#    - `matplotlib.axes.Axes.hist`",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ]
+          {
+            "link": {
+              "data": "\"\"\"\n==================================\nScatter Histogram (Locatable Axes)\n==================================\n\nShow the marginal distributions of a scatter as histograms at the sides of\nthe plot.\n\nFor a nice alignment of the main axes with the marginals, the axes positions\nare defined by a ``Divider``, produced via `.make_axes_locatable`.\n\nAn alternative method to produce a similar figure is shown in the\n:doc:`/gallery/lines_bars_and_markers/scatter_hist` example. The advantage of\nthe locatable axes method shown below is that the marginal axes follow the\nfixed aspect ratio of the main axes.\n\"\"\"",
+              "type": "str"
+            },
+            "type": "sd"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "import",
+              "type": "str"
+            },
+            "type": "kn"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "numpy"
+              },
+              "type": "Link"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": "numpy",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "as",
+              "type": "str"
+            },
+            "type": "k"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": "np",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "import",
+              "type": "str"
+            },
+            "type": "kn"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": "matplotlib",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "pyplot"
+              },
+              "type": "Link"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": "pyplot",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "as",
+              "type": "str"
+            },
+            "type": "k"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": "plt",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "from",
+              "type": "str"
+            },
+            "type": "kn"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits",
+                  "version": "*"
+                },
+                "value": "mpl_toolkits"
+              },
+              "type": "Link"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": "mpl_toolkits",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1",
+                  "version": "*"
+                },
+                "value": "axes_grid1"
+              },
+              "type": "Link"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": "axes_grid1",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "import",
+              "type": "str"
+            },
+            "type": "kn"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.axes_divider.make_axes_locatable",
+                  "version": "*"
+                },
+                "value": "make_axes_locatable"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "make_axes_locatable",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# Fixing random state for reproducibility",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "np",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.random",
+                  "version": "*"
+                },
+                "value": "random"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "random",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.random.mtrand.RandomState.seed",
+                  "version": "*"
+                },
+                "value": "seed"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "seed",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "19680801",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# the random data",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "x"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "x",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "np",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.random",
+                  "version": "*"
+                },
+                "value": "random"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "random",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.random.mtrand.RandomState.randn",
+                  "version": "*"
+                },
+                "value": "randn"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "randn",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "1000",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "y"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "y",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "np",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.random",
+                  "version": "*"
+                },
+                "value": "random"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "random",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.random.mtrand.RandomState.randn",
+                  "version": "*"
+                },
+                "value": "randn"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "randn",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "1000",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "fig",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "plt",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.subplots",
+                  "version": "*"
+                },
+                "value": "subplots"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "subplots",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "figsize",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "5.5",
+              "type": "str"
+            },
+            "type": "mf"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "5.5",
+              "type": "str"
+            },
+            "type": "mf"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# the scatter plot:",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "scatter",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "x"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "x",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "y"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "y",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# Set aspect of the main axes.",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "set_aspect",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "1.",
+              "type": "str"
+            },
+            "type": "mf"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# create new axes on the right and on the top of the current axes",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.axes_divider.AxesDivider",
+                  "version": "*"
+                },
+                "value": "divider"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "divider",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.axes_divider.make_axes_locatable",
+                  "version": "*"
+                },
+                "value": "make_axes_locatable"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "make_axes_locatable",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# below height and pad are in inches",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "functools",
+                  "path": "functools.partial",
+                  "version": "*"
+                },
+                "value": "ax_histx"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax_histx",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.axes_divider.AxesDivider",
+                  "version": "*"
+                },
+                "value": "divider"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "divider",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "functools",
+                  "path": "functools.partial",
+                  "version": "*"
+                },
+                "value": "append_axes"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "append_axes",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\"",
+              "type": "str"
+            },
+            "type": "s2"
+          },
+          {
+            "link": {
+              "data": "top",
+              "type": "str"
+            },
+            "type": "s2"
+          },
+          {
+            "link": {
+              "data": "\"",
+              "type": "str"
+            },
+            "type": "s2"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "1.2",
+              "type": "str"
+            },
+            "type": "mf"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "pad",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "0.1",
+              "type": "str"
+            },
+            "type": "mf"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "sharex",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "functools",
+                  "path": "functools.partial",
+                  "version": "*"
+                },
+                "value": "ax_histy"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax_histy",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.axes_divider.AxesDivider",
+                  "version": "*"
+                },
+                "value": "divider"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "divider",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "functools",
+                  "path": "functools.partial",
+                  "version": "*"
+                },
+                "value": "append_axes"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "append_axes",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\"",
+              "type": "str"
+            },
+            "type": "s2"
+          },
+          {
+            "link": {
+              "data": "right",
+              "type": "str"
+            },
+            "type": "s2"
+          },
+          {
+            "link": {
+              "data": "\"",
+              "type": "str"
+            },
+            "type": "s2"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "1.2",
+              "type": "str"
+            },
+            "type": "mf"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "pad",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "0.1",
+              "type": "str"
+            },
+            "type": "mf"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "sharey",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# make some labels invisible",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "functools",
+                  "path": "functools.partial",
+                  "version": "*"
+                },
+                "value": "ax_histx"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax_histx",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "xaxis",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "set_tick_params",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "labelbottom",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "False",
+              "type": "str"
+            },
+            "type": "kc"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "functools",
+                  "path": "functools.partial",
+                  "version": "*"
+                },
+                "value": "ax_histy"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax_histy",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "yaxis",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "set_tick_params",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "labelleft",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "False",
+              "type": "str"
+            },
+            "type": "kc"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# now determine nice limits by hand:",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "binwidth"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "binwidth",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "0.25",
+              "type": "str"
+            },
+            "type": "mf"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "_typeshed",
+                  "path": "_typeshed.SupportsLessThan",
+                  "version": "*"
+                },
+                "value": "xymax"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "xymax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.max",
+                  "version": "*"
+                },
+                "value": "max"
+              },
+              "type": "Link"
+            },
+            "type": "nb"
+          },
+          {
+            "link": {
+              "data": "max",
+              "type": "str"
+            },
+            "type": "nb"
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "np",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.core.fromnumeric.amax",
+                  "version": "*"
+                },
+                "value": "max"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "max",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "np",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ufunc",
+                  "version": "*"
+                },
+                "value": "abs"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "abs",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "x"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "x",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "np",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.core.fromnumeric.amax",
+                  "version": "*"
+                },
+                "value": "max"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "max",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "np",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ufunc",
+                  "version": "*"
+                },
+                "value": "abs"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "abs",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "y"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "y",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "lim"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "lim",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "int"
+              },
+              "type": "Link"
+            },
+            "type": "nb"
+          },
+          {
+            "link": {
+              "data": "int",
+              "type": "str"
+            },
+            "type": "nb"
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "_typeshed",
+                  "path": "_typeshed.SupportsLessThan",
+                  "version": "*"
+                },
+                "value": "xymax"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "xymax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "/",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "binwidth"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "binwidth",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "+",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "1",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "*",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "binwidth"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "binwidth",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "bins"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "bins",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "np",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.arange",
+                  "version": "*"
+                },
+                "value": "arange"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "arange",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "-",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "lim"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "lim",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "lim"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "lim",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "+",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "binwidth"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "binwidth",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "binwidth"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "binwidth",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "functools",
+                  "path": "functools.partial",
+                  "version": "*"
+                },
+                "value": "ax_histx"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax_histx",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "hist",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "x"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "x",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "bins"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "bins",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "bins"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "bins",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "functools",
+                  "path": "functools.partial",
+                  "version": "*"
+                },
+                "value": "ax_histy"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax_histy",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "hist",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "y"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "y",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "bins"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "bins",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "bins"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "bins",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "orientation",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "horizontal",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# the xaxis of ax_histx and yaxis of ax_histy are shared with ax,",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# thus there is no need to manually adjust the xlim and ylim of these",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# axis.",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "functools",
+                  "path": "functools.partial",
+                  "version": "*"
+                },
+                "value": "ax_histx"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax_histx",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "set_yticks",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "[",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "0",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "50",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "100",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": "]",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "functools",
+                  "path": "functools.partial",
+                  "version": "*"
+                },
+                "value": "ax_histy"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax_histy",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "set_xticks",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "[",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "0",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "50",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "100",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": "]",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "plt",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.show",
+                  "version": "*"
+                },
+                "value": "show"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "show",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "#############################################################################",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "#",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# .. admonition:: References",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "#",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "#    The use of the following functions, methods, classes and modules is shown",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "#    in this example:",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "#",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "#    - `mpl_toolkits.axes_grid1.axes_divider.make_axes_locatable`",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "#    - `matplotlib.axes.Axes.set_aspect`",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "#    - `matplotlib.axes.Axes.scatter`",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "#    - `matplotlib.axes.Axes.hist`",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          }
         ],
         "out": ""
       },
-      "type": "Code"
+      "type": "Code2"
     },
     {
       "data": {
-        "value": "ex-scatter_hist_locatable_axes.py-0.png"
+        "value": {
+          "kind": "assets",
+          "module": "matplotlib",
+          "path": "ex-scatter_hist_locatable_axes.py-0.png",
+          "version": "3.5.1"
+        }
       },
       "type": "Fig"
     }

@@ -4,1859 +4,3163 @@
       "data": {
         "ce_status": "execed",
         "entries": [
-          [
-            "\"\"\"\n=================================\nBox plots with custom fill colors\n=================================\n\nThis plot illustrates how to create two types of box plots\n(rectangular and notched), and how to fill them with custom\ncolors by accessing the properties of the artists of the\nbox plots. Additionally, the ``labels`` parameter is used to\nprovide x-tick labels for each sample.\n\nA good general reference on boxplots and their history can be found\nhere: http://vita.had.co.nz/papers/boxplots.pdf\n\"\"\"",
-            "",
-            "sd"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "import",
-            null,
-            "kn"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "matplotlib",
-            "matplotlib",
-            "nn"
-          ],
-          [
-            ".",
-            "",
-            "nn"
-          ],
-          [
-            "pyplot",
-            "matplotlib.pyplot",
-            "nn"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "as",
-            null,
-            "k"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "plt",
-            "matplotlib.pyplot",
-            "nn"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "import",
-            null,
-            "kn"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "numpy",
-            "numpy",
-            "nn"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "as",
-            null,
-            "k"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "np",
-            "numpy",
-            "nn"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "# Random test data",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "np",
-            "numpy",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "random",
-            "numpy.random",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "seed",
-            "numpy.random.mtrand.RandomState.seed",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "19680801",
-            "",
-            "mi"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "all_data",
-            "builtins.list",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "[",
-            "",
-            ""
-          ],
-          [
-            "np",
-            "numpy",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "random",
-            "numpy.random",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "normal",
-            "numpy.random.mtrand.RandomState.normal",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "0",
-            "",
-            "mi"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "std",
-            "builtins.int",
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "size",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "100",
-            "",
-            "mi"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "for",
-            null,
-            "k"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "std",
-            "builtins.int",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "in",
-            null,
-            "ow"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "range",
-            "builtins.range",
-            "nb"
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "1",
-            "",
-            "mi"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "4",
-            "",
-            "mi"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "]",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "labels",
-            "builtins.list",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "[",
-            "",
-            ""
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            "x1",
-            null,
-            "s1"
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            "x2",
-            null,
-            "s1"
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            "x3",
-            null,
-            "s1"
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            "]",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "fig",
-            "builtins.int",
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "ax1",
-            null,
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "ax2",
-            null,
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "plt",
-            "matplotlib.pyplot",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "subplots",
-            "matplotlib.pyplot.subplots",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "nrows",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "1",
-            "",
-            "mi"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "ncols",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "2",
-            "",
-            "mi"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "figsize",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "9",
-            "",
-            "mi"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "4",
-            "",
-            "mi"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "# rectangular box plot",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "bplot1",
-            null,
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "ax1",
-            null,
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "boxplot",
-            null,
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "all_data",
-            "builtins.list",
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "                     ",
-            "",
-            ""
-          ],
-          [
-            "vert",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "True",
-            null,
-            "kc"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            "  ",
-            "",
-            ""
-          ],
-          [
-            "# vertical box alignment",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "                     ",
-            "",
-            ""
-          ],
-          [
-            "patch_artist",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "True",
-            null,
-            "kc"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            "  ",
-            "",
-            ""
-          ],
-          [
-            "# fill with color",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "                     ",
-            "",
-            ""
-          ],
-          [
-            "labels",
-            "builtins.list",
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "labels",
-            "builtins.list",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "  ",
-            "",
-            ""
-          ],
-          [
-            "# will be used to label x-ticks",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "ax1",
-            null,
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "set_title",
-            null,
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            "Rectangular box plot",
-            "",
-            "s1"
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "# notch shape box plot",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "bplot2",
-            null,
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "ax2",
-            null,
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "boxplot",
-            null,
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "all_data",
-            "builtins.list",
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "                     ",
-            "",
-            ""
-          ],
-          [
-            "notch",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "True",
-            null,
-            "kc"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            "  ",
-            "",
-            ""
-          ],
-          [
-            "# notch shape",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "                     ",
-            "",
-            ""
-          ],
-          [
-            "vert",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "True",
-            null,
-            "kc"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            "  ",
-            "",
-            ""
-          ],
-          [
-            "# vertical box alignment",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "                     ",
-            "",
-            ""
-          ],
-          [
-            "patch_artist",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "True",
-            null,
-            "kc"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            "  ",
-            "",
-            ""
-          ],
-          [
-            "# fill with color",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "                     ",
-            "",
-            ""
-          ],
-          [
-            "labels",
-            "builtins.list",
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "labels",
-            "builtins.list",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "  ",
-            "",
-            ""
-          ],
-          [
-            "# will be used to label x-ticks",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "ax2",
-            null,
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "set_title",
-            null,
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            "Notched box plot",
-            "",
-            "s1"
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "# fill with colors",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "colors",
-            "builtins.list",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "[",
-            "",
-            ""
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            "pink",
-            null,
-            "s1"
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            "lightblue",
-            null,
-            "s1"
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            "lightgreen",
-            null,
-            "s1"
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            "]",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "for",
-            null,
-            "k"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "bplot",
-            null,
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "in",
-            null,
-            "ow"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "bplot1",
-            null,
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "bplot2",
-            null,
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            ":",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "    ",
-            "",
-            ""
-          ],
-          [
-            "for",
-            null,
-            "k"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "patch",
-            null,
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "color",
-            "builtins.str",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "in",
-            null,
-            "ow"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "zip",
-            "builtins.zip",
-            "nb"
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "bplot",
-            null,
-            ""
-          ],
-          [
-            "[",
-            "",
-            ""
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            "boxes",
-            null,
-            "s1"
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            "]",
-            "",
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "colors",
-            "builtins.list",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            ":",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "        ",
-            "",
-            ""
-          ],
-          [
-            "patch",
-            null,
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "set_facecolor",
-            null,
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "color",
-            "builtins.str",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "# adding horizontal grid lines",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "for",
-            null,
-            "k"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "in",
-            null,
-            "ow"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "[",
-            "",
-            ""
-          ],
-          [
-            "ax1",
-            null,
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "ax2",
-            null,
-            ""
-          ],
-          [
-            "]",
-            "",
-            ""
-          ],
-          [
-            ":",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "    ",
-            "",
-            ""
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "yaxis",
-            null,
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "grid",
-            null,
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "True",
-            "builtins.bool",
-            "kc"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "    ",
-            "",
-            ""
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "set_xlabel",
-            null,
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            "Three separate samples",
-            "",
-            "s1"
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "    ",
-            "",
-            ""
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "set_ylabel",
-            null,
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            "Observed values",
-            "",
-            "s1"
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "plt",
-            "matplotlib.pyplot",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "show",
-            "matplotlib.pyplot.show",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "#############################################################################",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "#",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "# .. admonition:: References",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "#",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "#    The use of the following functions, methods, classes and modules is shown",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "#    in this example:",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "#",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "#    - `matplotlib.axes.Axes.boxplot` / `matplotlib.pyplot.boxplot`",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ]
+          {
+            "link": {
+              "data": "\"\"\"\n=================================\nBox plots with custom fill colors\n=================================\n\nThis plot illustrates how to create two types of box plots\n(rectangular and notched), and how to fill them with custom\ncolors by accessing the properties of the artists of the\nbox plots. Additionally, the ``labels`` parameter is used to\nprovide x-tick labels for each sample.\n\nA good general reference on boxplots and their history can be found\nhere: http://vita.had.co.nz/papers/boxplots.pdf\n\"\"\"",
+              "type": "str"
+            },
+            "type": "sd"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "import",
+              "type": "str"
+            },
+            "type": "kn"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": "matplotlib",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "pyplot"
+              },
+              "type": "Link"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": "pyplot",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "as",
+              "type": "str"
+            },
+            "type": "k"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": "plt",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "import",
+              "type": "str"
+            },
+            "type": "kn"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "numpy"
+              },
+              "type": "Link"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": "numpy",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "as",
+              "type": "str"
+            },
+            "type": "k"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": "np",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# Random test data",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "np",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.random",
+                  "version": "*"
+                },
+                "value": "random"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "random",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.random.mtrand.RandomState.seed",
+                  "version": "*"
+                },
+                "value": "seed"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "seed",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "19680801",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "all_data"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "all_data",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "[",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "np",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.random",
+                  "version": "*"
+                },
+                "value": "random"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "random",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.random.mtrand.RandomState.normal",
+                  "version": "*"
+                },
+                "value": "normal"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "normal",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "0",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "std"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "std",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "size",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "100",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "for",
+              "type": "str"
+            },
+            "type": "k"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "std"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "std",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "in",
+              "type": "str"
+            },
+            "type": "ow"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.range",
+                  "version": "*"
+                },
+                "value": "range"
+              },
+              "type": "Link"
+            },
+            "type": "nb"
+          },
+          {
+            "link": {
+              "data": "range",
+              "type": "str"
+            },
+            "type": "nb"
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "1",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "4",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "]",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "labels"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "labels",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "[",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "x1",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "x2",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "x3",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "]",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "fig",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax1",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax2",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "plt",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.subplots",
+                  "version": "*"
+                },
+                "value": "subplots"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "subplots",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "nrows",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "1",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ncols",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "2",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "figsize",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "9",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "4",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# rectangular box plot",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "bplot1",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax1",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "boxplot",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "all_data"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "all_data",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "                     ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "vert",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "True",
+              "type": "str"
+            },
+            "type": "kc"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "  ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# vertical box alignment",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "                     ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "patch_artist",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "True",
+              "type": "str"
+            },
+            "type": "kc"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "  ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# fill with color",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "                     ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "labels"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "labels",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "labels"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "labels",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "  ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# will be used to label x-ticks",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax1",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "set_title",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "Rectangular box plot",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# notch shape box plot",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "bplot2",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax2",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "boxplot",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "all_data"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "all_data",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "                     ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "notch",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "True",
+              "type": "str"
+            },
+            "type": "kc"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "  ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# notch shape",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "                     ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "vert",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "True",
+              "type": "str"
+            },
+            "type": "kc"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "  ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# vertical box alignment",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "                     ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "patch_artist",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "True",
+              "type": "str"
+            },
+            "type": "kc"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "  ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# fill with color",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "                     ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "labels"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "labels",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "labels"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "labels",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "  ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# will be used to label x-ticks",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax2",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "set_title",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "Notched box plot",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# fill with colors",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "colors"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "colors",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "[",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "pink",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "lightblue",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "lightgreen",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "]",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "for",
+              "type": "str"
+            },
+            "type": "k"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "bplot",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "in",
+              "type": "str"
+            },
+            "type": "ow"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "bplot1",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "bplot2",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ":",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "    ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "for",
+              "type": "str"
+            },
+            "type": "k"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "patch",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "color"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "color",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "in",
+              "type": "str"
+            },
+            "type": "ow"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.zip",
+                  "version": "*"
+                },
+                "value": "zip"
+              },
+              "type": "Link"
+            },
+            "type": "nb"
+          },
+          {
+            "link": {
+              "data": "zip",
+              "type": "str"
+            },
+            "type": "nb"
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "bplot",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "[",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "boxes",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "]",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "colors"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "colors",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ":",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "        ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "patch",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "set_facecolor",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "color"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "color",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# adding horizontal grid lines",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "for",
+              "type": "str"
+            },
+            "type": "k"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "in",
+              "type": "str"
+            },
+            "type": "ow"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "[",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax1",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax2",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "]",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ":",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "    ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "yaxis",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "grid",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.bool",
+                  "version": "*"
+                },
+                "value": "True"
+              },
+              "type": "Link"
+            },
+            "type": "kc"
+          },
+          {
+            "link": {
+              "data": "True",
+              "type": "str"
+            },
+            "type": "kc"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "    ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "set_xlabel",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "Three separate samples",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "    ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "set_ylabel",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "Observed values",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "plt",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.show",
+                  "version": "*"
+                },
+                "value": "show"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "show",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "#############################################################################",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "#",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# .. admonition:: References",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "#",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "#    The use of the following functions, methods, classes and modules is shown",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "#    in this example:",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "#",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "#    - `matplotlib.axes.Axes.boxplot` / `matplotlib.pyplot.boxplot`",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          }
         ],
         "out": ""
       },
-      "type": "Code"
+      "type": "Code2"
     },
     {
       "data": {
-        "value": "ex-boxplot_color.py-0.png"
+        "value": {
+          "kind": "assets",
+          "module": "matplotlib",
+          "path": "ex-boxplot_color.py-0.png",
+          "version": "3.5.1"
+        }
       },
       "type": "Fig"
     }

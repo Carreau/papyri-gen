@@ -19,51 +19,32 @@
       "children": [
         {
           "data": {
-            "args0": [],
-            "directive_name": "currentmodule",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "numpy "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "numpy",
+            "content": "",
+            "name": "currentmodule",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "property"
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [],
-            "directive_name": "autoproperty",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "numpy : : matrix.T "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "numpy::matrix.T",
+            "content": "",
+            "name": "autoproperty",
+            "options": []
           },
           "type": "BlockDirective"
         }

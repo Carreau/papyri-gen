@@ -4,1259 +4,1762 @@
       "data": {
         "ce_status": "execed",
         "entries": [
-          [
-            "\"\"\"\n============\naxhspan Demo\n============\n\nCreate lines or rectangles that span the axes in either the horizontal or\nvertical direction, and lines than span the axes with an arbitrary orientation.\n\"\"\"",
-            "",
-            "sd"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "import",
-            null,
-            "kn"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "numpy",
-            "numpy",
-            "nn"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "as",
-            null,
-            "k"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "np",
-            "numpy",
-            "nn"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "import",
-            null,
-            "kn"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "matplotlib",
-            "matplotlib",
-            "nn"
-          ],
-          [
-            ".",
-            "",
-            "nn"
-          ],
-          [
-            "pyplot",
-            "matplotlib.pyplot",
-            "nn"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "as",
-            null,
-            "k"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "plt",
-            "matplotlib.pyplot",
-            "nn"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "t",
-            "numpy.ndarray",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "np",
-            "numpy",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "arange",
-            "numpy.arange",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "-",
-            "",
-            "o"
-          ],
-          [
-            "1",
-            "",
-            "mi"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "2",
-            "",
-            "mi"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            ".01",
-            "",
-            "mf"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "s",
-            null,
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "np",
-            "numpy",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "sin",
-            "numpy.ufunc",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "2",
-            "",
-            "mi"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "*",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "np",
-            "numpy",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "pi",
-            null,
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "*",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "t",
-            "numpy.ndarray",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "fig",
-            "builtins.int",
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "plt",
-            "matplotlib.pyplot",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "subplots",
-            "matplotlib.pyplot.subplots",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "plot",
-            null,
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "t",
-            "numpy.ndarray",
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "s",
-            null,
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "# Thick red horizontal line at y=0 that spans the xrange.",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "axhline",
-            null,
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "linewidth",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "8",
-            "",
-            "mi"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "color",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            "#d62728",
-            "",
-            "s1"
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "# Horizontal line at y=1 that spans the xrange.",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "axhline",
-            null,
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "y",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "1",
-            "",
-            "mi"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "# Vertical line at x=1 that spans the yrange.",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "axvline",
-            null,
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "x",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "1",
-            "",
-            "mi"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "# Thick blue vertical line at x=0 that spans the upper quadrant of the yrange.",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "axvline",
-            null,
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "x",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "0",
-            "",
-            "mi"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "ymin",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "0.75",
-            "",
-            "mf"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "linewidth",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "8",
-            "",
-            "mi"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "color",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            "#1f77b4",
-            "",
-            "s1"
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "# Default hline at y=.5 that spans the middle half of the axes.",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "axhline",
-            null,
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "y",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            ".5",
-            "",
-            "mf"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "xmin",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "0.25",
-            "",
-            "mf"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "xmax",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "0.75",
-            "",
-            "mf"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "# Infinite black line going through (0, 0) to (1, 1).",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "axline",
-            null,
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "0",
-            "",
-            "mi"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "0",
-            "",
-            "mi"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "1",
-            "",
-            "mi"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "1",
-            "",
-            "mi"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "color",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            "k",
-            null,
-            "s1"
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "# 50%-gray rectangle spanning the axes' width from y=0.25 to y=0.75.",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "axhspan",
-            null,
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "0.25",
-            "",
-            "mf"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "0.75",
-            "",
-            "mf"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "facecolor",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            "0.5",
-            "",
-            "s1"
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "# Green rectangle spanning the axes' height from x=1.25 to x=1.55.",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "axvspan",
-            null,
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "1.25",
-            "",
-            "mf"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "1.55",
-            "",
-            "mf"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "facecolor",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            "#2ca02c",
-            "",
-            "s1"
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "plt",
-            "matplotlib.pyplot",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "show",
-            "matplotlib.pyplot.show",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ]
+          {
+            "link": {
+              "data": "\"\"\"\n============\naxhspan Demo\n============\n\nCreate lines or rectangles that span the axes in either the horizontal or\nvertical direction, and lines than span the axes with an arbitrary orientation.\n\"\"\"",
+              "type": "str"
+            },
+            "type": "sd"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "import",
+              "type": "str"
+            },
+            "type": "kn"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "numpy",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "as",
+              "type": "str"
+            },
+            "type": "k"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "np",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "import",
+              "type": "str"
+            },
+            "type": "kn"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "matplotlib",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": "pyplot",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "as",
+              "type": "str"
+            },
+            "type": "k"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "plt",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "t",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "np",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "arange",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "-",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "1",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "2",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".01",
+              "type": "str"
+            },
+            "type": "mf"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "s",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "np",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "sin",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "2",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "*",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "np",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "pi",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "*",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "t",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "fig",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "plt",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "subplots",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "plot",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "t",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "s",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# Thick red horizontal line at y=0 that spans the xrange.",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "axhline",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "linewidth",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "8",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "color",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "#d62728",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# Horizontal line at y=1 that spans the xrange.",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "axhline",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "y",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "1",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# Vertical line at x=1 that spans the yrange.",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "axvline",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "x",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "1",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# Thick blue vertical line at x=0 that spans the upper quadrant of the yrange.",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "axvline",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "x",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "0",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ymin",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "0.75",
+              "type": "str"
+            },
+            "type": "mf"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "linewidth",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "8",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "color",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "#1f77b4",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# Default hline at y=.5 that spans the middle half of the axes.",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "axhline",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "y",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": ".5",
+              "type": "str"
+            },
+            "type": "mf"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "xmin",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "0.25",
+              "type": "str"
+            },
+            "type": "mf"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "xmax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "0.75",
+              "type": "str"
+            },
+            "type": "mf"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# Infinite black line going through (0, 0) to (1, 1).",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "axline",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "0",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "0",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "1",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "1",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "color",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "k",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# 50%-gray rectangle spanning the axes' width from y=0.25 to y=0.75.",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "axhspan",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "0.25",
+              "type": "str"
+            },
+            "type": "mf"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "0.75",
+              "type": "str"
+            },
+            "type": "mf"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "facecolor",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "0.5",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# Green rectangle spanning the axes' height from x=1.25 to x=1.55.",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "axvspan",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "1.25",
+              "type": "str"
+            },
+            "type": "mf"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "1.55",
+              "type": "str"
+            },
+            "type": "mf"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "facecolor",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "#2ca02c",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "plt",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "show",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          }
         ],
         "out": ""
       },
-      "type": "Code"
+      "type": "Code2"
     },
     {
       "data": {
-        "value": "ex-axhspan_demo.py-0.png"
+        "value": {
+          "kind": "assets",
+          "module": "matplotlib",
+          "path": "ex-axhspan_demo.py-0.png",
+          "version": "3.5.1"
+        }
       },
       "type": "Fig"
     }

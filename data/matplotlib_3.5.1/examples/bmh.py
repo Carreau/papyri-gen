@@ -4,939 +4,1314 @@
       "data": {
         "ce_status": "execed",
         "entries": [
-          [
-            "\"\"\"\n========================================\nBayesian Methods for Hackers style sheet\n========================================\n\nThis example demonstrates the style used in the Bayesian Methods for Hackers\n[1]_ online book.\n\n.. [1] http://camdavidsonpilon.github.io/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers/\n\n\"\"\"",
-            "",
-            "sd"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "import",
-            null,
-            "kn"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "numpy",
-            "numpy",
-            "nn"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "as",
-            null,
-            "k"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "np",
-            "numpy",
-            "nn"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "import",
-            null,
-            "kn"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "matplotlib",
-            "matplotlib",
-            "nn"
-          ],
-          [
-            ".",
-            "",
-            "nn"
-          ],
-          [
-            "pyplot",
-            "matplotlib.pyplot",
-            "nn"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "as",
-            null,
-            "k"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "plt",
-            "matplotlib.pyplot",
-            "nn"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "# Fixing random state for reproducibility",
-            "",
-            "c1"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "np",
-            "numpy",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "random",
-            "numpy.random",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "seed",
-            "numpy.random.mtrand.RandomState.seed",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "19680801",
-            "",
-            "mi"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "plt",
-            "matplotlib.pyplot",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "style",
-            "matplotlib.style",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "use",
-            "matplotlib.style.core.use",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            "bmh",
-            null,
-            "s1"
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "def",
-            null,
-            "k"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "plot_beta_hist",
-            "__main__.plot_beta_hist",
-            "nf"
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "a",
-            "builtins.int",
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "b",
-            "builtins.int",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            ":",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "    ",
-            "",
-            ""
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "hist",
-            null,
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "np",
-            "numpy",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "random",
-            "numpy.random",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "beta",
-            "numpy.random.mtrand.RandomState.beta",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "a",
-            "builtins.int",
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "b",
-            "builtins.int",
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "size",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "10000",
-            "",
-            "mi"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "            ",
-            "",
-            ""
-          ],
-          [
-            "histtype",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "\"",
-            "",
-            "s2"
-          ],
-          [
-            "stepfilled",
-            null,
-            "s2"
-          ],
-          [
-            "\"",
-            "",
-            "s2"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "bins",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "25",
-            "",
-            "mi"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "alpha",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "0.8",
-            "",
-            "mf"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "density",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "True",
-            null,
-            "kc"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "fig",
-            "builtins.int",
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "plt",
-            "matplotlib.pyplot",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "subplots",
-            "matplotlib.pyplot.subplots",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "plot_beta_hist",
-            "__main__.plot_beta_hist",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "10",
-            "",
-            "mi"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "10",
-            "",
-            "mi"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "plot_beta_hist",
-            "__main__.plot_beta_hist",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "4",
-            "",
-            "mi"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "12",
-            "",
-            "mi"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "plot_beta_hist",
-            "__main__.plot_beta_hist",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "50",
-            "",
-            "mi"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "12",
-            "",
-            "mi"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "plot_beta_hist",
-            "__main__.plot_beta_hist",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "6",
-            "",
-            "mi"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "55",
-            "",
-            "mi"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "set_title",
-            null,
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "\"",
-            "",
-            "s2"
-          ],
-          [
-            "'",
-            "",
-            "s2"
-          ],
-          [
-            "bmh",
-            null,
-            "s2"
-          ],
-          [
-            "'",
-            "",
-            "s2"
-          ],
-          [
-            " style sheet",
-            "",
-            "s2"
-          ],
-          [
-            "\"",
-            "",
-            "s2"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "plt",
-            "matplotlib.pyplot",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "show",
-            "matplotlib.pyplot.show",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ]
+          {
+            "link": {
+              "data": "\"\"\"\n========================================\nBayesian Methods for Hackers style sheet\n========================================\n\nThis example demonstrates the style used in the Bayesian Methods for Hackers\n[1]_ online book.\n\n.. [1] http://camdavidsonpilon.github.io/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers/\n\n\"\"\"",
+              "type": "str"
+            },
+            "type": "sd"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "import",
+              "type": "str"
+            },
+            "type": "kn"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "numpy",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "as",
+              "type": "str"
+            },
+            "type": "k"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "np",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "import",
+              "type": "str"
+            },
+            "type": "kn"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "matplotlib",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": "pyplot",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "as",
+              "type": "str"
+            },
+            "type": "k"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "plt",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "# Fixing random state for reproducibility",
+              "type": "str"
+            },
+            "type": "c1"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "np",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "random",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "seed",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "19680801",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "plt",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "style",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "use",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "bmh",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "def",
+              "type": "str"
+            },
+            "type": "k"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "plot_beta_hist",
+              "type": "str"
+            },
+            "type": "nf"
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "a",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "b",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ":",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "    ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "hist",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "np",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "random",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "beta",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "a",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "b",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "size",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "10000",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "            ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "histtype",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "\"",
+              "type": "str"
+            },
+            "type": "s2"
+          },
+          {
+            "link": {
+              "data": "stepfilled",
+              "type": "str"
+            },
+            "type": "s2"
+          },
+          {
+            "link": {
+              "data": "\"",
+              "type": "str"
+            },
+            "type": "s2"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "bins",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "25",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "alpha",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "0.8",
+              "type": "str"
+            },
+            "type": "mf"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "density",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "True",
+              "type": "str"
+            },
+            "type": "kc"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "fig",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "plt",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "subplots",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "plot_beta_hist",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "10",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "10",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "plot_beta_hist",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "4",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "12",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "plot_beta_hist",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "50",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "12",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "plot_beta_hist",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "6",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "55",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "set_title",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\"",
+              "type": "str"
+            },
+            "type": "s2"
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s2"
+          },
+          {
+            "link": {
+              "data": "bmh",
+              "type": "str"
+            },
+            "type": "s2"
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s2"
+          },
+          {
+            "link": {
+              "data": " style sheet",
+              "type": "str"
+            },
+            "type": "s2"
+          },
+          {
+            "link": {
+              "data": "\"",
+              "type": "str"
+            },
+            "type": "s2"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "plt",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "show",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          }
         ],
         "out": ""
       },
-      "type": "Code"
+      "type": "Code2"
     },
     {
       "data": {
-        "value": "ex-bmh.py-0.png"
+        "value": {
+          "kind": "assets",
+          "module": "matplotlib",
+          "path": "ex-bmh.py-0.png",
+          "version": "3.5.1"
+        }
       },
       "type": "Fig"
     }

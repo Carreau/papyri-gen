@@ -8,29 +8,27 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "This function uses the Summarization by Grouping Nodes on Attributes and Pairwise edges (SNAP) algorithm for summarizing a given graph by grouping nodes by node attributes and their edge attributes into supernodes in a summary graph.  This name SNAP should not be confused with the Stanford Network Analysis Project (SNAP)."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Here is a high-level view of how this algorithm works:"
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -38,36 +36,34 @@
           "data": {
             "children": [
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "Group nodes by node attribute values."
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
                 ]
               },
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "Iteratively split groups until all nodes in each group have edges"
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
@@ -79,15 +75,14 @@
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "to nodes in the same groups. That is, until all the groups are homogeneous in their member nodes' edges to other groups.  For example, if all the nodes in group A only have edge to nodes in group B, then the group is homogeneous and does not need to be split. If all nodes in group B have edges with nodes in groups {A, C}, but some also have edges with other nodes in B, then group B is not homogeneous and needs to be split into groups have edges with {A, C} and a group of nodes having edges with {A, B, C}.  This way, viewers of the summary graph can assume that all nodes in the group have the exact same node attributes and the exact same edges."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -95,18 +90,17 @@
           "data": {
             "children": [
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "Build the output summary graph, where the groups are represented by"
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
@@ -118,29 +112,27 @@
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "super-nodes. Edges represent the edges shared between all the nodes in each respective groups."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "A SNAP summary graph can be used to visualize graphs that are too large to display or visually analyze, or to efficiently identify sets of similar nodes with similar connectivity patterns to other sets of similar nodes based on specified node and/or edge attributes in a graph."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -155,29 +147,27 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The summary graph produced is called a maximum Attribute-edge compatible (AR-compatible) grouping.  According to , an AR-compatible grouping means that all nodes in each group have the same exact node attribute values and the same exact edges and edge types to one or more nodes in the same groups.  The maximal AR-compatible grouping is the grouping with the minimal cardinality."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The AR-compatible grouping is the most detailed grouping provided by any of the SNAP algorithms."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -192,118 +182,105 @@
       "children": [
         {
           "data": {
-            "desc": [
+            "children": [
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Networkx Graph to be summarized"
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "G: graph",
-            "type_": ""
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Networkx Graph to be summarized"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "G: graph",
+                "type_": ""
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "An iterable of the edge attributes considered in the summarization process.  If provided, unique combinations of the attribute values found in the graph are used to determine the edge types in the graph.  If not provided, all edges are considered to be of the same type."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "edge_attributes: iterable, optional",
-            "type_": ""
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "An iterable of the edge attributes considered in the summarization process.  If provided, unique combinations of the attribute values found in the graph are used to determine the edge types in the graph.  If not provided, all edges are considered to be of the same type."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "edge_attributes: iterable, optional",
+                "type_": ""
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "The prefix used to denote supernodes in the summary graph. Defaults to 'Supernode-'."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "prefix: str",
-            "type_": ""
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The prefix used to denote supernodes in the summary graph. Defaults to 'Supernode-'."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "prefix: str",
+                "type_": ""
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "The node attribute for recording the supernode groupings of nodes. Defaults to 'group'."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "supernode_attribute: str",
-            "type_": ""
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The node attribute for recording the supernode groupings of nodes. Defaults to 'group'."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "supernode_attribute: str",
+                "type_": ""
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "The edge attribute for recording the edge types of multiple edges. Defaults to 'types'."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The edge attribute for recording the edge types of multiple edges. Defaults to 'types'."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "superedge_attribute: str",
+                "type_": ""
               }
-            ],
-            "param": "superedge_attribute: str",
-            "type_": ""
+            ]
           },
-          "type": "Param"
+          "type": "Parameters"
         }
       ],
       "title": null
@@ -320,11 +297,15 @@
       "children": [
         {
           "data": {
-            "desc": [],
-            "param": "",
-            "type_": "networkx.Graph: summary graph"
+            "children": [
+              {
+                "desc": [],
+                "param": "",
+                "type_": "networkx.Graph: summary graph"
+              }
+            ]
           },
-          "type": "Param"
+          "type": "Parameters"
         }
       ],
       "title": null
@@ -333,15 +314,14 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Creates a summary graph based on attributes and connectivity."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -369,15 +349,14 @@
     "children": [
       {
         "data": {
-          "inline": [
+          "children": [
             {
               "data": {
                 "value": "SNAP aggregation takes a graph and summarizes it in the context of user-provided node and edge attributes such that a viewer can more easily extract and analyze the information represented by the graph"
               },
               "type": "Words"
             }
-          ],
-          "inner": []
+          ]
         },
         "type": "Paragraph"
       },
@@ -385,1523 +364,2724 @@
         "data": {
           "ce_status": "execed",
           "entries": [
-            [
-              "nodes",
-              "builtins.dict",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "{",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "    ",
-              "",
-              ""
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              "A",
-              null,
-              "s2"
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              ":",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "dict",
-              "builtins.dict",
-              "nb"
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "color",
-              null,
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              "Red",
-              null,
-              "s2"
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "    ",
-              "",
-              ""
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              "B",
-              null,
-              "s2"
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              ":",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "dict",
-              "builtins.dict",
-              "nb"
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "color",
-              null,
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              "Red",
-              null,
-              "s2"
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "    ",
-              "",
-              ""
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              "C",
-              null,
-              "s2"
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              ":",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "dict",
-              "builtins.dict",
-              "nb"
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "color",
-              null,
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              "Red",
-              null,
-              "s2"
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "    ",
-              "",
-              ""
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              "D",
-              null,
-              "s2"
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              ":",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "dict",
-              "builtins.dict",
-              "nb"
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "color",
-              null,
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              "Red",
-              null,
-              "s2"
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "    ",
-              "",
-              ""
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              "E",
-              null,
-              "s2"
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              ":",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "dict",
-              "builtins.dict",
-              "nb"
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "color",
-              null,
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              "Blue",
-              null,
-              "s2"
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "    ",
-              "",
-              ""
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              "F",
-              null,
-              "s2"
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              ":",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "dict",
-              "builtins.dict",
-              "nb"
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "color",
-              null,
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              "Blue",
-              null,
-              "s2"
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "}",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "edges",
-              "builtins.list",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "[",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "    ",
-              "",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              "A",
-              null,
-              "s2"
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              "E",
-              null,
-              "s2"
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              "Strong",
-              null,
-              "s2"
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "    ",
-              "",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              "B",
-              null,
-              "s2"
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              "F",
-              null,
-              "s2"
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              "Strong",
-              null,
-              "s2"
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "    ",
-              "",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              "C",
-              null,
-              "s2"
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              "E",
-              null,
-              "s2"
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              "Weak",
-              null,
-              "s2"
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "    ",
-              "",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              "D",
-              null,
-              "s2"
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              "F",
-              null,
-              "s2"
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              "Weak",
-              null,
-              "s2"
-            ],
-            [
-              "\"",
-              "",
-              "s2"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "]",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "G",
-              "networkx.classes.graph.Graph",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "nx",
-              "networkx",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "Graph",
-              "networkx.classes.graph.Graph",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "for",
-              null,
-              "k"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "node",
-              "builtins.str",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "in",
-              null,
-              "ow"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "nodes",
-              "builtins.dict",
-              ""
-            ],
-            [
-              ":",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "    ",
-              "",
-              ""
-            ],
-            [
-              "attributes",
-              "builtins.dict",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "nodes",
-              "builtins.dict",
-              ""
-            ],
-            [
-              "[",
-              "",
-              ""
-            ],
-            [
-              "node",
-              "builtins.str",
-              ""
-            ],
-            [
-              "]",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "    ",
-              "",
-              ""
-            ],
-            [
-              "G",
-              "networkx.classes.graph.Graph",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "add_node",
-              "networkx.classes.graph.Graph.add_node",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "node",
-              "builtins.str",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "*",
-              "",
-              "o"
-            ],
-            [
-              "*",
-              "",
-              "o"
-            ],
-            [
-              "attributes",
-              "builtins.dict",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ]
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.dict",
+                    "version": "*"
+                  },
+                  "value": "nodes"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "nodes",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "{",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "    ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "A",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": ":",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.dict",
+                    "version": "*"
+                  },
+                  "value": "dict"
+                },
+                "type": "Link"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "dict",
+                "type": "str"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "color",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "Red",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "    ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "B",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": ":",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.dict",
+                    "version": "*"
+                  },
+                  "value": "dict"
+                },
+                "type": "Link"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "dict",
+                "type": "str"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "color",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "Red",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "    ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "C",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": ":",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.dict",
+                    "version": "*"
+                  },
+                  "value": "dict"
+                },
+                "type": "Link"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "dict",
+                "type": "str"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "color",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "Red",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "    ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "D",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": ":",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.dict",
+                    "version": "*"
+                  },
+                  "value": "dict"
+                },
+                "type": "Link"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "dict",
+                "type": "str"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "color",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "Red",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "    ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "E",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": ":",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.dict",
+                    "version": "*"
+                  },
+                  "value": "dict"
+                },
+                "type": "Link"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "dict",
+                "type": "str"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "color",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "Blue",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "    ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "F",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": ":",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.dict",
+                    "version": "*"
+                  },
+                  "value": "dict"
+                },
+                "type": "Link"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "dict",
+                "type": "str"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "color",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "Blue",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "}",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.list",
+                    "version": "*"
+                  },
+                  "value": "edges"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "edges",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "[",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "    ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "A",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "E",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "Strong",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "    ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "B",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "F",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "Strong",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "    ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "C",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "E",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "Weak",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "    ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "D",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "F",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "Weak",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": "\"",
+                "type": "str"
+              },
+              "type": "s2"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "]",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.classes.graph.Graph",
+                    "version": "2.7.2rc1.dev0"
+                  },
+                  "value": "G"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx",
+                    "version": "2.7.2rc1.dev0"
+                  },
+                  "value": "nx"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.classes.graph.Graph",
+                    "version": "2.7.2rc1.dev0"
+                  },
+                  "value": "Graph"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "for",
+                "type": "str"
+              },
+              "type": "k"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.str",
+                    "version": "*"
+                  },
+                  "value": "node"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "node",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "in",
+                "type": "str"
+              },
+              "type": "ow"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.dict",
+                    "version": "*"
+                  },
+                  "value": "nodes"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "nodes",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ":",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "    ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.dict",
+                    "version": "*"
+                  },
+                  "value": "attributes"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "attributes",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.dict",
+                    "version": "*"
+                  },
+                  "value": "nodes"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "nodes",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "[",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.str",
+                    "version": "*"
+                  },
+                  "value": "node"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "node",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "]",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "    ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.classes.graph.Graph",
+                    "version": "2.7.2rc1.dev0"
+                  },
+                  "value": "G"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.classes.graph.Graph.add_node",
+                    "version": "2.7.2rc1.dev0"
+                  },
+                  "value": "add_node"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.str",
+                    "version": "*"
+                  },
+                  "value": "node"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "node",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "*",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "*",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.dict",
+                    "version": "*"
+                  },
+                  "value": "attributes"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "attributes",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            }
           ],
           "out": "..."
         },
-        "type": "Code"
+        "type": "Code2"
       },
       {
         "data": {
           "ce_status": "execed",
           "entries": [
-            [
-              "for",
-              null,
-              "k"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "source",
-              "builtins.str",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "target",
-              "builtins.str",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "type",
-              "builtins.str",
-              "nb"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "in",
-              null,
-              "ow"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "edges",
-              "builtins.list",
-              ""
-            ],
-            [
-              ":",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "    ",
-              "",
-              ""
-            ],
-            [
-              "G",
-              "networkx.classes.graph.Graph",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "add_edge",
-              "networkx.classes.graph.Graph.add_edge",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "source",
-              "builtins.str",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "target",
-              "builtins.str",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "type",
-              "builtins.str",
-              "nb"
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              "type",
-              "builtins.str",
-              "nb"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ]
+            {
+              "link": {
+                "data": "for",
+                "type": "str"
+              },
+              "type": "k"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.str",
+                    "version": "*"
+                  },
+                  "value": "source"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "source",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.str",
+                    "version": "*"
+                  },
+                  "value": "target"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "target",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.str",
+                    "version": "*"
+                  },
+                  "value": "type"
+                },
+                "type": "Link"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "type",
+                "type": "str"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "in",
+                "type": "str"
+              },
+              "type": "ow"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.list",
+                    "version": "*"
+                  },
+                  "value": "edges"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "edges",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ":",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "    ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.classes.graph.Graph",
+                    "version": "2.7.2rc1.dev0"
+                  },
+                  "value": "G"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.classes.graph.Graph.add_edge",
+                    "version": "2.7.2rc1.dev0"
+                  },
+                  "value": "add_edge"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.str",
+                    "version": "*"
+                  },
+                  "value": "source"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "source",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.str",
+                    "version": "*"
+                  },
+                  "value": "target"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "target",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.str",
+                    "version": "*"
+                  },
+                  "value": "type"
+                },
+                "type": "Link"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "type",
+                "type": "str"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.str",
+                    "version": "*"
+                  },
+                  "value": "type"
+                },
+                "type": "Link"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "type",
+                "type": "str"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            }
           ],
           "out": "..."
         },
-        "type": "Code"
+        "type": "Code2"
       },
       {
         "data": {
           "ce_status": "execed",
           "entries": [
-            [
-              "node_attributes",
-              "builtins.tuple",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "'",
-              "",
-              "s1"
-            ],
-            [
-              "color",
-              null,
-              "s1"
-            ],
-            [
-              "'",
-              "",
-              "s1"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "edge_attributes",
-              "builtins.tuple",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "'",
-              "",
-              "s1"
-            ],
-            [
-              "type",
-              null,
-              "s1"
-            ],
-            [
-              "'",
-              "",
-              "s1"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "summary_graph",
-              "networkx.classes.graph.Graph",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "nx",
-              "networkx",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "snap_aggregation",
-              "networkx.algorithms.summarization.snap_aggregation",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "G",
-              "networkx.classes.graph.Graph",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "node_attributes",
-              "builtins.tuple",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              "node_attributes",
-              "builtins.tuple",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "edge_attributes",
-              "builtins.tuple",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              "edge_attributes",
-              "builtins.tuple",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ]
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.tuple",
+                    "version": "*"
+                  },
+                  "value": "node_attributes"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "node_attributes",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "color",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.tuple",
+                    "version": "*"
+                  },
+                  "value": "edge_attributes"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "edge_attributes",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "type",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.classes.graph.Graph",
+                    "version": "2.7.2rc1.dev0"
+                  },
+                  "value": "summary_graph"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx",
+                    "version": "2.7.2rc1.dev0"
+                  },
+                  "value": "nx"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.algorithms.summarization.snap_aggregation",
+                    "version": "2.7.2rc1.dev0"
+                  },
+                  "value": "snap_aggregation"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.classes.graph.Graph",
+                    "version": "2.7.2rc1.dev0"
+                  },
+                  "value": "G"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.tuple",
+                    "version": "*"
+                  },
+                  "value": "node_attributes"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "node_attributes",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.tuple",
+                    "version": "*"
+                  },
+                  "value": "node_attributes"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "node_attributes",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.tuple",
+                    "version": "*"
+                  },
+                  "value": "edge_attributes"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "edge_attributes",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.tuple",
+                    "version": "*"
+                  },
+                  "value": "edge_attributes"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "edge_attributes",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            }
           ],
           "out": ""
         },
-        "type": "Code"
+        "type": "Code2"
       }
     ],
     "title": null

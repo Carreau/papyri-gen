@@ -4,1284 +4,1797 @@
       "data": {
         "ce_status": "execed",
         "entries": [
-          [
-            "\"\"\"\n=======\nLog Bar\n=======\n\nPlotting a bar chart with a logarithmic y-axis.\n\"\"\"",
-            "",
-            "sd"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "import",
-            null,
-            "kn"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "matplotlib",
-            "matplotlib",
-            "nn"
-          ],
-          [
-            ".",
-            "",
-            "nn"
-          ],
-          [
-            "pyplot",
-            "matplotlib.pyplot",
-            "nn"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "as",
-            null,
-            "k"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "plt",
-            "matplotlib.pyplot",
-            "nn"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "import",
-            null,
-            "kn"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "numpy",
-            "numpy",
-            "nn"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "as",
-            null,
-            "k"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "np",
-            "numpy",
-            "nn"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "data",
-            "builtins.tuple",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "3",
-            "",
-            "mi"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "1000",
-            "",
-            "mi"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "10",
-            "",
-            "mi"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "3",
-            "",
-            "mi"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "100",
-            "",
-            "mi"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "30",
-            "",
-            "mi"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "500",
-            "",
-            "mi"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "800",
-            "",
-            "mi"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "50",
-            "",
-            "mi"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "1",
-            "",
-            "mi"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "dim",
-            "builtins.int",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "len",
-            "builtins.len",
-            "nb"
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "data",
-            "builtins.tuple",
-            ""
-          ],
-          [
-            "[",
-            "",
-            ""
-          ],
-          [
-            "0",
-            "",
-            "mi"
-          ],
-          [
-            "]",
-            "",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "w",
-            "builtins.float",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "0.75",
-            "",
-            "mf"
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "dimw",
-            "builtins.float",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "w",
-            "builtins.float",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "/",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "dim",
-            "builtins.int",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "fig",
-            "builtins.int",
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "plt",
-            "matplotlib.pyplot",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "subplots",
-            "matplotlib.pyplot.subplots",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "x",
-            "numpy.ndarray",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "np",
-            "numpy",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "arange",
-            "numpy.arange",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "len",
-            "builtins.len",
-            "nb"
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "data",
-            "builtins.tuple",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "for",
-            null,
-            "k"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "i",
-            "builtins.int",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "in",
-            null,
-            "ow"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "range",
-            "builtins.range",
-            "nb"
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "len",
-            "builtins.len",
-            "nb"
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "data",
-            "builtins.tuple",
-            ""
-          ],
-          [
-            "[",
-            "",
-            ""
-          ],
-          [
-            "0",
-            "",
-            "mi"
-          ],
-          [
-            "]",
-            "",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            ":",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "    ",
-            "",
-            ""
-          ],
-          [
-            "y",
-            "builtins.list",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "[",
-            "",
-            ""
-          ],
-          [
-            "d",
-            "builtins.tuple",
-            ""
-          ],
-          [
-            "[",
-            "",
-            ""
-          ],
-          [
-            "i",
-            "builtins.int",
-            ""
-          ],
-          [
-            "]",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "for",
-            null,
-            "k"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "d",
-            "builtins.tuple",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "in",
-            null,
-            "ow"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "data",
-            "builtins.tuple",
-            ""
-          ],
-          [
-            "]",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "    ",
-            "",
-            ""
-          ],
-          [
-            "b",
-            null,
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "bar",
-            null,
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "x",
-            "numpy.ndarray",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "+",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "i",
-            "builtins.int",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "*",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "dimw",
-            "builtins.float",
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "y",
-            "builtins.list",
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "dimw",
-            "builtins.float",
-            ""
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "bottom",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "0.001",
-            "",
-            "mf"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "set_xticks",
-            null,
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "x",
-            "numpy.ndarray",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "+",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "dimw",
-            "builtins.float",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "/",
-            "",
-            "o"
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "2",
-            "",
-            "mi"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "labels",
-            null,
-            ""
-          ],
-          [
-            "=",
-            "",
-            "o"
-          ],
-          [
-            "map",
-            "builtins.map",
-            "nb"
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "str",
-            "builtins.str",
-            "nb"
-          ],
-          [
-            ",",
-            "",
-            ""
-          ],
-          [
-            " ",
-            "",
-            ""
-          ],
-          [
-            "x",
-            "numpy.ndarray",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "set_yscale",
-            null,
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            "log",
-            null,
-            "s1"
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "set_xlabel",
-            null,
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            "x",
-            null,
-            "s1"
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "ax",
-            null,
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "set_ylabel",
-            null,
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            "y",
-            null,
-            "s1"
-          ],
-          [
-            "'",
-            "",
-            "s1"
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ],
-          [
-            "plt",
-            "matplotlib.pyplot",
-            ""
-          ],
-          [
-            ".",
-            "",
-            "o"
-          ],
-          [
-            "show",
-            "matplotlib.pyplot.show",
-            ""
-          ],
-          [
-            "(",
-            "",
-            ""
-          ],
-          [
-            ")",
-            "",
-            ""
-          ],
-          [
-            "\n",
-            "",
-            ""
-          ]
+          {
+            "link": {
+              "data": "\"\"\"\n=======\nLog Bar\n=======\n\nPlotting a bar chart with a logarithmic y-axis.\n\"\"\"",
+              "type": "str"
+            },
+            "type": "sd"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "import",
+              "type": "str"
+            },
+            "type": "kn"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "matplotlib",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": "pyplot",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "as",
+              "type": "str"
+            },
+            "type": "k"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "plt",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "import",
+              "type": "str"
+            },
+            "type": "kn"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "numpy",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "as",
+              "type": "str"
+            },
+            "type": "k"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "np",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "data",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "3",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "1000",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "10",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "3",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "100",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "30",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "500",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "800",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "50",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "1",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "dim",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "len",
+              "type": "str"
+            },
+            "type": "nb"
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "data",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "[",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "0",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": "]",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "w",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "0.75",
+              "type": "str"
+            },
+            "type": "mf"
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "dimw",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "w",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "/",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "dim",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "fig",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "plt",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "subplots",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "x",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "np",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "arange",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "len",
+              "type": "str"
+            },
+            "type": "nb"
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "data",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "for",
+              "type": "str"
+            },
+            "type": "k"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "i",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "in",
+              "type": "str"
+            },
+            "type": "ow"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "range",
+              "type": "str"
+            },
+            "type": "nb"
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "len",
+              "type": "str"
+            },
+            "type": "nb"
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "data",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "[",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "0",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": "]",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ":",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "    ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "y",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "[",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "d",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "[",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "i",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "]",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "for",
+              "type": "str"
+            },
+            "type": "k"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "d",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "in",
+              "type": "str"
+            },
+            "type": "ow"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "data",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "]",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "    ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "b",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "bar",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "x",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "+",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "i",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "*",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "dimw",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "y",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "dimw",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "bottom",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "0.001",
+              "type": "str"
+            },
+            "type": "mf"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "set_xticks",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "x",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "+",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "dimw",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "/",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "2",
+              "type": "str"
+            },
+            "type": "mi"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "labels",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "=",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "map",
+              "type": "str"
+            },
+            "type": "nb"
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "str",
+              "type": "str"
+            },
+            "type": "nb"
+          },
+          {
+            "link": {
+              "data": ",",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "x",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "set_yscale",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "log",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "set_xlabel",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "x",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "ax",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "set_ylabel",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "y",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": "'",
+              "type": "str"
+            },
+            "type": "s1"
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "plt",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "o"
+          },
+          {
+            "link": {
+              "data": "show",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "(",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": ")",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          }
         ],
         "out": ""
       },
-      "type": "Code"
+      "type": "Code2"
     },
     {
       "data": {
-        "value": "ex-log_bar.py-0.png"
+        "value": {
+          "kind": "assets",
+          "module": "matplotlib",
+          "path": "ex-log_bar.py-0.png",
+          "version": "3.5.1"
+        }
       },
       "type": "Fig"
     }

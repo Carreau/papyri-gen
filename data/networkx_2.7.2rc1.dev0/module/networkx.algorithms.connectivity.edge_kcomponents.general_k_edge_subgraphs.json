@@ -16,29 +16,27 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Implementation of the basic algorithm from _[1].  The basic idea is to find a global minimum cut of the graph. If the cut value is at least k, then the graph is a k-edge-connected subgraph and can be added to the results. Otherwise, the cut is used to split the graph in two and the procedure is applied recursively. If the graph is just a single node, then it is also added to the results. At the end, each result is either guaranteed to be a single node or a subgraph of G that is k-edge-connected."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "This implementation contains optimizations for reducing the number of calls to max-flow, but there are other optimizations in _[1] that could be implemented."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -65,26 +63,29 @@
       "children": [
         {
           "data": {
-            "desc": [
+            "children": [
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Each k-edge-subgraph is a maximal set of nodes that defines a subgraph of G that is k-edge-connected."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Each k-edge-subgraph is a maximal set of nodes that defines a subgraph of G that is k-edge-connected."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "k_edge_subgraphs",
+                "type_": "a generator of nx.Graphs that are k-edge-subgraphs"
               }
-            ],
-            "param": "k_edge_subgraphs",
-            "type_": "a generator of nx.Graphs that are k-edge-subgraphs"
+            ]
           },
-          "type": "Param"
+          "type": "Parameters"
         }
       ],
       "title": null
@@ -93,15 +94,14 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "General algorithm to find all maximal k-edge-connected subgraphs in G."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -131,870 +131,1447 @@
         "data": {
           "ce_status": "exception_in_exec",
           "entries": [
-            [
-              "from",
-              null,
-              "kn"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "networkx",
-              "networkx",
-              "nn"
-            ],
-            [
-              ".",
-              "",
-              "nn"
-            ],
-            [
-              "utils",
-              "networkx.utils",
-              "nn"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "import",
-              null,
-              "kn"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "pairwise",
-              "networkx.utils.misc.pairwise",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "paths",
-              "builtins.list",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "[",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "    ",
-              "",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "11",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "12",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "13",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "14",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "11",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "13",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "14",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "12",
-              "",
-              "mi"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              "  ",
-              "",
-              ""
-            ],
-            [
-              "# a 4-clique",
-              "",
-              "c1"
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "    ",
-              "",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "21",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "22",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "23",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "24",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "21",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "23",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "24",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "22",
-              "",
-              "mi"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              "  ",
-              "",
-              ""
-            ],
-            [
-              "# another 4-clique",
-              "",
-              "c1"
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "    ",
-              "",
-              ""
-            ],
-            [
-              "# connect the cliques with high degree but low connectivity",
-              "",
-              "c1"
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "    ",
-              "",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "50",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "13",
-              "",
-              "mi"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "    ",
-              "",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "12",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "50",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "22",
-              "",
-              "mi"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "    ",
-              "",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "13",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "102",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "23",
-              "",
-              "mi"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "    ",
-              "",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "14",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "101",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "24",
-              "",
-              "mi"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "]",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "G",
-              "networkx.classes.graph.Graph",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "nx",
-              "networkx",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "Graph",
-              "networkx.classes.graph.Graph",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "it",
-              "itertools",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "chain",
-              "itertools.chain",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "*",
-              "",
-              "o"
-            ],
-            [
-              "[",
-              "",
-              ""
-            ],
-            [
-              "pairwise",
-              "networkx.utils.misc.pairwise",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "path",
-              "builtins.tuple",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "for",
-              null,
-              "k"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "path",
-              "builtins.tuple",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "in",
-              null,
-              "ow"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "paths",
-              "builtins.list",
-              ""
-            ],
-            [
-              "]",
-              "",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "sorted",
-              "builtins.sorted",
-              "nb"
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "map",
-              "builtins.map",
-              "nb"
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "len",
-              "builtins.len",
-              "nb"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "k_edge_subgraphs",
-              null,
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "G",
-              "networkx.classes.graph.Graph",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "k",
-              null,
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              "3",
-              "",
-              "mi"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ]
+            {
+              "link": {
+                "data": "from",
+                "type": "str"
+              },
+              "type": "kn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx",
+                    "version": "2.7.2rc1.dev0"
+                  },
+                  "value": "networkx"
+                },
+                "type": "Link"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.utils",
+                    "version": "2.7.2rc1.dev0"
+                  },
+                  "value": "utils"
+                },
+                "type": "Link"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "import",
+                "type": "str"
+              },
+              "type": "kn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.utils.misc.pairwise",
+                    "version": "2.7.2rc1.dev0"
+                  },
+                  "value": "pairwise"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.list",
+                    "version": "*"
+                  },
+                  "value": "paths"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "paths",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "[",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "    ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "11",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "12",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "13",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "14",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "11",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "13",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "14",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "12",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "  ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "# a 4-clique",
+                "type": "str"
+              },
+              "type": "c1"
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "    ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "21",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "22",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "23",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "24",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "21",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "23",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "24",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "22",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "  ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "# another 4-clique",
+                "type": "str"
+              },
+              "type": "c1"
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "    ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "# connect the cliques with high degree but low connectivity",
+                "type": "str"
+              },
+              "type": "c1"
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "    ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "50",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "13",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "    ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "12",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "50",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "22",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "    ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "13",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "102",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "23",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "    ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "14",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "101",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "24",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "]",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.classes.graph.Graph",
+                    "version": "2.7.2rc1.dev0"
+                  },
+                  "value": "G"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx",
+                    "version": "2.7.2rc1.dev0"
+                  },
+                  "value": "nx"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.classes.graph.Graph",
+                    "version": "2.7.2rc1.dev0"
+                  },
+                  "value": "Graph"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "itertools",
+                    "path": "itertools",
+                    "version": "*"
+                  },
+                  "value": "it"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "it",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "itertools",
+                    "path": "itertools.chain",
+                    "version": "*"
+                  },
+                  "value": "chain"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "chain",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "*",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "[",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.utils.misc.pairwise",
+                    "version": "2.7.2rc1.dev0"
+                  },
+                  "value": "pairwise"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.tuple",
+                    "version": "*"
+                  },
+                  "value": "path"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "path",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "for",
+                "type": "str"
+              },
+              "type": "k"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.tuple",
+                    "version": "*"
+                  },
+                  "value": "path"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "path",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "in",
+                "type": "str"
+              },
+              "type": "ow"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.list",
+                    "version": "*"
+                  },
+                  "value": "paths"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "paths",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "]",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.sorted",
+                    "version": "*"
+                  },
+                  "value": "sorted"
+                },
+                "type": "Link"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "sorted",
+                "type": "str"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.map",
+                    "version": "*"
+                  },
+                  "value": "map"
+                },
+                "type": "Link"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "map",
+                "type": "str"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.len",
+                    "version": "*"
+                  },
+                  "value": "len"
+                },
+                "type": "Link"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "len",
+                "type": "str"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "k_edge_subgraphs",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.classes.graph.Graph",
+                    "version": "2.7.2rc1.dev0"
+                  },
+                  "value": "G"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "k",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "3",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            }
           ],
           "out": "[1, 1, 1, 4, 4]"
         },
-        "type": "Code"
+        "type": "Code2"
       }
     ],
     "title": null

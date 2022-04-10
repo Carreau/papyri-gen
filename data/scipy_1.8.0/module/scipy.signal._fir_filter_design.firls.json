@@ -8,7 +8,7 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Calculate the filter coefficients for the linear-phase finite impulse response (FIR) filter which has the best approximation to the desired frequency response described by "
@@ -18,12 +18,12 @@
               {
                 "data": {
                   "exists": true,
-                  "kind": "local",
+                  "kind": "module",
                   "reference": {
-                    "kind": "local",
-                    "module": null,
-                    "path": "bands",
-                    "version": null
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.integrate._ode.vode._determine_mf_and_set_bands",
+                    "version": "1.8.0"
                   },
                   "value": "bands"
                 },
@@ -37,17 +37,11 @@
               },
               {
                 "data": {
-                  "exists": true,
-                  "kind": "local",
-                  "reference": {
-                    "kind": "local",
-                    "module": null,
-                    "path": "desired",
-                    "version": null
-                  },
+                  "domain": null,
+                  "role": null,
                   "value": "desired"
                 },
-                "type": "Link"
+                "type": "Directive"
               },
               {
                 "data": {
@@ -55,8 +49,7 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -71,15 +64,14 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "This implementation follows the algorithm given in . As noted there, least squares design has multiple advantages:"
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -97,7 +89,7 @@
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "This function constructs a Type I linear phase FIR filter, which contains an odd number of "
@@ -106,17 +98,11 @@
               },
               {
                 "data": {
-                  "exists": true,
-                  "kind": "local",
-                  "reference": {
-                    "kind": "local",
-                    "module": null,
-                    "path": "coeffs",
-                    "version": null
-                  },
+                  "domain": null,
+                  "role": null,
                   "value": "coeffs"
                 },
-                "type": "Link"
+                "type": "Directive"
               },
               {
                 "data": {
@@ -126,9 +112,7 @@
               },
               {
                 "data": {
-                  "value": [
-                    "n < numtaps"
-                  ]
+                  "value": "n < numtaps"
                 },
                 "type": "Math"
               },
@@ -138,48 +122,34 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "value": "coeffs ( n) = coeffs ( numtaps - 1 - n) "
+            "value": "coeffs(n) = coeffs(numtaps - 1 - n)"
           },
           "type": "BlockMath"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The odd number of coefficients and filter symmetry avoid boundary conditions that could otherwise occur at the Nyquist and 0 frequencies (e.g., for Type II, III, or IV variants)."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "children": [
-              {
-                "inline": [
-                  {
-                    "data": {
-                      "value": "0.18 "
-                    },
-                    "type": "Words"
-                  }
-                ],
-                "inner": []
-              }
-            ],
+            "children": [],
             "kind": "versionadded",
-            "title": "TODO"
+            "title": "0.18"
           },
           "type": "Admonition"
         }
@@ -194,323 +164,282 @@
       "children": [
         {
           "data": {
-            "desc": [
+            "children": [
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "The number of taps in the FIR filter. "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "exists": true,
-                        "kind": "local",
-                        "reference": {
-                          "kind": "local",
-                          "module": null,
-                          "path": "numtaps",
-                          "version": null
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The number of taps in the FIR filter. "
+                          },
+                          "type": "Words"
                         },
-                        "value": "numtaps"
-                      },
-                      "type": "Link"
-                    },
-                    {
-                      "data": {
-                        "value": " must be odd."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "numtaps",
-            "type_": "int"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "A monotonic nondecreasing sequence containing the band edges in Hz. All elements must be non-negative and less than or equal to the Nyquist frequency given by "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "exists": true,
-                        "kind": "local",
-                        "reference": {
-                          "kind": "local",
-                          "module": null,
-                          "path": "nyq",
-                          "version": null
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "numtaps"
+                          },
+                          "type": "Directive"
                         },
-                        "value": "nyq"
-                      },
-                      "type": "Link"
-                    },
-                    {
-                      "data": {
-                        "value": "."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "bands",
-            "type_": "array_like"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "A sequence the same size as "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "exists": true,
-                        "kind": "local",
-                        "reference": {
-                          "kind": "local",
-                          "module": null,
-                          "path": "bands",
-                          "version": null
-                        },
-                        "value": "bands"
-                      },
-                      "type": "Link"
-                    },
-                    {
-                      "data": {
-                        "value": " containing the desired gain at the start and end point of each band."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "desired",
-            "type_": "array_like"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "A relative weighting to give to each band region when solving the least squares problem. "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "exists": true,
-                        "kind": "local",
-                        "reference": {
-                          "kind": "local",
-                          "module": null,
-                          "path": "weight",
-                          "version": null
-                        },
-                        "value": "weight"
-                      },
-                      "type": "Link"
-                    },
-                    {
-                      "data": {
-                        "value": " has to be half the size of "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "exists": true,
-                        "kind": "local",
-                        "reference": {
-                          "kind": "local",
-                          "module": null,
-                          "path": "bands",
-                          "version": null
-                        },
-                        "value": "bands"
-                      },
-                      "type": "Link"
-                    },
-                    {
-                      "data": {
-                        "value": "."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "weight",
-            "type_": "array_like, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": {
-                          "value": "Deprecated. Use `fs` instead."
+                        {
+                          "data": {
+                            "value": " must be odd."
+                          },
+                          "type": "Words"
                         }
-                      },
-                      "type": "Emph"
+                      ]
                     },
-                    {
-                      "data": {
-                        "value": " Nyquist frequency. Each frequency in "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "exists": true,
-                        "kind": "local",
-                        "reference": {
-                          "kind": "local",
-                          "module": null,
-                          "path": "bands",
-                          "version": null
-                        },
-                        "value": "bands"
-                      },
-                      "type": "Link"
-                    },
-                    {
-                      "data": {
-                        "value": " must be between 0 and "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "exists": true,
-                        "kind": "local",
-                        "reference": {
-                          "kind": "local",
-                          "module": null,
-                          "path": "nyq",
-                          "version": null
-                        },
-                        "value": "nyq"
-                      },
-                      "type": "Link"
-                    },
-                    {
-                      "data": {
-                        "value": " (inclusive). Default is 1."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "nyq",
-            "type_": "float, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "numtaps",
+                "type_": "int"
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "The sampling frequency of the signal. Each frequency in "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "exists": true,
-                        "kind": "local",
-                        "reference": {
-                          "kind": "local",
-                          "module": null,
-                          "path": "bands",
-                          "version": null
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A monotonic nondecreasing sequence containing the band edges in Hz. All elements must be non-negative and less than or equal to the Nyquist frequency given by "
+                          },
+                          "type": "Words"
                         },
-                        "value": "bands"
-                      },
-                      "type": "Link"
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "nyq"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
                     },
-                    {
-                      "data": {
-                        "value": " must be between 0 and "
-                      },
-                      "type": "Words"
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "bands",
+                "type_": "array_like"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A sequence the same size as "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "exists": true,
+                            "kind": "module",
+                            "reference": {
+                              "kind": "module",
+                              "module": "scipy",
+                              "path": "scipy.integrate._ode.vode._determine_mf_and_set_bands",
+                              "version": "1.8.0"
+                            },
+                            "value": "bands"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " containing the desired gain at the start and end point of each band."
+                          },
+                          "type": "Words"
+                        }
+                      ]
                     },
-                    {
-                      "data": {
-                        "value": [
-                          "fs/2"
-                        ]
-                      },
-                      "type": "Verbatim"
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "desired",
+                "type_": "array_like"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A relative weighting to give to each band region when solving the least squares problem. "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "weight"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": " has to be half the size of "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "exists": true,
+                            "kind": "module",
+                            "reference": {
+                              "kind": "module",
+                              "module": "scipy",
+                              "path": "scipy.integrate._ode.vode._determine_mf_and_set_bands",
+                              "version": "1.8.0"
+                            },
+                            "value": "bands"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
                     },
-                    {
-                      "data": {
-                        "value": " (inclusive). Default is 2."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "weight",
+                "type_": "array_like, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": {
+                              "value": "Deprecated. Use `fs` instead."
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " Nyquist frequency. Each frequency in "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "exists": true,
+                            "kind": "module",
+                            "reference": {
+                              "kind": "module",
+                              "module": "scipy",
+                              "path": "scipy.integrate._ode.vode._determine_mf_and_set_bands",
+                              "version": "1.8.0"
+                            },
+                            "value": "bands"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " must be between 0 and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "nyq"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": " (inclusive). Default is 1."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "nyq",
+                "type_": "float, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The sampling frequency of the signal. Each frequency in "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "exists": true,
+                            "kind": "module",
+                            "reference": {
+                              "kind": "module",
+                              "module": "scipy",
+                              "path": "scipy.integrate._ode.vode._determine_mf_and_set_bands",
+                              "version": "1.8.0"
+                            },
+                            "value": "bands"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " must be between 0 and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "fs/2"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " (inclusive). Default is 2."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "fs",
+                "type_": "float, optional"
               }
-            ],
-            "param": "fs",
-            "type_": "float, optional"
+            ]
           },
-          "type": "Param"
+          "type": "Parameters"
         }
       ],
       "title": null
@@ -527,26 +456,29 @@
       "children": [
         {
           "data": {
-            "desc": [
+            "children": [
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Coefficients of the optimal (in a least squares sense) FIR filter."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Coefficients of the optimal (in a least squares sense) FIR filter."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "coeffs",
+                "type_": "ndarray"
               }
-            ],
-            "param": "coeffs",
-            "type_": "ndarray"
+            ]
           },
-          "type": "Param"
+          "type": "Parameters"
         }
       ],
       "title": null
@@ -555,15 +487,14 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "FIR filter design using least-squares error minimization."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -591,15 +522,14 @@
     "children": [
       {
         "data": {
-          "inline": [
+          "children": [
             {
               "data": {
                 "value": "We want to construct a band-pass filter. Note that the behavior in the frequency ranges between our stop bands and pass bands is unspecified, and thus may overshoot depending on the parameters of our filter:"
               },
               "type": "Words"
             }
-          ],
-          "inner": []
+          ]
         },
         "type": "Paragraph"
       },
@@ -607,2373 +537,4625 @@
         "data": {
           "ce_status": "execed",
           "entries": [
-            [
-              "from",
-              null,
-              "kn"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "scipy",
-              "scipy",
-              "nn"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "import",
-              null,
-              "kn"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "signal",
-              "scipy.signal",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "import",
-              null,
-              "kn"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "matplotlib",
-              "matplotlib",
-              "nn"
-            ],
-            [
-              ".",
-              "",
-              "nn"
-            ],
-            [
-              "pyplot",
-              "matplotlib.pyplot",
-              "nn"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "as",
-              null,
-              "k"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "plt",
-              "matplotlib.pyplot",
-              "nn"
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "fig",
-              "builtins.int",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "axs",
-              null,
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "plt",
-              "matplotlib.pyplot",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "subplots",
-              "matplotlib.pyplot.subplots",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "2",
-              "",
-              "mi"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "fs",
-              "builtins.float",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "10.0",
-              "",
-              "mf"
-            ],
-            [
-              "  ",
-              "",
-              ""
-            ],
-            [
-              "# Hz",
-              "",
-              "c1"
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "desired",
-              "builtins.tuple",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "0",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "0",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "1",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "1",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "0",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "0",
-              "",
-              "mi"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "for",
-              null,
-              "k"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "bi",
-              "builtins.int",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "bands",
-              "builtins.tuple",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "in",
-              null,
-              "ow"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "enumerate",
-              "builtins.enumerate",
-              "nb"
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "0",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "1",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "2",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "3",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "4",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "5",
-              "",
-              "mi"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "0",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "1",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "2",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "4",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "4.5",
-              "",
-              "mf"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "5",
-              "",
-              "mi"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ":",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "    ",
-              "",
-              ""
-            ],
-            [
-              "fir_firls",
-              null,
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "signal",
-              "scipy.signal",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "firls",
-              "scipy.signal._fir_filter_design.firls",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "73",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "bands",
-              "builtins.tuple",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "desired",
-              "builtins.tuple",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "fs",
-              "builtins.float",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              "fs",
-              "builtins.float",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "    ",
-              "",
-              ""
-            ],
-            [
-              "fir_remez",
-              null,
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "signal",
-              "scipy.signal",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "remez",
-              "scipy.signal._fir_filter_design.remez",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "73",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "bands",
-              "builtins.tuple",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "desired",
-              "builtins.tuple",
-              ""
-            ],
-            [
-              "[",
-              "",
-              ""
-            ],
-            [
-              ":",
-              "",
-              ""
-            ],
-            [
-              ":",
-              "",
-              ""
-            ],
-            [
-              "2",
-              "",
-              "mi"
-            ],
-            [
-              "]",
-              "",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "fs",
-              "builtins.float",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              "fs",
-              "builtins.float",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "    ",
-              "",
-              ""
-            ],
-            [
-              "fir_firwin2",
-              null,
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "signal",
-              "scipy.signal",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "firwin2",
-              "scipy.signal._fir_filter_design.firwin2",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "73",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "bands",
-              "builtins.tuple",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "desired",
-              "builtins.tuple",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "fs",
-              "builtins.float",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              "fs",
-              "builtins.float",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "    ",
-              "",
-              ""
-            ],
-            [
-              "hs",
-              "builtins.list",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "list",
-              "builtins.list",
-              "nb"
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "    ",
-              "",
-              ""
-            ],
-            [
-              "ax",
-              null,
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "axs",
-              "numpy.ndarray",
-              ""
-            ],
-            [
-              "[",
-              "",
-              ""
-            ],
-            [
-              "bi",
-              "builtins.int",
-              ""
-            ],
-            [
-              "]",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "    ",
-              "",
-              ""
-            ],
-            [
-              "for",
-              null,
-              "k"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "fir",
-              "numpy.ndarray",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "in",
-              null,
-              "ow"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "fir_firls",
-              "numpy.ndarray",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "fir_remez",
-              "numpy.ndarray",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "fir_firwin2",
-              "numpy.ndarray",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ":",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "        ",
-              "",
-              ""
-            ],
-            [
-              "freq",
-              null,
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "response",
-              null,
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "signal",
-              "scipy.signal",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "freqz",
-              "scipy.signal._filter_design.freqz",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "fir",
-              "numpy.ndarray",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "        ",
-              "",
-              ""
-            ],
-            [
-              "hs",
-              "builtins.list",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "append",
-              "builtins.list.append",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "ax",
-              "matplotlib.axes._subplots.AxesSubplot",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "semilogy",
-              "matplotlib.axes._axes.Axes.semilogy",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "0.5",
-              "",
-              "mf"
-            ],
-            [
-              "*",
-              "",
-              "o"
-            ],
-            [
-              "fs",
-              "builtins.float",
-              ""
-            ],
-            [
-              "*",
-              "",
-              "o"
-            ],
-            [
-              "freq",
-              "numpy.ndarray",
-              ""
-            ],
-            [
-              "/",
-              "",
-              "o"
-            ],
-            [
-              "np",
-              "numpy",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "pi",
-              "builtins.float",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "np",
-              "numpy",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "abs",
-              "numpy.ufunc",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "response",
-              "numpy.ndarray",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              "[",
-              "",
-              ""
-            ],
-            [
-              "0",
-              "",
-              "mi"
-            ],
-            [
-              "]",
-              "",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "    ",
-              "",
-              ""
-            ],
-            [
-              "for",
-              null,
-              "k"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "band",
-              null,
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "gains",
-              null,
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "in",
-              null,
-              "ow"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "zip",
-              "builtins.zip",
-              "nb"
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "zip",
-              "builtins.zip",
-              "nb"
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "bands",
-              "builtins.tuple",
-              ""
-            ],
-            [
-              "[",
-              "",
-              ""
-            ],
-            [
-              ":",
-              "",
-              ""
-            ],
-            [
-              ":",
-              "",
-              ""
-            ],
-            [
-              "2",
-              "",
-              "mi"
-            ],
-            [
-              "]",
-              "",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "bands",
-              "builtins.tuple",
-              ""
-            ],
-            [
-              "[",
-              "",
-              ""
-            ],
-            [
-              "1",
-              "",
-              "mi"
-            ],
-            [
-              ":",
-              "",
-              ""
-            ],
-            [
-              ":",
-              "",
-              ""
-            ],
-            [
-              "2",
-              "",
-              "mi"
-            ],
-            [
-              "]",
-              "",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "                           ",
-              "",
-              ""
-            ],
-            [
-              "zip",
-              "builtins.zip",
-              "nb"
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "desired",
-              "builtins.tuple",
-              ""
-            ],
-            [
-              "[",
-              "",
-              ""
-            ],
-            [
-              ":",
-              "",
-              ""
-            ],
-            [
-              ":",
-              "",
-              ""
-            ],
-            [
-              "2",
-              "",
-              "mi"
-            ],
-            [
-              "]",
-              "",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "desired",
-              "builtins.tuple",
-              ""
-            ],
-            [
-              "[",
-              "",
-              ""
-            ],
-            [
-              "1",
-              "",
-              "mi"
-            ],
-            [
-              ":",
-              "",
-              ""
-            ],
-            [
-              ":",
-              "",
-              ""
-            ],
-            [
-              "2",
-              "",
-              "mi"
-            ],
-            [
-              "]",
-              "",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ":",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "        ",
-              "",
-              ""
-            ],
-            [
-              "ax",
-              "matplotlib.axes._subplots.AxesSubplot",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "semilogy",
-              "matplotlib.axes._axes.Axes.semilogy",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "band",
-              "builtins.tuple",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "np",
-              "numpy",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "maximum",
-              "numpy.ufunc",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "gains",
-              "builtins.tuple",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "1e-7",
-              "",
-              "mf"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "'",
-              "",
-              "s1"
-            ],
-            [
-              "k--",
-              "",
-              "s1"
-            ],
-            [
-              "'",
-              "",
-              "s1"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "linewidth",
-              null,
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              "2",
-              "",
-              "mi"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "    ",
-              "",
-              ""
-            ],
-            [
-              "if",
-              null,
-              "k"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "bi",
-              "builtins.int",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "==",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "0",
-              "",
-              "mi"
-            ],
-            [
-              ":",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "        ",
-              "",
-              ""
-            ],
-            [
-              "ax",
-              "matplotlib.axes._subplots.AxesSubplot",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "legend",
-              "matplotlib.axes._axes.Axes.legend",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "hs",
-              "builtins.list",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "'",
-              "",
-              "s1"
-            ],
-            [
-              "firls",
-              null,
-              "s1"
-            ],
-            [
-              "'",
-              "",
-              "s1"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "'",
-              "",
-              "s1"
-            ],
-            [
-              "remez",
-              null,
-              "s1"
-            ],
-            [
-              "'",
-              "",
-              "s1"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "'",
-              "",
-              "s1"
-            ],
-            [
-              "firwin2",
-              null,
-              "s1"
-            ],
-            [
-              "'",
-              "",
-              "s1"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "                  ",
-              "",
-              ""
-            ],
-            [
-              "loc",
-              null,
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              "'",
-              "",
-              "s1"
-            ],
-            [
-              "lower center",
-              "",
-              "s1"
-            ],
-            [
-              "'",
-              "",
-              "s1"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "frameon",
-              null,
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              "False",
-              null,
-              "kc"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "    ",
-              "",
-              ""
-            ],
-            [
-              "else",
-              null,
-              "k"
-            ],
-            [
-              ":",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "        ",
-              "",
-              ""
-            ],
-            [
-              "ax",
-              "matplotlib.axes._subplots.AxesSubplot",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "set_xlabel",
-              "matplotlib.axes._base._AxesBase.set_xlabel",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "'",
-              "",
-              "s1"
-            ],
-            [
-              "Frequency (Hz)",
-              "",
-              "s1"
-            ],
-            [
-              "'",
-              "",
-              "s1"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "    ",
-              "",
-              ""
-            ],
-            [
-              "ax",
-              "matplotlib.axes._subplots.AxesSubplot",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "grid",
-              "matplotlib.axes._base._AxesBase.grid",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "True",
-              "builtins.bool",
-              "kc"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "    ",
-              "",
-              ""
-            ],
-            [
-              "ax",
-              "matplotlib.axes._subplots.AxesSubplot",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "set",
-              "matplotlib.artist._make_class_factory.<locals>.class_factory.<locals>.subcls.set",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "title",
-              null,
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              "'",
-              "",
-              "s1"
-            ],
-            [
-              "Band-pass ",
-              "",
-              "s1"
-            ],
-            [
-              "%d",
-              "",
-              "si"
-            ],
-            [
-              "-",
-              "",
-              "s1"
-            ],
-            [
-              "%d",
-              "",
-              "si"
-            ],
-            [
-              " Hz",
-              "",
-              "s1"
-            ],
-            [
-              "'",
-              "",
-              "s1"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "%",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "bands",
-              "builtins.tuple",
-              ""
-            ],
-            [
-              "[",
-              "",
-              ""
-            ],
-            [
-              "2",
-              "",
-              "mi"
-            ],
-            [
-              ":",
-              "",
-              ""
-            ],
-            [
-              "4",
-              "",
-              "mi"
-            ],
-            [
-              "]",
-              "",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "ylabel",
-              null,
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              "'",
-              "",
-              "s1"
-            ],
-            [
-              "Magnitude",
-              null,
-              "s1"
-            ],
-            [
-              "'",
-              "",
-              "s1"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ]
+            {
+              "link": {
+                "data": "from",
+                "type": "str"
+              },
+              "type": "kn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy",
+                    "version": "1.8.0"
+                  },
+                  "value": "scipy"
+                },
+                "type": "Link"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "import",
+                "type": "str"
+              },
+              "type": "kn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.signal",
+                    "version": "1.8.0"
+                  },
+                  "value": "signal"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "import",
+                "type": "str"
+              },
+              "type": "kn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib",
+                    "version": "*"
+                  },
+                  "value": "matplotlib"
+                },
+                "type": "Link"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": "matplotlib",
+                "type": "str"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot",
+                    "version": "*"
+                  },
+                  "value": "pyplot"
+                },
+                "type": "Link"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": "pyplot",
+                "type": "str"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "as",
+                "type": "str"
+              },
+              "type": "k"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot",
+                    "version": "*"
+                  },
+                  "value": "plt"
+                },
+                "type": "Link"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": "plt",
+                "type": "str"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.int",
+                    "version": "*"
+                  },
+                  "value": "fig"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "fig",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "axs",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot",
+                    "version": "*"
+                  },
+                  "value": "plt"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "plt",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot.subplots",
+                    "version": "*"
+                  },
+                  "value": "subplots"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "subplots",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "2",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.float",
+                    "version": "*"
+                  },
+                  "value": "fs"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "fs",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "10.0",
+                "type": "str"
+              },
+              "type": "mf"
+            },
+            {
+              "link": {
+                "data": "  ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "# Hz",
+                "type": "str"
+              },
+              "type": "c1"
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.tuple",
+                    "version": "*"
+                  },
+                  "value": "desired"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "desired",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "0",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "0",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "1",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "1",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "0",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "0",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "for",
+                "type": "str"
+              },
+              "type": "k"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.int",
+                    "version": "*"
+                  },
+                  "value": "bi"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "bi",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.tuple",
+                    "version": "*"
+                  },
+                  "value": "bands"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "bands",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "in",
+                "type": "str"
+              },
+              "type": "ow"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.enumerate",
+                    "version": "*"
+                  },
+                  "value": "enumerate"
+                },
+                "type": "Link"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "enumerate",
+                "type": "str"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "0",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "1",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "2",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "3",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "4",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "5",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "0",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "1",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "2",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "4",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "4.5",
+                "type": "str"
+              },
+              "type": "mf"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "5",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ":",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "    ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "fir_firls",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.signal",
+                    "version": "1.8.0"
+                  },
+                  "value": "signal"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.signal._fir_filter_design.firls",
+                    "version": "1.8.0"
+                  },
+                  "value": "firls"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "73",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.tuple",
+                    "version": "*"
+                  },
+                  "value": "bands"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "bands",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.tuple",
+                    "version": "*"
+                  },
+                  "value": "desired"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "desired",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.float",
+                    "version": "*"
+                  },
+                  "value": "fs"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "fs",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.float",
+                    "version": "*"
+                  },
+                  "value": "fs"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "fs",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "    ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "fir_remez",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.signal",
+                    "version": "1.8.0"
+                  },
+                  "value": "signal"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.signal._fir_filter_design.remez",
+                    "version": "1.8.0"
+                  },
+                  "value": "remez"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "73",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.tuple",
+                    "version": "*"
+                  },
+                  "value": "bands"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "bands",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.tuple",
+                    "version": "*"
+                  },
+                  "value": "desired"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "desired",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "[",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ":",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ":",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "2",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": "]",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.float",
+                    "version": "*"
+                  },
+                  "value": "fs"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "fs",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.float",
+                    "version": "*"
+                  },
+                  "value": "fs"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "fs",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "    ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "fir_firwin2",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.signal",
+                    "version": "1.8.0"
+                  },
+                  "value": "signal"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.signal._fir_filter_design.firwin2",
+                    "version": "1.8.0"
+                  },
+                  "value": "firwin2"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "73",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.tuple",
+                    "version": "*"
+                  },
+                  "value": "bands"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "bands",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.tuple",
+                    "version": "*"
+                  },
+                  "value": "desired"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "desired",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.float",
+                    "version": "*"
+                  },
+                  "value": "fs"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "fs",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.float",
+                    "version": "*"
+                  },
+                  "value": "fs"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "fs",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "    ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.list",
+                    "version": "*"
+                  },
+                  "value": "hs"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "hs",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.list",
+                    "version": "*"
+                  },
+                  "value": "list"
+                },
+                "type": "Link"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "list",
+                "type": "str"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "    ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "ax",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ndarray",
+                    "version": "*"
+                  },
+                  "value": "axs"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "axs",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "[",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.int",
+                    "version": "*"
+                  },
+                  "value": "bi"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "bi",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "]",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "    ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "for",
+                "type": "str"
+              },
+              "type": "k"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ndarray",
+                    "version": "*"
+                  },
+                  "value": "fir"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "fir",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "in",
+                "type": "str"
+              },
+              "type": "ow"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ndarray",
+                    "version": "*"
+                  },
+                  "value": "fir_firls"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "fir_firls",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ndarray",
+                    "version": "*"
+                  },
+                  "value": "fir_remez"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "fir_remez",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ndarray",
+                    "version": "*"
+                  },
+                  "value": "fir_firwin2"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "fir_firwin2",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ":",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "        ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "freq",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "response",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.signal",
+                    "version": "1.8.0"
+                  },
+                  "value": "signal"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.signal._filter_design.freqz",
+                    "version": "1.8.0"
+                  },
+                  "value": "freqz"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ndarray",
+                    "version": "*"
+                  },
+                  "value": "fir"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "fir",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "        ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.list",
+                    "version": "*"
+                  },
+                  "value": "hs"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "hs",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.list.append",
+                    "version": "*"
+                  },
+                  "value": "append"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "append",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._subplots.AxesSubplot",
+                    "version": "*"
+                  },
+                  "value": "ax"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "ax",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._axes.Axes.semilogy",
+                    "version": "*"
+                  },
+                  "value": "semilogy"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "semilogy",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "0.5",
+                "type": "str"
+              },
+              "type": "mf"
+            },
+            {
+              "link": {
+                "data": "*",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.float",
+                    "version": "*"
+                  },
+                  "value": "fs"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "fs",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "*",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ndarray",
+                    "version": "*"
+                  },
+                  "value": "freq"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "freq",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "/",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy",
+                    "version": "*"
+                  },
+                  "value": "np"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "np",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.float",
+                    "version": "*"
+                  },
+                  "value": "pi"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "pi",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy",
+                    "version": "*"
+                  },
+                  "value": "np"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "np",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ufunc",
+                    "version": "*"
+                  },
+                  "value": "abs"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "abs",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ndarray",
+                    "version": "*"
+                  },
+                  "value": "response"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "response",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "[",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "0",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": "]",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "    ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "for",
+                "type": "str"
+              },
+              "type": "k"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "band",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "gains",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "in",
+                "type": "str"
+              },
+              "type": "ow"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.zip",
+                    "version": "*"
+                  },
+                  "value": "zip"
+                },
+                "type": "Link"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "zip",
+                "type": "str"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.zip",
+                    "version": "*"
+                  },
+                  "value": "zip"
+                },
+                "type": "Link"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "zip",
+                "type": "str"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.tuple",
+                    "version": "*"
+                  },
+                  "value": "bands"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "bands",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "[",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ":",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ":",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "2",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": "]",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.tuple",
+                    "version": "*"
+                  },
+                  "value": "bands"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "bands",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "[",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "1",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ":",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ":",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "2",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": "]",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "                           ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.zip",
+                    "version": "*"
+                  },
+                  "value": "zip"
+                },
+                "type": "Link"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "zip",
+                "type": "str"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.tuple",
+                    "version": "*"
+                  },
+                  "value": "desired"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "desired",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "[",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ":",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ":",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "2",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": "]",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.tuple",
+                    "version": "*"
+                  },
+                  "value": "desired"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "desired",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "[",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "1",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ":",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ":",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "2",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": "]",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ":",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "        ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._subplots.AxesSubplot",
+                    "version": "*"
+                  },
+                  "value": "ax"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "ax",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._axes.Axes.semilogy",
+                    "version": "*"
+                  },
+                  "value": "semilogy"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "semilogy",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.tuple",
+                    "version": "*"
+                  },
+                  "value": "band"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "band",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy",
+                    "version": "*"
+                  },
+                  "value": "np"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "np",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ufunc",
+                    "version": "*"
+                  },
+                  "value": "maximum"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "maximum",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.tuple",
+                    "version": "*"
+                  },
+                  "value": "gains"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "gains",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "1e-7",
+                "type": "str"
+              },
+              "type": "mf"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "k--",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "linewidth",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "2",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "    ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "if",
+                "type": "str"
+              },
+              "type": "k"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.int",
+                    "version": "*"
+                  },
+                  "value": "bi"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "bi",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "==",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "0",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ":",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "        ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._subplots.AxesSubplot",
+                    "version": "*"
+                  },
+                  "value": "ax"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "ax",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._axes.Axes.legend",
+                    "version": "*"
+                  },
+                  "value": "legend"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "legend",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.list",
+                    "version": "*"
+                  },
+                  "value": "hs"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "hs",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "firls",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "remez",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "firwin2",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "                  ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "loc",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "lower center",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "frameon",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "False",
+                "type": "str"
+              },
+              "type": "kc"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "    ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "else",
+                "type": "str"
+              },
+              "type": "k"
+            },
+            {
+              "link": {
+                "data": ":",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "        ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._subplots.AxesSubplot",
+                    "version": "*"
+                  },
+                  "value": "ax"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "ax",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._base._AxesBase.set_xlabel",
+                    "version": "*"
+                  },
+                  "value": "set_xlabel"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "set_xlabel",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "Frequency (Hz)",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "    ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._subplots.AxesSubplot",
+                    "version": "*"
+                  },
+                  "value": "ax"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "ax",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._base._AxesBase.grid",
+                    "version": "*"
+                  },
+                  "value": "grid"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "grid",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.bool",
+                    "version": "*"
+                  },
+                  "value": "True"
+                },
+                "type": "Link"
+              },
+              "type": "kc"
+            },
+            {
+              "link": {
+                "data": "True",
+                "type": "str"
+              },
+              "type": "kc"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "    ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._subplots.AxesSubplot",
+                    "version": "*"
+                  },
+                  "value": "ax"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "ax",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.artist._make_class_factory.<locals>.class_factory.<locals>.subcls.set",
+                    "version": "*"
+                  },
+                  "value": "set"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "set",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "title",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "Band-pass ",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "%d",
+                "type": "str"
+              },
+              "type": "si"
+            },
+            {
+              "link": {
+                "data": "-",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "%d",
+                "type": "str"
+              },
+              "type": "si"
+            },
+            {
+              "link": {
+                "data": " Hz",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "%",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.tuple",
+                    "version": "*"
+                  },
+                  "value": "bands"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "bands",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "[",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "2",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ":",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "4",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": "]",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "ylabel",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "Magnitude",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            }
           ],
           "out": "..."
         },
-        "type": "Code"
+        "type": "Code2"
       },
       {
         "data": {
           "ce_status": "execed",
           "entries": [
-            [
-              "fig",
-              "builtins.int",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "tight_layout",
-              null,
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "plt",
-              "matplotlib.pyplot",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "show",
-              "matplotlib.pyplot.show",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ]
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.int",
+                    "version": "*"
+                  },
+                  "value": "fig"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "fig",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "tight_layout",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot",
+                    "version": "*"
+                  },
+                  "value": "plt"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "plt",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot.show",
+                    "version": "*"
+                  },
+                  "value": "show"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "show",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            }
           ],
           "out": ""
         },
-        "type": "Code"
+        "type": "Code2"
       },
       {
         "data": {
-          "value": "fig-scipy.signal._fir_filter_design.firls-0.png"
+          "value": {
+            "kind": "assets",
+            "module": "scipy",
+            "path": "fig-scipy.signal._fir_filter_design.firls-0-26d3396c.png",
+            "version": "1.8.0"
+          }
         },
         "type": "Fig"
       }

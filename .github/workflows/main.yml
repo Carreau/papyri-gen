@@ -21,14 +21,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.8]
+        python-version: ["3.10"]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - name: Setup Miniconda
-        uses: conda-incubator/setup-miniconda@v2.0.1
+        uses: conda-incubator/setup-miniconda@v2.1.1
         with:
           channels: conda-forge
           python-version: ${{ matrix.python-version }}
@@ -93,6 +93,7 @@ jobs:
           cp -r ~/.papyri/html/ docs/
           mkdir docs/pkg/
           cp ../*.zip docs/pkg/
+          cp ../index.json docs/pkg/
           git config --global user.email "bussonniermatthias@gmail.com"
           git config --global user.name "Matthias Bussonnier"
           git add docs

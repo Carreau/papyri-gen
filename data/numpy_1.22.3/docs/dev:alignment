@@ -6,19 +6,10 @@
       "children": [
         {
           "data": {
-            "args0": [],
-            "directive_name": "currentmodule",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "numpy "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "numpy",
+            "content": "",
+            "name": "currentmodule",
+            "options": []
           },
           "type": "BlockDirective"
         },
@@ -40,15 +31,14 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "There are three use-cases related to memory alignment in NumPy (as of 1.14):"
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -66,21 +56,20 @@
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "NumPy uses two different forms of alignment to achieve these goals: \"True alignment\" and \"Uint alignment\"."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "\"True\" alignment refers to the architecture-dependent alignment of an equivalent C-type in C. For example, in x64 systems "
@@ -129,14 +118,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "\"Uint\" alignment depends on the size of a datatype. It is defined to be the \"True alignment\" of the uint used by NumPy's copy-code to copy the datatype, or undefined/unaligned if there is no equivalent uint. Currently, NumPy uses "
@@ -213,14 +201,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "For example, on a (typical Linux x64 GCC) system, the NumPy "
@@ -269,8 +256,7 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -281,29 +267,27 @@
                 "dd": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "======   =========   ========    ========    arch     type        true-aln    uint-aln    ======   =========   ========    ========    x86_64   complex64          4           8    x86_64   float128          16           8    x86      float96            4          \\-    ======   =========   ========    ========"
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
                 ],
                 "dt": {
-                  "inline": [
+                  "children": [
                     {
                       "data": {
                         "value": "Some cases where uint and true alignment are different (default GCC Linux):"
                       },
                       "type": "Words"
                     }
-                  ],
-                  "inner": []
+                  ]
                 }
               }
             ]
@@ -317,7 +301,7 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "There are 4 relevant uses of the word "
@@ -338,8 +322,7 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -379,15 +362,14 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Here is how the variables above are used:"
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -420,15 +402,14 @@
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Note that the strided-copy and strided-cast code are deeply intertwined and so any arrays being processed by them must be both uint and true aligned, even though the copy-code only needs uint alignment and the cast code only true alignment.  If there is ever a big rewrite of this code it would be good to allow them to use different alignments."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }

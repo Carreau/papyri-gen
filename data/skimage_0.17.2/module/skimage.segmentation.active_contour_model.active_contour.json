@@ -8,15 +8,14 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Active contours by fitting snakes to features of images. Supports single and multichannel 2D images. Snakes can be periodic (for segmentation) or have fixed and/or free ends. The output snake has the same length as the input boundary. As the number of points is constant, make sure that the initial snake has enough points to capture the details of the final contour."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -39,316 +38,271 @@
       "children": [
         {
           "data": {
-            "desc": [
+            "children": [
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Input image."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "image",
-            "type_": "(N, M) or (N, M, 3) ndarray"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Initial snake coordinates. For periodic boundary conditions, endpoints must not be duplicated."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "snake",
-            "type_": "(N, 2) ndarray"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Snake length shape parameter. Higher values makes snake contract faster."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "alpha",
-            "type_": "float, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Snake smoothness shape parameter. Higher values makes snake smoother."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "beta",
-            "type_": "float, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Controls attraction to brightness. Use negative values to attract toward dark regions."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "w_line",
-            "type_": "float, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Controls attraction to edges. Use negative values to repel snake from edges."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "w_edge",
-            "type_": "float, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Explicit time stepping parameter."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "gamma",
-            "type_": "float, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "DEPRECATED. See "
-                      },
-                      "type": "Words"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Input image."
+                          },
+                          "type": "Words"
+                        }
+                      ]
                     },
-                    {
-                      "data": {
-                        "value": [
-                          "boundary_condition"
-                        ]
-                      },
-                      "type": "Verbatim"
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "image",
+                "type_": "(N, M) or (N, M, 3) ndarray"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Initial snake coordinates. For periodic boundary conditions, endpoints must not be duplicated."
+                          },
+                          "type": "Words"
+                        }
+                      ]
                     },
-                    {
-                      "data": {
-                        "value": " below."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "bc",
-            "type_": "deprecated; use ``boundary_condition``"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "snake",
+                "type_": "(N, 2) ndarray"
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Maximum pixel distance to move per iteration."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "max_px_move",
-            "type_": "float, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Snake length shape parameter. Higher values makes snake contract faster."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "alpha",
+                "type_": "float, optional"
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Maximum iterations to optimize snake shape."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "max_iterations",
-            "type_": "int, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Snake smoothness shape parameter. Higher values makes snake smoother."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "beta",
+                "type_": "float, optional"
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Convergence criteria."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "convergence",
-            "type_": "float, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Controls attraction to brightness. Use negative values to attract toward dark regions."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "w_line",
+                "type_": "float, optional"
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Boundary conditions for the contour. Can be one of 'periodic', 'free', 'fixed', 'free-fixed', or 'fixed-free'. 'periodic' attaches the two ends of the snake, 'fixed' holds the end-points in place, and 'free' allows free movement of the ends. 'fixed' and 'free' can be combined by parsing 'fixed-free', 'free-fixed'. Parsing 'fixed-fixed' or 'free-free' yields same behaviour as 'fixed' and 'free', respectively."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "boundary_condition",
-            "type_": "string, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Controls attraction to edges. Use negative values to repel snake from edges."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "w_edge",
+                "type_": "float, optional"
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Whether to use rc or xy coordinates. The 'xy' option (current default) will be removed in version 0.18."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Explicit time stepping parameter."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "gamma",
+                "type_": "float, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "DEPRECATED. See "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "boundary_condition"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " below."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "bc",
+                "type_": "deprecated; use ``boundary_condition``"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Maximum pixel distance to move per iteration."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "max_px_move",
+                "type_": "float, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Maximum iterations to optimize snake shape."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "max_iterations",
+                "type_": "int, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Convergence criteria."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "convergence",
+                "type_": "float, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Boundary conditions for the contour. Can be one of 'periodic', 'free', 'fixed', 'free-fixed', or 'fixed-free'. 'periodic' attaches the two ends of the snake, 'fixed' holds the end-points in place, and 'free' allows free movement of the ends. 'fixed' and 'free' can be combined by parsing 'fixed-free', 'free-fixed'. Parsing 'fixed-fixed' or 'free-free' yields same behaviour as 'fixed' and 'free', respectively."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "boundary_condition",
+                "type_": "string, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Whether to use rc or xy coordinates. The 'xy' option (current default) will be removed in version 0.18."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "coordinates",
+                "type_": "{'rc' or 'xy'}, optional"
               }
-            ],
-            "param": "coordinates",
-            "type_": "{'rc' or 'xy'}, optional"
+            ]
           },
-          "type": "Param"
+          "type": "Parameters"
         }
       ],
       "title": null
@@ -365,26 +319,29 @@
       "children": [
         {
           "data": {
-            "desc": [
+            "children": [
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Optimised snake, same shape as input parameter."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Optimised snake, same shape as input parameter."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "snake",
+                "type_": "(N, 2) ndarray"
               }
-            ],
-            "param": "snake",
-            "type_": "(N, 2) ndarray"
+            ]
           },
-          "type": "Param"
+          "type": "Parameters"
         }
       ],
       "title": null
@@ -393,15 +350,14 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Active contour model."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -431,117 +387,214 @@
         "data": {
           "ce_status": "compiled",
           "entries": [
-            [
-              "from",
-              null,
-              "kn"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "skimage",
-              "skimage",
-              "nn"
-            ],
-            [
-              ".",
-              "",
-              "nn"
-            ],
-            [
-              "draw",
-              "skimage.draw",
-              "nn"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "import",
-              null,
-              "kn"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "circle_perimeter",
-              "skimage.draw.draw.circle_perimeter",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "from",
-              null,
-              "kn"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "skimage",
-              "skimage",
-              "nn"
-            ],
-            [
-              ".",
-              "",
-              "nn"
-            ],
-            [
-              "filters",
-              "skimage.filters",
-              "nn"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "import",
-              null,
-              "kn"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "gaussian",
-              "skimage.filters._gaussian.gaussian",
-              ""
-            ]
+            {
+              "link": {
+                "data": "from",
+                "type": "str"
+              },
+              "type": "kn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "skimage",
+                    "path": "skimage",
+                    "version": "0.17.2"
+                  },
+                  "value": "skimage"
+                },
+                "type": "Link"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "skimage",
+                    "path": "skimage.draw",
+                    "version": "0.17.2"
+                  },
+                  "value": "draw"
+                },
+                "type": "Link"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "import",
+                "type": "str"
+              },
+              "type": "kn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "skimage",
+                    "path": "skimage.draw.draw.circle_perimeter_aa",
+                    "version": "0.17.2"
+                  },
+                  "value": "circle_perimeter"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "from",
+                "type": "str"
+              },
+              "type": "kn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "skimage",
+                    "path": "skimage",
+                    "version": "0.17.2"
+                  },
+                  "value": "skimage"
+                },
+                "type": "Link"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "skimage",
+                    "path": "skimage.filters",
+                    "version": "0.17.2"
+                  },
+                  "value": "filters"
+                },
+                "type": "Link"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "import",
+                "type": "str"
+              },
+              "type": "kn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "skimage",
+                    "path": "skimage.filters._gaussian.gaussian",
+                    "version": "0.17.2"
+                  },
+                  "value": "gaussian"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            }
           ],
           "out": ""
         },
-        "type": "Code"
+        "type": "Code2"
       },
       {
         "data": {
-          "inline": [
+          "children": [
             {
               "data": {
                 "value": "Create and smooth image:"
               },
               "type": "Words"
             }
-          ],
-          "inner": []
+          ]
         },
         "type": "Paragraph"
       },
@@ -549,307 +602,525 @@
         "data": {
           "ce_status": "compiled",
           "entries": [
-            [
-              "img",
-              "numpy.ndarray",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "np",
-              "numpy",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "zeros",
-              "numpy.zeros",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "100",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "100",
-              "",
-              "mi"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "rr",
-              null,
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "cc",
-              null,
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "circle_perimeter",
-              "skimage.draw.draw.circle_perimeter",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "35",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "45",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "25",
-              "",
-              "mi"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "img",
-              "numpy.ndarray",
-              ""
-            ],
-            [
-              "[",
-              "",
-              ""
-            ],
-            [
-              "rr",
-              null,
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "cc",
-              null,
-              ""
-            ],
-            [
-              "]",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "1",
-              "",
-              "mi"
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "img",
-              null,
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "gaussian",
-              "skimage.filters._gaussian.gaussian",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "img",
-              "numpy.ndarray",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "2",
-              "",
-              "mi"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ]
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ndarray",
+                    "version": "*"
+                  },
+                  "value": "img"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "img",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy",
+                    "version": "*"
+                  },
+                  "value": "np"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "np",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.zeros",
+                    "version": "*"
+                  },
+                  "value": "zeros"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "zeros",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "100",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "100",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "rr",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "cc",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "skimage",
+                    "path": "skimage.draw.draw.circle_perimeter_aa",
+                    "version": "0.17.2"
+                  },
+                  "value": "circle_perimeter"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "35",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "45",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "25",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ndarray",
+                    "version": "*"
+                  },
+                  "value": "img"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "img",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "[",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "rr",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "cc",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "]",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "1",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "img",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "skimage",
+                    "path": "skimage.filters._gaussian.gaussian",
+                    "version": "0.17.2"
+                  },
+                  "value": "gaussian"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ndarray",
+                    "version": "*"
+                  },
+                  "value": "img"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "img",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "2",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            }
           ],
           "out": ""
         },
-        "type": "Code"
+        "type": "Code2"
       },
       {
         "data": {
-          "inline": [
+          "children": [
             {
               "data": {
                 "value": "Initialize spline:"
               },
               "type": "Words"
             }
-          ],
-          "inner": []
+          ]
         },
         "type": "Paragraph"
       },
@@ -857,302 +1128,668 @@
         "data": {
           "ce_status": "compiled",
           "entries": [
-            [
-              "s",
-              "builtins.tuple",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "np",
-              "numpy",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "linspace",
-              "numpy.linspace",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "0",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "2",
-              "",
-              "mi"
-            ],
-            [
-              "*",
-              "",
-              "o"
-            ],
-            [
-              "np",
-              "numpy",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "pi",
-              "builtins.float",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "100",
-              "",
-              "mi"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "init",
-              "builtins.int",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "50",
-              "",
-              "mi"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "*",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "np",
-              "numpy",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "array",
-              "numpy.array",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "[",
-              "",
-              ""
-            ],
-            [
-              "np",
-              "numpy",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "sin",
-              "numpy.sin",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "s",
-              "builtins.tuple",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "np",
-              "numpy",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "cos",
-              "numpy.cos",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "s",
-              "builtins.tuple",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              "]",
-              "",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "T",
-              "builtins.ndarray.T",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "+",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "50",
-              "",
-              "mi"
-            ]
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.tuple",
+                    "version": "*"
+                  },
+                  "value": "s"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "s",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy",
+                    "version": "*"
+                  },
+                  "value": "np"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "np",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.linspace",
+                    "version": "*"
+                  },
+                  "value": "linspace"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "linspace",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "0",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "2",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": "*",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy",
+                    "version": "*"
+                  },
+                  "value": "np"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "np",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.float",
+                    "version": "*"
+                  },
+                  "value": "pi"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "pi",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "100",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.int",
+                    "version": "*"
+                  },
+                  "value": "init"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "init",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "50",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "*",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy",
+                    "version": "*"
+                  },
+                  "value": "np"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "np",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.array",
+                    "version": "*"
+                  },
+                  "value": "array"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "array",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "[",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy",
+                    "version": "*"
+                  },
+                  "value": "np"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "np",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.sin",
+                    "version": "*"
+                  },
+                  "value": "sin"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "sin",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.tuple",
+                    "version": "*"
+                  },
+                  "value": "s"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "s",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy",
+                    "version": "*"
+                  },
+                  "value": "np"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "np",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.cos",
+                    "version": "*"
+                  },
+                  "value": "cos"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "cos",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.tuple",
+                    "version": "*"
+                  },
+                  "value": "s"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "s",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "]",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.ndarray.T",
+                    "version": "*"
+                  },
+                  "value": "T"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "T",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "+",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "50",
+                "type": "str"
+              },
+              "type": "mi"
+            }
           ],
           "out": ""
         },
-        "type": "Code"
+        "type": "Code2"
       },
       {
         "data": {
-          "inline": [
+          "children": [
             {
               "data": {
                 "value": "Fit spline to image:"
               },
               "type": "Words"
             }
-          ],
-          "inner": []
+          ]
         },
         "type": "Paragraph"
       },
@@ -1160,435 +1797,768 @@
         "data": {
           "ce_status": "compiled",
           "entries": [
-            [
-              "snake",
-              "numpy.ndarray",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "active_contour",
-              "skimage.segmentation.active_contour_model.active_contour",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "img",
-              null,
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "init",
-              "builtins.int",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "w_edge",
-              null,
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              "0",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "w_line",
-              null,
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              "1",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "coordinates",
-              null,
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              "'",
-              "",
-              "s1"
-            ],
-            [
-              "rc",
-              null,
-              "s1"
-            ],
-            [
-              "'",
-              "",
-              "s1"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              "  ",
-              "",
-              ""
-            ],
-            [
-              "# doctest: +SKIP",
-              "",
-              "c1"
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "dist",
-              null,
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "np",
-              "numpy",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "sqrt",
-              "numpy.ufunc",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "45",
-              "",
-              "mi"
-            ],
-            [
-              "-",
-              "",
-              "o"
-            ],
-            [
-              "snake",
-              "numpy.ndarray",
-              ""
-            ],
-            [
-              "[",
-              "",
-              ""
-            ],
-            [
-              ":",
-              "",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "0",
-              "",
-              "mi"
-            ],
-            [
-              "]",
-              "",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              "*",
-              "",
-              "o"
-            ],
-            [
-              "*",
-              "",
-              "o"
-            ],
-            [
-              "2",
-              "",
-              "mi"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "+",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "35",
-              "",
-              "mi"
-            ],
-            [
-              "-",
-              "",
-              "o"
-            ],
-            [
-              "snake",
-              "numpy.ndarray",
-              ""
-            ],
-            [
-              "[",
-              "",
-              ""
-            ],
-            [
-              ":",
-              "",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "1",
-              "",
-              "mi"
-            ],
-            [
-              "]",
-              "",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              "*",
-              "",
-              "o"
-            ],
-            [
-              "*",
-              "",
-              "o"
-            ],
-            [
-              "2",
-              "",
-              "mi"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              "  ",
-              "",
-              ""
-            ],
-            [
-              "# doctest: +SKIP",
-              "",
-              "c1"
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "int",
-              "builtins.int",
-              "nb"
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "np",
-              "numpy",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "mean",
-              "numpy.mean",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "dist",
-              null,
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              "  ",
-              "",
-              ""
-            ],
-            [
-              "# doctest: +SKIP",
-              "",
-              "c1"
-            ]
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ndarray",
+                    "version": "*"
+                  },
+                  "value": "snake"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "snake",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "skimage",
+                    "path": "skimage.segmentation.active_contour_model.active_contour",
+                    "version": "0.17.2"
+                  },
+                  "value": "active_contour"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "img",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.int",
+                    "version": "*"
+                  },
+                  "value": "init"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "init",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "w_edge",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "0",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "w_line",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "1",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "coordinates",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "rc",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "  ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "# doctest: +SKIP",
+                "type": "str"
+              },
+              "type": "c1"
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "dist",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy",
+                    "version": "*"
+                  },
+                  "value": "np"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "np",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ufunc",
+                    "version": "*"
+                  },
+                  "value": "sqrt"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "sqrt",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "45",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": "-",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ndarray",
+                    "version": "*"
+                  },
+                  "value": "snake"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "snake",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "[",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ":",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "0",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": "]",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "*",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "*",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "2",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "+",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "35",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": "-",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ndarray",
+                    "version": "*"
+                  },
+                  "value": "snake"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "snake",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "[",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ":",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "1",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": "]",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "*",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "*",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "2",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "  ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "# doctest: +SKIP",
+                "type": "str"
+              },
+              "type": "c1"
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.int",
+                    "version": "*"
+                  },
+                  "value": "int"
+                },
+                "type": "Link"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "int",
+                "type": "str"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy",
+                    "version": "*"
+                  },
+                  "value": "np"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "np",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.mean",
+                    "version": "*"
+                  },
+                  "value": "mean"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "mean",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "dist",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "  ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "# doctest: +SKIP",
+                "type": "str"
+              },
+              "type": "c1"
+            }
           ],
           "out": "25"
         },
-        "type": "Code"
+        "type": "Code2"
       }
     ],
     "title": null

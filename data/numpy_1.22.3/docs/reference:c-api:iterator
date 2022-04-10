@@ -6,57 +6,27 @@
       "children": [
         {
           "data": {
-            "args0": [],
-            "directive_name": "sectionauthor",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Mark Wiebe "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "Mark Wiebe",
+            "content": "",
+            "name": "sectionauthor",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [],
-            "directive_name": "index",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "pair : iterator; C - API pair : C - API; iterator "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "",
+            "content": "pair: iterator; C-API\npair: C-API; iterator",
+            "name": "index",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "children": [
-              {
-                "inline": [
-                  {
-                    "data": {
-                      "value": "1.6 "
-                    },
-                    "type": "Words"
-                  }
-                ],
-                "inner": []
-              }
-            ],
+            "children": [],
             "kind": "versionadded",
-            "title": "TODO"
+            "title": "1.6"
           },
           "type": "Admonition"
         }
@@ -67,21 +37,20 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The array iterator encapsulates many of the key features in ufuncs, allowing user code to support features like output parameters, preservation of memory layouts, and buffering of data with the wrong alignment or type, without requiring difficult coding."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "This page documents the API for the iterator. The iterator is named "
@@ -116,14 +85,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "There is an "
@@ -144,8 +112,7 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -156,7 +123,7 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The best way to become familiar with the iterator is to look at its usage within the NumPy codebase itself. For example, here is a slightly tweaked version of the code for "
@@ -177,28 +144,16 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [
-              "c"
-            ],
-            "directive_name": "code-block",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "npy_intp PyArray_CountNonzero ( PyArrayObject* self) { / * Nonzero boolean function * / PyArray_NonzeroFunc* nonzero = PyArray_DESCR ( self) - >f - >nonzero; NpyIter* iter; NpyIter_IterNextFunc *iternext; char** dataptr; npy_intp nonzero_count; npy_intp* strideptr,* innersizeptr; / * Handle zero - sized arrays specially * / if ( PyArray_SIZE ( self) == 0) { return 0; } / * * Create and use an iterator to count the nonzeros. * flag NPY_ITER_READONLY * - The array is never written to. * flag NPY_ITER_EXTERNAL_LOOP * - Inner loop is done outside the iterator for efficiency. * flag NPY_ITER_NPY_ITER_REFS_OK * - Reference types are acceptable. * order NPY_KEEPORDER * - Visit elements in memory order, regardless of strides. * This is good for performance when the specific order * elements are visited is unimportant. * casting NPY_NO_CASTING * - No casting is required for this operation. * / iter = NpyIter_New ( self, NPY_ITER_READONLY| NPY_ITER_EXTERNAL_LOOP| NPY_ITER_REFS_OK, NPY_KEEPORDER, NPY_NO_CASTING, NULL); if ( iter == NULL) { return - 1; } / * * The iternext function gets stored in a local variable * so it can be called repeatedly in an efficient manner. * / iternext = NpyIter_GetIterNext ( iter, NULL); if ( iternext == NULL) { NpyIter_Deallocate ( iter); return - 1; } / * The location of the data pointer which the iterator may update * / dataptr = NpyIter_GetDataPtrArray ( iter); / * The location of the stride which the iterator may update * / strideptr = NpyIter_GetInnerStrideArray ( iter); / * The location of the inner loop size which the iterator may update * / innersizeptr = NpyIter_GetInnerLoopSizePtr ( iter); nonzero_count = 0; do { / * Get the inner loop data / stride / count values * / char* data = *dataptr; npy_intp stride = *strideptr; npy_intp count = *innersizeptr; / * This is a typical inner loop for NPY_ITER_EXTERNAL_LOOP * / while ( count - - ) { if ( nonzero ( data, self)) { ++nonzero_count; } data += stride; } / * Increment the iterator to the next inner loop * / } while ( iternext ( iter)); NpyIter_Deallocate ( iter); return nonzero_count; } "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "c",
+            "content": "npy_intp PyArray_CountNonzero(PyArrayObject* self)\n{\n    /* Nonzero boolean function */\n    PyArray_NonzeroFunc* nonzero = PyArray_DESCR(self)->f->nonzero;\n\n    NpyIter* iter;\n    NpyIter_IterNextFunc *iternext;\n    char** dataptr;\n    npy_intp nonzero_count;\n    npy_intp* strideptr,* innersizeptr;\n\n    /* Handle zero-sized arrays specially */\n    if (PyArray_SIZE(self) == 0) {\n        return 0;\n    }\n\n    /*\n     * Create and use an iterator to count the nonzeros.\n     *   flag NPY_ITER_READONLY\n     *     - The array is never written to.\n     *   flag NPY_ITER_EXTERNAL_LOOP\n     *     - Inner loop is done outside the iterator for efficiency.\n     *   flag NPY_ITER_NPY_ITER_REFS_OK\n     *     - Reference types are acceptable.\n     *   order NPY_KEEPORDER\n     *     - Visit elements in memory order, regardless of strides.\n     *       This is good for performance when the specific order\n     *       elements are visited is unimportant.\n     *   casting NPY_NO_CASTING\n     *     - No casting is required for this operation.\n     */\n    iter = NpyIter_New(self, NPY_ITER_READONLY|\n                             NPY_ITER_EXTERNAL_LOOP|\n                             NPY_ITER_REFS_OK,\n                        NPY_KEEPORDER, NPY_NO_CASTING,\n                        NULL);\n    if (iter == NULL) {\n        return -1;\n    }\n\n    /*\n     * The iternext function gets stored in a local variable\n     * so it can be called repeatedly in an efficient manner.\n     */\n    iternext = NpyIter_GetIterNext(iter, NULL);\n    if (iternext == NULL) {\n        NpyIter_Deallocate(iter);\n        return -1;\n    }\n    /* The location of the data pointer which the iterator may update */\n    dataptr = NpyIter_GetDataPtrArray(iter);\n    /* The location of the stride which the iterator may update */\n    strideptr = NpyIter_GetInnerStrideArray(iter);\n    /* The location of the inner loop size which the iterator may update */\n    innersizeptr = NpyIter_GetInnerLoopSizePtr(iter);\n\n    nonzero_count = 0;\n    do {\n        /* Get the inner loop data/stride/count values */\n        char* data = *dataptr;\n        npy_intp stride = *strideptr;\n        npy_intp count = *innersizeptr;\n\n        /* This is a typical inner loop for NPY_ITER_EXTERNAL_LOOP */\n        while (count--) {\n            if (nonzero(data, self)) {\n                ++nonzero_count;\n            }\n            data += stride;\n        }\n\n        /* Increment the iterator to the next inner loop */\n    } while(iternext(iter));\n\n    NpyIter_Deallocate(iter);\n\n    return nonzero_count;\n}",
+            "name": "code-block",
+            "options": []
           },
           "type": "BlockDirective"
         }
@@ -209,7 +164,7 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Here is a simple copy function using the iterator.  The "
@@ -244,28 +199,16 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [
-              "c"
-            ],
-            "directive_name": "code-block",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "PyObject *CopyArray ( PyObject *arr, NPY_ORDER order) { NpyIter *iter; NpyIter_IterNextFunc *iternext; PyObject *op [ 2], *ret; npy_uint32 flags; npy_uint32 op_flags [ 2]; npy_intp itemsize, *innersizeptr, innerstride; char **dataptrarray; / * * No inner iteration - inner loop is handled by CopyArray code * / flags = NPY_ITER_EXTERNAL_LOOP; / * * Tell the constructor to automatically allocate the output. * The data type of the output will match that of the input. * / op [ 0] = arr; op [ 1] = NULL; op_flags [ 0] = NPY_ITER_READONLY; op_flags [ 1] = NPY_ITER_WRITEONLY | NPY_ITER_ALLOCATE; / * Construct the iterator * / iter = NpyIter_MultiNew ( 2, op, flags, order, NPY_NO_CASTING, op_flags, NULL); if ( iter == NULL) { return NULL; } / * * Make a copy of the iternext function pointer and * a few other variables the inner loop needs. * / iternext = NpyIter_GetIterNext ( iter, NULL); innerstride = NpyIter_GetInnerStrideArray ( iter) [ 0]; itemsize = NpyIter_GetDescrArray ( iter) [ 0] - >elsize; / * * The inner loop size and data pointers may change during the * loop, so just cache the addresses. * / innersizeptr = NpyIter_GetInnerLoopSizePtr ( iter); dataptrarray = NpyIter_GetDataPtrArray ( iter); / * * Note that because the iterator allocated the output, * it matches the iteration order and is packed tightly, * so we don ' t need to check it like the input. * / if ( innerstride == itemsize) { do { memcpy ( dataptrarray [ 1], dataptrarray [ 0], itemsize * ( *innersizeptr)); } while ( iternext ( iter)); } else { / * For efficiency, should specialize this based on item size... * / npy_intp i; do { npy_intp size = *innersizeptr; char *src = dataptrarray [ 0], *dst = dataptrarray [ 1]; for ( i = 0; i < size; i++, src += innerstride, dst += itemsize) { memcpy ( dst, src, itemsize); } } while ( iternext ( iter)); } / * Get the result from the iterator object array * / ret = NpyIter_GetOperandArray ( iter) [ 1]; Py_INCREF ( ret); if ( NpyIter_Deallocate ( iter) != NPY_SUCCEED) { Py_DECREF ( ret); return NULL; } return ret; } "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "c",
+            "content": "PyObject *CopyArray(PyObject *arr, NPY_ORDER order)\n{\n    NpyIter *iter;\n    NpyIter_IterNextFunc *iternext;\n    PyObject *op[2], *ret;\n    npy_uint32 flags;\n    npy_uint32 op_flags[2];\n    npy_intp itemsize, *innersizeptr, innerstride;\n    char **dataptrarray;\n\n    /*\n     * No inner iteration - inner loop is handled by CopyArray code\n     */\n    flags = NPY_ITER_EXTERNAL_LOOP;\n    /*\n     * Tell the constructor to automatically allocate the output.\n     * The data type of the output will match that of the input.\n     */\n    op[0] = arr;\n    op[1] = NULL;\n    op_flags[0] = NPY_ITER_READONLY;\n    op_flags[1] = NPY_ITER_WRITEONLY | NPY_ITER_ALLOCATE;\n\n    /* Construct the iterator */\n    iter = NpyIter_MultiNew(2, op, flags, order, NPY_NO_CASTING,\n                            op_flags, NULL);\n    if (iter == NULL) {\n        return NULL;\n    }\n\n    /*\n     * Make a copy of the iternext function pointer and\n     * a few other variables the inner loop needs.\n     */\n    iternext = NpyIter_GetIterNext(iter, NULL);\n    innerstride = NpyIter_GetInnerStrideArray(iter)[0];\n    itemsize = NpyIter_GetDescrArray(iter)[0]->elsize;\n    /*\n     * The inner loop size and data pointers may change during the\n     * loop, so just cache the addresses.\n     */\n    innersizeptr = NpyIter_GetInnerLoopSizePtr(iter);\n    dataptrarray = NpyIter_GetDataPtrArray(iter);\n\n    /*\n     * Note that because the iterator allocated the output,\n     * it matches the iteration order and is packed tightly,\n     * so we don't need to check it like the input.\n     */\n    if (innerstride == itemsize) {\n        do {\n            memcpy(dataptrarray[1], dataptrarray[0],\n                                    itemsize * (*innersizeptr));\n        } while (iternext(iter));\n    } else {\n        /* For efficiency, should specialize this based on item size... */\n        npy_intp i;\n        do {\n            npy_intp size = *innersizeptr;\n            char *src = dataptrarray[0], *dst = dataptrarray[1];\n            for(i = 0; i < size; i++, src += innerstride, dst += itemsize) {\n                memcpy(dst, src, itemsize);\n            }\n        } while (iternext(iter));\n    }\n\n    /* Get the result from the iterator object array */\n    ret = NpyIter_GetOperandArray(iter)[1];\n    Py_INCREF(ret);\n\n    if (NpyIter_Deallocate(iter) != NPY_SUCCEED) {\n        Py_DECREF(ret);\n        return NULL;\n    }\n\n    return ret;\n}",
+            "name": "code-block",
+            "options": []
           },
           "type": "BlockDirective"
         }
@@ -276,95 +219,50 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The iterator layout is an internal detail, and user code only sees an incomplete struct."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [
-              "NpyIter"
-            ],
-            "directive_name": "c:type",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "This is an opaque pointer type for the iterator. Access to its contents can only be done through the iterator API. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NpyIter",
+            "content": "This is an opaque pointer type for the iterator. Access to its contents\ncan only be done through the iterator API.",
+            "name": "c:type",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "NpyIter_Type"
-            ],
-            "directive_name": "c:type",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "This is the type which exposes the iterator to Python. Currently, no API is exposed which provides access to the values of a Python - created iterator. If an iterator is created in Python, it must be used in Python and vice versa. Such an API will likely be created in a future version. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NpyIter_Type",
+            "content": "This is the type which exposes the iterator to Python. Currently, no\nAPI is exposed which provides access to the values of a Python-created\niterator. If an iterator is created in Python, it must be used in Python\nand vice versa. Such an API will likely be created in a future version.",
+            "name": "c:type",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "NpyIter_IterNextFunc"
-            ],
-            "directive_name": "c:type",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "This is a function pointer for the iteration loop, returned by : c : func : `NpyIter_GetIterNext`. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NpyIter_IterNextFunc",
+            "content": "This is a function pointer for the iteration loop, returned by\n:c:func:`NpyIter_GetIterNext`.",
+            "name": "c:type",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "NpyIter_GetMultiIndexFunc"
-            ],
-            "directive_name": "c:type",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "This is a function pointer for getting the current iterator multi - index, returned by : c : func : `NpyIter_GetGetMultiIndex`. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NpyIter_GetMultiIndexFunc",
+            "content": "This is a function pointer for getting the current iterator multi-index,\nreturned by :c:func:`NpyIter_GetGetMultiIndex`.",
+            "name": "c:type",
+            "options": []
           },
           "type": "BlockDirective"
         }
@@ -375,21 +273,10 @@
       "children": [
         {
           "data": {
-            "args0": [
-              "NpyIter* NpyIter_New( \\"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "PyArrayObject* op, npy_uint32 flags, NPY_ORDER order, \\ NPY_CASTING casting, PyArray_Descr* dtype) "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NpyIter* NpyIter_New( \\",
+            "content": "PyArrayObject* op, npy_uint32 flags, NPY_ORDER order, \\\nNPY_CASTING casting, PyArray_Descr* dtype)",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
@@ -447,21 +334,10 @@
         },
         {
           "data": {
-            "args0": [
-              "NpyIter* NpyIter_MultiNew( \\"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "npy_intp nop, PyArrayObject** op, npy_uint32 flags, NPY_ORDER order, \\ NPY_CASTING casting, npy_uint32* op_flags, PyArray_Descr** op_dtypes) "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NpyIter* NpyIter_MultiNew( \\",
+            "content": "npy_intp nop, PyArrayObject** op, npy_uint32 flags, NPY_ORDER order, \\\nNPY_CASTING casting, npy_uint32* op_flags, PyArray_Descr** op_dtypes)",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
@@ -504,281 +380,127 @@
         },
         {
           "data": {
-            "args0": [
-              "NPY_ITER_C_INDEX"
-            ],
-            "directive_name": "c:macro",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Causes the iterator to track a raveled flat index matching C order. This option cannot be used with : c : data : `NPY_ITER_F_INDEX`. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NPY_ITER_C_INDEX",
+            "content": "Causes the iterator to track a raveled flat index matching C\norder. This option cannot be used with :c:data:`NPY_ITER_F_INDEX`.",
+            "name": "c:macro",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "NPY_ITER_F_INDEX"
-            ],
-            "directive_name": "c:macro",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Causes the iterator to track a raveled flat index matching Fortran order. This option cannot be used with : c : data : `NPY_ITER_C_INDEX`. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NPY_ITER_F_INDEX",
+            "content": "Causes the iterator to track a raveled flat index matching Fortran\norder. This option cannot be used with :c:data:`NPY_ITER_C_INDEX`.",
+            "name": "c:macro",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "NPY_ITER_MULTI_INDEX"
-            ],
-            "directive_name": "c:macro",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Causes the iterator to track a multi - index. This prevents the iterator from coalescing axes to produce bigger inner loops. If the loop is also not buffered and no index is being tracked ( `NpyIter_RemoveAxis` can be called), then the iterator size can be `` - 1`` to indicate that the iterator is too large. This can happen due to complex broadcasting and will result in errors being created when the setting the iterator range, removing the multi index, or getting the next function. However, it is possible to remove axes again and use the iterator normally if the size is small enough after removal. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NPY_ITER_MULTI_INDEX",
+            "content": "Causes the iterator to track a multi-index.\nThis prevents the iterator from coalescing axes to\nproduce bigger inner loops. If the loop is also not buffered\nand no index is being tracked (`NpyIter_RemoveAxis` can be called),\nthen the iterator size can be ``-1`` to indicate that the iterator\nis too large. This can happen due to complex broadcasting and\nwill result in errors being created when the setting the iterator\nrange, removing the multi index, or getting the next function.\nHowever, it is possible to remove axes again and use the iterator\nnormally if the size is small enough after removal.",
+            "name": "c:macro",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "NPY_ITER_EXTERNAL_LOOP"
-            ],
-            "directive_name": "c:macro",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Causes the iterator to skip iteration of the innermost loop, requiring the user of the iterator to handle it. This flag is incompatible with : c : data : `NPY_ITER_C_INDEX`, : c : data : `NPY_ITER_F_INDEX`, and : c : data : `NPY_ITER_MULTI_INDEX`. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NPY_ITER_EXTERNAL_LOOP",
+            "content": "Causes the iterator to skip iteration of the innermost\nloop, requiring the user of the iterator to handle it.\n\nThis flag is incompatible with :c:data:`NPY_ITER_C_INDEX`,\n:c:data:`NPY_ITER_F_INDEX`, and :c:data:`NPY_ITER_MULTI_INDEX`.",
+            "name": "c:macro",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "NPY_ITER_DONT_NEGATE_STRIDES"
-            ],
-            "directive_name": "c:macro",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "This only affects the iterator when : c : type : `NPY_KEEPORDER` is specified for the order parameter. By default with : c : type : `NPY_KEEPORDER`, the iterator reverses axes which have negative strides, so that memory is traversed in a forward direction. This disables this step. Use this flag if you want to use the underlying memory - ordering of the axes, but don ' t want an axis reversed. This is the behavior of ``numpy.ravel ( a, order= ' K ' )``, for instance. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NPY_ITER_DONT_NEGATE_STRIDES",
+            "content": "This only affects the iterator when :c:type:`NPY_KEEPORDER` is\nspecified for the order parameter.  By default with\n:c:type:`NPY_KEEPORDER`, the iterator reverses axes which have\nnegative strides, so that memory is traversed in a forward\ndirection.  This disables this step.  Use this flag if you\nwant to use the underlying memory-ordering of the axes,\nbut don't want an axis reversed. This is the behavior of\n``numpy.ravel(a, order='K')``, for instance.",
+            "name": "c:macro",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "NPY_ITER_COMMON_DTYPE"
-            ],
-            "directive_name": "c:macro",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Causes the iterator to convert all the operands to a common data type, calculated based on the ufunc type promotion rules. Copying or buffering must be enabled. If the common data type is known ahead of time, don ' t use this flag. Instead, set the requested dtype for all the operands. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NPY_ITER_COMMON_DTYPE",
+            "content": "Causes the iterator to convert all the operands to a common\ndata type, calculated based on the ufunc type promotion rules.\nCopying or buffering must be enabled.\n\nIf the common data type is known ahead of time, don't use this\nflag.  Instead, set the requested dtype for all the operands.",
+            "name": "c:macro",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "NPY_ITER_REFS_OK"
-            ],
-            "directive_name": "c:macro",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Indicates that arrays with reference types ( object arrays or structured arrays containing an object type) may be accepted and used in the iterator. If this flag is enabled, the caller must be sure to check whether : c : expr : `NpyIter_IterationNeedsAPI ( iter)` is true, in which case it may not release the GIL during iteration. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NPY_ITER_REFS_OK",
+            "content": "Indicates that arrays with reference types (object\narrays or structured arrays containing an object type)\nmay be accepted and used in the iterator.  If this flag\nis enabled, the caller must be sure to check whether\n:c:expr:`NpyIter_IterationNeedsAPI(iter)` is true, in which case\nit may not release the GIL during iteration.",
+            "name": "c:macro",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "NPY_ITER_ZEROSIZE_OK"
-            ],
-            "directive_name": "c:macro",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Indicates that arrays with a size of zero should be permitted. Since the typical iteration loop does not naturally work with zero - sized arrays, you must check that the IterSize is larger than zero before entering the iteration loop. Currently only the operands are checked, not a forced shape. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NPY_ITER_ZEROSIZE_OK",
+            "content": "Indicates that arrays with a size of zero should be permitted.\nSince the typical iteration loop does not naturally work with\nzero-sized arrays, you must check that the IterSize is larger\nthan zero before entering the iteration loop.\nCurrently only the operands are checked, not a forced shape.",
+            "name": "c:macro",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "NPY_ITER_REDUCE_OK"
-            ],
-            "directive_name": "c:macro",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Permits writeable operands with a dimension with zero stride and size greater than one. Note that such operands must be read / write. When buffering is enabled, this also switches to a special buffering mode which reduces the loop length as necessary to not trample on values being reduced. Note that if you want to do a reduction on an automatically allocated output, you must use : c : func : `NpyIter_GetOperandArray` to get its reference, then set every value to the reduction unit before doing the iteration loop. In the case of a buffered reduction, this means you must also specify the flag : c : data : `NPY_ITER_DELAY_BUFALLOC`, then reset the iterator after initializing the allocated operand to prepare the buffers. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NPY_ITER_REDUCE_OK",
+            "content": "Permits writeable operands with a dimension with zero\nstride and size greater than one.  Note that such operands\nmust be read/write.\n\nWhen buffering is enabled, this also switches to a special\nbuffering mode which reduces the loop length as necessary to\nnot trample on values being reduced.\n\nNote that if you want to do a reduction on an automatically\nallocated output, you must use :c:func:`NpyIter_GetOperandArray`\nto get its reference, then set every value to the reduction\nunit before doing the iteration loop.  In the case of a\nbuffered reduction, this means you must also specify the\nflag :c:data:`NPY_ITER_DELAY_BUFALLOC`, then reset the iterator\nafter initializing the allocated operand to prepare the\nbuffers.",
+            "name": "c:macro",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "NPY_ITER_RANGED"
-            ],
-            "directive_name": "c:macro",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Enables support for iteration of sub - ranges of the full ``iterindex`` range `` [ 0, NpyIter_IterSize ( iter))``. Use the function : c : func : `NpyIter_ResetToIterIndexRange` to specify a range for iteration. This flag can only be used with : c : data : `NPY_ITER_EXTERNAL_LOOP` when : c : data : `NPY_ITER_BUFFERED` is enabled. This is because without buffering, the inner loop is always the size of the innermost iteration dimension, and allowing it to get cut up would require special handling, effectively making it more like the buffered version. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NPY_ITER_RANGED",
+            "content": "Enables support for iteration of sub-ranges of the full\n``iterindex`` range ``[0, NpyIter_IterSize(iter))``.  Use\nthe function :c:func:`NpyIter_ResetToIterIndexRange` to specify\na range for iteration.\n\nThis flag can only be used with :c:data:`NPY_ITER_EXTERNAL_LOOP`\nwhen :c:data:`NPY_ITER_BUFFERED` is enabled.  This is because\nwithout buffering, the inner loop is always the size of the\ninnermost iteration dimension, and allowing it to get cut up\nwould require special handling, effectively making it more\nlike the buffered version.",
+            "name": "c:macro",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "NPY_ITER_BUFFERED"
-            ],
-            "directive_name": "c:macro",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Causes the iterator to store buffering data, and use buffering to satisfy data type, alignment, and byte - order requirements. To buffer an operand, do not specify the : c : data : `NPY_ITER_COPY` or : c : data : `NPY_ITER_UPDATEIFCOPY` flags, because they will override buffering. Buffering is especially useful for Python code using the iterator, allowing for larger chunks of data at once to amortize the Python interpreter overhead. If used with : c : data : `NPY_ITER_EXTERNAL_LOOP`, the inner loop for the caller may get larger chunks than would be possible without buffering, because of how the strides are laid out. Note that if an operand is given the flag : c : data : `NPY_ITER_COPY` or : c : data : `NPY_ITER_UPDATEIFCOPY`, a copy will be made in preference to buffering. Buffering will still occur when the array was broadcast so elements need to be duplicated to get a constant stride. In normal buffering, the size of each inner loop is equal to the buffer size, or possibly larger if : c : data : `NPY_ITER_GROWINNER` is specified. If : c : data : `NPY_ITER_REDUCE_OK` is enabled and a reduction occurs, the inner loops may become smaller depending on the structure of the reduction. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NPY_ITER_BUFFERED",
+            "content": "Causes the iterator to store buffering data, and use buffering\nto satisfy data type, alignment, and byte-order requirements.\nTo buffer an operand, do not specify the :c:data:`NPY_ITER_COPY`\nor :c:data:`NPY_ITER_UPDATEIFCOPY` flags, because they will\noverride buffering.  Buffering is especially useful for Python\ncode using the iterator, allowing for larger chunks\nof data at once to amortize the Python interpreter overhead.\n\nIf used with :c:data:`NPY_ITER_EXTERNAL_LOOP`, the inner loop\nfor the caller may get larger chunks than would be possible\nwithout buffering, because of how the strides are laid out.\n\nNote that if an operand is given the flag :c:data:`NPY_ITER_COPY`\nor :c:data:`NPY_ITER_UPDATEIFCOPY`, a copy will be made in preference\nto buffering.  Buffering will still occur when the array was\nbroadcast so elements need to be duplicated to get a constant\nstride.\n\nIn normal buffering, the size of each inner loop is equal\nto the buffer size, or possibly larger if\n:c:data:`NPY_ITER_GROWINNER` is specified.  If\n:c:data:`NPY_ITER_REDUCE_OK` is enabled and a reduction occurs,\nthe inner loops may become smaller depending\non the structure of the reduction.",
+            "name": "c:macro",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "NPY_ITER_GROWINNER"
-            ],
-            "directive_name": "c:macro",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "When buffering is enabled, this allows the size of the inner loop to grow when buffering isn ' t necessary. This option is best used if you ' re doing a straight pass through all the data, rather than anything with small cache - friendly arrays of temporary values for each inner loop. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NPY_ITER_GROWINNER",
+            "content": "When buffering is enabled, this allows the size of the inner\nloop to grow when buffering isn't necessary.  This option\nis best used if you're doing a straight pass through all the\ndata, rather than anything with small cache-friendly arrays\nof temporary values for each inner loop.",
+            "name": "c:macro",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "NPY_ITER_DELAY_BUFALLOC"
-            ],
-            "directive_name": "c:macro",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "When buffering is enabled, this delays allocation of the buffers until : c : func : `NpyIter_Reset` or another reset function is called. This flag exists to avoid wasteful copying of buffer data when making multiple copies of a buffered iterator for multi - threaded iteration. Another use of this flag is for setting up reduction operations. After the iterator is created, and a reduction output is allocated automatically by the iterator ( be sure to use READWRITE access), its value may be initialized to the reduction unit. Use : c : func : `NpyIter_GetOperandArray` to get the object. Then, call : c : func : `NpyIter_Reset` to allocate and fill the buffers with their initial values. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NPY_ITER_DELAY_BUFALLOC",
+            "content": "When buffering is enabled, this delays allocation of the\nbuffers until :c:func:`NpyIter_Reset` or another reset function is\ncalled.  This flag exists to avoid wasteful copying of\nbuffer data when making multiple copies of a buffered\niterator for multi-threaded iteration.\n\nAnother use of this flag is for setting up reduction operations.\nAfter the iterator is created, and a reduction output\nis allocated automatically by the iterator (be sure to use\nREADWRITE access), its value may be initialized to the reduction\nunit.  Use :c:func:`NpyIter_GetOperandArray` to get the object.\nThen, call :c:func:`NpyIter_Reset` to allocate and fill the buffers\nwith their initial values.",
+            "name": "c:macro",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "NPY_ITER_COPY_IF_OVERLAP"
-            ],
-            "directive_name": "c:macro",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "If any write operand has overlap with any read operand, eliminate all overlap by making temporary copies ( enabling UPDATEIFCOPY for write operands, if necessary). A pair of operands has overlap if there is a memory address that contains data common to both arrays. Because exact overlap detection has exponential runtime in the number of dimensions, the decision is made based on heuristics, which has false positives ( needless copies in unusual cases) but has no false negatives. If any read / write overlap exists, this flag ensures the result of the operation is the same as if all operands were copied. In cases where copies would need to be made, **the result of the computation may be undefined without this flag!** Flags that may be passed in ``op_flags [ i]``, where ``0 < = i < nop`` : "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NPY_ITER_COPY_IF_OVERLAP",
+            "content": "If any write operand has overlap with any read operand, eliminate all\noverlap by making temporary copies (enabling UPDATEIFCOPY for write\noperands, if necessary). A pair of operands has overlap if there is\na memory address that contains data common to both arrays.\n\nBecause exact overlap detection has exponential runtime\nin the number of dimensions, the decision is made based\non heuristics, which has false positives (needless copies in unusual\ncases) but has no false negatives.\n\nIf any read/write overlap exists, this flag ensures the result of the\noperation is the same as if all operands were copied.\nIn cases where copies would need to be made, **the result of the\ncomputation may be undefined without this flag!**\n\nFlags that may be passed in ``op_flags[i]``, where ``0 <= i < nop``:",
+            "name": "c:macro",
+            "options": []
           },
           "type": "BlockDirective"
         },
@@ -790,293 +512,136 @@
         },
         {
           "data": {
-            "args0": [],
-            "directive_name": "c:macro",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "NPY_ITER_READWRITE "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NPY_ITER_READWRITE",
+            "content": "",
+            "name": "c:macro",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [],
-            "directive_name": "c:macro",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "NPY_ITER_READONLY "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NPY_ITER_READONLY",
+            "content": "",
+            "name": "c:macro",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "NPY_ITER_WRITEONLY"
-            ],
-            "directive_name": "c:macro",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Indicate how the user of the iterator will read or write to ``op [ i]``. Exactly one of these flags must be specified per operand. Using ``NPY_ITER_READWRITE`` or ``NPY_ITER_WRITEONLY`` for a user - provided operand may trigger `WRITEBACKIFCOPY`` semantics. The data will be written back to the original array when ``NpyIter_Deallocate`` is called. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NPY_ITER_WRITEONLY",
+            "content": "Indicate how the user of the iterator will read or write\nto ``op[i]``.  Exactly one of these flags must be specified\nper operand. Using ``NPY_ITER_READWRITE`` or ``NPY_ITER_WRITEONLY``\nfor a user-provided operand may trigger `WRITEBACKIFCOPY``\nsemantics. The data will be written back to the original array\nwhen ``NpyIter_Deallocate`` is called.",
+            "name": "c:macro",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "NPY_ITER_COPY"
-            ],
-            "directive_name": "c:macro",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Allow a copy of ``op [ i]`` to be made if it does not meet the data type or alignment requirements as specified by the constructor flags and parameters. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NPY_ITER_COPY",
+            "content": "Allow a copy of ``op[i]`` to be made if it does not\nmeet the data type or alignment requirements as specified\nby the constructor flags and parameters.",
+            "name": "c:macro",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "NPY_ITER_UPDATEIFCOPY"
-            ],
-            "directive_name": "c:macro",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Triggers : c : data : `NPY_ITER_COPY`, and when an array operand is flagged for writing and is copied, causes the data in a copy to be copied back to ``op [ i]`` when ``NpyIter_Deallocate`` is called. If the operand is flagged as write - only and a copy is needed, an uninitialized temporary array will be created and then copied to back to ``op [ i]`` on calling ``NpyIter_Deallocate``, instead of doing the unnecessary copy operation. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NPY_ITER_UPDATEIFCOPY",
+            "content": "Triggers :c:data:`NPY_ITER_COPY`, and when an array operand\nis flagged for writing and is copied, causes the data\nin a copy to be copied back to ``op[i]`` when\n``NpyIter_Deallocate`` is called.\n\nIf the operand is flagged as write-only and a copy is needed,\nan uninitialized temporary array will be created and then copied\nto back to ``op[i]`` on calling ``NpyIter_Deallocate``, instead of\ndoing the unnecessary copy operation.",
+            "name": "c:macro",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [],
-            "directive_name": "c:macro",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "NPY_ITER_NBO "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NPY_ITER_NBO",
+            "content": "",
+            "name": "c:macro",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [],
-            "directive_name": "c:macro",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "NPY_ITER_ALIGNED "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NPY_ITER_ALIGNED",
+            "content": "",
+            "name": "c:macro",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "NPY_ITER_CONTIG"
-            ],
-            "directive_name": "c:macro",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Causes the iterator to provide data for ``op [ i]`` that is in native byte order, aligned according to the dtype requirements, contiguous, or any combination. By default, the iterator produces pointers into the arrays provided, which may be aligned or unaligned, and with any byte order. If copying or buffering is not enabled and the operand data doesn ' t satisfy the constraints, an error will be raised. The contiguous constraint applies only to the inner loop, successive inner loops may have arbitrary pointer changes. If the requested data type is in non - native byte order, the NBO flag overrides it and the requested data type is converted to be in native byte order. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NPY_ITER_CONTIG",
+            "content": "Causes the iterator to provide data for ``op[i]``\nthat is in native byte order, aligned according to\nthe dtype requirements, contiguous, or any combination.\n\nBy default, the iterator produces pointers into the\narrays provided, which may be aligned or unaligned, and\nwith any byte order.  If copying or buffering is not\nenabled and the operand data doesn't satisfy the constraints,\nan error will be raised.\n\nThe contiguous constraint applies only to the inner loop,\nsuccessive inner loops may have arbitrary pointer changes.\n\nIf the requested data type is in non-native byte order,\nthe NBO flag overrides it and the requested data type is\nconverted to be in native byte order.",
+            "name": "c:macro",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "NPY_ITER_ALLOCATE"
-            ],
-            "directive_name": "c:macro",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "This is for output arrays, and requires that the flag : c : data : `NPY_ITER_WRITEONLY` or : c : data : `NPY_ITER_READWRITE` be set. If ``op [ i]`` is NULL, creates a new array with the final broadcast dimensions, and a layout matching the iteration order of the iterator. When ``op [ i]`` is NULL, the requested data type ``op_dtypes [ i]`` may be NULL as well, in which case it is automatically generated from the dtypes of the arrays which are flagged as readable. The rules for generating the dtype are the same is for UFuncs. Of special note is handling of byte order in the selected dtype. If there is exactly one input, the input ' s dtype is used as is. Otherwise, if more than one input dtypes are combined together, the output will be in native byte order. After being allocated with this flag, the caller may retrieve the new array by calling : c : func : `NpyIter_GetOperandArray` and getting the i - th object in the returned C array. The caller must call Py_INCREF on it to claim a reference to the array. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NPY_ITER_ALLOCATE",
+            "content": "This is for output arrays, and requires that the flag\n:c:data:`NPY_ITER_WRITEONLY` or :c:data:`NPY_ITER_READWRITE`\nbe set.  If ``op[i]`` is NULL, creates a new array with\nthe final broadcast dimensions, and a layout matching\nthe iteration order of the iterator.\n\nWhen ``op[i]`` is NULL, the requested data type\n``op_dtypes[i]`` may be NULL as well, in which case it is\nautomatically generated from the dtypes of the arrays which\nare flagged as readable.  The rules for generating the dtype\nare the same is for UFuncs.  Of special note is handling\nof byte order in the selected dtype.  If there is exactly\none input, the input's dtype is used as is.  Otherwise,\nif more than one input dtypes are combined together, the\noutput will be in native byte order.\n\nAfter being allocated with this flag, the caller may retrieve\nthe new array by calling :c:func:`NpyIter_GetOperandArray` and\ngetting the i-th object in the returned C array.  The caller\nmust call Py_INCREF on it to claim a reference to the array.",
+            "name": "c:macro",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "NPY_ITER_NO_SUBTYPE"
-            ],
-            "directive_name": "c:macro",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "For use with : c : data : `NPY_ITER_ALLOCATE`, this flag disables allocating an array subtype for the output, forcing it to be a straight ndarray. TODO : Maybe it would be better to introduce a function ``NpyIter_GetWrappedOutput`` and remove this flag? "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NPY_ITER_NO_SUBTYPE",
+            "content": "For use with :c:data:`NPY_ITER_ALLOCATE`, this flag disables\nallocating an array subtype for the output, forcing\nit to be a straight ndarray.\n\nTODO: Maybe it would be better to introduce a function\n``NpyIter_GetWrappedOutput`` and remove this flag?",
+            "name": "c:macro",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "NPY_ITER_NO_BROADCAST"
-            ],
-            "directive_name": "c:macro",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Ensures that the input or output matches the iteration dimensions exactly. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NPY_ITER_NO_BROADCAST",
+            "content": "Ensures that the input or output matches the iteration\ndimensions exactly.",
+            "name": "c:macro",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "NPY_ITER_ARRAYMASK"
-            ],
-            "directive_name": "c:macro",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": ".. versionadded : : 1.7 Indicates that this operand is the mask to use for selecting elements when writing to operands which have the : c : data : `NPY_ITER_WRITEMASKED` flag applied to them. Only one operand may have : c : data : `NPY_ITER_ARRAYMASK` flag applied to it. The data type of an operand with this flag should be either : c : data : `NPY_BOOL`, : c : data : `NPY_MASK`, or a struct dtype whose fields are all valid mask dtypes. In the latter case, it must match up with a struct operand being WRITEMASKED, as it is specifying a mask for each field of that array. This flag only affects writing from the buffer back to the array. This means that if the operand is also : c : data : `NPY_ITER_READWRITE` or : c : data : `NPY_ITER_WRITEONLY`, code doing iteration can write to this operand to control which elements will be untouched and which ones will be modified. This is useful when the mask should be a combination of input masks. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NPY_ITER_ARRAYMASK",
+            "content": ".. versionadded:: 1.7\n\nIndicates that this operand is the mask to use for\nselecting elements when writing to operands which have\nthe :c:data:`NPY_ITER_WRITEMASKED` flag applied to them.\nOnly one operand may have :c:data:`NPY_ITER_ARRAYMASK` flag\napplied to it.\n\nThe data type of an operand with this flag should be either\n:c:data:`NPY_BOOL`, :c:data:`NPY_MASK`, or a struct dtype\nwhose fields are all valid mask dtypes. In the latter case,\nit must match up with a struct operand being WRITEMASKED,\nas it is specifying a mask for each field of that array.\n\nThis flag only affects writing from the buffer back to\nthe array. This means that if the operand is also\n:c:data:`NPY_ITER_READWRITE` or :c:data:`NPY_ITER_WRITEONLY`,\ncode doing iteration can write to this operand to\ncontrol which elements will be untouched and which ones will be\nmodified. This is useful when the mask should be a combination\nof input masks.",
+            "name": "c:macro",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "NPY_ITER_WRITEMASKED"
-            ],
-            "directive_name": "c:macro",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": ".. versionadded : : 1.7 This array is the mask for all `writemasked < numpy.nditer>` operands. Code uses the ``writemasked`` flag which indicates that only elements where the chosen ARRAYMASK operand is True will be written to. In general, the iterator does not enforce this, it is up to the code doing the iteration to follow that promise. When ``writemasked`` flag is used, and this operand is buffered, this changes how data is copied from the buffer into the array. A masked copying routine is used, which only copies the elements in the buffer for which ``writemasked`` returns true from the corresponding element in the ARRAYMASK operand. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NPY_ITER_WRITEMASKED",
+            "content": ".. versionadded:: 1.7\n\nThis array is the mask for all `writemasked <numpy.nditer>`\noperands. Code uses the ``writemasked`` flag which indicates \nthat only elements where the chosen ARRAYMASK operand is True\nwill be written to. In general, the iterator does not enforce\nthis, it is up to the code doing the iteration to follow that\npromise.\n\nWhen ``writemasked`` flag is used, and this operand is buffered,\nthis changes how data is copied from the buffer into the array.\nA masked copying routine is used, which only copies the\nelements in the buffer for which ``writemasked``\nreturns true from the corresponding element in the ARRAYMASK\noperand.",
+            "name": "c:macro",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "NPY_ITER_OVERLAP_ASSUME_ELEMENTWISE"
-            ],
-            "directive_name": "c:macro",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "In memory overlap checks, assume that operands with ``NPY_ITER_OVERLAP_ASSUME_ELEMENTWISE`` enabled are accessed only in the iterator order. This enables the iterator to reason about data dependency, possibly avoiding unnecessary copies. This flag has effect only if ``NPY_ITER_COPY_IF_OVERLAP`` is enabled on the iterator. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NPY_ITER_OVERLAP_ASSUME_ELEMENTWISE",
+            "content": "In memory overlap checks, assume that operands with\n``NPY_ITER_OVERLAP_ASSUME_ELEMENTWISE`` enabled are accessed only\nin the iterator order.\n\nThis enables the iterator to reason about data dependency,\npossibly avoiding unnecessary copies.\n\nThis flag has effect only if ``NPY_ITER_COPY_IF_OVERLAP`` is enabled\non the iterator.",
+            "name": "c:macro",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "NpyIter* NpyIter_AdvancedNew( \\"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "npy_intp nop, PyArrayObject** op, npy_uint32 flags, NPY_ORDER order, \\ NPY_CASTING casting, npy_uint32* op_flags, PyArray_Descr** op_dtypes, \\ int oa_ndim, int** op_axes, npy_intp const* itershape, npy_intp buffersize) "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NpyIter* NpyIter_AdvancedNew( \\",
+            "content": "npy_intp nop, PyArrayObject** op, npy_uint32 flags, NPY_ORDER order, \\\nNPY_CASTING casting, npy_uint32* op_flags, PyArray_Descr** op_dtypes, \\\nint oa_ndim, int** op_axes, npy_intp const* itershape, npy_intp buffersize)",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
@@ -1135,141 +700,64 @@
         },
         {
           "data": {
-            "args0": [
-              "NpyIter* NpyIter_Copy(NpyIter* iter)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Makes a copy of the given iterator. This function is provided primarily to enable multi - threaded iteration of the data. *TODO* : Move this to a section about multithreaded iteration. The recommended approach to multithreaded iteration is to first create an iterator with the flags : c : data : `NPY_ITER_EXTERNAL_LOOP`, : c : data : `NPY_ITER_RANGED`, : c : data : `NPY_ITER_BUFFERED`, : c : data : `NPY_ITER_DELAY_BUFALLOC`, and possibly : c : data : `NPY_ITER_GROWINNER`. Create a copy of this iterator for each thread ( minus one for the first iterator). Then, take the iteration index range `` [ 0, NpyIter_GetIterSize ( iter))`` and split it up into tasks, for example using a TBB parallel_for loop. When a thread gets a task to execute, it then uses its copy of the iterator by calling : c : func : `NpyIter_ResetToIterIndexRange` and iterating over the full range. When using the iterator in multi - threaded code or in code not holding the Python GIL, care must be taken to only call functions which are safe in that context. : c : func : `NpyIter_Copy` cannot be safely called without the Python GIL, because it increments Python references. The ``Reset*`` and some other functions may be safely called by passing in the ``errmsg`` parameter as non - NULL, so that the functions will pass back errors through it instead of setting a Python exception. : c : func : `NpyIter_Deallocate` must be called for each copy. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NpyIter* NpyIter_Copy(NpyIter* iter)",
+            "content": "Makes a copy of the given iterator.  This function is provided\nprimarily to enable multi-threaded iteration of the data.\n\n*TODO*: Move this to a section about multithreaded iteration.\n\nThe recommended approach to multithreaded iteration is to\nfirst create an iterator with the flags\n:c:data:`NPY_ITER_EXTERNAL_LOOP`, :c:data:`NPY_ITER_RANGED`,\n:c:data:`NPY_ITER_BUFFERED`, :c:data:`NPY_ITER_DELAY_BUFALLOC`, and\npossibly :c:data:`NPY_ITER_GROWINNER`.  Create a copy of this iterator\nfor each thread (minus one for the first iterator).  Then, take\nthe iteration index range ``[0, NpyIter_GetIterSize(iter))`` and\nsplit it up into tasks, for example using a TBB parallel_for loop.\nWhen a thread gets a task to execute, it then uses its copy of\nthe iterator by calling :c:func:`NpyIter_ResetToIterIndexRange` and\niterating over the full range.\n\nWhen using the iterator in multi-threaded code or in code not\nholding the Python GIL, care must be taken to only call functions\nwhich are safe in that context.  :c:func:`NpyIter_Copy` cannot be safely\ncalled without the Python GIL, because it increments Python\nreferences.  The ``Reset*`` and some other functions may be safely\ncalled by passing in the ``errmsg`` parameter as non-NULL, so that\nthe functions will pass back errors through it instead of setting\na Python exception.\n\n:c:func:`NpyIter_Deallocate` must be called for each copy.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "int NpyIter_RemoveAxis(NpyIter* iter, int axis)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Removes an axis from iteration. This requires that : c : data : `NPY_ITER_MULTI_INDEX` was set for iterator creation, and does not work if buffering is enabled or an index is being tracked. This function also resets the iterator to its initial state. This is useful for setting up an accumulation loop, for example. The iterator can first be created with all the dimensions, including the accumulation axis, so that the output gets created correctly. Then, the accumulation axis can be removed, and the calculation done in a nested fashion. **WARNING** : This function may change the internal memory layout of the iterator. Any cached functions or pointers from the iterator must be retrieved again! The iterator range will be reset as well. Returns ``NPY_SUCCEED`` or ``NPY_FAIL``. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "int NpyIter_RemoveAxis(NpyIter* iter, int axis)",
+            "content": "Removes an axis from iteration.  This requires that\n:c:data:`NPY_ITER_MULTI_INDEX` was set for iterator creation, and does\nnot work if buffering is enabled or an index is being tracked. This\nfunction also resets the iterator to its initial state.\n\nThis is useful for setting up an accumulation loop, for example.\nThe iterator can first be created with all the dimensions, including\nthe accumulation axis, so that the output gets created correctly.\nThen, the accumulation axis can be removed, and the calculation\ndone in a nested fashion.\n\n**WARNING**: This function may change the internal memory layout of\nthe iterator.  Any cached functions or pointers from the iterator\nmust be retrieved again! The iterator range will be reset as well.\n\nReturns ``NPY_SUCCEED`` or ``NPY_FAIL``.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "int NpyIter_RemoveMultiIndex(NpyIter* iter)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "If the iterator is tracking a multi - index, this strips support for them, and does further iterator optimizations that are possible if multi - indices are not needed. This function also resets the iterator to its initial state. **WARNING** : This function may change the internal memory layout of the iterator. Any cached functions or pointers from the iterator must be retrieved again! After calling this function, : c : expr : `NpyIter_HasMultiIndex ( iter)` will return false. Returns ``NPY_SUCCEED`` or ``NPY_FAIL``. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "int NpyIter_RemoveMultiIndex(NpyIter* iter)",
+            "content": "If the iterator is tracking a multi-index, this strips support for them,\nand does further iterator optimizations that are possible if multi-indices\nare not needed.  This function also resets the iterator to its initial\nstate.\n\n**WARNING**: This function may change the internal memory layout of\nthe iterator.  Any cached functions or pointers from the iterator\nmust be retrieved again!\n\nAfter calling this function, :c:expr:`NpyIter_HasMultiIndex(iter)` will\nreturn false.\n\nReturns ``NPY_SUCCEED`` or ``NPY_FAIL``.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "int NpyIter_EnableExternalLoop(NpyIter* iter)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "If : c : func : `NpyIter_RemoveMultiIndex` was called, you may want to enable the flag : c : data : `NPY_ITER_EXTERNAL_LOOP`. This flag is not permitted together with : c : data : `NPY_ITER_MULTI_INDEX`, so this function is provided to enable the feature after : c : func : `NpyIter_RemoveMultiIndex` is called. This function also resets the iterator to its initial state. **WARNING** : This function changes the internal logic of the iterator. Any cached functions or pointers from the iterator must be retrieved again! Returns ``NPY_SUCCEED`` or ``NPY_FAIL``. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "int NpyIter_EnableExternalLoop(NpyIter* iter)",
+            "content": "If :c:func:`NpyIter_RemoveMultiIndex` was called, you may want to enable the\nflag :c:data:`NPY_ITER_EXTERNAL_LOOP`.  This flag is not permitted\ntogether with :c:data:`NPY_ITER_MULTI_INDEX`, so this function is provided\nto enable the feature after :c:func:`NpyIter_RemoveMultiIndex` is called.\nThis function also resets the iterator to its initial state.\n\n**WARNING**: This function changes the internal logic of the iterator.\nAny cached functions or pointers from the iterator must be retrieved\nagain!\n\nReturns ``NPY_SUCCEED`` or ``NPY_FAIL``.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "int NpyIter_Deallocate(NpyIter* iter)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Deallocates the iterator object and resolves any needed writebacks. Returns ``NPY_SUCCEED`` or ``NPY_FAIL``. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "int NpyIter_Deallocate(NpyIter* iter)",
+            "content": "Deallocates the iterator object and resolves any needed writebacks.\n\nReturns ``NPY_SUCCEED`` or ``NPY_FAIL``.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "int NpyIter_Reset(NpyIter* iter, char** errmsg)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Resets the iterator back to its initial state, at the beginning of the iteration range. Returns ``NPY_SUCCEED`` or ``NPY_FAIL``. If errmsg is non - NULL, no Python exception is set when ``NPY_FAIL`` is returned. Instead, \\*errmsg is set to an error message. When errmsg is non - NULL, the function may be safely called without holding the Python GIL. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "int NpyIter_Reset(NpyIter* iter, char** errmsg)",
+            "content": "Resets the iterator back to its initial state, at the beginning\nof the iteration range.\n\nReturns ``NPY_SUCCEED`` or ``NPY_FAIL``.  If errmsg is non-NULL,\nno Python exception is set when ``NPY_FAIL`` is returned.\nInstead, \\*errmsg is set to an error message.  When errmsg is\nnon-NULL, the function may be safely called without holding\nthe Python GIL.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "int NpyIter_ResetToIterIndexRange( \\"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "NpyIter* iter, npy_intp istart, npy_intp iend, char** errmsg) "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "int NpyIter_ResetToIterIndexRange( \\",
+            "content": "NpyIter* iter, npy_intp istart, npy_intp iend, char** errmsg)",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
@@ -1306,21 +794,10 @@
         },
         {
           "data": {
-            "args0": [
-              "int NpyIter_ResetBasePointers( \\"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "NpyIter *iter, char** baseptrs, char** errmsg) "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "int NpyIter_ResetBasePointers( \\",
+            "content": "NpyIter *iter, char** baseptrs, char** errmsg)",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
@@ -1392,101 +869,46 @@
         },
         {
           "data": {
-            "args0": [
-              "int NpyIter_GotoMultiIndex(NpyIter* iter, npy_intp const* multi_index)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Adjusts the iterator to point to the ``ndim`` indices pointed to by ``multi_index``. Returns an error if a multi - index is not being tracked, the indices are out of bounds, or inner loop iteration is disabled. Returns ``NPY_SUCCEED`` or ``NPY_FAIL``. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "int NpyIter_GotoMultiIndex(NpyIter* iter, npy_intp const* multi_index)",
+            "content": "Adjusts the iterator to point to the ``ndim`` indices\npointed to by ``multi_index``.  Returns an error if a multi-index\nis not being tracked, the indices are out of bounds,\nor inner loop iteration is disabled.\n\nReturns ``NPY_SUCCEED`` or ``NPY_FAIL``.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "int NpyIter_GotoIndex(NpyIter* iter, npy_intp index)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Adjusts the iterator to point to the ``index`` specified. If the iterator was constructed with the flag : c : data : `NPY_ITER_C_INDEX`, ``index`` is the C - order index, and if the iterator was constructed with the flag : c : data : `NPY_ITER_F_INDEX`, ``index`` is the Fortran - order index. Returns an error if there is no index being tracked, the index is out of bounds, or inner loop iteration is disabled. Returns ``NPY_SUCCEED`` or ``NPY_FAIL``. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "int NpyIter_GotoIndex(NpyIter* iter, npy_intp index)",
+            "content": "Adjusts the iterator to point to the ``index`` specified.\nIf the iterator was constructed with the flag\n:c:data:`NPY_ITER_C_INDEX`, ``index`` is the C-order index,\nand if the iterator was constructed with the flag\n:c:data:`NPY_ITER_F_INDEX`, ``index`` is the Fortran-order\nindex.  Returns an error if there is no index being tracked,\nthe index is out of bounds, or inner loop iteration is disabled.\n\nReturns ``NPY_SUCCEED`` or ``NPY_FAIL``.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "npy_intp NpyIter_GetIterSize(NpyIter* iter)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Returns the number of elements being iterated. This is the product of all the dimensions in the shape. When a multi index is being tracked ( and `NpyIter_RemoveAxis` may be called) the size may be `` - 1`` to indicate an iterator is too large. Such an iterator is invalid, but may become valid after `NpyIter_RemoveAxis` is called. It is not necessary to check for this case. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "npy_intp NpyIter_GetIterSize(NpyIter* iter)",
+            "content": "Returns the number of elements being iterated.  This is the product\nof all the dimensions in the shape.  When a multi index is being tracked\n(and `NpyIter_RemoveAxis` may be called) the size may be ``-1`` to\nindicate an iterator is too large.  Such an iterator is invalid, but\nmay become valid after `NpyIter_RemoveAxis` is called. It is not\nnecessary to check for this case.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "npy_intp NpyIter_GetIterIndex(NpyIter* iter)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Gets the ``iterindex`` of the iterator, which is an index matching the iteration order of the iterator. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "npy_intp NpyIter_GetIterIndex(NpyIter* iter)",
+            "content": "Gets the ``iterindex`` of the iterator, which is an index matching\nthe iteration order of the iterator.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "void NpyIter_GetIterIndexRange( \\"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "NpyIter* iter, npy_intp* istart, npy_intp* iend) "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "void NpyIter_GetIterIndexRange( \\",
+            "content": "NpyIter* iter, npy_intp* istart, npy_intp* iend)",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
@@ -1502,381 +924,172 @@
         },
         {
           "data": {
-            "args0": [
-              "int NpyIter_GotoIterIndex(NpyIter* iter, npy_intp iterindex)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Adjusts the iterator to point to the ``iterindex`` specified. The IterIndex is an index matching the iteration order of the iterator. Returns an error if the ``iterindex`` is out of bounds, buffering is enabled, or inner loop iteration is disabled. Returns ``NPY_SUCCEED`` or ``NPY_FAIL``. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "int NpyIter_GotoIterIndex(NpyIter* iter, npy_intp iterindex)",
+            "content": "Adjusts the iterator to point to the ``iterindex`` specified.\nThe IterIndex is an index matching the iteration order of the iterator.\nReturns an error if the ``iterindex`` is out of bounds,\nbuffering is enabled, or inner loop iteration is disabled.\n\nReturns ``NPY_SUCCEED`` or ``NPY_FAIL``.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "npy_bool NpyIter_HasDelayedBufAlloc(NpyIter* iter)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Returns 1 if the flag : c : data : `NPY_ITER_DELAY_BUFALLOC` was passed to the iterator constructor, and no call to one of the Reset functions has been done yet, 0 otherwise. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "npy_bool NpyIter_HasDelayedBufAlloc(NpyIter* iter)",
+            "content": "Returns 1 if the flag :c:data:`NPY_ITER_DELAY_BUFALLOC` was passed\nto the iterator constructor, and no call to one of the Reset\nfunctions has been done yet, 0 otherwise.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "npy_bool NpyIter_HasExternalLoop(NpyIter* iter)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Returns 1 if the caller needs to handle the inner - most 1 - dimensional loop, or 0 if the iterator handles all looping. This is controlled by the constructor flag : c : data : `NPY_ITER_EXTERNAL_LOOP` or : c : func : `NpyIter_EnableExternalLoop`. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "npy_bool NpyIter_HasExternalLoop(NpyIter* iter)",
+            "content": "Returns 1 if the caller needs to handle the inner-most 1-dimensional\nloop, or 0 if the iterator handles all looping. This is controlled\nby the constructor flag :c:data:`NPY_ITER_EXTERNAL_LOOP` or\n:c:func:`NpyIter_EnableExternalLoop`.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "npy_bool NpyIter_HasMultiIndex(NpyIter* iter)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Returns 1 if the iterator was created with the : c : data : `NPY_ITER_MULTI_INDEX` flag, 0 otherwise. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "npy_bool NpyIter_HasMultiIndex(NpyIter* iter)",
+            "content": "Returns 1 if the iterator was created with the\n:c:data:`NPY_ITER_MULTI_INDEX` flag, 0 otherwise.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "npy_bool NpyIter_HasIndex(NpyIter* iter)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Returns 1 if the iterator was created with the : c : data : `NPY_ITER_C_INDEX` or : c : data : `NPY_ITER_F_INDEX` flag, 0 otherwise. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "npy_bool NpyIter_HasIndex(NpyIter* iter)",
+            "content": "Returns 1 if the iterator was created with the\n:c:data:`NPY_ITER_C_INDEX` or :c:data:`NPY_ITER_F_INDEX`\nflag, 0 otherwise.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "npy_bool NpyIter_RequiresBuffering(NpyIter* iter)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Returns 1 if the iterator requires buffering, which occurs when an operand needs conversion or alignment and so cannot be used directly. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "npy_bool NpyIter_RequiresBuffering(NpyIter* iter)",
+            "content": "Returns 1 if the iterator requires buffering, which occurs\nwhen an operand needs conversion or alignment and so cannot\nbe used directly.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "npy_bool NpyIter_IsBuffered(NpyIter* iter)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Returns 1 if the iterator was created with the : c : data : `NPY_ITER_BUFFERED` flag, 0 otherwise. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "npy_bool NpyIter_IsBuffered(NpyIter* iter)",
+            "content": "Returns 1 if the iterator was created with the\n:c:data:`NPY_ITER_BUFFERED` flag, 0 otherwise.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "npy_bool NpyIter_IsGrowInner(NpyIter* iter)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Returns 1 if the iterator was created with the : c : data : `NPY_ITER_GROWINNER` flag, 0 otherwise. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "npy_bool NpyIter_IsGrowInner(NpyIter* iter)",
+            "content": "Returns 1 if the iterator was created with the\n:c:data:`NPY_ITER_GROWINNER` flag, 0 otherwise.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "npy_intp NpyIter_GetBufferSize(NpyIter* iter)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "If the iterator is buffered, returns the size of the buffer being used, otherwise returns 0. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "npy_intp NpyIter_GetBufferSize(NpyIter* iter)",
+            "content": "If the iterator is buffered, returns the size of the buffer\nbeing used, otherwise returns 0.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "int NpyIter_GetNDim(NpyIter* iter)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Returns the number of dimensions being iterated. If a multi - index was not requested in the iterator constructor, this value may be smaller than the number of dimensions in the original objects. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "int NpyIter_GetNDim(NpyIter* iter)",
+            "content": "Returns the number of dimensions being iterated.  If a multi-index\nwas not requested in the iterator constructor, this value\nmay be smaller than the number of dimensions in the original\nobjects.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "int NpyIter_GetNOp(NpyIter* iter)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Returns the number of operands in the iterator. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "int NpyIter_GetNOp(NpyIter* iter)",
+            "content": "Returns the number of operands in the iterator.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "npy_intp* NpyIter_GetAxisStrideArray(NpyIter* iter, int axis)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Gets the array of strides for the specified axis. Requires that the iterator be tracking a multi - index, and that buffering not be enabled. This may be used when you want to match up operand axes in some fashion, then remove them with : c : func : `NpyIter_RemoveAxis` to handle their processing manually. By calling this function before removing the axes, you can get the strides for the manual processing. Returns ``NULL`` on error. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "npy_intp* NpyIter_GetAxisStrideArray(NpyIter* iter, int axis)",
+            "content": "Gets the array of strides for the specified axis. Requires that\nthe iterator be tracking a multi-index, and that buffering not\nbe enabled.\n\nThis may be used when you want to match up operand axes in\nsome fashion, then remove them with :c:func:`NpyIter_RemoveAxis` to\nhandle their processing manually.  By calling this function\nbefore removing the axes, you can get the strides for the\nmanual processing.\n\nReturns ``NULL`` on error.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "int NpyIter_GetShape(NpyIter* iter, npy_intp* outshape)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Returns the broadcast shape of the iterator in ``outshape``. This can only be called on an iterator which is tracking a multi - index. Returns ``NPY_SUCCEED`` or ``NPY_FAIL``. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "int NpyIter_GetShape(NpyIter* iter, npy_intp* outshape)",
+            "content": "Returns the broadcast shape of the iterator in ``outshape``.\nThis can only be called on an iterator which is tracking a multi-index.\n\nReturns ``NPY_SUCCEED`` or ``NPY_FAIL``.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "PyArray_Descr** NpyIter_GetDescrArray(NpyIter* iter)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "This gives back a pointer to the ``nop`` data type Descrs for the objects being iterated. The result points into ``iter``, so the caller does not gain any references to the Descrs. This pointer may be cached before the iteration loop, calling ``iternext`` will not change it. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "PyArray_Descr** NpyIter_GetDescrArray(NpyIter* iter)",
+            "content": "This gives back a pointer to the ``nop`` data type Descrs for\nthe objects being iterated.  The result points into ``iter``,\nso the caller does not gain any references to the Descrs.\n\nThis pointer may be cached before the iteration loop, calling\n``iternext`` will not change it.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "PyObject** NpyIter_GetOperandArray(NpyIter* iter)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "This gives back a pointer to the ``nop`` operand PyObjects that are being iterated. The result points into ``iter``, so the caller does not gain any references to the PyObjects. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "PyObject** NpyIter_GetOperandArray(NpyIter* iter)",
+            "content": "This gives back a pointer to the ``nop`` operand PyObjects\nthat are being iterated.  The result points into ``iter``,\nso the caller does not gain any references to the PyObjects.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "PyObject* NpyIter_GetIterView(NpyIter* iter, npy_intp i)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "This gives back a reference to a new ndarray view, which is a view into the i - th object in the array : c : func : `NpyIter_GetOperandArray ( )`, whose dimensions and strides match the internal optimized iteration pattern. A C - order iteration of this view is equivalent to the iterator ' s iteration order. For example, if an iterator was created with a single array as its input, and it was possible to rearrange all its axes and then collapse it into a single strided iteration, this would return a view that is a one - dimensional array. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "PyObject* NpyIter_GetIterView(NpyIter* iter, npy_intp i)",
+            "content": "This gives back a reference to a new ndarray view, which is a view\ninto the i-th object in the array :c:func:`NpyIter_GetOperandArray()`,\nwhose dimensions and strides match the internal optimized\niteration pattern.  A C-order iteration of this view is equivalent\nto the iterator's iteration order.\n\nFor example, if an iterator was created with a single array as its\ninput, and it was possible to rearrange all its axes and then\ncollapse it into a single strided iteration, this would return\na view that is a one-dimensional array.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "void NpyIter_GetReadFlags(NpyIter* iter, char* outreadflags)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Fills ``nop`` flags. Sets ``outreadflags [ i]`` to 1 if ``op [ i]`` can be read from, and to 0 if not. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "void NpyIter_GetReadFlags(NpyIter* iter, char* outreadflags)",
+            "content": "Fills ``nop`` flags. Sets ``outreadflags[i]`` to 1 if\n``op[i]`` can be read from, and to 0 if not.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "void NpyIter_GetWriteFlags(NpyIter* iter, char* outwriteflags)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Fills ``nop`` flags. Sets ``outwriteflags [ i]`` to 1 if ``op [ i]`` can be written to, and to 0 if not. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "void NpyIter_GetWriteFlags(NpyIter* iter, char* outwriteflags)",
+            "content": "Fills ``nop`` flags. Sets ``outwriteflags[i]`` to 1 if\n``op[i]`` can be written to, and to 0 if not.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "int NpyIter_CreateCompatibleStrides( \\"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "NpyIter* iter, npy_intp itemsize, npy_intp* outstrides) "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "int NpyIter_CreateCompatibleStrides( \\",
+            "content": "NpyIter* iter, npy_intp itemsize, npy_intp* outstrides)",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
@@ -1913,21 +1126,10 @@
         },
         {
           "data": {
-            "args0": [
-              "npy_bool NpyIter_IsFirstVisit(NpyIter* iter, int iop)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": ".. versionadded : : 1.7 Checks to see whether this is the first time the elements of the specified reduction operand which the iterator points at are being seen for the first time. The function returns a reasonable answer for reduction operands and when buffering is disabled. The answer may be incorrect for buffered non - reduction operands. This function is intended to be used in EXTERNAL_LOOP mode only, and will produce some wrong answers when that mode is not enabled. If this function returns true, the caller should also check the inner loop stride of the operand, because if that stride is 0, then only the first element of the innermost external loop is being visited for the first time. *WARNING* : For performance reasons, ' iop ' is not bounds - checked, it is not confirmed that ' iop ' is actually a reduction operand, and it is not confirmed that EXTERNAL_LOOP mode is enabled. These checks are the responsibility of the caller, and should be done outside of any inner loops. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "npy_bool NpyIter_IsFirstVisit(NpyIter* iter, int iop)",
+            "content": ".. versionadded:: 1.7\n\nChecks to see whether this is the first time the elements of the\nspecified reduction operand which the iterator points at are being\nseen for the first time. The function returns a reasonable answer\nfor reduction operands and when buffering is disabled. The answer\nmay be incorrect for buffered non-reduction operands.\n\nThis function is intended to be used in EXTERNAL_LOOP mode only,\nand will produce some wrong answers when that mode is not enabled.\n\nIf this function returns true, the caller should also check the inner\nloop stride of the operand, because if that stride is 0, then only\nthe first element of the innermost external loop is being visited\nfor the first time.\n\n*WARNING*: For performance reasons, 'iop' is not bounds-checked,\nit is not confirmed that 'iop' is actually a reduction operand,\nand it is not confirmed that EXTERNAL_LOOP mode is enabled. These\nchecks are the responsibility of the caller, and should be done\noutside of any inner loops.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         }
@@ -1938,21 +1140,10 @@
       "children": [
         {
           "data": {
-            "args0": [
-              "NpyIter_IterNextFunc* NpyIter_GetIterNext( \\"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "NpyIter* iter, char** errmsg) "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NpyIter_IterNextFunc* NpyIter_GetIterNext( \\",
+            "content": "NpyIter* iter, char** errmsg)",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
@@ -2060,21 +1251,10 @@
         },
         {
           "data": {
-            "args0": [
-              "NpyIter_GetMultiIndexFunc *NpyIter_GetGetMultiIndex( \\"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "NpyIter* iter, char** errmsg) "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "NpyIter_GetMultiIndexFunc *NpyIter_GetGetMultiIndex( \\",
+            "content": "NpyIter* iter, char** errmsg)",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
@@ -2098,67 +1278,34 @@
         },
         {
           "data": {
-            "args0": [
-              "char** NpyIter_GetDataPtrArray(NpyIter* iter)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "This gives back a pointer to the ``nop`` data pointers. If : c : data : `NPY_ITER_EXTERNAL_LOOP` was not specified, each data pointer points to the current data item of the iterator. If no inner iteration was specified, it points to the first data item of the inner loop. This pointer may be cached before the iteration loop, calling ``iternext`` will not change it. This function may be safely called without holding the Python GIL. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "char** NpyIter_GetDataPtrArray(NpyIter* iter)",
+            "content": "This gives back a pointer to the ``nop`` data pointers.  If\n:c:data:`NPY_ITER_EXTERNAL_LOOP` was not specified, each data\npointer points to the current data item of the iterator.  If\nno inner iteration was specified, it points to the first data\nitem of the inner loop.\n\nThis pointer may be cached before the iteration loop, calling\n``iternext`` will not change it.  This function may be safely\ncalled without holding the Python GIL.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "char** NpyIter_GetInitialDataPtrArray(NpyIter* iter)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Gets the array of data pointers directly into the arrays ( never into the buffers), corresponding to iteration index 0. These pointers are different from the pointers accepted by ``NpyIter_ResetBasePointers``, because the direction along some axes may have been reversed. This function may be safely called without holding the Python GIL. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "char** NpyIter_GetInitialDataPtrArray(NpyIter* iter)",
+            "content": "Gets the array of data pointers directly into the arrays (never\ninto the buffers), corresponding to iteration index 0.\n\nThese pointers are different from the pointers accepted by\n``NpyIter_ResetBasePointers``, because the direction along\nsome axes may have been reversed.\n\nThis function may be safely called without holding the Python GIL.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "npy_intp* NpyIter_GetIndexPtr(NpyIter* iter)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "This gives back a pointer to the index being tracked, or NULL if no index is being tracked. It is only usable if one of the flags : c : data : `NPY_ITER_C_INDEX` or : c : data : `NPY_ITER_F_INDEX` were specified during construction. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "npy_intp* NpyIter_GetIndexPtr(NpyIter* iter)",
+            "content": "This gives back a pointer to the index being tracked, or NULL\nif no index is being tracked.  It is only usable if one of\nthe flags :c:data:`NPY_ITER_C_INDEX` or :c:data:`NPY_ITER_F_INDEX`\nwere specified during construction.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "When the flag "
@@ -2179,68 +1326,34 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [
-              "npy_intp* NpyIter_GetInnerStrideArray(NpyIter* iter)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Returns a pointer to an array of the ``nop`` strides, one for each iterated object, to be used by the inner loop. This pointer may be cached before the iteration loop, calling ``iternext`` will not change it. This function may be safely called without holding the Python GIL. **WARNING** : While the pointer may be cached, its values may change if the iterator is buffered. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "npy_intp* NpyIter_GetInnerStrideArray(NpyIter* iter)",
+            "content": "Returns a pointer to an array of the ``nop`` strides,\none for each iterated object, to be used by the inner loop.\n\nThis pointer may be cached before the iteration loop, calling\n``iternext`` will not change it. This function may be safely\ncalled without holding the Python GIL.\n\n**WARNING**: While the pointer may be cached, its values may\nchange if the iterator is buffered.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "npy_intp* NpyIter_GetInnerLoopSizePtr(NpyIter* iter)"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Returns a pointer to the number of iterations the inner loop should execute. This address may be cached before the iteration loop, calling ``iternext`` will not change it. The value itself may change during iteration, in particular if buffering is enabled. This function may be safely called without holding the Python GIL. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "npy_intp* NpyIter_GetInnerLoopSizePtr(NpyIter* iter)",
+            "content": "Returns a pointer to the number of iterations the\ninner loop should execute.\n\nThis address may be cached before the iteration loop, calling\n``iternext`` will not change it.  The value itself may change during\niteration, in particular if buffering is enabled.  This function\nmay be safely called without holding the Python GIL.",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "void NpyIter_GetInnerFixedStrideArray( \\"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "NpyIter* iter, npy_intp* out_strides) "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "void NpyIter_GetInnerFixedStrideArray( \\",
+            "content": "NpyIter* iter, npy_intp* out_strides)",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
@@ -2266,19 +1379,10 @@
         },
         {
           "data": {
-            "args0": [],
-            "directive_name": "index",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "pair : iterator; C - API "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "",
+            "content": "pair: iterator; C-API",
+            "name": "index",
+            "options": []
           },
           "type": "BlockDirective"
         }
@@ -2289,35 +1393,33 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The old iterator API includes functions like PyArrayIter_Check, PyArray_Iter* and PyArray_ITER_*.  The multi-iterator array includes PyArray_MultiIter*, PyArray_Broadcast, and PyArray_RemoveSmallest.  The new iterator design replaces all of this functionality with a single object and associated API.  One goal of the new API is that all uses of the existing iterator should be replaceable with the new iterator without significant effort. In 1.6, the major exception to this is the neighborhood iterator, which does not have corresponding features in this iterator."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Here is a conversion table for which functions to use with the new iterator:"
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "=====================================  =================================================== "
@@ -3010,8 +2112,7 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }

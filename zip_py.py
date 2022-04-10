@@ -1,5 +1,7 @@
 import os
 import zipfile
+from pathlib import Path
+import json
 
 
 def zipdir(path, ziph):
@@ -15,9 +17,10 @@ def zipdir(path, ziph):
 zipf = zipfile.ZipFile("Python.zip", "w", zipfile.ZIP_DEFLATED)
 
 
-from pathlib import Path
 
 p = Path("data")
+
+index = {"packages": {}}
 
 for lib in p.iterdir():
     if not lib.is_dir():
@@ -25,5 +28,9 @@ for lib in p.iterdir():
     libname, version = lib.name.split("_")
     print(libname)
 
+    filename = f"{libname}-{version}.zip"
+    index["packages"].setdefault(libname, {})[version] = filename
     with zipfile.ZipFile(f"{libname}-{version}.zip", "w", zipfile.ZIP_DEFLATED) as zipf:
         zipdir(lib, zipf)
+
+Path("index.json").write_text(json.dumps(index, indent=2))

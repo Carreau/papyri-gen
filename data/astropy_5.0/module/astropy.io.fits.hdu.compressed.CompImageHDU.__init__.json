@@ -16,15 +16,14 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The astropy.io.fits package supports 2 methods of image compression:"
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -62,7 +61,7 @@
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The astropy.io.fits package supports 3 general-purpose compression algorithms plus one other special-purpose compression technique that is designed for data masks with positive integer pixel values.  The 3 general purpose algorithms are GZIP, Rice, and HCOMPRESS, and the special-purpose technique is the IRAF pixel list compression technique (PLIO).  The "
@@ -83,14 +82,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The FITS image can be subdivided into any desired rectangular grid of compression tiles.  With the GZIP, Rice, and PLIO algorithms, the default is to take each row of the image as a tile.  The HCOMPRESS algorithm is inherently 2-dimensional in nature, so the default in this case is to take 16 rows of the image per tile.  In most cases, it makes little difference what tiling pattern is used, so the default tiles are usually adequate.  In the case of very small images, it could be more efficient to compress the whole image as a single tile.  Note that the image dimensions are not required to be an integer multiple of the tile dimensions; if not, then the tiles at the edges of the image will be smaller than the other tiles.  The "
@@ -139,14 +137,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The 4 supported image compression algorithms are all 'lossless' when applied to integer FITS images; the pixel values are preserved exactly with no loss of information during the compression and uncompression process.  In addition, the HCOMPRESS algorithm supports a 'lossy' compression mode that will produce larger amount of image compression. This is achieved by specifying a non-zero value for the "
@@ -195,14 +192,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Very high compression factors (of 100 or more) can be achieved by using large "
@@ -237,14 +233,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Floating point FITS images (which have "
@@ -279,14 +274,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The default value for the "
@@ -349,14 +343,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The quantization algorithm can also apply one of two random dithering methods in order to reduce bias in the measured intensity of background regions.  The default method, specified with the constant "
@@ -447,14 +440,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "As mentioned above, when using the subtractive dithering algorithm it is necessary to be able to generate a (pseudo-)random sequence of noise for each pixel, and replay that same sequence upon decompressing.  To facilitate this, a random seed between 1 and 10000 (inclusive) is used to seed a random number generator, and that seed is stored in the "
@@ -517,8 +509,7 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -533,423 +524,390 @@
       "children": [
         {
           "data": {
-            "desc": [
+            "children": [
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Uncompressed image data"
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "data",
-            "type_": "array, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Uncompressed image data"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "data",
+                "type_": "array, optional"
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Header to be associated with the image; when reading the HDU from a file (data=DELAYED), the header read from the file"
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "header",
-            "type_": "`~astropy.io.fits.Header`, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Header to be associated with the image; when reading the HDU from a file (data=DELAYED), the header read from the file"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "header",
+                "type_": "`~astropy.io.fits.Header`, optional"
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "The "
-                      },
-                      "type": "Words"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "EXTNAME"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " value; if this value is "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "None"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ", then the name from the input image header will be used; if there is no name in the input image header then the default name "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "COMPRESSED_IMAGE"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " is used."
+                          },
+                          "type": "Words"
+                        }
+                      ]
                     },
-                    {
-                      "data": {
-                        "value": [
-                          "EXTNAME"
-                        ]
-                      },
-                      "type": "Verbatim"
-                    },
-                    {
-                      "data": {
-                        "value": " value; if this value is "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "value": [
-                          "None"
-                        ]
-                      },
-                      "type": "Verbatim"
-                    },
-                    {
-                      "data": {
-                        "value": ", then the name from the input image header will be used; if there is no name in the input image header then the default name "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "value": [
-                          "COMPRESSED_IMAGE"
-                        ]
-                      },
-                      "type": "Verbatim"
-                    },
-                    {
-                      "data": {
-                        "value": " is used."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "name",
-            "type_": "str, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "name",
+                "type_": "str, optional"
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Compression algorithm: one of "
-                      },
-                      "type": "Words"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Compression algorithm: one of "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "'RICE_1'"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "'RICE_ONE'"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "'PLIO_1'"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "'GZIP_1'"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "'GZIP_2'"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "'HCOMPRESS_1'"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        }
+                      ]
                     },
-                    {
-                      "data": {
-                        "value": [
-                          "'RICE_1'"
-                        ]
-                      },
-                      "type": "Verbatim"
-                    },
-                    {
-                      "data": {
-                        "value": ", "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "value": [
-                          "'RICE_ONE'"
-                        ]
-                      },
-                      "type": "Verbatim"
-                    },
-                    {
-                      "data": {
-                        "value": ", "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "value": [
-                          "'PLIO_1'"
-                        ]
-                      },
-                      "type": "Verbatim"
-                    },
-                    {
-                      "data": {
-                        "value": ", "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "value": [
-                          "'GZIP_1'"
-                        ]
-                      },
-                      "type": "Verbatim"
-                    },
-                    {
-                      "data": {
-                        "value": ", "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "value": [
-                          "'GZIP_2'"
-                        ]
-                      },
-                      "type": "Verbatim"
-                    },
-                    {
-                      "data": {
-                        "value": ", "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "value": [
-                          "'HCOMPRESS_1'"
-                        ]
-                      },
-                      "type": "Verbatim"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "compression_type",
-            "type_": "str, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "compression_type",
+                "type_": "str, optional"
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Compression tile sizes.  Default treats each row of image as a tile."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "tile_size",
-            "type_": "int, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Compression tile sizes.  Default treats each row of image as a tile."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "tile_size",
+                "type_": "int, optional"
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "HCOMPRESS scale parameter"
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "hcomp_scale",
-            "type_": "float, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "HCOMPRESS scale parameter"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "hcomp_scale",
+                "type_": "float, optional"
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "HCOMPRESS smooth parameter"
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "hcomp_smooth",
-            "type_": "float, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "HCOMPRESS smooth parameter"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "hcomp_smooth",
+                "type_": "float, optional"
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Floating point quantization level; see note below"
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "quantize_level",
-            "type_": "float, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Floating point quantization level; see note below"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "quantize_level",
+                "type_": "float, optional"
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Floating point quantization dithering method; can be either "
-                      },
-                      "type": "Words"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Floating point quantization dithering method; can be either "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "NO_DITHER"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " (-1; default), "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "SUBTRACTIVE_DITHER_1"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " (1), or "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "SUBTRACTIVE_DITHER_2"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " (2); see note below"
+                          },
+                          "type": "Words"
+                        }
+                      ]
                     },
-                    {
-                      "data": {
-                        "value": [
-                          "NO_DITHER"
-                        ]
-                      },
-                      "type": "Verbatim"
-                    },
-                    {
-                      "data": {
-                        "value": " (-1; default), "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "value": [
-                          "SUBTRACTIVE_DITHER_1"
-                        ]
-                      },
-                      "type": "Verbatim"
-                    },
-                    {
-                      "data": {
-                        "value": " (1), or "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "value": [
-                          "SUBTRACTIVE_DITHER_2"
-                        ]
-                      },
-                      "type": "Verbatim"
-                    },
-                    {
-                      "data": {
-                        "value": " (2); see note below"
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "quantize_method",
-            "type_": "int, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "quantize_method",
+                "type_": "int, optional"
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Random seed to use for dithering; can be either an integer in the range 1 to 1000 (inclusive), "
-                      },
-                      "type": "Words"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Random seed to use for dithering; can be either an integer in the range 1 to 1000 (inclusive), "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "DITHER_SEED_CLOCK"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " (0; default), or "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "DITHER_SEED_CHECKSUM"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " (-1); see note below"
+                          },
+                          "type": "Words"
+                        }
+                      ]
                     },
-                    {
-                      "data": {
-                        "value": [
-                          "DITHER_SEED_CLOCK"
-                        ]
-                      },
-                      "type": "Verbatim"
-                    },
-                    {
-                      "data": {
-                        "value": " (0; default), or "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "value": [
-                          "DITHER_SEED_CHECKSUM"
-                        ]
-                      },
-                      "type": "Verbatim"
-                    },
-                    {
-                      "data": {
-                        "value": " (-1); see note below"
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "dither_seed",
+                "type_": "int, optional"
               }
-            ],
-            "param": "dither_seed",
-            "type_": "int, optional"
+            ]
           },
-          "type": "Param"
+          "type": "Parameters"
         }
       ],
       "title": null

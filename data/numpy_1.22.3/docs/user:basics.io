@@ -6,21 +6,15 @@
       "children": [
         {
           "data": {
-            "args0": [
-              ":maxdepth: 2"
-            ],
-            "directive_name": "toctree",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "basics.io.genfromtxt "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "",
+            "content": "basics.io.genfromtxt",
+            "name": "toctree",
+            "options": [
+              [
+                "maxdepth",
+                "2"
+              ]
+            ]
           },
           "type": "BlockDirective"
         }

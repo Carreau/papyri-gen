@@ -4,92 +4,81 @@
       "children": [
         {
           "data": {
-            "desc": [
+            "children": [
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "The number of values in the heap"
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "count",
-            "type_": "int"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "The number of levels in the binary heap (see Notes below). The values are stored in the last level, so 2**levels is the capacity of the heap before another resize is required."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "levels",
-            "type_": "int"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "The minimum number of levels in the heap (relates to the "
-                      },
-                      "type": "Words"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The number of values in the heap"
+                          },
+                          "type": "Words"
+                        }
+                      ]
                     },
-                    {
-                      "data": {
-                        "exists": true,
-                        "kind": "local",
-                        "reference": {
-                          "kind": "local",
-                          "module": null,
-                          "path": "initial_capacity",
-                          "version": null
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "count",
+                "type_": "int"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The number of levels in the binary heap (see Notes below). The values are stored in the last level, so 2**levels is the capacity of the heap before another resize is required."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "levels",
+                "type_": "int"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The minimum number of levels in the heap (relates to the "
+                          },
+                          "type": "Words"
                         },
-                        "value": "initial_capacity"
-                      },
-                      "type": "Link"
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "initial_capacity"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": " parameter.)"
+                          },
+                          "type": "Words"
+                        }
+                      ]
                     },
-                    {
-                      "data": {
-                        "value": " parameter.)"
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "min_levels",
+                "type_": "int"
               }
-            ],
-            "param": "min_levels",
-            "type_": "int"
+            ]
           },
-          "type": "Param"
+          "type": "Parameters"
         }
       ],
       "title": null
@@ -98,29 +87,27 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "A binary heap is an object to store values in, optimized in such a way that the minimum (or maximum, but a minimum in this implementation) value can be found in O(log2(N)) time. In this implementation, a reference value (a single integer) can also be stored with each value."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Use the methods push() and pop() to put in or extract values. In C, use the corresponding push_fast() and pop_fast()."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -135,29 +122,27 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "This implementation stores the binary heap in an array twice as long as the number of elements in the heap. The array is structured in levels, starting at level 0 with a single value, doubling the amount of values in each level. The final level contains the actual values, the level before it contains the pairwise minimum values. The level before that contains the pairwise minimum values of that level, etc. Take a look at this illustration:"
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "level: 0 11 2222 33333333 4444444444444444 index: 0 12 3456 78901234 5678901234567890                     1          2         3"
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -171,15 +156,14 @@
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "and 16 is stored in position 7. min(17,18)->8, min(7,8)->3, min(3,4)->1. When adding a value, only the path to the top has to be updated, which takesO(log2(N)) time."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -193,15 +177,14 @@
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "implementations that swap values when pushing to the array is that data only needs to be swapped once when an element is removed. This means that keeping an array of references along with the values is very inexpensive. Th disadvantage is that if you pop the minimum value, the tree has to be traced from top to bottom and back. So if you only want values and no references, this implementation will probably be slower. If you need references (and maybe cross references to be kept up to date) this implementation will be faster."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -216,46 +199,43 @@
       "children": [
         {
           "data": {
-            "desc": [
+            "children": [
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Estimate of the size of the heap, if known in advance. (In any case, the heap will dynamically grow and shrink as required, though never below the "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "exists": true,
-                        "kind": "local",
-                        "reference": {
-                          "kind": "local",
-                          "module": null,
-                          "path": "initial_capacity",
-                          "version": null
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Estimate of the size of the heap, if known in advance. (In any case, the heap will dynamically grow and shrink as required, though never below the "
+                          },
+                          "type": "Words"
                         },
-                        "value": "initial_capacity"
-                      },
-                      "type": "Link"
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "initial_capacity"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ".)"
+                          },
+                          "type": "Words"
+                        }
+                      ]
                     },
-                    {
-                      "data": {
-                        "value": ".)"
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "initial_capacity",
+                "type_": "int"
               }
-            ],
-            "param": "initial_capacity",
-            "type_": "int"
+            ]
           },
-          "type": "Param"
+          "type": "Parameters"
         }
       ],
       "title": null
@@ -276,15 +256,14 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "A binary heap class that can store values and an integer reference."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }

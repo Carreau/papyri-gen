@@ -10,15 +10,45 @@
           "data": {
             "children": [
               {
-                "inline": [
-                  {
-                    "data": {
-                      "value": "For the general case, use : c : func : `PyUFunc_ReplaceLoopBySignature`. For ndarray subclasses, define the ``__array_ufunc__`` method and override the relevant ufunc. "
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "For the general case, use "
+                      },
+                      "type": "Words"
                     },
-                    "type": "Words"
-                  }
-                ],
-                "inner": []
+                    {
+                      "data": {
+                        "domain": "c",
+                        "role": "func",
+                        "value": "PyUFunc_ReplaceLoopBySignature"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": ". For ndarray subclasses, define the "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "__array_ufunc__"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " method and override the relevant ufunc."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
               }
             ],
             "kind": "deprecated",
@@ -37,25 +67,16 @@
       "children": [
         {
           "data": {
-            "args0": [],
-            "directive_name": "WARNING",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Use with care! Incorrect usage may lead to memory errors. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "",
+            "content": "Use with care!  Incorrect usage may lead to memory errors.",
+            "name": "WARNING",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "A function replacing an operator cannot make use of that operator. For example, when replacing add, you may not use "
@@ -76,8 +97,7 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -92,54 +112,57 @@
       "children": [
         {
           "data": {
-            "desc": [
+            "children": [
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Each "
-                      },
-                      "type": "Words"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Each "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "op = func"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " pair describes an operator to be replaced. For example, "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "add = lambda x, y: np.add(x, y) % 5"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " would replace addition by modulus 5 addition."
+                          },
+                          "type": "Words"
+                        }
+                      ]
                     },
-                    {
-                      "data": {
-                        "value": [
-                          "op = func"
-                        ]
-                      },
-                      "type": "Verbatim"
-                    },
-                    {
-                      "data": {
-                        "value": " pair describes an operator to be replaced. For example, "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "value": [
-                          "add = lambda x, y: np.add(x, y) % 5"
-                        ]
-                      },
-                      "type": "Verbatim"
-                    },
-                    {
-                      "data": {
-                        "value": " would replace addition by modulus 5 addition."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "op1, op2, ...",
+                "type_": "callable"
               }
-            ],
-            "param": "op1, op2, ...",
-            "type_": "callable"
+            ]
           },
-          "type": "Param"
+          "type": "Parameters"
         }
       ],
       "title": null
@@ -156,26 +179,29 @@
       "children": [
         {
           "data": {
-            "desc": [
+            "children": [
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "A list of all operators, stored before making replacements."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A list of all operators, stored before making replacements."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "saved_ops",
+                "type_": "list of callables"
               }
-            ],
-            "param": "saved_ops",
-            "type_": "list of callables"
+            ]
           },
-          "type": "Param"
+          "type": "Parameters"
         }
       ],
       "title": null
@@ -184,15 +210,14 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Set numerical operators for array objects."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -222,432 +247,802 @@
         "data": {
           "ce_status": "execed",
           "entries": [
-            [
-              "def",
-              null,
-              "k"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "add_mod5",
-              "__main__.add_mod5",
-              "nf"
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "x",
-              null,
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "y",
-              null,
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ":",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "    ",
-              "",
-              ""
-            ],
-            [
-              "return",
-              null,
-              "k"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "np",
-              "numpy",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "add",
-              "numpy.ufunc",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "x",
-              null,
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "y",
-              null,
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "%",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "5",
-              "",
-              "mi"
-            ]
+            {
+              "link": {
+                "data": "def",
+                "type": "str"
+              },
+              "type": "k"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "__main__",
+                    "path": "__main__.add_mod5",
+                    "version": "*"
+                  },
+                  "value": "add_mod5"
+                },
+                "type": "Link"
+              },
+              "type": "nf"
+            },
+            {
+              "link": {
+                "data": "add_mod5",
+                "type": "str"
+              },
+              "type": "nf"
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "x",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "y",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ":",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "    ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "return",
+                "type": "str"
+              },
+              "type": "k"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy",
+                    "version": "1.22.3"
+                  },
+                  "value": "np"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ufunc",
+                    "version": "1.22.3"
+                  },
+                  "value": "add"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "x",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "y",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "%",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "5",
+                "type": "str"
+              },
+              "type": "mi"
+            }
           ],
           "out": "..."
         },
-        "type": "Code"
+        "type": "Code2"
       },
       {
         "data": {
           "ce_status": "execed",
           "entries": [
-            [
-              "old_funcs",
-              "builtins.list",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "np",
-              "numpy",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "set_numeric_ops",
-              "numpy.set_numeric_ops",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "add",
-              null,
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              "add_mod5",
-              "__main__.add_mod5",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ]
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.list",
+                    "version": "*"
+                  },
+                  "value": "old_funcs"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "old_funcs",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy",
+                    "version": "1.22.3"
+                  },
+                  "value": "np"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.set_numeric_ops",
+                    "version": "1.22.3"
+                  },
+                  "value": "set_numeric_ops"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "add",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "__main__",
+                    "path": "__main__.add_mod5",
+                    "version": "*"
+                  },
+                  "value": "add_mod5"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "add_mod5",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            }
           ],
           "out": ""
         },
-        "type": "Code"
+        "type": "Code2"
       },
       {
         "data": {
           "ce_status": "execed",
           "entries": [
-            [
-              "x",
-              "numpy.ndarray",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "np",
-              "numpy",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "arange",
-              "numpy.arange",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "12",
-              "",
-              "mi"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "reshape",
-              "numpy.ndarray.reshape",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "3",
-              "",
-              "mi"
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "4",
-              "",
-              "mi"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "x",
-              "numpy.ndarray",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "+",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "x",
-              "numpy.ndarray",
-              ""
-            ]
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ndarray",
+                    "version": "1.22.3"
+                  },
+                  "value": "x"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy",
+                    "version": "1.22.3"
+                  },
+                  "value": "np"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.arange",
+                    "version": "1.22.3"
+                  },
+                  "value": "arange"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "12",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ndarray.reshape",
+                    "version": "*"
+                  },
+                  "value": "reshape"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "reshape",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "3",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "4",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ndarray",
+                    "version": "1.22.3"
+                  },
+                  "value": "x"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "+",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ndarray",
+                    "version": "1.22.3"
+                  },
+                  "value": "x"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            }
           ],
           "out": "array([[0, 2, 4, 1],\n       [3, 0, 2, 4],\n       [1, 3, 0, 2]])"
         },
-        "type": "Code"
+        "type": "Code2"
       },
       {
         "data": {
           "ce_status": "execed",
           "entries": [
-            [
-              "ignore",
-              "builtins.list",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "np",
-              "numpy",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "set_numeric_ops",
-              "numpy.set_numeric_ops",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "*",
-              "",
-              "o"
-            ],
-            [
-              "*",
-              "",
-              "o"
-            ],
-            [
-              "old_funcs",
-              "builtins.list",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "# restore operators",
-              "",
-              "c1"
-            ]
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.list",
+                    "version": "*"
+                  },
+                  "value": "ignore"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "ignore",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy",
+                    "version": "1.22.3"
+                  },
+                  "value": "np"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.set_numeric_ops",
+                    "version": "1.22.3"
+                  },
+                  "value": "set_numeric_ops"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "*",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "*",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.list",
+                    "version": "*"
+                  },
+                  "value": "old_funcs"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "old_funcs",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "# restore operators",
+                "type": "str"
+              },
+              "type": "c1"
+            }
           ],
           "out": ""
         },
-        "type": "Code"
+        "type": "Code2"
       }
     ],
     "title": null

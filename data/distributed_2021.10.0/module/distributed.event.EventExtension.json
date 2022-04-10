@@ -8,15 +8,14 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "This adds the following routes to the scheduler"
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -24,72 +23,68 @@
           "data": {
             "children": [
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "event_wait"
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
                 ]
               },
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "event_set"
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
                 ]
               },
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "event_clear"
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
                 ]
               },
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "event_is_set"
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
@@ -101,29 +96,27 @@
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "In principle, the implementation logic is quite simple as we can reuse the asyncio.Event as much as possible: we keep a mapping from name to an asyncio.Event and call every function (wait, set, clear, is_set) directly on these events."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "However, this would cause a memory leak: created events in the dictionary are never removed. For this, we also keep a counter for the number of waiters on a specific event. If an event is set, we need to keep track of this state so we can not remove it (the default flag is false). If it is unset but there are waiters, we can also not remove it, as those waiters would then have dangling futures. Therefore the only time we can remove the event from our dict is when the number of waiters is 0 and the event flag is cleared."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -162,15 +155,14 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "An extension for the scheduler to manage Events"
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }

@@ -16,15 +16,14 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The edge magnitude depends slightly on edge directions, since the approximation of the gradient operator by the Prewitt operator is not completely rotation invariant. For a better rotation invariance, the Scharr operator should be used. The Sobel operator has a better rotation invariance than the Prewitt operator, but a worse rotation invariance than the Scharr operator."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -39,192 +38,172 @@
       "children": [
         {
           "data": {
-            "desc": [
+            "children": [
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "The input image."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "image",
-            "type_": "array"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Clip the output image to this mask. (Values where mask=0 will be set to 0.)"
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "mask",
-            "type_": "array of bool, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Compute the edge filter along this axis. If not provided, the edge magnitude is computed. This is defined as::      "
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The input image."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "image",
+                "type_": "array"
               },
               {
-                "data": {
-                  "value": "prw_mag = np.sqrt(sum([prewitt(image, axis=i)**2\n                       for i in range(image.ndim)]) / image.ndim)"
-                },
-                "type": "BlockVerbatim"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Clip the output image to this mask. (Values where mask=0 will be set to 0.)"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "mask",
+                "type_": "array of bool, optional"
               },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "The magnitude is also computed if axis is a sequence."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "axis",
-            "type_": "int or sequence of int, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Compute the edge filter along this axis. If not provided, the edge magnitude is computed. This is defined as::      "
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": "prw_mag = np.sqrt(sum([prewitt(image, axis=i)**2\n                       for i in range(image.ndim)]) / image.ndim)"
+                    },
+                    "type": "BlockVerbatim"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The magnitude is also computed if axis is a sequence."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "axis",
+                "type_": "int or sequence of int, optional"
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "The boundary mode for the convolution. See "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "exists": true,
-                        "kind": "module",
-                        "reference": {
-                          "kind": "api",
-                          "module": "scipy",
-                          "path": "scipy.ndimage._filters.convolve",
-                          "version": "*"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The boundary mode for the convolution. See "
+                          },
+                          "type": "Words"
                         },
-                        "value": "scipy.ndimage.convolve"
-                      },
-                      "type": "Link"
+                        {
+                          "data": {
+                            "exists": true,
+                            "kind": "module",
+                            "reference": {
+                              "kind": "api",
+                              "module": "scipy",
+                              "path": "scipy.ndimage._filters.convolve",
+                              "version": "*"
+                            },
+                            "value": "scipy.ndimage.convolve"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " for a description of the modes. This can be either a single boundary mode or one boundary mode per axis."
+                          },
+                          "type": "Words"
+                        }
+                      ]
                     },
-                    {
-                      "data": {
-                        "value": " for a description of the modes. This can be either a single boundary mode or one boundary mode per axis."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "mode",
-            "type_": "str or sequence of str, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "mode",
+                "type_": "str or sequence of str, optional"
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "When "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "exists": true,
-                        "kind": "local",
-                        "reference": {
-                          "kind": "local",
-                          "module": null,
-                          "path": "mode",
-                          "version": null
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "When "
+                          },
+                          "type": "Words"
                         },
-                        "value": "mode"
-                      },
-                      "type": "Link"
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "mode"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": " is "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "'constant'"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", this is the constant used in values outside the boundary of the image data."
+                          },
+                          "type": "Words"
+                        }
+                      ]
                     },
-                    {
-                      "data": {
-                        "value": " is "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "value": [
-                          "'constant'"
-                        ]
-                      },
-                      "type": "Verbatim"
-                    },
-                    {
-                      "data": {
-                        "value": ", this is the constant used in values outside the boundary of the image data."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "cval",
+                "type_": "float, optional"
               }
-            ],
-            "param": "cval",
-            "type_": "float, optional"
+            ]
           },
-          "type": "Param"
+          "type": "Parameters"
         }
       ],
       "title": null
@@ -241,26 +220,29 @@
       "children": [
         {
           "data": {
-            "desc": [
+            "children": [
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "The Prewitt edge map."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The Prewitt edge map."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "output",
+                "type_": "array of float"
               }
-            ],
-            "param": "output",
-            "type_": "array of float"
+            ]
           },
-          "type": "Param"
+          "type": "Parameters"
         }
       ],
       "title": null
@@ -269,15 +251,14 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Find the edge magnitude using the Prewitt transform."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -307,190 +288,376 @@
         "data": {
           "ce_status": "compiled",
           "entries": [
-            [
-              "from",
-              null,
-              "kn"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "skimage",
-              "skimage",
-              "nn"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "import",
-              null,
-              "kn"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "data",
-              "skimage.data",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "from",
-              null,
-              "kn"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "skimage",
-              "skimage",
-              "nn"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "import",
-              null,
-              "kn"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "filters",
-              "skimage.filters",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "camera",
-              "numpy.ndarray",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "data",
-              "skimage.data",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "camera",
-              "skimage.data.camera",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "edges",
-              null,
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "filters",
-              "skimage.filters",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "prewitt",
-              "skimage.filters.edges.prewitt",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "camera",
-              "numpy.ndarray",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ]
+            {
+              "link": {
+                "data": "from",
+                "type": "str"
+              },
+              "type": "kn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "skimage",
+                    "path": "skimage",
+                    "version": "0.17.2"
+                  },
+                  "value": "skimage"
+                },
+                "type": "Link"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "import",
+                "type": "str"
+              },
+              "type": "kn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "skimage",
+                    "path": "skimage.data",
+                    "version": "0.17.2"
+                  },
+                  "value": "data"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "from",
+                "type": "str"
+              },
+              "type": "kn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "skimage",
+                    "path": "skimage",
+                    "version": "0.17.2"
+                  },
+                  "value": "skimage"
+                },
+                "type": "Link"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "import",
+                "type": "str"
+              },
+              "type": "kn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "skimage",
+                    "path": "skimage.filters",
+                    "version": "0.17.2"
+                  },
+                  "value": "filters"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ndarray",
+                    "version": "*"
+                  },
+                  "value": "camera"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "camera",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "skimage",
+                    "path": "skimage.data",
+                    "version": "0.17.2"
+                  },
+                  "value": "data"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "skimage",
+                    "path": "skimage.data.camera",
+                    "version": "0.17.2"
+                  },
+                  "value": "camera"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "edges",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "skimage",
+                    "path": "skimage.filters",
+                    "version": "0.17.2"
+                  },
+                  "value": "filters"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "skimage",
+                    "path": "skimage.filters.edges.prewitt",
+                    "version": "0.17.2"
+                  },
+                  "value": "prewitt"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ndarray",
+                    "version": "*"
+                  },
+                  "value": "camera"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "camera",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            }
           ],
           "out": ""
         },
-        "type": "Code"
+        "type": "Code2"
       }
     ],
     "title": null

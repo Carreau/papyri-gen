@@ -6,14 +6,15 @@
       "children": [
         {
           "data": {
-            "args0": [
-              "../../../../../../numpy/random/_examples/cython/extending.pyx"
-            ],
-            "directive_name": "literalinclude",
-            "inner": {
-              "inline": [],
-              "inner": []
-            }
+            "argument": "../../../../../../numpy/random/_examples/cython/extending.pyx",
+            "content": "",
+            "name": "literalinclude",
+            "options": [
+              [
+                "language",
+                "cython"
+              ]
+            ]
           },
           "type": "BlockDirective"
         }

@@ -22,39 +22,29 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "One common algorithmic requirement is to be able to walk over all elements in a multidimensional array. The array iterator object makes this easy to do in a generic way that works for arrays of any dimension. Naturally, if you know the number of dimensions you will be using, then you can always write nested for loops to accomplish the iteration. If, however, you want to write code that works with any number of dimensions, then you can make use of the array iterator. An array iterator object is returned when accessing the .flat attribute of an array."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [],
-            "directive_name": "index",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "single : array iterator "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "",
+            "content": "single: array iterator",
+            "name": "index",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Basic usage is to call "
@@ -145,14 +135,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "After processing data at the current element of the array, the next element of the array can be obtained using the macro "
@@ -299,34 +288,22 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [
-              "c"
-            ],
-            "directive_name": "code-block",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "PyObject *obj; / * assumed to be some ndarray object * / PyArrayIterObject *iter; ... iter = ( PyArrayIterObject *)PyArray_IterNew ( obj); if ( iter == NULL) goto fail; / * Assume fail has clean - up code * / while ( iter - >index < iter - >size) { / * do something with the data at it - >dataptr * / PyArray_ITER_NEXT ( it); } ... "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "c",
+            "content": "PyObject *obj; /* assumed to be some ndarray object */\nPyArrayIterObject *iter;\n...\niter = (PyArrayIterObject *)PyArray_IterNew(obj);\nif (iter == NULL) goto fail;   /* Assume fail has clean-up code */\nwhile (iter->index < iter->size) {\n    /* do something with the data at it->dataptr */\n    PyArray_ITER_NEXT(it);\n}\n...",
+            "name": "code-block",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "You can also use "
@@ -389,42 +366,29 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "It should be emphasized at this point that you may not need the array iterator if your array is already contiguous (using an array iterator will work but will be slower than the fastest code you could write). The major purpose of array iterators is to encapsulate iteration over N-dimensional arrays with arbitrary strides. They are used in many, many places in the NumPy source code itself. If you already know your array is contiguous (Fortran or C), then simply adding the element- size to a running pointer variable will step you through the array very efficiently. In other words, code like this will probably be faster for you in the contiguous case (assuming doubles)."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [
-              "c"
-            ],
-            "directive_name": "code-block",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "npy_intp size; double *dptr; / * could make this any variable type * / size = PyArray_SIZE ( obj); dptr = PyArray_DATA ( obj); while ( size - - ) { / * do something with the data at dptr * / dptr++; } "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "c",
+            "content": "npy_intp size;\ndouble *dptr;  /* could make this any variable type */\nsize = PyArray_SIZE(obj);\ndptr = PyArray_DATA(obj);\nwhile(size--) {\n   /* do something with the data at dptr */\n   dptr++;\n}",
+            "name": "code-block",
+            "options": []
           },
           "type": "BlockDirective"
         }
@@ -435,21 +399,20 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "A common algorithm is to loop over all elements of an array and perform some function with each element by issuing a function call. As function calls can be time consuming, one way to speed up this kind of algorithm is to write the function so it takes a vector of data and then write the iteration so the function call is performed for an entire dimension of data at a time. This increases the amount of work done per function call, thereby reducing the function-call over-head to a small(er) fraction of the total time. Even if the interior of the loop is performed without a function call it can be advantageous to perform the inner loop over the dimension with the highest number of elements to take advantage of speed enhancements available on micro- processors that use pipelining to enhance fundamental operations."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The "
@@ -542,9 +505,7 @@
               },
               {
                 "data": {
-                  "value": [
-                    "\\textrm{dim}^{\\textrm{th}}"
-                  ]
+                  "value": "\\textrm{dim}^{\\textrm{th}}"
                 },
                 "type": "Math"
               },
@@ -554,8 +515,7 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -566,35 +526,23 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Very often, it is desirable to iterate over several arrays at the same time. The universal functions are an example of this kind of behavior. If all you want to do is iterate over arrays with the same shape, then simply creating several iterator objects is the standard procedure. For example, the following code iterates over two arrays assumed to be the same shape and size (actually obj1 just has to have at least as many total elements as does obj2):"
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [
-              "c"
-            ],
-            "directive_name": "code-block",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "/ * It is already assumed that obj1 and obj2 are ndarrays of the same shape and size. * / iter1 = ( PyArrayIterObject *)PyArray_IterNew ( obj1); if ( iter1 == NULL) goto fail; iter2 = ( PyArrayIterObject *)PyArray_IterNew ( obj2); if ( iter2 == NULL) goto fail; / * assume iter1 is DECREF ' d at fail * / while ( iter2 - >index < iter2 - >size) { / * process with iter1 - >dataptr and iter2 - >dataptr * / PyArray_ITER_NEXT ( iter1); PyArray_ITER_NEXT ( iter2); } "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "c",
+            "content": "/* It is already assumed that obj1 and obj2\n   are ndarrays of the same shape and size.\n*/\niter1 = (PyArrayIterObject *)PyArray_IterNew(obj1);\nif (iter1 == NULL) goto fail;\niter2 = (PyArrayIterObject *)PyArray_IterNew(obj2);\nif (iter2 == NULL) goto fail;  /* assume iter1 is DECREF'd at fail */\nwhile (iter2->index < iter2->size)  {\n    /* process with iter1->dataptr and iter2->dataptr */\n    PyArray_ITER_NEXT(iter1);\n    PyArray_ITER_NEXT(iter2);\n}",
+            "name": "code-block",
+            "options": []
           },
           "type": "BlockDirective"
         }
@@ -605,25 +553,16 @@
       "children": [
         {
           "data": {
-            "args0": [],
-            "directive_name": "index",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "single : broadcasting "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "",
+            "content": "single: broadcasting",
+            "name": "index",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "When multiple arrays are involved in an operation, you may want to use the same broadcasting rules that the math operations ("
@@ -854,34 +793,22 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [
-              "c"
-            ],
-            "directive_name": "code-block",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "mobj = PyArray_MultiIterNew ( 2, obj1, obj2); size = mobj - >size; while ( size - - ) { ptr1 = PyArray_MultiIter_DATA ( mobj, 0); ptr2 = PyArray_MultiIter_DATA ( mobj, 1); / * code using contents of ptr1 and ptr2 * / PyArray_MultiIter_NEXT ( mobj); } "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "c",
+            "content": "mobj = PyArray_MultiIterNew(2, obj1, obj2);\nsize = mobj->size;\nwhile(size--) {\n    ptr1 = PyArray_MultiIter_DATA(mobj, 0);\n    ptr2 = PyArray_MultiIter_DATA(mobj, 1);\n    /* code using contents of ptr1 and ptr2 */\n    PyArray_MultiIter_NEXT(mobj);\n}",
+            "name": "code-block",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The function "
@@ -916,40 +843,29 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [],
-            "directive_name": "index",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "single : array iterator "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "",
+            "content": "single: array iterator",
+            "name": "index",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "There are several examples of using the multi-iterator in the NumPy source code as it makes N-dimensional broadcasting-code very simple to write. Browse the source for more examples."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -967,21 +883,20 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "NumPy comes with 24 builtin data-types. While this covers a large majority of possible use cases, it is conceivable that a user may have a need for an additional data-type. There is some support for adding an additional data-type into the NumPy system. This additional data- type will behave much like a regular data-type except ufuncs must have 1-d loops registered to handle it separately. Also checking for whether or not other data-types can be cast \"safely\" to and from this new type or not will always return \"can cast\" unless you also register which types your new data-type can be cast to and from."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The NumPy source code includes an example of a custom data-type as part of its test suite. The file "
@@ -1016,26 +931,16 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [],
-            "directive_name": "index",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "pair : dtype; adding new "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "",
+            "content": "pair: dtype; adding new",
+            "name": "index",
+            "options": []
           },
           "type": "BlockDirective"
         }
@@ -1046,41 +951,29 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "To begin to make use of the new data-type, you need to first define a new Python type to hold the scalars of your new data-type. It should be acceptable to inherit from one of the array scalars if your new type has a binary compatible layout. This will allow your new data type to have the methods and attributes of array scalars. New data- types must have a fixed memory size (if you want to define a data-type that needs a flexible representation, like a variable-precision number, then use a pointer to the object as the data-type). The memory layout of the object structure for the new Python type must be PyObject_HEAD followed by the fixed-size memory needed for the data- type. For example, a suitable structure for the new Python type is:"
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [
-              "c"
-            ],
-            "directive_name": "code-block",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "typedef struct { PyObject_HEAD; some_data_type obval; / * the name can be whatever you want * / } PySomeDataTypeObject; "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "c",
+            "content": "typedef struct {\n   PyObject_HEAD;\n   some_data_type obval;\n   /* the name can be whatever you want */\n} PySomeDataTypeObject;",
+            "name": "code-block",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "After you have defined a new Python type object, you must then define a new "
@@ -1115,14 +1008,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Once a new "
@@ -1171,8 +1063,7 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -1183,35 +1074,23 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "You may want to allow builtin (and other user-defined) data-types to be cast automatically to your data-type. In order to make this possible, you must register a casting function with the data-type you want to be able to cast from. This requires writing low-level casting functions for each conversion you want to support and then registering these functions with the data-type descriptor. A low-level casting function has the signature."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [
-              "void castfunc( \\"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "void* from, void* to, npy_intp n, void* fromarr, void* toarr) "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "void castfunc( \\",
+            "content": "void* from, void* to, npy_intp n, void* fromarr, void* toarr)",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
@@ -1230,69 +1109,45 @@
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "An example castfunc is:"
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [
-              "c"
-            ],
-            "directive_name": "code-block",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "static void double_to_float ( double *from, float* to, npy_intp n, void* ignore1, void* ignore2) { while ( n - - ) { ( *to++) = ( double) * ( from++); } } "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "c",
+            "content": "static void\ndouble_to_float(double *from, float* to, npy_intp n,\n                void* ignore1, void* ignore2) {\n    while (n--) {\n          (*to++) = (double) *(from++);\n    }\n}",
+            "name": "code-block",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "This could then be registered to convert doubles to floats using the code:"
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [
-              "c"
-            ],
-            "directive_name": "code-block",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "doub = PyArray_DescrFromType ( NPY_DOUBLE); PyArray_RegisterCastFunc ( doub, NPY_FLOAT, ( PyArray_VectorUnaryFunc *)double_to_float); Py_DECREF ( doub); "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "c",
+            "content": "doub = PyArray_DescrFromType(NPY_DOUBLE);\nPyArray_RegisterCastFunc(doub, NPY_FLOAT,\n     (PyArray_VectorUnaryFunc *)double_to_float);\nPy_DECREF(doub);",
+            "name": "code-block",
+            "options": []
           },
           "type": "BlockDirective"
         }
@@ -1303,7 +1158,7 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "By default, all user-defined data-types are not presumed to be safely castable to any builtin data-types. In addition builtin data-types are not presumed to be safely castable to user-defined data-types. This situation limits the ability of user-defined data-types to participate in the coercion system used by ufuncs and other times when automatic coercion takes place in NumPy. This can be changed by registering data-types as safely castable from a particular data-type object. The function "
@@ -1338,14 +1193,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "If you want to allow your new data-type to also be able to share in the scalar coercion rules, then you need to specify the scalarkind function in the data-type object's \".f\" member to return the kind of scalar the new data-type should be seen as (the value of the scalar is available to that function). Then, you can register data-types that can be cast to separately for each scalar kind that may be returned from your user-defined data-type. If you don't register scalar coercion handling, then all of your user-defined data-types will be seen as "
@@ -1366,8 +1220,7 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -1378,21 +1231,20 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "You may also want to register low-level ufunc loops for your data-type so that an ndarray of your data-type can have math applied to it seamlessly. Registering a new loop with exactly the same arg_types signature, silently replaces any previously registered loops for that data-type."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Before you can register a 1-d loop for a ufunc, the ufunc must be previously created. Then you call "
@@ -1441,26 +1293,16 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [],
-            "directive_name": "index",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "pair : dtype; adding new "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "",
+            "content": "pair: dtype; adding new",
+            "name": "index",
+            "options": []
           },
           "type": "BlockDirective"
         }
@@ -1471,39 +1313,29 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "One of the lesser-used features that has been lurking in Python since 2.2 is the ability to sub-class types in C. This facility is one of the important reasons for basing NumPy off of the Numeric code-base which was already in C. A sub-type in C allows much more flexibility with regards to memory management. Sub-typing in C is not difficult even if you have only a rudimentary understanding of how to create new types for Python. While it is easiest to sub-type from a single parent type, sub-typing from multiple parent types is also possible. Multiple inheritance in C is generally less useful than it is in Python because a restriction on Python sub-types is that they have a binary compatible memory layout. Perhaps for this reason, it is somewhat easier to sub-type from a single parent type."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [],
-            "directive_name": "index",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "pair : ndarray; subtyping "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "",
+            "content": "pair: ndarray; subtyping",
+            "name": "index",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "All C-structures corresponding to Python objects must begin with "
@@ -1552,14 +1384,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "One of the elements in "
@@ -1636,8 +1467,7 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -1648,7 +1478,7 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "To create a sub-type, a similar procedure must be followed except only behaviors that are different require new entries in the type- object structure. All other entries can be NULL and will be filled in by "
@@ -1669,8 +1499,7 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -1678,98 +1507,83 @@
           "data": {
             "children": [
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "If needed create a new C-structure to handle each instance of your    type. A typical C-structure would be:"
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   },
                   {
                     "data": {
-                      "args0": [
-                        "c"
-                      ],
-                      "directive_name": "code-block",
-                      "inner": {
-                        "inline": [
-                          {
-                            "data": {
-                              "value": "typedef _new_struct { PyArrayObject base; / * new things here * / } NewArrayObject; "
-                            },
-                            "type": "Words"
-                          }
-                        ],
-                        "inner": []
-                      }
+                      "argument": "c",
+                      "content": "typedef _new_struct {\n       PyArrayObject base;\n       /* new things here */\n   } NewArrayObject;",
+                      "name": "code-block",
+                      "options": []
                     },
                     "type": "BlockDirective"
                   },
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "Notice that the full PyArrayObject is used as the first entry in order    to ensure that the binary layout of instances of the new type is    identical to the PyArrayObject."
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
                 ]
               },
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "Fill in a new Python type-object structure with pointers to new    functions that will over-ride the default behavior while leaving any    function that should remain the same unfilled (or NULL). The tp_name    element should be different."
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
                 ]
               },
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "Fill in the tp_base member of the new type-object structure with a    pointer to the (main) parent type object. For multiple-inheritance,    also fill in the tp_bases member with a tuple containing all of the    parent objects in the order they should be used to define inheritance.    Remember, all parent-types must have the same C-structure for multiple    inheritance to work properly."
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
                 ]
               },
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "Call "
@@ -1790,8 +1604,7 @@
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
@@ -1803,15 +1616,14 @@
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "More information on creating sub-types in C can be learned by reading PEP 253 (available at https://www.python.org/dev/peps/pep-0253)."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -1829,15 +1641,14 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Some special methods and attributes are used by arrays in order to facilitate the interoperation of sub-types with the base ndarray type."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -1848,21 +1659,10 @@
       "children": [
         {
           "data": {
-            "args0": [
-              "ndarray.__array_finalize__"
-            ],
-            "directive_name": "attribute",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Several array - creation functions of the ndarray allow specification of a particular sub - type to be created. This allows sub - types to be handled seamlessly in many routines. When a sub - type is created in such a fashion, however, neither the __new_\\_ method nor the __init\\__ method gets called. Instead, the sub - type is allocated and the appropriate instance - structure members are filled in. Finally, the : obj : `~numpy.class.__array_finalize__` attribute is looked - up in the object dictionary. If it is present and not None, then it can be either a CObject containing a pointer to a : c : func : `PyArray_FinalizeFunc` or it can be a method taking a single argument ( which could be None) If the : obj : `~numpy.class.__array_finalize__` attribute is a CObject, then the pointer must be a pointer to a function with the signature : .. code - block : : c ( int) ( PyArrayObject *, PyObject *) The first argument is the newly created sub - type. The second argument ( if not NULL) is the \" parent \" array ( if the array was created using slicing or some other operation where a clearly - distinguishable parent is present). This routine can do anything it wants to. It should return a - 1 on error and 0 otherwise. If the : obj : `~numpy.class.__array_finalize__` attribute is not None nor a CObject, then it must be a Python method that takes the parent array as an argument ( which could be None if there is no parent), and returns nothing. Errors in this method will be caught and handled. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "ndarray.__array_finalize__",
+            "content": "Several array-creation functions of the ndarray allow\nspecification of a particular sub-type to be created. This allows\nsub-types to be handled seamlessly in many routines. When a\nsub-type is created in such a fashion, however, neither the\n__new_\\_ method nor the __init\\__ method gets called. Instead, the\nsub-type is allocated and the appropriate instance-structure\nmembers are filled in. Finally, the :obj:`~numpy.class.__array_finalize__`\nattribute is looked-up in the object dictionary. If it is present\nand not None, then it can be either a CObject containing a pointer\nto a :c:func:`PyArray_FinalizeFunc` or it can be a method taking a\nsingle argument (which could be None)\n\nIf the :obj:`~numpy.class.__array_finalize__` attribute is a CObject, then the pointer\nmust be a pointer to a function with the signature:\n\n.. code-block:: c\n\n    (int) (PyArrayObject *, PyObject *)\n\nThe first argument is the newly created sub-type. The second argument\n(if not NULL) is the \"parent\" array (if the array was created using\nslicing or some other operation where a clearly-distinguishable parent\nis present). This routine can do anything it wants to. It should\nreturn a -1 on error and 0 otherwise.\n\nIf the :obj:`~numpy.class.__array_finalize__` attribute is not None nor a CObject,\nthen it must be a Python method that takes the parent array as an\nargument (which could be None if there is no parent), and returns\nnothing. Errors in this method will be caught and handled.",
+            "name": "attribute",
+            "options": []
           },
           "type": "BlockDirective"
         }
@@ -1873,21 +1673,10 @@
       "children": [
         {
           "data": {
-            "args0": [
-              "ndarray.__array_priority__"
-            ],
-            "directive_name": "attribute",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "This attribute allows simple but flexible determination of which sub - type should be considered \" primary \" when an operation involving two or more sub - types arises. In operations where different sub - types are being used, the sub - type with the largest : obj : `~numpy.class.__array_priority__` attribute will determine the sub - type of the output ( s). If two sub - types have the same : obj : `~numpy.class.__array_priority__` then the sub - type of the first argument determines the output. The default : obj : `~numpy.class.__array_priority__` attribute returns a value of 0.0 for the base ndarray type and 1.0 for a sub - type. This attribute can also be defined by objects that are not sub - types of the ndarray and can be used to determine which : obj : `~numpy.class.__array_wrap__` method should be called for the return output. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "ndarray.__array_priority__",
+            "content": "This attribute allows simple but flexible determination of which sub-\ntype should be considered \"primary\" when an operation involving two or\nmore sub-types arises. In operations where different sub-types are\nbeing used, the sub-type with the largest :obj:`~numpy.class.__array_priority__`\nattribute will determine the sub-type of the output(s). If two sub-\ntypes have the same :obj:`~numpy.class.__array_priority__` then the sub-type of the\nfirst argument determines the output. The default\n:obj:`~numpy.class.__array_priority__` attribute returns a value of 0.0 for the base\nndarray type and 1.0 for a sub-type. This attribute can also be\ndefined by objects that are not sub-types of the ndarray and can be\nused to determine which :obj:`~numpy.class.__array_wrap__` method should be called for\nthe return output.",
+            "name": "attribute",
+            "options": []
           },
           "type": "BlockDirective"
         }
@@ -1898,39 +1687,19 @@
       "children": [
         {
           "data": {
-            "args0": [
-              "ndarray.__array_wrap__"
-            ],
-            "directive_name": "attribute",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "Any class or type can define this method which should take an ndarray argument and return an instance of the type. It can be seen as the opposite of the : obj : `~numpy.class.__array__` method. This method is used by the ufuncs ( and other NumPy functions) to allow other objects to pass through. For Python >2.4, it can also be used to write a decorator that converts a function that works only with ndarrays to one that works with any type with : obj : `~numpy.class.__array__` and : obj : `~numpy.class.__array_wrap__` methods. "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "ndarray.__array_wrap__",
+            "content": "Any class or type can define this method which should take an ndarray\nargument and return an instance of the type. It can be seen as the\nopposite of the :obj:`~numpy.class.__array__` method. This method is used by the\nufuncs (and other NumPy functions) to allow other objects to pass\nthrough. For Python >2.4, it can also be used to write a decorator\nthat converts a function that works only with ndarrays to one that\nworks with any type with :obj:`~numpy.class.__array__` and :obj:`~numpy.class.__array_wrap__` methods.",
+            "name": "attribute",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [],
-            "directive_name": "index",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "pair : ndarray; subtyping "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "",
+            "content": "pair: ndarray; subtyping",
+            "name": "index",
+            "options": []
           },
           "type": "BlockDirective"
         }

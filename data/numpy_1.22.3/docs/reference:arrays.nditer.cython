@@ -6,7 +6,7 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Those who want really good performance out of their low level operations should strongly consider directly using the iteration API provided in C, but for those who are not comfortable with C or C++, Cython is a good middle ground with reasonable performance tradeoffs. For the "
@@ -27,14 +27,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "For our example, we'll create a sum of squares function. To start, let's implement this function in straightforward Python. We want to support an 'axis' parameter similar to the numpy "
@@ -69,56 +68,42 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [
-              "Example"
-            ],
-            "directive_name": "admonition",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": ">>> def axis_to_axeslist ( axis, ndim) : ... if axis is None : ... return [ - 1] * ndim ... else : ... if type ( axis) is not tuple : ... axis = ( axis,) ... axeslist = [ 1] * ndim ... for i in axis : ... axeslist [ i] = - 1 ... ax = 0 ... for i in range ( ndim) : ... if axeslist [ i] != - 1 : ... axeslist [ i] = ax ... ax += 1 ... return axeslist ... >>> def sum_squares_py ( arr, axis=None, out=None) : ... axeslist = axis_to_axeslist ( axis, arr.ndim) ... it = np.nditer ( [ arr, out], flags= [ ' reduce_ok ' , ... ' buffered ' , ' delay_bufalloc ' ], ... op_flags= [ [ ' readonly ' ], [ ' readwrite ' , ' allocate ' ]], ... op_axes= [ None, axeslist], ... op_dtypes= [ ' float64 ' , ' float64 ' ]) ... with it : ... it.operands [ 1] [ ...] = 0 ... it.reset ( ) ... for x, y in it : ... y [ ...] += x*x ... return it.operands [ 1] ... >>> a = np.arange ( 6).reshape ( 2,3) >>> sum_squares_py ( a) array ( 55.) >>> sum_squares_py ( a, axis= - 1) array ( [ 5., 50.]) "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "Example",
+            "content": ">>> def axis_to_axeslist(axis, ndim):\n...     if axis is None:\n...         return [-1] * ndim\n...     else:\n...         if type(axis) is not tuple:\n...             axis = (axis,)\n...         axeslist = [1] * ndim\n...         for i in axis:\n...             axeslist[i] = -1\n...         ax = 0\n...         for i in range(ndim):\n...             if axeslist[i] != -1:\n...                 axeslist[i] = ax\n...                 ax += 1\n...         return axeslist\n...\n>>> def sum_squares_py(arr, axis=None, out=None):\n...     axeslist = axis_to_axeslist(axis, arr.ndim)\n...     it = np.nditer([arr, out], flags=['reduce_ok',\n...                                       'buffered', 'delay_bufalloc'],\n...                 op_flags=[['readonly'], ['readwrite', 'allocate']],\n...                 op_axes=[None, axeslist],\n...                 op_dtypes=['float64', 'float64'])\n...     with it:\n...         it.operands[1][...] = 0\n...         it.reset()\n...         for x, y in it:\n...             y[...] += x*x\n...         return it.operands[1]\n...\n>>> a = np.arange(6).reshape(2,3)\n>>> sum_squares_py(a)\narray(55.)\n>>> sum_squares_py(a, axis=-1)\narray([  5.,  50.])",
+            "name": "admonition",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "To Cython-ize this function, we replace the inner loop (y[...] += x*x) with Cython code that's specialized for the float64 dtype. With the 'external_loop' flag enabled, the arrays provided to the inner loop will always be one-dimensional, so very little checking needs to be done."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Here's the listing of sum_squares.pyx::      "
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -130,15 +115,14 @@
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "On this machine, building the .pyx file into a module looked like the following, but you may have to find some Cython tutorials to tell you the specifics for your system configuration.::      "
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -150,49 +134,36 @@
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Running this from the Python interpreter produces the same answers as our native Python/NumPy code did."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [
-              "Example"
-            ],
-            "directive_name": "admonition",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": ">>> from sum_squares import sum_squares_cy #doctest : +SKIP >>> a = np.arange ( 6).reshape ( 2,3) >>> sum_squares_cy ( a) #doctest : +SKIP array ( 55.0) >>> sum_squares_cy ( a, axis= - 1) #doctest : +SKIP array ( [ 5., 50.]) "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "Example",
+            "content": ">>> from sum_squares import sum_squares_cy #doctest: +SKIP\n>>> a = np.arange(6).reshape(2,3)\n>>> sum_squares_cy(a) #doctest: +SKIP\narray(55.0)\n>>> sum_squares_cy(a, axis=-1) #doctest: +SKIP\narray([  5.,  50.])",
+            "name": "admonition",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Doing a little timing in IPython shows that the reduced overhead and memory allocation of the Cython inner loop is providing a very nice speedup over both the straightforward Python code and an expression using NumPy's built-in sum function.::      "
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },

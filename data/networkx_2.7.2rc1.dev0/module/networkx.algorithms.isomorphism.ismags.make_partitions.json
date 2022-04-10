@@ -16,7 +16,7 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The function "
@@ -26,12 +26,12 @@
               {
                 "data": {
                   "exists": true,
-                  "kind": "local",
+                  "kind": "module",
                   "reference": {
-                    "kind": "local",
-                    "module": null,
-                    "path": "test",
-                    "version": null
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.testing.test",
+                    "version": "2.7.2rc1.dev0"
                   },
                   "value": "test"
                 },
@@ -113,8 +113,7 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -129,77 +128,76 @@
       "children": [
         {
           "data": {
-            "desc": [
+            "children": [
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Items to partition"
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "items",
-            "type_": "collections.abc.Iterable[collections.abc.Hashable]"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Items to partition"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "items",
+                "type_": "collections.abc.Iterable[collections.abc.Hashable]"
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "A function that will be called with 2 arguments, taken from items. Should return "
-                      },
-                      "type": "Words"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A function that will be called with 2 arguments, taken from items. Should return "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "True"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": " if those 2 items need to end up in the same partition, and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "False"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": " otherwise."
+                          },
+                          "type": "Words"
+                        }
+                      ]
                     },
-                    {
-                      "data": {
-                        "value": [
-                          "True"
-                        ]
-                      },
-                      "type": "Verbatim"
-                    },
-                    {
-                      "data": {
-                        "value": " if those 2 items need to end up in the same partition, and "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "value": [
-                          "False"
-                        ]
-                      },
-                      "type": "Verbatim"
-                    },
-                    {
-                      "data": {
-                        "value": " otherwise."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "test",
+                "type_": "collections.abc.Callable[collections.abc.Hashable, collections.abc.Hashable]"
               }
-            ],
-            "param": "test",
-            "type_": "collections.abc.Callable[collections.abc.Hashable, collections.abc.Hashable]"
+            ]
           },
-          "type": "Param"
+          "type": "Parameters"
         }
       ],
       "title": null
@@ -216,54 +214,51 @@
       "children": [
         {
           "data": {
-            "desc": [
+            "children": [
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "A list of sets, with each set containing part of the items in "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "exists": true,
-                        "kind": "local",
-                        "reference": {
-                          "kind": "local",
-                          "module": null,
-                          "path": "items",
-                          "version": null
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A list of sets, with each set containing part of the items in "
+                          },
+                          "type": "Words"
                         },
-                        "value": "items"
-                      },
-                      "type": "Link"
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "items"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ", such that "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "all(test(*pair) for pair in  itertools.combinations(set, 2))\n== True"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        }
+                      ]
                     },
-                    {
-                      "data": {
-                        "value": ", such that "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "value": [
-                          "all(test(*pair) for pair in  itertools.combinations(set, 2))\n== True"
-                        ]
-                      },
-                      "type": "Verbatim"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "",
+                "type_": "list[set]"
               }
-            ],
-            "param": "",
-            "type_": "list[set]"
+            ]
           },
-          "type": "Param"
+          "type": "Parameters"
         }
       ],
       "title": null
@@ -272,7 +267,7 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Partitions items into sets based on the outcome of "
@@ -296,12 +291,12 @@
               {
                 "data": {
                   "exists": true,
-                  "kind": "local",
+                  "kind": "module",
                   "reference": {
-                    "kind": "local",
-                    "module": null,
-                    "path": "test",
-                    "version": null
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.testing.test",
+                    "version": "2.7.2rc1.dev0"
                   },
                   "value": "test"
                 },
@@ -315,11 +310,11 @@
               },
               {
                 "data": {
-                  "value": [
-                    "True"
-                  ]
+                  "domain": null,
+                  "role": null,
+                  "value": "True"
                 },
-                "type": "Verbatim"
+                "type": "Directive"
               },
               {
                 "data": {
@@ -327,8 +322,7 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }

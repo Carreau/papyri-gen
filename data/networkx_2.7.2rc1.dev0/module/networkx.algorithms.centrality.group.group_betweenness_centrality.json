@@ -8,35 +8,33 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Group betweenness centrality of a group of nodes $C$ is the sum of the fraction of all-pairs shortest paths that pass through any vertex in $C$"
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "value": "c_B ( v) =\\sum_ { s,t \\in V} \\frac { \\sigma ( s, t|v)} { \\sigma ( s, t)} "
+            "value": "c_B(v) =\\sum_{s,t \\in V} \\frac{\\sigma(s, t|v)}{\\sigma(s, t)}"
           },
           "type": "BlockMath"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "where $V$ is the set of nodes, $\\sigma(s, t)$ is the number of shortest $(s, t)$-paths, and $\\sigma(s, t|C)$ is the number of those paths passing through some node in group $C$. Note that $(s, t)$ are not members of the group ($V-C$ is the set of nodes in $V$ that are not in $C$)."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -51,21 +49,20 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Group betweenness centrality is described in  and its importance discussed in . The initial implementation of the algorithm is mentioned in . This function uses an improved algorithm presented in ."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The number of nodes in the group must be a maximum of n - 2 where "
@@ -74,11 +71,17 @@
               },
               {
                 "data": {
-                  "domain": null,
-                  "role": null,
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "n",
+                    "version": null
+                  },
                   "value": "n"
                 },
-                "type": "Directive"
+                "type": "Link"
               },
               {
                 "data": {
@@ -86,28 +89,26 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "For weighted graphs the edge weights must be greater than zero. Zero edge weights can produce an infinite number of equal length paths between pairs of nodes."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The total number of paths between source and target is counted differently for directed and undirected graphs. Directed paths between \"u\" and \"v\" are counted as two possible paths (one each direction) while undirected paths between \"u\" and \"v\" are counted as one path. Said another way, the sum in the expression above is over all "
@@ -142,8 +143,7 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -158,160 +158,147 @@
       "children": [
         {
           "data": {
-            "desc": [
+            "children": [
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "A NetworkX graph."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "G",
-            "type_": "graph"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A NetworkX graph."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "G",
+                "type_": "graph"
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "A group or a list of groups containing nodes which belong to G, for which group betweenness centrality is to be calculated."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "C",
-            "type_": "list or set or list of lists or list of sets"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A group or a list of groups containing nodes which belong to G, for which group betweenness centrality is to be calculated."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "C",
+                "type_": "list or set or list of lists or list of sets"
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "If True, group betweenness is normalized by "
-                      },
-                      "type": "Words"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "If True, group betweenness is normalized by "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "1/((|V|-|C|)(|V|-|C|-1))"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": " where "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "|V|"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": " is the number of nodes in G and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "|C|"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": " is the number of nodes in C."
+                          },
+                          "type": "Words"
+                        }
+                      ]
                     },
-                    {
-                      "data": {
-                        "domain": null,
-                        "role": null,
-                        "value": "1/((|V|-|C|)(|V|-|C|-1))"
-                      },
-                      "type": "Directive"
-                    },
-                    {
-                      "data": {
-                        "value": " where "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "domain": null,
-                        "role": null,
-                        "value": "|V|"
-                      },
-                      "type": "Directive"
-                    },
-                    {
-                      "data": {
-                        "value": " is the number of nodes in G and "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "domain": null,
-                        "role": null,
-                        "value": "|C|"
-                      },
-                      "type": "Directive"
-                    },
-                    {
-                      "data": {
-                        "value": " is the number of nodes in C."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "normalized",
-            "type_": "bool, optional (default=True)"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "normalized",
+                "type_": "bool, optional (default=True)"
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "If None, all edge weights are considered equal. Otherwise holds the name of the edge attribute used as weight. The weight of an edge is treated as the length or distance between the two sides."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "weight",
-            "type_": "None or string, optional (default=None)"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "If None, all edge weights are considered equal. Otherwise holds the name of the edge attribute used as weight. The weight of an edge is treated as the length or distance between the two sides."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "weight",
+                "type_": "None or string, optional (default=None)"
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "If True include the endpoints in the shortest path counts."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "If True include the endpoints in the shortest path counts."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "endpoints",
+                "type_": "bool, optional (default=False)"
               }
-            ],
-            "param": "endpoints",
-            "type_": "bool, optional (default=False)"
+            ]
           },
-          "type": "Param"
+          "type": "Parameters"
         }
       ],
       "title": null
@@ -320,26 +307,29 @@
       "children": [
         {
           "data": {
-            "desc": [
+            "children": [
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "If node(s) in C are not present in G."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "If node(s) in C are not present in G."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "",
+                "type_": "NodeNotFound"
               }
-            ],
-            "param": "",
-            "type_": "NodeNotFound"
+            ]
           },
-          "type": "Param"
+          "type": "Parameters"
         }
       ],
       "title": null
@@ -352,26 +342,29 @@
       "children": [
         {
           "data": {
-            "desc": [
+            "children": [
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "If C is a single group then return a float. If C is a list with several groups then return a list of group betweenness centralities."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "If C is a single group then return a float. If C is a list with several groups then return a list of group betweenness centralities."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "betweenness",
+                "type_": "list of floats or float"
               }
-            ],
-            "param": "betweenness",
-            "type_": "list of floats or float"
+            ]
           },
-          "type": "Param"
+          "type": "Parameters"
         }
       ],
       "title": null
@@ -380,15 +373,14 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Compute the group betweenness centrality for a group of nodes."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }

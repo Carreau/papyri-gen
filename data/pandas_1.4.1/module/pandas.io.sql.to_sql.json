@@ -16,7 +16,7 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The returned rows affected is the sum of the "
@@ -71,8 +71,7 @@
                 },
                 "type": "ExternalLink"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -87,379 +86,319 @@
       "children": [
         {
           "data": {
-            "desc": [],
-            "param": "frame",
-            "type_": "DataFrame, Series"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+            "children": [
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Name of SQL table."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "name",
-            "type_": "str"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "or sqlite3 DBAPI2 connection Using SQLAlchemy makes it possible to use any DB supported by that library. If a DBAPI2 object, only sqlite3 is supported."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "con",
-            "type_": "SQLAlchemy connectable(engine/connection) or database string URI"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Name of SQL schema in database to write to (if database flavor supports this). If None, use default schema (default)."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "schema",
-            "type_": "str, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "children": [
-                    {
-                      "value": [
-                        {
-                          "data": {
-                            "inline": [
-                              {
-                                "data": {
-                                  "value": "fail: If table exists, do nothing."
-                                },
-                                "type": "Words"
-                              }
-                            ],
-                            "inner": []
-                          },
-                          "type": "Paragraph"
-                        }
-                      ]
-                    },
-                    {
-                      "value": [
-                        {
-                          "data": {
-                            "inline": [
-                              {
-                                "data": {
-                                  "value": "replace: If table exists, drop it, recreate it, and insert data."
-                                },
-                                "type": "Words"
-                              }
-                            ],
-                            "inner": []
-                          },
-                          "type": "Paragraph"
-                        }
-                      ]
-                    },
-                    {
-                      "value": [
-                        {
-                          "data": {
-                            "inline": [
-                              {
-                                "data": {
-                                  "value": "append: If table exists, insert data. Create if does not exist."
-                                },
-                                "type": "Words"
-                              }
-                            ],
-                            "inner": []
-                          },
-                          "type": "Paragraph"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                "type": "BulletList"
-              }
-            ],
-            "param": "if_exists",
-            "type_": "{'fail', 'replace', 'append'}, default 'fail'"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Write DataFrame index as a column."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "index",
-            "type_": "bool, default True"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Column label for index column(s). If None is given (default) and "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "exists": true,
-                        "kind": "local",
-                        "reference": {
-                          "kind": "local",
-                          "module": null,
-                          "path": "index",
-                          "version": null
-                        },
-                        "value": "index"
-                      },
-                      "type": "Link"
-                    },
-                    {
-                      "data": {
-                        "value": " is True, then the index names are used. A sequence should be given if the DataFrame uses MultiIndex."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "index_label",
-            "type_": "str or sequence, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Specify the number of rows in each batch to be written at a time. By default, all rows will be written at once."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "chunksize",
-            "type_": "int, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Specifying the datatype for columns. If a dictionary is used, the keys should be the column names and the values should be the SQLAlchemy types or strings for the sqlite3 fallback mode. If a scalar is provided, it will be applied to all columns."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "dtype",
-            "type_": "dict or scalar, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Controls the SQL insertion clause used:"
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "method",
-            "type_": "{None, 'multi', callable}, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "SQL engine library to use. If 'auto', then the option "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "value": [
-                          "io.sql.engine"
-                        ]
-                      },
-                      "type": "Verbatim"
-                    },
-                    {
-                      "data": {
-                        "value": " is used. The default "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "value": [
-                          "io.sql.engine"
-                        ]
-                      },
-                      "type": "Verbatim"
-                    },
-                    {
-                      "data": {
-                        "value": " behavior is 'sqlalchemy'"
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
+                "desc": [],
+                "param": "frame",
+                "type_": "DataFrame, Series"
               },
               {
-                "data": {
-                  "children": [
-                    {
-                      "inline": [
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
                         {
                           "data": {
-                            "value": "1.3.0 "
+                            "value": "Name of SQL table."
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
-                    }
-                  ],
-                  "kind": "versionadded",
-                  "title": "TODO"
-                },
-                "type": "Admonition"
-              }
-            ],
-            "param": "engine",
-            "type_": "{'auto', 'sqlalchemy'}, default 'auto'"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "name",
+                "type_": "str"
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Any additional kwargs are passed to the engine."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "or sqlite3 DBAPI2 connection Using SQLAlchemy makes it possible to use any DB supported by that library. If a DBAPI2 object, only sqlite3 is supported."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "con",
+                "type_": "SQLAlchemy connectable(engine/connection) or database string URI"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Name of SQL schema in database to write to (if database flavor supports this). If None, use default schema (default)."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "schema",
+                "type_": "str, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "data": {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "value": "fail: If table exists, do nothing."
+                                    },
+                                    "type": "Words"
+                                  }
+                                ]
+                              },
+                              "type": "Paragraph"
+                            }
+                          ]
+                        },
+                        {
+                          "children": [
+                            {
+                              "data": {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "value": "replace: If table exists, drop it, recreate it, and insert data."
+                                    },
+                                    "type": "Words"
+                                  }
+                                ]
+                              },
+                              "type": "Paragraph"
+                            }
+                          ]
+                        },
+                        {
+                          "children": [
+                            {
+                              "data": {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "value": "append: If table exists, insert data. Create if does not exist."
+                                    },
+                                    "type": "Words"
+                                  }
+                                ]
+                              },
+                              "type": "Paragraph"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "type": "BulletList"
+                  }
+                ],
+                "param": "if_exists",
+                "type_": "{'fail', 'replace', 'append'}, default 'fail'"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Write DataFrame index as a column."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "index",
+                "type_": "bool, default True"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Column label for index column(s). If None is given (default) and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "index"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": " is True, then the index names are used. A sequence should be given if the DataFrame uses MultiIndex."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "index_label",
+                "type_": "str or sequence, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Specify the number of rows in each batch to be written at a time. By default, all rows will be written at once."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "chunksize",
+                "type_": "int, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Specifying the datatype for columns. If a dictionary is used, the keys should be the column names and the values should be the SQLAlchemy types or strings for the sqlite3 fallback mode. If a scalar is provided, it will be applied to all columns."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "dtype",
+                "type_": "dict or scalar, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Controls the SQL insertion clause used:"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "method",
+                "type_": "{None, 'multi', callable}, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "SQL engine library to use. If 'auto', then the option "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "io.sql.engine"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " is used. The default "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "io.sql.engine"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " behavior is 'sqlalchemy'"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [],
+                      "kind": "versionadded",
+                      "title": "1.3.0"
+                    },
+                    "type": "Admonition"
+                  }
+                ],
+                "param": "engine",
+                "type_": "{'auto', 'sqlalchemy'}, default 'auto'"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Any additional kwargs are passed to the engine."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "**engine_kwargs",
+                "type_": ""
               }
-            ],
-            "param": "**engine_kwargs",
-            "type_": ""
+            ]
           },
-          "type": "Param"
+          "type": "Parameters"
         }
       ],
       "title": null
@@ -476,60 +415,51 @@
       "children": [
         {
           "data": {
-            "desc": [
+            "children": [
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Number of rows affected by to_sql. None is returned if the callable passed into "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "value": [
-                          "method"
-                        ]
-                      },
-                      "type": "Verbatim"
-                    },
-                    {
-                      "data": {
-                        "value": " does not return the number of rows."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              },
-              {
-                "data": {
-                  "children": [
-                    {
-                      "inline": [
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
                         {
                           "data": {
-                            "value": "1.4.0 "
+                            "value": "Number of rows affected by to_sql. None is returned if the callable passed into "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "method"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " does not return the number of rows."
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
-                    }
-                  ],
-                  "kind": "versionadded",
-                  "title": "TODO"
-                },
-                "type": "Admonition"
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [],
+                      "kind": "versionadded",
+                      "title": "1.4.0"
+                    },
+                    "type": "Admonition"
+                  }
+                ],
+                "param": "",
+                "type_": "None or int"
               }
-            ],
-            "param": "",
-            "type_": "None or int"
+            ]
           },
-          "type": "Param"
+          "type": "Parameters"
         }
       ],
       "title": null
@@ -538,15 +468,14 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Write records stored in a DataFrame to a SQL database."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }

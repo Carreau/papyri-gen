@@ -8,15 +8,14 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Graph edit distance is a graph similarity measure analogous to Levenshtein distance for strings.  It is defined as minimum cost of edit path (sequence of node and edge edit operations) transforming graph G1 to graph isomorphic to G2."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -39,373 +38,342 @@
       "children": [
         {
           "data": {
-            "desc": [
+            "children": [
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "The two graphs G1 and G2 must be of the same type."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The two graphs G1 and G2 must be of the same type."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "G1, G2: graphs",
+                "type_": ""
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A function that returns True if node n1 in G1 and n2 in G2 should be considered equal during matching."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The function will be called like"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": [
+                        "node_match(G1.nodes[n1], G2.nodes[n2])."
+                      ]
+                    },
+                    "type": "BlockQuote"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "That is, the function will receive the node attribute dictionaries for n1 and n2 as inputs."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Ignored if node_subst_cost is specified.  If neither node_match nor node_subst_cost are specified then node attributes are not considered."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "node_match",
+                "type_": "callable"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A function that returns True if the edge attribute dictionaries for the pair of nodes (u1, v1) in G1 and (u2, v2) in G2 should be considered equal during matching."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The function will be called like"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": [
+                        "edge_match(G1[u1][v1], G2[u2][v2])."
+                      ]
+                    },
+                    "type": "BlockQuote"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "That is, the function will receive the edge attribute dictionaries of the edges under consideration."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Ignored if edge_subst_cost is specified.  If neither edge_match nor edge_subst_cost are specified then edge attributes are not considered."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "edge_match",
+                "type_": "callable"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Functions that return the costs of node substitution, node deletion, and node insertion, respectively."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The functions will be called like"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": [
+                        "node_subst_cost(G1.nodes[n1], G2.nodes[n2]),",
+                        "node_del_cost(G1.nodes[n1]),",
+                        "node_ins_cost(G2.nodes[n2])."
+                      ]
+                    },
+                    "type": "BlockQuote"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "That is, the functions will receive the node attribute dictionaries as inputs.  The functions are expected to return positive numeric values."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Function node_subst_cost overrides node_match if specified. If neither node_match nor node_subst_cost are specified then default node substitution cost of 0 is used (node attributes are not considered during matching)."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "If node_del_cost is not specified then default node deletion cost of 1 is used.  If node_ins_cost is not specified then default node insertion cost of 1 is used."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "node_subst_cost, node_del_cost, node_ins_cost",
+                "type_": "callable"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Functions that return the costs of edge substitution, edge deletion, and edge insertion, respectively."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The functions will be called like"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": [
+                        "edge_subst_cost(G1[u1][v1], G2[u2][v2]),",
+                        "edge_del_cost(G1[u1][v1]),",
+                        "edge_ins_cost(G2[u2][v2])."
+                      ]
+                    },
+                    "type": "BlockQuote"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "That is, the functions will receive the edge attribute dictionaries as inputs.  The functions are expected to return positive numeric values."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Function edge_subst_cost overrides edge_match if specified. If neither edge_match nor edge_subst_cost are specified then default edge substitution cost of 0 is used (edge attributes are not considered during matching)."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "If edge_del_cost is not specified then default edge deletion cost of 1 is used.  If edge_ins_cost is not specified then default edge insertion cost of 1 is used."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "edge_subst_cost, edge_del_cost, edge_ins_cost",
+                "type_": "callable"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Maximum edit distance to consider."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "upper_bound",
+                "type_": "numeric"
               }
-            ],
-            "param": "G1, G2: graphs",
-            "type_": ""
+            ]
           },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "A function that returns True if node n1 in G1 and n2 in G2 should be considered equal during matching."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              },
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "The function will be called like"
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              },
-              {
-                "data": {
-                  "value": [
-                    "node_match(G1.nodes[n1], G2.nodes[n2])."
-                  ]
-                },
-                "type": "BlockQuote"
-              },
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "That is, the function will receive the node attribute dictionaries for n1 and n2 as inputs."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              },
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Ignored if node_subst_cost is specified.  If neither node_match nor node_subst_cost are specified then node attributes are not considered."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "node_match",
-            "type_": "callable"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "A function that returns True if the edge attribute dictionaries for the pair of nodes (u1, v1) in G1 and (u2, v2) in G2 should be considered equal during matching."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              },
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "The function will be called like"
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              },
-              {
-                "data": {
-                  "value": [
-                    "edge_match(G1[u1][v1], G2[u2][v2])."
-                  ]
-                },
-                "type": "BlockQuote"
-              },
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "That is, the function will receive the edge attribute dictionaries of the edges under consideration."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              },
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Ignored if edge_subst_cost is specified.  If neither edge_match nor edge_subst_cost are specified then edge attributes are not considered."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "edge_match",
-            "type_": "callable"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Functions that return the costs of node substitution, node deletion, and node insertion, respectively."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              },
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "The functions will be called like"
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              },
-              {
-                "data": {
-                  "value": [
-                    "node_subst_cost(G1.nodes[n1], G2.nodes[n2]),",
-                    "node_del_cost(G1.nodes[n1]),",
-                    "node_ins_cost(G2.nodes[n2])."
-                  ]
-                },
-                "type": "BlockQuote"
-              },
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "That is, the functions will receive the node attribute dictionaries as inputs.  The functions are expected to return positive numeric values."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              },
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Function node_subst_cost overrides node_match if specified. If neither node_match nor node_subst_cost are specified then default node substitution cost of 0 is used (node attributes are not considered during matching)."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              },
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "If node_del_cost is not specified then default node deletion cost of 1 is used.  If node_ins_cost is not specified then default node insertion cost of 1 is used."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "node_subst_cost, node_del_cost, node_ins_cost",
-            "type_": "callable"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Functions that return the costs of edge substitution, edge deletion, and edge insertion, respectively."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              },
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "The functions will be called like"
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              },
-              {
-                "data": {
-                  "value": [
-                    "edge_subst_cost(G1[u1][v1], G2[u2][v2]),",
-                    "edge_del_cost(G1[u1][v1]),",
-                    "edge_ins_cost(G2[u2][v2])."
-                  ]
-                },
-                "type": "BlockQuote"
-              },
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "That is, the functions will receive the edge attribute dictionaries as inputs.  The functions are expected to return positive numeric values."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              },
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Function edge_subst_cost overrides edge_match if specified. If neither edge_match nor edge_subst_cost are specified then default edge substitution cost of 0 is used (edge attributes are not considered during matching)."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              },
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "If edge_del_cost is not specified then default edge deletion cost of 1 is used.  If edge_ins_cost is not specified then default edge insertion cost of 1 is used."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "edge_subst_cost, edge_del_cost, edge_ins_cost",
-            "type_": "callable"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Maximum edit distance to consider."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "upper_bound",
-            "type_": "numeric"
-          },
-          "type": "Param"
+          "type": "Parameters"
         }
       ],
       "title": null
@@ -422,11 +390,15 @@
       "children": [
         {
           "data": {
-            "desc": [],
-            "param": "",
-            "type_": "Generator of consecutive approximations of graph edit distance."
+            "children": [
+              {
+                "desc": [],
+                "param": "",
+                "type_": "Generator of consecutive approximations of graph edit distance."
+              }
+            ]
           },
-          "type": "Param"
+          "type": "Parameters"
         }
       ],
       "title": null
@@ -435,15 +407,14 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Returns consecutive approximations of GED (graph edit distance) between graphs G1 and G2."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -473,245 +444,535 @@
         "data": {
           "ce_status": "execed",
           "entries": [
-            [
-              "G1",
-              "typing.Generator",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "nx",
-              "networkx",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "cycle_graph",
-              "networkx.generators.classic.cycle_graph",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "6",
-              "",
-              "mi"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "G2",
-              "typing.Generator",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "nx",
-              "networkx",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "wheel_graph",
-              "networkx.generators.classic.wheel_graph",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "7",
-              "",
-              "mi"
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "for",
-              null,
-              "k"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "v",
-              "builtins.int",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "in",
-              null,
-              "ow"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "nx",
-              "networkx",
-              ""
-            ],
-            [
-              ".",
-              "",
-              "o"
-            ],
-            [
-              "optimize_graph_edit_distance",
-              "networkx.algorithms.similarity.optimize_graph_edit_distance",
-              ""
-            ],
-            [
-              "(",
-              "",
-              ""
-            ],
-            [
-              "G1",
-              "typing.Generator",
-              ""
-            ],
-            [
-              ",",
-              "",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "G2",
-              "typing.Generator",
-              ""
-            ],
-            [
-              ")",
-              "",
-              ""
-            ],
-            [
-              ":",
-              "",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "    ",
-              "",
-              ""
-            ],
-            [
-              "minv",
-              "numpy.floating",
-              ""
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "=",
-              "",
-              "o"
-            ],
-            [
-              " ",
-              "",
-              ""
-            ],
-            [
-              "v",
-              "numpy.floating",
-              ""
-            ],
-            [
-              "\n",
-              "",
-              ""
-            ],
-            [
-              "minv",
-              "numpy.floating",
-              ""
-            ]
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "typing",
+                    "path": "typing.Generator",
+                    "version": "*"
+                  },
+                  "value": "G1"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "G1",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx",
+                    "version": "2.7.2rc1.dev0"
+                  },
+                  "value": "nx"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.generators.classic.cycle_graph",
+                    "version": "2.7.2rc1.dev0"
+                  },
+                  "value": "cycle_graph"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "6",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "typing",
+                    "path": "typing.Generator",
+                    "version": "*"
+                  },
+                  "value": "G2"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "G2",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx",
+                    "version": "2.7.2rc1.dev0"
+                  },
+                  "value": "nx"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.generators.classic.wheel_graph",
+                    "version": "2.7.2rc1.dev0"
+                  },
+                  "value": "wheel_graph"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "7",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "for",
+                "type": "str"
+              },
+              "type": "k"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.int",
+                    "version": "*"
+                  },
+                  "value": "v"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "v",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "in",
+                "type": "str"
+              },
+              "type": "ow"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx",
+                    "version": "2.7.2rc1.dev0"
+                  },
+                  "value": "nx"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.algorithms.similarity.optimize_graph_edit_distance",
+                    "version": "2.7.2rc1.dev0"
+                  },
+                  "value": "optimize_graph_edit_distance"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "typing",
+                    "path": "typing.Generator",
+                    "version": "*"
+                  },
+                  "value": "G1"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "G1",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "typing",
+                    "path": "typing.Generator",
+                    "version": "*"
+                  },
+                  "value": "G2"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "G2",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ":",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "    ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.floating",
+                    "version": "*"
+                  },
+                  "value": "minv"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "minv",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.floating",
+                    "version": "*"
+                  },
+                  "value": "v"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "v",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.floating",
+                    "version": "*"
+                  },
+                  "value": "minv"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "minv",
+                "type": "str"
+              },
+              "type": ""
+            }
           ],
           "out": "7.0"
         },
-        "type": "Code"
+        "type": "Code2"
       }
     ],
     "title": null

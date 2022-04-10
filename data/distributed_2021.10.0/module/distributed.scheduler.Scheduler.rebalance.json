@@ -10,15 +10,17 @@
           "data": {
             "children": [
               {
-                "inline": [
-                  {
-                    "data": {
-                      "value": "This operation is generally not well tested against normal operation of the scheduler. It is not recommended to use it while waiting on computations. "
-                    },
-                    "type": "Words"
-                  }
-                ],
-                "inner": []
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "This operation is generally not well tested against normal operation of the scheduler. It is not recommended to use it while waiting on computations."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
               }
             ],
             "kind": "warning",
@@ -28,7 +30,7 @@
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "content": {
@@ -37,8 +39,7 @@
                 },
                 "type": "Strong"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -46,10 +47,10 @@
           "data": {
             "children": [
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "Find the mean occupancy of the cluster, defined as data managed by dask +    unmanaged process memory that has been there for at least 30 seconds    ("
@@ -70,14 +71,13 @@
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   },
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "Alternatively, you may change how memory is measured both for the individual    workers as well as to calculate the mean through    "
@@ -98,18 +98,17 @@
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
                 ]
               },
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "Discard workers whose occupancy is within 5% of the mean cluster occupancy    ("
@@ -130,36 +129,34 @@
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
                 ]
               },
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "Workers above the mean are senders; those below are recipients."
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
                 ]
               },
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "Discard senders whose absolute occupancy is below 30%    ("
@@ -180,18 +177,17 @@
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
                 ]
               },
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "Discard recipients whose absolute occupancy is above 60%    ("
@@ -226,18 +222,17 @@
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
                 ]
               },
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "Iteratively pick the sender and recipient that are farthest from the mean and    move the "
@@ -258,22 +253,20 @@
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   },
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "A recipient will be skipped if it already has a copy of the data. In other    words, this method does not degrade replication.    A key will be skipped if there are no recipients available with enough memory    to accept the key and that don't already hold a copy."
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
@@ -285,15 +278,14 @@
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The least recently insertd (LRI) policy is a greedy choice with the advantage of being O(1), trivial to implement (it relies on python dict insertion-sorting) and hopefully good enough in most cases. Discarded alternative policies were:"
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -301,36 +293,34 @@
           "data": {
             "children": [
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "Largest first. O(n*log(n)) save for non-trivial additional data structures and   risks causing the largest chunks of data to repeatedly move around the   cluster like pinballs."
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
                 ]
               },
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "Least recently used (LRU). This information is currently available on the   workers only and not trivial to replicate on the scheduler; transmitting it   over the network would be very expensive. Also, note that dask will go out of   its way to minimise the amount of time intermediate keys are held in memory,   so in such a case LRI is a close approximation of LRU."
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
@@ -359,49 +349,48 @@
       "children": [
         {
           "data": {
-            "desc": [
+            "children": [
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "whitelist of dask keys that should be considered for moving. All other keys will be ignored. Note that this offers no guarantee that a key will actually be moved (e.g. because it is unnecessary or because there are no viable recipient workers for it)."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "keys: optional",
-            "type_": ""
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "whitelist of dask keys that should be considered for moving. All other keys will be ignored. Note that this offers no guarantee that a key will actually be moved (e.g. because it is unnecessary or because there are no viable recipient workers for it)."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "keys: optional",
+                "type_": ""
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "whitelist of workers addresses to be considered as senders or recipients. All other workers will be ignored. The mean cluster occupancy will be calculated only using the whitelisted workers."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "whitelist of workers addresses to be considered as senders or recipients. All other workers will be ignored. The mean cluster occupancy will be calculated only using the whitelisted workers."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "workers: optional",
+                "type_": ""
               }
-            ],
-            "param": "workers: optional",
-            "type_": ""
+            ]
           },
-          "type": "Param"
+          "type": "Parameters"
         }
       ],
       "title": null
@@ -422,15 +411,14 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Rebalance keys so that each worker ends up with roughly the same process memory (managed+unmanaged)."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }

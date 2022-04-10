@@ -18,21 +18,20 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "There is a general need for looping over not only functions on scalars but also over functions on vectors (or arrays). This concept is realized in NumPy by generalizing the universal functions (ufuncs).  In regular ufuncs, the elementary function is limited to element-by-element operations, whereas the generalized version (gufuncs) supports \"sub-array\" by \"sub-array\" operations.  The Perl vector library PDL provides a similar functionality and its terms are re-used in the following."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Each generalized ufunc has information associated with it that states what the \"core\" dimensionality of the inputs is, as well as the corresponding dimensionality of the outputs (the element-wise ufuncs have zero core dimensions).  The list of the core dimensions for all arguments is called the \"signature\" of a ufunc.  For example, the ufunc numpy.add has signature "
@@ -53,14 +52,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Another example is the function "
@@ -221,14 +219,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The dimensions beyond the core dimensions are called \"loop\" dimensions.  In the above example, this corresponds to "
@@ -249,22 +246,7 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
-          },
-          "type": "Paragraph"
-        },
-        {
-          "data": {
-            "inline": [
-              {
-                "data": {
-                  "value": "The signature determines how the dimensions of each input/output array are split into core and loop dimensions:"
-                },
-                "type": "Words"
-              }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -272,28 +254,40 @@
           "data": {
             "children": [
               {
-                "value": [
+                "data": {
+                  "value": "The signature determines how the dimensions of each input/output array are split into core and loop dimensions:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "Each dimension in the signature is matched to a dimension of the    corresponding passed-in array, starting from the end of the shape tuple.    These are the core dimensions, and they must be present in the arrays, or    an error will be raised."
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
                 ]
               },
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "Core dimensions assigned to the same label in the signature (e.g. the    "
@@ -342,44 +336,41 @@
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
                 ]
               },
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "The core dimensions are removed from all inputs and the remaining    dimensions are broadcast together, defining the loop dimensions."
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
                 ]
               },
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "The shape of each output is determined from the loop dimensions plus the    output's core dimensions"
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
@@ -391,7 +382,7 @@
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Typically, the size of all core dimensions in an output will be determined by the size of a core dimension with the same label in an input array. This is not a requirement, and it is possible to define a signature where a label comes up for the first time in an output, although some precautions must be taken when calling such a function. An example would be the function "
@@ -482,22 +473,20 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Note: Prior to NumPy 1.10.0, less strict checks were in place: missing core dimensions were created by prepending 1's to the shape as necessary, core dimensions with the same label were broadcast together, and undetermined dimensions were created with size 1."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -513,29 +502,27 @@
                 "dd": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "Each ufunc consists of an elementary function that performs the     most basic operation on the smallest portion of array arguments     (e.g. adding two numbers is the most basic operation in adding two     arrays).  The ufunc applies the elementary function multiple times     on different parts of the arrays.  The input/output of elementary     functions can be vectors; e.g., the elementary function of inner1d     takes two vectors as input."
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
                 ],
                 "dt": {
-                  "inline": [
+                  "children": [
                     {
                       "data": {
                         "value": "Elementary Function"
                       },
                       "type": "Words"
                     }
-                  ],
-                  "inner": []
+                  ]
                 }
               }
             ]
@@ -549,29 +536,27 @@
                 "dd": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "A signature is a string describing the input/output dimensions of     the elementary function of a ufunc.  See section below for more     details."
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
                 ],
                 "dt": {
-                  "inline": [
+                  "children": [
                     {
                       "data": {
                         "value": "Signature"
                       },
                       "type": "Words"
                     }
-                  ],
-                  "inner": []
+                  ]
                 }
               }
             ]
@@ -585,29 +570,27 @@
                 "dd": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "The dimensionality of each input/output of an elementary function     is defined by its core dimensions (zero core dimensions correspond     to a scalar input/output).  The core dimensions are mapped to the     last dimensions of the input/output arrays."
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
                 ],
                 "dt": {
-                  "inline": [
+                  "children": [
                     {
                       "data": {
                         "value": "Core Dimension"
                       },
                       "type": "Words"
                     }
-                  ],
-                  "inner": []
+                  ]
                 }
               }
             ]
@@ -621,29 +604,27 @@
                 "dd": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "A dimension name represents a core dimension in the signature.     Different dimensions may share a name, indicating that they are of     the same size."
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
                 ],
                 "dt": {
-                  "inline": [
+                  "children": [
                     {
                       "data": {
                         "value": "Dimension Name"
                       },
                       "type": "Words"
                     }
-                  ],
-                  "inner": []
+                  ]
                 }
               }
             ]
@@ -657,29 +638,27 @@
                 "dd": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "A dimension index is an integer representing a dimension name. It     enumerates the dimension names according to the order of the first     occurrence of each name in the signature."
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
                 ],
                 "dt": {
-                  "inline": [
+                  "children": [
                     {
                       "data": {
                         "value": "Dimension Index"
                       },
                       "type": "Words"
                     }
-                  ],
-                  "inner": []
+                  ]
                 }
               }
             ]
@@ -700,15 +679,14 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The signature defines \"core\" dimensionality of input and output variables, and thereby also defines the contraction of the dimensions.  The signature is represented by a string of the following format:"
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -716,10 +694,10 @@
           "data": {
             "children": [
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "Core dimensions of each input or output array are represented by a   list of dimension names in parentheses, "
@@ -782,18 +760,17 @@
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
                 ]
               },
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "Dimension lists for different arguments are separated by "
@@ -828,26 +805,24 @@
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
                 ]
               },
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "If one uses the same dimension name in multiple locations, this   enforces the same size of the corresponding dimensions."
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
@@ -859,15 +834,14 @@
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The formal syntax of signatures is as follows::      "
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -879,15 +853,14 @@
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Notes:"
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -895,90 +868,85 @@
           "data": {
             "children": [
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "All quotes are for clarity."
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
                 ]
               },
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "Unmodified core dimensions that share the same name must have the same size.    Each dimension name typically corresponds to one level of looping in the    elementary function's implementation."
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
                 ]
               },
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "White spaces are ignored."
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
                 ]
               },
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "An integer as a dimension name freezes that dimension to the value."
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
                 ]
               },
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "If the name is suffixed with the \"?\" modifier, the dimension is a core    dimension only if it exists on all inputs and outputs that share it;    otherwise it is ignored (and replaced by a dimension of size 1 for the    elementary function)."
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
@@ -990,21 +958,20 @@
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Here are some examples of signatures:"
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "+-------------+----------------------------+-----------------------------------+ | name        | signature                  | common usage                      | +=============+============================+===================================+ | add         | "
@@ -1137,8 +1104,7 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -1151,15 +1117,14 @@
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The last is an instance of freezing a core dimension and can be used to improve ufunc performance"
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -1170,7 +1135,7 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The current interface remains unchanged, and "
@@ -1191,14 +1156,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "One can use "
@@ -1233,14 +1197,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Furthermore, the callback function is of the same type as before, "
@@ -1331,14 +1294,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "For a non-trivial signature, "
@@ -1359,14 +1321,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The first "
@@ -1401,14 +1362,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "For example, consider a ufunc with signature "
@@ -1611,8 +1571,7 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }

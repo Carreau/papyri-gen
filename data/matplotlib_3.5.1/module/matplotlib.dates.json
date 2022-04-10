@@ -40,15 +40,14 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "To remove in the future \u2013\u2013 matplotlib.dates"
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -76,7 +75,7 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Matplotlib provides sophisticated date plotting capabilities, standing on the shoulders of python "
@@ -111,14 +110,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "By default, Matplotlib uses the units machinery described in "
@@ -205,8 +203,7 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -218,19 +215,10 @@
         },
         {
           "data": {
-            "args0": [],
-            "directive_name": "seealso",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "- : doc : ` / gallery / text_labels_and_annotations / date` - : doc : ` / gallery / ticks / date_concise_formatter` - : doc : ` / gallery / ticks / date_demo_convert` "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "",
+            "content": "- :doc:`/gallery/text_labels_and_annotations/date`\n- :doc:`/gallery/ticks/date_concise_formatter`\n- :doc:`/gallery/ticks/date_demo_convert`",
+            "name": "seealso",
+            "options": []
           },
           "type": "BlockDirective"
         },
@@ -248,7 +236,7 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Matplotlib represents dates using floating point numbers specifying the number of days since a default epoch of 1970-01-01 UTC; for example, 1970-01-01, 06:00 is the floating point number 0.25. The formatters and locators require the use of "
@@ -323,8 +311,7 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -332,15 +319,23 @@
           "data": {
             "children": [
               {
-                "inline": [
-                  {
-                    "data": {
-                      "value": "Before Matplotlib 3.3, the epoch was 0000 - 12 - 31 which lost modern microsecond precision and also made the default axis limit of 0 an invalid datetime. In 3.3 the epoch was changed as above. To convert old ordinal floats to the new epoch, users can do : : new_ordinal = old_ordinal + mdates.date2num ( np.datetime64 ( ' 0000 - 12 - 31 ' )) "
-                    },
-                    "type": "Words"
-                  }
-                ],
-                "inner": []
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Before Matplotlib 3.3, the epoch was 0000-12-31 which lost modern microsecond precision and also made the default axis limit of 0 an invalid datetime.  In 3.3 the epoch was changed as above.  To convert old ordinal floats to the new epoch, users can do::    "
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "value": "new_ordinal = old_ordinal + mdates.date2num(np.datetime64('0000-12-31'))"
+                },
+                "type": "BlockVerbatim"
               }
             ],
             "kind": "note",
@@ -350,7 +345,7 @@
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "There are a number of helper functions to convert between "
@@ -371,62 +366,60 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [],
-            "directive_name": "currentmodule",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "matplotlib.dates "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "matplotlib.dates",
+            "content": "",
+            "name": "currentmodule",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              ":nosignatures:"
-            ],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "datestr2num date2num num2date num2timedelta drange set_epoch get_epoch "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    :nosignatures:\n    datestr2num\n    date2num\n    num2date\n    num2timedelta\n    drange\n    set_epoch\n    get_epoch"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         },
         {
           "data": {
             "children": [
               {
-                "inline": [
-                  {
-                    "data": {
-                      "value": "Like Python ' s `datetime.datetime`, Matplotlib uses the Gregorian calendar for all conversions between dates and floating point numbers. This practice is not universal, and calendar differences can cause confusing differences between what Python and Matplotlib give as the number of days since 0001 - 01 - 01 and what other software and databases yield. For example, the US Naval Observatory uses a calendar that switches from Julian to Gregorian in October, 1582. Hence, using their calculator, the number of days between 0001 - 01 - 01 and 2006 - 04 - 01 is 732403, whereas using the Gregorian calendar via the datetime module we find : : In [ 1] : date ( 2006, 4, 1).toordinal ( ) - date ( 1, 1, 1).toordinal ( ) Out [ 1] : 732401 "
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Like Python's "
+                      },
+                      "type": "Words"
                     },
-                    "type": "Words"
-                  }
-                ],
-                "inner": []
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "datetime.datetime"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": ", Matplotlib uses the Gregorian calendar for all conversions between dates and floating point numbers. This practice is not universal, and calendar differences can cause confusing differences between what Python and Matplotlib give as the number of days since 0001-01-01 and what other software and databases yield.  For example, the US Naval Observatory uses a calendar that switches from Julian to Gregorian in October, 1582.  Hence, using their calculator, the number of days between 0001-01-01 and 2006-04-01 is 732403, whereas using the Gregorian calendar via the datetime module we find::    "
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "value": "In [1]: date(2006, 4, 1).toordinal() - date(1, 1, 1).toordinal()\nOut[1]: 732401"
+                },
+                "type": "BlockVerbatim"
               }
             ],
             "kind": "note",
@@ -436,7 +429,7 @@
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "All the Matplotlib date converters, tickers and formatters are timezone aware. If no explicit timezone is provided, "
@@ -517,14 +510,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "A wide range of specific and general purpose date tick locators and formatters are provided in this module.  See "
@@ -545,14 +537,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The "
@@ -573,8 +564,7 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -592,15 +582,14 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Most of the date tickers can locate single or multiple values.  For example::      "
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -612,15 +601,14 @@
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "In addition, most of the constructors take an interval argument::      "
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -632,15 +620,14 @@
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The rrule locator allows completely general date ticking::      "
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -652,15 +639,14 @@
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The available date tickers are:"
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -668,10 +654,10 @@
           "data": {
             "children": [
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "exists": true,
@@ -692,8 +678,7 @@
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
@@ -707,10 +692,10 @@
           "data": {
             "children": [
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "exists": true,
@@ -731,8 +716,7 @@
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
@@ -746,10 +730,10 @@
           "data": {
             "children": [
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "exists": true,
@@ -770,8 +754,7 @@
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
@@ -785,10 +768,10 @@
           "data": {
             "children": [
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "exists": true,
@@ -809,8 +792,7 @@
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
@@ -824,10 +806,10 @@
           "data": {
             "children": [
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "exists": true,
@@ -848,8 +830,7 @@
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
@@ -863,10 +844,10 @@
           "data": {
             "children": [
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "exists": true,
@@ -887,8 +868,7 @@
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
@@ -902,10 +882,10 @@
           "data": {
             "children": [
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "exists": true,
@@ -926,8 +906,7 @@
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
@@ -941,10 +920,10 @@
           "data": {
             "children": [
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "exists": true,
@@ -965,8 +944,7 @@
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
@@ -980,10 +958,10 @@
           "data": {
             "children": [
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "exists": true,
@@ -1092,8 +1070,7 @@
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
@@ -1107,10 +1084,10 @@
           "data": {
             "children": [
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "exists": true,
@@ -1185,8 +1162,7 @@
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
@@ -1203,15 +1179,14 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The available date formatters are:"
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -1219,10 +1194,10 @@
           "data": {
             "children": [
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "exists": true,
@@ -1263,8 +1238,7 @@
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
@@ -1278,10 +1252,10 @@
           "data": {
             "children": [
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "exists": true,
@@ -1322,8 +1296,7 @@
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
@@ -1337,10 +1310,10 @@
           "data": {
             "children": [
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "exists": true,
@@ -1375,8 +1348,7 @@
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }

@@ -18,7 +18,7 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The key advantage gained by leveraging "
@@ -81,8 +81,7 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -90,15 +89,45 @@
           "data": {
             "children": [
               {
-                "inline": [
-                  {
-                    "data": {
-                      "value": "Meson needs to be at - least ``0.46.0`` in order to resolve the ``python`` include directories. "
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Meson needs to be at-least "
+                      },
+                      "type": "Words"
                     },
-                    "type": "Words"
-                  }
-                ],
-                "inner": []
+                    {
+                      "data": {
+                        "value": [
+                          "0.46.0"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " in order to resolve the "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "python"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " include directories."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
               }
             ],
             "kind": "note",
@@ -113,7 +142,7 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "We will need the generated "
@@ -148,34 +177,22 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [
-              "bash"
-            ],
-            "directive_name": "code-block",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "python - n numpy.f2py fib1.f - m fib2 "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "bash",
+            "content": "python -n numpy.f2py fib1.f -m fib2",
+            "name": "code-block",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Now, consider the following "
@@ -238,88 +255,76 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [
-              "./../code/meson.build"
-            ],
-            "directive_name": "literalinclude",
-            "inner": {
-              "inline": [],
-              "inner": []
-            }
+            "argument": "./../code/meson.build",
+            "content": "",
+            "name": "literalinclude",
+            "options": [
+              [
+                "language",
+                "meson"
+              ]
+            ]
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "At this point the build will complete, but the import will fail:"
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [
-              "bash"
-            ],
-            "directive_name": "code-block",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "meson setup builddir meson compile - C builddir cd builddir python - c ' import fib2 ' Traceback ( most recent call last) : File \" < string> \" , line 1, in < module> ImportError : fib2.cpython - 39 - x86_64 - linux - gnu.so : undefined symbol : FIB_ # Check this isn ' t a false positive nm - A fib2.cpython - 39 - x86_64 - linux - gnu.so | grep FIB_ fib2.cpython - 39 - x86_64 - linux - gnu.so : U FIB_ "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "bash",
+            "content": "meson setup builddir\nmeson compile -C builddir\ncd builddir\npython -c 'import fib2'\nTraceback (most recent call last):\nFile \"<string>\", line 1, in <module>\nImportError: fib2.cpython-39-x86_64-linux-gnu.so: undefined symbol: FIB_\n# Check this isn't a false positive\nnm -A fib2.cpython-39-x86_64-linux-gnu.so | grep FIB_\nfib2.cpython-39-x86_64-linux-gnu.so: U FIB_",
+            "name": "code-block",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Recall that the original example, as reproduced below, was in SCREAMCASE:"
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [
-              "./../code/fib1.f"
-            ],
-            "directive_name": "literalinclude",
-            "inner": {
-              "inline": [],
-              "inner": []
-            }
+            "argument": "./../code/fib1.f",
+            "content": "",
+            "name": "literalinclude",
+            "options": [
+              [
+                "language",
+                "fortran"
+              ]
+            ]
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "With the standard approach, the subroutine exposed to "
@@ -368,34 +373,22 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [
-              "bash"
-            ],
-            "directive_name": "code-block",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "tr \" [ : upper : ] \" \" [ : lower : ] \" < fib1.f > fib1.f python - n numpy.f2py fib1.f - m fib2 meson - - wipe builddir meson compile - C builddir cd builddir python - c ' import fib2 ' "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "bash",
+            "content": "tr \"[:upper:]\" \"[:lower:]\" < fib1.f > fib1.f\npython -n numpy.f2py fib1.f -m fib2\nmeson --wipe builddir\nmeson compile -C builddir\ncd builddir\npython -c 'import fib2'",
+            "name": "code-block",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "However this requires the ability to modify the source which is not always possible. The easiest way to solve this is to let "
@@ -416,28 +409,16 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [
-              "bash"
-            ],
-            "directive_name": "code-block",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "python - n numpy.f2py fib1.f - m fib2 - - lower meson - - wipe builddir meson compile - C builddir cd builddir python - c ' import fib2 ' "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "bash",
+            "content": "python -n numpy.f2py fib1.f -m fib2 --lower\nmeson --wipe builddir\nmeson compile -C builddir\ncd builddir\npython -c 'import fib2'",
+            "name": "code-block",
+            "options": []
           },
           "type": "BlockDirective"
         }
@@ -448,7 +429,7 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "A major pain point in the workflow defined above, is the manual tracking of inputs. Although it would require more effort to figure out the actual outputs for reasons discussed in "
@@ -469,69 +450,56 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "However, we can augment our workflow in a straightforward to take into account files for which the outputs are known when the build system is set up."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [
-              "./../code/meson_upd.build"
-            ],
-            "directive_name": "literalinclude",
-            "inner": {
-              "inline": [],
-              "inner": []
-            }
+            "argument": "./../code/meson_upd.build",
+            "content": "",
+            "name": "literalinclude",
+            "options": [
+              [
+                "language",
+                "meson"
+              ]
+            ]
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "This can be compiled and run as before."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [
-              "bash"
-            ],
-            "directive_name": "code-block",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "rm - rf builddir meson setup builddir meson compile - C builddir cd builddir python - c \" import numpy as np; import fibby; a = np.zeros ( 9); fibby.fib ( a); print ( a) \" # [ 0. 1. 1. 2. 3. 5. 8. 13. 21.] "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "bash",
+            "content": "rm -rf builddir\nmeson setup builddir\nmeson compile -C builddir\ncd builddir\npython -c \"import numpy as np; import fibby; a = np.zeros(9); fibby.fib(a); print (a)\"\n# [ 0.  1.  1.  2.  3.  5.  8. 13. 21.]",
+            "name": "code-block",
+            "options": []
           },
           "type": "BlockDirective"
         }
@@ -542,15 +510,14 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "It is worth keeping in mind the following:"
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -558,10 +525,10 @@
           "data": {
             "children": [
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": [
@@ -618,8 +585,7 @@
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
@@ -633,10 +599,10 @@
           "data": {
             "children": [
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "It is not possible to use SCREAMCASE in this context, so either the contents   of the "
@@ -693,8 +659,7 @@
                           },
                           "type": "Verbatim"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }

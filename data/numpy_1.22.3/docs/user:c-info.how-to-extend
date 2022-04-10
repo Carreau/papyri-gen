@@ -18,39 +18,29 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "While the ndarray object is designed to allow rapid computation in Python, it is also designed to be general-purpose and satisfy a wide- variety of computational needs. As a result, if absolute speed is essential, there is no replacement for a well-crafted, compiled loop specific to your application and hardware. This is one of the reasons that numpy includes f2py so that an easy-to-use mechanisms for linking (simple) C/C++ and (arbitrary) Fortran code directly into Python are available. You are encouraged to use and improve this mechanism. The purpose of this section is not to document this tool but to document the more basic steps to writing an extension module that this tool depends on."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [],
-            "directive_name": "index",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "single : extension module "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "",
+            "content": "single: extension module",
+            "name": "index",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "When an extension module is written, compiled, and installed to somewhere in the Python path (sys.path), the code can then be imported into Python as if it were a standard python file. It will contain objects and methods that have been defined and compiled in C code. The basic steps for doing this in Python are well-documented and you can find more information in the documentation for Python itself available online at "
@@ -70,22 +60,20 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "In addition to the Python C-API, there is a full and rich C-API for NumPy allowing sophisticated manipulations on a C-level. However, for most applications, only a few API calls will typically be used. For example, if you need to just extract a pointer to memory along with some shape information to pass to another calculation routine, then you will use very different calls than if you are trying to create a new array-like type or add a new data type for ndarrays. This chapter documents the API calls and macros that are most commonly used."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -96,7 +84,7 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "There is exactly one function that must be defined in your C-code in order for Python to use it as an extension module. The function must be called init{name} where {name} is the name of the module from Python. This function must be declared so that it is visible to code outside of the routine. Besides adding the methods and constants you desire, this subroutine must also contain calls like "
@@ -131,14 +119,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "A minimal "
@@ -159,102 +146,56 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [
-              "c"
-            ],
-            "directive_name": "code-block",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "PyMODINIT_FUNC init { name} ( void) { ( void)Py_InitModule ( { name}, mymethods); import_array ( ); } "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "c",
+            "content": "PyMODINIT_FUNC\ninit{name}(void)\n{\n   (void)Py_InitModule({name}, mymethods);\n   import_array();\n}",
+            "name": "code-block",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The mymethods must be an array (usually statically declared) of PyMethodDef structures which contain method names, actual C-functions, a variable indicating whether the method uses keyword arguments or not, and docstrings. These are explained in the next section. If you want to add constants to the module, then you store the returned value from Py_InitModule which is a module object. The most general way to add items to the module is to get the module dictionary using PyModule_GetDict(module). With the module dictionary, you can add whatever you like to the module manually. An easier way to add objects to the module is to use one of three additional Python C-API calls that do not require a separate extraction of the module dictionary. These are documented in the Python documentation, but repeated here for convenience:"
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [
-              "int PyModule_AddObject( \\"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "PyObject* module, char* name, PyObject* value) "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "int PyModule_AddObject( \\",
+            "content": "PyObject* module, char* name, PyObject* value)",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "int PyModule_AddIntConstant( \\"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "PyObject* module, char* name, long value) "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "int PyModule_AddIntConstant( \\",
+            "content": "PyObject* module, char* name, long value)",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "args0": [
-              "int PyModule_AddStringConstant( \\"
-            ],
-            "directive_name": "c:function",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "PyObject* module, char* name, char* value) "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "int PyModule_AddStringConstant( \\",
+            "content": "PyObject* module, char* name, char* value)",
+            "name": "c:function",
+            "options": []
           },
           "type": "BlockDirective"
         },
@@ -278,41 +219,29 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The second argument passed in to the Py_InitModule function is a structure that makes it easy to define functions in the module. In the example given above, the mymethods structure would have been defined earlier in the file (usually right before the init{name} subroutine) to:"
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [
-              "c"
-            ],
-            "directive_name": "code-block",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "static PyMethodDef mymethods [ ] = { { nokeywordfunc,nokeyword_cfunc, METH_VARARGS, Doc string}, { keywordfunc, keyword_cfunc, METH_VARARGS|METH_KEYWORDS, Doc string}, { NULL, NULL, 0, NULL} / * Sentinel * / } "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "c",
+            "content": "static PyMethodDef mymethods[] = {\n    { nokeywordfunc,nokeyword_cfunc,\n      METH_VARARGS,\n      Doc string},\n    { keywordfunc, keyword_cfunc,\n      METH_VARARGS|METH_KEYWORDS,\n      Doc string},\n    {NULL, NULL, 0, NULL} /* Sentinel */\n}",
+            "name": "code-block",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Each entry in the mymethods array is a "
@@ -333,22 +262,20 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The last thing that must be done to finish the extension module is to actually write the code that performs the desired functions. There are two kinds of functions: those that don't accept keyword arguments, and those that do."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -359,41 +286,29 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Functions that don't accept keyword arguments should be written as:"
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [
-              "c"
-            ],
-            "directive_name": "code-block",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "static PyObject* nokeyword_cfunc ( PyObject *dummy, PyObject *args) { / * convert Python arguments * / / * do function * / / * return something * / } "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "c",
+            "content": "static PyObject*\nnokeyword_cfunc (PyObject *dummy, PyObject *args)\n{\n    /* convert Python arguments */\n    /* do function */\n    /* return something */\n}",
+            "name": "code-block",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The dummy argument is not used in this context and can be safely ignored. The "
@@ -470,14 +385,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "There are lots of examples of how to use "
@@ -498,34 +412,22 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [
-              "c"
-            ],
-            "directive_name": "code-block",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "PyObject *input; PyArray_Descr *dtype; if ( !PyArg_ParseTuple ( args, \" OO& \" , &input, PyArray_DescrConverter, &dtype)) return NULL; "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "c",
+            "content": "PyObject *input;\nPyArray_Descr *dtype;\nif (!PyArg_ParseTuple(args, \"OO&\", &input,\n                      PyArray_DescrConverter,\n                      &dtype)) return NULL;",
+            "name": "code-block",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "It is important to keep in mind that you get a "
@@ -658,14 +560,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "After the input arguments are processed, the code that actually does the work is written (likely calling other functions as needed). The final step of the C-function is to return something. If an error is encountered then "
@@ -742,8 +643,7 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -754,41 +654,29 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "These functions are very similar to functions without keyword arguments. The only difference is that the function signature is:"
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [
-              "c"
-            ],
-            "directive_name": "code-block",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "static PyObject* keyword_cfunc ( PyObject *dummy, PyObject *args, PyObject *kwds) { ... } "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "c",
+            "content": "static PyObject*\nkeyword_cfunc (PyObject *dummy, PyObject *args, PyObject *kwds)\n{\n...\n}",
+            "name": "code-block",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The kwds argument holds a Python dictionary whose keys are the names of the keyword arguments and whose values are the corresponding keyword-argument values. This dictionary can be processed however you see fit. The easiest way to handle it, however, is to replace the "
@@ -837,22 +725,20 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "For more help on this function please see section 1.8 (Keyword Parameters for Extension Functions) of the Extending and Embedding tutorial in the Python documentation."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -863,7 +749,7 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The biggest difficulty when writing extension modules is reference counting. It is an important reason for the popularity of f2py, weave, Cython, ctypes, etc.... If you mis-handle reference counts you can get problems from memory-leaks to segmentation faults. The only strategy I know of to handle reference counts correctly is blood, sweat, and tears. First, you force it into your head that every Python variable has a reference count. Then, you understand exactly what each function does to the reference count of your objects, so that you can properly use DECREF and INCREF when you need them. Reference counting can really test the amount of patience and diligence you have towards your programming craft. Despite the grim depiction, most cases of reference counting are quite straightforward with the most common difficulty being not using DECREF on objects before exiting early from a routine due to some error. In second place, is the common error of not owning the reference on an object that is passed to a function or macro that is going to steal the reference ( "
@@ -912,32 +798,22 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [],
-            "directive_name": "index",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "single : reference counting "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "",
+            "content": "single: reference counting",
+            "name": "index",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Typically you get a new reference to a variable when it is created or is the return value of some function (there are some prominent exceptions, however --- such as getting an item out of a tuple or a dictionary). When you own the reference, you are responsible to make sure that "
@@ -1000,14 +876,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "One common source of reference-count errors is the "
@@ -1042,26 +917,16 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [],
-            "directive_name": "index",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "single : reference counting "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "",
+            "content": "single: reference counting",
+            "name": "index",
+            "options": []
           },
           "type": "BlockDirective"
         }
@@ -1072,15 +937,14 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Most extension modules for NumPy will need to access the memory for an ndarray object (or one of it's sub-classes). The easiest way to do this doesn't require you to know much about the internals of NumPy. The method is to"
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -1088,18 +952,17 @@
           "data": {
             "children": [
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "Ensure you are dealing with a well-behaved array (aligned, in machine    byte-order and single-segment) of the correct type and number of    dimensions."
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   },
@@ -1119,46 +982,44 @@
                 ]
               },
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "Get the shape of the array and a pointer to its actual data."
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
                 ]
               },
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "Pass the data and shape information on to a subroutine or other    section of code that actually performs the computation."
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
                 ]
               },
               {
-                "value": [
+                "children": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "If you are writing the algorithm, then I recommend that you use the    stride information contained in the array to access the elements of    the array (the "
@@ -1179,8 +1040,7 @@
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   }
@@ -1192,15 +1052,14 @@
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Each of these sub-topics is covered in the following sub-sections."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -1211,7 +1070,7 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The main routine for obtaining an array from any Python object that can be converted to an array is "
@@ -1274,8 +1133,7 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -1286,7 +1144,7 @@
                 "dd": [
                   {
                     "data": {
-                      "inline": [
+                      "children": [
                         {
                           "data": {
                             "value": "Return an ndarray from any Python object, "
@@ -1349,8 +1207,7 @@
                           },
                           "type": "Words"
                         }
-                      ],
-                      "inner": []
+                      ]
                     },
                     "type": "Paragraph"
                   },
@@ -1361,7 +1218,7 @@
                           "dd": [
                             {
                               "data": {
-                                "inline": [
+                                "children": [
                                   {
                                     "data": {
                                       "value": "The object can be any Python object convertible to an ndarray.         If the object is already (a subclass of) the ndarray that         satisfies the requirements then a new reference is returned.         Otherwise, a new array is constructed. The contents of "
@@ -1424,14 +1281,13 @@
                                     },
                                     "type": "Words"
                                   }
-                                ],
-                                "inner": []
+                                ]
                               },
                               "type": "Paragraph"
                             }
                           ],
                           "dt": {
-                            "inline": [
+                            "children": [
                               {
                                 "data": {
                                   "value": {
@@ -1440,8 +1296,7 @@
                                 },
                                 "type": "Emph"
                               }
-                            ],
-                            "inner": []
+                            ]
                           }
                         }
                       ]
@@ -1455,7 +1310,7 @@
                           "dd": [
                             {
                               "data": {
-                                "inline": [
+                                "children": [
                                   {
                                     "data": {
                                       "value": "One of the enumerated types or "
@@ -1476,8 +1331,7 @@
                                     },
                                     "type": "Words"
                                   }
-                                ],
-                                "inner": []
+                                ]
                               },
                               "type": "Paragraph"
                             },
@@ -1496,15 +1350,14 @@
                             },
                             {
                               "data": {
-                                "inline": [
+                                "children": [
                                   {
                                     "data": {
                                       "value": "Alternatively, the bit-width names can be used as supported on the         platform. For example:"
                                     },
                                     "type": "Words"
                                   }
-                                ],
-                                "inner": []
+                                ]
                               },
                               "type": "Paragraph"
                             },
@@ -1523,7 +1376,7 @@
                             },
                             {
                               "data": {
-                                "inline": [
+                                "children": [
                                   {
                                     "data": {
                                       "value": "The object will be converted to the desired type only if it         can be done without losing precision. Otherwise "
@@ -1558,14 +1411,13 @@
                                     },
                                     "type": "Words"
                                   }
-                                ],
-                                "inner": []
+                                ]
                               },
                               "type": "Paragraph"
                             }
                           ],
                           "dt": {
-                            "inline": [
+                            "children": [
                               {
                                 "data": {
                                   "value": {
@@ -1574,8 +1426,7 @@
                                 },
                                 "type": "Emph"
                               }
-                            ],
-                            "inner": []
+                            ]
                           }
                         }
                       ]
@@ -1589,21 +1440,20 @@
                           "dd": [
                             {
                               "data": {
-                                "inline": [
+                                "children": [
                                   {
                                     "data": {
                                       "value": "The memory model for an ndarray admits arbitrary strides in         each dimension to advance to the next element of the array.         Often, however, you need to interface with code that expects a         C-contiguous or a Fortran-contiguous memory layout. In         addition, an ndarray can be misaligned (the address of an         element is not at an integral multiple of the size of the         element) which can cause your program to crash (or at least         work more slowly) if you try and dereference a pointer into         the array data. Both of these problems can be solved by         converting the Python object into an array that is more         \"well-behaved\" for your specific usage."
                                     },
                                     "type": "Words"
                                   }
-                                ],
-                                "inner": []
+                                ]
                               },
                               "type": "Paragraph"
                             },
                             {
                               "data": {
-                                "inline": [
+                                "children": [
                                   {
                                     "data": {
                                       "value": "The requirements flag allows specification of what kind of         array is acceptable. If the object passed in does not satisfy         this requirements then a copy is made so that the returned         object will satisfy the requirements. these ndarray can use a         very generic pointer to memory.  This flag allows specification         of the desired properties of the returned array object. All         of the flags are explained in the detailed API chapter. The         flags most commonly needed are "
@@ -1652,8 +1502,7 @@
                                     },
                                     "type": "Words"
                                   }
-                                ],
-                                "inner": []
+                                ]
                               },
                               "type": "Paragraph"
                             },
@@ -1664,21 +1513,20 @@
                                     "dd": [
                                       {
                                         "data": {
-                                          "inline": [
+                                          "children": [
                                             {
                                               "data": {
                                                 "value": "This flag is useful for arrays that must be in C-contiguous             order and aligned. These kinds of arrays are usually input              arrays for some algorithm."
                                               },
                                               "type": "Words"
                                             }
-                                          ],
-                                          "inner": []
+                                          ]
                                         },
                                         "type": "Paragraph"
                                       }
                                     ],
                                     "dt": {
-                                      "inline": [
+                                      "children": [
                                         {
                                           "data": {
                                             "value": [
@@ -1687,8 +1535,7 @@
                                           },
                                           "type": "Verbatim"
                                         }
-                                      ],
-                                      "inner": []
+                                      ]
                                     }
                                   }
                                 ]
@@ -1702,21 +1549,20 @@
                                     "dd": [
                                       {
                                         "data": {
-                                          "inline": [
+                                          "children": [
                                             {
                                               "data": {
                                                 "value": "This flag is useful to specify an array that is             in C-contiguous order, is aligned, and can be written to             as well. Such an array is usually returned as output             (although normally such output arrays are created from             scratch)."
                                               },
                                               "type": "Words"
                                             }
-                                          ],
-                                          "inner": []
+                                          ]
                                         },
                                         "type": "Paragraph"
                                       }
                                     ],
                                     "dt": {
-                                      "inline": [
+                                      "children": [
                                         {
                                           "data": {
                                             "value": [
@@ -1725,8 +1571,7 @@
                                           },
                                           "type": "Verbatim"
                                         }
-                                      ],
-                                      "inner": []
+                                      ]
                                     }
                                   }
                                 ]
@@ -1740,7 +1585,7 @@
                                     "dd": [
                                       {
                                         "data": {
-                                          "inline": [
+                                          "children": [
                                             {
                                               "data": {
                                                 "value": "This flag is useful to specify an array that will be used for both             input and output. "
@@ -1803,14 +1648,13 @@
                                               },
                                               "type": "Words"
                                             }
-                                          ],
-                                          "inner": []
+                                          ]
                                         },
                                         "type": "Paragraph"
                                       }
                                     ],
                                     "dt": {
-                                      "inline": [
+                                      "children": [
                                         {
                                           "data": {
                                             "value": [
@@ -1819,8 +1663,7 @@
                                           },
                                           "type": "Verbatim"
                                         }
-                                      ],
-                                      "inner": []
+                                      ]
                                     }
                                   }
                                 ]
@@ -1829,15 +1672,14 @@
                             },
                             {
                               "data": {
-                                "inline": [
+                                "children": [
                                   {
                                     "data": {
                                       "value": "Other useful flags that can be OR'd as additional requirements are:"
                                     },
                                     "type": "Words"
                                   }
-                                ],
-                                "inner": []
+                                ]
                               },
                               "type": "Paragraph"
                             },
@@ -1848,21 +1690,20 @@
                                     "dd": [
                                       {
                                         "data": {
-                                          "inline": [
+                                          "children": [
                                             {
                                               "data": {
                                                 "value": "Cast to the desired type, even if it can't be done without losing             information."
                                               },
                                               "type": "Words"
                                             }
-                                          ],
-                                          "inner": []
+                                          ]
                                         },
                                         "type": "Paragraph"
                                       }
                                     ],
                                     "dt": {
-                                      "inline": [
+                                      "children": [
                                         {
                                           "data": {
                                             "value": [
@@ -1871,8 +1712,7 @@
                                           },
                                           "type": "Verbatim"
                                         }
-                                      ],
-                                      "inner": []
+                                      ]
                                     }
                                   }
                                 ]
@@ -1886,21 +1726,20 @@
                                     "dd": [
                                       {
                                         "data": {
-                                          "inline": [
+                                          "children": [
                                             {
                                               "data": {
                                                 "value": "Make sure the resulting array is a copy of the original."
                                               },
                                               "type": "Words"
                                             }
-                                          ],
-                                          "inner": []
+                                          ]
                                         },
                                         "type": "Paragraph"
                                       }
                                     ],
                                     "dt": {
-                                      "inline": [
+                                      "children": [
                                         {
                                           "data": {
                                             "value": [
@@ -1909,8 +1748,7 @@
                                           },
                                           "type": "Verbatim"
                                         }
-                                      ],
-                                      "inner": []
+                                      ]
                                     }
                                   }
                                 ]
@@ -1924,21 +1762,20 @@
                                     "dd": [
                                       {
                                         "data": {
-                                          "inline": [
+                                          "children": [
                                             {
                                               "data": {
                                                 "value": "Make sure the resulting object is an actual ndarray and not a sub-             class."
                                               },
                                               "type": "Words"
                                             }
-                                          ],
-                                          "inner": []
+                                          ]
                                         },
                                         "type": "Paragraph"
                                       }
                                     ],
                                     "dt": {
-                                      "inline": [
+                                      "children": [
                                         {
                                           "data": {
                                             "value": [
@@ -1947,8 +1784,7 @@
                                           },
                                           "type": "Verbatim"
                                         }
-                                      ],
-                                      "inner": []
+                                      ]
                                     }
                                   }
                                 ]
@@ -1957,7 +1793,7 @@
                             }
                           ],
                           "dt": {
-                            "inline": [
+                            "children": [
                               {
                                 "data": {
                                   "value": {
@@ -1966,8 +1802,7 @@
                                 },
                                 "type": "Emph"
                               }
-                            ],
-                            "inner": []
+                            ]
                           }
                         }
                       ]
@@ -1976,7 +1811,7 @@
                   }
                 ],
                 "dt": {
-                  "inline": [
+                  "children": [
                     {
                       "data": {
                         "value": [
@@ -1985,8 +1820,7 @@
                       },
                       "type": "Verbatim"
                     }
-                  ],
-                  "inner": []
+                  ]
                 }
               }
             ]
@@ -1997,15 +1831,45 @@
           "data": {
             "children": [
               {
-                "inline": [
-                  {
-                    "data": {
-                      "value": "Whether or not an array is byte - swapped is determined by the data - type of the array. Native byte - order arrays are always requested by : c : func : `PyArray_FROM_OTF` and so there is no need for a : c : data : `NPY_ARRAY_NOTSWAPPED` flag in the requirements argument. There is also no way to get a byte - swapped array from this routine. "
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Whether or not an array is byte-swapped is determined by the data-type of the array. Native byte-order arrays are always requested by "
+                      },
+                      "type": "Words"
                     },
-                    "type": "Words"
-                  }
-                ],
-                "inner": []
+                    {
+                      "data": {
+                        "domain": "c",
+                        "role": "func",
+                        "value": "PyArray_FROM_OTF"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " and so there is no need for a "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": "c",
+                        "role": "data",
+                        "value": "NPY_ARRAY_NOTSWAPPED"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " flag in the requirements argument. There is also no way to get a byte-swapped array from this routine."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
               }
             ],
             "kind": "note",
@@ -2020,7 +1884,7 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Quite often, new arrays must be created from within extension-module code. Perhaps an output array is needed and you don't want the caller to have to supply it. Perhaps only a temporary array is needed to hold an intermediate calculation. Whatever the need there are simple ways to get an ndarray object of whatever data-type is needed. The most general function for doing this is "
@@ -2055,8 +1919,7 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -2067,7 +1930,7 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "If obj is an ndarray ("
@@ -2200,14 +2063,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "As explained previously, C-style contiguous arrays and Fortran-style contiguous arrays have particular striding patterns. Two array flags ("
@@ -2270,8 +2132,7 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -2282,53 +2143,32 @@
       "children": [
         {
           "data": {
-            "args0": [],
-            "directive_name": "index",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "single : extension module "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "",
+            "content": "single: extension module",
+            "name": "index",
+            "options": []
           },
           "type": "BlockDirective"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The following example shows how you might write a wrapper that accepts two input arguments (that will be converted to an array) and an output argument (that must be an array). The function returns None and updates the output array. Note the updated use of WRITEBACKIFCOPY semantics for NumPy v1.14 and above"
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "args0": [
-              "c"
-            ],
-            "directive_name": "code-block",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "static PyObject * example_wrapper ( PyObject *dummy, PyObject *args) { PyObject *arg1=NULL, *arg2=NULL, *out=NULL; PyObject *arr1=NULL, *arr2=NULL, *oarr=NULL; if ( !PyArg_ParseTuple ( args, \" OOO! \" , &arg1, &arg2, &PyArray_Type, &out)) return NULL; arr1 = PyArray_FROM_OTF ( arg1, NPY_DOUBLE, NPY_ARRAY_IN_ARRAY); if ( arr1 == NULL) return NULL; arr2 = PyArray_FROM_OTF ( arg2, NPY_DOUBLE, NPY_ARRAY_IN_ARRAY); if ( arr2 == NULL) goto fail; #if NPY_API_VERSION >= 0x0000000c oarr = PyArray_FROM_OTF ( out, NPY_DOUBLE, NPY_ARRAY_INOUT_ARRAY2); #else oarr = PyArray_FROM_OTF ( out, NPY_DOUBLE, NPY_ARRAY_INOUT_ARRAY); #endif if ( oarr == NULL) goto fail; / * code that makes use of arguments * / / * You will probably need at least nd = PyArray_NDIM ( < ..>) - - number of dimensions dims = PyArray_DIMS ( < ..>) - - npy_intp array of length nd showing length in each dim. dptr = ( double *)PyArray_DATA ( < ..>) - - pointer to data. If an error occurs goto fail. * / Py_DECREF ( arr1); Py_DECREF ( arr2); #if NPY_API_VERSION >= 0x0000000c PyArray_ResolveWritebackIfCopy ( oarr); #endif Py_DECREF ( oarr); Py_INCREF ( Py_None); return Py_None; fail : Py_XDECREF ( arr1); Py_XDECREF ( arr2); #if NPY_API_VERSION >= 0x0000000c PyArray_DiscardWritebackIfCopy ( oarr); #endif Py_XDECREF ( oarr); return NULL; } "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "c",
+            "content": "static PyObject *\nexample_wrapper(PyObject *dummy, PyObject *args)\n{\n    PyObject *arg1=NULL, *arg2=NULL, *out=NULL;\n    PyObject *arr1=NULL, *arr2=NULL, *oarr=NULL;\n\n    if (!PyArg_ParseTuple(args, \"OOO!\", &arg1, &arg2,\n        &PyArray_Type, &out)) return NULL;\n\n    arr1 = PyArray_FROM_OTF(arg1, NPY_DOUBLE, NPY_ARRAY_IN_ARRAY);\n    if (arr1 == NULL) return NULL;\n    arr2 = PyArray_FROM_OTF(arg2, NPY_DOUBLE, NPY_ARRAY_IN_ARRAY);\n    if (arr2 == NULL) goto fail;\n#if NPY_API_VERSION >= 0x0000000c\n    oarr = PyArray_FROM_OTF(out, NPY_DOUBLE, NPY_ARRAY_INOUT_ARRAY2);\n#else\n    oarr = PyArray_FROM_OTF(out, NPY_DOUBLE, NPY_ARRAY_INOUT_ARRAY);\n#endif\n    if (oarr == NULL) goto fail;\n\n    /* code that makes use of arguments */\n    /* You will probably need at least\n       nd = PyArray_NDIM(<..>)    -- number of dimensions\n       dims = PyArray_DIMS(<..>)  -- npy_intp array of length nd\n                                     showing length in each dim.\n       dptr = (double *)PyArray_DATA(<..>) -- pointer to data.\n\n       If an error occurs goto fail.\n     */\n\n    Py_DECREF(arr1);\n    Py_DECREF(arr2);\n#if NPY_API_VERSION >= 0x0000000c\n    PyArray_ResolveWritebackIfCopy(oarr);\n#endif\n    Py_DECREF(oarr);\n    Py_INCREF(Py_None);\n    return Py_None;\n\n fail:\n    Py_XDECREF(arr1);\n    Py_XDECREF(arr2);\n#if NPY_API_VERSION >= 0x0000000c\n    PyArray_DiscardWritebackIfCopy(oarr);\n#endif\n    Py_XDECREF(oarr);\n    return NULL;\n}",
+            "name": "code-block",
+            "options": []
           },
           "type": "BlockDirective"
         }

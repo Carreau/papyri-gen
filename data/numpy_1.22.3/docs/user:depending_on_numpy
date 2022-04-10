@@ -18,15 +18,14 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "This document aims to explain some best practices for authoring a package that depends on NumPy."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -37,7 +36,7 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "NumPy uses a standard, "
@@ -127,14 +126,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "It is important to know that NumPy, like Python itself and most other well known scientific Python projects, does "
@@ -169,22 +167,20 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "NumPy has both a Python API and a C API. The C API can be used directly or via Cython, f2py, or other such tools. If your package uses the C API, then ABI (application binary interface) stability of NumPy is important. NumPy's ABI is forward but not backward compatible. This means: binaries compiled against a given version of NumPy will still run correctly with newer NumPy versions, but not with older versions."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -195,7 +191,7 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "For large, actively maintained packages that depend on NumPy, we recommend testing against the development version of NumPy in CI. To make this easy, nightly builds are provided as wheels at https://anaconda.org/scipy-wheels-nightly/. This helps detect regressions in NumPy that need fixing before the next NumPy release.  Furthermore, we recommend to raise errors on warnings in CI for this job, either all warnings or otherwise at least "
@@ -230,8 +226,7 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -246,7 +241,7 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "If a package either uses the NumPy C API directly or it uses some other tool that depends on it like Cython or Pythran, NumPy is a "
@@ -267,14 +262,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Picking the correct NumPy version to build against for each Python version and platform can get complicated. There are a couple of ways to do this. Build-time dependencies are specified in "
@@ -309,14 +303,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "You can specify everything manually in "
@@ -364,14 +357,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "For conda-forge it's a little less complicated: there's dedicated handling for NumPy in build-time and runtime dependencies, so typically this is enough (see "
@@ -391,8 +383,7 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -406,15 +397,171 @@
           "data": {
             "children": [
               {
-                "inline": [
-                  {
-                    "data": {
-                      "value": "``pip`` has `` - - no - use - pep517`` and `` - - no - build - isolation`` flags that may ignore ``pyproject.toml`` or treat it differently - if users use those flags, they are responsible for installing the correct build dependencies themselves. ``conda`` will always use `` - no - build - isolation``; dependencies for conda builds are given in the conda recipe ( ``meta.yaml``), the ones in ``pyproject.toml`` have no effect. Please do not use ``setup_requires`` ( it is deprecated and may invoke ``easy_install``). "
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": [
+                          "pip"
+                        ]
+                      },
+                      "type": "Verbatim"
                     },
-                    "type": "Words"
-                  }
-                ],
-                "inner": []
+                    {
+                      "data": {
+                        "value": " has "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "--no-use-pep517"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " and "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "--no-build-isolation"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " flags that may ignore "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "pyproject.toml"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " or treat it differently - if users use those flags, they are responsible for installing the correct build dependencies themselves."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": [
+                          "conda"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " will always use "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "-no-build-isolation"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": "; dependencies for conda builds are given in the conda recipe ("
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "meta.yaml"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": "), the ones in "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "pyproject.toml"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " have no effect."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Please do not use "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "setup_requires"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " (it is deprecated and may invoke "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "easy_install"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ")."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
               }
             ],
             "kind": "note",
@@ -424,7 +571,7 @@
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Because for NumPy you have to care about ABI compatibility, you specify the version with "
@@ -501,8 +648,7 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -513,7 +659,7 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "NumPy itself and many core scientific Python packages have agreed on a schedule for dropping support for old Python and NumPy versions: "
@@ -534,14 +680,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "For "
@@ -618,28 +763,26 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Most libraries that rely on NumPy will not need to set an upper version bound: NumPy is careful to preserve backward-compatibility."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "That said, if you are (a) a project that is guaranteed to release frequently, (b) use a large part of NumPy's API surface, and (c) is worried that changes in NumPy may break your code, you can set an upper bound of "
@@ -676,10 +819,11 @@
               },
               {
                 "data": {
-                  "target": "https://iscinumpy.dev/post/bound-version-constraints/",
-                  "value": "affect the ability of your library to be installed\nalongside other, newer packages"
+                  "domain": null,
+                  "role": null,
+                  "value": "affect the ability of your library to be installed\nalongside other, newer packages\n<https://iscinumpy.dev/post/bound-version-constraints/>"
                 },
-                "type": "ExternalLink"
+                "type": "Directive"
               },
               {
                 "data": {
@@ -687,8 +831,7 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
@@ -703,15 +846,72 @@
           "data": {
             "children": [
               {
-                "inline": [
-                  {
-                    "data": {
-                      "value": "SciPy has more documentation on how it builds wheels and deals with its build - time and runtime dependencies `here < https : / / scipy.github.io / devdocs / dev / core - dev / index.html#distributing>`__. NumPy and SciPy wheel build CI may also be useful as a reference, it can be found `here for NumPy < https : / / github.com / MacPython / numpy - wheels>`__ and `here for SciPy < https : / / github.com / MacPython / scipy - wheels>`__. "
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "SciPy has more documentation on how it builds wheels and deals with its build-time and runtime dependencies "
+                      },
+                      "type": "Words"
                     },
-                    "type": "Words"
-                  }
-                ],
-                "inner": []
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "here <https://scipy.github.io/devdocs/dev/core-dev/index.html#distributing>"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": "."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "NumPy and SciPy wheel build CI may also be useful as a reference, it can be found "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "here for NumPy <https://github.com/MacPython/numpy-wheels>"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " and "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "here for SciPy <https://github.com/MacPython/scipy-wheels>"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": "."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
               }
             ],
             "kind": "note",

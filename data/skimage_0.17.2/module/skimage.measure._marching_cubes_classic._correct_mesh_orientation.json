@@ -16,7 +16,7 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Certain applications and mesh processing algorithms require all faces to be oriented in a consistent way. Generally, this means a normal vector points \"out\" of the meshed shapes. This algorithm corrects the output from "
@@ -43,14 +43,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Because marching cubes could be used to find isosurfaces either on gradient descent (where the desired object has greater values than the exterior) or ascent (where the desired object has lower values than the exterior), the "
@@ -71,14 +70,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The arguments expected by this function are the exact outputs from "
@@ -107,17 +105,11 @@
               },
               {
                 "data": {
-                  "exists": true,
-                  "kind": "local",
-                  "reference": {
-                    "kind": "local",
-                    "module": null,
-                    "path": "actual_verts",
-                    "version": null
-                  },
+                  "domain": null,
+                  "role": null,
                   "value": "actual_verts"
                 },
-                "type": "Link"
+                "type": "Directive"
               },
               {
                 "data": {
@@ -142,12 +134,12 @@
               {
                 "data": {
                   "exists": true,
-                  "kind": "local",
+                  "kind": "module",
                   "reference": {
-                    "kind": "local",
-                    "module": null,
-                    "path": "faces",
-                    "version": null
+                    "kind": "module",
+                    "module": "skimage",
+                    "path": "skimage.measure._marching_cubes_lewiner_cy.remove_degenerate_faces",
+                    "version": "0.17.2"
                   },
                   "value": "faces"
                 },
@@ -159,14 +151,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "This algorithm assumes "
@@ -187,8 +178,7 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -203,172 +193,153 @@
       "children": [
         {
           "data": {
-            "desc": [
+            "children": [
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Input data volume to find isosurfaces. Will be cast to "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "domain": null,
-                        "role": null,
-                        "value": "np.float64"
-                      },
-                      "type": "Directive"
-                    },
-                    {
-                      "data": {
-                        "value": "."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "volume",
-            "type_": "(M, N, P) array of doubles"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Array with (face, vertex, coords) index coordinates."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "actual_verts",
-            "type_": "(F, 3, 3) array of floats"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "List of length-3 lists of integers, referencing vertex coordinates as provided in "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "exists": true,
-                        "kind": "module",
-                        "reference": {
-                          "kind": "module",
-                          "module": "skimage",
-                          "path": "skimage.measure._marching_cubes_classic_cy.unpack_unique_verts",
-                          "version": "0.17.2"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Input data volume to find isosurfaces. Will be cast to "
+                          },
+                          "type": "Words"
                         },
-                        "value": "verts"
-                      },
-                      "type": "Link"
-                    },
-                    {
-                      "data": {
-                        "value": "."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "faces",
-            "type_": "(F, 3) array of ints"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Voxel spacing in spatial dimensions corresponding to numpy array indexing dimensions (M, N, P) as in "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "exists": true,
-                        "kind": "local",
-                        "reference": {
-                          "kind": "local",
-                          "module": null,
-                          "path": "volume",
-                          "version": null
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "np.float64"
+                          },
+                          "type": "Directive"
                         },
-                        "value": "volume"
-                      },
-                      "type": "Link"
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
                     },
-                    {
-                      "data": {
-                        "value": "."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "spacing",
-            "type_": "length-3 tuple of floats"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "volume",
+                "type_": "(M, N, P) array of doubles"
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Controls if the mesh was generated from an isosurface with gradient descent toward objects of interest (the default), or the opposite. The two options are: * descent : Object was greater than exterior * ascent : Exterior was greater than object"
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Array with (face, vertex, coords) index coordinates."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "actual_verts",
+                "type_": "(F, 3, 3) array of floats"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "List of length-3 lists of integers, referencing vertex coordinates as provided in "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "exists": true,
+                            "kind": "module",
+                            "reference": {
+                              "kind": "module",
+                              "module": "skimage",
+                              "path": "skimage.measure._marching_cubes_classic_cy.unpack_unique_verts",
+                              "version": "0.17.2"
+                            },
+                            "value": "verts"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "faces",
+                "type_": "(F, 3) array of ints"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Voxel spacing in spatial dimensions corresponding to numpy array indexing dimensions (M, N, P) as in "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "volume"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "spacing",
+                "type_": "length-3 tuple of floats"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Controls if the mesh was generated from an isosurface with gradient descent toward objects of interest (the default), or the opposite. The two options are: * descent : Object was greater than exterior * ascent : Exterior was greater than object"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "gradient_direction",
+                "type_": "string"
               }
-            ],
-            "param": "gradient_direction",
-            "type_": "string"
+            ]
           },
-          "type": "Param"
+          "type": "Parameters"
         }
       ],
       "title": null
@@ -385,46 +356,49 @@
       "children": [
         {
           "data": {
-            "desc": [
+            "children": [
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Corrected list of faces referencing vertex coordinates in "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "exists": true,
-                        "kind": "module",
-                        "reference": {
-                          "kind": "module",
-                          "module": "skimage",
-                          "path": "skimage.measure._marching_cubes_classic_cy.unpack_unique_verts",
-                          "version": "0.17.2"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Corrected list of faces referencing vertex coordinates in "
+                          },
+                          "type": "Words"
                         },
-                        "value": "verts"
-                      },
-                      "type": "Link"
+                        {
+                          "data": {
+                            "exists": true,
+                            "kind": "module",
+                            "reference": {
+                              "kind": "module",
+                              "module": "skimage",
+                              "path": "skimage.measure._marching_cubes_classic_cy.unpack_unique_verts",
+                              "version": "0.17.2"
+                            },
+                            "value": "verts"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
                     },
-                    {
-                      "data": {
-                        "value": "."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "",
+                "type_": "faces_corrected (F, 3) array of ints"
               }
-            ],
-            "param": "",
-            "type_": "faces_corrected (F, 3) array of ints"
+            ]
           },
-          "type": "Param"
+          "type": "Parameters"
         }
       ],
       "title": null
@@ -433,15 +407,14 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Correct orientations of mesh faces."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }

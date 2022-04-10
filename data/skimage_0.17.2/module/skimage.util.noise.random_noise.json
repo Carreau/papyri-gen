@@ -16,7 +16,7 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Speckle, Poisson, Localvar, and Gaussian noise may generate noise outside the valid image range. The default is to clip (not alias) these values, but they may be preserved by setting "
@@ -37,14 +37,13 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Because of the prevalence of exclusively positive floating-point images in intermediate calculations, it is not possible to intuit if an input is signed based on dtype alone. Instead, negative values are explicitly searched for. Only if found does this function assume signed input. Unexpected results only occur in rare, poorly exposes cases (e.g. if all values are above 50 percent gray in a signed "
@@ -53,17 +52,11 @@
               },
               {
                 "data": {
-                  "exists": true,
-                  "kind": "local",
-                  "reference": {
-                    "kind": "local",
-                    "module": null,
-                    "path": "image",
-                    "version": null
-                  },
+                  "domain": null,
+                  "role": null,
                   "value": "image"
                 },
-                "type": "Link"
+                "type": "Directive"
               },
               {
                 "data": {
@@ -71,36 +64,33 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The Poisson distribution is only defined for positive integers. To apply this noise type, the number of unique values in the image is found and the next round power of two is used to scale up the floating-point result, after which it is scaled back down to the floating-point image range."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "To generate Poisson noise against a signed image, the signed image is temporarily converted to an unsigned image in the floating point domain, Poisson noise is generated, then it is returned to the original range."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -115,211 +105,222 @@
       "children": [
         {
           "data": {
-            "desc": [
+            "children": [
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Input image data. Will be converted to float."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "image",
-            "type_": "ndarray"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "One of the following strings, selecting the type of noise to add:"
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Input image data. Will be converted to float."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "image",
+                "type_": "ndarray"
               },
               {
-                "data": {
-                  "children": [
-                    {
-                      "value": [
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
                         {
                           "data": {
-                            "inline": [
-                              {
-                                "data": {
-                                  "value": "'gaussian'  Gaussian-distributed additive noise."
-                                },
-                                "type": "Words"
-                              }
-                            ],
-                            "inner": []
+                            "value": "One of the following strings, selecting the type of noise to add:"
                           },
-                          "type": "Paragraph"
+                          "type": "Words"
                         }
                       ]
                     },
-                    {
-                      "value": [
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
                         {
-                          "data": {
-                            "children": [
-                              {
-                                "dd": [
+                          "children": [
+                            {
+                              "data": {
+                                "children": [
                                   {
                                     "data": {
-                                      "inline": [
-                                        {
-                                          "data": {
-                                            "value": "local variance at each point of "
-                                          },
-                                          "type": "Words"
-                                        },
-                                        {
-                                          "data": {
-                                            "exists": true,
-                                            "kind": "local",
-                                            "reference": {
-                                              "kind": "local",
-                                              "module": null,
-                                              "path": "image",
-                                              "version": null
+                                      "value": "'gaussian'  Gaussian-distributed additive noise."
+                                    },
+                                    "type": "Words"
+                                  }
+                                ]
+                              },
+                              "type": "Paragraph"
+                            }
+                          ]
+                        },
+                        {
+                          "children": [
+                            {
+                              "data": {
+                                "children": [
+                                  {
+                                    "dd": [
+                                      {
+                                        "data": {
+                                          "children": [
+                                            {
+                                              "data": {
+                                                "value": "local variance at each point of "
+                                              },
+                                              "type": "Words"
                                             },
-                                            "value": "image"
-                                          },
-                                          "type": "Link"
+                                            {
+                                              "data": {
+                                                "domain": null,
+                                                "role": null,
+                                                "value": "image"
+                                              },
+                                              "type": "Directive"
+                                            },
+                                            {
+                                              "data": {
+                                                "value": "."
+                                              },
+                                              "type": "Words"
+                                            }
+                                          ]
                                         },
+                                        "type": "Paragraph"
+                                      }
+                                    ],
+                                    "dt": {
+                                      "children": [
                                         {
                                           "data": {
-                                            "value": "."
+                                            "value": "'localvar'  Gaussian-distributed additive noise, with specified"
                                           },
                                           "type": "Words"
                                         }
-                                      ],
-                                      "inner": []
-                                    },
-                                    "type": "Paragraph"
-                                  }
-                                ],
-                                "dt": {
-                                  "inline": [
-                                    {
-                                      "data": {
-                                        "value": "'localvar'  Gaussian-distributed additive noise, with specified"
-                                      },
-                                      "type": "Words"
+                                      ]
                                     }
-                                  ],
-                                  "inner": []
-                                }
-                              }
-                            ]
-                          },
-                          "type": "DefList"
-                        }
-                      ]
-                    },
-                    {
-                      "value": [
+                                  }
+                                ]
+                              },
+                              "type": "DefList"
+                            }
+                          ]
+                        },
                         {
-                          "data": {
-                            "inline": [
-                              {
-                                "data": {
-                                  "value": "'poisson'   Poisson-distributed noise generated from the data."
-                                },
-                                "type": "Words"
-                              }
-                            ],
-                            "inner": []
-                          },
-                          "type": "Paragraph"
-                        }
-                      ]
-                    },
-                    {
-                      "value": [
-                        {
-                          "data": {
-                            "inline": [
-                              {
-                                "data": {
-                                  "value": "'salt'      Replaces random pixels with 1."
-                                },
-                                "type": "Words"
-                              }
-                            ],
-                            "inner": []
-                          },
-                          "type": "Paragraph"
-                        }
-                      ]
-                    },
-                    {
-                      "value": [
-                        {
-                          "data": {
-                            "children": [
-                              {
-                                "dd": [
+                          "children": [
+                            {
+                              "data": {
+                                "children": [
                                   {
                                     "data": {
-                                      "inline": [
+                                      "value": "'poisson'   Poisson-distributed noise generated from the data."
+                                    },
+                                    "type": "Words"
+                                  }
+                                ]
+                              },
+                              "type": "Paragraph"
+                            }
+                          ]
+                        },
+                        {
+                          "children": [
+                            {
+                              "data": {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "value": "'salt'      Replaces random pixels with 1."
+                                    },
+                                    "type": "Words"
+                                  }
+                                ]
+                              },
+                              "type": "Paragraph"
+                            }
+                          ]
+                        },
+                        {
+                          "children": [
+                            {
+                              "data": {
+                                "children": [
+                                  {
+                                    "dd": [
+                                      {
+                                        "data": {
+                                          "children": [
+                                            {
+                                              "data": {
+                                                "value": "-1 (for signed images)."
+                                              },
+                                              "type": "Words"
+                                            }
+                                          ]
+                                        },
+                                        "type": "Paragraph"
+                                      }
+                                    ],
+                                    "dt": {
+                                      "children": [
                                         {
                                           "data": {
-                                            "value": "-1 (for signed images)."
+                                            "value": "'pepper'    Replaces random pixels with 0 (for unsigned images) or"
                                           },
                                           "type": "Words"
                                         }
-                                      ],
-                                      "inner": []
-                                    },
-                                    "type": "Paragraph"
-                                  }
-                                ],
-                                "dt": {
-                                  "inline": [
-                                    {
-                                      "data": {
-                                        "value": "'pepper'    Replaces random pixels with 0 (for unsigned images) or"
-                                      },
-                                      "type": "Words"
+                                      ]
                                     }
-                                  ],
-                                  "inner": []
-                                }
-                              }
-                            ]
-                          },
-                          "type": "DefList"
-                        }
-                      ]
-                    },
-                    {
-                      "value": [
+                                  }
+                                ]
+                              },
+                              "type": "DefList"
+                            }
+                          ]
+                        },
                         {
-                          "data": {
-                            "children": [
-                              {
-                                "dd": [
+                          "children": [
+                            {
+                              "data": {
+                                "children": [
                                   {
-                                    "data": {
-                                      "inline": [
+                                    "dd": [
+                                      {
+                                        "data": {
+                                          "children": [
+                                            {
+                                              "data": {
+                                                "domain": null,
+                                                "role": null,
+                                                "value": "low_val"
+                                              },
+                                              "type": "Directive"
+                                            },
+                                            {
+                                              "data": {
+                                                "value": " is 0 for unsigned images or -1 for signed               images."
+                                              },
+                                              "type": "Words"
+                                            }
+                                          ]
+                                        },
+                                        "type": "Paragraph"
+                                      }
+                                    ],
+                                    "dt": {
+                                      "children": [
+                                        {
+                                          "data": {
+                                            "value": "'s&p'       Replaces random pixels with either 1 or "
+                                          },
+                                          "type": "Words"
+                                        },
                                         {
                                           "data": {
                                             "domain": null,
@@ -330,320 +331,257 @@
                                         },
                                         {
                                           "data": {
-                                            "value": " is 0 for unsigned images or -1 for signed               images."
+                                            "value": ", where"
                                           },
                                           "type": "Words"
                                         }
-                                      ],
-                                      "inner": []
-                                    },
-                                    "type": "Paragraph"
-                                  }
-                                ],
-                                "dt": {
-                                  "inline": [
-                                    {
-                                      "data": {
-                                        "value": "'s&p'       Replaces random pixels with either 1 or "
-                                      },
-                                      "type": "Words"
-                                    },
-                                    {
-                                      "data": {
-                                        "domain": null,
-                                        "role": null,
-                                        "value": "low_val"
-                                      },
-                                      "type": "Directive"
-                                    },
-                                    {
-                                      "data": {
-                                        "value": ", where"
-                                      },
-                                      "type": "Words"
+                                      ]
                                     }
-                                  ],
-                                  "inner": []
-                                }
-                              }
-                            ]
-                          },
-                          "type": "DefList"
-                        }
-                      ]
-                    },
-                    {
-                      "value": [
+                                  }
+                                ]
+                              },
+                              "type": "DefList"
+                            }
+                          ]
+                        },
                         {
-                          "data": {
-                            "children": [
-                              {
-                                "dd": [
+                          "children": [
+                            {
+                              "data": {
+                                "children": [
                                   {
-                                    "data": {
-                                      "inline": [
+                                    "dd": [
+                                      {
+                                        "data": {
+                                          "children": [
+                                            {
+                                              "data": {
+                                                "value": "n is uniform noise with specified mean & variance."
+                                              },
+                                              "type": "Words"
+                                            }
+                                          ]
+                                        },
+                                        "type": "Paragraph"
+                                      }
+                                    ],
+                                    "dt": {
+                                      "children": [
                                         {
                                           "data": {
-                                            "value": "n is uniform noise with specified mean & variance."
+                                            "value": "'speckle'   Multiplicative noise using out = image + n*image, where"
                                           },
                                           "type": "Words"
                                         }
-                                      ],
-                                      "inner": []
-                                    },
-                                    "type": "Paragraph"
-                                  }
-                                ],
-                                "dt": {
-                                  "inline": [
-                                    {
-                                      "data": {
-                                        "value": "'speckle'   Multiplicative noise using out = image + n*image, where"
-                                      },
-                                      "type": "Words"
+                                      ]
                                     }
-                                  ],
-                                  "inner": []
-                                }
-                              }
-                            ]
-                          },
-                          "type": "DefList"
+                                  }
+                                ]
+                              },
+                              "type": "DefList"
+                            }
+                          ]
                         }
                       ]
-                    }
-                  ]
-                },
-                "type": "BulletList"
-              }
-            ],
-            "param": "mode",
-            "type_": "str, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                    },
+                    "type": "BulletList"
+                  }
+                ],
+                "param": "mode",
+                "type_": "str, optional"
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "If provided, this will set the random seed before generating noise, for valid pseudo-random comparisons."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "seed",
-            "type_": "int, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "If provided, this will set the random seed before generating noise, for valid pseudo-random comparisons."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "seed",
+                "type_": "int, optional"
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "If True (default), the output will be clipped after noise applied for modes "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "domain": null,
-                        "role": null,
-                        "value": "'speckle'"
-                      },
-                      "type": "Directive"
-                    },
-                    {
-                      "data": {
-                        "value": ", "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "domain": null,
-                        "role": null,
-                        "value": "'poisson'"
-                      },
-                      "type": "Directive"
-                    },
-                    {
-                      "data": {
-                        "value": ", and "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "domain": null,
-                        "role": null,
-                        "value": "'gaussian'"
-                      },
-                      "type": "Directive"
-                    },
-                    {
-                      "data": {
-                        "value": ". This is needed to maintain the proper image data range. If False, clipping is not applied, and the output may extend beyond the range [-1, 1]."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "clip",
-            "type_": "bool, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Mean of random distribution. Used in 'gaussian' and 'speckle'. Default : 0."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "mean",
-            "type_": "float, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Variance of random distribution. Used in 'gaussian' and 'speckle'. Note: variance = (standard deviation) ** 2. Default : 0.01"
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "var",
-            "type_": "float, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
-              {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Array of positive floats, same shape as "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "exists": true,
-                        "kind": "local",
-                        "reference": {
-                          "kind": "local",
-                          "module": null,
-                          "path": "image",
-                          "version": null
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "If True (default), the output will be clipped after noise applied for modes "
+                          },
+                          "type": "Words"
                         },
-                        "value": "image"
-                      },
-                      "type": "Link"
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "'speckle'"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ", "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "'poisson'"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ", and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "'gaussian'"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ". This is needed to maintain the proper image data range. If False, clipping is not applied, and the output may extend beyond the range [-1, 1]."
+                          },
+                          "type": "Words"
+                        }
+                      ]
                     },
-                    {
-                      "data": {
-                        "value": ", defining the local variance at every image point. Used in 'localvar'."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "local_vars",
-            "type_": "ndarray, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "clip",
+                "type_": "bool, optional"
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Proportion of image pixels to replace with noise on range [0, 1]. Used in 'salt', 'pepper', and 'salt & pepper'. Default : 0.05"
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
-              }
-            ],
-            "param": "amount",
-            "type_": "float, optional"
-          },
-          "type": "Param"
-        },
-        {
-          "data": {
-            "desc": [
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Mean of random distribution. Used in 'gaussian' and 'speckle'. Default : 0."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "mean",
+                "type_": "float, optional"
+              },
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Proportion of salt vs. pepper noise for 's&p' on range [0, 1]. Higher values represent more salt. Default : 0.5 (equal amounts)"
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Variance of random distribution. Used in 'gaussian' and 'speckle'. Note: variance = (standard deviation) ** 2. Default : 0.01"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "var",
+                "type_": "float, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Array of positive floats, same shape as "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "image"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ", defining the local variance at every image point. Used in 'localvar'."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "local_vars",
+                "type_": "ndarray, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Proportion of image pixels to replace with noise on range [0, 1]. Used in 'salt', 'pepper', and 'salt & pepper'. Default : 0.05"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "amount",
+                "type_": "float, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Proportion of salt vs. pepper noise for 's&p' on range [0, 1]. Higher values represent more salt. Default : 0.5 (equal amounts)"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "salt_vs_pepper",
+                "type_": "float, optional"
               }
-            ],
-            "param": "salt_vs_pepper",
-            "type_": "float, optional"
+            ]
           },
-          "type": "Param"
+          "type": "Parameters"
         }
       ],
       "title": null
@@ -660,46 +598,43 @@
       "children": [
         {
           "data": {
-            "desc": [
+            "children": [
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "Output floating-point image data on range [0, 1] or [-1, 1] if the input "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "exists": true,
-                        "kind": "local",
-                        "reference": {
-                          "kind": "local",
-                          "module": null,
-                          "path": "image",
-                          "version": null
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Output floating-point image data on range [0, 1] or [-1, 1] if the input "
+                          },
+                          "type": "Words"
                         },
-                        "value": "image"
-                      },
-                      "type": "Link"
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "image"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": " was unsigned or signed, respectively."
+                          },
+                          "type": "Words"
+                        }
+                      ]
                     },
-                    {
-                      "data": {
-                        "value": " was unsigned or signed, respectively."
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "out",
+                "type_": "ndarray"
               }
-            ],
-            "param": "out",
-            "type_": "ndarray"
+            ]
           },
-          "type": "Param"
+          "type": "Parameters"
         }
       ],
       "title": null
@@ -708,15 +643,14 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Function to add random noise of various types to a floating-point image."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }

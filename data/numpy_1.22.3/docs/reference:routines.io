@@ -18,19 +18,10 @@
       "children": [
         {
           "data": {
-            "args0": [],
-            "directive_name": "currentmodule",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "numpy "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "numpy",
+            "content": "",
+            "name": "currentmodule",
+            "options": []
           },
           "type": "BlockDirective"
         }
@@ -41,27 +32,13 @@
       "children": [
         {
           "data": {
-            "args0": [
-              ":toctree: generated/"
-            ],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "load save savez savez_compressed "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    :toctree:generated/\n    load\n    save\n    savez\n    savez_compressed"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The format of these binary file types is documented in "
@@ -76,8 +53,7 @@
                 },
                 "type": "Verbatim"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -88,23 +64,9 @@
       "children": [
         {
           "data": {
-            "args0": [
-              ":toctree: generated/"
-            ],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "loadtxt savetxt genfromtxt fromregex fromstring ndarray.tofile ndarray.tolist "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    :toctree:generated/\n    loadtxt\n    savetxt\n    genfromtxt\n    fromregex\n    fromstring\n    ndarray.tofile\n    ndarray.tolist"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         }
       ],
       "title": "Text files"
@@ -113,21 +75,9 @@
       "children": [
         {
           "data": {
-            "args0": [],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "fromfile ndarray.tofile "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    fromfile\n    ndarray.tofile"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         }
       ],
       "title": "Raw binary files"
@@ -136,23 +86,9 @@
       "children": [
         {
           "data": {
-            "args0": [
-              ":toctree: generated/"
-            ],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "array2string array_repr array_str format_float_positional format_float_scientific "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    :toctree:generated/\n    array2string\n    array_repr\n    array_str\n    format_float_positional\n    format_float_scientific"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         }
       ],
       "title": "String formatting"
@@ -161,23 +97,9 @@
       "children": [
         {
           "data": {
-            "args0": [
-              ":toctree: generated/"
-            ],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "memmap lib.format.open_memmap "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    :toctree:generated/\n    memmap\n    lib.format.open_memmap"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         }
       ],
       "title": "Memory mapping files"
@@ -186,23 +108,9 @@
       "children": [
         {
           "data": {
-            "args0": [
-              ":toctree: generated/"
-            ],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "set_printoptions get_printoptions set_string_function printoptions "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    :toctree:generated/\n    set_printoptions\n    get_printoptions\n    set_string_function\n    printoptions"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         }
       ],
       "title": "Text formatting options"
@@ -211,23 +119,9 @@
       "children": [
         {
           "data": {
-            "args0": [
-              ":toctree: generated/"
-            ],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "binary_repr base_repr "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    :toctree:generated/\n    binary_repr\n    base_repr"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         }
       ],
       "title": "Base-n representations"
@@ -236,23 +130,9 @@
       "children": [
         {
           "data": {
-            "args0": [
-              ":toctree: generated/"
-            ],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "DataSource "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    :toctree:generated/\n    DataSource"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         }
       ],
       "title": "Data sources"
@@ -261,23 +141,9 @@
       "children": [
         {
           "data": {
-            "args0": [
-              ":toctree: generated/"
-            ],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "lib.format "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    :toctree:generated/\n    lib.format"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         }
       ],
       "title": "Binary Format Description"

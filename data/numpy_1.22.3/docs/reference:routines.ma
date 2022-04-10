@@ -18,19 +18,10 @@
       "children": [
         {
           "data": {
-            "args0": [],
-            "directive_name": "currentmodule",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "numpy "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "argument": "numpy",
+            "content": "",
+            "name": "currentmodule",
+            "options": []
           },
           "type": "BlockDirective"
         }
@@ -41,23 +32,9 @@
       "children": [
         {
           "data": {
-            "args0": [
-              ":toctree: generated/"
-            ],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "ma.MaskType "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    :toctree:generated/\n    ma.MaskType"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         }
       ],
       "title": "Constants"
@@ -70,23 +47,9 @@
       "children": [
         {
           "data": {
-            "args0": [
-              ":toctree: generated/"
-            ],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "ma.masked_array ma.array ma.copy ma.frombuffer ma.fromfunction ma.MaskedArray.copy "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    :toctree:generated/\n    ma.masked_array\n    ma.array\n    ma.copy\n    ma.frombuffer\n    ma.fromfunction\n\n    ma.MaskedArray.copy"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         }
       ],
       "title": "From existing data"
@@ -95,23 +58,9 @@
       "children": [
         {
           "data": {
-            "args0": [
-              ":toctree: generated/"
-            ],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "ma.empty ma.empty_like ma.masked_all ma.masked_all_like ma.ones ma.ones_like ma.zeros ma.zeros_like "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    :toctree:generated/\n    ma.empty\n    ma.empty_like\n    ma.masked_all\n    ma.masked_all_like\n    ma.ones\n    ma.ones_like\n    ma.zeros\n    ma.zeros_like"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         },
         {
           "data": {},
@@ -124,41 +73,15 @@
       "children": [
         {
           "data": {
-            "args0": [
-              ":toctree: generated/"
-            ],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "ma.all ma.any ma.count ma.count_masked ma.getmask ma.getmaskarray ma.getdata ma.nonzero ma.shape ma.size ma.is_masked ma.is_mask ma.isMaskedArray ma.isMA ma.isarray ma.MaskedArray.all ma.MaskedArray.any ma.MaskedArray.count ma.MaskedArray.nonzero ma.shape ma.size "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    :toctree:generated/\n    ma.all\n    ma.any\n    ma.count\n    ma.count_masked\n    ma.getmask\n    ma.getmaskarray\n    ma.getdata\n    ma.nonzero\n    ma.shape\n    ma.size\n    ma.is_masked\n    ma.is_mask\n    ma.isMaskedArray\n    ma.isMA\n    ma.isarray\n\n\n    ma.MaskedArray.all\n    ma.MaskedArray.any\n    ma.MaskedArray.count\n    ma.MaskedArray.nonzero\n    ma.shape\n    ma.size"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         },
         {
           "data": {
-            "args0": [],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "ma.MaskedArray.data ma.MaskedArray.mask ma.MaskedArray.recordmask "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    ma.MaskedArray.data\n    ma.MaskedArray.mask\n    ma.MaskedArray.recordmask"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         },
         {
           "data": {},
@@ -175,23 +98,9 @@
       "children": [
         {
           "data": {
-            "args0": [
-              ":toctree: generated/"
-            ],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "ma.ravel ma.reshape ma.resize ma.MaskedArray.flatten ma.MaskedArray.ravel ma.MaskedArray.reshape ma.MaskedArray.resize "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    :toctree:generated/\n    ma.ravel\n    ma.reshape\n    ma.resize\n\n    ma.MaskedArray.flatten\n    ma.MaskedArray.ravel\n    ma.MaskedArray.reshape\n    ma.MaskedArray.resize"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         }
       ],
       "title": "Changing the shape"
@@ -200,23 +109,9 @@
       "children": [
         {
           "data": {
-            "args0": [
-              ":toctree: generated/"
-            ],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "ma.swapaxes ma.transpose ma.MaskedArray.swapaxes ma.MaskedArray.transpose "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    :toctree:generated/\n    ma.swapaxes\n    ma.transpose\n\n    ma.MaskedArray.swapaxes\n    ma.MaskedArray.transpose"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         }
       ],
       "title": "Modifying axes"
@@ -225,23 +120,9 @@
       "children": [
         {
           "data": {
-            "args0": [
-              ":toctree: generated/"
-            ],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "ma.atleast_1d ma.atleast_2d ma.atleast_3d ma.expand_dims ma.squeeze ma.MaskedArray.squeeze ma.stack ma.column_stack ma.concatenate ma.dstack ma.hstack ma.hsplit ma.mr_ ma.row_stack ma.vstack "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    :toctree:generated/\n    ma.atleast_1d\n    ma.atleast_2d\n    ma.atleast_3d\n    ma.expand_dims\n    ma.squeeze\n\n    ma.MaskedArray.squeeze\n\n    ma.stack\n    ma.column_stack\n    ma.concatenate\n    ma.dstack\n    ma.hstack\n    ma.hsplit\n    ma.mr_\n    ma.row_stack\n    ma.vstack"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         }
       ],
       "title": "Changing the number of dimensions"
@@ -250,23 +131,9 @@
       "children": [
         {
           "data": {
-            "args0": [
-              ":toctree: generated/"
-            ],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "ma.concatenate ma.stack ma.vstack ma.hstack ma.dstack ma.column_stack ma.append "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    :toctree:generated/\n    ma.concatenate\n    ma.stack\n    ma.vstack\n    ma.hstack\n    ma.dstack\n    ma.column_stack\n    ma.append"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         },
         {
           "data": {},
@@ -283,23 +150,9 @@
       "children": [
         {
           "data": {
-            "args0": [
-              ":toctree: generated/"
-            ],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "ma.make_mask ma.make_mask_none ma.mask_or ma.make_mask_descr "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    :toctree:generated/\n    ma.make_mask\n    ma.make_mask_none\n    ma.mask_or\n    ma.make_mask_descr"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         }
       ],
       "title": "Creating a mask"
@@ -308,23 +161,9 @@
       "children": [
         {
           "data": {
-            "args0": [
-              ":toctree: generated/"
-            ],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "ma.getmask ma.getmaskarray ma.masked_array.mask "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    :toctree:generated/\n    ma.getmask\n    ma.getmaskarray\n    ma.masked_array.mask"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         }
       ],
       "title": "Accessing a mask"
@@ -333,23 +172,9 @@
       "children": [
         {
           "data": {
-            "args0": [
-              ":toctree: generated/"
-            ],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "ma.flatnotmasked_contiguous ma.flatnotmasked_edges ma.notmasked_contiguous ma.notmasked_edges ma.clump_masked ma.clump_unmasked "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    :toctree:generated/\n    ma.flatnotmasked_contiguous\n    ma.flatnotmasked_edges\n    ma.notmasked_contiguous\n    ma.notmasked_edges\n    ma.clump_masked\n    ma.clump_unmasked"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         }
       ],
       "title": "Finding masked data"
@@ -358,23 +183,9 @@
       "children": [
         {
           "data": {
-            "args0": [
-              ":toctree: generated/"
-            ],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "ma.mask_cols ma.mask_or ma.mask_rowcols ma.mask_rows ma.harden_mask ma.soften_mask ma.MaskedArray.harden_mask ma.MaskedArray.soften_mask ma.MaskedArray.shrink_mask ma.MaskedArray.unshare_mask "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    :toctree:generated/\n    ma.mask_cols\n    ma.mask_or\n    ma.mask_rowcols\n    ma.mask_rows\n    ma.harden_mask\n    ma.soften_mask\n\n    ma.MaskedArray.harden_mask\n    ma.MaskedArray.soften_mask\n    ma.MaskedArray.shrink_mask\n    ma.MaskedArray.unshare_mask"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         },
         {
           "data": {},
@@ -391,23 +202,9 @@
       "children": [
         {
           "data": {
-            "args0": [
-              ":toctree: generated/"
-            ],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "ma.asarray ma.asanyarray ma.fix_invalid ma.masked_equal ma.masked_greater ma.masked_greater_equal ma.masked_inside ma.masked_invalid ma.masked_less ma.masked_less_equal ma.masked_not_equal ma.masked_object ma.masked_outside ma.masked_values ma.masked_where "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    :toctree:generated/\n    ma.asarray\n    ma.asanyarray\n    ma.fix_invalid\n    ma.masked_equal\n    ma.masked_greater\n    ma.masked_greater_equal\n    ma.masked_inside\n    ma.masked_invalid\n    ma.masked_less\n    ma.masked_less_equal\n    ma.masked_not_equal\n    ma.masked_object\n    ma.masked_outside\n    ma.masked_values\n    ma.masked_where"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         }
       ],
       "title": "> to a masked array"
@@ -416,23 +213,9 @@
       "children": [
         {
           "data": {
-            "args0": [
-              ":toctree: generated/"
-            ],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "ma.compress_cols ma.compress_rowcols ma.compress_rows ma.compressed ma.filled ma.MaskedArray.compressed ma.MaskedArray.filled "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    :toctree:generated/\n    ma.compress_cols\n    ma.compress_rowcols\n    ma.compress_rows\n    ma.compressed\n    ma.filled\n\n    ma.MaskedArray.compressed\n    ma.MaskedArray.filled"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         }
       ],
       "title": "> to a ndarray"
@@ -441,23 +224,9 @@
       "children": [
         {
           "data": {
-            "args0": [
-              ":toctree: generated/"
-            ],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "ma.MaskedArray.tofile ma.MaskedArray.tolist ma.MaskedArray.torecords ma.MaskedArray.tobytes "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    :toctree:generated/\n    ma.MaskedArray.tofile\n    ma.MaskedArray.tolist\n    ma.MaskedArray.torecords\n    ma.MaskedArray.tobytes"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         }
       ],
       "title": "> to another object"
@@ -466,41 +235,15 @@
       "children": [
         {
           "data": {
-            "args0": [
-              ":toctree: generated/"
-            ],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "ma.common_fill_value ma.default_fill_value ma.maximum_fill_value ma.minimum_fill_value ma.set_fill_value ma.MaskedArray.get_fill_value ma.MaskedArray.set_fill_value "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    :toctree:generated/\n    ma.common_fill_value\n    ma.default_fill_value\n    ma.maximum_fill_value\n    ma.minimum_fill_value\n    ma.set_fill_value\n\n    ma.MaskedArray.get_fill_value\n    ma.MaskedArray.set_fill_value"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         },
         {
           "data": {
-            "args0": [],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "ma.MaskedArray.fill_value "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    ma.MaskedArray.fill_value"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         },
         {
           "data": {},
@@ -517,23 +260,9 @@
       "children": [
         {
           "data": {
-            "args0": [
-              ":toctree: generated/"
-            ],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "ma.anom ma.anomalies ma.average ma.conjugate ma.corrcoef ma.cov ma.cumsum ma.cumprod ma.mean ma.median ma.power ma.prod ma.std ma.sum ma.var ma.MaskedArray.anom ma.MaskedArray.cumprod ma.MaskedArray.cumsum ma.MaskedArray.mean ma.MaskedArray.prod ma.MaskedArray.std ma.MaskedArray.sum ma.MaskedArray.var "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    :toctree:generated/\n    ma.anom\n    ma.anomalies\n    ma.average\n    ma.conjugate\n    ma.corrcoef\n    ma.cov\n    ma.cumsum\n    ma.cumprod\n    ma.mean\n    ma.median\n    ma.power\n    ma.prod\n    ma.std\n    ma.sum\n    ma.var\n\n    ma.MaskedArray.anom\n    ma.MaskedArray.cumprod\n    ma.MaskedArray.cumsum\n    ma.MaskedArray.mean\n    ma.MaskedArray.prod\n    ma.MaskedArray.std\n    ma.MaskedArray.sum\n    ma.MaskedArray.var"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         }
       ],
       "title": "Arithmetic"
@@ -542,23 +271,9 @@
       "children": [
         {
           "data": {
-            "args0": [
-              ":toctree: generated/"
-            ],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "ma.argmax ma.argmin ma.max ma.min ma.ptp ma.diff ma.MaskedArray.argmax ma.MaskedArray.argmin ma.MaskedArray.max ma.MaskedArray.min ma.MaskedArray.ptp "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    :toctree:generated/\n    ma.argmax\n    ma.argmin\n    ma.max\n    ma.min\n    ma.ptp\n    ma.diff\n\n    ma.MaskedArray.argmax\n    ma.MaskedArray.argmin\n    ma.MaskedArray.max\n    ma.MaskedArray.min\n    ma.MaskedArray.ptp"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         }
       ],
       "title": "Minimum/maximum"
@@ -567,23 +282,9 @@
       "children": [
         {
           "data": {
-            "args0": [
-              ":toctree: generated/"
-            ],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "ma.argsort ma.sort ma.MaskedArray.argsort ma.MaskedArray.sort "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    :toctree:generated/\n    ma.argsort\n    ma.sort\n    ma.MaskedArray.argsort\n    ma.MaskedArray.sort"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         }
       ],
       "title": "Sorting"
@@ -592,23 +293,9 @@
       "children": [
         {
           "data": {
-            "args0": [
-              ":toctree: generated/"
-            ],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "ma.diag ma.dot ma.identity ma.inner ma.innerproduct ma.outer ma.outerproduct ma.trace ma.transpose ma.MaskedArray.trace ma.MaskedArray.transpose "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    :toctree:generated/\n    ma.diag\n    ma.dot\n    ma.identity\n    ma.inner\n    ma.innerproduct\n    ma.outer\n    ma.outerproduct\n    ma.trace\n    ma.transpose\n\n    ma.MaskedArray.trace\n    ma.MaskedArray.transpose"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         }
       ],
       "title": "Algebra"
@@ -617,23 +304,9 @@
       "children": [
         {
           "data": {
-            "args0": [
-              ":toctree: generated/"
-            ],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "ma.vander ma.polyfit "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    :toctree:generated/\n    ma.vander\n    ma.polyfit"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         }
       ],
       "title": "Polynomial fit"
@@ -642,23 +315,9 @@
       "children": [
         {
           "data": {
-            "args0": [
-              ":toctree: generated/"
-            ],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "ma.around ma.clip ma.round ma.MaskedArray.clip ma.MaskedArray.round "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    :toctree:generated/\n    ma.around\n    ma.clip\n    ma.round\n\n    ma.MaskedArray.clip\n    ma.MaskedArray.round"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         }
       ],
       "title": "Clipping and rounding"
@@ -667,23 +326,9 @@
       "children": [
         {
           "data": {
-            "args0": [
-              ":toctree: generated/"
-            ],
-            "directive_name": "autosummary",
-            "inner": {
-              "inline": [
-                {
-                  "data": {
-                    "value": "ma.allequal ma.allclose ma.apply_along_axis ma.apply_over_axes ma.arange ma.choose ma.ediff1d ma.indices ma.where "
-                  },
-                  "type": "Words"
-                }
-              ],
-              "inner": []
-            }
+            "value": ".. autosummary:: \n    :toctree:generated/\n    ma.allequal\n    ma.allclose\n    ma.apply_along_axis\n    ma.apply_over_axes\n    ma.arange\n    ma.choose\n    ma.ediff1d\n    ma.indices\n    ma.where"
           },
-          "type": "BlockDirective"
+          "type": "BlockVerbatim"
         }
       ],
       "title": "Miscellanea"

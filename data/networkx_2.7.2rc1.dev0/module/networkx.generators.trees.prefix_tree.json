@@ -8,49 +8,46 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Usually the paths are described as strings or lists of integers."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "A \"prefix tree\" represents the prefix structure of the strings. Each node represents a prefix of some string. The root represents the empty prefix with children for the single letter prefixes which in turn have children for each double letter prefix starting with the single letter corresponding to the parent node, and so on."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "More generally the prefixes do not need to be strings. A prefix refers to the start of a sequence. The root has children for each one element prefix and they have children for each two element prefix that starts with the one element sequence of the parent, and so on."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Note that this implementation uses integer nodes with an attribute. Each node has an attribute \"source\" whose value is the original element of the path to which this node corresponds. For example, suppose "
@@ -85,28 +82,26 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "All the descendants of a node have a common prefix in the sequence/path associated with that node. From the returned tree, the prefix for each node can be constructed by traversing the tree up to the root and accumulating the \"source\" values along the way."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         },
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The root node is always "
@@ -129,11 +124,11 @@
               },
               {
                 "data": {
-                  "value": [
-                    "None"
-                  ]
+                  "domain": null,
+                  "role": null,
+                  "value": "None"
                 },
-                "type": "Verbatim"
+                "type": "Directive"
               },
               {
                 "data": {
@@ -169,8 +164,7 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -185,7 +179,7 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "The prefix tree is also known as a "
@@ -206,8 +200,7 @@
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }
@@ -222,26 +215,29 @@
       "children": [
         {
           "data": {
-            "desc": [
+            "children": [
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "An iterable of paths which are themselves sequences. Matching prefixes among these sequences are identified with nodes of the prefix tree. One leaf of the tree is associated with each path. (Identical paths are associated with the same leaf of the tree.)"
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "An iterable of paths which are themselves sequences. Matching prefixes among these sequences are identified with nodes of the prefix tree. One leaf of the tree is associated with each path. (Identical paths are associated with the same leaf of the tree.)"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "paths: iterable of paths",
+                "type_": ""
               }
-            ],
-            "param": "paths: iterable of paths",
-            "type_": ""
+            ]
           },
-          "type": "Param"
+          "type": "Parameters"
         }
       ],
       "title": null
@@ -258,54 +254,57 @@
       "children": [
         {
           "data": {
-            "desc": [
+            "children": [
               {
-                "data": {
-                  "inline": [
-                    {
-                      "data": {
-                        "value": "A directed graph representing an arborescence consisting of the prefix tree generated by "
-                      },
-                      "type": "Words"
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A directed graph representing an arborescence consisting of the prefix tree generated by "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "paths"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ". Nodes are directed \"downward\", from parent to child. A special \"synthetic\" root node is added to be the parent of the first node in each path. A special \"synthetic\" leaf node, the \"nil\" node "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "-1"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ", is added to be the child of all nodes representing the last element in a path. (The addition of this nil node technically makes this not an arborescence but a directed acyclic graph; removing the nil node makes it an arborescence.)"
+                          },
+                          "type": "Words"
+                        }
+                      ]
                     },
-                    {
-                      "data": {
-                        "domain": null,
-                        "role": null,
-                        "value": "paths"
-                      },
-                      "type": "Directive"
-                    },
-                    {
-                      "data": {
-                        "value": ". Nodes are directed \"downward\", from parent to child. A special \"synthetic\" root node is added to be the parent of the first node in each path. A special \"synthetic\" leaf node, the \"nil\" node "
-                      },
-                      "type": "Words"
-                    },
-                    {
-                      "data": {
-                        "domain": null,
-                        "role": null,
-                        "value": "-1"
-                      },
-                      "type": "Directive"
-                    },
-                    {
-                      "data": {
-                        "value": ", is added to be the child of all nodes representing the last element in a path. (The addition of this nil node technically makes this not an arborescence but a directed acyclic graph; removing the nil node makes it an arborescence.)"
-                      },
-                      "type": "Words"
-                    }
-                  ],
-                  "inner": []
-                },
-                "type": "Paragraph"
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "",
+                "type_": "tree: DiGraph"
               }
-            ],
-            "param": "",
-            "type_": "tree: DiGraph"
+            ]
           },
-          "type": "Param"
+          "type": "Parameters"
         }
       ],
       "title": null
@@ -314,15 +313,14 @@
       "children": [
         {
           "data": {
-            "inline": [
+            "children": [
               {
                 "data": {
                   "value": "Creates a directed prefix tree from a list of paths."
                 },
                 "type": "Words"
               }
-            ],
-            "inner": []
+            ]
           },
           "type": "Paragraph"
         }

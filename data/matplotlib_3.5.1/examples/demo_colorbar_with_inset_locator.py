@@ -51,13 +51,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -77,13 +70,6 @@
                 "value": "pyplot"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "pyplot",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -122,13 +108,6 @@
                 "value": "plt"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "plt",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -179,13 +158,6 @@
           },
           {
             "link": {
-              "data": "mpl_toolkits",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -210,13 +182,6 @@
           },
           {
             "link": {
-              "data": "axes_grid1",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -236,13 +201,6 @@
                 "value": "inset_locator"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "inset_locator",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -286,13 +244,6 @@
           },
           {
             "link": {
-              "data": "inset_axes",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -319,13 +270,6 @@
                 "value": "fig"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "fig",
-              "type": "str"
             },
             "type": ""
           },
@@ -425,13 +369,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -451,13 +388,6 @@
                 "value": "subplots"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "subplots",
-              "type": "str"
             },
             "type": ""
           },
@@ -629,13 +559,6 @@
                 "value": "inset_axes"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "inset_axes",
-              "type": "str"
             },
             "type": ""
           },
@@ -1085,13 +1008,6 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1340,13 +1256,6 @@
           },
           {
             "link": {
-              "data": "xaxis",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1366,13 +1275,6 @@
                 "value": "set_ticks_position"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "set_ticks_position",
-              "type": "str"
             },
             "type": ""
           },
@@ -1467,13 +1369,6 @@
                 "value": "inset_axes"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "inset_axes",
-              "type": "str"
             },
             "type": ""
           },
@@ -2210,13 +2105,6 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2409,13 +2297,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2435,13 +2316,6 @@
                 "value": "show"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "show",
-              "type": "str"
             },
             "type": ""
           },

@@ -58,13 +58,6 @@
           },
           {
             "link": {
-              "data": "mpl_toolkits",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -89,13 +82,6 @@
           },
           {
             "link": {
-              "data": "axes_grid1",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -115,13 +101,6 @@
                 "value": "axes_size"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "axes_size",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -165,13 +144,6 @@
           },
           {
             "link": {
-              "data": "Size",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -210,13 +182,6 @@
           },
           {
             "link": {
-              "data": "mpl_toolkits",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -236,13 +201,6 @@
                 "value": "axes_grid1"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "axes_grid1",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -286,13 +244,6 @@
           },
           {
             "link": {
-              "data": "Divider",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -331,13 +282,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -357,13 +301,6 @@
                 "value": "pyplot"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "pyplot",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -407,13 +344,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -447,13 +377,6 @@
                 "value": "fig"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "fig",
-              "type": "str"
             },
             "type": ""
           },
@@ -497,13 +420,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -523,13 +439,6 @@
                 "value": "figure"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "figure",
-              "type": "str"
             },
             "type": ""
           },
@@ -650,13 +559,6 @@
           },
           {
             "link": {
-              "data": "rect",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -786,13 +688,6 @@
           },
           {
             "link": {
-              "data": "ax",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -838,13 +733,6 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -878,13 +766,6 @@
                 "value": "rect"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "rect",
-              "type": "str"
             },
             "type": ""
           },
@@ -977,13 +858,6 @@
           },
           {
             "link": {
-              "data": "i",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -1029,13 +903,6 @@
           },
           {
             "link": {
-              "data": "i",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -1069,13 +936,6 @@
                 "value": "range"
               },
               "type": "Link"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
-              "data": "range",
-              "type": "str"
             },
             "type": "nb"
           },
@@ -1147,13 +1007,6 @@
           },
           {
             "link": {
-              "data": "horiz",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -1199,13 +1052,6 @@
           },
           {
             "link": {
-              "data": "Size",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1230,13 +1076,6 @@
           },
           {
             "link": {
-              "data": "AxesX",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -1256,13 +1095,6 @@
                 "value": "ax"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "ax",
-              "type": "str"
             },
             "type": ""
           },
@@ -1327,13 +1159,6 @@
           },
           {
             "link": {
-              "data": "Size",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1353,13 +1178,6 @@
                 "value": "Fixed"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "Fixed",
-              "type": "str"
             },
             "type": ""
           },
@@ -1417,13 +1235,6 @@
           },
           {
             "link": {
-              "data": "Size",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1448,13 +1259,6 @@
           },
           {
             "link": {
-              "data": "AxesX",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -1474,13 +1278,6 @@
                 "value": "ax"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "ax",
-              "type": "str"
             },
             "type": ""
           },
@@ -1545,13 +1342,6 @@
           },
           {
             "link": {
-              "data": "vert",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -1597,13 +1387,6 @@
           },
           {
             "link": {
-              "data": "Size",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1628,13 +1411,6 @@
           },
           {
             "link": {
-              "data": "AxesY",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -1654,13 +1430,6 @@
                 "value": "ax"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "ax",
-              "type": "str"
             },
             "type": ""
           },
@@ -1725,13 +1494,6 @@
           },
           {
             "link": {
-              "data": "Size",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1751,13 +1513,6 @@
                 "value": "Fixed"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "Fixed",
-              "type": "str"
             },
             "type": ""
           },
@@ -1815,13 +1570,6 @@
           },
           {
             "link": {
-              "data": "Size",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1846,13 +1594,6 @@
           },
           {
             "link": {
-              "data": "AxesY",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -1872,13 +1613,6 @@
                 "value": "ax"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "ax",
-              "type": "str"
             },
             "type": ""
           },
@@ -1964,13 +1698,6 @@
           },
           {
             "link": {
-              "data": "divider",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -2009,13 +1736,6 @@
           },
           {
             "link": {
-              "data": "Divider",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -2035,13 +1755,6 @@
                 "value": "fig"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "fig",
-              "type": "str"
             },
             "type": ""
           },
@@ -2078,13 +1791,6 @@
           },
           {
             "link": {
-              "data": "rect",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -2116,13 +1822,6 @@
           },
           {
             "link": {
-              "data": "horiz",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -2149,13 +1848,6 @@
                 "value": "vert"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "vert",
-              "type": "str"
             },
             "type": ""
           },
@@ -2241,13 +1933,6 @@
           },
           {
             "link": {
-              "data": "ax",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "[",
               "type": "str"
             },
@@ -2307,13 +1992,6 @@
           },
           {
             "link": {
-              "data": "divider",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2333,13 +2011,6 @@
                 "value": "new_locator"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "new_locator",
-              "type": "str"
             },
             "type": ""
           },
@@ -2441,13 +2112,6 @@
                 "value": "ax"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "ax",
-              "type": "str"
             },
             "type": ""
           },
@@ -2512,13 +2176,6 @@
           },
           {
             "link": {
-              "data": "divider",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2538,13 +2195,6 @@
                 "value": "new_locator"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "new_locator",
-              "type": "str"
             },
             "type": ""
           },
@@ -2646,13 +2296,6 @@
                 "value": "ax"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "ax",
-              "type": "str"
             },
             "type": ""
           },
@@ -2717,13 +2360,6 @@
           },
           {
             "link": {
-              "data": "divider",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2743,13 +2379,6 @@
                 "value": "new_locator"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "new_locator",
-              "type": "str"
             },
             "type": ""
           },
@@ -2851,13 +2480,6 @@
                 "value": "ax"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "ax",
-              "type": "str"
             },
             "type": ""
           },
@@ -2922,13 +2544,6 @@
           },
           {
             "link": {
-              "data": "divider",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2948,13 +2563,6 @@
                 "value": "new_locator"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "new_locator",
-              "type": "str"
             },
             "type": ""
           },
@@ -3068,13 +2676,6 @@
           },
           {
             "link": {
-              "data": "ax",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "[",
               "type": "str"
             },
@@ -3176,13 +2777,6 @@
           },
           {
             "link": {
-              "data": "ax",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "[",
               "type": "str"
             },
@@ -3291,13 +2885,6 @@
           },
           {
             "link": {
-              "data": "ax",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "[",
               "type": "str"
             },
@@ -3394,13 +2981,6 @@
                 "value": "ax"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "ax",
-              "type": "str"
             },
             "type": ""
           },
@@ -3514,13 +3094,6 @@
           },
           {
             "link": {
-              "data": "divider",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3540,13 +3113,6 @@
                 "value": "set_aspect"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "set_aspect",
-              "type": "str"
             },
             "type": ""
           },
@@ -3641,13 +3207,6 @@
                 "value": "ax"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "ax",
-              "type": "str"
             },
             "type": ""
           },
@@ -3796,13 +3355,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3822,13 +3374,6 @@
                 "value": "show"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "show",
-              "type": "str"
             },
             "type": ""
           },

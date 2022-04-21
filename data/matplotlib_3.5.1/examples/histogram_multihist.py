@@ -58,13 +58,6 @@
           },
           {
             "link": {
-              "data": "numpy",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -98,13 +91,6 @@
                 "value": "np"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "np",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -148,13 +134,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -174,13 +153,6 @@
                 "value": "pyplot"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "pyplot",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -224,13 +196,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -262,13 +227,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -293,13 +251,6 @@
           },
           {
             "link": {
-              "data": "random",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -319,13 +270,6 @@
                 "value": "seed"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "seed",
-              "type": "str"
             },
             "type": ""
           },
@@ -383,13 +327,6 @@
           },
           {
             "link": {
-              "data": "n_bins",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -442,13 +379,6 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -487,13 +417,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -518,13 +441,6 @@
           },
           {
             "link": {
-              "data": "random",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -544,13 +460,6 @@
                 "value": "randn"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "randn",
-              "type": "str"
             },
             "type": ""
           },
@@ -624,13 +533,6 @@
                 "value": "fig"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "fig",
-              "type": "str"
             },
             "type": ""
           },
@@ -800,13 +702,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -826,13 +721,6 @@
                 "value": "subplots"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "subplots",
-              "type": "str"
             },
             "type": ""
           },
@@ -934,13 +822,6 @@
                 "value": "colors"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "colors",
-              "type": "str"
             },
             "type": ""
           },
@@ -1124,13 +1005,6 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -1157,13 +1031,6 @@
                 "value": "n_bins"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "n_bins",
-              "type": "str"
             },
             "type": ""
           },
@@ -1298,13 +1165,6 @@
           },
           {
             "link": {
-              "data": "colors",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -1345,13 +1205,6 @@
                 "value": "colors"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "colors",
-              "type": "str"
             },
             "type": ""
           },
@@ -1598,13 +1451,6 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -1631,13 +1477,6 @@
                 "value": "n_bins"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "n_bins",
-              "type": "str"
             },
             "type": ""
           },
@@ -1891,13 +1730,6 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -1924,13 +1756,6 @@
                 "value": "n_bins"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "n_bins",
-              "type": "str"
             },
             "type": ""
           },
@@ -2170,13 +1995,6 @@
           },
           {
             "link": {
-              "data": "x_multi",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -2222,13 +2040,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2248,13 +2059,6 @@
                 "value": "random"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "random",
-              "type": "str"
             },
             "type": ""
           },
@@ -2284,13 +2088,6 @@
           },
           {
             "link": {
-              "data": "randn",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -2310,13 +2107,6 @@
                 "value": "n"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "n",
-              "type": "str"
             },
             "type": ""
           },
@@ -2362,13 +2152,6 @@
                 "value": "n"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "n",
-              "type": "str"
             },
             "type": ""
           },
@@ -2517,13 +2300,6 @@
           },
           {
             "link": {
-              "data": "x_multi",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -2550,13 +2326,6 @@
                 "value": "n_bins"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "n_bins",
-              "type": "str"
             },
             "type": ""
           },
@@ -2712,13 +2481,6 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2771,13 +2533,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2797,13 +2552,6 @@
                 "value": "show"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "show",
-              "type": "str"
             },
             "type": ""
           },

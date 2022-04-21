@@ -58,13 +58,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -84,13 +77,6 @@
                 "value": "pyplot"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "pyplot",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -134,13 +120,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -174,13 +153,6 @@
                 "value": "numpy"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "numpy",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -224,13 +196,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -257,13 +222,6 @@
                 "value": "t"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "t",
-              "type": "str"
             },
             "type": ""
           },
@@ -307,13 +265,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -333,13 +284,6 @@
                 "value": "arange"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "arange",
-              "type": "str"
             },
             "type": ""
           },
@@ -439,13 +383,6 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -540,13 +477,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -566,13 +496,6 @@
                 "value": "subplots"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "subplots",
-              "type": "str"
             },
             "type": ""
           },
@@ -658,13 +581,6 @@
           },
           {
             "link": {
-              "data": "t",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -696,13 +612,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -722,13 +631,6 @@
                 "value": "sin"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "sin",
-              "type": "str"
             },
             "type": ""
           },
@@ -767,13 +669,6 @@
                 "value": "np"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "np",
-              "type": "str"
             },
             "type": ""
           },
@@ -826,13 +721,6 @@
                 "value": "t"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "t",
-              "type": "str"
             },
             "type": ""
           },
@@ -899,13 +787,6 @@
                 "value": "True"
               },
               "type": "Link"
-            },
-            "type": "kc"
-          },
-          {
-            "link": {
-              "data": "True",
-              "type": "str"
             },
             "type": "kc"
           },
@@ -1292,13 +1173,6 @@
           },
           {
             "link": {
-              "data": "t",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -1330,13 +1204,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1356,13 +1223,6 @@
                 "value": "sin"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "sin",
-              "type": "str"
             },
             "type": ""
           },
@@ -1434,13 +1294,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1488,13 +1341,6 @@
                 "value": "t"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "t",
-              "type": "str"
             },
             "type": ""
           },
@@ -1561,13 +1407,6 @@
                 "value": "True"
               },
               "type": "Link"
-            },
-            "type": "kc"
-          },
-          {
-            "link": {
-              "data": "True",
-              "type": "str"
             },
             "type": "kc"
           },
@@ -1919,13 +1758,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1945,13 +1777,6 @@
                 "value": "show"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "show",
-              "type": "str"
             },
             "type": ""
           },

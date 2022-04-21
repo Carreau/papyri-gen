@@ -58,13 +58,6 @@
           },
           {
             "link": {
-              "data": "numpy",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -98,13 +91,6 @@
                 "value": "np"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "np",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -148,13 +134,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -174,13 +153,6 @@
                 "value": "pyplot"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "pyplot",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -219,13 +191,6 @@
                 "value": "plt"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "plt",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -276,13 +241,6 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -321,13 +279,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -347,13 +298,6 @@
                 "value": "array"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "array",
-              "type": "str"
             },
             "type": ""
           },
@@ -635,13 +579,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -661,13 +598,6 @@
                 "value": "exp"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "exp",
-              "type": "str"
             },
             "type": ""
           },
@@ -704,13 +634,6 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -737,13 +660,6 @@
                 "value": "xerr"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "xerr",
-              "type": "str"
             },
             "type": ""
           },
@@ -796,13 +712,6 @@
                 "value": "yerr"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "yerr",
-              "type": "str"
             },
             "type": ""
           },
@@ -881,13 +790,6 @@
           },
           {
             "link": {
-              "data": "lolims",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -926,13 +828,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -952,13 +847,6 @@
                 "value": "array"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "array",
-              "type": "str"
             },
             "type": ""
           },
@@ -1221,13 +1109,6 @@
                 "value": "bool"
               },
               "type": "Link"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
-              "data": "bool",
-              "type": "str"
             },
             "type": "nb"
           },
@@ -1264,13 +1145,6 @@
           },
           {
             "link": {
-              "data": "uplims",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -1309,13 +1183,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1335,13 +1202,6 @@
                 "value": "array"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "array",
-              "type": "str"
             },
             "type": ""
           },
@@ -1609,13 +1469,6 @@
           },
           {
             "link": {
-              "data": "bool",
-              "type": "str"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -1642,13 +1495,6 @@
                 "value": "ls"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "ls",
-              "type": "str"
             },
             "type": ""
           },
@@ -1727,13 +1573,6 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -1793,13 +1632,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1819,13 +1651,6 @@
                 "value": "subplots"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "subplots",
-              "type": "str"
             },
             "type": ""
           },
@@ -1974,13 +1799,6 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -2033,13 +1851,6 @@
           },
           {
             "link": {
-              "data": "xerr",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -2059,13 +1870,6 @@
                 "value": "xerr"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "xerr",
-              "type": "str"
             },
             "type": ""
           },
@@ -2102,13 +1906,6 @@
           },
           {
             "link": {
-              "data": "yerr",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -2128,13 +1925,6 @@
                 "value": "yerr"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "yerr",
-              "type": "str"
             },
             "type": ""
           },
@@ -2180,13 +1970,6 @@
                 "value": "ls"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "ls",
-              "type": "str"
             },
             "type": ""
           },
@@ -2272,13 +2055,6 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -2359,13 +2135,6 @@
           },
           {
             "link": {
-              "data": "xerr",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -2390,13 +2159,6 @@
           },
           {
             "link": {
-              "data": "xerr",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -2428,13 +2190,6 @@
           },
           {
             "link": {
-              "data": "yerr",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -2454,13 +2209,6 @@
                 "value": "yerr"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "yerr",
-              "type": "str"
             },
             "type": ""
           },
@@ -2497,13 +2245,6 @@
           },
           {
             "link": {
-              "data": "uplims",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -2523,13 +2264,6 @@
                 "value": "uplims"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "uplims",
-              "type": "str"
             },
             "type": ""
           },
@@ -2582,13 +2316,6 @@
                 "value": "ls"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "ls",
-              "type": "str"
             },
             "type": ""
           },
@@ -2674,13 +2401,6 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -2761,13 +2481,6 @@
           },
           {
             "link": {
-              "data": "xerr",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -2792,13 +2505,6 @@
           },
           {
             "link": {
-              "data": "xerr",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -2830,13 +2536,6 @@
           },
           {
             "link": {
-              "data": "yerr",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -2856,13 +2555,6 @@
                 "value": "yerr"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "yerr",
-              "type": "str"
             },
             "type": ""
           },
@@ -2899,13 +2591,6 @@
           },
           {
             "link": {
-              "data": "lolims",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -2925,13 +2610,6 @@
                 "value": "lolims"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "lolims",
-              "type": "str"
             },
             "type": ""
           },
@@ -2984,13 +2662,6 @@
                 "value": "ls"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "ls",
-              "type": "str"
             },
             "type": ""
           },
@@ -3076,13 +2747,6 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -3163,13 +2827,6 @@
           },
           {
             "link": {
-              "data": "xerr",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -3189,13 +2846,6 @@
                 "value": "xerr"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "xerr",
-              "type": "str"
             },
             "type": ""
           },
@@ -3232,13 +2882,6 @@
           },
           {
             "link": {
-              "data": "yerr",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -3258,13 +2901,6 @@
                 "value": "yerr"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "yerr",
-              "type": "str"
             },
             "type": ""
           },
@@ -3308,13 +2944,6 @@
           },
           {
             "link": {
-              "data": "lolims",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -3334,13 +2963,6 @@
                 "value": "lolims"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "lolims",
-              "type": "str"
             },
             "type": ""
           },
@@ -3377,13 +2999,6 @@
           },
           {
             "link": {
-              "data": "uplims",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -3403,13 +3018,6 @@
                 "value": "uplims"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "uplims",
-              "type": "str"
             },
             "type": ""
           },
@@ -3558,13 +3166,6 @@
           },
           {
             "link": {
-              "data": "ls",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -3631,13 +3232,6 @@
           },
           {
             "link": {
-              "data": "xerr",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -3690,13 +3284,6 @@
           },
           {
             "link": {
-              "data": "yerr",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -3735,13 +3322,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3766,13 +3346,6 @@
           },
           {
             "link": {
-              "data": "full_like",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -3792,13 +3365,6 @@
                 "value": "x"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "x",
-              "type": "str"
             },
             "type": ""
           },
@@ -3851,13 +3417,6 @@
                 "value": "yerr"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "yerr",
-              "type": "str"
             },
             "type": ""
           },
@@ -3992,13 +3551,6 @@
           },
           {
             "link": {
-              "data": "xlolims",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -4032,13 +3584,6 @@
                 "value": "lolims"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "lolims",
-              "type": "str"
             },
             "type": ""
           },
@@ -4068,13 +3613,6 @@
           },
           {
             "link": {
-              "data": "xuplims",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -4113,13 +3651,6 @@
           },
           {
             "link": {
-              "data": "uplims",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -4139,13 +3670,6 @@
                 "value": "lolims"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "lolims",
-              "type": "str"
             },
             "type": ""
           },
@@ -4189,13 +3713,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -4220,13 +3737,6 @@
           },
           {
             "link": {
-              "data": "zeros_like",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -4246,13 +3756,6 @@
                 "value": "x"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "x",
-              "type": "str"
             },
             "type": ""
           },
@@ -4284,13 +3787,6 @@
                 "value": "uplims"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "uplims",
-              "type": "str"
             },
             "type": ""
           },
@@ -4334,13 +3830,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -4365,13 +3854,6 @@
           },
           {
             "link": {
-              "data": "zeros_like",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -4391,13 +3873,6 @@
                 "value": "x"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "x",
-              "type": "str"
             },
             "type": ""
           },
@@ -4429,13 +3904,6 @@
                 "value": "lolims"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "lolims",
-              "type": "str"
             },
             "type": ""
           },
@@ -4537,13 +4005,6 @@
                 "value": "uplims"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "uplims",
-              "type": "str"
             },
             "type": ""
           },
@@ -4699,13 +4160,6 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -4786,13 +4240,6 @@
           },
           {
             "link": {
-              "data": "xerr",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -4817,13 +4264,6 @@
           },
           {
             "link": {
-              "data": "xerr",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -4855,13 +4295,6 @@
           },
           {
             "link": {
-              "data": "yerr",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -4881,13 +4314,6 @@
                 "value": "yerr"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "yerr",
-              "type": "str"
             },
             "type": ""
           },
@@ -4931,13 +4357,6 @@
           },
           {
             "link": {
-              "data": "xlolims",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -4957,13 +4376,6 @@
                 "value": "xlolims"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "xlolims",
-              "type": "str"
             },
             "type": ""
           },
@@ -5000,13 +4412,6 @@
           },
           {
             "link": {
-              "data": "xuplims",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -5026,13 +4431,6 @@
                 "value": "xuplims"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "xuplims",
-              "type": "str"
             },
             "type": ""
           },
@@ -5076,13 +4474,6 @@
           },
           {
             "link": {
-              "data": "uplims",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -5102,13 +4493,6 @@
                 "value": "uplims"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "uplims",
-              "type": "str"
             },
             "type": ""
           },
@@ -5145,13 +4529,6 @@
           },
           {
             "link": {
-              "data": "lolims",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -5171,13 +4548,6 @@
                 "value": "lolims"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "lolims",
-              "type": "str"
             },
             "type": ""
           },
@@ -5529,13 +4899,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -5555,13 +4918,6 @@
                 "value": "show"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "show",
-              "type": "str"
             },
             "type": ""
           },

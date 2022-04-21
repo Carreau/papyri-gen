@@ -58,13 +58,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -84,13 +77,6 @@
                 "value": "pyplot"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "pyplot",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -129,13 +115,6 @@
                 "value": "plt"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "plt",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -193,13 +172,6 @@
           },
           {
             "link": {
-              "data": "demo_con_style",
-              "type": "str"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -240,13 +212,6 @@
                 "value": "connectionstyle"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "connectionstyle",
-              "type": "str"
             },
             "type": ""
           },
@@ -297,13 +262,6 @@
           },
           {
             "link": {
-              "data": "x1",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -330,13 +288,6 @@
                 "value": "y1"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y1",
-              "type": "str"
             },
             "type": ""
           },
@@ -422,13 +373,6 @@
           },
           {
             "link": {
-              "data": "x2",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -455,13 +399,6 @@
                 "value": "y2"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y2",
-              "type": "str"
             },
             "type": ""
           },
@@ -589,13 +526,6 @@
           },
           {
             "link": {
-              "data": "x1",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -622,13 +552,6 @@
                 "value": "x2"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "x2",
-              "type": "str"
             },
             "type": ""
           },
@@ -679,13 +602,6 @@
           },
           {
             "link": {
-              "data": "y1",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -712,13 +628,6 @@
                 "value": "y2"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y2",
-              "type": "str"
             },
             "type": ""
           },
@@ -888,13 +797,6 @@
           },
           {
             "link": {
-              "data": "x1",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -921,13 +823,6 @@
                 "value": "y1"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y1",
-              "type": "str"
             },
             "type": ""
           },
@@ -1048,13 +943,6 @@
           },
           {
             "link": {
-              "data": "x2",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -1081,13 +969,6 @@
                 "value": "y2"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y2",
-              "type": "str"
             },
             "type": ""
           },
@@ -1196,13 +1077,6 @@
                 "value": "dict"
               },
               "type": "Link"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
-              "data": "dict",
-              "type": "str"
             },
             "type": "nb"
           },
@@ -1491,13 +1365,6 @@
           },
           {
             "link": {
-              "data": "connectionstyle",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -1517,13 +1384,6 @@
                 "value": "connectionstyle"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "connectionstyle",
-              "type": "str"
             },
             "type": ""
           },
@@ -1693,13 +1553,6 @@
           },
           {
             "link": {
-              "data": "connectionstyle",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1719,13 +1572,6 @@
                 "value": "replace"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "replace",
-              "type": "str"
             },
             "type": ""
           },
@@ -2007,13 +1853,6 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -2073,13 +1912,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2099,13 +1931,6 @@
                 "value": "subplots"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "subplots",
-              "type": "str"
             },
             "type": ""
           },
@@ -2282,13 +2107,6 @@
           },
           {
             "link": {
-              "data": "demo_con_style",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -2406,13 +2224,6 @@
                 "value": "demo_con_style"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "demo_con_style",
-              "type": "str"
             },
             "type": ""
           },
@@ -2540,13 +2351,6 @@
           },
           {
             "link": {
-              "data": "demo_con_style",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -2664,13 +2468,6 @@
                 "value": "demo_con_style"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "demo_con_style",
-              "type": "str"
             },
             "type": ""
           },
@@ -2798,13 +2595,6 @@
           },
           {
             "link": {
-              "data": "demo_con_style",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -2922,13 +2712,6 @@
                 "value": "demo_con_style"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "demo_con_style",
-              "type": "str"
             },
             "type": ""
           },
@@ -3056,13 +2839,6 @@
           },
           {
             "link": {
-              "data": "demo_con_style",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -3180,13 +2956,6 @@
                 "value": "demo_con_style"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "demo_con_style",
-              "type": "str"
             },
             "type": ""
           },
@@ -3314,13 +3083,6 @@
           },
           {
             "link": {
-              "data": "demo_con_style",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -3438,13 +3200,6 @@
                 "value": "demo_con_style"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "demo_con_style",
-              "type": "str"
             },
             "type": ""
           },
@@ -3572,13 +3327,6 @@
           },
           {
             "link": {
-              "data": "demo_con_style",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -3696,13 +3444,6 @@
                 "value": "demo_con_style"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "demo_con_style",
-              "type": "str"
             },
             "type": ""
           },
@@ -3830,13 +3571,6 @@
           },
           {
             "link": {
-              "data": "demo_con_style",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -3954,13 +3688,6 @@
                 "value": "demo_con_style"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "demo_con_style",
-              "type": "str"
             },
             "type": ""
           },
@@ -4466,13 +4193,6 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -4658,13 +4378,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -4684,13 +4397,6 @@
                 "value": "show"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "show",
-              "type": "str"
             },
             "type": ""
           },

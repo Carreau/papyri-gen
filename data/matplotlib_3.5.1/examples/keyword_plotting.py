@@ -58,13 +58,6 @@
           },
           {
             "link": {
-              "data": "numpy",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -98,13 +91,6 @@
                 "value": "np"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "np",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -148,13 +134,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -174,13 +153,6 @@
                 "value": "pyplot"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "pyplot",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -224,13 +196,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -250,13 +215,6 @@
                 "value": "np"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "np",
-              "type": "str"
             },
             "type": ""
           },
@@ -286,13 +244,6 @@
           },
           {
             "link": {
-              "data": "random",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -312,13 +263,6 @@
                 "value": "seed"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "seed",
-              "type": "str"
             },
             "type": ""
           },
@@ -371,13 +315,6 @@
                 "value": "data"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "data",
-              "type": "str"
             },
             "type": ""
           },
@@ -463,13 +400,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -489,13 +419,6 @@
                 "value": "arange"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "arange",
-              "type": "str"
             },
             "type": ""
           },
@@ -595,13 +518,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -626,13 +542,6 @@
           },
           {
             "link": {
-              "data": "random",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -652,13 +561,6 @@
                 "value": "randint"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "randint",
-              "type": "str"
             },
             "type": ""
           },
@@ -800,13 +702,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -831,13 +726,6 @@
           },
           {
             "link": {
-              "data": "random",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -857,13 +745,6 @@
                 "value": "randn"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "randn",
-              "type": "str"
             },
             "type": ""
           },
@@ -916,13 +797,6 @@
                 "value": "data"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "data",
-              "type": "str"
             },
             "type": ""
           },
@@ -996,13 +870,6 @@
                 "value": "data"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "data",
-              "type": "str"
             },
             "type": ""
           },
@@ -1109,13 +976,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1140,13 +1000,6 @@
           },
           {
             "link": {
-              "data": "random",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1166,13 +1019,6 @@
                 "value": "randn"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "randn",
-              "type": "str"
             },
             "type": ""
           },
@@ -1218,13 +1064,6 @@
                 "value": "data"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "data",
-              "type": "str"
             },
             "type": ""
           },
@@ -1303,13 +1142,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1334,13 +1166,6 @@
           },
           {
             "link": {
-              "data": "abs",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -1360,13 +1185,6 @@
                 "value": "data"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "data",
-              "type": "str"
             },
             "type": ""
           },
@@ -1522,13 +1340,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1548,13 +1359,6 @@
                 "value": "subplots"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "subplots",
-              "type": "str"
             },
             "type": ""
           },
@@ -1794,13 +1598,6 @@
           },
           {
             "link": {
-              "data": "data",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -1820,13 +1617,6 @@
                 "value": "data"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "data",
-              "type": "str"
             },
             "type": ""
           },
@@ -1989,13 +1779,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2015,13 +1798,6 @@
                 "value": "show"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "show",
-              "type": "str"
             },
             "type": ""
           },

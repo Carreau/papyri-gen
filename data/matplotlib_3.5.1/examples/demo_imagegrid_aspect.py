@@ -58,13 +58,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -84,13 +77,6 @@
                 "value": "pyplot"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "pyplot",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -134,13 +120,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -179,13 +158,6 @@
           },
           {
             "link": {
-              "data": "mpl_toolkits",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -205,13 +177,6 @@
                 "value": "axes_grid1"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "axes_grid1",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -255,13 +220,6 @@
           },
           {
             "link": {
-              "data": "ImageGrid",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -288,13 +246,6 @@
                 "value": "fig"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "fig",
-              "type": "str"
             },
             "type": ""
           },
@@ -338,13 +289,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -364,13 +308,6 @@
                 "value": "figure"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "figure",
-              "type": "str"
             },
             "type": ""
           },
@@ -421,13 +358,6 @@
           },
           {
             "link": {
-              "data": "grid1",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -466,13 +396,6 @@
           },
           {
             "link": {
-              "data": "ImageGrid",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -492,13 +415,6 @@
                 "value": "fig"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "fig",
-              "type": "str"
             },
             "type": ""
           },
@@ -738,13 +654,6 @@
           },
           {
             "link": {
-              "data": "i",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -846,13 +755,6 @@
           },
           {
             "link": {
-              "data": "grid1",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "[",
               "type": "str"
             },
@@ -872,13 +774,6 @@
                 "value": "i"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "i",
-              "type": "str"
             },
             "type": ""
           },
@@ -957,13 +852,6 @@
           },
           {
             "link": {
-              "data": "grid2",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -1002,13 +890,6 @@
           },
           {
             "link": {
-              "data": "ImageGrid",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -1028,13 +909,6 @@
                 "value": "fig"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "fig",
-              "type": "str"
             },
             "type": ""
           },
@@ -1274,13 +1148,6 @@
           },
           {
             "link": {
-              "data": "i",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -1382,13 +1249,6 @@
           },
           {
             "link": {
-              "data": "grid2",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "[",
               "type": "str"
             },
@@ -1408,13 +1268,6 @@
                 "value": "i"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "i",
-              "type": "str"
             },
             "type": ""
           },
@@ -1493,13 +1346,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1519,13 +1365,6 @@
                 "value": "show"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "show",
-              "type": "str"
             },
             "type": ""
           },

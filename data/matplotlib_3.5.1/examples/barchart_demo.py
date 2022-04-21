@@ -58,13 +58,6 @@
           },
           {
             "link": {
-              "data": "collections",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -98,13 +91,6 @@
                 "value": "namedtuple"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "namedtuple",
-              "type": "str"
             },
             "type": ""
           },
@@ -148,13 +134,6 @@
           },
           {
             "link": {
-              "data": "numpy",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -188,13 +167,6 @@
                 "value": "np"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "np",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -238,13 +210,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -264,13 +229,6 @@
                 "value": "pyplot"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "pyplot",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -309,13 +267,6 @@
                 "value": "plt"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "plt",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -382,13 +333,6 @@
                 "value": "namedtuple"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "namedtuple",
-              "type": "str"
             },
             "type": ""
           },
@@ -600,13 +544,6 @@
           },
           {
             "link": {
-              "data": "namedtuple",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -813,13 +750,6 @@
           },
           {
             "link": {
-              "data": "to_ordinal",
-              "type": "str"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -839,13 +769,6 @@
                 "value": "num"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "num",
-              "type": "str"
             },
             "type": ""
           },
@@ -917,13 +840,6 @@
           },
           {
             "link": {
-              "data": "suffixes",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -969,13 +885,6 @@
           },
           {
             "link": {
-              "data": "str",
-              "type": "str"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -995,13 +904,6 @@
                 "value": "i"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "i",
-              "type": "str"
             },
             "type": ""
           },
@@ -1040,13 +942,6 @@
                 "value": "v"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "v",
-              "type": "str"
             },
             "type": ""
           },
@@ -1097,13 +992,6 @@
           },
           {
             "link": {
-              "data": "i",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -1130,13 +1018,6 @@
                 "value": "v"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "v",
-              "type": "str"
             },
             "type": ""
           },
@@ -1175,13 +1056,6 @@
                 "value": "enumerate"
               },
               "type": "Link"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
-              "data": "enumerate",
-              "type": "str"
             },
             "type": "nb"
           },
@@ -1596,13 +1470,6 @@
           },
           {
             "link": {
-              "data": "v",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -1641,13 +1508,6 @@
           },
           {
             "link": {
-              "data": "str",
-              "type": "str"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -1667,13 +1527,6 @@
                 "value": "num"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "num",
-              "type": "str"
             },
             "type": ""
           },
@@ -1747,13 +1600,6 @@
                 "value": "v"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "v",
-              "type": "str"
             },
             "type": ""
           },
@@ -1937,13 +1783,6 @@
           },
           {
             "link": {
-              "data": "v",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -2031,13 +1870,6 @@
           },
           {
             "link": {
-              "data": "v",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -2076,13 +1908,6 @@
           },
           {
             "link": {
-              "data": "suffixes",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "[",
               "type": "str"
             },
@@ -2102,13 +1927,6 @@
                 "value": "v"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "v",
-              "type": "str"
             },
             "type": ""
           },
@@ -2196,13 +2014,6 @@
                 "value": "format_score"
               },
               "type": "Link"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
-              "data": "format_score",
-              "type": "str"
             },
             "type": "nf"
           },
@@ -2302,13 +2113,6 @@
           },
           {
             "link": {
-              "data": "f",
-              "type": "str"
-            },
-            "type": "sa"
-          },
-          {
-            "link": {
               "data": "'",
               "type": "str"
             },
@@ -2349,13 +2153,6 @@
                 "value": "value"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "value",
-              "type": "str"
             },
             "type": ""
           },
@@ -2497,13 +2294,6 @@
           },
           {
             "link": {
-              "data": "str",
-              "type": "str"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -2591,13 +2381,6 @@
           },
           {
             "link": {
-              "data": "plot_student_results",
-              "type": "str"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -2643,13 +2426,6 @@
           },
           {
             "link": {
-              "data": "scores_by_test",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -2676,13 +2452,6 @@
                 "value": "cohort_size"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "cohort_size",
-              "type": "str"
             },
             "type": ""
           },
@@ -2728,13 +2497,6 @@
                 "value": "fig"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "fig",
-              "type": "str"
             },
             "type": ""
           },
@@ -2799,13 +2561,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2825,13 +2580,6 @@
                 "value": "subplots"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "subplots",
-              "type": "str"
             },
             "type": ""
           },
@@ -2968,13 +2716,6 @@
                 "value": "fig"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "fig",
-              "type": "str"
             },
             "type": ""
           },
@@ -3132,13 +2873,6 @@
                 "value": "name"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "name",
-              "type": "str"
             },
             "type": ""
           },
@@ -3329,13 +3063,6 @@
           },
           {
             "link": {
-              "data": "format",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -3388,13 +3115,6 @@
           },
           {
             "link": {
-              "data": "to_ordinal",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -3428,13 +3148,6 @@
                 "value": "grade"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "grade",
-              "type": "str"
             },
             "type": ""
           },
@@ -3513,13 +3226,6 @@
           },
           {
             "link": {
-              "data": "gender",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3539,13 +3245,6 @@
                 "value": "title"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "title",
-              "type": "str"
             },
             "type": ""
           },
@@ -3603,13 +3302,6 @@
           },
           {
             "link": {
-              "data": "cohort_size",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -3629,13 +3321,6 @@
                 "value": "cohort_size"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "cohort_size",
-              "type": "str"
             },
             "type": ""
           },
@@ -3693,13 +3378,6 @@
           },
           {
             "link": {
-              "data": "test_names",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -3738,13 +3416,6 @@
           },
           {
             "link": {
-              "data": "list",
-              "type": "str"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -3769,13 +3440,6 @@
           },
           {
             "link": {
-              "data": "scores_by_test",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3795,13 +3459,6 @@
                 "value": "keys"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "keys",
-              "type": "str"
             },
             "type": ""
           },
@@ -3854,13 +3511,6 @@
                 "value": "percentiles"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "percentiles",
-              "type": "str"
             },
             "type": ""
           },
@@ -3981,13 +3631,6 @@
           },
           {
             "link": {
-              "data": "scores_by_test",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -4007,13 +3650,6 @@
                 "value": "values"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "values",
-              "type": "str"
             },
             "type": ""
           },
@@ -4134,13 +3770,6 @@
           },
           {
             "link": {
-              "data": "test_names",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -4167,13 +3796,6 @@
                 "value": "percentiles"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "percentiles",
-              "type": "str"
             },
             "type": ""
           },
@@ -4343,13 +3965,6 @@
           },
           {
             "link": {
-              "data": "large_percentiles",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -4395,13 +4010,6 @@
           },
           {
             "link": {
-              "data": "to_ordinal",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -4421,13 +4029,6 @@
                 "value": "p"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "p",
-              "type": "str"
             },
             "type": ""
           },
@@ -4473,13 +4074,6 @@
                 "value": "p"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "p",
-              "type": "str"
             },
             "type": ""
           },
@@ -4586,13 +4180,6 @@
           },
           {
             "link": {
-              "data": "p",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -4631,13 +4218,6 @@
           },
           {
             "link": {
-              "data": "percentiles",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "]",
               "type": "str"
             },
@@ -4671,13 +4251,6 @@
                 "value": "small_percentiles"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "small_percentiles",
-              "type": "str"
             },
             "type": ""
           },
@@ -4728,13 +4301,6 @@
           },
           {
             "link": {
-              "data": "to_ordinal",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -4754,13 +4320,6 @@
                 "value": "p"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "p",
-              "type": "str"
             },
             "type": ""
           },
@@ -4806,13 +4365,6 @@
                 "value": "p"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "p",
-              "type": "str"
             },
             "type": ""
           },
@@ -4926,13 +4478,6 @@
           },
           {
             "link": {
-              "data": "p",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -4966,13 +4511,6 @@
                 "value": "percentiles"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "percentiles",
-              "type": "str"
             },
             "type": ""
           },
@@ -5060,13 +4598,6 @@
                 "value": "small_percentiles"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "small_percentiles",
-              "type": "str"
             },
             "type": ""
           },
@@ -5294,13 +4825,6 @@
                 "value": "large_percentiles"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "large_percentiles",
-              "type": "str"
             },
             "type": ""
           },
@@ -6555,13 +6079,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -6581,13 +6098,6 @@
                 "value": "arange"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "arange",
-              "type": "str"
             },
             "type": ""
           },
@@ -6617,13 +6127,6 @@
           },
           {
             "link": {
-              "data": "len",
-              "type": "str"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -6643,13 +6146,6 @@
                 "value": "scores_by_test"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "scores_by_test",
-              "type": "str"
             },
             "type": ""
           },
@@ -6723,13 +6219,6 @@
                 "value": "format_score"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "format_score",
-              "type": "str"
             },
             "type": ""
           },
@@ -6822,13 +6311,6 @@
           },
           {
             "link": {
-              "data": "scores_by_test",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -6848,13 +6330,6 @@
                 "value": "values"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "values",
-              "type": "str"
             },
             "type": ""
           },
@@ -7173,13 +6648,6 @@
                 "value": "scores_by_test"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "scores_by_test",
-              "type": "str"
             },
             "type": ""
           },
@@ -8049,13 +7517,6 @@
           },
           {
             "link": {
-              "data": "plot_student_results",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -8096,13 +7557,6 @@
                 "value": "scores_by_test"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "scores_by_test",
-              "type": "str"
             },
             "type": ""
           },
@@ -8174,13 +7628,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -8200,13 +7647,6 @@
                 "value": "show"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "show",
-              "type": "str"
             },
             "type": ""
           },

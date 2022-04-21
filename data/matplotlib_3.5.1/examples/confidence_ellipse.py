@@ -65,13 +65,6 @@
           },
           {
             "link": {
-              "data": "numpy",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -105,13 +98,6 @@
                 "value": "np"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "np",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -155,13 +141,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -181,13 +160,6 @@
                 "value": "pyplot"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "pyplot",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -231,13 +203,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -276,13 +241,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -302,13 +260,6 @@
                 "value": "patches"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "patches",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -352,13 +303,6 @@
           },
           {
             "link": {
-              "data": "Ellipse",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -397,13 +341,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -423,13 +360,6 @@
                 "value": "transforms"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "transforms",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -468,13 +398,6 @@
                 "value": "transforms"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "transforms",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -742,13 +665,6 @@
           },
           {
             "link": {
-              "data": "confidence_ellipse",
-              "type": "str"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -768,13 +684,6 @@
                 "value": "x"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "x",
-              "type": "str"
             },
             "type": ""
           },
@@ -811,13 +720,6 @@
           },
           {
             "link": {
-              "data": "y",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -849,13 +751,6 @@
           },
           {
             "link": {
-              "data": "ax",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -882,13 +777,6 @@
                 "value": "n_std"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "n_std",
-              "type": "str"
             },
             "type": ""
           },
@@ -934,13 +822,6 @@
                 "value": "facecolor"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "facecolor",
-              "type": "str"
             },
             "type": ""
           },
@@ -1014,13 +895,6 @@
                 "value": "kwargs"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "kwargs",
-              "type": "str"
             },
             "type": ""
           },
@@ -1106,13 +980,6 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1160,13 +1027,6 @@
                 "value": "y"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y",
-              "type": "str"
             },
             "type": ""
           },
@@ -1233,13 +1093,6 @@
                 "value": "ValueError"
               },
               "type": "Link"
-            },
-            "type": "ne"
-          },
-          {
-            "link": {
-              "data": "ValueError",
-              "type": "str"
             },
             "type": "ne"
           },
@@ -1318,13 +1171,6 @@
           },
           {
             "link": {
-              "data": "cov",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -1363,13 +1209,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1394,13 +1233,6 @@
           },
           {
             "link": {
-              "data": "cov",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -1420,13 +1252,6 @@
                 "value": "x"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "x",
-              "type": "str"
             },
             "type": ""
           },
@@ -1458,13 +1283,6 @@
                 "value": "y"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y",
-              "type": "str"
             },
             "type": ""
           },
@@ -1508,13 +1326,6 @@
           },
           {
             "link": {
-              "data": "pearson",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -1548,13 +1359,6 @@
                 "value": "cov"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "cov",
-              "type": "str"
             },
             "type": ""
           },
@@ -1626,13 +1430,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1657,13 +1454,6 @@
           },
           {
             "link": {
-              "data": "sqrt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -1683,13 +1473,6 @@
                 "value": "cov"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "cov",
-              "type": "str"
             },
             "type": ""
           },
@@ -1770,13 +1553,6 @@
                 "value": "cov"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "cov",
-              "type": "str"
             },
             "type": ""
           },
@@ -1932,13 +1708,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1958,13 +1727,6 @@
                 "value": "sqrt"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "sqrt",
-              "type": "str"
             },
             "type": ""
           },
@@ -2017,13 +1779,6 @@
                 "value": "pearson"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "pearson",
-              "type": "str"
             },
             "type": ""
           },
@@ -2095,13 +1850,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2121,13 +1869,6 @@
                 "value": "sqrt"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "sqrt",
-              "type": "str"
             },
             "type": ""
           },
@@ -2185,13 +1926,6 @@
           },
           {
             "link": {
-              "data": "pearson",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -2230,13 +1964,6 @@
           },
           {
             "link": {
-              "data": "ellipse",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -2270,13 +1997,6 @@
                 "value": "Ellipse"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "Ellipse",
-              "type": "str"
             },
             "type": ""
           },
@@ -2495,13 +2215,6 @@
           },
           {
             "link": {
-              "data": "facecolor",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -2521,13 +2234,6 @@
                 "value": "facecolor"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "facecolor",
-              "type": "str"
             },
             "type": ""
           },
@@ -2573,13 +2279,6 @@
                 "value": "kwargs"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "kwargs",
-              "type": "str"
             },
             "type": ""
           },
@@ -2693,13 +2392,6 @@
           },
           {
             "link": {
-              "data": "scale_x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -2738,13 +2430,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2769,13 +2454,6 @@
           },
           {
             "link": {
-              "data": "sqrt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -2795,13 +2473,6 @@
                 "value": "cov"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "cov",
-              "type": "str"
             },
             "type": ""
           },
@@ -2894,13 +2565,6 @@
           },
           {
             "link": {
-              "data": "n_std",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -2960,13 +2624,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2991,13 +2648,6 @@
           },
           {
             "link": {
-              "data": "mean",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -3017,13 +2667,6 @@
                 "value": "x"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "x",
-              "type": "str"
             },
             "type": ""
           },
@@ -3095,13 +2738,6 @@
           },
           {
             "link": {
-              "data": "scale_y",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -3140,13 +2776,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3171,13 +2800,6 @@
           },
           {
             "link": {
-              "data": "sqrt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -3197,13 +2819,6 @@
                 "value": "cov"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "cov",
-              "type": "str"
             },
             "type": ""
           },
@@ -3296,13 +2911,6 @@
           },
           {
             "link": {
-              "data": "n_std",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -3362,13 +2970,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3393,13 +2994,6 @@
           },
           {
             "link": {
-              "data": "mean",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -3419,13 +3013,6 @@
                 "value": "y"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y",
-              "type": "str"
             },
             "type": ""
           },
@@ -3476,13 +3063,6 @@
           },
           {
             "link": {
-              "data": "transf",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -3521,13 +3101,6 @@
           },
           {
             "link": {
-              "data": "transforms",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3547,13 +3120,6 @@
                 "value": "Affine2D"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "Affine2D",
-              "type": "str"
             },
             "type": ""
           },
@@ -3613,13 +3179,6 @@
                 "value": "rotate_deg"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "rotate_deg",
-              "type": "str"
             },
             "type": ""
           },
@@ -3691,13 +3250,6 @@
           },
           {
             "link": {
-              "data": "scale",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -3717,13 +3269,6 @@
                 "value": "scale_x"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "scale_x",
-              "type": "str"
             },
             "type": ""
           },
@@ -3755,13 +3300,6 @@
                 "value": "scale_y"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "scale_y",
-              "type": "str"
             },
             "type": ""
           },
@@ -3814,13 +3352,6 @@
                 "value": "translate"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "translate",
-              "type": "str"
             },
             "type": ""
           },
@@ -3906,13 +3437,6 @@
           },
           {
             "link": {
-              "data": "ellipse",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3937,13 +3461,6 @@
           },
           {
             "link": {
-              "data": "set_transform",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -3963,13 +3480,6 @@
                 "value": "transf"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "transf",
-              "type": "str"
             },
             "type": ""
           },
@@ -4013,13 +3523,6 @@
           },
           {
             "link": {
-              "data": "ax",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -4039,13 +3542,6 @@
                 "value": "transData"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "transData",
-              "type": "str"
             },
             "type": ""
           },
@@ -4103,13 +3599,6 @@
           },
           {
             "link": {
-              "data": "ax",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -4134,13 +3623,6 @@
           },
           {
             "link": {
-              "data": "add_patch",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -4160,13 +3642,6 @@
                 "value": "ellipse"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "ellipse",
-              "type": "str"
             },
             "type": ""
           },
@@ -4364,13 +3839,6 @@
           },
           {
             "link": {
-              "data": "get_correlated_dataset",
-              "type": "str"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -4390,13 +3858,6 @@
                 "value": "n"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "n",
-              "type": "str"
             },
             "type": ""
           },
@@ -4433,13 +3894,6 @@
           },
           {
             "link": {
-              "data": "dependency",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -4471,13 +3925,6 @@
           },
           {
             "link": {
-              "data": "mu",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -4504,13 +3951,6 @@
                 "value": "scale"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "scale",
-              "type": "str"
             },
             "type": ""
           },
@@ -4561,13 +4001,6 @@
           },
           {
             "link": {
-              "data": "latent",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -4606,13 +4039,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -4632,13 +4058,6 @@
                 "value": "random"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "random",
-              "type": "str"
             },
             "type": ""
           },
@@ -4668,13 +4087,6 @@
           },
           {
             "link": {
-              "data": "randn",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -4694,13 +4106,6 @@
                 "value": "n"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "n",
-              "type": "str"
             },
             "type": ""
           },
@@ -4765,13 +4170,6 @@
           },
           {
             "link": {
-              "data": "dependent",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -4810,13 +4208,6 @@
           },
           {
             "link": {
-              "data": "latent",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -4841,13 +4232,6 @@
           },
           {
             "link": {
-              "data": "dot",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -4867,13 +4251,6 @@
                 "value": "dependency"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "dependency",
-              "type": "str"
             },
             "type": ""
           },
@@ -4917,13 +4294,6 @@
           },
           {
             "link": {
-              "data": "scaled",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -4957,13 +4327,6 @@
                 "value": "dependent"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "dependent",
-              "type": "str"
             },
             "type": ""
           },
@@ -5007,13 +4370,6 @@
           },
           {
             "link": {
-              "data": "scale",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -5040,13 +4396,6 @@
                 "value": "scaled_with_offset"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "scaled_with_offset",
-              "type": "str"
             },
             "type": ""
           },
@@ -5090,13 +4439,6 @@
           },
           {
             "link": {
-              "data": "scaled",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -5130,13 +4472,6 @@
                 "value": "mu"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "mu",
-              "type": "str"
             },
             "type": ""
           },
@@ -5203,13 +4538,6 @@
                 "value": "scaled_with_offset"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "scaled_with_offset",
-              "type": "str"
             },
             "type": ""
           },
@@ -5283,13 +4611,6 @@
                 "value": "scaled_with_offset"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "scaled_with_offset",
-              "type": "str"
             },
             "type": ""
           },
@@ -5522,13 +4843,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -5553,13 +4867,6 @@
           },
           {
             "link": {
-              "data": "random",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -5579,13 +4886,6 @@
                 "value": "seed"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "seed",
-              "type": "str"
             },
             "type": ""
           },
@@ -5638,13 +4938,6 @@
                 "value": "PARAMETERS"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "PARAMETERS",
-              "type": "str"
             },
             "type": ""
           },
@@ -6269,13 +5562,6 @@
           },
           {
             "link": {
-              "data": "mu",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -6344,13 +5630,6 @@
                 "value": "scale"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "scale",
-              "type": "str"
             },
             "type": ""
           },
@@ -6436,13 +5715,6 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -6502,13 +5774,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -6528,13 +5793,6 @@
                 "value": "subplots"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "subplots",
-              "type": "str"
             },
             "type": ""
           },
@@ -6718,13 +5976,6 @@
           },
           {
             "link": {
-              "data": "title",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -6751,13 +6002,6 @@
                 "value": "dependency"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "dependency",
-              "type": "str"
             },
             "type": ""
           },
@@ -6808,13 +6052,6 @@
           },
           {
             "link": {
-              "data": "zip",
-              "type": "str"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -6860,13 +6097,6 @@
           },
           {
             "link": {
-              "data": "PARAMETERS",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -6886,13 +6116,6 @@
                 "value": "items"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "items",
-              "type": "str"
             },
             "type": ""
           },
@@ -6957,13 +6180,6 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -6990,13 +6206,6 @@
                 "value": "y"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y",
-              "type": "str"
             },
             "type": ""
           },
@@ -7035,13 +6244,6 @@
                 "value": "get_correlated_dataset"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "get_correlated_dataset",
-              "type": "str"
             },
             "type": ""
           },
@@ -7092,13 +6294,6 @@
           },
           {
             "link": {
-              "data": "dependency",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -7130,13 +6325,6 @@
           },
           {
             "link": {
-              "data": "mu",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -7163,13 +6351,6 @@
                 "value": "scale"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "scale",
-              "type": "str"
             },
             "type": ""
           },
@@ -7241,13 +6422,6 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -7274,13 +6448,6 @@
                 "value": "y"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y",
-              "type": "str"
             },
             "type": ""
           },
@@ -7611,13 +6778,6 @@
           },
           {
             "link": {
-              "data": "confidence_ellipse",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -7637,13 +6797,6 @@
                 "value": "x"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "x",
-              "type": "str"
             },
             "type": ""
           },
@@ -7675,13 +6828,6 @@
                 "value": "y"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y",
-              "type": "str"
             },
             "type": ""
           },
@@ -7830,13 +6976,6 @@
           },
           {
             "link": {
-              "data": "mu",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "[",
               "type": "str"
             },
@@ -7884,13 +7023,6 @@
                 "value": "mu"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "mu",
-              "type": "str"
             },
             "type": ""
           },
@@ -8095,13 +7227,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -8121,13 +7246,6 @@
                 "value": "show"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "show",
-              "type": "str"
             },
             "type": ""
           },
@@ -8325,13 +7443,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -8351,13 +7462,6 @@
                 "value": "subplots"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "subplots",
-              "type": "str"
             },
             "type": ""
           },
@@ -8459,13 +7563,6 @@
                 "value": "dependency_nstd"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "dependency_nstd",
-              "type": "str"
             },
             "type": ""
           },
@@ -8642,13 +7739,6 @@
           },
           {
             "link": {
-              "data": "mu",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -8717,13 +7807,6 @@
                 "value": "scale"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "scale",
-              "type": "str"
             },
             "type": ""
           },
@@ -9040,13 +8123,6 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -9073,13 +8149,6 @@
                 "value": "y"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y",
-              "type": "str"
             },
             "type": ""
           },
@@ -9118,13 +8187,6 @@
                 "value": "get_correlated_dataset"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "get_correlated_dataset",
-              "type": "str"
             },
             "type": ""
           },
@@ -9175,13 +8237,6 @@
           },
           {
             "link": {
-              "data": "dependency_nstd",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -9213,13 +8268,6 @@
           },
           {
             "link": {
-              "data": "mu",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -9246,13 +8294,6 @@
                 "value": "scale"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "scale",
-              "type": "str"
             },
             "type": ""
           },
@@ -9317,13 +8358,6 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -9350,13 +8384,6 @@
                 "value": "y"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y",
-              "type": "str"
             },
             "type": ""
           },
@@ -9435,13 +8462,6 @@
           },
           {
             "link": {
-              "data": "confidence_ellipse",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -9461,13 +8481,6 @@
                 "value": "x"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "x",
-              "type": "str"
             },
             "type": ""
           },
@@ -9499,13 +8512,6 @@
                 "value": "y"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y",
-              "type": "str"
             },
             "type": ""
           },
@@ -9614,13 +8620,6 @@
                 "value": "r"
               },
               "type": "Link"
-            },
-            "type": "sa"
-          },
-          {
-            "link": {
-              "data": "r",
-              "type": "str"
             },
             "type": "sa"
           },
@@ -9741,13 +8740,6 @@
           },
           {
             "link": {
-              "data": "confidence_ellipse",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -9767,13 +8759,6 @@
                 "value": "x"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "x",
-              "type": "str"
             },
             "type": ""
           },
@@ -9805,13 +8790,6 @@
                 "value": "y"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y",
-              "type": "str"
             },
             "type": ""
           },
@@ -9920,13 +8898,6 @@
                 "value": "r"
               },
               "type": "Link"
-            },
-            "type": "sa"
-          },
-          {
-            "link": {
-              "data": "r",
-              "type": "str"
             },
             "type": "sa"
           },
@@ -10096,13 +9067,6 @@
           },
           {
             "link": {
-              "data": "confidence_ellipse",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -10122,13 +9086,6 @@
                 "value": "x"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "x",
-              "type": "str"
             },
             "type": ""
           },
@@ -10160,13 +9117,6 @@
                 "value": "y"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y",
-              "type": "str"
             },
             "type": ""
           },
@@ -10275,13 +9225,6 @@
                 "value": "r"
               },
               "type": "Link"
-            },
-            "type": "sa"
-          },
-          {
-            "link": {
-              "data": "r",
-              "type": "str"
             },
             "type": "sa"
           },
@@ -10486,13 +9429,6 @@
           },
           {
             "link": {
-              "data": "mu",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "[",
               "type": "str"
             },
@@ -10540,13 +9476,6 @@
                 "value": "mu"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "mu",
-              "type": "str"
             },
             "type": ""
           },
@@ -10793,13 +9722,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -10819,13 +9741,6 @@
                 "value": "show"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "show",
-              "type": "str"
             },
             "type": ""
           },
@@ -11037,13 +9952,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -11063,13 +9971,6 @@
                 "value": "subplots"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "subplots",
-              "type": "str"
             },
             "type": ""
           },
@@ -11164,13 +10065,6 @@
                 "value": "dependency_kwargs"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "dependency_kwargs",
-              "type": "str"
             },
             "type": ""
           },
@@ -11354,13 +10248,6 @@
           },
           {
             "link": {
-              "data": "mu",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -11436,13 +10323,6 @@
                 "value": "scale"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "scale",
-              "type": "str"
             },
             "type": ""
           },
@@ -11759,13 +10639,6 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -11792,13 +10665,6 @@
                 "value": "y"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y",
-              "type": "str"
             },
             "type": ""
           },
@@ -11837,13 +10703,6 @@
                 "value": "get_correlated_dataset"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "get_correlated_dataset",
-              "type": "str"
             },
             "type": ""
           },
@@ -11894,13 +10753,6 @@
           },
           {
             "link": {
-              "data": "dependency_kwargs",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -11932,13 +10784,6 @@
           },
           {
             "link": {
-              "data": "mu",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -11965,13 +10810,6 @@
                 "value": "scale"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "scale",
-              "type": "str"
             },
             "type": ""
           },
@@ -12036,13 +10874,6 @@
           },
           {
             "link": {
-              "data": "confidence_ellipse",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -12062,13 +10893,6 @@
                 "value": "x"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "x",
-              "type": "str"
             },
             "type": ""
           },
@@ -12100,13 +10924,6 @@
                 "value": "y"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y",
-              "type": "str"
             },
             "type": ""
           },
@@ -12374,13 +11191,6 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -12407,13 +11217,6 @@
                 "value": "y"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y",
-              "type": "str"
             },
             "type": ""
           },
@@ -12513,13 +11316,6 @@
           },
           {
             "link": {
-              "data": "mu",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "[",
               "type": "str"
             },
@@ -12567,13 +11363,6 @@
                 "value": "mu"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "mu",
-              "type": "str"
             },
             "type": ""
           },
@@ -12848,13 +11637,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -12874,13 +11656,6 @@
                 "value": "show"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "show",
-              "type": "str"
             },
             "type": ""
           },

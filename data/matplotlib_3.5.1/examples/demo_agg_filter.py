@@ -58,13 +58,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -84,13 +77,6 @@
                 "value": "cm"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "cm",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -134,13 +120,6 @@
           },
           {
             "link": {
-              "data": "cm",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -179,13 +158,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -205,13 +177,6 @@
                 "value": "pyplot"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "pyplot",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -255,13 +220,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -300,13 +258,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -326,13 +277,6 @@
                 "value": "transforms"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "transforms",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -376,13 +320,6 @@
           },
           {
             "link": {
-              "data": "mtransforms",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -421,13 +358,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -447,13 +377,6 @@
                 "value": "colors"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "colors",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -497,13 +420,6 @@
           },
           {
             "link": {
-              "data": "LightSource",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -542,13 +458,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -568,13 +477,6 @@
                 "value": "artist"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "artist",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -618,13 +520,6 @@
           },
           {
             "link": {
-              "data": "Artist",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -663,13 +558,6 @@
           },
           {
             "link": {
-              "data": "numpy",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -703,13 +591,6 @@
                 "value": "np"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "np",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -762,13 +643,6 @@
                 "value": "smooth1d"
               },
               "type": "Link"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
-              "data": "smooth1d",
-              "type": "str"
             },
             "type": "nf"
           },
@@ -903,13 +777,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -929,13 +796,6 @@
                 "value": "r_"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "r_",
-              "type": "str"
             },
             "type": ""
           },
@@ -1294,13 +1154,6 @@
           },
           {
             "link": {
-              "data": "w",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -1339,13 +1192,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1365,13 +1211,6 @@
                 "value": "hanning"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "hanning",
-              "type": "str"
             },
             "type": ""
           },
@@ -1429,13 +1268,6 @@
           },
           {
             "link": {
-              "data": "y",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -1474,13 +1306,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1500,13 +1325,6 @@
                 "value": "convolve"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "convolve",
-              "type": "str"
             },
             "type": ""
           },
@@ -1536,13 +1354,6 @@
           },
           {
             "link": {
-              "data": "w",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "/",
               "type": "str"
             },
@@ -1567,13 +1378,6 @@
           },
           {
             "link": {
-              "data": "w",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1593,13 +1397,6 @@
                 "value": "sum"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "sum",
-              "type": "str"
             },
             "type": ""
           },
@@ -1741,13 +1538,6 @@
           },
           {
             "link": {
-              "data": "y",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "[",
               "type": "str"
             },
@@ -1870,13 +1660,6 @@
           },
           {
             "link": {
-              "data": "smooth2d",
-              "type": "str"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -1896,13 +1679,6 @@
                 "value": "A"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "A",
-              "type": "str"
             },
             "type": ""
           },
@@ -1934,13 +1710,6 @@
                 "value": "sigma"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "sigma",
-              "type": "str"
             },
             "type": ""
           },
@@ -2005,13 +1774,6 @@
           },
           {
             "link": {
-              "data": "window_len",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -2050,13 +1812,6 @@
           },
           {
             "link": {
-              "data": "max",
-              "type": "str"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -2081,13 +1836,6 @@
           },
           {
             "link": {
-              "data": "int",
-              "type": "str"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -2107,13 +1855,6 @@
                 "value": "sigma"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "sigma",
-              "type": "str"
             },
             "type": ""
           },
@@ -2241,13 +1982,6 @@
           },
           {
             "link": {
-              "data": "A",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -2286,13 +2020,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2317,13 +2044,6 @@
           },
           {
             "link": {
-              "data": "apply_along_axis",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -2343,13 +2063,6 @@
                 "value": "smooth1d"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "smooth1d",
-              "type": "str"
             },
             "type": ""
           },
@@ -2407,13 +2120,6 @@
           },
           {
             "link": {
-              "data": "A",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -2440,13 +2146,6 @@
                 "value": "window_len"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "window_len",
-              "type": "str"
             },
             "type": ""
           },
@@ -2490,13 +2189,6 @@
           },
           {
             "link": {
-              "data": "A",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -2535,13 +2227,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2566,13 +2251,6 @@
           },
           {
             "link": {
-              "data": "apply_along_axis",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -2592,13 +2270,6 @@
                 "value": "smooth1d"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "smooth1d",
-              "type": "str"
             },
             "type": ""
           },
@@ -2656,13 +2327,6 @@
           },
           {
             "link": {
-              "data": "A",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -2689,13 +2353,6 @@
                 "value": "window_len"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "window_len",
-              "type": "str"
             },
             "type": ""
           },
@@ -2753,13 +2410,6 @@
           },
           {
             "link": {
-              "data": "A",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -2807,13 +2457,6 @@
                 "value": "BaseFilter"
               },
               "type": "Link"
-            },
-            "type": "nc"
-          },
-          {
-            "link": {
-              "data": "BaseFilter",
-              "type": "str"
             },
             "type": "nc"
           },
@@ -2878,13 +2521,6 @@
           },
           {
             "link": {
-              "data": "get_pad",
-              "type": "str"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -2904,13 +2540,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -3038,13 +2667,6 @@
           },
           {
             "link": {
-              "data": "process_image",
-              "type": "str"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -3064,13 +2686,6 @@
                 "value": "padded_src"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "padded_src",
-              "type": "str"
             },
             "type": ""
           },
@@ -3102,13 +2717,6 @@
                 "value": "dpi"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "dpi",
-              "type": "str"
             },
             "type": ""
           },
@@ -3168,13 +2776,6 @@
                 "value": "NotImplementedError"
               },
               "type": "Link"
-            },
-            "type": "ne"
-          },
-          {
-            "link": {
-              "data": "NotImplementedError",
-              "type": "str"
             },
             "type": "ne"
           },
@@ -3267,13 +2868,6 @@
           },
           {
             "link": {
-              "data": "__call__",
-              "type": "str"
-            },
-            "type": "fm"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -3293,13 +2887,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -3392,13 +2979,6 @@
           },
           {
             "link": {
-              "data": "pad",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -3437,13 +3017,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3463,13 +3036,6 @@
                 "value": "get_pad"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "get_pad",
-              "type": "str"
             },
             "type": ""
           },
@@ -3527,13 +3093,6 @@
           },
           {
             "link": {
-              "data": "padded_src",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -3572,13 +3131,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3598,13 +3150,6 @@
                 "value": "pad"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "pad",
-              "type": "str"
             },
             "type": ""
           },
@@ -3669,13 +3214,6 @@
           },
           {
             "link": {
-              "data": "pad",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -3702,13 +3240,6 @@
                 "value": "pad"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "pad",
-              "type": "str"
             },
             "type": ""
           },
@@ -3754,13 +3285,6 @@
                 "value": "pad"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "pad",
-              "type": "str"
             },
             "type": ""
           },
@@ -3958,13 +3482,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3989,13 +3506,6 @@
           },
           {
             "link": {
-              "data": "process_image",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -4015,13 +3525,6 @@
                 "value": "padded_src"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "padded_src",
-              "type": "str"
             },
             "type": ""
           },
@@ -4198,13 +3701,6 @@
           },
           {
             "link": {
-              "data": "OffsetFilter",
-              "type": "str"
-            },
-            "type": "nc"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -4224,13 +3720,6 @@
                 "value": "BaseFilter"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "BaseFilter",
-              "type": "str"
             },
             "type": ""
           },
@@ -4302,13 +3791,6 @@
           },
           {
             "link": {
-              "data": "__init__",
-              "type": "str"
-            },
-            "type": "fm"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -4328,13 +3810,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -4366,13 +3841,6 @@
                 "value": "offsets"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "offsets",
-              "type": "str"
             },
             "type": ""
           },
@@ -4472,13 +3940,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -4498,13 +3959,6 @@
                 "value": "offsets"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "offsets",
-              "type": "str"
             },
             "type": ""
           },
@@ -4543,13 +3997,6 @@
                 "value": "offsets"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "offsets",
-              "type": "str"
             },
             "type": ""
           },
@@ -4607,13 +4054,6 @@
           },
           {
             "link": {
-              "data": "get_pad",
-              "type": "str"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -4633,13 +4073,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -4725,13 +4158,6 @@
           },
           {
             "link": {
-              "data": "int",
-              "type": "str"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -4751,13 +4177,6 @@
                 "value": "max"
               },
               "type": "Link"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
-              "data": "max",
-              "type": "str"
             },
             "type": "nb"
           },
@@ -4787,13 +4206,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -4813,13 +4225,6 @@
                 "value": "offsets"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "offsets",
-              "type": "str"
             },
             "type": ""
           },
@@ -4947,13 +4352,6 @@
           },
           {
             "link": {
-              "data": "process_image",
-              "type": "str"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -4973,13 +4371,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -5072,13 +4463,6 @@
           },
           {
             "link": {
-              "data": "ox",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -5105,13 +4489,6 @@
                 "value": "oy"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "oy",
-              "type": "str"
             },
             "type": ""
           },
@@ -5155,13 +4532,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -5181,13 +4551,6 @@
                 "value": "offsets"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "offsets",
-              "type": "str"
             },
             "type": ""
           },
@@ -5252,13 +4615,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -5278,13 +4634,6 @@
                 "value": "roll"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "roll",
-              "type": "str"
             },
             "type": ""
           },
@@ -5335,13 +4684,6 @@
           },
           {
             "link": {
-              "data": "int",
-              "type": "str"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -5361,13 +4703,6 @@
                 "value": "ox"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "ox",
-              "type": "str"
             },
             "type": ""
           },
@@ -5537,13 +4872,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -5563,13 +4891,6 @@
                 "value": "roll"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "roll",
-              "type": "str"
             },
             "type": ""
           },
@@ -5627,13 +4948,6 @@
           },
           {
             "link": {
-              "data": "int",
-              "type": "str"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -5653,13 +4967,6 @@
                 "value": "oy"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "oy",
-              "type": "str"
             },
             "type": ""
           },
@@ -5857,13 +5164,6 @@
           },
           {
             "link": {
-              "data": "GaussianFilter",
-              "type": "str"
-            },
-            "type": "nc"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -5883,13 +5183,6 @@
                 "value": "BaseFilter"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "BaseFilter",
-              "type": "str"
             },
             "type": ""
           },
@@ -5982,13 +5275,6 @@
           },
           {
             "link": {
-              "data": "__init__",
-              "type": "str"
-            },
-            "type": "fm"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -6008,13 +5294,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -6051,13 +5330,6 @@
           },
           {
             "link": {
-              "data": "sigma",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -6084,13 +5356,6 @@
                 "value": "alpha"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "alpha",
-              "type": "str"
             },
             "type": ""
           },
@@ -6136,13 +5401,6 @@
                 "value": "color"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "color",
-              "type": "str"
             },
             "type": ""
           },
@@ -6263,13 +5521,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -6289,13 +5540,6 @@
                 "value": "sigma"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "sigma",
-              "type": "str"
             },
             "type": ""
           },
@@ -6339,13 +5583,6 @@
           },
           {
             "link": {
-              "data": "sigma",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -6377,13 +5614,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -6403,13 +5633,6 @@
                 "value": "alpha"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "alpha",
-              "type": "str"
             },
             "type": ""
           },
@@ -6453,13 +5676,6 @@
           },
           {
             "link": {
-              "data": "alpha",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -6491,13 +5707,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -6517,13 +5726,6 @@
                 "value": "color"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "color",
-              "type": "str"
             },
             "type": ""
           },
@@ -6562,13 +5764,6 @@
                 "value": "color"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "color",
-              "type": "str"
             },
             "type": ""
           },
@@ -6626,13 +5821,6 @@
           },
           {
             "link": {
-              "data": "get_pad",
-              "type": "str"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -6652,13 +5840,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -6744,13 +5925,6 @@
           },
           {
             "link": {
-              "data": "int",
-              "type": "str"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -6775,13 +5949,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -6801,13 +5968,6 @@
                 "value": "sigma"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "sigma",
-              "type": "str"
             },
             "type": ""
           },
@@ -6942,13 +6102,6 @@
           },
           {
             "link": {
-              "data": "process_image",
-              "type": "str"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -6968,13 +6121,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -7095,13 +6241,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -7121,13 +6260,6 @@
                 "value": "empty_like"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "empty_like",
-              "type": "str"
             },
             "type": ""
           },
@@ -7283,13 +6415,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -7309,13 +6434,6 @@
                 "value": "color"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "color",
-              "type": "str"
             },
             "type": ""
           },
@@ -7443,13 +6561,6 @@
           },
           {
             "link": {
-              "data": "smooth2d",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -7565,13 +6676,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -7591,13 +6695,6 @@
                 "value": "alpha"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "alpha",
-              "type": "str"
             },
             "type": ""
           },
@@ -7641,13 +6738,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -7667,13 +6757,6 @@
                 "value": "sigma"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "sigma",
-              "type": "str"
             },
             "type": ""
           },
@@ -7829,13 +6912,6 @@
           },
           {
             "link": {
-              "data": "DropShadowFilter",
-              "type": "str"
-            },
-            "type": "nc"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -7855,13 +6931,6 @@
                 "value": "BaseFilter"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "BaseFilter",
-              "type": "str"
             },
             "type": ""
           },
@@ -7933,13 +7002,6 @@
           },
           {
             "link": {
-              "data": "__init__",
-              "type": "str"
-            },
-            "type": "fm"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -7959,13 +7021,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -8002,13 +7057,6 @@
           },
           {
             "link": {
-              "data": "sigma",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -8035,13 +7083,6 @@
                 "value": "alpha"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "alpha",
-              "type": "str"
             },
             "type": ""
           },
@@ -8087,13 +7128,6 @@
                 "value": "color"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "color",
-              "type": "str"
             },
             "type": ""
           },
@@ -8195,13 +7229,6 @@
                 "value": "offsets"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "offsets",
-              "type": "str"
             },
             "type": ""
           },
@@ -8301,13 +7328,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -8327,13 +7347,6 @@
                 "value": "gauss_filter"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "gauss_filter",
-              "type": "str"
             },
             "type": ""
           },
@@ -8377,13 +7390,6 @@
           },
           {
             "link": {
-              "data": "GaussianFilter",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -8403,13 +7409,6 @@
                 "value": "sigma"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "sigma",
-              "type": "str"
             },
             "type": ""
           },
@@ -8446,13 +7445,6 @@
           },
           {
             "link": {
-              "data": "alpha",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -8479,13 +7471,6 @@
                 "value": "color"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "color",
-              "type": "str"
             },
             "type": ""
           },
@@ -8529,13 +7514,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -8555,13 +7533,6 @@
                 "value": "offset_filter"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "offset_filter",
-              "type": "str"
             },
             "type": ""
           },
@@ -8605,13 +7576,6 @@
           },
           {
             "link": {
-              "data": "OffsetFilter",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -8631,13 +7595,6 @@
                 "value": "offsets"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "offsets",
-              "type": "str"
             },
             "type": ""
           },
@@ -8702,13 +7659,6 @@
           },
           {
             "link": {
-              "data": "get_pad",
-              "type": "str"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -8728,13 +7678,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -8820,13 +7763,6 @@
           },
           {
             "link": {
-              "data": "max",
-              "type": "str"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -8846,13 +7782,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -8882,13 +7811,6 @@
           },
           {
             "link": {
-              "data": "gauss_filter",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -8908,13 +7830,6 @@
                 "value": "get_pad"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "get_pad",
-              "type": "str"
             },
             "type": ""
           },
@@ -8979,13 +7894,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -9010,13 +7918,6 @@
           },
           {
             "link": {
-              "data": "offset_filter",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -9036,13 +7937,6 @@
                 "value": "get_pad"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "get_pad",
-              "type": "str"
             },
             "type": ""
           },
@@ -9128,13 +8022,6 @@
           },
           {
             "link": {
-              "data": "process_image",
-              "type": "str"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -9154,13 +8041,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -9281,13 +8161,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -9312,13 +8185,6 @@
           },
           {
             "link": {
-              "data": "gauss_filter",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -9338,13 +8204,6 @@
                 "value": "process_image"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "process_image",
-              "type": "str"
             },
             "type": ""
           },
@@ -9451,13 +8310,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -9482,13 +8334,6 @@
           },
           {
             "link": {
-              "data": "offset_filter",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -9508,13 +8353,6 @@
                 "value": "process_image"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "process_image",
-              "type": "str"
             },
             "type": ""
           },
@@ -9649,13 +8487,6 @@
           },
           {
             "link": {
-              "data": "LightFilter",
-              "type": "str"
-            },
-            "type": "nc"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -9675,13 +8506,6 @@
                 "value": "BaseFilter"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "BaseFilter",
-              "type": "str"
             },
             "type": ""
           },
@@ -9753,13 +8577,6 @@
           },
           {
             "link": {
-              "data": "__init__",
-              "type": "str"
-            },
-            "type": "fm"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -9779,13 +8596,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -9822,13 +8632,6 @@
           },
           {
             "link": {
-              "data": "sigma",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -9855,13 +8658,6 @@
                 "value": "fraction"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "fraction",
-              "type": "str"
             },
             "type": ""
           },
@@ -9926,13 +8722,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -9952,13 +8741,6 @@
                 "value": "gauss_filter"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "gauss_filter",
-              "type": "str"
             },
             "type": ""
           },
@@ -10002,13 +8784,6 @@
           },
           {
             "link": {
-              "data": "GaussianFilter",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -10028,13 +8803,6 @@
                 "value": "sigma"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "sigma",
-              "type": "str"
             },
             "type": ""
           },
@@ -10113,13 +8881,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -10139,13 +8900,6 @@
                 "value": "light_source"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "light_source",
-              "type": "str"
             },
             "type": ""
           },
@@ -10184,13 +8938,6 @@
                 "value": "LightSource"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "LightSource",
-              "type": "str"
             },
             "type": ""
           },
@@ -10241,13 +8988,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -10267,13 +9007,6 @@
                 "value": "fraction"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "fraction",
-              "type": "str"
             },
             "type": ""
           },
@@ -10312,13 +9045,6 @@
                 "value": "fraction"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "fraction",
-              "type": "str"
             },
             "type": ""
           },
@@ -10376,13 +9102,6 @@
           },
           {
             "link": {
-              "data": "get_pad",
-              "type": "str"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -10402,13 +9121,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -10494,13 +9206,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -10525,13 +9230,6 @@
           },
           {
             "link": {
-              "data": "gauss_filter",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -10551,13 +9249,6 @@
                 "value": "get_pad"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "get_pad",
-              "type": "str"
             },
             "type": ""
           },
@@ -10636,13 +9327,6 @@
           },
           {
             "link": {
-              "data": "process_image",
-              "type": "str"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -10662,13 +9346,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -10789,13 +9466,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -10820,13 +9490,6 @@
           },
           {
             "link": {
-              "data": "gauss_filter",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -10846,13 +9509,6 @@
                 "value": "process_image"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "process_image",
-              "type": "str"
             },
             "type": ""
           },
@@ -11309,13 +9965,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -11340,13 +9989,6 @@
           },
           {
             "link": {
-              "data": "light_source",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -11366,13 +10008,6 @@
                 "value": "shade_rgb"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "shade_rgb",
-              "type": "str"
             },
             "type": ""
           },
@@ -11465,13 +10100,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -11491,13 +10119,6 @@
                 "value": "fraction"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "fraction",
-              "type": "str"
             },
             "type": ""
           },
@@ -11555,13 +10176,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -11581,13 +10195,6 @@
                 "value": "concatenate"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "concatenate",
-              "type": "str"
             },
             "type": ""
           },
@@ -11729,13 +10336,6 @@
           },
           {
             "link": {
-              "data": "GrowFilter",
-              "type": "str"
-            },
-            "type": "nc"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -11755,13 +10355,6 @@
                 "value": "BaseFilter"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "BaseFilter",
-              "type": "str"
             },
             "type": ""
           },
@@ -11854,13 +10447,6 @@
           },
           {
             "link": {
-              "data": "__init__",
-              "type": "str"
-            },
-            "type": "fm"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -11880,13 +10466,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -11923,13 +10502,6 @@
           },
           {
             "link": {
-              "data": "pixels",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -11956,13 +10528,6 @@
                 "value": "color"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "color",
-              "type": "str"
             },
             "type": ""
           },
@@ -12083,13 +10648,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -12109,13 +10667,6 @@
                 "value": "pixels"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "pixels",
-              "type": "str"
             },
             "type": ""
           },
@@ -12154,13 +10705,6 @@
                 "value": "pixels"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "pixels",
-              "type": "str"
             },
             "type": ""
           },
@@ -12197,13 +10741,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -12223,13 +10760,6 @@
                 "value": "color"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "color",
-              "type": "str"
             },
             "type": ""
           },
@@ -12268,13 +10798,6 @@
                 "value": "color"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "color",
-              "type": "str"
             },
             "type": ""
           },
@@ -12332,13 +10855,6 @@
           },
           {
             "link": {
-              "data": "__call__",
-              "type": "str"
-            },
-            "type": "fm"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -12358,13 +10874,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -12485,13 +10994,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -12511,13 +11013,6 @@
                 "value": "pad"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "pad",
-              "type": "str"
             },
             "type": ""
           },
@@ -12624,13 +11119,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -12650,13 +11138,6 @@
                 "value": "pixels"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "pixels",
-              "type": "str"
             },
             "type": ""
           },
@@ -12763,13 +11244,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -12794,13 +11268,6 @@
           },
           {
             "link": {
-              "data": "clip",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -12820,13 +11287,6 @@
                 "value": "smooth2d"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "smooth2d",
-              "type": "str"
             },
             "type": ""
           },
@@ -12877,13 +11337,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -12903,13 +11356,6 @@
                 "value": "pixels"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "pixels",
-              "type": "str"
             },
             "type": ""
           },
@@ -13114,13 +11560,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -13140,13 +11579,6 @@
                 "value": "empty"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "empty",
-              "type": "str"
             },
             "type": ""
           },
@@ -13358,13 +11790,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -13384,13 +11809,6 @@
                 "value": "color"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "color",
-              "type": "str"
             },
             "type": ""
           },
@@ -13539,13 +11957,6 @@
           },
           {
             "link": {
-              "data": "offsetx",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -13572,13 +11983,6 @@
                 "value": "offsety"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "offsety",
-              "type": "str"
             },
             "type": ""
           },
@@ -13629,13 +12033,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -13655,13 +12052,6 @@
                 "value": "pixels"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "pixels",
-              "type": "str"
             },
             "type": ""
           },
@@ -13705,13 +12095,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -13731,13 +12114,6 @@
                 "value": "pixels"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "pixels",
-              "type": "str"
             },
             "type": ""
           },
@@ -13809,13 +12185,6 @@
           },
           {
             "link": {
-              "data": "offsetx",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -13842,13 +12211,6 @@
                 "value": "offsety"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "offsety",
-              "type": "str"
             },
             "type": ""
           },
@@ -13906,13 +12268,6 @@
           },
           {
             "link": {
-              "data": "FilteredArtistList",
-              "type": "str"
-            },
-            "type": "nc"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -13932,13 +12287,6 @@
                 "value": "Artist"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "Artist",
-              "type": "str"
             },
             "type": ""
           },
@@ -14031,13 +12379,6 @@
           },
           {
             "link": {
-              "data": "__init__",
-              "type": "str"
-            },
-            "type": "fm"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -14057,13 +12398,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -14121,13 +12455,6 @@
           },
           {
             "link": {
-              "data": "filter",
-              "type": "str"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -14173,13 +12500,6 @@
           },
           {
             "link": {
-              "data": "super",
-              "type": "str"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -14213,13 +12533,6 @@
                 "value": "__init__"
               },
               "type": "Link"
-            },
-            "type": "fm"
-          },
-          {
-            "link": {
-              "data": "__init__",
-              "type": "str"
             },
             "type": "fm"
           },
@@ -14265,13 +12578,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -14350,13 +12656,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -14376,13 +12675,6 @@
                 "value": "_filter"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "_filter",
-              "type": "str"
             },
             "type": ""
           },
@@ -14421,13 +12713,6 @@
                 "value": "filter"
               },
               "type": "Link"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
-              "data": "filter",
-              "type": "str"
             },
             "type": "nb"
           },
@@ -14485,13 +12770,6 @@
           },
           {
             "link": {
-              "data": "draw",
-              "type": "str"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -14511,13 +12789,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -14729,13 +13000,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -14872,13 +13136,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -14898,13 +13155,6 @@
                 "value": "_filter"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "_filter",
-              "type": "str"
             },
             "type": ""
           },
@@ -15018,13 +13268,6 @@
           },
           {
             "link": {
-              "data": "filtered_text",
-              "type": "str"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -15133,13 +13376,6 @@
           },
           {
             "link": {
-              "data": "delta",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -15227,13 +13463,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -15253,13 +13482,6 @@
                 "value": "arange"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "arange",
-              "type": "str"
             },
             "type": ""
           },
@@ -15333,13 +13555,6 @@
                 "value": "delta"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "delta",
-              "type": "str"
             },
             "type": ""
           },
@@ -15411,13 +13626,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -15437,13 +13645,6 @@
                 "value": "arange"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "arange",
-              "type": "str"
             },
             "type": ""
           },
@@ -15517,13 +13718,6 @@
                 "value": "delta"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "delta",
-              "type": "str"
             },
             "type": ""
           },
@@ -15616,13 +13810,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -15642,13 +13829,6 @@
                 "value": "meshgrid"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "meshgrid",
-              "type": "str"
             },
             "type": ""
           },
@@ -15755,13 +13935,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -15781,13 +13954,6 @@
                 "value": "exp"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "exp",
-              "type": "str"
             },
             "type": ""
           },
@@ -15950,13 +14116,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -15976,13 +14135,6 @@
                 "value": "exp"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "exp",
-              "type": "str"
             },
             "type": ""
           },
@@ -16196,13 +14348,6 @@
                 "value": "Z"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "Z",
-              "type": "str"
             },
             "type": ""
           },
@@ -16393,13 +14538,6 @@
           },
           {
             "link": {
-              "data": "Z",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -16545,13 +14683,6 @@
                 "value": "cm"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "cm",
-              "type": "str"
             },
             "type": ""
           },
@@ -16812,13 +14943,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -16838,13 +14962,6 @@
                 "value": "arange"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "arange",
-              "type": "str"
             },
             "type": ""
           },
@@ -17002,13 +15119,6 @@
                 "value": "Z"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "Z",
-              "type": "str"
             },
             "type": ""
           },
@@ -17675,13 +15785,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -17701,13 +15804,6 @@
                 "value": "patheffects"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "patheffects",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -17746,13 +15842,6 @@
                 "value": "Normal"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "Normal",
-              "type": "str"
             },
             "type": ""
           },
@@ -17985,13 +16074,6 @@
           },
           {
             "link": {
-              "data": "Normal",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -18079,13 +16161,6 @@
           },
           {
             "link": {
-              "data": "white_glows",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -18119,13 +16194,6 @@
                 "value": "FilteredArtistList"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "FilteredArtistList",
-              "type": "str"
             },
             "type": ""
           },
@@ -18171,13 +16239,6 @@
                 "value": "GrowFilter"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "GrowFilter",
-              "type": "str"
             },
             "type": ""
           },
@@ -18270,13 +16331,6 @@
           },
           {
             "link": {
-              "data": "white_glows",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -18315,13 +16369,6 @@
           },
           {
             "link": {
-              "data": "white_glows",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -18341,13 +16388,6 @@
                 "value": "set_zorder"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "set_zorder",
-              "type": "str"
             },
             "type": ""
           },
@@ -18531,13 +16571,6 @@
           },
           {
             "link": {
-              "data": "False",
-              "type": "str"
-            },
-            "type": "kc"
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -18618,13 +16651,6 @@
           },
           {
             "link": {
-              "data": "False",
-              "type": "str"
-            },
-            "type": "kc"
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -18679,13 +16705,6 @@
                 "value": "drop_shadow_line"
               },
               "type": "Link"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
-              "data": "drop_shadow_line",
-              "type": "str"
             },
             "type": "nf"
           },
@@ -19324,13 +17343,6 @@
           },
           {
             "link": {
-              "data": "gauss",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -19364,13 +17376,6 @@
                 "value": "DropShadowFilter"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "DropShadowFilter",
-              "type": "str"
             },
             "type": ""
           },
@@ -19946,13 +17951,6 @@
           },
           {
             "link": {
-              "data": "mtransforms",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -19972,13 +17970,6 @@
                 "value": "offset_copy"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "offset_copy",
-              "type": "str"
             },
             "type": ""
           },
@@ -20484,13 +18475,6 @@
           },
           {
             "link": {
-              "data": "gauss",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -20552,13 +18536,6 @@
                 "value": "True"
               },
               "type": "Link"
-            },
-            "type": "kc"
-          },
-          {
-            "link": {
-              "data": "True",
-              "type": "str"
             },
             "type": "kc"
           },
@@ -20826,13 +18803,6 @@
           },
           {
             "link": {
-              "data": "False",
-              "type": "str"
-            },
-            "type": "kc"
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -20913,13 +18883,6 @@
           },
           {
             "link": {
-              "data": "False",
-              "type": "str"
-            },
-            "type": "kc"
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -20974,13 +18937,6 @@
                 "value": "drop_shadow_patches"
               },
               "type": "Link"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
-              "data": "drop_shadow_patches",
-              "type": "str"
             },
             "type": "nf"
           },
@@ -21066,13 +19022,6 @@
           },
           {
             "link": {
-              "data": "N",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -21127,13 +19076,6 @@
                 "value": "men_means"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "men_means",
-              "type": "str"
             },
             "type": ""
           },
@@ -21331,13 +19273,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -21362,13 +19297,6 @@
           },
           {
             "link": {
-              "data": "arange",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -21388,13 +19316,6 @@
                 "value": "N"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "N",
-              "type": "str"
             },
             "type": ""
           },
@@ -21447,13 +19368,6 @@
                 "value": "width"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "width",
-              "type": "str"
             },
             "type": ""
           },
@@ -21616,13 +19530,6 @@
           },
           {
             "link": {
-              "data": "men_means",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -21649,13 +19556,6 @@
                 "value": "width"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "width",
-              "type": "str"
             },
             "type": ""
           },
@@ -21834,13 +19734,6 @@
                 "value": "women_means"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "women_means",
-              "type": "str"
             },
             "type": ""
           },
@@ -22087,13 +19980,6 @@
           },
           {
             "link": {
-              "data": "width",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -22153,13 +20039,6 @@
           },
           {
             "link": {
-              "data": "women_means",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -22186,13 +20065,6 @@
                 "value": "width"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "width",
-              "type": "str"
             },
             "type": ""
           },
@@ -22404,13 +20276,6 @@
           },
           {
             "link": {
-              "data": "gauss",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -22444,13 +20309,6 @@
                 "value": "DropShadowFilter"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "DropShadowFilter",
-              "type": "str"
             },
             "type": ""
           },
@@ -22578,13 +20436,6 @@
           },
           {
             "link": {
-              "data": "shadow",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -22618,13 +20469,6 @@
                 "value": "FilteredArtistList"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "FilteredArtistList",
-              "type": "str"
             },
             "type": ""
           },
@@ -22703,13 +20547,6 @@
           },
           {
             "link": {
-              "data": "gauss",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -22776,13 +20613,6 @@
           },
           {
             "link": {
-              "data": "shadow",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -22821,13 +20651,6 @@
           },
           {
             "link": {
-              "data": "shadow",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -22847,13 +20670,6 @@
                 "value": "set_zorder"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "set_zorder",
-              "type": "str"
             },
             "type": ""
           },
@@ -23121,13 +20937,6 @@
           },
           {
             "link": {
-              "data": "False",
-              "type": "str"
-            },
-            "type": "kc"
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -23208,13 +21017,6 @@
           },
           {
             "link": {
-              "data": "False",
-              "type": "str"
-            },
-            "type": "kc"
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -23274,13 +21076,6 @@
           },
           {
             "link": {
-              "data": "light_filter_pie",
-              "type": "str"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -23335,13 +21130,6 @@
                 "value": "fracs"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "fracs",
-              "type": "str"
             },
             "type": ""
           },
@@ -23478,13 +21266,6 @@
                 "value": "explode"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "explode",
-              "type": "str"
             },
             "type": ""
           },
@@ -23682,13 +21463,6 @@
           },
           {
             "link": {
-              "data": "fracs",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -23720,13 +21494,6 @@
           },
           {
             "link": {
-              "data": "explode",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -23746,13 +21513,6 @@
                 "value": "explode"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "explode",
-              "type": "str"
             },
             "type": ""
           },
@@ -23803,13 +21563,6 @@
           },
           {
             "link": {
-              "data": "light_filter",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -23843,13 +21596,6 @@
                 "value": "LightFilter"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "LightFilter",
-              "type": "str"
             },
             "type": ""
           },
@@ -24026,13 +21772,6 @@
           },
           {
             "link": {
-              "data": "light_filter",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -24094,13 +21833,6 @@
                 "value": "True"
               },
               "type": "Link"
-            },
-            "type": "kc"
-          },
-          {
-            "link": {
-              "data": "True",
-              "type": "str"
             },
             "type": "kc"
           },
@@ -24291,13 +22023,6 @@
           },
           {
             "link": {
-              "data": "gauss",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -24331,13 +22056,6 @@
                 "value": "DropShadowFilter"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "DropShadowFilter",
-              "type": "str"
             },
             "type": ""
           },
@@ -24500,13 +22218,6 @@
           },
           {
             "link": {
-              "data": "shadow",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -24540,13 +22251,6 @@
                 "value": "FilteredArtistList"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "FilteredArtistList",
-              "type": "str"
             },
             "type": ""
           },
@@ -24618,13 +22322,6 @@
           },
           {
             "link": {
-              "data": "gauss",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -24691,13 +22388,6 @@
           },
           {
             "link": {
-              "data": "shadow",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -24736,13 +22426,6 @@
           },
           {
             "link": {
-              "data": "shadow",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -24762,13 +22445,6 @@
                 "value": "set_zorder"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "set_zorder",
-              "type": "str"
             },
             "type": ""
           },
@@ -24945,13 +22621,6 @@
           },
           {
             "link": {
-              "data": "__name__",
-              "type": "str"
-            },
-            "type": "vm"
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -25088,13 +22757,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -25114,13 +22776,6 @@
                 "value": "subplots"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "subplots",
-              "type": "str"
             },
             "type": ""
           },
@@ -25201,13 +22856,6 @@
                 "value": "filtered_text"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "filtered_text",
-              "type": "str"
             },
             "type": ""
           },
@@ -25307,13 +22955,6 @@
           },
           {
             "link": {
-              "data": "drop_shadow_line",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -25408,13 +23049,6 @@
           },
           {
             "link": {
-              "data": "drop_shadow_patches",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -25504,13 +23138,6 @@
                 "value": "light_filter_pie"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "light_filter_pie",
-              "type": "str"
             },
             "type": ""
           },
@@ -25680,13 +23307,6 @@
           },
           {
             "link": {
-              "data": "True",
-              "type": "str"
-            },
-            "type": "kc"
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -25732,13 +23352,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -25758,13 +23371,6 @@
                 "value": "show"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "show",
-              "type": "str"
             },
             "type": ""
           },

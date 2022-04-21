@@ -51,13 +51,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -77,13 +70,6 @@
                 "value": "pyplot"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "pyplot",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -127,13 +113,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -172,13 +151,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -198,13 +170,6 @@
                 "value": "tri"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "tri",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -248,13 +213,6 @@
           },
           {
             "link": {
-              "data": "mtri",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -293,13 +251,6 @@
           },
           {
             "link": {
-              "data": "numpy",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -333,13 +284,6 @@
                 "value": "np"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "np",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -390,13 +334,6 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -435,13 +372,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -461,13 +391,6 @@
                 "value": "asarray"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "asarray",
-              "type": "str"
             },
             "type": ""
           },
@@ -721,13 +644,6 @@
           },
           {
             "link": {
-              "data": "y",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -766,13 +682,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -792,13 +701,6 @@
                 "value": "asarray"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "asarray",
-              "type": "str"
             },
             "type": ""
           },
@@ -1047,13 +949,6 @@
                 "value": "triangles"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "triangles",
-              "type": "str"
             },
             "type": ""
           },
@@ -1804,13 +1699,6 @@
           },
           {
             "link": {
-              "data": "triang",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -1849,13 +1737,6 @@
           },
           {
             "link": {
-              "data": "mtri",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1880,13 +1761,6 @@
           },
           {
             "link": {
-              "data": "Triangulation",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -1906,13 +1780,6 @@
                 "value": "x"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "x",
-              "type": "str"
             },
             "type": ""
           },
@@ -1949,13 +1816,6 @@
           },
           {
             "link": {
-              "data": "y",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -1982,13 +1842,6 @@
                 "value": "triangles"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "triangles",
-              "type": "str"
             },
             "type": ""
           },
@@ -2074,13 +1927,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2100,13 +1946,6 @@
                 "value": "cos"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "cos",
-              "type": "str"
             },
             "type": ""
           },
@@ -2164,13 +2003,6 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -2216,13 +2048,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2242,13 +2067,6 @@
                 "value": "cos"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "cos",
-              "type": "str"
             },
             "type": ""
           },
@@ -2306,13 +2124,6 @@
           },
           {
             "link": {
-              "data": "y",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -2339,13 +2150,6 @@
                 "value": "xi"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "xi",
-              "type": "str"
             },
             "type": ""
           },
@@ -2410,13 +2214,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2436,13 +2233,6 @@
                 "value": "meshgrid"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "meshgrid",
-              "type": "str"
             },
             "type": ""
           },
@@ -2472,13 +2262,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2498,13 +2281,6 @@
                 "value": "linspace"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "linspace",
-              "type": "str"
             },
             "type": ""
           },
@@ -2604,13 +2380,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2630,13 +2399,6 @@
                 "value": "linspace"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "linspace",
-              "type": "str"
             },
             "type": ""
           },
@@ -2743,13 +2505,6 @@
           },
           {
             "link": {
-              "data": "interp_lin",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -2788,13 +2543,6 @@
           },
           {
             "link": {
-              "data": "mtri",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2819,13 +2567,6 @@
           },
           {
             "link": {
-              "data": "LinearTriInterpolator",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -2845,13 +2586,6 @@
                 "value": "triang"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "triang",
-              "type": "str"
             },
             "type": ""
           },
@@ -2937,13 +2671,6 @@
           },
           {
             "link": {
-              "data": "interp_lin",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -2963,13 +2690,6 @@
                 "value": "xi"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "xi",
-              "type": "str"
             },
             "type": ""
           },
@@ -3034,13 +2754,6 @@
           },
           {
             "link": {
-              "data": "interp_cubic_geom",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -3079,13 +2792,6 @@
           },
           {
             "link": {
-              "data": "mtri",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3110,13 +2816,6 @@
           },
           {
             "link": {
-              "data": "CubicTriInterpolator",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -3136,13 +2835,6 @@
                 "value": "triang"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "triang",
-              "type": "str"
             },
             "type": ""
           },
@@ -3277,13 +2969,6 @@
           },
           {
             "link": {
-              "data": "interp_cubic_geom",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -3303,13 +2988,6 @@
                 "value": "xi"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "xi",
-              "type": "str"
             },
             "type": ""
           },
@@ -3374,13 +3052,6 @@
           },
           {
             "link": {
-              "data": "interp_cubic_min_E",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -3419,13 +3090,6 @@
           },
           {
             "link": {
-              "data": "mtri",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3450,13 +3114,6 @@
           },
           {
             "link": {
-              "data": "CubicTriInterpolator",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -3476,13 +3133,6 @@
                 "value": "triang"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "triang",
-              "type": "str"
             },
             "type": ""
           },
@@ -3617,13 +3267,6 @@
           },
           {
             "link": {
-              "data": "interp_cubic_min_E",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -3643,13 +3286,6 @@
                 "value": "xi"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "xi",
-              "type": "str"
             },
             "type": ""
           },
@@ -3728,13 +3364,6 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -3794,13 +3423,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3820,13 +3442,6 @@
                 "value": "subplots"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "subplots",
-              "type": "str"
             },
             "type": ""
           },
@@ -4066,13 +3681,6 @@
           },
           {
             "link": {
-              "data": "triang",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -4169,13 +3777,6 @@
                 "value": "triang"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "triang",
-              "type": "str"
             },
             "type": ""
           },
@@ -4401,13 +4002,6 @@
           },
           {
             "link": {
-              "data": "xi",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -4525,13 +4119,6 @@
                 "value": "xi"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "xi",
-              "type": "str"
             },
             "type": ""
           },
@@ -4743,13 +4330,6 @@
           },
           {
             "link": {
-              "data": "xi",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -4769,13 +4349,6 @@
                 "value": "T"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "T",
-              "type": "str"
             },
             "type": ""
           },
@@ -5106,13 +4679,6 @@
           },
           {
             "link": {
-              "data": "xi",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -5230,13 +4796,6 @@
                 "value": "xi"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "xi",
-              "type": "str"
             },
             "type": ""
           },
@@ -5448,13 +5007,6 @@
           },
           {
             "link": {
-              "data": "xi",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -5474,13 +5026,6 @@
                 "value": "T"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "T",
-              "type": "str"
             },
             "type": ""
           },
@@ -6455,13 +6000,6 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -6514,13 +6052,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -6540,13 +6071,6 @@
                 "value": "show"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "show",
-              "type": "str"
             },
             "type": ""
           },

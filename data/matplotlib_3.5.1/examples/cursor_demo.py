@@ -58,13 +58,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -84,13 +77,6 @@
                 "value": "pyplot"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "pyplot",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -134,13 +120,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -179,13 +158,6 @@
           },
           {
             "link": {
-              "data": "numpy",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -219,13 +191,6 @@
                 "value": "np"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "np",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -278,13 +243,6 @@
                 "value": "Cursor"
               },
               "type": "Link"
-            },
-            "type": "nc"
-          },
-          {
-            "link": {
-              "data": "Cursor",
-              "type": "str"
             },
             "type": "nc"
           },
@@ -363,13 +321,6 @@
           },
           {
             "link": {
-              "data": "__init__",
-              "type": "str"
-            },
-            "type": "fm"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -389,13 +340,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -462,13 +406,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -542,13 +479,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -769,13 +699,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -1022,13 +945,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1256,13 +1172,6 @@
           },
           {
             "link": {
-              "data": "set_cross_hair_visible",
-              "type": "str"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -1282,13 +1191,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -1320,13 +1222,6 @@
                 "value": "visible"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "visible",
-              "type": "str"
             },
             "type": ""
           },
@@ -1377,13 +1272,6 @@
           },
           {
             "link": {
-              "data": "need_redraw",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -1417,13 +1305,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -1509,13 +1390,6 @@
           },
           {
             "link": {
-              "data": "visible",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -1542,13 +1416,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -1606,13 +1473,6 @@
           },
           {
             "link": {
-              "data": "visible",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -1646,13 +1506,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -1710,13 +1563,6 @@
           },
           {
             "link": {
-              "data": "visible",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -1750,13 +1596,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -1814,13 +1653,6 @@
           },
           {
             "link": {
-              "data": "visible",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -1868,13 +1700,6 @@
                 "value": "need_redraw"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "need_redraw",
-              "type": "str"
             },
             "type": ""
           },
@@ -1932,13 +1757,6 @@
           },
           {
             "link": {
-              "data": "on_mouse_move",
-              "type": "str"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -1958,13 +1776,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -2106,13 +1917,6 @@
           },
           {
             "link": {
-              "data": "need_redraw",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -2151,13 +1955,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2182,13 +1979,6 @@
           },
           {
             "link": {
-              "data": "set_cross_hair_visible",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -2208,13 +1998,6 @@
                 "value": "False"
               },
               "type": "Link"
-            },
-            "type": "kc"
-          },
-          {
-            "link": {
-              "data": "False",
-              "type": "str"
             },
             "type": "kc"
           },
@@ -2272,13 +2055,6 @@
           },
           {
             "link": {
-              "data": "need_redraw",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ":",
               "type": "str"
             },
@@ -2312,13 +2088,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -2453,13 +2222,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2484,13 +2246,6 @@
           },
           {
             "link": {
-              "data": "set_cross_hair_visible",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -2510,13 +2265,6 @@
                 "value": "True"
               },
               "type": "Link"
-            },
-            "type": "kc"
-          },
-          {
-            "link": {
-              "data": "True",
-              "type": "str"
             },
             "type": "kc"
           },
@@ -2700,13 +2448,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2787,13 +2528,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2869,13 +2603,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -3059,13 +2786,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3174,13 +2894,6 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -3219,13 +2932,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3245,13 +2951,6 @@
                 "value": "arange"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "arange",
-              "type": "str"
             },
             "type": ""
           },
@@ -3372,13 +3071,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3398,13 +3090,6 @@
                 "value": "sin"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "sin",
-              "type": "str"
             },
             "type": ""
           },
@@ -3490,13 +3175,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3549,13 +3227,6 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -3589,13 +3260,6 @@
                 "value": "fig"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "fig",
-              "type": "str"
             },
             "type": ""
           },
@@ -3660,13 +3324,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3686,13 +3343,6 @@
                 "value": "subplots"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "subplots",
-              "type": "str"
             },
             "type": ""
           },
@@ -3827,13 +3477,6 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -3921,13 +3564,6 @@
           },
           {
             "link": {
-              "data": "cursor",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -3961,13 +3597,6 @@
                 "value": "Cursor"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "Cursor",
-              "type": "str"
             },
             "type": ""
           },
@@ -4013,13 +3642,6 @@
                 "value": "fig"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "fig",
-              "type": "str"
             },
             "type": ""
           },
@@ -4112,13 +3734,6 @@
           },
           {
             "link": {
-              "data": "cursor",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -4138,13 +3753,6 @@
                 "value": "on_mouse_move"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "on_mouse_move",
-              "type": "str"
             },
             "type": ""
           },
@@ -4384,13 +3992,6 @@
           },
           {
             "link": {
-              "data": "BlittedCursor",
-              "type": "str"
-            },
-            "type": "nc"
-          },
-          {
-            "link": {
               "data": ":",
               "type": "str"
             },
@@ -4464,13 +4065,6 @@
           },
           {
             "link": {
-              "data": "__init__",
-              "type": "str"
-            },
-            "type": "fm"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -4490,13 +4084,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -4568,13 +4155,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -4648,13 +4228,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -4674,13 +4247,6 @@
                 "value": "background"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "background",
-              "type": "str"
             },
             "type": ""
           },
@@ -4740,13 +4306,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -4967,13 +4526,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -5220,13 +4772,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -5433,13 +4978,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -5459,13 +4997,6 @@
                 "value": "_creating_background"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "_creating_background",
-              "type": "str"
             },
             "type": ""
           },
@@ -5621,13 +5152,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -5647,13 +5171,6 @@
                 "value": "on_draw"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "on_draw",
-              "type": "str"
             },
             "type": ""
           },
@@ -5718,13 +5235,6 @@
           },
           {
             "link": {
-              "data": "on_draw",
-              "type": "str"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -5744,13 +5254,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -5822,13 +5325,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -5848,13 +5344,6 @@
                 "value": "create_new_background"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "create_new_background",
-              "type": "str"
             },
             "type": ""
           },
@@ -5926,13 +5415,6 @@
           },
           {
             "link": {
-              "data": "set_cross_hair_visible",
-              "type": "str"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -5952,13 +5434,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -5990,13 +5465,6 @@
                 "value": "visible"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "visible",
-              "type": "str"
             },
             "type": ""
           },
@@ -6047,13 +5515,6 @@
           },
           {
             "link": {
-              "data": "need_redraw",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -6087,13 +5548,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -6179,13 +5633,6 @@
           },
           {
             "link": {
-              "data": "visible",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -6212,13 +5659,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -6276,13 +5716,6 @@
           },
           {
             "link": {
-              "data": "visible",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -6316,13 +5749,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -6380,13 +5806,6 @@
           },
           {
             "link": {
-              "data": "visible",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -6420,13 +5839,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -6484,13 +5896,6 @@
           },
           {
             "link": {
-              "data": "visible",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -6538,13 +5943,6 @@
                 "value": "need_redraw"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "need_redraw",
-              "type": "str"
             },
             "type": ""
           },
@@ -6602,13 +6000,6 @@
           },
           {
             "link": {
-              "data": "create_new_background",
-              "type": "str"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -6628,13 +6019,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -6699,13 +6083,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -6725,13 +6102,6 @@
                 "value": "_creating_background"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "_creating_background",
-              "type": "str"
             },
             "type": ""
           },
@@ -6817,13 +6187,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -6843,13 +6206,6 @@
                 "value": "_creating_background"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "_creating_background",
-              "type": "str"
             },
             "type": ""
           },
@@ -6914,13 +6270,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -6945,13 +6294,6 @@
           },
           {
             "link": {
-              "data": "set_cross_hair_visible",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -6971,13 +6313,6 @@
                 "value": "False"
               },
               "type": "Link"
-            },
-            "type": "kc"
-          },
-          {
-            "link": {
-              "data": "False",
-              "type": "str"
             },
             "type": "kc"
           },
@@ -7016,13 +6351,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -7129,13 +6457,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -7155,13 +6476,6 @@
                 "value": "background"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "background",
-              "type": "str"
             },
             "type": ""
           },
@@ -7200,13 +6514,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -7292,13 +6599,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -7365,13 +6665,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -7396,13 +6689,6 @@
           },
           {
             "link": {
-              "data": "set_cross_hair_visible",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -7422,13 +6708,6 @@
                 "value": "True"
               },
               "type": "Link"
-            },
-            "type": "kc"
-          },
-          {
-            "link": {
-              "data": "True",
-              "type": "str"
             },
             "type": "kc"
           },
@@ -7472,13 +6751,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -7498,13 +6770,6 @@
                 "value": "_creating_background"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "_creating_background",
-              "type": "str"
             },
             "type": ""
           },
@@ -7590,13 +6855,6 @@
           },
           {
             "link": {
-              "data": "on_mouse_move",
-              "type": "str"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -7616,13 +6874,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -7708,13 +6959,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -7734,13 +6978,6 @@
                 "value": "background"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "background",
-              "type": "str"
             },
             "type": ""
           },
@@ -7812,13 +7049,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -7838,13 +7068,6 @@
                 "value": "create_new_background"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "create_new_background",
-              "type": "str"
             },
             "type": ""
           },
@@ -7965,13 +7188,6 @@
           },
           {
             "link": {
-              "data": "need_redraw",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -8010,13 +7226,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -8041,13 +7250,6 @@
           },
           {
             "link": {
-              "data": "set_cross_hair_visible",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -8067,13 +7269,6 @@
                 "value": "False"
               },
               "type": "Link"
-            },
-            "type": "kc"
-          },
-          {
-            "link": {
-              "data": "False",
-              "type": "str"
             },
             "type": "kc"
           },
@@ -8131,13 +7326,6 @@
           },
           {
             "link": {
-              "data": "need_redraw",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ":",
               "type": "str"
             },
@@ -8171,13 +7359,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -8263,13 +7444,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -8289,13 +7463,6 @@
                 "value": "background"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "background",
-              "type": "str"
             },
             "type": ""
           },
@@ -8334,13 +7501,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -8421,13 +7581,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -8527,13 +7680,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -8558,13 +7704,6 @@
           },
           {
             "link": {
-              "data": "set_cross_hair_visible",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -8584,13 +7723,6 @@
                 "value": "True"
               },
               "type": "Link"
-            },
-            "type": "kc"
-          },
-          {
-            "link": {
-              "data": "True",
-              "type": "str"
             },
             "type": "kc"
           },
@@ -8774,13 +7906,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -8861,13 +7986,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -8943,13 +8061,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -9140,13 +8251,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -9227,13 +8331,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -9253,13 +8350,6 @@
                 "value": "background"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "background",
-              "type": "str"
             },
             "type": ""
           },
@@ -9298,13 +8388,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -9357,13 +8440,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -9421,13 +8497,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -9475,13 +8544,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -9539,13 +8601,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -9598,13 +8653,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -9652,13 +8700,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -9744,13 +8785,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -9824,13 +8858,6 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -9869,13 +8896,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -9895,13 +8915,6 @@
                 "value": "arange"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "arange",
-              "type": "str"
             },
             "type": ""
           },
@@ -10022,13 +9035,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -10048,13 +9054,6 @@
                 "value": "sin"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "sin",
-              "type": "str"
             },
             "type": ""
           },
@@ -10140,13 +9139,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -10199,13 +9191,6 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -10239,13 +9224,6 @@
                 "value": "fig"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "fig",
-              "type": "str"
             },
             "type": ""
           },
@@ -10310,13 +9288,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -10336,13 +9307,6 @@
                 "value": "subplots"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "subplots",
-              "type": "str"
             },
             "type": ""
           },
@@ -10477,13 +9441,6 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -10571,13 +9528,6 @@
           },
           {
             "link": {
-              "data": "blitted_cursor",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -10611,13 +9561,6 @@
                 "value": "BlittedCursor"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "BlittedCursor",
-              "type": "str"
             },
             "type": ""
           },
@@ -10663,13 +9606,6 @@
                 "value": "fig"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "fig",
-              "type": "str"
             },
             "type": ""
           },
@@ -10762,13 +9698,6 @@
           },
           {
             "link": {
-              "data": "blitted_cursor",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -10788,13 +9717,6 @@
                 "value": "on_mouse_move"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "on_mouse_move",
-              "type": "str"
             },
             "type": ""
           },
@@ -11020,13 +9942,6 @@
           },
           {
             "link": {
-              "data": "SnappingCursor",
-              "type": "str"
-            },
-            "type": "nc"
-          },
-          {
-            "link": {
               "data": ":",
               "type": "str"
             },
@@ -11100,13 +10015,6 @@
           },
           {
             "link": {
-              "data": "__init__",
-              "type": "str"
-            },
-            "type": "fm"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -11126,13 +10034,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -11225,13 +10126,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -11300,13 +10194,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -11532,13 +10419,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -11759,13 +10639,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -11806,13 +10679,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -11919,13 +10785,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -11945,13 +10804,6 @@
                 "value": "_last_index"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "_last_index",
-              "type": "str"
             },
             "type": ""
           },
@@ -12032,13 +10884,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -12271,13 +11116,6 @@
           },
           {
             "link": {
-              "data": "set_cross_hair_visible",
-              "type": "str"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -12297,13 +11135,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -12335,13 +11166,6 @@
                 "value": "visible"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "visible",
-              "type": "str"
             },
             "type": ""
           },
@@ -12392,13 +11216,6 @@
           },
           {
             "link": {
-              "data": "need_redraw",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -12432,13 +11249,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -12524,13 +11334,6 @@
           },
           {
             "link": {
-              "data": "visible",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -12557,13 +11360,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -12621,13 +11417,6 @@
           },
           {
             "link": {
-              "data": "visible",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -12661,13 +11450,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -12725,13 +11507,6 @@
           },
           {
             "link": {
-              "data": "visible",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -12765,13 +11540,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -12829,13 +11597,6 @@
           },
           {
             "link": {
-              "data": "visible",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -12883,13 +11644,6 @@
                 "value": "need_redraw"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "need_redraw",
-              "type": "str"
             },
             "type": ""
           },
@@ -12947,13 +11701,6 @@
           },
           {
             "link": {
-              "data": "on_mouse_move",
-              "type": "str"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -12973,13 +11720,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -13121,13 +11861,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -13147,13 +11880,6 @@
                 "value": "_last_index"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "_last_index",
-              "type": "str"
             },
             "type": ""
           },
@@ -13218,13 +11944,6 @@
           },
           {
             "link": {
-              "data": "need_redraw",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -13263,13 +11982,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -13294,13 +12006,6 @@
           },
           {
             "link": {
-              "data": "set_cross_hair_visible",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -13320,13 +12025,6 @@
                 "value": "False"
               },
               "type": "Link"
-            },
-            "type": "kc"
-          },
-          {
-            "link": {
-              "data": "False",
-              "type": "str"
             },
             "type": "kc"
           },
@@ -13384,13 +12082,6 @@
           },
           {
             "link": {
-              "data": "need_redraw",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ":",
               "type": "str"
             },
@@ -13424,13 +12115,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -13565,13 +12249,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -13596,13 +12273,6 @@
           },
           {
             "link": {
-              "data": "set_cross_hair_visible",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -13622,13 +12292,6 @@
                 "value": "True"
               },
               "type": "Link"
-            },
-            "type": "kc"
-          },
-          {
-            "link": {
-              "data": "True",
-              "type": "str"
             },
             "type": "kc"
           },
@@ -13791,13 +12454,6 @@
           },
           {
             "link": {
-              "data": "index",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -13836,13 +12492,6 @@
           },
           {
             "link": {
-              "data": "min",
-              "type": "str"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -13862,13 +12511,6 @@
                 "value": "np"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "np",
-              "type": "str"
             },
             "type": ""
           },
@@ -13898,13 +12540,6 @@
           },
           {
             "link": {
-              "data": "searchsorted",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -13924,13 +12559,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -14009,13 +12637,6 @@
           },
           {
             "link": {
-              "data": "len",
-              "type": "str"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -14035,13 +12656,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -14148,13 +12762,6 @@
           },
           {
             "link": {
-              "data": "index",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -14193,13 +12800,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -14219,13 +12819,6 @@
                 "value": "_last_index"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "_last_index",
-              "type": "str"
             },
             "type": ""
           },
@@ -14304,13 +12897,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -14330,13 +12916,6 @@
                 "value": "_last_index"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "_last_index",
-              "type": "str"
             },
             "type": ""
           },
@@ -14375,13 +12954,6 @@
                 "value": "index"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "index",
-              "type": "str"
             },
             "type": ""
           },
@@ -14446,13 +13018,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -14486,13 +13051,6 @@
                 "value": "index"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "index",
-              "type": "str"
             },
             "type": ""
           },
@@ -14564,13 +13122,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -14604,13 +13155,6 @@
                 "value": "index"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "index",
-              "type": "str"
             },
             "type": ""
           },
@@ -14670,13 +13214,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -14757,13 +13294,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -15115,13 +13645,6 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -15160,13 +13683,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -15186,13 +13702,6 @@
                 "value": "arange"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "arange",
-              "type": "str"
             },
             "type": ""
           },
@@ -15313,13 +13822,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -15339,13 +13841,6 @@
                 "value": "sin"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "sin",
-              "type": "str"
             },
             "type": ""
           },
@@ -15431,13 +13926,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -15490,13 +13978,6 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -15530,13 +14011,6 @@
                 "value": "fig"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "fig",
-              "type": "str"
             },
             "type": ""
           },
@@ -15601,13 +14075,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -15627,13 +14094,6 @@
                 "value": "subplots"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "subplots",
-              "type": "str"
             },
             "type": ""
           },
@@ -15803,13 +14263,6 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -15897,13 +14350,6 @@
           },
           {
             "link": {
-              "data": "snap_cursor",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -15937,13 +14383,6 @@
                 "value": "SnappingCursor"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "SnappingCursor",
-              "type": "str"
             },
             "type": ""
           },
@@ -16010,13 +14449,6 @@
                 "value": "fig"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "fig",
-              "type": "str"
             },
             "type": ""
           },
@@ -16109,13 +14541,6 @@
           },
           {
             "link": {
-              "data": "snap_cursor",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -16135,13 +14560,6 @@
                 "value": "on_mouse_move"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "on_mouse_move",
-              "type": "str"
             },
             "type": ""
           },
@@ -16178,13 +14596,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -16204,13 +14615,6 @@
                 "value": "show"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "show",
-              "type": "str"
             },
             "type": ""
           },

@@ -51,13 +51,6 @@
           },
           {
             "link": {
-              "data": "datetime",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -91,13 +84,6 @@
                 "value": "numpy"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "numpy",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -141,13 +127,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -193,13 +172,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -219,13 +191,6 @@
                 "value": "pyplot"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "pyplot",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -269,13 +234,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -314,13 +272,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -340,13 +291,6 @@
                 "value": "dates"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "dates",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -385,13 +329,6 @@
                 "value": "mdates"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "mdates",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -444,13 +381,6 @@
                 "value": "_reset_epoch_for_tutorial"
               },
               "type": "Link"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
-              "data": "_reset_epoch_for_tutorial",
-              "type": "str"
             },
             "type": "nf"
           },
@@ -529,13 +459,6 @@
           },
           {
             "link": {
-              "data": "mdates",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -555,13 +478,6 @@
                 "value": "_reset_epoch_test_example"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "_reset_epoch_test_example",
-              "type": "str"
             },
             "type": ""
           },
@@ -724,13 +640,6 @@
           },
           {
             "link": {
-              "data": "old_epoch",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -792,13 +701,6 @@
                 "value": "new_epoch"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "new_epoch",
-              "type": "str"
             },
             "type": ""
           },
@@ -877,13 +779,6 @@
           },
           {
             "link": {
-              "data": "_reset_epoch_for_tutorial",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -936,13 +831,6 @@
           },
           {
             "link": {
-              "data": "mdates",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -967,13 +855,6 @@
           },
           {
             "link": {
-              "data": "set_epoch",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -993,13 +874,6 @@
                 "value": "old_epoch"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "old_epoch",
-              "type": "str"
             },
             "type": ""
           },
@@ -1057,13 +931,6 @@
           },
           {
             "link": {
-              "data": "date1",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -1102,13 +969,6 @@
           },
           {
             "link": {
-              "data": "datetime",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1128,13 +988,6 @@
                 "value": "datetime"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "datetime",
-              "type": "str"
             },
             "type": ""
           },
@@ -1332,13 +1185,6 @@
           },
           {
             "link": {
-              "data": "datetime",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1363,13 +1209,6 @@
           },
           {
             "link": {
-              "data": "timezone",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1389,13 +1228,6 @@
                 "value": "utc"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "utc",
-              "type": "str"
             },
             "type": ""
           },
@@ -1427,13 +1259,6 @@
                 "value": "mdate1"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "mdate1",
-              "type": "str"
             },
             "type": ""
           },
@@ -1477,13 +1302,6 @@
           },
           {
             "link": {
-              "data": "mdates",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1508,13 +1326,6 @@
           },
           {
             "link": {
-              "data": "date2num",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -1534,13 +1345,6 @@
                 "value": "date1"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "date1",
-              "type": "str"
             },
             "type": ""
           },
@@ -1572,13 +1376,6 @@
                 "value": "print"
               },
               "type": "Link"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
-              "data": "print",
-              "type": "str"
             },
             "type": "nb"
           },
@@ -1638,13 +1435,6 @@
                 "value": "date1"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "date1",
-              "type": "str"
             },
             "type": ""
           },
@@ -1716,13 +1506,6 @@
           },
           {
             "link": {
-              "data": "mdate1",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -1782,13 +1565,6 @@
           },
           {
             "link": {
-              "data": "mdates",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1813,13 +1589,6 @@
           },
           {
             "link": {
-              "data": "num2date",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -1839,13 +1608,6 @@
                 "value": "mdate1"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "mdate1",
-              "type": "str"
             },
             "type": ""
           },
@@ -1877,13 +1639,6 @@
                 "value": "print"
               },
               "type": "Link"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
-              "data": "print",
-              "type": "str"
             },
             "type": "nb"
           },
@@ -2025,13 +1780,6 @@
           },
           {
             "link": {
-              "data": "date1",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -2070,13 +1818,6 @@
           },
           {
             "link": {
-              "data": "datetime",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2096,13 +1837,6 @@
                 "value": "datetime"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "datetime",
-              "type": "str"
             },
             "type": ""
           },
@@ -2300,13 +2034,6 @@
           },
           {
             "link": {
-              "data": "datetime",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2331,13 +2058,6 @@
           },
           {
             "link": {
-              "data": "timezone",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2357,13 +2077,6 @@
                 "value": "utc"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "utc",
-              "type": "str"
             },
             "type": ""
           },
@@ -2428,13 +2141,6 @@
           },
           {
             "link": {
-              "data": "mdates",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2459,13 +2165,6 @@
           },
           {
             "link": {
-              "data": "date2num",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -2485,13 +2184,6 @@
                 "value": "date1"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "date1",
-              "type": "str"
             },
             "type": ""
           },
@@ -2523,13 +2215,6 @@
                 "value": "print"
               },
               "type": "Link"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
-              "data": "print",
-              "type": "str"
             },
             "type": "nb"
           },
@@ -2589,13 +2274,6 @@
                 "value": "date1"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "date1",
-              "type": "str"
             },
             "type": ""
           },
@@ -2716,13 +2394,6 @@
           },
           {
             "link": {
-              "data": "mdates",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2742,13 +2413,6 @@
                 "value": "num2date"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "num2date",
-              "type": "str"
             },
             "type": ""
           },
@@ -2794,13 +2458,6 @@
                 "value": "print"
               },
               "type": "Link"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
-              "data": "print",
-              "type": "str"
             },
             "type": "nb"
           },
@@ -2998,13 +2655,6 @@
           },
           {
             "link": {
-              "data": "mdates",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3029,13 +2679,6 @@
           },
           {
             "link": {
-              "data": "set_epoch",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -3055,13 +2698,6 @@
                 "value": "new_epoch"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "new_epoch",
-              "type": "str"
             },
             "type": ""
           },
@@ -3121,13 +2757,6 @@
                 "value": "RuntimeError"
               },
               "type": "Link"
-            },
-            "type": "ne"
-          },
-          {
-            "link": {
-              "data": "RuntimeError",
-              "type": "str"
             },
             "type": "ne"
           },
@@ -3199,13 +2828,6 @@
           },
           {
             "link": {
-              "data": "print",
-              "type": "str"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -3265,13 +2887,6 @@
           },
           {
             "link": {
-              "data": "str",
-              "type": "str"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -3291,13 +2906,6 @@
                 "value": "e"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "e",
-              "type": "str"
             },
             "type": ""
           },
@@ -3397,13 +3005,6 @@
           },
           {
             "link": {
-              "data": "_reset_epoch_for_tutorial",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -3456,13 +3057,6 @@
           },
           {
             "link": {
-              "data": "mdates",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3487,13 +3081,6 @@
           },
           {
             "link": {
-              "data": "set_epoch",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -3513,13 +3100,6 @@
                 "value": "new_epoch"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "new_epoch",
-              "type": "str"
             },
             "type": ""
           },
@@ -3563,13 +3143,6 @@
           },
           {
             "link": {
-              "data": "date1",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -3608,13 +3181,6 @@
           },
           {
             "link": {
-              "data": "datetime",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3634,13 +3200,6 @@
                 "value": "datetime"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "datetime",
-              "type": "str"
             },
             "type": ""
           },
@@ -3838,13 +3397,6 @@
           },
           {
             "link": {
-              "data": "datetime",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3869,13 +3421,6 @@
           },
           {
             "link": {
-              "data": "timezone",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3895,13 +3440,6 @@
                 "value": "utc"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "utc",
-              "type": "str"
             },
             "type": ""
           },
@@ -3966,13 +3504,6 @@
           },
           {
             "link": {
-              "data": "mdates",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3997,13 +3528,6 @@
           },
           {
             "link": {
-              "data": "date2num",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -4023,13 +3547,6 @@
                 "value": "date1"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "date1",
-              "type": "str"
             },
             "type": ""
           },
@@ -4061,13 +3578,6 @@
                 "value": "print"
               },
               "type": "Link"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
-              "data": "print",
-              "type": "str"
             },
             "type": "nb"
           },
@@ -4127,13 +3637,6 @@
                 "value": "date1"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "date1",
-              "type": "str"
             },
             "type": ""
           },
@@ -4254,13 +3757,6 @@
           },
           {
             "link": {
-              "data": "mdates",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -4280,13 +3776,6 @@
                 "value": "num2date"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "num2date",
-              "type": "str"
             },
             "type": ""
           },
@@ -4332,13 +3821,6 @@
                 "value": "print"
               },
               "type": "Link"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
-              "data": "print",
-              "type": "str"
             },
             "type": "nb"
           },
@@ -4550,13 +4032,6 @@
           },
           {
             "link": {
-              "data": "_reset_epoch_for_tutorial",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -4609,13 +4084,6 @@
           },
           {
             "link": {
-              "data": "mdates",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -4640,13 +4108,6 @@
           },
           {
             "link": {
-              "data": "set_epoch",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -4666,13 +4127,6 @@
                 "value": "new_epoch"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "new_epoch",
-              "type": "str"
             },
             "type": ""
           },
@@ -4716,13 +4170,6 @@
           },
           {
             "link": {
-              "data": "date1",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -4761,13 +4208,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -4787,13 +4227,6 @@
                 "value": "datetime64"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "datetime64",
-              "type": "str"
             },
             "type": ""
           },
@@ -4886,13 +4319,6 @@
           },
           {
             "link": {
-              "data": "mdates",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -4917,13 +4343,6 @@
           },
           {
             "link": {
-              "data": "date2num",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -4943,13 +4362,6 @@
                 "value": "date1"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "date1",
-              "type": "str"
             },
             "type": ""
           },
@@ -4981,13 +4393,6 @@
                 "value": "print"
               },
               "type": "Link"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
-              "data": "print",
-              "type": "str"
             },
             "type": "nb"
           },
@@ -5047,13 +4452,6 @@
                 "value": "date1"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "date1",
-              "type": "str"
             },
             "type": ""
           },
@@ -5174,13 +4572,6 @@
           },
           {
             "link": {
-              "data": "mdates",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -5200,13 +4591,6 @@
                 "value": "num2date"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "num2date",
-              "type": "str"
             },
             "type": ""
           },
@@ -5252,13 +4636,6 @@
                 "value": "print"
               },
               "type": "Link"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
-              "data": "print",
-              "type": "str"
             },
             "type": "nb"
           },
@@ -5456,13 +4833,6 @@
           },
           {
             "link": {
-              "data": "_reset_epoch_for_tutorial",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -5515,13 +4885,6 @@
           },
           {
             "link": {
-              "data": "mdates",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -5546,13 +4909,6 @@
           },
           {
             "link": {
-              "data": "set_epoch",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -5572,13 +4928,6 @@
                 "value": "old_epoch"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "old_epoch",
-              "type": "str"
             },
             "type": ""
           },
@@ -5650,13 +4999,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -5676,13 +5018,6 @@
                 "value": "arange"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "arange",
-              "type": "str"
             },
             "type": ""
           },
@@ -5880,13 +5215,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -5906,13 +5234,6 @@
                 "value": "array"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "array",
-              "type": "str"
             },
             "type": ""
           },
@@ -5949,13 +5270,6 @@
           },
           {
             "link": {
-              "data": "mdates",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -5975,13 +5289,6 @@
                 "value": "num2date"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "num2date",
-              "type": "str"
             },
             "type": ""
           },
@@ -6011,13 +5318,6 @@
           },
           {
             "link": {
-              "data": "mdates",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -6037,13 +5337,6 @@
                 "value": "date2num"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "date2num",
-              "type": "str"
             },
             "type": ""
           },
@@ -6199,13 +5492,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -6225,13 +5511,6 @@
                 "value": "arange"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "arange",
-              "type": "str"
             },
             "type": ""
           },
@@ -6277,13 +5556,6 @@
                 "value": "len"
               },
               "type": "Link"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
-              "data": "len",
-              "type": "str"
             },
             "type": "nb"
           },
@@ -6362,13 +5634,6 @@
           },
           {
             "link": {
-              "data": "_reset_epoch_for_tutorial",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -6421,13 +5686,6 @@
           },
           {
             "link": {
-              "data": "mdates",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -6452,13 +5710,6 @@
           },
           {
             "link": {
-              "data": "set_epoch",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -6478,13 +5729,6 @@
                 "value": "new_epoch"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "new_epoch",
-              "type": "str"
             },
             "type": ""
           },
@@ -6577,13 +5821,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -6603,13 +5840,6 @@
                 "value": "subplots"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "subplots",
-              "type": "str"
             },
             "type": ""
           },
@@ -6814,13 +6044,6 @@
           },
           {
             "link": {
-              "data": "mdates",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -6840,13 +6063,6 @@
                 "value": "get_epoch"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "get_epoch",
-              "type": "str"
             },
             "type": ""
           },
@@ -6974,13 +6190,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -7000,13 +6209,6 @@
                 "value": "show"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "show",
-              "type": "str"
             },
             "type": ""
           },
@@ -7141,13 +6343,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -7167,13 +6362,6 @@
                 "value": "subplots"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "subplots",
-              "type": "str"
             },
             "type": ""
           },
@@ -7378,13 +6566,6 @@
           },
           {
             "link": {
-              "data": "mdates",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -7404,13 +6585,6 @@
                 "value": "get_epoch"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "get_epoch",
-              "type": "str"
             },
             "type": ""
           },
@@ -7538,13 +6712,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -7564,13 +6731,6 @@
                 "value": "show"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "show",
-              "type": "str"
             },
             "type": ""
           },
@@ -7616,13 +6776,6 @@
                 "value": "_reset_epoch_for_tutorial"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "_reset_epoch_for_tutorial",
-              "type": "str"
             },
             "type": ""
           },

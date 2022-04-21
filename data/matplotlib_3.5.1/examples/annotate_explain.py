@@ -58,13 +58,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -84,13 +77,6 @@
                 "value": "pyplot"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "pyplot",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -134,13 +120,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -179,13 +158,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -205,13 +177,6 @@
                 "value": "patches"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "patches",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -255,13 +220,6 @@
           },
           {
             "link": {
-              "data": "mpatches",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -295,13 +253,6 @@
                 "value": "fig"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "fig",
-              "type": "str"
             },
             "type": ""
           },
@@ -366,13 +317,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -392,13 +336,6 @@
                 "value": "subplots"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "subplots",
-              "type": "str"
             },
             "type": ""
           },
@@ -470,13 +407,6 @@
           },
           {
             "link": {
-              "data": "x1",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -503,13 +433,6 @@
                 "value": "y1"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y1",
-              "type": "str"
             },
             "type": ""
           },
@@ -588,13 +511,6 @@
           },
           {
             "link": {
-              "data": "x2",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -621,13 +537,6 @@
                 "value": "y2"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y2",
-              "type": "str"
             },
             "type": ""
           },
@@ -825,13 +734,6 @@
           },
           {
             "link": {
-              "data": "x1",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -858,13 +760,6 @@
                 "value": "x2"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "x2",
-              "type": "str"
             },
             "type": ""
           },
@@ -915,13 +810,6 @@
           },
           {
             "link": {
-              "data": "y1",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -948,13 +836,6 @@
                 "value": "y2"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y2",
-              "type": "str"
             },
             "type": ""
           },
@@ -1033,13 +914,6 @@
           },
           {
             "link": {
-              "data": "el",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -1078,13 +952,6 @@
           },
           {
             "link": {
-              "data": "mpatches",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1104,13 +971,6 @@
                 "value": "Ellipse"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "Ellipse",
-              "type": "str"
             },
             "type": ""
           },
@@ -1147,13 +1007,6 @@
           },
           {
             "link": {
-              "data": "x1",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -1180,13 +1033,6 @@
                 "value": "y1"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y1",
-              "type": "str"
             },
             "type": ""
           },
@@ -1370,13 +1216,6 @@
           },
           {
             "link": {
-              "data": "el",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -1492,13 +1331,6 @@
           },
           {
             "link": {
-              "data": "x1",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -1525,13 +1357,6 @@
                 "value": "y1"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y1",
-              "type": "str"
             },
             "type": ""
           },
@@ -1652,13 +1477,6 @@
           },
           {
             "link": {
-              "data": "x2",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -1685,13 +1503,6 @@
                 "value": "y2"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y2",
-              "type": "str"
             },
             "type": ""
           },
@@ -1800,13 +1611,6 @@
                 "value": "dict"
               },
               "type": "Link"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
-              "data": "dict",
-              "type": "str"
             },
             "type": "nb"
           },
@@ -2501,13 +2305,6 @@
           },
           {
             "link": {
-              "data": "x1",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -2534,13 +2331,6 @@
                 "value": "x2"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "x2",
-              "type": "str"
             },
             "type": ""
           },
@@ -2591,13 +2381,6 @@
           },
           {
             "link": {
-              "data": "y1",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -2624,13 +2407,6 @@
                 "value": "y2"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y2",
-              "type": "str"
             },
             "type": ""
           },
@@ -2709,13 +2485,6 @@
           },
           {
             "link": {
-              "data": "el",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -2754,13 +2523,6 @@
           },
           {
             "link": {
-              "data": "mpatches",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2780,13 +2542,6 @@
                 "value": "Ellipse"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "Ellipse",
-              "type": "str"
             },
             "type": ""
           },
@@ -2823,13 +2578,6 @@
           },
           {
             "link": {
-              "data": "x1",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -2856,13 +2604,6 @@
                 "value": "y1"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y1",
-              "type": "str"
             },
             "type": ""
           },
@@ -3046,13 +2787,6 @@
           },
           {
             "link": {
-              "data": "el",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -3168,13 +2902,6 @@
           },
           {
             "link": {
-              "data": "x1",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -3201,13 +2928,6 @@
                 "value": "y1"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y1",
-              "type": "str"
             },
             "type": ""
           },
@@ -3328,13 +3048,6 @@
           },
           {
             "link": {
-              "data": "x2",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -3361,13 +3074,6 @@
                 "value": "y2"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y2",
-              "type": "str"
             },
             "type": ""
           },
@@ -3476,13 +3182,6 @@
                 "value": "dict"
               },
               "type": "Link"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
-              "data": "dict",
-              "type": "str"
             },
             "type": "nb"
           },
@@ -3633,13 +3332,6 @@
                 "value": "el"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "el",
-              "type": "str"
             },
             "type": ""
           },
@@ -4194,13 +3886,6 @@
           },
           {
             "link": {
-              "data": "x1",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -4227,13 +3912,6 @@
                 "value": "x2"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "x2",
-              "type": "str"
             },
             "type": ""
           },
@@ -4284,13 +3962,6 @@
           },
           {
             "link": {
-              "data": "y1",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -4317,13 +3988,6 @@
                 "value": "y2"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y2",
-              "type": "str"
             },
             "type": ""
           },
@@ -4402,13 +4066,6 @@
           },
           {
             "link": {
-              "data": "el",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -4447,13 +4104,6 @@
           },
           {
             "link": {
-              "data": "mpatches",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -4473,13 +4123,6 @@
                 "value": "Ellipse"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "Ellipse",
-              "type": "str"
             },
             "type": ""
           },
@@ -4516,13 +4159,6 @@
           },
           {
             "link": {
-              "data": "x1",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -4549,13 +4185,6 @@
                 "value": "y1"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y1",
-              "type": "str"
             },
             "type": ""
           },
@@ -4739,13 +4368,6 @@
           },
           {
             "link": {
-              "data": "el",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -4861,13 +4483,6 @@
           },
           {
             "link": {
-              "data": "x1",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -4894,13 +4509,6 @@
                 "value": "y1"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y1",
-              "type": "str"
             },
             "type": ""
           },
@@ -5021,13 +4629,6 @@
           },
           {
             "link": {
-              "data": "x2",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -5054,13 +4655,6 @@
                 "value": "y2"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y2",
-              "type": "str"
             },
             "type": ""
           },
@@ -5169,13 +4763,6 @@
                 "value": "dict"
               },
               "type": "Link"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
-              "data": "dict",
-              "type": "str"
             },
             "type": "nb"
           },
@@ -5326,13 +4913,6 @@
                 "value": "el"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "el",
-              "type": "str"
             },
             "type": ""
           },
@@ -5887,13 +5467,6 @@
           },
           {
             "link": {
-              "data": "x1",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -5920,13 +5493,6 @@
                 "value": "x2"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "x2",
-              "type": "str"
             },
             "type": ""
           },
@@ -5977,13 +5543,6 @@
           },
           {
             "link": {
-              "data": "y1",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -6010,13 +5569,6 @@
                 "value": "y2"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y2",
-              "type": "str"
             },
             "type": ""
           },
@@ -6095,13 +5647,6 @@
           },
           {
             "link": {
-              "data": "el",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -6140,13 +5685,6 @@
           },
           {
             "link": {
-              "data": "mpatches",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -6166,13 +5704,6 @@
                 "value": "Ellipse"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "Ellipse",
-              "type": "str"
             },
             "type": ""
           },
@@ -6209,13 +5740,6 @@
           },
           {
             "link": {
-              "data": "x1",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -6242,13 +5766,6 @@
                 "value": "y1"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y1",
-              "type": "str"
             },
             "type": ""
           },
@@ -6432,13 +5949,6 @@
           },
           {
             "link": {
-              "data": "el",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -6554,13 +6064,6 @@
           },
           {
             "link": {
-              "data": "x1",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -6587,13 +6090,6 @@
                 "value": "y1"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y1",
-              "type": "str"
             },
             "type": ""
           },
@@ -6714,13 +6210,6 @@
           },
           {
             "link": {
-              "data": "x2",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -6747,13 +6236,6 @@
                 "value": "y2"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y2",
-              "type": "str"
             },
             "type": ""
           },
@@ -6862,13 +6344,6 @@
                 "value": "dict"
               },
               "type": "Link"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
-              "data": "dict",
-              "type": "str"
             },
             "type": "nb"
           },
@@ -7019,13 +6494,6 @@
                 "value": "el"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "el",
-              "type": "str"
             },
             "type": ""
           },
@@ -7846,13 +7314,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -7872,13 +7333,6 @@
                 "value": "show"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "show",
-              "type": "str"
             },
             "type": ""
           },

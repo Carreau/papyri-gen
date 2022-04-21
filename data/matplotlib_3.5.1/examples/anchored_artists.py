@@ -58,13 +58,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -98,13 +91,6 @@
                 "value": "pyplot"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "pyplot",
-              "type": "str"
             },
             "type": ""
           },
@@ -148,13 +134,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -193,13 +172,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -219,13 +191,6 @@
                 "value": "lines"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "lines",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -269,13 +234,6 @@
           },
           {
             "link": {
-              "data": "Line2D",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -314,13 +272,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -340,13 +291,6 @@
                 "value": "patches"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "patches",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -390,13 +334,6 @@
           },
           {
             "link": {
-              "data": "Circle",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -423,13 +360,6 @@
                 "value": "Ellipse"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "Ellipse",
-              "type": "str"
             },
             "type": ""
           },
@@ -473,13 +403,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -499,13 +422,6 @@
                 "value": "offsetbox"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "offsetbox",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -570,13 +486,6 @@
           },
           {
             "link": {
-              "data": "AnchoredOffsetbox",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -603,13 +512,6 @@
                 "value": "AuxTransformBox"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "AuxTransformBox",
-              "type": "str"
             },
             "type": ""
           },
@@ -646,13 +548,6 @@
           },
           {
             "link": {
-              "data": "DrawingArea",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -684,13 +579,6 @@
           },
           {
             "link": {
-              "data": "TextArea",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -717,13 +605,6 @@
                 "value": "VPacker"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "VPacker",
-              "type": "str"
             },
             "type": ""
           },
@@ -783,13 +664,6 @@
                 "value": "draw_text"
               },
               "type": "Link"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
-              "data": "draw_text",
-              "type": "str"
             },
             "type": "nf"
           },
@@ -875,13 +749,6 @@
           },
           {
             "link": {
-              "data": "box",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -920,13 +787,6 @@
           },
           {
             "link": {
-              "data": "AnchoredOffsetbox",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -960,13 +820,6 @@
                 "value": "TextArea"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "TextArea",
-              "type": "str"
             },
             "type": ""
           },
@@ -1136,13 +989,6 @@
           },
           {
             "link": {
-              "data": "box",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1167,13 +1013,6 @@
           },
           {
             "link": {
-              "data": "patch",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1193,13 +1032,6 @@
                 "value": "set_boxstyle"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "set_boxstyle",
-              "type": "str"
             },
             "type": ""
           },
@@ -1299,13 +1131,6 @@
           },
           {
             "link": {
-              "data": "box",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -1360,13 +1185,6 @@
                 "value": "draw_circles"
               },
               "type": "Link"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
-              "data": "draw_circles",
-              "type": "str"
             },
             "type": "nf"
           },
@@ -1452,13 +1270,6 @@
           },
           {
             "link": {
-              "data": "area",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -1492,13 +1303,6 @@
                 "value": "DrawingArea"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "DrawingArea",
-              "type": "str"
             },
             "type": ""
           },
@@ -1619,13 +1423,6 @@
           },
           {
             "link": {
-              "data": "area",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1650,13 +1447,6 @@
           },
           {
             "link": {
-              "data": "add_artist",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -1676,13 +1466,6 @@
                 "value": "Circle"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "Circle",
-              "type": "str"
             },
             "type": ""
           },
@@ -1852,13 +1635,6 @@
           },
           {
             "link": {
-              "data": "area",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1883,13 +1659,6 @@
           },
           {
             "link": {
-              "data": "add_artist",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -1909,13 +1678,6 @@
                 "value": "Circle"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "Circle",
-              "type": "str"
             },
             "type": ""
           },
@@ -2085,13 +1847,6 @@
           },
           {
             "link": {
-              "data": "box",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -2125,13 +1880,6 @@
                 "value": "AnchoredOffsetbox"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "AnchoredOffsetbox",
-              "type": "str"
             },
             "type": ""
           },
@@ -2184,13 +1932,6 @@
                 "value": "area"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "area",
-              "type": "str"
             },
             "type": ""
           },
@@ -2381,13 +2122,6 @@
           },
           {
             "link": {
-              "data": "box",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -2442,13 +2176,6 @@
                 "value": "draw_ellipse"
               },
               "type": "Link"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
-              "data": "draw_ellipse",
-              "type": "str"
             },
             "type": "nf"
           },
@@ -2534,13 +2261,6 @@
           },
           {
             "link": {
-              "data": "aux_tr_box",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -2574,13 +2294,6 @@
                 "value": "AuxTransformBox"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "AuxTransformBox",
-              "type": "str"
             },
             "type": ""
           },
@@ -2652,13 +2365,6 @@
           },
           {
             "link": {
-              "data": "aux_tr_box",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2683,13 +2389,6 @@
           },
           {
             "link": {
-              "data": "add_artist",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -2709,13 +2408,6 @@
                 "value": "Ellipse"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "Ellipse",
-              "type": "str"
             },
             "type": ""
           },
@@ -2885,13 +2577,6 @@
           },
           {
             "link": {
-              "data": "box",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -2930,13 +2615,6 @@
           },
           {
             "link": {
-              "data": "AnchoredOffsetbox",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -2970,13 +2648,6 @@
                 "value": "aux_tr_box"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "aux_tr_box",
-              "type": "str"
             },
             "type": ""
           },
@@ -3132,13 +2803,6 @@
           },
           {
             "link": {
-              "data": "box",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -3198,13 +2862,6 @@
           },
           {
             "link": {
-              "data": "AnchoredSizeBar",
-              "type": "str"
-            },
-            "type": "nc"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -3224,13 +2881,6 @@
                 "value": "AnchoredOffsetbox"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "AnchoredOffsetbox",
-              "type": "str"
             },
             "type": ""
           },
@@ -3295,13 +2945,6 @@
           },
           {
             "link": {
-              "data": "__init__",
-              "type": "str"
-            },
-            "type": "fm"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -3321,13 +2964,6 @@
                 "value": "self"
               },
               "type": "Link"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
-              "data": "self",
-              "type": "str"
             },
             "type": "bp"
           },
@@ -3385,13 +3021,6 @@
           },
           {
             "link": {
-              "data": "size",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -3423,13 +3052,6 @@
           },
           {
             "link": {
-              "data": "label",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -3456,13 +3078,6 @@
                 "value": "loc"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "loc",
-              "type": "str"
             },
             "type": ""
           },
@@ -3501,13 +3116,6 @@
                 "value": "pad"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "pad",
-              "type": "str"
             },
             "type": ""
           },
@@ -3558,13 +3166,6 @@
           },
           {
             "link": {
-              "data": "borderpad",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -3605,13 +3206,6 @@
                 "value": "sep"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "sep",
-              "type": "str"
             },
             "type": ""
           },
@@ -3662,13 +3256,6 @@
           },
           {
             "link": {
-              "data": "prop",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -3709,13 +3296,6 @@
                 "value": "frameon"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "frameon",
-              "type": "str"
             },
             "type": ""
           },
@@ -3801,13 +3381,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3827,13 +3400,6 @@
                 "value": "size_bar"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "size_bar",
-              "type": "str"
             },
             "type": ""
           },
@@ -3872,13 +3438,6 @@
                 "value": "AuxTransformBox"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "AuxTransformBox",
-              "type": "str"
             },
             "type": ""
           },
@@ -3936,13 +3495,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3962,13 +3514,6 @@
                 "value": "size_bar"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "size_bar",
-              "type": "str"
             },
             "type": ""
           },
@@ -3998,13 +3543,6 @@
           },
           {
             "link": {
-              "data": "add_artist",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -4024,13 +3562,6 @@
                 "value": "Line2D"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "Line2D",
-              "type": "str"
             },
             "type": ""
           },
@@ -4083,13 +3614,6 @@
                 "value": "size"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "size",
-              "type": "str"
             },
             "type": ""
           },
@@ -4252,13 +3776,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -4278,13 +3795,6 @@
                 "value": "txt_label"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "txt_label",
-              "type": "str"
             },
             "type": ""
           },
@@ -4328,13 +3838,6 @@
           },
           {
             "link": {
-              "data": "TextArea",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -4354,13 +3857,6 @@
                 "value": "label"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "label",
-              "type": "str"
             },
             "type": ""
           },
@@ -4404,13 +3900,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -4430,13 +3919,6 @@
                 "value": "_box"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "_box",
-              "type": "str"
             },
             "type": ""
           },
@@ -4475,13 +3957,6 @@
                 "value": "VPacker"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "VPacker",
-              "type": "str"
             },
             "type": ""
           },
@@ -4532,13 +4007,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -4558,13 +4026,6 @@
                 "value": "size_bar"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "size_bar",
-              "type": "str"
             },
             "type": ""
           },
@@ -4601,13 +4062,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -4627,13 +4081,6 @@
                 "value": "txt_label"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "txt_label",
-              "type": "str"
             },
             "type": ""
           },
@@ -4740,13 +4187,6 @@
           },
           {
             "link": {
-              "data": "pad",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -4792,13 +4232,6 @@
           },
           {
             "link": {
-              "data": "sep",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -4818,13 +4251,6 @@
                 "value": "sep"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "sep",
-              "type": "str"
             },
             "type": ""
           },
@@ -4868,13 +4294,6 @@
           },
           {
             "link": {
-              "data": "super",
-              "type": "str"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -4913,13 +4332,6 @@
           },
           {
             "link": {
-              "data": "__init__",
-              "type": "str"
-            },
-            "type": "fm"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -4944,13 +4356,6 @@
           },
           {
             "link": {
-              "data": "loc",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -4982,13 +4387,6 @@
           },
           {
             "link": {
-              "data": "pad",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -5008,13 +4406,6 @@
                 "value": "pad"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "pad",
-              "type": "str"
             },
             "type": ""
           },
@@ -5051,13 +4442,6 @@
           },
           {
             "link": {
-              "data": "borderpad",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -5077,13 +4461,6 @@
                 "value": "borderpad"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "borderpad",
-              "type": "str"
             },
             "type": ""
           },
@@ -5141,13 +4518,6 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
-            },
-            "type": "bp"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -5172,13 +4542,6 @@
           },
           {
             "link": {
-              "data": "_box",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -5210,13 +4573,6 @@
           },
           {
             "link": {
-              "data": "prop",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -5236,13 +4592,6 @@
                 "value": "prop"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "prop",
-              "type": "str"
             },
             "type": ""
           },
@@ -5279,13 +4628,6 @@
           },
           {
             "link": {
-              "data": "frameon",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -5305,13 +4647,6 @@
                 "value": "frameon"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "frameon",
-              "type": "str"
             },
             "type": ""
           },
@@ -5371,13 +4706,6 @@
                 "value": "draw_sizebar"
               },
               "type": "Link"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
-              "data": "draw_sizebar",
-              "type": "str"
             },
             "type": "nf"
           },
@@ -5463,13 +4791,6 @@
           },
           {
             "link": {
-              "data": "asb",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -5503,13 +4824,6 @@
                 "value": "AnchoredSizeBar"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "AnchoredSizeBar",
-              "type": "str"
             },
             "type": ""
           },
@@ -5917,13 +5231,6 @@
           },
           {
             "link": {
-              "data": "asb",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -5964,13 +5271,6 @@
                 "value": "fig"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "fig",
-              "type": "str"
             },
             "type": ""
           },
@@ -6035,13 +5335,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -6061,13 +5354,6 @@
                 "value": "subplots"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "subplots",
-              "type": "str"
             },
             "type": ""
           },
@@ -6167,13 +5453,6 @@
           },
           {
             "link": {
-              "data": "draw_text",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -6214,13 +5493,6 @@
                 "value": "draw_circles"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "draw_circles",
-              "type": "str"
             },
             "type": ""
           },
@@ -6271,13 +5543,6 @@
           },
           {
             "link": {
-              "data": "draw_ellipse",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -6318,13 +5583,6 @@
                 "value": "draw_sizebar"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "draw_sizebar",
-              "type": "str"
             },
             "type": ""
           },
@@ -6382,13 +5640,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -6408,13 +5659,6 @@
                 "value": "show"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "show",
-              "type": "str"
             },
             "type": ""
           },

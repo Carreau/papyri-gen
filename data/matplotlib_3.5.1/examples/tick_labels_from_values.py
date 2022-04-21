@@ -58,13 +58,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -84,13 +77,6 @@
                 "value": "pyplot"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "pyplot",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -134,13 +120,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -179,13 +158,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -205,13 +177,6 @@
                 "value": "ticker"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "ticker",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -255,13 +220,6 @@
           },
           {
             "link": {
-              "data": "MaxNLocator",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -295,13 +253,6 @@
                 "value": "fig"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "fig",
-              "type": "str"
             },
             "type": ""
           },
@@ -366,13 +317,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -392,13 +336,6 @@
                 "value": "subplots"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "subplots",
-              "type": "str"
             },
             "type": ""
           },
@@ -442,13 +379,6 @@
           },
           {
             "link": {
-              "data": "xs",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -482,13 +412,6 @@
                 "value": "range"
               },
               "type": "Link"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
-              "data": "range",
-              "type": "str"
             },
             "type": "nb"
           },
@@ -539,13 +462,6 @@
           },
           {
             "link": {
-              "data": "ys",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -579,13 +495,6 @@
                 "value": "range"
               },
               "type": "Link"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
-              "data": "range",
-              "type": "str"
             },
             "type": "nb"
           },
@@ -636,13 +545,6 @@
           },
           {
             "link": {
-              "data": "labels",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -676,13 +578,6 @@
                 "value": "list"
               },
               "type": "Link"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
-              "data": "list",
-              "type": "str"
             },
             "type": "nb"
           },
@@ -770,13 +665,6 @@
                 "value": "format_fn"
               },
               "type": "Link"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
-              "data": "format_fn",
-              "type": "str"
             },
             "type": "nf"
           },
@@ -876,13 +764,6 @@
           },
           {
             "link": {
-              "data": "int",
-              "type": "str"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -942,13 +823,6 @@
           },
           {
             "link": {
-              "data": "xs",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ":",
               "type": "str"
             },
@@ -1001,13 +875,6 @@
           },
           {
             "link": {
-              "data": "labels",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "[",
               "type": "str"
             },
@@ -1027,13 +894,6 @@
                 "value": "int"
               },
               "type": "Link"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
-              "data": "int",
-              "type": "str"
             },
             "type": "nb"
           },
@@ -1231,13 +1091,6 @@
           },
           {
             "link": {
-              "data": "format_fn",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -1306,13 +1159,6 @@
                 "value": "MaxNLocator"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "MaxNLocator",
-              "type": "str"
             },
             "type": ""
           },
@@ -1412,13 +1258,6 @@
           },
           {
             "link": {
-              "data": "xs",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -1445,13 +1284,6 @@
                 "value": "ys"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "ys",
-              "type": "str"
             },
             "type": ""
           },
@@ -1488,13 +1320,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1514,13 +1339,6 @@
                 "value": "show"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "show",
-              "type": "str"
             },
             "type": ""
           },

@@ -58,13 +58,6 @@
           },
           {
             "link": {
-              "data": "numpy",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -98,13 +91,6 @@
                 "value": "np"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "np",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -148,13 +134,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -174,13 +153,6 @@
                 "value": "pyplot"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "pyplot",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -224,13 +196,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -269,13 +234,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -295,13 +253,6 @@
                 "value": "ticker"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "ticker",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -340,13 +291,6 @@
                 "value": "ticker"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "ticker",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -404,13 +348,6 @@
           },
           {
             "link": {
-              "data": "setup",
-              "type": "str"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -451,13 +388,6 @@
                 "value": "title"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "title",
-              "type": "str"
             },
             "type": ""
           },
@@ -592,13 +522,6 @@
           },
           {
             "link": {
-              "data": "ticker",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -618,13 +541,6 @@
                 "value": "NullLocator"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "NullLocator",
-              "type": "str"
             },
             "type": ""
           },
@@ -1599,13 +1515,6 @@
           },
           {
             "link": {
-              "data": "title",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -1840,13 +1749,6 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -1906,13 +1808,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1932,13 +1827,6 @@
                 "value": "subplots"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "subplots",
-              "type": "str"
             },
             "type": ""
           },
@@ -2096,13 +1984,6 @@
                 "value": "setup"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "setup",
-              "type": "str"
             },
             "type": ""
           },
@@ -2286,13 +2167,6 @@
           },
           {
             "link": {
-              "data": "ticker",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2312,13 +2186,6 @@
                 "value": "NullLocator"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "NullLocator",
-              "type": "str"
             },
             "type": ""
           },
@@ -2432,13 +2299,6 @@
           },
           {
             "link": {
-              "data": "ticker",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2458,13 +2318,6 @@
                 "value": "NullLocator"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "NullLocator",
-              "type": "str"
             },
             "type": ""
           },
@@ -2531,13 +2384,6 @@
                 "value": "setup"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "setup",
-              "type": "str"
             },
             "type": ""
           },
@@ -2721,13 +2567,6 @@
           },
           {
             "link": {
-              "data": "ticker",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2747,13 +2586,6 @@
                 "value": "MultipleLocator"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "MultipleLocator",
-              "type": "str"
             },
             "type": ""
           },
@@ -2874,13 +2706,6 @@
           },
           {
             "link": {
-              "data": "ticker",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2900,13 +2725,6 @@
                 "value": "MultipleLocator"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "MultipleLocator",
-              "type": "str"
             },
             "type": ""
           },
@@ -2980,13 +2798,6 @@
                 "value": "setup"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "setup",
-              "type": "str"
             },
             "type": ""
           },
@@ -3170,13 +2981,6 @@
           },
           {
             "link": {
-              "data": "ticker",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3196,13 +3000,6 @@
                 "value": "FixedLocator"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "FixedLocator",
-              "type": "str"
             },
             "type": ""
           },
@@ -3379,13 +3176,6 @@
           },
           {
             "link": {
-              "data": "ticker",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3405,13 +3195,6 @@
                 "value": "FixedLocator"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "FixedLocator",
-              "type": "str"
             },
             "type": ""
           },
@@ -3441,13 +3224,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3467,13 +3243,6 @@
                 "value": "linspace"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "linspace",
-              "type": "str"
             },
             "type": ""
           },
@@ -3596,13 +3365,6 @@
                 "value": "setup"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "setup",
-              "type": "str"
             },
             "type": ""
           },
@@ -3786,13 +3548,6 @@
           },
           {
             "link": {
-              "data": "ticker",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3812,13 +3567,6 @@
                 "value": "LinearLocator"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "LinearLocator",
-              "type": "str"
             },
             "type": ""
           },
@@ -3939,13 +3687,6 @@
           },
           {
             "link": {
-              "data": "ticker",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3965,13 +3706,6 @@
                 "value": "LinearLocator"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "LinearLocator",
-              "type": "str"
             },
             "type": ""
           },
@@ -4045,13 +3779,6 @@
                 "value": "setup"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "setup",
-              "type": "str"
             },
             "type": ""
           },
@@ -4216,13 +3943,6 @@
                 "value": "range"
               },
               "type": "Link"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
-              "data": "range",
-              "type": "str"
             },
             "type": "nb"
           },
@@ -4462,13 +4182,6 @@
           },
           {
             "link": {
-              "data": "ticker",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -4488,13 +4201,6 @@
                 "value": "IndexLocator"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "IndexLocator",
-              "type": "str"
             },
             "type": ""
           },
@@ -4617,13 +4323,6 @@
                 "value": "setup"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "setup",
-              "type": "str"
             },
             "type": ""
           },
@@ -4807,13 +4506,6 @@
           },
           {
             "link": {
-              "data": "ticker",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -4833,13 +4525,6 @@
                 "value": "AutoLocator"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "AutoLocator",
-              "type": "str"
             },
             "type": ""
           },
@@ -4953,13 +4638,6 @@
           },
           {
             "link": {
-              "data": "ticker",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -4979,13 +4657,6 @@
                 "value": "AutoMinorLocator"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "AutoMinorLocator",
-              "type": "str"
             },
             "type": ""
           },
@@ -5052,13 +4723,6 @@
                 "value": "setup"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "setup",
-              "type": "str"
             },
             "type": ""
           },
@@ -5242,13 +4906,6 @@
           },
           {
             "link": {
-              "data": "ticker",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -5268,13 +4925,6 @@
                 "value": "MaxNLocator"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "MaxNLocator",
-              "type": "str"
             },
             "type": ""
           },
@@ -5395,13 +5045,6 @@
           },
           {
             "link": {
-              "data": "ticker",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -5421,13 +5064,6 @@
                 "value": "MaxNLocator"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "MaxNLocator",
-              "type": "str"
             },
             "type": ""
           },
@@ -5501,13 +5137,6 @@
                 "value": "setup"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "setup",
-              "type": "str"
             },
             "type": ""
           },
@@ -5908,13 +5537,6 @@
           },
           {
             "link": {
-              "data": "ticker",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -5934,13 +5556,6 @@
                 "value": "LogLocator"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "LogLocator",
-              "type": "str"
             },
             "type": ""
           },
@@ -6054,13 +5669,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -6080,13 +5688,6 @@
                 "value": "tight_layout"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "tight_layout",
-              "type": "str"
             },
             "type": ""
           },
@@ -6130,13 +5731,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -6156,13 +5750,6 @@
                 "value": "show"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "show",
-              "type": "str"
             },
             "type": ""
           },

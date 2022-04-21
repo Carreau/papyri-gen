@@ -58,13 +58,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -98,13 +91,6 @@
                 "value": "cbook"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "cbook",
-              "type": "str"
             },
             "type": ""
           },
@@ -148,13 +134,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -174,13 +153,6 @@
                 "value": "pyplot"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "pyplot",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -224,13 +196,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -269,13 +234,6 @@
           },
           {
             "link": {
-              "data": "mpl_toolkits",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -300,13 +258,6 @@
           },
           {
             "link": {
-              "data": "axes_grid1",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -326,13 +277,6 @@
                 "value": "inset_locator"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "inset_locator",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -376,13 +320,6 @@
           },
           {
             "link": {
-              "data": "zoomed_inset_axes",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -409,13 +346,6 @@
                 "value": "mark_inset"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "mark_inset",
-              "type": "str"
             },
             "type": ""
           },
@@ -459,13 +389,6 @@
           },
           {
             "link": {
-              "data": "mpl_toolkits",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -490,13 +413,6 @@
           },
           {
             "link": {
-              "data": "axes_grid1",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -516,13 +432,6 @@
                 "value": "anchored_artists"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "anchored_artists",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -561,13 +470,6 @@
                 "value": "AnchoredSizeBar"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "AnchoredSizeBar",
-              "type": "str"
             },
             "type": ""
           },
@@ -618,13 +520,6 @@
           },
           {
             "link": {
-              "data": "numpy",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -658,13 +553,6 @@
                 "value": "np"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "np",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -722,13 +610,6 @@
           },
           {
             "link": {
-              "data": "get_demo_image",
-              "type": "str"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -781,13 +662,6 @@
           },
           {
             "link": {
-              "data": "z",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -826,13 +700,6 @@
           },
           {
             "link": {
-              "data": "cbook",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -852,13 +719,6 @@
                 "value": "get_sample_data"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "get_sample_data",
-              "type": "str"
             },
             "type": ""
           },
@@ -995,13 +855,6 @@
                 "value": "z"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "z",
-              "type": "str"
             },
             "type": ""
           },
@@ -1150,13 +1003,6 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -1251,13 +1097,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1277,13 +1116,6 @@
                 "value": "subplots"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "subplots",
-              "type": "str"
             },
             "type": ""
           },
@@ -1530,13 +1362,6 @@
           },
           {
             "link": {
-              "data": "zoomed_inset_axes",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -1694,13 +1519,6 @@
           },
           {
             "link": {
-              "data": "yaxis",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1720,13 +1538,6 @@
                 "value": "get_major_locator"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "get_major_locator",
-              "type": "str"
             },
             "type": ""
           },
@@ -1833,13 +1644,6 @@
           },
           {
             "link": {
-              "data": "xaxis",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1859,13 +1663,6 @@
                 "value": "get_major_locator"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "get_major_locator",
-              "type": "str"
             },
             "type": ""
           },
@@ -1967,13 +1764,6 @@
                 "value": "tick_params"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "tick_params",
-              "type": "str"
             },
             "type": ""
           },
@@ -2101,13 +1891,6 @@
           },
           {
             "link": {
-              "data": "add_sizebar",
-              "type": "str"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -2148,13 +1931,6 @@
                 "value": "size"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "size",
-              "type": "str"
             },
             "type": ""
           },
@@ -2205,13 +1981,6 @@
           },
           {
             "link": {
-              "data": "asb",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -2245,13 +2014,6 @@
                 "value": "AnchoredSizeBar"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "AnchoredSizeBar",
-              "type": "str"
             },
             "type": ""
           },
@@ -2295,13 +2057,6 @@
           },
           {
             "link": {
-              "data": "transData",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -2335,13 +2090,6 @@
                 "value": "size"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "size",
-              "type": "str"
             },
             "type": ""
           },
@@ -2385,13 +2133,6 @@
           },
           {
             "link": {
-              "data": "str",
-              "type": "str"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -2411,13 +2152,6 @@
                 "value": "size"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "size",
-              "type": "str"
             },
             "type": ""
           },
@@ -2678,13 +2412,6 @@
           },
           {
             "link": {
-              "data": "add_artist",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -2704,13 +2431,6 @@
                 "value": "asb"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "asb",
-              "type": "str"
             },
             "type": ""
           },
@@ -2749,13 +2469,6 @@
                 "value": "add_sizebar"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "add_sizebar",
-              "type": "str"
             },
             "type": ""
           },
@@ -2822,13 +2535,6 @@
                 "value": "add_sizebar"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "add_sizebar",
-              "type": "str"
             },
             "type": ""
           },
@@ -2942,13 +2648,6 @@
           },
           {
             "link": {
-              "data": "Z",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -2975,13 +2674,6 @@
                 "value": "extent"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "extent",
-              "type": "str"
             },
             "type": ""
           },
@@ -3025,13 +2717,6 @@
           },
           {
             "link": {
-              "data": "get_demo_image",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -3065,13 +2750,6 @@
                 "value": "Z2"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "Z2",
-              "type": "str"
             },
             "type": ""
           },
@@ -3115,13 +2793,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3141,13 +2812,6 @@
                 "value": "zeros"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "zeros",
-              "type": "str"
             },
             "type": ""
           },
@@ -3282,13 +2946,6 @@
           },
           {
             "link": {
-              "data": "Z",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3322,13 +2979,6 @@
                 "value": "Z2"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "Z2",
-              "type": "str"
             },
             "type": ""
           },
@@ -3470,13 +3120,6 @@
           },
           {
             "link": {
-              "data": "Z",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -3536,13 +3179,6 @@
           },
           {
             "link": {
-              "data": "Z2",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -3574,13 +3210,6 @@
           },
           {
             "link": {
-              "data": "extent",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -3600,13 +3229,6 @@
                 "value": "extent"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "extent",
-              "type": "str"
             },
             "type": ""
           },
@@ -3722,13 +3344,6 @@
                 "value": "zoomed_inset_axes"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "zoomed_inset_axes",
-              "type": "str"
             },
             "type": ""
           },
@@ -3863,13 +3478,6 @@
           },
           {
             "link": {
-              "data": "imshow",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -3889,13 +3497,6 @@
                 "value": "Z2"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "Z2",
-              "type": "str"
             },
             "type": ""
           },
@@ -3932,13 +3533,6 @@
           },
           {
             "link": {
-              "data": "extent",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -3958,13 +3552,6 @@
                 "value": "extent"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "extent",
-              "type": "str"
             },
             "type": ""
           },
@@ -4071,13 +3658,6 @@
           },
           {
             "link": {
-              "data": "x1",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -4104,13 +3684,6 @@
                 "value": "x2"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "x2",
-              "type": "str"
             },
             "type": ""
           },
@@ -4147,13 +3720,6 @@
           },
           {
             "link": {
-              "data": "y1",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -4180,13 +3746,6 @@
                 "value": "y2"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y2",
-              "type": "str"
             },
             "type": ""
           },
@@ -4349,13 +3908,6 @@
           },
           {
             "link": {
-              "data": "set_xlim",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -4375,13 +3927,6 @@
                 "value": "x1"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "x1",
-              "type": "str"
             },
             "type": ""
           },
@@ -4413,13 +3958,6 @@
                 "value": "x2"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "x2",
-              "type": "str"
             },
             "type": ""
           },
@@ -4470,13 +4008,6 @@
           },
           {
             "link": {
-              "data": "set_ylim",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -4496,13 +4027,6 @@
                 "value": "y1"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y1",
-              "type": "str"
             },
             "type": ""
           },
@@ -4534,13 +4058,6 @@
                 "value": "y2"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y2",
-              "type": "str"
             },
             "type": ""
           },
@@ -4605,13 +4122,6 @@
           },
           {
             "link": {
-              "data": "yaxis",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -4631,13 +4141,6 @@
                 "value": "get_major_locator"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "get_major_locator",
-              "type": "str"
             },
             "type": ""
           },
@@ -4744,13 +4247,6 @@
           },
           {
             "link": {
-              "data": "xaxis",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -4770,13 +4266,6 @@
                 "value": "get_major_locator"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "get_major_locator",
-              "type": "str"
             },
             "type": ""
           },
@@ -4878,13 +4367,6 @@
                 "value": "tick_params"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "tick_params",
-              "type": "str"
             },
             "type": ""
           },
@@ -5014,13 +4496,6 @@
                 "value": "mark_inset"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "mark_inset",
-              "type": "str"
             },
             "type": ""
           },
@@ -5267,13 +4742,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -5293,13 +4761,6 @@
                 "value": "show"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "show",
-              "type": "str"
             },
             "type": ""
           },

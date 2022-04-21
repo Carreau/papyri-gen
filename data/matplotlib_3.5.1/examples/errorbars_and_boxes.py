@@ -58,13 +58,6 @@
           },
           {
             "link": {
-              "data": "numpy",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -98,13 +91,6 @@
                 "value": "np"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "np",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -148,13 +134,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -174,13 +153,6 @@
                 "value": "pyplot"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "pyplot",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -224,13 +196,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -269,13 +234,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -295,13 +253,6 @@
                 "value": "collections"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "collections",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -345,13 +296,6 @@
           },
           {
             "link": {
-              "data": "PatchCollection",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -390,13 +334,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -416,13 +353,6 @@
                 "value": "patches"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "patches",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -461,13 +391,6 @@
                 "value": "Rectangle"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "Rectangle",
-              "type": "str"
             },
             "type": ""
           },
@@ -513,13 +436,6 @@
                 "value": "n"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "n",
-              "type": "str"
             },
             "type": ""
           },
@@ -598,13 +514,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -629,13 +538,6 @@
           },
           {
             "link": {
-              "data": "random",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -655,13 +557,6 @@
                 "value": "seed"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "seed",
-              "type": "str"
             },
             "type": ""
           },
@@ -712,13 +607,6 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -757,13 +645,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -783,13 +664,6 @@
                 "value": "arange"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "arange",
-              "type": "str"
             },
             "type": ""
           },
@@ -835,13 +709,6 @@
                 "value": "n"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "n",
-              "type": "str"
             },
             "type": ""
           },
@@ -899,13 +766,6 @@
           },
           {
             "link": {
-              "data": "y",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -944,13 +804,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -970,13 +823,6 @@
                 "value": "random"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "random",
-              "type": "str"
             },
             "type": ""
           },
@@ -1006,13 +852,6 @@
           },
           {
             "link": {
-              "data": "rand",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -1032,13 +871,6 @@
                 "value": "n"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "n",
-              "type": "str"
             },
             "type": ""
           },
@@ -1124,13 +956,6 @@
           },
           {
             "link": {
-              "data": "xerr",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -1169,13 +994,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1200,13 +1018,6 @@
           },
           {
             "link": {
-              "data": "random",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1226,13 +1037,6 @@
                 "value": "rand"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "rand",
-              "type": "str"
             },
             "type": ""
           },
@@ -1278,13 +1082,6 @@
                 "value": "n"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "n",
-              "type": "str"
             },
             "type": ""
           },
@@ -1349,13 +1146,6 @@
           },
           {
             "link": {
-              "data": "yerr",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -1394,13 +1184,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1425,13 +1208,6 @@
           },
           {
             "link": {
-              "data": "random",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1451,13 +1227,6 @@
                 "value": "rand"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "rand",
-              "type": "str"
             },
             "type": ""
           },
@@ -1503,13 +1272,6 @@
                 "value": "n"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "n",
-              "type": "str"
             },
             "type": ""
           },
@@ -1602,13 +1364,6 @@
           },
           {
             "link": {
-              "data": "make_error_boxes",
-              "type": "str"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -1654,13 +1409,6 @@
           },
           {
             "link": {
-              "data": "xdata",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -1687,13 +1435,6 @@
                 "value": "ydata"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "ydata",
-              "type": "str"
             },
             "type": ""
           },
@@ -1730,13 +1471,6 @@
           },
           {
             "link": {
-              "data": "xerror",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -1768,13 +1502,6 @@
           },
           {
             "link": {
-              "data": "yerror",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -1801,13 +1528,6 @@
                 "value": "facecolor"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "facecolor",
-              "type": "str"
             },
             "type": ""
           },
@@ -1879,13 +1599,6 @@
           },
           {
             "link": {
-              "data": "edgecolor",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -1940,13 +1653,6 @@
                 "value": "alpha"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "alpha",
-              "type": "str"
             },
             "type": ""
           },
@@ -2039,13 +1745,6 @@
           },
           {
             "link": {
-              "data": "errorboxes",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -2086,13 +1785,6 @@
                 "value": "Rectangle"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "Rectangle",
-              "type": "str"
             },
             "type": ""
           },
@@ -2486,13 +2178,6 @@
           },
           {
             "link": {
-              "data": "zip",
-              "type": "str"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -2512,13 +2197,6 @@
                 "value": "xdata"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "xdata",
-              "type": "str"
             },
             "type": ""
           },
@@ -2555,13 +2233,6 @@
           },
           {
             "link": {
-              "data": "ydata",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -2593,13 +2264,6 @@
           },
           {
             "link": {
-              "data": "xerror",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2619,13 +2283,6 @@
                 "value": "T"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "T",
-              "type": "str"
             },
             "type": ""
           },
@@ -2662,13 +2319,6 @@
           },
           {
             "link": {
-              "data": "yerror",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2688,13 +2338,6 @@
                 "value": "T"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "T",
-              "type": "str"
             },
             "type": ""
           },
@@ -2773,13 +2416,6 @@
           },
           {
             "link": {
-              "data": "pc",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -2818,13 +2454,6 @@
           },
           {
             "link": {
-              "data": "PatchCollection",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -2849,13 +2478,6 @@
           },
           {
             "link": {
-              "data": "errorboxes",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -2887,13 +2509,6 @@
           },
           {
             "link": {
-              "data": "facecolor",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -2913,13 +2528,6 @@
                 "value": "facecolor"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "facecolor",
-              "type": "str"
             },
             "type": ""
           },
@@ -2956,13 +2564,6 @@
           },
           {
             "link": {
-              "data": "alpha",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -2982,13 +2583,6 @@
                 "value": "alpha"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "alpha",
-              "type": "str"
             },
             "type": ""
           },
@@ -3032,13 +2626,6 @@
           },
           {
             "link": {
-              "data": "edgecolor",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -3058,13 +2645,6 @@
                 "value": "edgecolor"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "edgecolor",
-              "type": "str"
             },
             "type": ""
           },
@@ -3159,13 +2739,6 @@
                 "value": "pc"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "pc",
-              "type": "str"
             },
             "type": ""
           },
@@ -3293,13 +2866,6 @@
           },
           {
             "link": {
-              "data": "xdata",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -3326,13 +2892,6 @@
                 "value": "ydata"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "ydata",
-              "type": "str"
             },
             "type": ""
           },
@@ -3369,13 +2928,6 @@
           },
           {
             "link": {
-              "data": "xerr",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -3395,13 +2947,6 @@
                 "value": "xerror"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "xerror",
-              "type": "str"
             },
             "type": ""
           },
@@ -3438,13 +2983,6 @@
           },
           {
             "link": {
-              "data": "yerr",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -3464,13 +3002,6 @@
                 "value": "yerror"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "yerror",
-              "type": "str"
             },
             "type": ""
           },
@@ -3682,13 +3213,6 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -3748,13 +3272,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3774,13 +3291,6 @@
                 "value": "subplots"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "subplots",
-              "type": "str"
             },
             "type": ""
           },
@@ -3880,13 +3390,6 @@
           },
           {
             "link": {
-              "data": "make_error_boxes",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -3932,13 +3435,6 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -3965,13 +3461,6 @@
                 "value": "y"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y",
-              "type": "str"
             },
             "type": ""
           },
@@ -4008,13 +3497,6 @@
           },
           {
             "link": {
-              "data": "xerr",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -4041,13 +3523,6 @@
                 "value": "yerr"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "yerr",
-              "type": "str"
             },
             "type": ""
           },
@@ -4091,13 +3566,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -4117,13 +3585,6 @@
                 "value": "show"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "show",
-              "type": "str"
             },
             "type": ""
           },

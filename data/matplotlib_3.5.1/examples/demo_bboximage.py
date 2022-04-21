@@ -51,13 +51,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -77,13 +70,6 @@
                 "value": "pyplot"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "pyplot",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -127,13 +113,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -167,13 +146,6 @@
                 "value": "numpy"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "numpy",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -217,13 +189,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -262,13 +227,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -288,13 +246,6 @@
                 "value": "image"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "image",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -338,13 +289,6 @@
           },
           {
             "link": {
-              "data": "BboxImage",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -383,13 +327,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -409,13 +346,6 @@
                 "value": "transforms"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "transforms",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -459,13 +389,6 @@
           },
           {
             "link": {
-              "data": "Bbox",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -492,13 +415,6 @@
                 "value": "TransformedBbox"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "TransformedBbox",
-              "type": "str"
             },
             "type": ""
           },
@@ -537,13 +453,6 @@
                 "value": "fig"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "fig",
-              "type": "str"
             },
             "type": ""
           },
@@ -643,13 +552,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -669,13 +571,6 @@
                 "value": "subplots"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "subplots",
-              "type": "str"
             },
             "type": ""
           },
@@ -1055,13 +950,6 @@
           },
           {
             "link": {
-              "data": "kwargs",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -1095,13 +983,6 @@
                 "value": "dict"
               },
               "type": "Link"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
-              "data": "dict",
-              "type": "str"
             },
             "type": "nb"
           },
@@ -1152,13 +1033,6 @@
           },
           {
             "link": {
-              "data": "bbox_image",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -1192,13 +1066,6 @@
                 "value": "BboxImage"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "BboxImage",
-              "type": "str"
             },
             "type": ""
           },
@@ -1410,13 +1277,6 @@
           },
           {
             "link": {
-              "data": "kwargs",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -1462,13 +1322,6 @@
           },
           {
             "link": {
-              "data": "a",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -1507,13 +1360,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1533,13 +1379,6 @@
                 "value": "arange"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "arange",
-              "type": "str"
             },
             "type": ""
           },
@@ -1585,13 +1424,6 @@
                 "value": "reshape"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "reshape",
-              "type": "str"
             },
             "type": ""
           },
@@ -1677,13 +1509,6 @@
           },
           {
             "link": {
-              "data": "bbox_image",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1708,13 +1533,6 @@
           },
           {
             "link": {
-              "data": "set_data",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -1734,13 +1552,6 @@
                 "value": "a"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "a",
-              "type": "str"
             },
             "type": ""
           },
@@ -1800,13 +1611,6 @@
                 "value": "bbox_image"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "bbox_image",
-              "type": "str"
             },
             "type": ""
           },
@@ -1892,13 +1696,6 @@
           },
           {
             "link": {
-              "data": "a",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -1937,13 +1734,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1963,13 +1753,6 @@
                 "value": "linspace"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "linspace",
-              "type": "str"
             },
             "type": ""
           },
@@ -2062,13 +1845,6 @@
           },
           {
             "link": {
-              "data": "reshape",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -2142,13 +1918,6 @@
           },
           {
             "link": {
-              "data": "a",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -2187,13 +1956,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2213,13 +1975,6 @@
                 "value": "vstack"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "vstack",
-              "type": "str"
             },
             "type": ""
           },
@@ -2251,13 +2006,6 @@
                 "value": "a"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "a",
-              "type": "str"
             },
             "type": ""
           },
@@ -2289,13 +2037,6 @@
                 "value": "a"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "a",
-              "type": "str"
             },
             "type": ""
           },
@@ -2360,13 +2101,6 @@
           },
           {
             "link": {
-              "data": "cmap_names",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -2400,13 +2134,6 @@
                 "value": "sorted"
               },
               "type": "Link"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
-              "data": "sorted",
-              "type": "str"
             },
             "type": "nb"
           },
@@ -2492,13 +2219,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2518,13 +2238,6 @@
                 "value": "colormaps"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "colormaps",
-              "type": "str"
             },
             "type": ""
           },
@@ -2659,13 +2372,6 @@
           },
           {
             "link": {
-              "data": "ncol",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -2718,13 +2424,6 @@
           },
           {
             "link": {
-              "data": "nrow",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -2763,13 +2462,6 @@
           },
           {
             "link": {
-              "data": "len",
-              "type": "str"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -2789,13 +2481,6 @@
                 "value": "cmap_names"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "cmap_names",
-              "type": "str"
             },
             "type": ""
           },
@@ -2853,13 +2538,6 @@
           },
           {
             "link": {
-              "data": "ncol",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -2919,13 +2597,6 @@
           },
           {
             "link": {
-              "data": "xpad_fraction",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -2973,13 +2644,6 @@
                 "value": "dx"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "dx",
-              "type": "str"
             },
             "type": ""
           },
@@ -3058,13 +2722,6 @@
           },
           {
             "link": {
-              "data": "ncol",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -3098,13 +2755,6 @@
                 "value": "xpad_fraction"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "xpad_fraction",
-              "type": "str"
             },
             "type": ""
           },
@@ -3150,13 +2800,6 @@
                 "value": "ncol"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "ncol",
-              "type": "str"
             },
             "type": ""
           },
@@ -3235,13 +2878,6 @@
           },
           {
             "link": {
-              "data": "ypad_fraction",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -3289,13 +2925,6 @@
                 "value": "dy"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "dy",
-              "type": "str"
             },
             "type": ""
           },
@@ -3374,13 +3003,6 @@
           },
           {
             "link": {
-              "data": "nrow",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -3414,13 +3036,6 @@
                 "value": "ypad_fraction"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "ypad_fraction",
-              "type": "str"
             },
             "type": ""
           },
@@ -3466,13 +3081,6 @@
                 "value": "nrow"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "nrow",
-              "type": "str"
             },
             "type": ""
           },
@@ -3565,13 +3173,6 @@
           },
           {
             "link": {
-              "data": "i",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -3598,13 +3199,6 @@
                 "value": "cmap_name"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "cmap_name",
-              "type": "str"
             },
             "type": ""
           },
@@ -3648,13 +3242,6 @@
           },
           {
             "link": {
-              "data": "enumerate",
-              "type": "str"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -3674,13 +3261,6 @@
                 "value": "cmap_names"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "cmap_names",
-              "type": "str"
             },
             "type": ""
           },
@@ -3731,13 +3311,6 @@
           },
           {
             "link": {
-              "data": "ix",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -3764,13 +3337,6 @@
                 "value": "iy"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "iy",
-              "type": "str"
             },
             "type": ""
           },
@@ -3814,13 +3380,6 @@
           },
           {
             "link": {
-              "data": "divmod",
-              "type": "str"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -3840,13 +3399,6 @@
                 "value": "i"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "i",
-              "type": "str"
             },
             "type": ""
           },
@@ -3878,13 +3430,6 @@
                 "value": "nrow"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "nrow",
-              "type": "str"
             },
             "type": ""
           },
@@ -3935,13 +3480,6 @@
           },
           {
             "link": {
-              "data": "bbox0",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -3980,13 +3518,6 @@
           },
           {
             "link": {
-              "data": "Bbox",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -4006,13 +3537,6 @@
                 "value": "from_bounds"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "from_bounds",
-              "type": "str"
             },
             "type": ""
           },
@@ -4042,13 +3566,6 @@
           },
           {
             "link": {
-              "data": "ix",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "*",
               "type": "str"
             },
@@ -4068,13 +3585,6 @@
                 "value": "dx"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "dx",
-              "type": "str"
             },
             "type": ""
           },
@@ -4134,13 +3644,6 @@
                 "value": "xpad_fraction"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "xpad_fraction",
-              "type": "str"
             },
             "type": ""
           },
@@ -4219,13 +3722,6 @@
           },
           {
             "link": {
-              "data": "iy",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "*",
               "type": "str"
             },
@@ -4245,13 +3741,6 @@
                 "value": "dy"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "dy",
-              "type": "str"
             },
             "type": ""
           },
@@ -4316,13 +3805,6 @@
           },
           {
             "link": {
-              "data": "ypad_fraction",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -4368,13 +3850,6 @@
           },
           {
             "link": {
-              "data": "dy",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -4413,13 +3888,6 @@
           },
           {
             "link": {
-              "data": "dx",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -4446,13 +3914,6 @@
                 "value": "dy"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "dy",
-              "type": "str"
             },
             "type": ""
           },
@@ -4496,13 +3957,6 @@
           },
           {
             "link": {
-              "data": "bbox",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -4541,13 +3995,6 @@
           },
           {
             "link": {
-              "data": "TransformedBbox",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -4567,13 +4014,6 @@
                 "value": "bbox0"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "bbox0",
-              "type": "str"
             },
             "type": ""
           },
@@ -4659,13 +4099,6 @@
           },
           {
             "link": {
-              "data": "bbox_image",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -4704,13 +4137,6 @@
           },
           {
             "link": {
-              "data": "BboxImage",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -4730,13 +4156,6 @@
                 "value": "bbox"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "bbox",
-              "type": "str"
             },
             "type": ""
           },
@@ -4789,13 +4208,6 @@
                 "value": "cmap_name"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "cmap_name",
-              "type": "str"
             },
             "type": ""
           },
@@ -4937,13 +4349,6 @@
           },
           {
             "link": {
-              "data": "kwargs",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -5003,13 +4408,6 @@
           },
           {
             "link": {
-              "data": "bbox_image",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -5034,13 +4432,6 @@
           },
           {
             "link": {
-              "data": "set_data",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -5060,13 +4451,6 @@
                 "value": "a"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "a",
-              "type": "str"
             },
             "type": ""
           },
@@ -5138,13 +4522,6 @@
           },
           {
             "link": {
-              "data": "bbox_image",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -5183,13 +4560,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -5209,13 +4579,6 @@
                 "value": "show"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "show",
-              "type": "str"
             },
             "type": ""
           },

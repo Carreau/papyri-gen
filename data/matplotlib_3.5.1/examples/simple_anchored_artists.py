@@ -58,13 +58,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -84,13 +77,6 @@
                 "value": "pyplot"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "pyplot",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -129,13 +115,6 @@
                 "value": "plt"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "plt",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -188,13 +167,6 @@
                 "value": "draw_text"
               },
               "type": "Link"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
-              "data": "draw_text",
-              "type": "str"
             },
             "type": "nf"
           },
@@ -294,13 +266,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -320,13 +285,6 @@
                 "value": "offsetbox"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "offsetbox",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -370,13 +328,6 @@
           },
           {
             "link": {
-              "data": "AnchoredText",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -403,13 +354,6 @@
                 "value": "at"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "at",
-              "type": "str"
             },
             "type": ""
           },
@@ -448,13 +392,6 @@
                 "value": "AnchoredText"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "AnchoredText",
-              "type": "str"
             },
             "type": ""
           },
@@ -589,13 +526,6 @@
           },
           {
             "link": {
-              "data": "dict",
-              "type": "str"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -725,13 +655,6 @@
           },
           {
             "link": {
-              "data": "at",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -756,13 +679,6 @@
           },
           {
             "link": {
-              "data": "patch",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -782,13 +698,6 @@
                 "value": "set_boxstyle"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "set_boxstyle",
-              "type": "str"
             },
             "type": ""
           },
@@ -888,13 +797,6 @@
           },
           {
             "link": {
-              "data": "at",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -940,13 +842,6 @@
           },
           {
             "link": {
-              "data": "at2",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -980,13 +875,6 @@
                 "value": "AnchoredText"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "AnchoredText",
-              "type": "str"
             },
             "type": ""
           },
@@ -1116,13 +1004,6 @@
                 "value": "dict"
               },
               "type": "Link"
-            },
-            "type": "nb"
-          },
-          {
-            "link": {
-              "data": "dict",
-              "type": "str"
             },
             "type": "nb"
           },
@@ -1383,13 +1264,6 @@
           },
           {
             "link": {
-              "data": "at2",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1414,13 +1288,6 @@
           },
           {
             "link": {
-              "data": "patch",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1440,13 +1307,6 @@
                 "value": "set_boxstyle"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "set_boxstyle",
-              "type": "str"
             },
             "type": ""
           },
@@ -1546,13 +1406,6 @@
           },
           {
             "link": {
-              "data": "at2",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -1607,13 +1460,6 @@
                 "value": "draw_circle"
               },
               "type": "Link"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
-              "data": "draw_circle",
-              "type": "str"
             },
             "type": "nf"
           },
@@ -1713,13 +1559,6 @@
           },
           {
             "link": {
-              "data": "mpl_toolkits",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1744,13 +1583,6 @@
           },
           {
             "link": {
-              "data": "axes_grid1",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1770,13 +1602,6 @@
                 "value": "anchored_artists"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "anchored_artists",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -1815,13 +1640,6 @@
                 "value": "AnchoredDrawingArea"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "AnchoredDrawingArea",
-              "type": "str"
             },
             "type": ""
           },
@@ -1872,13 +1690,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1898,13 +1709,6 @@
                 "value": "patches"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "patches",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -1948,13 +1752,6 @@
           },
           {
             "link": {
-              "data": "Circle",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -1981,13 +1778,6 @@
                 "value": "ada"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "ada",
-              "type": "str"
             },
             "type": ""
           },
@@ -2026,13 +1816,6 @@
                 "value": "AnchoredDrawingArea"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "AnchoredDrawingArea",
-              "type": "str"
             },
             "type": ""
           },
@@ -2279,13 +2062,6 @@
           },
           {
             "link": {
-              "data": "p",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -2319,13 +2095,6 @@
                 "value": "Circle"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "Circle",
-              "type": "str"
             },
             "type": ""
           },
@@ -2439,13 +2208,6 @@
           },
           {
             "link": {
-              "data": "ada",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2465,13 +2227,6 @@
                 "value": "da"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "da",
-              "type": "str"
             },
             "type": ""
           },
@@ -2501,13 +2256,6 @@
           },
           {
             "link": {
-              "data": "add_artist",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -2527,13 +2275,6 @@
                 "value": "p"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "p",
-              "type": "str"
             },
             "type": ""
           },
@@ -2605,13 +2346,6 @@
           },
           {
             "link": {
-              "data": "ada",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -2666,13 +2400,6 @@
                 "value": "draw_ellipse"
               },
               "type": "Link"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
-              "data": "draw_ellipse",
-              "type": "str"
             },
             "type": "nf"
           },
@@ -2772,13 +2499,6 @@
           },
           {
             "link": {
-              "data": "mpl_toolkits",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2803,13 +2523,6 @@
           },
           {
             "link": {
-              "data": "axes_grid1",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2829,13 +2542,6 @@
                 "value": "anchored_artists"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "anchored_artists",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -2879,13 +2585,6 @@
           },
           {
             "link": {
-              "data": "AnchoredEllipse",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -2912,13 +2611,6 @@
                 "value": "ae"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "ae",
-              "type": "str"
             },
             "type": ""
           },
@@ -2957,13 +2649,6 @@
                 "value": "AnchoredEllipse"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "AnchoredEllipse",
-              "type": "str"
             },
             "type": ""
           },
@@ -3343,13 +3028,6 @@
           },
           {
             "link": {
-              "data": "ae",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -3404,13 +3082,6 @@
                 "value": "draw_sizebar"
               },
               "type": "Link"
-            },
-            "type": "nf"
-          },
-          {
-            "link": {
-              "data": "draw_sizebar",
-              "type": "str"
             },
             "type": "nf"
           },
@@ -3510,13 +3181,6 @@
           },
           {
             "link": {
-              "data": "mpl_toolkits",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3541,13 +3205,6 @@
           },
           {
             "link": {
-              "data": "axes_grid1",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3567,13 +3224,6 @@
                 "value": "anchored_artists"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "anchored_artists",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -3617,13 +3267,6 @@
           },
           {
             "link": {
-              "data": "AnchoredSizeBar",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -3650,13 +3293,6 @@
                 "value": "asb"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "asb",
-              "type": "str"
             },
             "type": ""
           },
@@ -3695,13 +3331,6 @@
                 "value": "AnchoredSizeBar"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "AnchoredSizeBar",
-              "type": "str"
             },
             "type": ""
           },
@@ -4109,13 +3738,6 @@
           },
           {
             "link": {
-              "data": "asb",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -4156,13 +3778,6 @@
                 "value": "fig"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "fig",
-              "type": "str"
             },
             "type": ""
           },
@@ -4227,13 +3842,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -4253,13 +3861,6 @@
                 "value": "subplots"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "subplots",
-              "type": "str"
             },
             "type": ""
           },
@@ -4359,13 +3960,6 @@
           },
           {
             "link": {
-              "data": "draw_text",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -4406,13 +4000,6 @@
                 "value": "draw_circle"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "draw_circle",
-              "type": "str"
             },
             "type": ""
           },
@@ -4463,13 +4050,6 @@
           },
           {
             "link": {
-              "data": "draw_ellipse",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -4510,13 +4090,6 @@
                 "value": "draw_sizebar"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "draw_sizebar",
-              "type": "str"
             },
             "type": ""
           },
@@ -4574,13 +4147,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -4600,13 +4166,6 @@
                 "value": "show"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "show",
-              "type": "str"
             },
             "type": ""
           },

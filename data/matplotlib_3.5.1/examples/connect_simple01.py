@@ -58,13 +58,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -84,13 +77,6 @@
                 "value": "patches"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "patches",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -134,13 +120,6 @@
           },
           {
             "link": {
-              "data": "ConnectionPatch",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -179,13 +158,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -205,13 +177,6 @@
                 "value": "pyplot"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "pyplot",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -255,13 +220,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -288,13 +246,6 @@
                 "value": "fig"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "fig",
-              "type": "str"
             },
             "type": ""
           },
@@ -394,13 +345,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -420,13 +364,6 @@
                 "value": "subplots"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "subplots",
-              "type": "str"
             },
             "type": ""
           },
@@ -603,13 +540,6 @@
           },
           {
             "link": {
-              "data": "xyA",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -692,13 +622,6 @@
                 "value": "xyB"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "xyB",
-              "type": "str"
             },
             "type": ""
           },
@@ -791,13 +714,6 @@
           },
           {
             "link": {
-              "data": "coordsA",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -859,13 +775,6 @@
                 "value": "coordsB"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "coordsB",
-              "type": "str"
             },
             "type": ""
           },
@@ -937,13 +846,6 @@
           },
           {
             "link": {
-              "data": "con",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -982,13 +884,6 @@
           },
           {
             "link": {
-              "data": "ConnectionPatch",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -1008,13 +903,6 @@
                 "value": "xyA"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "xyA",
-              "type": "str"
             },
             "type": ""
           },
@@ -1051,13 +939,6 @@
           },
           {
             "link": {
-              "data": "xyB",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -1089,13 +970,6 @@
           },
           {
             "link": {
-              "data": "coordsA",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -1122,13 +996,6 @@
                 "value": "coordsB"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "coordsB",
-              "type": "str"
             },
             "type": ""
           },
@@ -1417,13 +1284,6 @@
           },
           {
             "link": {
-              "data": "xyA",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "[",
               "type": "str"
             },
@@ -1471,13 +1331,6 @@
                 "value": "xyB"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "xyB",
-              "type": "str"
             },
             "type": ""
           },
@@ -1549,13 +1402,6 @@
           },
           {
             "link": {
-              "data": "xyA",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "[",
               "type": "str"
             },
@@ -1603,13 +1449,6 @@
                 "value": "xyB"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "xyB",
-              "type": "str"
             },
             "type": ""
           },
@@ -1737,13 +1576,6 @@
           },
           {
             "link": {
-              "data": "con",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -1805,13 +1637,6 @@
                 "value": "xy"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "xy",
-              "type": "str"
             },
             "type": ""
           },
@@ -1904,13 +1729,6 @@
           },
           {
             "link": {
-              "data": "con",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -1944,13 +1762,6 @@
                 "value": "ConnectionPatch"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "ConnectionPatch",
-              "type": "str"
             },
             "type": ""
           },
@@ -1994,13 +1805,6 @@
           },
           {
             "link": {
-              "data": "xyA",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -2020,13 +1824,6 @@
                 "value": "xy"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "xy",
-              "type": "str"
             },
             "type": ""
           },
@@ -2058,13 +1855,6 @@
                 "value": "coordsA"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "coordsA",
-              "type": "str"
             },
             "type": ""
           },
@@ -2136,13 +1926,6 @@
           },
           {
             "link": {
-              "data": "xyB",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -2162,13 +1945,6 @@
                 "value": "xy"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "xy",
-              "type": "str"
             },
             "type": ""
           },
@@ -2200,13 +1976,6 @@
                 "value": "coordsB"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "coordsB",
-              "type": "str"
             },
             "type": ""
           },
@@ -2362,13 +2131,6 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2402,13 +2164,6 @@
                 "value": "con"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "con",
-              "type": "str"
             },
             "type": ""
           },
@@ -2480,13 +2235,6 @@
           },
           {
             "link": {
-              "data": "con",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -2520,13 +2268,6 @@
                 "value": "ConnectionPatch"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "ConnectionPatch",
-              "type": "str"
             },
             "type": ""
           },
@@ -2586,13 +2327,6 @@
                 "value": "xyA"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "xyA",
-              "type": "str"
             },
             "type": ""
           },
@@ -2673,13 +2407,6 @@
                 "value": "coordsA"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "coordsA",
-              "type": "str"
             },
             "type": ""
           },
@@ -2772,13 +2499,6 @@
           },
           {
             "link": {
-              "data": "xyB",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "=",
               "type": "str"
             },
@@ -2854,13 +2574,6 @@
                 "value": "coordsB"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "coordsB",
-              "type": "str"
             },
             "type": ""
           },
@@ -3018,13 +2731,6 @@
                 "value": "con"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "con",
-              "type": "str"
             },
             "type": ""
           },
@@ -3355,13 +3061,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3381,13 +3080,6 @@
                 "value": "show"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "show",
-              "type": "str"
             },
             "type": ""
           },

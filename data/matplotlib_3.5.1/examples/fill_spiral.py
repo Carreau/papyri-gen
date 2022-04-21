@@ -51,13 +51,6 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -77,13 +70,6 @@
                 "value": "pyplot"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "pyplot",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -127,13 +113,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -167,13 +146,6 @@
                 "value": "numpy"
               },
               "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "numpy",
-              "type": "str"
             },
             "type": "nn"
           },
@@ -217,13 +189,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": "\n",
               "type": "str"
             },
@@ -250,13 +215,6 @@
                 "value": "theta"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "theta",
-              "type": "str"
             },
             "type": ""
           },
@@ -300,13 +258,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -326,13 +277,6 @@
                 "value": "arange"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "arange",
-              "type": "str"
             },
             "type": ""
           },
@@ -392,13 +336,6 @@
                 "value": "np"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "np",
-              "type": "str"
             },
             "type": ""
           },
@@ -470,13 +407,6 @@
           },
           {
             "link": {
-              "data": "a",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -524,13 +454,6 @@
                 "value": "b"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "b",
-              "type": "str"
             },
             "type": ""
           },
@@ -637,13 +560,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -663,13 +579,6 @@
                 "value": "arange"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "arange",
-              "type": "str"
             },
             "type": ""
           },
@@ -734,13 +643,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -781,13 +683,6 @@
                 "value": "np"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "np",
-              "type": "str"
             },
             "type": ""
           },
@@ -873,13 +768,6 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -918,13 +806,6 @@
           },
           {
             "link": {
-              "data": "a",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "*",
               "type": "str"
             },
@@ -944,13 +825,6 @@
                 "value": "np"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "np",
-              "type": "str"
             },
             "type": ""
           },
@@ -980,13 +854,6 @@
           },
           {
             "link": {
-              "data": "cos",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -1006,13 +873,6 @@
                 "value": "theta"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "theta",
-              "type": "str"
             },
             "type": ""
           },
@@ -1077,13 +937,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1103,13 +956,6 @@
                 "value": "exp"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "exp",
-              "type": "str"
             },
             "type": ""
           },
@@ -1139,13 +985,6 @@
           },
           {
             "link": {
-              "data": "b",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "*",
               "type": "str"
             },
@@ -1165,13 +1004,6 @@
                 "value": "theta"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "theta",
-              "type": "str"
             },
             "type": ""
           },
@@ -1215,13 +1047,6 @@
           },
           {
             "link": {
-              "data": "y",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -1260,13 +1085,6 @@
           },
           {
             "link": {
-              "data": "a",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "*",
               "type": "str"
             },
@@ -1286,13 +1104,6 @@
                 "value": "np"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "np",
-              "type": "str"
             },
             "type": ""
           },
@@ -1322,13 +1133,6 @@
           },
           {
             "link": {
-              "data": "sin",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -1348,13 +1152,6 @@
                 "value": "theta"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "theta",
-              "type": "str"
             },
             "type": ""
           },
@@ -1419,13 +1216,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1445,13 +1235,6 @@
                 "value": "exp"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "exp",
-              "type": "str"
             },
             "type": ""
           },
@@ -1481,13 +1264,6 @@
           },
           {
             "link": {
-              "data": "b",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "*",
               "type": "str"
             },
@@ -1507,13 +1283,6 @@
                 "value": "theta"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "theta",
-              "type": "str"
             },
             "type": ""
           },
@@ -1564,13 +1333,6 @@
           },
           {
             "link": {
-              "data": "dt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -1632,13 +1394,6 @@
                 "value": "np"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "np",
-              "type": "str"
             },
             "type": ""
           },
@@ -1710,13 +1465,6 @@
           },
           {
             "link": {
-              "data": "x2",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -1755,13 +1503,6 @@
           },
           {
             "link": {
-              "data": "a",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "*",
               "type": "str"
             },
@@ -1781,13 +1522,6 @@
                 "value": "np"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "np",
-              "type": "str"
             },
             "type": ""
           },
@@ -1817,13 +1551,6 @@
           },
           {
             "link": {
-              "data": "cos",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -1843,13 +1570,6 @@
                 "value": "theta"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "theta",
-              "type": "str"
             },
             "type": ""
           },
@@ -1893,13 +1613,6 @@
           },
           {
             "link": {
-              "data": "dt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -1931,13 +1644,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -1957,13 +1663,6 @@
                 "value": "exp"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "exp",
-              "type": "str"
             },
             "type": ""
           },
@@ -1993,13 +1692,6 @@
           },
           {
             "link": {
-              "data": "b",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "*",
               "type": "str"
             },
@@ -2019,13 +1711,6 @@
                 "value": "theta"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "theta",
-              "type": "str"
             },
             "type": ""
           },
@@ -2069,13 +1754,6 @@
           },
           {
             "link": {
-              "data": "y2",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -2114,13 +1792,6 @@
           },
           {
             "link": {
-              "data": "a",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "*",
               "type": "str"
             },
@@ -2140,13 +1811,6 @@
                 "value": "np"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "np",
-              "type": "str"
             },
             "type": ""
           },
@@ -2176,13 +1840,6 @@
           },
           {
             "link": {
-              "data": "sin",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -2202,13 +1859,6 @@
                 "value": "theta"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "theta",
-              "type": "str"
             },
             "type": ""
           },
@@ -2252,13 +1902,6 @@
           },
           {
             "link": {
-              "data": "dt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ")",
               "type": "str"
             },
@@ -2290,13 +1933,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2316,13 +1952,6 @@
                 "value": "exp"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "exp",
-              "type": "str"
             },
             "type": ""
           },
@@ -2352,13 +1981,6 @@
           },
           {
             "link": {
-              "data": "b",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "*",
               "type": "str"
             },
@@ -2378,13 +2000,6 @@
                 "value": "theta"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "theta",
-              "type": "str"
             },
             "type": ""
           },
@@ -2435,13 +2050,6 @@
           },
           {
             "link": {
-              "data": "xf",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -2480,13 +2088,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2506,13 +2107,6 @@
                 "value": "concatenate"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "concatenate",
-              "type": "str"
             },
             "type": ""
           },
@@ -2549,13 +2143,6 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -2582,13 +2169,6 @@
                 "value": "x2"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "x2",
-              "type": "str"
             },
             "type": ""
           },
@@ -2681,13 +2261,6 @@
           },
           {
             "link": {
-              "data": "yf",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": " ",
               "type": "str"
             },
@@ -2726,13 +2299,6 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2752,13 +2318,6 @@
                 "value": "concatenate"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "concatenate",
-              "type": "str"
             },
             "type": ""
           },
@@ -2795,13 +2354,6 @@
           },
           {
             "link": {
-              "data": "y",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ",",
               "type": "str"
             },
@@ -2828,13 +2380,6 @@
                 "value": "y2"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "y2",
-              "type": "str"
             },
             "type": ""
           },
@@ -2962,13 +2507,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -2993,13 +2531,6 @@
           },
           {
             "link": {
-              "data": "fill",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": "(",
               "type": "str"
             },
@@ -3019,13 +2550,6 @@
                 "value": "xf"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "xf",
-              "type": "str"
             },
             "type": ""
           },
@@ -3057,13 +2581,6 @@
                 "value": "yf"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "yf",
-              "type": "str"
             },
             "type": ""
           },
@@ -3107,13 +2624,6 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -3133,13 +2643,6 @@
                 "value": "show"
               },
               "type": "Link"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "show",
-              "type": "str"
             },
             "type": ""
           },

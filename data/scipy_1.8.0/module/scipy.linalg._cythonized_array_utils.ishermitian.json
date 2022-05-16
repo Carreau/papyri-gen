@@ -16,19 +16,200 @@
       "children": [
         {
           "data": {
-            "value": [
-              "For square empty arrays the result is returned True by convention.",
-              "",
-              "`numpy.inf` will be treated as a number, that is to say ``[[1, inf],",
-              "[inf, 2]]`` will return ``True``. On the other hand `numpy.NaN` is never",
-              "symmetric, say, ``[[1, nan], [nan, 2]]`` will return ``False``.",
-              "",
-              "When ``atol`` and/or ``rtol`` are set to , then the comparison is performed",
-              "by `numpy.allclose` and the tolerance values are passed to it. Otherwise an",
-              "exact comparison against zero is performed by internal functions. Hence",
-              "performance can improve or degrade depending on the size and dtype of the",
-              "array. If one of ``atol`` or ``rtol`` given the other one is automatically",
-              "set to zero."
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "For square empty arrays the result is returned True by convention."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "numpy.inf"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " will be treated as a number, that is to say "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "[[1, inf],\n    [inf, 2]]"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " will return "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "True"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ". On the other hand "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "numpy.NaN"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " is never     symmetric, say, "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "[[1, nan], [nan, 2]]"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " will return "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "False"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": "."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "When "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "atol"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " and/or "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "rtol"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " are set to , then the comparison is performed     by "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "module",
+                        "reference": {
+                          "kind": "api",
+                          "module": "numpy",
+                          "path": "numpy.allclose",
+                          "version": "*"
+                        },
+                        "value": "numpy.allclose"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " and the tolerance values are passed to it. Otherwise an     exact comparison against zero is performed by internal functions. Hence     performance can improve or degrade depending on the size and dtype of the     array. If one of "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "atol"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " or "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "rtol"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " given the other one is automatically     set to zero."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -214,23 +395,13 @@
     "children": [
       {
         "data": {
-          "value": [
-            ">>> from scipy.linalg import ishermitian",
-            ">>> A = np.arange(9).reshape(3, 3)",
-            ">>> A = A + A.T",
-            ">>> ishermitian(A)",
-            "True",
-            ">>> A = np.array([[1., 2. + 3.j], [2. - 3.j, 4.]])",
-            ">>> ishermitian(A)",
-            "True",
-            ">>> Ac = np.array([[1. + 1.j, 3.j], [3.j, 2.]])",
-            ">>> ishermitian(Ac)  # not Hermitian but symmetric",
-            "False",
-            ">>> Af = np.array([[0, 1 + 1j], [1 - (1+1e-12)*1j, 0]])",
-            ">>> ishermitian(Af)",
-            "False",
-            ">>> ishermitian(Af, atol=5e-11) # almost hermitian with atol",
-            "True"
+          "children": [
+            {
+              "data": {
+                "value": ">>> from scipy.linalg import ishermitian\n>>> A = np.arange(9).reshape(3, 3)\n>>> A = A + A.T\n>>> ishermitian(A)\nTrue\n>>> A = np.array([[1., 2. + 3.j], [2. - 3.j, 4.]])\n>>> ishermitian(A)\nTrue\n>>> Ac = np.array([[1. + 1.j, 3.j], [3.j, 2.]])\n>>> ishermitian(Ac)  # not Hermitian but symmetric\nFalse\n>>> Af = np.array([[0, 1 + 1j], [1 - (1+1e-12)*1j, 0]])\n>>> ishermitian(Af)\nFalse\n>>> ishermitian(Af, atol=5e-11) # almost hermitian with atol\nTrue"
+              },
+              "type": "BlockVerbatim"
+            }
           ]
         },
         "type": "BlockQuote"
@@ -251,9 +422,6 @@
     "Examples"
   ],
   "references": null,
-  "refs": [
-    "issymmetric"
-  ],
   "see_also": [
     {
       "descriptions": [

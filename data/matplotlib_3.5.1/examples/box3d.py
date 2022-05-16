@@ -41,8 +41,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -55,8 +65,18 @@
           },
           {
             "link": {
-              "data": "pyplot",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "pyplot"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -83,8 +103,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -111,8 +141,18 @@
           },
           {
             "link": {
-              "data": "numpy",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "numpy"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -139,8 +179,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -174,8 +224,18 @@
           },
           {
             "link": {
-              "data": "Nx",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "Nx"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -195,8 +255,18 @@
           },
           {
             "link": {
-              "data": "Ny",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "Ny"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -216,8 +286,18 @@
           },
           {
             "link": {
-              "data": "Nz",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "Nz"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -300,8 +380,18 @@
           },
           {
             "link": {
-              "data": "X",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "X"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -370,8 +460,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -384,8 +484,18 @@
           },
           {
             "link": {
-              "data": "meshgrid",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.lib.function_base.meshgrid",
+                  "version": "*"
+                },
+                "value": "meshgrid"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -398,8 +508,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -412,8 +532,18 @@
           },
           {
             "link": {
-              "data": "arange",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.arange",
+                  "version": "*"
+                },
+                "value": "arange"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -426,8 +556,18 @@
           },
           {
             "link": {
-              "data": "Nx",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "Nx"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -454,8 +594,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -468,8 +618,18 @@
           },
           {
             "link": {
-              "data": "arange",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.arange",
+                  "version": "*"
+                },
+                "value": "arange"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -482,8 +642,18 @@
           },
           {
             "link": {
-              "data": "Ny",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "Ny"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -517,8 +687,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -531,8 +711,18 @@
           },
           {
             "link": {
-              "data": "arange",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.arange",
+                  "version": "*"
+                },
+                "value": "arange"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -545,8 +735,18 @@
           },
           {
             "link": {
-              "data": "Nz",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "Nz"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -594,8 +794,18 @@
           },
           {
             "link": {
-              "data": "data",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "data"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -643,8 +853,18 @@
           },
           {
             "link": {
-              "data": "X",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "X"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -867,8 +1087,18 @@
           },
           {
             "link": {
-              "data": "kw",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "kw"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -951,8 +1181,18 @@
           },
           {
             "link": {
-              "data": "data",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "data"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -965,8 +1205,18 @@
           },
           {
             "link": {
-              "data": "min",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy._ArrayOrScalarCommon.min",
+                  "version": "*"
+                },
+                "value": "min"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1042,8 +1292,18 @@
           },
           {
             "link": {
-              "data": "data",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "data"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1056,8 +1316,18 @@
           },
           {
             "link": {
-              "data": "max",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy._ArrayOrScalarCommon.max",
+                  "version": "*"
+                },
+                "value": "max"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1133,8 +1403,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1147,8 +1427,18 @@
           },
           {
             "link": {
-              "data": "linspace",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.core.function_base.linspace",
+                  "version": "*"
+                },
+                "value": "linspace"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1161,8 +1451,18 @@
           },
           {
             "link": {
-              "data": "data",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "data"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1175,8 +1475,18 @@
           },
           {
             "link": {
-              "data": "min",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy._ArrayOrScalarCommon.min",
+                  "version": "*"
+                },
+                "value": "min"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1210,8 +1520,18 @@
           },
           {
             "link": {
-              "data": "data",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "data"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1224,8 +1544,18 @@
           },
           {
             "link": {
-              "data": "max",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy._ArrayOrScalarCommon.max",
+                  "version": "*"
+                },
+                "value": "max"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1350,8 +1680,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1364,8 +1704,18 @@
           },
           {
             "link": {
-              "data": "figure",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.figure",
+                  "version": "*"
+                },
+                "value": "figure"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1833,8 +2183,18 @@
           },
           {
             "link": {
-              "data": "data",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "data"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2022,8 +2382,18 @@
           },
           {
             "link": {
-              "data": "kw",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "kw"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2204,8 +2574,18 @@
           },
           {
             "link": {
-              "data": "data",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "data"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2477,8 +2857,18 @@
           },
           {
             "link": {
-              "data": "kw",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "kw"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2575,8 +2965,18 @@
           },
           {
             "link": {
-              "data": "data",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "data"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2981,8 +3381,18 @@
           },
           {
             "link": {
-              "data": "kw",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "kw"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3730,8 +4140,18 @@
           },
           {
             "link": {
-              "data": "edges_kw",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "edges_kw"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3758,8 +4178,18 @@
           },
           {
             "link": {
-              "data": "dict",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "dict"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -4066,8 +4496,18 @@
           },
           {
             "link": {
-              "data": "edges_kw",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "edges_kw"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4262,8 +4702,18 @@
           },
           {
             "link": {
-              "data": "edges_kw",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "edges_kw"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4493,8 +4943,18 @@
           },
           {
             "link": {
-              "data": "edges_kw",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "edges_kw"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5291,8 +5751,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5305,8 +5775,18 @@
           },
           {
             "link": {
-              "data": "show",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.show",
+                  "version": "*"
+                },
+                "value": "show"
+              },
+              "type": "Link"
             },
             "type": ""
           },

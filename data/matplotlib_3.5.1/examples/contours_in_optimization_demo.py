@@ -41,8 +41,18 @@
           },
           {
             "link": {
-              "data": "numpy",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "numpy"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -69,8 +79,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -97,8 +117,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -111,8 +141,18 @@
           },
           {
             "link": {
-              "data": "pyplot",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "pyplot"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -139,8 +179,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -167,8 +217,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -195,8 +255,18 @@
           },
           {
             "link": {
-              "data": "patheffects",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patheffects",
+                  "version": "*"
+                },
+                "value": "patheffects"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -216,8 +286,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -265,8 +345,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -279,8 +369,18 @@
           },
           {
             "link": {
-              "data": "subplots",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.subplots",
+                  "version": "*"
+                },
+                "value": "subplots"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -370,8 +470,18 @@
           },
           {
             "link": {
-              "data": "nx",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "nx"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -412,8 +522,18 @@
           },
           {
             "link": {
-              "data": "ny",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "ny"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -475,8 +595,18 @@
           },
           {
             "link": {
-              "data": "xvec",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.tuple",
+                  "version": "*"
+                },
+                "value": "xvec"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -503,8 +633,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -517,8 +657,18 @@
           },
           {
             "link": {
-              "data": "linspace",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.core.function_base.linspace",
+                  "version": "*"
+                },
+                "value": "linspace"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -573,8 +723,18 @@
           },
           {
             "link": {
-              "data": "nx",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "nx"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -594,8 +754,18 @@
           },
           {
             "link": {
-              "data": "yvec",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.tuple",
+                  "version": "*"
+                },
+                "value": "yvec"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -622,8 +792,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -636,8 +816,18 @@
           },
           {
             "link": {
-              "data": "linspace",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.core.function_base.linspace",
+                  "version": "*"
+                },
+                "value": "linspace"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -692,8 +882,18 @@
           },
           {
             "link": {
-              "data": "ny",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "ny"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -734,8 +934,18 @@
           },
           {
             "link": {
-              "data": "x1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "x1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -783,8 +993,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -797,8 +1017,18 @@
           },
           {
             "link": {
-              "data": "meshgrid",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.lib.function_base.meshgrid",
+                  "version": "*"
+                },
+                "value": "meshgrid"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -811,8 +1041,18 @@
           },
           {
             "link": {
-              "data": "xvec",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.tuple",
+                  "version": "*"
+                },
+                "value": "xvec"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -832,8 +1072,18 @@
           },
           {
             "link": {
-              "data": "yvec",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.tuple",
+                  "version": "*"
+                },
+                "value": "yvec"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -874,8 +1124,18 @@
           },
           {
             "link": {
-              "data": "obj",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "obj"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -902,8 +1162,18 @@
           },
           {
             "link": {
-              "data": "x1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "x1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1014,8 +1284,18 @@
           },
           {
             "link": {
-              "data": "x1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "x1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1154,8 +1434,18 @@
           },
           {
             "link": {
-              "data": "x1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "x1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1273,8 +1563,18 @@
           },
           {
             "link": {
-              "data": "x1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "x1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1364,8 +1664,18 @@
           },
           {
             "link": {
-              "data": "g3",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "g3"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1420,8 +1730,18 @@
           },
           {
             "link": {
-              "data": "x1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "x1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1553,8 +1873,18 @@
           },
           {
             "link": {
-              "data": "x1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "x1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1595,8 +1925,18 @@
           },
           {
             "link": {
-              "data": "obj",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "obj"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2050,8 +2390,18 @@
           },
           {
             "link": {
-              "data": "x1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "x1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2197,8 +2547,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2211,8 +2571,18 @@
           },
           {
             "link": {
-              "data": "setp",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.setp",
+                  "version": "*"
+                },
+                "value": "setp"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2288,8 +2658,18 @@
           },
           {
             "link": {
-              "data": "patheffects",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patheffects",
+                  "version": "*"
+                },
+                "value": "patheffects"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2575,8 +2955,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2589,8 +2979,18 @@
           },
           {
             "link": {
-              "data": "setp",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.setp",
+                  "version": "*"
+                },
+                "value": "setp"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2666,8 +3066,18 @@
           },
           {
             "link": {
-              "data": "patheffects",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patheffects",
+                  "version": "*"
+                },
+                "value": "patheffects"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2883,8 +3293,18 @@
           },
           {
             "link": {
-              "data": "g3",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "g3"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2988,8 +3408,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3002,8 +3432,18 @@
           },
           {
             "link": {
-              "data": "setp",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.setp",
+                  "version": "*"
+                },
+                "value": "setp"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3079,8 +3519,18 @@
           },
           {
             "link": {
-              "data": "patheffects",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patheffects",
+                  "version": "*"
+                },
+                "value": "patheffects"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3310,8 +3760,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3324,8 +3784,18 @@
           },
           {
             "link": {
-              "data": "show",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.show",
+                  "version": "*"
+                },
+                "value": "show"
+              },
+              "type": "Link"
             },
             "type": ""
           },

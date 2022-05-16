@@ -41,8 +41,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -55,8 +65,18 @@
           },
           {
             "link": {
-              "data": "backends",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.backends",
+                  "version": "*"
+                },
+                "value": "backends"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -69,8 +89,18 @@
           },
           {
             "link": {
-              "data": "backend_agg",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.backends.backend_agg",
+                  "version": "*"
+                },
+                "value": "backend_agg"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -97,8 +127,18 @@
           },
           {
             "link": {
-              "data": "FigureCanvasAgg",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.backends.backend_agg.FigureCanvasAgg",
+                  "version": "*"
+                },
+                "value": "FigureCanvasAgg"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -125,8 +165,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -139,8 +189,18 @@
           },
           {
             "link": {
-              "data": "figure",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.figure",
+                  "version": "*"
+                },
+                "value": "figure"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -167,8 +227,18 @@
           },
           {
             "link": {
-              "data": "Figure",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.figure.Figure",
+                  "version": "*"
+                },
+                "value": "Figure"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -195,8 +265,18 @@
           },
           {
             "link": {
-              "data": "numpy",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "numpy"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -223,8 +303,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -251,8 +341,18 @@
           },
           {
             "link": {
-              "data": "PIL",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "PIL",
+                  "path": "PIL",
+                  "version": "*"
+                },
+                "value": "PIL"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -279,8 +379,18 @@
           },
           {
             "link": {
-              "data": "Image",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "PIL",
+                  "path": "PIL.Image",
+                  "version": "*"
+                },
+                "value": "Image"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -307,8 +417,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.figure.Figure",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -335,8 +455,18 @@
           },
           {
             "link": {
-              "data": "Figure",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.figure.Figure",
+                  "version": "*"
+                },
+                "value": "Figure"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -496,8 +626,18 @@
           },
           {
             "link": {
-              "data": "canvas",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.backends.backend_agg.FigureCanvasAgg",
+                  "version": "*"
+                },
+                "value": "canvas"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -524,8 +664,18 @@
           },
           {
             "link": {
-              "data": "FigureCanvasAgg",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.backends.backend_agg.FigureCanvasAgg",
+                  "version": "*"
+                },
+                "value": "FigureCanvasAgg"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -538,8 +688,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.figure.Figure",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -608,8 +768,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.figure.Figure",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -622,8 +792,18 @@
           },
           {
             "link": {
-              "data": "add_subplot",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.figure.FigureBase.add_subplot",
+                  "version": "*"
+                },
+                "value": "add_subplot"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -790,8 +970,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.figure.Figure",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -804,8 +994,18 @@
           },
           {
             "link": {
-              "data": "savefig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.figure.Figure.savefig",
+                  "version": "*"
+                },
+                "value": "savefig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -888,8 +1088,18 @@
           },
           {
             "link": {
-              "data": "canvas",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.backends.backend_agg.FigureCanvasAgg",
+                  "version": "*"
+                },
+                "value": "canvas"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -902,8 +1112,18 @@
           },
           {
             "link": {
-              "data": "draw",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.backends.backend_agg.FigureCanvasAgg.draw",
+                  "version": "*"
+                },
+                "value": "draw"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -930,8 +1150,18 @@
           },
           {
             "link": {
-              "data": "rgba",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "rgba"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -958,8 +1188,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -972,8 +1212,18 @@
           },
           {
             "link": {
-              "data": "asarray",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.asarray",
+                  "version": "*"
+                },
+                "value": "asarray"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -986,8 +1236,18 @@
           },
           {
             "link": {
-              "data": "canvas",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.backends.backend_agg.FigureCanvasAgg",
+                  "version": "*"
+                },
+                "value": "canvas"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1000,8 +1260,18 @@
           },
           {
             "link": {
-              "data": "buffer_rgba",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.backends.backend_agg.FigureCanvasAgg.buffer_rgba",
+                  "version": "*"
+                },
+                "value": "buffer_rgba"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1049,8 +1319,18 @@
           },
           {
             "link": {
-              "data": "im",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "PIL",
+                  "path": "PIL.Image.Image",
+                  "version": "*"
+                },
+                "value": "im"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1077,8 +1357,18 @@
           },
           {
             "link": {
-              "data": "Image",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "PIL",
+                  "path": "PIL.Image",
+                  "version": "*"
+                },
+                "value": "Image"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1091,8 +1381,18 @@
           },
           {
             "link": {
-              "data": "fromarray",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "PIL",
+                  "path": "PIL.Image.fromarray",
+                  "version": "*"
+                },
+                "value": "fromarray"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1105,8 +1405,18 @@
           },
           {
             "link": {
-              "data": "rgba",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "rgba"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1140,8 +1450,18 @@
           },
           {
             "link": {
-              "data": "im",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "PIL",
+                  "path": "PIL.Image.Image",
+                  "version": "*"
+                },
+                "value": "im"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1154,8 +1474,18 @@
           },
           {
             "link": {
-              "data": "save",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "PIL",
+                  "path": "PIL.Image.Image.save",
+                  "version": "*"
+                },
+                "value": "save"
+              },
+              "type": "Link"
             },
             "type": ""
           },

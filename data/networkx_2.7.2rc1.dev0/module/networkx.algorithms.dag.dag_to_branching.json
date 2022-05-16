@@ -522,31 +522,26 @@
     "children": [
       {
         "data": {
-          "value": [
-            ">>> from collections import defaultdict",
-            ">>> from operator import itemgetter",
-            ">>>",
-            ">>> G = nx.DiGraph(nx.utils.pairwise(\"abd\"))",
-            ">>> G.add_edges_from(nx.utils.pairwise(\"acd\"))",
-            ">>> B = nx.dag_to_branching(G)",
-            ">>>",
-            ">>> sources = defaultdict(set)",
-            ">>> for v, source in B.nodes(data=\"source\"):",
-            "...     sources[source].add(v)",
-            ">>> len(sources[\"a\"])",
-            "1",
-            ">>> len(sources[\"d\"])",
-            "2"
+          "children": [
+            {
+              "data": {
+                "value": ">>> from collections import defaultdict\n>>> from operator import itemgetter\n>>>\n>>> G = nx.DiGraph(nx.utils.pairwise(\"abd\"))\n>>> G.add_edges_from(nx.utils.pairwise(\"acd\"))\n>>> B = nx.dag_to_branching(G)\n>>>\n>>> sources = defaultdict(set)\n>>> for v, source in B.nodes(data=\"source\"):\n...     sources[source].add(v)\n>>> len(sources[\"a\"])\n1\n>>> len(sources[\"d\"])\n2"
+              },
+              "type": "BlockVerbatim"
+            }
           ]
         },
         "type": "BlockQuote"
       },
       {
         "data": {
-          "value": [
-            ">>> for source, nodes in sources.items():",
-            "...     for v in nodes:",
-            "...         B.nodes[v].update(G.nodes[source])"
+          "children": [
+            {
+              "data": {
+                "value": ">>> for source, nodes in sources.items():\n...     for v in nodes:\n...         B.nodes[v].update(G.nodes[source])"
+              },
+              "type": "BlockVerbatim"
+            }
           ]
         },
         "type": "BlockQuote"
@@ -567,7 +562,6 @@
     "Notes"
   ],
   "references": null,
-  "refs": [],
   "see_also": [],
   "signature": {
     "value": "dag_to_branching(G)"

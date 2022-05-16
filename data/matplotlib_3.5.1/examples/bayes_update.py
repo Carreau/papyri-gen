@@ -41,8 +41,18 @@
           },
           {
             "link": {
-              "data": "math",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "math",
+                  "path": "math",
+                  "version": "*"
+                },
+                "value": "math"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -76,8 +86,18 @@
           },
           {
             "link": {
-              "data": "numpy",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "numpy"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -104,8 +124,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -132,8 +162,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -146,8 +186,18 @@
           },
           {
             "link": {
-              "data": "pyplot",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "pyplot"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -174,8 +224,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -202,8 +262,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -216,8 +286,18 @@
           },
           {
             "link": {
-              "data": "animation",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.animation",
+                  "version": "*"
+                },
+                "value": "animation"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -244,8 +324,18 @@
           },
           {
             "link": {
-              "data": "FuncAnimation",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.animation.FuncAnimation",
+                  "version": "*"
+                },
+                "value": "FuncAnimation"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -286,8 +376,18 @@
           },
           {
             "link": {
-              "data": "beta_pdf",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.beta_pdf",
+                  "version": "*"
+                },
+                "value": "beta_pdf"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -300,8 +400,18 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.tuple",
+                  "version": "*"
+                },
+                "value": "x"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -321,8 +431,18 @@
           },
           {
             "link": {
-              "data": "a",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "a"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -342,8 +462,18 @@
           },
           {
             "link": {
-              "data": "b",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "b"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -398,8 +528,18 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.tuple",
+                  "version": "*"
+                },
+                "value": "x"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -426,8 +566,18 @@
           },
           {
             "link": {
-              "data": "a",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "a"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -496,8 +646,18 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.tuple",
+                  "version": "*"
+                },
+                "value": "x"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -531,8 +691,18 @@
           },
           {
             "link": {
-              "data": "b",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "b"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -580,8 +750,18 @@
           },
           {
             "link": {
-              "data": "math",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "math",
+                  "path": "math",
+                  "version": "*"
+                },
+                "value": "math"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -594,8 +774,18 @@
           },
           {
             "link": {
-              "data": "gamma",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "math",
+                  "path": "math.gamma",
+                  "version": "*"
+                },
+                "value": "gamma"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -608,8 +798,18 @@
           },
           {
             "link": {
-              "data": "a",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "a"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -636,8 +836,18 @@
           },
           {
             "link": {
-              "data": "b",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "b"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -685,8 +895,18 @@
           },
           {
             "link": {
-              "data": "math",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "math",
+                  "path": "math",
+                  "version": "*"
+                },
+                "value": "math"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -699,8 +919,18 @@
           },
           {
             "link": {
-              "data": "gamma",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "math",
+                  "path": "math.gamma",
+                  "version": "*"
+                },
+                "value": "gamma"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -713,8 +943,18 @@
           },
           {
             "link": {
-              "data": "a",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "a"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -748,8 +988,18 @@
           },
           {
             "link": {
-              "data": "math",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "math",
+                  "path": "math",
+                  "version": "*"
+                },
+                "value": "math"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -762,8 +1012,18 @@
           },
           {
             "link": {
-              "data": "gamma",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "math",
+                  "path": "math.gamma",
+                  "version": "*"
+                },
+                "value": "gamma"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -776,8 +1036,18 @@
           },
           {
             "link": {
-              "data": "b",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "b"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -839,8 +1109,18 @@
           },
           {
             "link": {
-              "data": "UpdateDist",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.UpdateDist",
+                  "version": "*"
+                },
+                "value": "UpdateDist"
+              },
+              "type": "Link"
             },
             "type": "nc"
           },
@@ -881,8 +1161,18 @@
           },
           {
             "link": {
-              "data": "__init__",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.UpdateDist.__init__",
+                  "version": "*"
+                },
+                "value": "__init__"
+              },
+              "type": "Link"
             },
             "type": "fm"
           },
@@ -895,8 +1185,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.UpdateDist",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -937,8 +1237,18 @@
           },
           {
             "link": {
-              "data": "prob",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "prob"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -986,8 +1296,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.UpdateDist",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1000,8 +1320,18 @@
           },
           {
             "link": {
-              "data": "success",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "success"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1049,8 +1379,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.UpdateDist",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1063,8 +1403,18 @@
           },
           {
             "link": {
-              "data": "prob",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "prob"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1091,8 +1441,18 @@
           },
           {
             "link": {
-              "data": "prob",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "prob"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1112,8 +1472,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.UpdateDist",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1287,8 +1657,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.UpdateDist",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1301,8 +1681,18 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.tuple",
+                  "version": "*"
+                },
+                "value": "x"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1329,8 +1719,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1343,8 +1743,18 @@
           },
           {
             "link": {
-              "data": "linspace",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.core.function_base.linspace",
+                  "version": "*"
+                },
+                "value": "linspace"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1427,8 +1837,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.UpdateDist",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1518,8 +1938,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.UpdateDist",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1609,8 +2039,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.UpdateDist",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1700,8 +2140,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.UpdateDist",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1742,8 +2192,18 @@
           },
           {
             "link": {
-              "data": "True",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.bool",
+                  "version": "*"
+                },
+                "value": "True"
+              },
+              "type": "Link"
             },
             "type": "kc"
           },
@@ -1819,8 +2279,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.UpdateDist",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1861,8 +2331,18 @@
           },
           {
             "link": {
-              "data": "prob",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "prob"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2008,8 +2488,18 @@
           },
           {
             "link": {
-              "data": "__call__",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.UpdateDist.__call__",
+                  "version": "*"
+                },
+                "value": "__call__"
+              },
+              "type": "Link"
             },
             "type": "fm"
           },
@@ -2022,8 +2512,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.UpdateDist",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -2190,8 +2690,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.UpdateDist",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -2204,8 +2714,18 @@
           },
           {
             "link": {
-              "data": "success",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "success"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2253,8 +2773,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.UpdateDist",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -2372,8 +2902,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.UpdateDist",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -2456,8 +2996,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2470,8 +3020,18 @@
           },
           {
             "link": {
-              "data": "random",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.random",
+                  "version": "*"
+                },
+                "value": "random"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2484,8 +3044,18 @@
           },
           {
             "link": {
-              "data": "rand",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.random.mtrand.RandomState.rand",
+                  "version": "*"
+                },
+                "value": "rand"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2540,8 +3110,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.UpdateDist",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -2554,8 +3134,18 @@
           },
           {
             "link": {
-              "data": "prob",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "prob"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2582,8 +3172,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.UpdateDist",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -2596,8 +3196,18 @@
           },
           {
             "link": {
-              "data": "success",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "success"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2652,8 +3262,18 @@
           },
           {
             "link": {
-              "data": "y",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "y"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2680,8 +3300,18 @@
           },
           {
             "link": {
-              "data": "beta_pdf",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.beta_pdf",
+                  "version": "*"
+                },
+                "value": "beta_pdf"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2694,8 +3324,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.UpdateDist",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -2708,8 +3348,18 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.tuple",
+                  "version": "*"
+                },
+                "value": "x"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2729,8 +3379,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.UpdateDist",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -2743,8 +3403,18 @@
           },
           {
             "link": {
-              "data": "success",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "success"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2827,8 +3497,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.UpdateDist",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -2841,8 +3521,18 @@
           },
           {
             "link": {
-              "data": "success",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "success"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2904,8 +3594,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.UpdateDist",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -2946,8 +3646,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.UpdateDist",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -2960,8 +3670,18 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.tuple",
+                  "version": "*"
+                },
+                "value": "x"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2981,8 +3701,18 @@
           },
           {
             "link": {
-              "data": "y",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "y"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3023,8 +3753,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.UpdateDist",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -3079,8 +3819,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3093,8 +3843,18 @@
           },
           {
             "link": {
-              "data": "random",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.random",
+                  "version": "*"
+                },
+                "value": "random"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3107,8 +3867,18 @@
           },
           {
             "link": {
-              "data": "seed",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.random.mtrand.RandomState.seed",
+                  "version": "*"
+                },
+                "value": "seed"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3156,8 +3926,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3205,8 +3985,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3219,8 +4009,18 @@
           },
           {
             "link": {
-              "data": "subplots",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.subplots",
+                  "version": "*"
+                },
+                "value": "subplots"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3247,8 +4047,18 @@
           },
           {
             "link": {
-              "data": "ud",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.UpdateDist",
+                  "version": "*"
+                },
+                "value": "ud"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3275,8 +4085,18 @@
           },
           {
             "link": {
-              "data": "UpdateDist",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.UpdateDist",
+                  "version": "*"
+                },
+                "value": "UpdateDist"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3345,8 +4165,18 @@
           },
           {
             "link": {
-              "data": "anim",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.animation.FuncAnimation",
+                  "version": "*"
+                },
+                "value": "anim"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3373,8 +4203,18 @@
           },
           {
             "link": {
-              "data": "FuncAnimation",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.animation.FuncAnimation",
+                  "version": "*"
+                },
+                "value": "FuncAnimation"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3387,8 +4227,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3408,8 +4258,18 @@
           },
           {
             "link": {
-              "data": "ud",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.UpdateDist",
+                  "version": "*"
+                },
+                "value": "ud"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3534,8 +4394,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3548,8 +4418,18 @@
           },
           {
             "link": {
-              "data": "show",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.show",
+                  "version": "*"
+                },
+                "value": "show"
+              },
+              "type": "Link"
             },
             "type": ""
           },

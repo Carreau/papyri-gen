@@ -41,8 +41,18 @@
           },
           {
             "link": {
-              "data": "contextlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "contextlib",
+                  "path": "contextlib",
+                  "version": "*"
+                },
+                "value": "contextlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -69,8 +79,18 @@
           },
           {
             "link": {
-              "data": "ExitStack",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "contextlib",
+                  "path": "contextlib.ExitStack",
+                  "version": "*"
+                },
+                "value": "ExitStack"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -104,8 +124,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -118,8 +148,18 @@
           },
           {
             "link": {
-              "data": "axes",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.axes",
+                  "version": "*"
+                },
+                "value": "axes"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -146,8 +186,18 @@
           },
           {
             "link": {
-              "data": "Axes",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.axes._axes.Axes",
+                  "version": "*"
+                },
+                "value": "Axes"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -174,8 +224,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -188,8 +248,18 @@
           },
           {
             "link": {
-              "data": "transforms",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms",
+                  "version": "*"
+                },
+                "value": "transforms"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -216,8 +286,18 @@
           },
           {
             "link": {
-              "data": "transforms",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms",
+                  "version": "*"
+                },
+                "value": "transforms"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -244,8 +324,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -258,8 +348,18 @@
           },
           {
             "link": {
-              "data": "axis",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.axis",
+                  "version": "*"
+                },
+                "value": "axis"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -286,8 +386,18 @@
           },
           {
             "link": {
-              "data": "maxis",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.axis",
+                  "version": "*"
+                },
+                "value": "maxis"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -314,8 +424,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -328,8 +448,18 @@
           },
           {
             "link": {
-              "data": "spines",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.spines",
+                  "version": "*"
+                },
+                "value": "spines"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -356,8 +486,18 @@
           },
           {
             "link": {
-              "data": "mspines",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.spines",
+                  "version": "*"
+                },
+                "value": "mspines"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -384,8 +524,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -398,8 +548,18 @@
           },
           {
             "link": {
-              "data": "projections",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.projections",
+                  "version": "*"
+                },
+                "value": "projections"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -426,8 +586,18 @@
           },
           {
             "link": {
-              "data": "register_projection",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.projections.register_projection",
+                  "version": "*"
+                },
+                "value": "register_projection"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -496,8 +666,18 @@
           },
           {
             "link": {
-              "data": "SkewXTick",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXTick",
+                  "version": "*"
+                },
+                "value": "SkewXTick"
+              },
+              "type": "Link"
             },
             "type": "nc"
           },
@@ -510,8 +690,18 @@
           },
           {
             "link": {
-              "data": "maxis",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.axis",
+                  "version": "*"
+                },
+                "value": "maxis"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -524,8 +714,18 @@
           },
           {
             "link": {
-              "data": "XTick",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.axis.XTick",
+                  "version": "*"
+                },
+                "value": "XTick"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -573,8 +773,18 @@
           },
           {
             "link": {
-              "data": "draw",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXTick.draw",
+                  "version": "*"
+                },
+                "value": "draw"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -587,8 +797,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXTick",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -741,8 +961,18 @@
           },
           {
             "link": {
-              "data": "ExitStack",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "contextlib",
+                  "path": "contextlib.ExitStack",
+                  "version": "*"
+                },
+                "value": "ExitStack"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -783,8 +1013,18 @@
           },
           {
             "link": {
-              "data": "stack",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "contextlib",
+                  "path": "contextlib.ExitStack",
+                  "version": "*"
+                },
+                "value": "stack"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -825,8 +1065,18 @@
           },
           {
             "link": {
-              "data": "artist",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.lines.Line2D",
+                  "version": "*"
+                },
+                "value": "artist"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -860,8 +1110,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXTick",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -874,8 +1134,18 @@
           },
           {
             "link": {
-              "data": "gridline",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.lines.Line2D",
+                  "version": "*"
+                },
+                "value": "gridline"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -895,8 +1165,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXTick",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -909,8 +1189,18 @@
           },
           {
             "link": {
-              "data": "tick1line",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.lines.Line2D",
+                  "version": "*"
+                },
+                "value": "tick1line"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -930,8 +1220,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXTick",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -944,8 +1244,18 @@
           },
           {
             "link": {
-              "data": "tick2line",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.lines.Line2D",
+                  "version": "*"
+                },
+                "value": "tick2line"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -972,8 +1282,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXTick",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -986,8 +1306,18 @@
           },
           {
             "link": {
-              "data": "label1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.text.Text",
+                  "version": "*"
+                },
+                "value": "label1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1007,8 +1337,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXTick",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1021,8 +1361,18 @@
           },
           {
             "link": {
-              "data": "label2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.text.Text",
+                  "version": "*"
+                },
+                "value": "label2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1056,8 +1406,18 @@
           },
           {
             "link": {
-              "data": "stack",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "contextlib",
+                  "path": "contextlib.ExitStack",
+                  "version": "*"
+                },
+                "value": "stack"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1070,8 +1430,18 @@
           },
           {
             "link": {
-              "data": "callback",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "contextlib",
+                  "path": "contextlib._BaseExitStack.callback",
+                  "version": "*"
+                },
+                "value": "callback"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1084,8 +1454,18 @@
           },
           {
             "link": {
-              "data": "artist",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.lines.Line2D",
+                  "version": "*"
+                },
+                "value": "artist"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1098,8 +1478,18 @@
           },
           {
             "link": {
-              "data": "set_visible",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.artist.Artist.set_visible",
+                  "version": "*"
+                },
+                "value": "set_visible"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1119,8 +1509,18 @@
           },
           {
             "link": {
-              "data": "artist",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.lines.Line2D",
+                  "version": "*"
+                },
+                "value": "artist"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1133,8 +1533,18 @@
           },
           {
             "link": {
-              "data": "get_visible",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.artist.Artist.get_visible",
+                  "version": "*"
+                },
+                "value": "get_visible"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1175,8 +1585,18 @@
           },
           {
             "link": {
-              "data": "needs_lower",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.bool",
+                  "version": "*"
+                },
+                "value": "needs_lower"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1203,8 +1623,18 @@
           },
           {
             "link": {
-              "data": "transforms",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms",
+                  "version": "*"
+                },
+                "value": "transforms"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1217,8 +1647,18 @@
           },
           {
             "link": {
-              "data": "interval_contains",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.interval_contains",
+                  "version": "*"
+                },
+                "value": "interval_contains"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1245,8 +1685,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXTick",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1294,8 +1744,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXTick",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1308,8 +1768,18 @@
           },
           {
             "link": {
-              "data": "get_loc",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.axis.Tick.get_loc",
+                  "version": "*"
+                },
+                "value": "get_loc"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1350,8 +1820,18 @@
           },
           {
             "link": {
-              "data": "needs_upper",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.bool",
+                  "version": "*"
+                },
+                "value": "needs_upper"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1378,8 +1858,18 @@
           },
           {
             "link": {
-              "data": "transforms",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms",
+                  "version": "*"
+                },
+                "value": "transforms"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1392,8 +1882,18 @@
           },
           {
             "link": {
-              "data": "interval_contains",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.interval_contains",
+                  "version": "*"
+                },
+                "value": "interval_contains"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1420,8 +1920,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXTick",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1469,8 +1979,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXTick",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1483,8 +2003,18 @@
           },
           {
             "link": {
-              "data": "get_loc",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.axis.Tick.get_loc",
+                  "version": "*"
+                },
+                "value": "get_loc"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1525,8 +2055,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXTick",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1581,8 +2121,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXTick",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1651,8 +2201,18 @@
           },
           {
             "link": {
-              "data": "needs_lower",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.bool",
+                  "version": "*"
+                },
+                "value": "needs_lower"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1679,8 +2239,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXTick",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1735,8 +2305,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXTick",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1805,8 +2385,18 @@
           },
           {
             "link": {
-              "data": "needs_lower",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.bool",
+                  "version": "*"
+                },
+                "value": "needs_lower"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1833,8 +2423,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXTick",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1889,8 +2489,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXTick",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1959,8 +2569,18 @@
           },
           {
             "link": {
-              "data": "needs_upper",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.bool",
+                  "version": "*"
+                },
+                "value": "needs_upper"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1987,8 +2607,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXTick",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -2043,8 +2673,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXTick",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -2113,8 +2753,18 @@
           },
           {
             "link": {
-              "data": "needs_upper",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.bool",
+                  "version": "*"
+                },
+                "value": "needs_upper"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2141,8 +2791,18 @@
           },
           {
             "link": {
-              "data": "super",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.super",
+                  "version": "*"
+                },
+                "value": "super"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -2169,8 +2829,18 @@
           },
           {
             "link": {
-              "data": "draw",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.axis.Tick.draw",
+                  "version": "*"
+                },
+                "value": "draw"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2232,8 +2902,18 @@
           },
           {
             "link": {
-              "data": "get_view_interval",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXTick.get_view_interval",
+                  "version": "*"
+                },
+                "value": "get_view_interval"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -2246,8 +2926,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXTick",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -2295,8 +2985,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXTick",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -2421,8 +3121,18 @@
           },
           {
             "link": {
-              "data": "SkewXAxis",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxis",
+                  "version": "*"
+                },
+                "value": "SkewXAxis"
+              },
+              "type": "Link"
             },
             "type": "nc"
           },
@@ -2435,8 +3145,18 @@
           },
           {
             "link": {
-              "data": "maxis",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.axis",
+                  "version": "*"
+                },
+                "value": "maxis"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2449,8 +3169,18 @@
           },
           {
             "link": {
-              "data": "XAxis",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.axis.XAxis",
+                  "version": "*"
+                },
+                "value": "XAxis"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2498,8 +3228,18 @@
           },
           {
             "link": {
-              "data": "_get_tick",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxis._get_tick",
+                  "version": "*"
+                },
+                "value": "_get_tick"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -2512,8 +3252,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxis",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -2582,8 +3332,18 @@
           },
           {
             "link": {
-              "data": "SkewXTick",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXTick",
+                  "version": "*"
+                },
+                "value": "SkewXTick"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2596,8 +3356,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxis",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -2715,8 +3485,18 @@
           },
           {
             "link": {
-              "data": "get_view_interval",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxis.get_view_interval",
+                  "version": "*"
+                },
+                "value": "get_view_interval"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -2729,8 +3509,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxis",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -2778,8 +3568,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxis",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -2848,8 +3648,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxis",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -2981,8 +3791,18 @@
           },
           {
             "link": {
-              "data": "SkewSpine",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewSpine",
+                  "version": "*"
+                },
+                "value": "SkewSpine"
+              },
+              "type": "Link"
             },
             "type": "nc"
           },
@@ -2995,8 +3815,18 @@
           },
           {
             "link": {
-              "data": "mspines",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.spines",
+                  "version": "*"
+                },
+                "value": "mspines"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3009,8 +3839,18 @@
           },
           {
             "link": {
-              "data": "Spine",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.spines.Spine",
+                  "version": "*"
+                },
+                "value": "Spine"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3058,8 +3898,18 @@
           },
           {
             "link": {
-              "data": "_adjust_location",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewSpine._adjust_location",
+                  "version": "*"
+                },
+                "value": "_adjust_location"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -3072,8 +3922,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewSpine",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -3135,8 +3995,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewSpine",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -3198,8 +4068,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewSpine",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -3212,8 +4092,18 @@
           },
           {
             "link": {
-              "data": "spine_type",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "spine_type"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3352,8 +4242,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewSpine",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -3499,8 +4399,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewSpine",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -3611,8 +4521,18 @@
           },
           {
             "link": {
-              "data": "SkewXAxes",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "SkewXAxes"
+              },
+              "type": "Link"
             },
             "type": "nc"
           },
@@ -3625,8 +4545,18 @@
           },
           {
             "link": {
-              "data": "Axes",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.axes._axes.Axes",
+                  "version": "*"
+                },
+                "value": "Axes"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3702,8 +4632,18 @@
           },
           {
             "link": {
-              "data": "name",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "name"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3786,8 +4726,18 @@
           },
           {
             "link": {
-              "data": "_init_axis",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes._init_axis",
+                  "version": "*"
+                },
+                "value": "_init_axis"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -3800,8 +4750,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -3856,8 +4816,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -3870,8 +4840,18 @@
           },
           {
             "link": {
-              "data": "xaxis",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxis",
+                  "version": "*"
+                },
+                "value": "xaxis"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3898,8 +4878,18 @@
           },
           {
             "link": {
-              "data": "SkewXAxis",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxis",
+                  "version": "*"
+                },
+                "value": "SkewXAxis"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3912,8 +4902,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -3940,8 +4940,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -3996,8 +5006,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -4010,8 +5030,18 @@
           },
           {
             "link": {
-              "data": "xaxis",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxis",
+                  "version": "*"
+                },
+                "value": "xaxis"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4038,8 +5068,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -4094,8 +5134,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -4108,8 +5158,18 @@
           },
           {
             "link": {
-              "data": "xaxis",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxis",
+                  "version": "*"
+                },
+                "value": "xaxis"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4136,8 +5196,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -4150,8 +5220,18 @@
           },
           {
             "link": {
-              "data": "yaxis",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.axis.YAxis",
+                  "version": "*"
+                },
+                "value": "yaxis"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4178,8 +5258,18 @@
           },
           {
             "link": {
-              "data": "maxis",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.axis",
+                  "version": "*"
+                },
+                "value": "maxis"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4192,8 +5282,18 @@
           },
           {
             "link": {
-              "data": "YAxis",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.axis.YAxis",
+                  "version": "*"
+                },
+                "value": "YAxis"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4206,8 +5306,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -4234,8 +5344,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -4290,8 +5410,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -4304,8 +5434,18 @@
           },
           {
             "link": {
-              "data": "yaxis",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.axis.YAxis",
+                  "version": "*"
+                },
+                "value": "yaxis"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4332,8 +5472,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -4388,8 +5538,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -4402,8 +5562,18 @@
           },
           {
             "link": {
-              "data": "yaxis",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.axis.YAxis",
+                  "version": "*"
+                },
+                "value": "yaxis"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4451,8 +5621,18 @@
           },
           {
             "link": {
-              "data": "_gen_axes_spines",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes._gen_axes_spines",
+                  "version": "*"
+                },
+                "value": "_gen_axes_spines"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -4465,8 +5645,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -4500,8 +5690,18 @@
           },
           {
             "link": {
-              "data": "spines",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "spines"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4570,8 +5770,18 @@
           },
           {
             "link": {
-              "data": "SkewSpine",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewSpine",
+                  "version": "*"
+                },
+                "value": "SkewSpine"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4584,8 +5794,18 @@
           },
           {
             "link": {
-              "data": "linear_spine",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.spines.Spine.linear_spine",
+                  "version": "*"
+                },
+                "value": "linear_spine"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4598,8 +5818,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -4703,8 +5933,18 @@
           },
           {
             "link": {
-              "data": "mspines",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.spines",
+                  "version": "*"
+                },
+                "value": "mspines"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4717,8 +5957,18 @@
           },
           {
             "link": {
-              "data": "Spine",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.spines.Spine",
+                  "version": "*"
+                },
+                "value": "Spine"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4731,8 +5981,18 @@
           },
           {
             "link": {
-              "data": "linear_spine",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.spines.Spine.linear_spine",
+                  "version": "*"
+                },
+                "value": "linear_spine"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4745,8 +6005,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -4850,8 +6120,18 @@
           },
           {
             "link": {
-              "data": "mspines",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.spines",
+                  "version": "*"
+                },
+                "value": "mspines"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4864,8 +6144,18 @@
           },
           {
             "link": {
-              "data": "Spine",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.spines.Spine",
+                  "version": "*"
+                },
+                "value": "Spine"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4878,8 +6168,18 @@
           },
           {
             "link": {
-              "data": "linear_spine",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.spines.Spine.linear_spine",
+                  "version": "*"
+                },
+                "value": "linear_spine"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4892,8 +6192,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -4997,8 +6307,18 @@
           },
           {
             "link": {
-              "data": "mspines",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.spines",
+                  "version": "*"
+                },
+                "value": "mspines"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5011,8 +6331,18 @@
           },
           {
             "link": {
-              "data": "Spine",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.spines.Spine",
+                  "version": "*"
+                },
+                "value": "Spine"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5025,8 +6355,18 @@
           },
           {
             "link": {
-              "data": "linear_spine",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.spines.Spine.linear_spine",
+                  "version": "*"
+                },
+                "value": "linear_spine"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5039,8 +6379,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -5123,8 +6473,18 @@
           },
           {
             "link": {
-              "data": "spines",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "spines"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5165,8 +6525,18 @@
           },
           {
             "link": {
-              "data": "_set_lim_and_transforms",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes._set_lim_and_transforms",
+                  "version": "*"
+                },
+                "value": "_set_lim_and_transforms"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -5179,8 +6549,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -5235,8 +6615,18 @@
           },
           {
             "link": {
-              "data": "rot",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "rot"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5312,8 +6702,18 @@
           },
           {
             "link": {
-              "data": "super",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.super",
+                  "version": "*"
+                },
+                "value": "super"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -5340,8 +6740,18 @@
           },
           {
             "link": {
-              "data": "_set_lim_and_transforms",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.axes._base._AxesBase._set_lim_and_transforms",
+                  "version": "*"
+                },
+                "value": "_set_lim_and_transforms"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5487,8 +6897,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -5501,8 +6921,18 @@
           },
           {
             "link": {
-              "data": "transDataToAxes",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins._NotImplementedType",
+                  "version": "*"
+                },
+                "value": "transDataToAxes"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5550,8 +6980,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -5564,8 +7004,18 @@
           },
           {
             "link": {
-              "data": "transScale",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.TransformWrapper",
+                  "version": "*"
+                },
+                "value": "transScale"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5599,8 +7049,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -5613,8 +7073,18 @@
           },
           {
             "link": {
-              "data": "transLimits",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.BboxTransformFrom",
+                  "version": "*"
+                },
+                "value": "transLimits"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5648,8 +7118,18 @@
           },
           {
             "link": {
-              "data": "transforms",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms",
+                  "version": "*"
+                },
+                "value": "transforms"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5662,8 +7142,18 @@
           },
           {
             "link": {
-              "data": "Affine2D",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Affine2D",
+                  "version": "*"
+                },
+                "value": "Affine2D"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5690,8 +7180,18 @@
           },
           {
             "link": {
-              "data": "skew_deg",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Affine2D.skew_deg",
+                  "version": "*"
+                },
+                "value": "skew_deg"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5704,8 +7204,18 @@
           },
           {
             "link": {
-              "data": "rot",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "rot"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5795,8 +7305,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -5809,8 +7329,18 @@
           },
           {
             "link": {
-              "data": "transData",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins._NotImplementedType",
+                  "version": "*"
+                },
+                "value": "transData"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5837,8 +7367,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -5851,8 +7391,18 @@
           },
           {
             "link": {
-              "data": "transDataToAxes",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins._NotImplementedType",
+                  "version": "*"
+                },
+                "value": "transDataToAxes"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5879,8 +7429,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -5893,8 +7453,18 @@
           },
           {
             "link": {
-              "data": "transAxes",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.BboxTransformTo",
+                  "version": "*"
+                },
+                "value": "transAxes"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5963,8 +7533,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -5977,8 +7557,18 @@
           },
           {
             "link": {
-              "data": "_xaxis_transform",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Affine2D",
+                  "version": "*"
+                },
+                "value": "_xaxis_transform"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6026,8 +7616,18 @@
           },
           {
             "link": {
-              "data": "transforms",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms",
+                  "version": "*"
+                },
+                "value": "transforms"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6040,8 +7640,18 @@
           },
           {
             "link": {
-              "data": "blended_transform_factory",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.blended_transform_factory",
+                  "version": "*"
+                },
+                "value": "blended_transform_factory"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6068,8 +7678,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -6082,8 +7702,18 @@
           },
           {
             "link": {
-              "data": "transScale",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.TransformWrapper",
+                  "version": "*"
+                },
+                "value": "transScale"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6110,8 +7740,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -6124,8 +7764,18 @@
           },
           {
             "link": {
-              "data": "transLimits",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.BboxTransformFrom",
+                  "version": "*"
+                },
+                "value": "transLimits"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6152,8 +7802,18 @@
           },
           {
             "link": {
-              "data": "transforms",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms",
+                  "version": "*"
+                },
+                "value": "transforms"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6166,8 +7826,18 @@
           },
           {
             "link": {
-              "data": "IdentityTransform",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.IdentityTransform",
+                  "version": "*"
+                },
+                "value": "IdentityTransform"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6222,8 +7892,18 @@
           },
           {
             "link": {
-              "data": "transforms",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms",
+                  "version": "*"
+                },
+                "value": "transforms"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6236,8 +7916,18 @@
           },
           {
             "link": {
-              "data": "Affine2D",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Affine2D",
+                  "version": "*"
+                },
+                "value": "Affine2D"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6264,8 +7954,18 @@
           },
           {
             "link": {
-              "data": "skew_deg",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Affine2D.skew_deg",
+                  "version": "*"
+                },
+                "value": "skew_deg"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6278,8 +7978,18 @@
           },
           {
             "link": {
-              "data": "rot",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "rot"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6341,8 +8051,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -6355,8 +8075,18 @@
           },
           {
             "link": {
-              "data": "transAxes",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.BboxTransformTo",
+                  "version": "*"
+                },
+                "value": "transAxes"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6439,8 +8169,18 @@
           },
           {
             "link": {
-              "data": "lower_xlim",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes.lower_xlim",
+                  "version": "*"
+                },
+                "value": "lower_xlim"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -6453,8 +8193,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -6502,8 +8252,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -6516,8 +8276,18 @@
           },
           {
             "link": {
-              "data": "axes",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "axes"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6530,8 +8300,18 @@
           },
           {
             "link": {
-              "data": "viewLim",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.axes._base._AxesBase.viewLim",
+                  "version": "*"
+                },
+                "value": "viewLim"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6607,8 +8387,18 @@
           },
           {
             "link": {
-              "data": "upper_xlim",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes.upper_xlim",
+                  "version": "*"
+                },
+                "value": "upper_xlim"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -6621,8 +8411,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -6656,8 +8456,18 @@
           },
           {
             "link": {
-              "data": "pts",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "pts"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6824,8 +8634,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -6838,8 +8658,18 @@
           },
           {
             "link": {
-              "data": "transDataToAxes",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.TransformWrapper",
+                  "version": "*"
+                },
+                "value": "transDataToAxes"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6852,8 +8682,18 @@
           },
           {
             "link": {
-              "data": "inverted",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Affine2DBase.inverted",
+                  "version": "*"
+                },
+                "value": "inverted"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6894,8 +8734,18 @@
           },
           {
             "link": {
-              "data": "pts",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "pts"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6985,8 +8835,18 @@
           },
           {
             "link": {
-              "data": "register_projection",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.projections.register_projection",
+                  "version": "*"
+                },
+                "value": "register_projection"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6999,8 +8859,18 @@
           },
           {
             "link": {
-              "data": "SkewXAxes",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.SkewXAxes",
+                  "version": "*"
+                },
+                "value": "SkewXAxes"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7041,8 +8911,18 @@
           },
           {
             "link": {
-              "data": "__name__",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "__name__"
+              },
+              "type": "Link"
             },
             "type": "vm"
           },
@@ -7146,8 +9026,18 @@
           },
           {
             "link": {
-              "data": "io",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "io",
+                  "path": "io",
+                  "version": "*"
+                },
+                "value": "io"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -7174,8 +9064,18 @@
           },
           {
             "link": {
-              "data": "StringIO",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "io",
+                  "path": "io.StringIO",
+                  "version": "*"
+                },
+                "value": "StringIO"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7209,8 +9109,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -7223,8 +9133,18 @@
           },
           {
             "link": {
-              "data": "ticker",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.ticker",
+                  "version": "*"
+                },
+                "value": "ticker"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -7258,8 +9178,18 @@
           },
           {
             "link": {
-              "data": "MultipleLocator",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.ticker.MultipleLocator",
+                  "version": "*"
+                },
+                "value": "MultipleLocator"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7279,8 +9209,18 @@
           },
           {
             "link": {
-              "data": "NullFormatter",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.ticker.NullFormatter",
+                  "version": "*"
+                },
+                "value": "NullFormatter"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7307,8 +9247,18 @@
           },
           {
             "link": {
-              "data": "ScalarFormatter",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.ticker.ScalarFormatter",
+                  "version": "*"
+                },
+                "value": "ScalarFormatter"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7349,8 +9299,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -7363,8 +9323,18 @@
           },
           {
             "link": {
-              "data": "pyplot",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "pyplot"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -7391,8 +9361,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -7426,8 +9406,18 @@
           },
           {
             "link": {
-              "data": "numpy",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "numpy"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -7454,8 +9444,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -7503,8 +9503,18 @@
           },
           {
             "link": {
-              "data": "data_txt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "data_txt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -8623,8 +10633,18 @@
           },
           {
             "link": {
-              "data": "sound_data",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "io",
+                  "path": "io.StringIO",
+                  "version": "*"
+                },
+                "value": "sound_data"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -8651,8 +10671,18 @@
           },
           {
             "link": {
-              "data": "StringIO",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "io",
+                  "path": "io.StringIO",
+                  "version": "*"
+                },
+                "value": "StringIO"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -8665,8 +10695,18 @@
           },
           {
             "link": {
-              "data": "data_txt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "data_txt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -8784,8 +10824,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -8798,8 +10848,18 @@
           },
           {
             "link": {
-              "data": "loadtxt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.lib.npyio.loadtxt",
+                  "version": "*"
+                },
+                "value": "loadtxt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -8812,8 +10872,18 @@
           },
           {
             "link": {
-              "data": "sound_data",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "io",
+                  "path": "io.StringIO",
+                  "version": "*"
+                },
+                "value": "sound_data"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -8903,8 +10973,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -8931,8 +11011,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -8945,8 +11035,18 @@
           },
           {
             "link": {
-              "data": "figure",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.figure",
+                  "version": "*"
+                },
+                "value": "figure"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -9064,8 +11164,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -9155,8 +11265,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -9169,8 +11289,18 @@
           },
           {
             "link": {
-              "data": "grid",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.grid",
+                  "version": "*"
+                },
+                "value": "grid"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -9183,8 +11313,18 @@
           },
           {
             "link": {
-              "data": "True",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.bool",
+                  "version": "*"
+                },
+                "value": "True"
+              },
+              "type": "Link"
             },
             "type": "kc"
           },
@@ -9743,8 +11883,18 @@
           },
           {
             "link": {
-              "data": "ScalarFormatter",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.ticker.ScalarFormatter",
+                  "version": "*"
+                },
+                "value": "ScalarFormatter"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -9827,8 +11977,18 @@
           },
           {
             "link": {
-              "data": "NullFormatter",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.ticker.NullFormatter",
+                  "version": "*"
+                },
+                "value": "NullFormatter"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -9897,8 +12057,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -9911,8 +12081,18 @@
           },
           {
             "link": {
-              "data": "linspace",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.core.function_base.linspace",
+                  "version": "*"
+                },
+                "value": "linspace"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -10128,8 +12308,18 @@
           },
           {
             "link": {
-              "data": "MultipleLocator",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.ticker.MultipleLocator",
+                  "version": "*"
+                },
+                "value": "MultipleLocator"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -10268,8 +12458,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -10282,8 +12482,18 @@
           },
           {
             "link": {
-              "data": "show",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.show",
+                  "version": "*"
+                },
+                "value": "show"
+              },
+              "type": "Link"
             },
             "type": ""
           },

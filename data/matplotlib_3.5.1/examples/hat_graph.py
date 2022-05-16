@@ -34,8 +34,18 @@
           },
           {
             "link": {
-              "data": "numpy",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "numpy"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -62,8 +72,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -90,8 +110,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -104,8 +134,18 @@
           },
           {
             "link": {
-              "data": "pyplot",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "pyplot"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -132,8 +172,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -174,8 +224,18 @@
           },
           {
             "link": {
-              "data": "hat_graph",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.hat_graph",
+                  "version": "*"
+                },
+                "value": "hat_graph"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -188,8 +248,18 @@
           },
           {
             "link": {
-              "data": "ax",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.axes._axes.Axes",
+                  "version": "*"
+                },
+                "value": "ax"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -209,8 +279,18 @@
           },
           {
             "link": {
-              "data": "xlabels",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "xlabels"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -230,8 +310,18 @@
           },
           {
             "link": {
-              "data": "values",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "values"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -251,8 +341,18 @@
           },
           {
             "link": {
-              "data": "group_labels",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "group_labels"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -363,8 +463,18 @@
           },
           {
             "link": {
-              "data": "rects",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.container.BarContainer",
+                  "version": "*"
+                },
+                "value": "rects"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -482,8 +592,18 @@
           },
           {
             "link": {
-              "data": "zip",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.zip",
+                  "version": "*"
+                },
+                "value": "zip"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -517,8 +637,18 @@
           },
           {
             "link": {
-              "data": "rects",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.container.BarContainer",
+                  "version": "*"
+                },
+                "value": "rects"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -552,8 +682,18 @@
           },
           {
             "link": {
-              "data": "ax",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.axes._axes.Axes",
+                  "version": "*"
+                },
+                "value": "ax"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -566,8 +706,18 @@
           },
           {
             "link": {
-              "data": "annotate",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.axes._axes.Axes.annotate",
+                  "version": "*"
+                },
+                "value": "annotate"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1119,8 +1269,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1133,8 +1293,18 @@
           },
           {
             "link": {
-              "data": "asarray",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.asarray",
+                  "version": "*"
+                },
+                "value": "asarray"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1147,8 +1317,18 @@
           },
           {
             "link": {
-              "data": "values",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "values"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1203,8 +1383,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1217,8 +1407,18 @@
           },
           {
             "link": {
-              "data": "arange",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.arange",
+                  "version": "*"
+                },
+                "value": "arange"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1294,8 +1494,18 @@
           },
           {
             "link": {
-              "data": "ax",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.axes._axes.Axes",
+                  "version": "*"
+                },
+                "value": "ax"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1308,8 +1518,18 @@
           },
           {
             "link": {
-              "data": "set_xticks",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.axes._base._axis_method_wrapper",
+                  "version": "*"
+                },
+                "value": "set_xticks"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1357,8 +1577,18 @@
           },
           {
             "link": {
-              "data": "xlabels",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "xlabels"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1385,8 +1615,18 @@
           },
           {
             "link": {
-              "data": "spacing",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "spacing"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1448,8 +1688,18 @@
           },
           {
             "link": {
-              "data": "width",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "width"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1511,8 +1761,18 @@
           },
           {
             "link": {
-              "data": "spacing",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "spacing"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1770,8 +2030,18 @@
           },
           {
             "link": {
-              "data": "enumerate",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.enumerate",
+                  "version": "*"
+                },
+                "value": "enumerate"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -1784,8 +2054,18 @@
           },
           {
             "link": {
-              "data": "zip",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.zip",
+                  "version": "*"
+                },
+                "value": "zip"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -1819,8 +2099,18 @@
           },
           {
             "link": {
-              "data": "group_labels",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "group_labels"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1861,8 +2151,18 @@
           },
           {
             "link": {
-              "data": "style",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "style"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2106,8 +2406,18 @@
           },
           {
             "link": {
-              "data": "rects",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.container.BarContainer",
+                  "version": "*"
+                },
+                "value": "rects"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2134,8 +2444,18 @@
           },
           {
             "link": {
-              "data": "ax",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.axes._axes.Axes",
+                  "version": "*"
+                },
+                "value": "ax"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2148,8 +2468,18 @@
           },
           {
             "link": {
-              "data": "bar",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.axes._axes.Axes.bar",
+                  "version": "*"
+                },
+                "value": "bar"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2190,8 +2520,18 @@
           },
           {
             "link": {
-              "data": "spacing",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "spacing"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2260,8 +2600,18 @@
           },
           {
             "link": {
-              "data": "width",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "width"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2337,8 +2687,18 @@
           },
           {
             "link": {
-              "data": "width",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "width"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2442,8 +2802,18 @@
           },
           {
             "link": {
-              "data": "style",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "style"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2505,8 +2875,18 @@
           },
           {
             "link": {
-              "data": "rects",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.container.BarContainer",
+                  "version": "*"
+                },
+                "value": "rects"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2568,8 +2948,18 @@
           },
           {
             "link": {
-              "data": "xlabels",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "xlabels"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2778,8 +3168,18 @@
           },
           {
             "link": {
-              "data": "playerA",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "playerA"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2806,8 +3206,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2820,8 +3230,18 @@
           },
           {
             "link": {
-              "data": "array",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.array",
+                  "version": "*"
+                },
+                "value": "array"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2953,8 +3373,18 @@
           },
           {
             "link": {
-              "data": "playerB",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "playerB"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2981,8 +3411,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2995,8 +3435,18 @@
           },
           {
             "link": {
-              "data": "array",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.array",
+                  "version": "*"
+                },
+                "value": "array"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3184,8 +3634,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3198,8 +3658,18 @@
           },
           {
             "link": {
-              "data": "subplots",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.subplots",
+                  "version": "*"
+                },
+                "value": "subplots"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3226,8 +3696,18 @@
           },
           {
             "link": {
-              "data": "hat_graph",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.hat_graph",
+                  "version": "*"
+                },
+                "value": "hat_graph"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3261,8 +3741,18 @@
           },
           {
             "link": {
-              "data": "xlabels",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "xlabels"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3289,8 +3779,18 @@
           },
           {
             "link": {
-              "data": "playerA",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "playerA"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3310,8 +3810,18 @@
           },
           {
             "link": {
-              "data": "playerB",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "playerB"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3793,8 +4303,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3807,8 +4327,18 @@
           },
           {
             "link": {
-              "data": "show",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.show",
+                  "version": "*"
+                },
+                "value": "show"
+              },
+              "type": "Link"
             },
             "type": ""
           },

@@ -41,8 +41,18 @@
           },
           {
             "link": {
-              "data": "numpy",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "numpy"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -69,8 +79,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -97,8 +117,18 @@
           },
           {
             "link": {
-              "data": "numpy",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "numpy"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -125,8 +155,18 @@
           },
           {
             "link": {
-              "data": "ma",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ma",
+                  "version": "*"
+                },
+                "value": "ma"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -153,8 +193,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -181,8 +231,18 @@
           },
           {
             "link": {
-              "data": "scale",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.scale",
+                  "version": "*"
+                },
+                "value": "scale"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -209,8 +269,18 @@
           },
           {
             "link": {
-              "data": "mscale",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.scale",
+                  "version": "*"
+                },
+                "value": "mscale"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -237,8 +307,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -265,8 +345,18 @@
           },
           {
             "link": {
-              "data": "transforms",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms",
+                  "version": "*"
+                },
+                "value": "transforms"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -293,8 +383,18 @@
           },
           {
             "link": {
-              "data": "mtransforms",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms",
+                  "version": "*"
+                },
+                "value": "mtransforms"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -321,8 +421,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -335,8 +445,18 @@
           },
           {
             "link": {
-              "data": "ticker",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.ticker",
+                  "version": "*"
+                },
+                "value": "ticker"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -363,8 +483,18 @@
           },
           {
             "link": {
-              "data": "FixedLocator",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.ticker.FixedLocator",
+                  "version": "*"
+                },
+                "value": "FixedLocator"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -384,8 +514,18 @@
           },
           {
             "link": {
-              "data": "FuncFormatter",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.ticker.FuncFormatter",
+                  "version": "*"
+                },
+                "value": "FuncFormatter"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -426,8 +566,18 @@
           },
           {
             "link": {
-              "data": "MercatorLatitudeScale",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale",
+                  "version": "*"
+                },
+                "value": "MercatorLatitudeScale"
+              },
+              "type": "Link"
             },
             "type": "nc"
           },
@@ -440,8 +590,18 @@
           },
           {
             "link": {
-              "data": "mscale",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.scale",
+                  "version": "*"
+                },
+                "value": "mscale"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -454,8 +614,18 @@
           },
           {
             "link": {
-              "data": "ScaleBase",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.scale.ScaleBase",
+                  "version": "*"
+                },
+                "value": "ScaleBase"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -580,8 +750,18 @@
           },
           {
             "link": {
-              "data": "name",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "name"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -664,8 +844,18 @@
           },
           {
             "link": {
-              "data": "__init__",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale.__init__",
+                  "version": "*"
+                },
+                "value": "__init__"
+              },
+              "type": "Link"
             },
             "type": "fm"
           },
@@ -678,8 +868,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -755,8 +955,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -769,8 +979,18 @@
           },
           {
             "link": {
-              "data": "deg2rad",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ufunc",
+                  "version": "*"
+                },
+                "value": "deg2rad"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -825,8 +1045,18 @@
           },
           {
             "link": {
-              "data": "kwargs",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "kwargs"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -881,8 +1111,18 @@
           },
           {
             "link": {
-              "data": "super",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.super",
+                  "version": "*"
+                },
+                "value": "super"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -909,8 +1149,18 @@
           },
           {
             "link": {
-              "data": "__init__",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.scale.ScaleBase.__init__",
+                  "version": "*"
+                },
+                "value": "__init__"
+              },
+              "type": "Link"
             },
             "type": "fm"
           },
@@ -1000,8 +1250,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1084,8 +1344,18 @@
           },
           {
             "link": {
-              "data": "ValueError",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.ValueError",
+                  "version": "*"
+                },
+                "value": "ValueError"
+              },
+              "type": "Link"
             },
             "type": "ne"
           },
@@ -1140,8 +1410,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1224,8 +1504,18 @@
           },
           {
             "link": {
-              "data": "get_transform",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale.get_transform",
+                  "version": "*"
+                },
+                "value": "get_transform"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -1238,8 +1528,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1308,8 +1608,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1322,8 +1632,18 @@
           },
           {
             "link": {
-              "data": "MercatorLatitudeTransform",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale.MercatorLatitudeTransform",
+                  "version": "*"
+                },
+                "value": "MercatorLatitudeTransform"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1336,8 +1656,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1399,8 +1729,18 @@
           },
           {
             "link": {
-              "data": "set_default_locators_and_formatters",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale.set_default_locators_and_formatters",
+                  "version": "*"
+                },
+                "value": "set_default_locators_and_formatters"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -1413,8 +1753,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1490,8 +1840,18 @@
           },
           {
             "link": {
-              "data": "fmt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.ticker.FuncFormatter",
+                  "version": "*"
+                },
+                "value": "fmt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1518,8 +1878,18 @@
           },
           {
             "link": {
-              "data": "FuncFormatter",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.ticker.FuncFormatter",
+                  "version": "*"
+                },
+                "value": "FuncFormatter"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1581,8 +1951,18 @@
           },
           {
             "link": {
-              "data": "pos",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.NoneType",
+                  "version": "*"
+                },
+                "value": "pos"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1616,8 +1996,18 @@
           },
           {
             "link": {
-              "data": "f",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "f"
+              },
+              "type": "Link"
             },
             "type": "sa"
           },
@@ -1637,8 +2027,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1651,8 +2051,18 @@
           },
           {
             "link": {
-              "data": "degrees",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ufunc",
+                  "version": "*"
+                },
+                "value": "degrees"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1777,8 +2187,18 @@
           },
           {
             "link": {
-              "data": "FixedLocator",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.ticker.FixedLocator",
+                  "version": "*"
+                },
+                "value": "FixedLocator"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1791,8 +2211,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1805,8 +2235,18 @@
           },
           {
             "link": {
-              "data": "radians",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ufunc",
+                  "version": "*"
+                },
+                "value": "radians"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1819,8 +2259,18 @@
           },
           {
             "link": {
-              "data": "range",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.range",
+                  "version": "*"
+                },
+                "value": "range"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -1945,8 +2395,18 @@
           },
           {
             "link": {
-              "data": "fmt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.ticker.FuncFormatter",
+                  "version": "*"
+                },
+                "value": "fmt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1980,8 +2440,18 @@
           },
           {
             "link": {
-              "data": "fmt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.ticker.FuncFormatter",
+                  "version": "*"
+                },
+                "value": "fmt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2029,8 +2499,18 @@
           },
           {
             "link": {
-              "data": "limit_range_for_scale",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale.limit_range_for_scale",
+                  "version": "*"
+                },
+                "value": "limit_range_for_scale"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -2043,8 +2523,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -2176,8 +2666,18 @@
           },
           {
             "link": {
-              "data": "max",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.max",
+                  "version": "*"
+                },
+                "value": "max"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -2218,8 +2718,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -2260,8 +2770,18 @@
           },
           {
             "link": {
-              "data": "min",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.min",
+                  "version": "*"
+                },
+                "value": "min"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -2295,8 +2815,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -2358,8 +2888,18 @@
           },
           {
             "link": {
-              "data": "MercatorLatitudeTransform",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale.MercatorLatitudeTransform",
+                  "version": "*"
+                },
+                "value": "MercatorLatitudeTransform"
+              },
+              "type": "Link"
             },
             "type": "nc"
           },
@@ -2372,8 +2912,18 @@
           },
           {
             "link": {
-              "data": "mtransforms",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms",
+                  "version": "*"
+                },
+                "value": "mtransforms"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2386,8 +2936,18 @@
           },
           {
             "link": {
-              "data": "Transform",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Transform",
+                  "version": "*"
+                },
+                "value": "Transform"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2589,8 +3149,18 @@
           },
           {
             "link": {
-              "data": "input_dims",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "input_dims"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2617,8 +3187,18 @@
           },
           {
             "link": {
-              "data": "output_dims",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "output_dims"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2687,8 +3267,18 @@
           },
           {
             "link": {
-              "data": "__init__",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale.MercatorLatitudeTransform.__init__",
+                  "version": "*"
+                },
+                "value": "__init__"
+              },
+              "type": "Link"
             },
             "type": "fm"
           },
@@ -2701,8 +3291,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale.MercatorLatitudeTransform",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -2757,8 +3357,18 @@
           },
           {
             "link": {
-              "data": "mtransforms",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms",
+                  "version": "*"
+                },
+                "value": "mtransforms"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2771,8 +3381,18 @@
           },
           {
             "link": {
-              "data": "Transform",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Transform",
+                  "version": "*"
+                },
+                "value": "Transform"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2785,8 +3405,18 @@
           },
           {
             "link": {
-              "data": "__init__",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.TransformNode.__init__",
+                  "version": "*"
+                },
+                "value": "__init__"
+              },
+              "type": "Link"
             },
             "type": "fm"
           },
@@ -2799,8 +3429,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale.MercatorLatitudeTransform",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -2827,8 +3467,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale.MercatorLatitudeTransform",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -2911,8 +3561,18 @@
           },
           {
             "link": {
-              "data": "transform_non_affine",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale.MercatorLatitudeTransform.transform_non_affine",
+                  "version": "*"
+                },
+                "value": "transform_non_affine"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -2925,8 +3585,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale.MercatorLatitudeTransform",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -3030,8 +3700,18 @@
           },
           {
             "link": {
-              "data": "ma",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ma",
+                  "version": "*"
+                },
+                "value": "ma"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3044,8 +3724,18 @@
           },
           {
             "link": {
-              "data": "masked_where",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ma.core.masked_where",
+                  "version": "*"
+                },
+                "value": "masked_where"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3100,8 +3790,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale.MercatorLatitudeTransform",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -3184,8 +3884,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale.MercatorLatitudeTransform",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -3352,8 +4062,18 @@
           },
           {
             "link": {
-              "data": "ma",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ma",
+                  "version": "*"
+                },
+                "value": "ma"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3366,8 +4086,18 @@
           },
           {
             "link": {
-              "data": "log",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ma.core._MaskedUnaryOperation",
+                  "version": "*"
+                },
+                "value": "log"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3380,8 +4110,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3394,8 +4134,18 @@
           },
           {
             "link": {
-              "data": "abs",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ufunc",
+                  "version": "*"
+                },
+                "value": "abs"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3408,8 +4158,18 @@
           },
           {
             "link": {
-              "data": "ma",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ma",
+                  "version": "*"
+                },
+                "value": "ma"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3422,8 +4182,18 @@
           },
           {
             "link": {
-              "data": "tan",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ma.core._MaskedUnaryOperation",
+                  "version": "*"
+                },
+                "value": "tan"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3499,8 +4269,18 @@
           },
           {
             "link": {
-              "data": "ma",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ma",
+                  "version": "*"
+                },
+                "value": "ma"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3513,8 +4293,18 @@
           },
           {
             "link": {
-              "data": "cos",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ma.core._MaskedUnaryOperation",
+                  "version": "*"
+                },
+                "value": "cos"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3611,8 +4401,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3625,8 +4425,18 @@
           },
           {
             "link": {
-              "data": "log",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ufunc",
+                  "version": "*"
+                },
+                "value": "log"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3639,8 +4449,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3653,8 +4473,18 @@
           },
           {
             "link": {
-              "data": "abs",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ufunc",
+                  "version": "*"
+                },
+                "value": "abs"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3667,8 +4497,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3681,8 +4521,18 @@
           },
           {
             "link": {
-              "data": "tan",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ufunc",
+                  "version": "*"
+                },
+                "value": "tan"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3758,8 +4608,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3772,8 +4632,18 @@
           },
           {
             "link": {
-              "data": "cos",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ufunc",
+                  "version": "*"
+                },
+                "value": "cos"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3849,8 +4719,18 @@
           },
           {
             "link": {
-              "data": "inverted",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale.MercatorLatitudeTransform.inverted",
+                  "version": "*"
+                },
+                "value": "inverted"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -3863,8 +4743,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale.MercatorLatitudeTransform",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -3933,8 +4823,18 @@
           },
           {
             "link": {
-              "data": "MercatorLatitudeScale",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale",
+                  "version": "*"
+                },
+                "value": "MercatorLatitudeScale"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3947,8 +4847,18 @@
           },
           {
             "link": {
-              "data": "InvertedMercatorLatitudeTransform",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale.InvertedMercatorLatitudeTransform",
+                  "version": "*"
+                },
+                "value": "InvertedMercatorLatitudeTransform"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3975,8 +4885,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale.MercatorLatitudeTransform",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -4038,8 +4958,18 @@
           },
           {
             "link": {
-              "data": "InvertedMercatorLatitudeTransform",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale.InvertedMercatorLatitudeTransform",
+                  "version": "*"
+                },
+                "value": "InvertedMercatorLatitudeTransform"
+              },
+              "type": "Link"
             },
             "type": "nc"
           },
@@ -4052,8 +4982,18 @@
           },
           {
             "link": {
-              "data": "mtransforms",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms",
+                  "version": "*"
+                },
+                "value": "mtransforms"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4066,8 +5006,18 @@
           },
           {
             "link": {
-              "data": "Transform",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Transform",
+                  "version": "*"
+                },
+                "value": "Transform"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4101,8 +5051,18 @@
           },
           {
             "link": {
-              "data": "input_dims",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "input_dims"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4129,8 +5089,18 @@
           },
           {
             "link": {
-              "data": "output_dims",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "output_dims"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4199,8 +5169,18 @@
           },
           {
             "link": {
-              "data": "__init__",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale.InvertedMercatorLatitudeTransform.__init__",
+                  "version": "*"
+                },
+                "value": "__init__"
+              },
+              "type": "Link"
             },
             "type": "fm"
           },
@@ -4213,8 +5193,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale.InvertedMercatorLatitudeTransform",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -4269,8 +5259,18 @@
           },
           {
             "link": {
-              "data": "mtransforms",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms",
+                  "version": "*"
+                },
+                "value": "mtransforms"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4283,8 +5283,18 @@
           },
           {
             "link": {
-              "data": "Transform",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Transform",
+                  "version": "*"
+                },
+                "value": "Transform"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4297,8 +5307,18 @@
           },
           {
             "link": {
-              "data": "__init__",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.TransformNode.__init__",
+                  "version": "*"
+                },
+                "value": "__init__"
+              },
+              "type": "Link"
             },
             "type": "fm"
           },
@@ -4311,8 +5331,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale.InvertedMercatorLatitudeTransform",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -4339,8 +5369,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale.InvertedMercatorLatitudeTransform",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -4423,8 +5463,18 @@
           },
           {
             "link": {
-              "data": "transform_non_affine",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale.InvertedMercatorLatitudeTransform.transform_non_affine",
+                  "version": "*"
+                },
+                "value": "transform_non_affine"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -4437,8 +5487,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale.InvertedMercatorLatitudeTransform",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -4507,8 +5567,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4521,8 +5591,18 @@
           },
           {
             "link": {
-              "data": "arctan",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ufunc",
+                  "version": "*"
+                },
+                "value": "arctan"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4535,8 +5615,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4549,8 +5639,18 @@
           },
           {
             "link": {
-              "data": "sinh",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ufunc",
+                  "version": "*"
+                },
+                "value": "sinh"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4619,8 +5719,18 @@
           },
           {
             "link": {
-              "data": "inverted",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale.InvertedMercatorLatitudeTransform.inverted",
+                  "version": "*"
+                },
+                "value": "inverted"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -4633,8 +5743,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale.InvertedMercatorLatitudeTransform",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -4682,8 +5802,18 @@
           },
           {
             "link": {
-              "data": "MercatorLatitudeScale",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale",
+                  "version": "*"
+                },
+                "value": "MercatorLatitudeScale"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4696,8 +5826,18 @@
           },
           {
             "link": {
-              "data": "MercatorLatitudeTransform",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale.MercatorLatitudeTransform",
+                  "version": "*"
+                },
+                "value": "MercatorLatitudeTransform"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4710,8 +5850,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale.InvertedMercatorLatitudeTransform",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -4787,8 +5937,18 @@
           },
           {
             "link": {
-              "data": "mscale",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.scale",
+                  "version": "*"
+                },
+                "value": "mscale"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4801,8 +5961,18 @@
           },
           {
             "link": {
-              "data": "register_scale",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.scale.register_scale",
+                  "version": "*"
+                },
+                "value": "register_scale"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4815,8 +5985,18 @@
           },
           {
             "link": {
-              "data": "MercatorLatitudeScale",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MercatorLatitudeScale",
+                  "version": "*"
+                },
+                "value": "MercatorLatitudeScale"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4864,8 +6044,18 @@
           },
           {
             "link": {
-              "data": "__name__",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "__name__"
+              },
+              "type": "Link"
             },
             "type": "vm"
           },
@@ -4948,8 +6138,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -4962,8 +6162,18 @@
           },
           {
             "link": {
-              "data": "pyplot",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "pyplot"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -4990,8 +6200,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -5018,8 +6238,18 @@
           },
           {
             "link": {
-              "data": "t",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "t"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5046,8 +6276,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5060,8 +6300,18 @@
           },
           {
             "link": {
-              "data": "arange",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.arange",
+                  "version": "*"
+                },
+                "value": "arange"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5151,8 +6401,18 @@
           },
           {
             "link": {
-              "data": "s",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "s"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5179,8 +6439,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5193,8 +6463,18 @@
           },
           {
             "link": {
-              "data": "radians",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ufunc",
+                  "version": "*"
+                },
+                "value": "radians"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5207,8 +6487,18 @@
           },
           {
             "link": {
-              "data": "t",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "t"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5256,8 +6546,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5270,8 +6570,18 @@
           },
           {
             "link": {
-              "data": "plot",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.plot",
+                  "version": "*"
+                },
+                "value": "plot"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5284,8 +6594,18 @@
           },
           {
             "link": {
-              "data": "t",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "t"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5305,8 +6625,18 @@
           },
           {
             "link": {
-              "data": "s",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "s"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5403,8 +6733,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5417,8 +6757,18 @@
           },
           {
             "link": {
-              "data": "yscale",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.yscale",
+                  "version": "*"
+                },
+                "value": "yscale"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5480,8 +6830,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5494,8 +6854,18 @@
           },
           {
             "link": {
-              "data": "xlabel",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.xlabel",
+                  "version": "*"
+                },
+                "value": "xlabel"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5550,8 +6920,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5564,8 +6944,18 @@
           },
           {
             "link": {
-              "data": "ylabel",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.ylabel",
+                  "version": "*"
+                },
+                "value": "ylabel"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5620,8 +7010,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5634,8 +7034,18 @@
           },
           {
             "link": {
-              "data": "title",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.title",
+                  "version": "*"
+                },
+                "value": "title"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5690,8 +7100,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5704,8 +7124,18 @@
           },
           {
             "link": {
-              "data": "grid",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.grid",
+                  "version": "*"
+                },
+                "value": "grid"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5718,8 +7148,18 @@
           },
           {
             "link": {
-              "data": "True",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.bool",
+                  "version": "*"
+                },
+                "value": "True"
+              },
+              "type": "Link"
             },
             "type": "kc"
           },
@@ -5753,8 +7193,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5767,8 +7217,18 @@
           },
           {
             "link": {
-              "data": "show",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.show",
+                  "version": "*"
+                },
+                "value": "show"
+              },
+              "type": "Link"
             },
             "type": ""
           },

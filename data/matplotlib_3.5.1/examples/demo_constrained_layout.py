@@ -41,8 +41,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -55,8 +65,18 @@
           },
           {
             "link": {
-              "data": "pyplot",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "pyplot"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -83,8 +103,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -125,8 +155,18 @@
           },
           {
             "link": {
-              "data": "example_plot",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.example_plot",
+                  "version": "*"
+                },
+                "value": "example_plot"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -622,8 +662,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -671,8 +721,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -685,8 +745,18 @@
           },
           {
             "link": {
-              "data": "subplots",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.subplots",
+                  "version": "*"
+                },
+                "value": "subplots"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -895,8 +965,18 @@
           },
           {
             "link": {
-              "data": "example_plot",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.example_plot",
+                  "version": "*"
+                },
+                "value": "example_plot"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -972,8 +1052,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1021,8 +1111,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1035,8 +1135,18 @@
           },
           {
             "link": {
-              "data": "subplots",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.subplots",
+                  "version": "*"
+                },
+                "value": "subplots"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1245,8 +1355,18 @@
           },
           {
             "link": {
-              "data": "example_plot",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.example_plot",
+                  "version": "*"
+                },
+                "value": "example_plot"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1322,8 +1442,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1350,8 +1480,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1364,8 +1504,18 @@
           },
           {
             "link": {
-              "data": "figure",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.figure",
+                  "version": "*"
+                },
+                "value": "figure"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1434,8 +1584,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -1448,8 +1608,18 @@
           },
           {
             "link": {
-              "data": "gridspec",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.gridspec",
+                  "version": "*"
+                },
+                "value": "gridspec"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -1476,8 +1646,18 @@
           },
           {
             "link": {
-              "data": "gridspec",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.gridspec",
+                  "version": "*"
+                },
+                "value": "gridspec"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -1497,8 +1677,18 @@
           },
           {
             "link": {
-              "data": "gs0",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.gridspec.GridSpec",
+                  "version": "*"
+                },
+                "value": "gs0"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1525,8 +1715,18 @@
           },
           {
             "link": {
-              "data": "gridspec",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.gridspec",
+                  "version": "*"
+                },
+                "value": "gridspec"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1539,8 +1739,18 @@
           },
           {
             "link": {
-              "data": "GridSpec",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.gridspec.GridSpec",
+                  "version": "*"
+                },
+                "value": "GridSpec"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1609,8 +1819,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1637,8 +1857,18 @@
           },
           {
             "link": {
-              "data": "gs1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.gridspec.GridSpecFromSubplotSpec",
+                  "version": "*"
+                },
+                "value": "gs1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1665,8 +1895,18 @@
           },
           {
             "link": {
-              "data": "gridspec",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.gridspec",
+                  "version": "*"
+                },
+                "value": "gridspec"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1679,8 +1919,18 @@
           },
           {
             "link": {
-              "data": "GridSpecFromSubplotSpec",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.gridspec.GridSpecFromSubplotSpec",
+                  "version": "*"
+                },
+                "value": "GridSpecFromSubplotSpec"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1749,8 +1999,18 @@
           },
           {
             "link": {
-              "data": "gs0",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.gridspec.GridSpec",
+                  "version": "*"
+                },
+                "value": "gs0"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1805,8 +2065,18 @@
           },
           {
             "link": {
-              "data": "n",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "n"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1833,8 +2103,18 @@
           },
           {
             "link": {
-              "data": "range",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.range",
+                  "version": "*"
+                },
+                "value": "range"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -1910,8 +2190,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1938,8 +2228,18 @@
           },
           {
             "link": {
-              "data": "gs1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.gridspec.GridSpecFromSubplotSpec",
+                  "version": "*"
+                },
+                "value": "gs1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1952,8 +2252,18 @@
           },
           {
             "link": {
-              "data": "n",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "n"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1987,8 +2297,18 @@
           },
           {
             "link": {
-              "data": "example_plot",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.example_plot",
+                  "version": "*"
+                },
+                "value": "example_plot"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2036,8 +2356,18 @@
           },
           {
             "link": {
-              "data": "gs2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.gridspec.GridSpecFromSubplotSpec",
+                  "version": "*"
+                },
+                "value": "gs2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2064,8 +2394,18 @@
           },
           {
             "link": {
-              "data": "gridspec",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.gridspec",
+                  "version": "*"
+                },
+                "value": "gridspec"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2078,8 +2418,18 @@
           },
           {
             "link": {
-              "data": "GridSpecFromSubplotSpec",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.gridspec.GridSpecFromSubplotSpec",
+                  "version": "*"
+                },
+                "value": "GridSpecFromSubplotSpec"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2148,8 +2498,18 @@
           },
           {
             "link": {
-              "data": "gs0",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.gridspec.GridSpec",
+                  "version": "*"
+                },
+                "value": "gs0"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2204,8 +2564,18 @@
           },
           {
             "link": {
-              "data": "n",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "n"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2232,8 +2602,18 @@
           },
           {
             "link": {
-              "data": "range",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.range",
+                  "version": "*"
+                },
+                "value": "range"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -2309,8 +2689,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2337,8 +2727,18 @@
           },
           {
             "link": {
-              "data": "gs2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.gridspec.GridSpecFromSubplotSpec",
+                  "version": "*"
+                },
+                "value": "gs2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2351,8 +2751,18 @@
           },
           {
             "link": {
-              "data": "n",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "n"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2386,8 +2796,18 @@
           },
           {
             "link": {
-              "data": "example_plot",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.example_plot",
+                  "version": "*"
+                },
+                "value": "example_plot"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2428,8 +2848,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2442,8 +2872,18 @@
           },
           {
             "link": {
-              "data": "show",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.show",
+                  "version": "*"
+                },
+                "value": "show"
+              },
+              "type": "Link"
             },
             "type": ""
           },

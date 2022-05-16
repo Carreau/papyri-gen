@@ -31,7 +31,6 @@
   "item_type": null,
   "ordered_sections": [],
   "references": null,
-  "refs": [],
   "see_also": [],
   "signature": {
     "value": null

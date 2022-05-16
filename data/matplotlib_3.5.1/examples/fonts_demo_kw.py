@@ -41,8 +41,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -55,8 +65,18 @@
           },
           {
             "link": {
-              "data": "pyplot",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "pyplot"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -83,8 +103,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -104,8 +134,18 @@
           },
           {
             "link": {
-              "data": "alignment",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "alignment"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -307,8 +347,18 @@
           },
           {
             "link": {
-              "data": "families",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "families"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -552,8 +602,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -566,8 +626,18 @@
           },
           {
             "link": {
-              "data": "figtext",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.figtext",
+                  "version": "*"
+                },
+                "value": "figtext"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -720,8 +790,18 @@
           },
           {
             "link": {
-              "data": "alignment",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "alignment"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -748,8 +828,18 @@
           },
           {
             "link": {
-              "data": "yp",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "yp"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -951,8 +1041,18 @@
           },
           {
             "link": {
-              "data": "k",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "k"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -972,8 +1072,18 @@
           },
           {
             "link": {
-              "data": "family",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "family"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1000,8 +1110,18 @@
           },
           {
             "link": {
-              "data": "enumerate",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.enumerate",
+                  "version": "*"
+                },
+                "value": "enumerate"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -1014,8 +1134,18 @@
           },
           {
             "link": {
-              "data": "families",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "families"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1077,8 +1207,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1091,8 +1231,18 @@
           },
           {
             "link": {
-              "data": "figtext",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.figtext",
+                  "version": "*"
+                },
+                "value": "figtext"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1126,8 +1276,18 @@
           },
           {
             "link": {
-              "data": "yp",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "yp"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1140,8 +1300,18 @@
           },
           {
             "link": {
-              "data": "k",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "k"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1168,8 +1338,18 @@
           },
           {
             "link": {
-              "data": "family",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "family"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1189,8 +1369,18 @@
           },
           {
             "link": {
-              "data": "family",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "family"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1203,8 +1393,18 @@
           },
           {
             "link": {
-              "data": "family",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "family"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1238,8 +1438,18 @@
           },
           {
             "link": {
-              "data": "alignment",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "alignment"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1287,8 +1497,18 @@
           },
           {
             "link": {
-              "data": "styles",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "styles"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1462,8 +1682,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1476,8 +1706,18 @@
           },
           {
             "link": {
-              "data": "figtext",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.figtext",
+                  "version": "*"
+                },
+                "value": "figtext"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1581,8 +1821,18 @@
           },
           {
             "link": {
-              "data": "alignment",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "alignment"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1623,8 +1873,18 @@
           },
           {
             "link": {
-              "data": "k",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "k"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1644,8 +1904,18 @@
           },
           {
             "link": {
-              "data": "style",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "style"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1672,8 +1942,18 @@
           },
           {
             "link": {
-              "data": "enumerate",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.enumerate",
+                  "version": "*"
+                },
+                "value": "enumerate"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -1686,8 +1966,18 @@
           },
           {
             "link": {
-              "data": "styles",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "styles"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1749,8 +2039,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1763,8 +2063,18 @@
           },
           {
             "link": {
-              "data": "figtext",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.figtext",
+                  "version": "*"
+                },
+                "value": "figtext"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1798,8 +2108,18 @@
           },
           {
             "link": {
-              "data": "yp",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "yp"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1812,8 +2132,18 @@
           },
           {
             "link": {
-              "data": "k",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "k"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1840,8 +2170,18 @@
           },
           {
             "link": {
-              "data": "style",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "style"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1861,8 +2201,18 @@
           },
           {
             "link": {
-              "data": "family",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "family"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1910,8 +2260,18 @@
           },
           {
             "link": {
-              "data": "style",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "style"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1924,8 +2284,18 @@
           },
           {
             "link": {
-              "data": "style",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "style"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1966,8 +2336,18 @@
           },
           {
             "link": {
-              "data": "alignment",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "alignment"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2015,8 +2395,18 @@
           },
           {
             "link": {
-              "data": "variants",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "variants"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2155,8 +2545,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2169,8 +2569,18 @@
           },
           {
             "link": {
-              "data": "figtext",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.figtext",
+                  "version": "*"
+                },
+                "value": "figtext"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2274,8 +2684,18 @@
           },
           {
             "link": {
-              "data": "alignment",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "alignment"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2316,8 +2736,18 @@
           },
           {
             "link": {
-              "data": "k",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "k"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2337,8 +2767,18 @@
           },
           {
             "link": {
-              "data": "variant",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "variant"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2365,8 +2805,18 @@
           },
           {
             "link": {
-              "data": "enumerate",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.enumerate",
+                  "version": "*"
+                },
+                "value": "enumerate"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -2379,8 +2829,18 @@
           },
           {
             "link": {
-              "data": "variants",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "variants"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2442,8 +2902,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2456,8 +2926,18 @@
           },
           {
             "link": {
-              "data": "figtext",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.figtext",
+                  "version": "*"
+                },
+                "value": "figtext"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2491,8 +2971,18 @@
           },
           {
             "link": {
-              "data": "yp",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "yp"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2505,8 +2995,18 @@
           },
           {
             "link": {
-              "data": "k",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "k"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2533,8 +3033,18 @@
           },
           {
             "link": {
-              "data": "variant",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "variant"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2554,8 +3064,18 @@
           },
           {
             "link": {
-              "data": "family",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "family"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2603,8 +3123,18 @@
           },
           {
             "link": {
-              "data": "variant",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "variant"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2617,8 +3147,18 @@
           },
           {
             "link": {
-              "data": "variant",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "variant"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2659,8 +3199,18 @@
           },
           {
             "link": {
-              "data": "alignment",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "alignment"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2708,8 +3258,18 @@
           },
           {
             "link": {
-              "data": "weights",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "weights"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3023,8 +3583,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3037,8 +3607,18 @@
           },
           {
             "link": {
-              "data": "figtext",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.figtext",
+                  "version": "*"
+                },
+                "value": "figtext"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3142,8 +3722,18 @@
           },
           {
             "link": {
-              "data": "alignment",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "alignment"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3184,8 +3774,18 @@
           },
           {
             "link": {
-              "data": "k",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "k"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3205,8 +3805,18 @@
           },
           {
             "link": {
-              "data": "weight",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "weight"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3233,8 +3843,18 @@
           },
           {
             "link": {
-              "data": "enumerate",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.enumerate",
+                  "version": "*"
+                },
+                "value": "enumerate"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -3247,8 +3867,18 @@
           },
           {
             "link": {
-              "data": "weights",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "weights"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3310,8 +3940,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3324,8 +3964,18 @@
           },
           {
             "link": {
-              "data": "figtext",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.figtext",
+                  "version": "*"
+                },
+                "value": "figtext"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3359,8 +4009,18 @@
           },
           {
             "link": {
-              "data": "yp",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "yp"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3373,8 +4033,18 @@
           },
           {
             "link": {
-              "data": "k",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "k"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3401,8 +4071,18 @@
           },
           {
             "link": {
-              "data": "weight",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "weight"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3422,8 +4102,18 @@
           },
           {
             "link": {
-              "data": "weight",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "weight"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3436,8 +4126,18 @@
           },
           {
             "link": {
-              "data": "weight",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "weight"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3471,8 +4171,18 @@
           },
           {
             "link": {
-              "data": "alignment",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "alignment"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3520,8 +4230,18 @@
           },
           {
             "link": {
-              "data": "sizes",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "sizes"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3842,8 +4562,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3856,8 +4586,18 @@
           },
           {
             "link": {
-              "data": "figtext",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.figtext",
+                  "version": "*"
+                },
+                "value": "figtext"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3961,8 +4701,18 @@
           },
           {
             "link": {
-              "data": "alignment",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "alignment"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4003,8 +4753,18 @@
           },
           {
             "link": {
-              "data": "k",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "k"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4024,8 +4784,18 @@
           },
           {
             "link": {
-              "data": "size",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "size"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4052,8 +4822,18 @@
           },
           {
             "link": {
-              "data": "enumerate",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.enumerate",
+                  "version": "*"
+                },
+                "value": "enumerate"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -4066,8 +4846,18 @@
           },
           {
             "link": {
-              "data": "sizes",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "sizes"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4129,8 +4919,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4143,8 +4943,18 @@
           },
           {
             "link": {
-              "data": "figtext",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.figtext",
+                  "version": "*"
+                },
+                "value": "figtext"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4178,8 +4988,18 @@
           },
           {
             "link": {
-              "data": "yp",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "yp"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4192,8 +5012,18 @@
           },
           {
             "link": {
-              "data": "k",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "k"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4220,8 +5050,18 @@
           },
           {
             "link": {
-              "data": "size",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "size"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4241,8 +5081,18 @@
           },
           {
             "link": {
-              "data": "size",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "size"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4255,8 +5105,18 @@
           },
           {
             "link": {
-              "data": "size",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "size"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4290,8 +5150,18 @@
           },
           {
             "link": {
-              "data": "alignment",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "alignment"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4360,8 +5230,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4374,8 +5254,18 @@
           },
           {
             "link": {
-              "data": "figtext",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.figtext",
+                  "version": "*"
+                },
+                "value": "figtext"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4465,8 +5355,18 @@
           },
           {
             "link": {
-              "data": "style",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "style"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4521,8 +5421,18 @@
           },
           {
             "link": {
-              "data": "weight",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "weight"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4570,8 +5480,18 @@
           },
           {
             "link": {
-              "data": "size",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "size"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4640,8 +5560,18 @@
           },
           {
             "link": {
-              "data": "alignment",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "alignment"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4689,8 +5619,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4703,8 +5643,18 @@
           },
           {
             "link": {
-              "data": "figtext",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.figtext",
+                  "version": "*"
+                },
+                "value": "figtext"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4801,8 +5751,18 @@
           },
           {
             "link": {
-              "data": "style",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "style"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4850,8 +5810,18 @@
           },
           {
             "link": {
-              "data": "weight",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "weight"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4899,8 +5869,18 @@
           },
           {
             "link": {
-              "data": "size",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "size"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4969,8 +5949,18 @@
           },
           {
             "link": {
-              "data": "alignment",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "alignment"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5018,8 +6008,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5032,8 +6032,18 @@
           },
           {
             "link": {
-              "data": "figtext",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.figtext",
+                  "version": "*"
+                },
+                "value": "figtext"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5130,8 +6140,18 @@
           },
           {
             "link": {
-              "data": "style",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "style"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5179,8 +6199,18 @@
           },
           {
             "link": {
-              "data": "weight",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "weight"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5228,8 +6258,18 @@
           },
           {
             "link": {
-              "data": "size",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "size"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5298,8 +6338,18 @@
           },
           {
             "link": {
-              "data": "alignment",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "alignment"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5326,8 +6376,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5340,8 +6400,18 @@
           },
           {
             "link": {
-              "data": "show",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.show",
+                  "version": "*"
+                },
+                "value": "show"
+              },
+              "type": "Link"
             },
             "type": ""
           },

@@ -41,8 +41,18 @@
           },
           {
             "link": {
-              "data": "inspect",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "inspect",
+                  "path": "inspect",
+                  "version": "*"
+                },
+                "value": "inspect"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -76,8 +86,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -90,8 +110,18 @@
           },
           {
             "link": {
-              "data": "pyplot",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "pyplot"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -118,8 +148,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -146,8 +186,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -160,8 +210,18 @@
           },
           {
             "link": {
-              "data": "transforms",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms",
+                  "version": "*"
+                },
+                "value": "transforms"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -188,8 +248,18 @@
           },
           {
             "link": {
-              "data": "mtransforms",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms",
+                  "version": "*"
+                },
+                "value": "mtransforms"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -216,8 +286,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -230,8 +310,18 @@
           },
           {
             "link": {
-              "data": "patches",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches",
+                  "version": "*"
+                },
+                "value": "patches"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -258,8 +348,18 @@
           },
           {
             "link": {
-              "data": "mpatch",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches",
+                  "version": "*"
+                },
+                "value": "mpatch"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -286,8 +386,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -300,8 +410,18 @@
           },
           {
             "link": {
-              "data": "patches",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches",
+                  "version": "*"
+                },
+                "value": "patches"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -328,8 +448,18 @@
           },
           {
             "link": {
-              "data": "FancyBboxPatch",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.FancyBboxPatch",
+                  "version": "*"
+                },
+                "value": "FancyBboxPatch"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -412,8 +542,18 @@
           },
           {
             "link": {
-              "data": "mpatch",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches",
+                  "version": "*"
+                },
+                "value": "mpatch"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -426,8 +566,18 @@
           },
           {
             "link": {
-              "data": "BoxStyle",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.BoxStyle",
+                  "version": "*"
+                },
+                "value": "BoxStyle"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -440,8 +590,18 @@
           },
           {
             "link": {
-              "data": "get_styles",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches._Style.get_styles",
+                  "version": "*"
+                },
+                "value": "get_styles"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -468,8 +628,18 @@
           },
           {
             "link": {
-              "data": "ncol",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "ncol"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -510,8 +680,18 @@
           },
           {
             "link": {
-              "data": "nrow",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "nrow"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -545,8 +725,18 @@
           },
           {
             "link": {
-              "data": "len",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.len",
+                  "version": "*"
+                },
+                "value": "len"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -636,8 +826,18 @@
           },
           {
             "link": {
-              "data": "ncol",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "ncol"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -685,8 +885,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -699,8 +909,18 @@
           },
           {
             "link": {
-              "data": "figure",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.figure",
+                  "version": "*"
+                },
+                "value": "figure"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -762,8 +982,18 @@
           },
           {
             "link": {
-              "data": "ncol",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "ncol"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -811,8 +1041,18 @@
           },
           {
             "link": {
-              "data": "nrow",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "nrow"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -895,8 +1135,18 @@
           },
           {
             "link": {
-              "data": "nrow",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "nrow"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -916,8 +1166,18 @@
           },
           {
             "link": {
-              "data": "ncol",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "ncol"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1980,8 +2240,18 @@
           },
           {
             "link": {
-              "data": "zip",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.zip",
+                  "version": "*"
+                },
+                "value": "zip"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -2260,8 +2530,18 @@
           },
           {
             "link": {
-              "data": "dict",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "dict"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -2750,8 +3030,18 @@
           },
           {
             "link": {
-              "data": "str",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "str"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -2764,8 +3054,18 @@
           },
           {
             "link": {
-              "data": "inspect",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "inspect",
+                  "path": "inspect",
+                  "version": "*"
+                },
+                "value": "inspect"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2778,8 +3078,18 @@
           },
           {
             "link": {
-              "data": "signature",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "inspect",
+                  "path": "inspect.signature",
+                  "version": "*"
+                },
+                "value": "signature"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2862,8 +3172,18 @@
           },
           {
             "link": {
-              "data": "replace",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str.replace",
+                  "version": "*"
+                },
+                "value": "replace"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3184,8 +3504,18 @@
           },
           {
             "link": {
-              "data": "add_fancy_patch_around",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.add_fancy_patch_around",
+                  "version": "*"
+                },
+                "value": "add_fancy_patch_around"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -3219,8 +3549,18 @@
           },
           {
             "link": {
-              "data": "bb",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Bbox",
+                  "version": "*"
+                },
+                "value": "bb"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3254,8 +3594,18 @@
           },
           {
             "link": {
-              "data": "kwargs",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "kwargs"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3289,8 +3639,18 @@
           },
           {
             "link": {
-              "data": "fancy",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.FancyBboxPatch",
+                  "version": "*"
+                },
+                "value": "fancy"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3317,8 +3677,18 @@
           },
           {
             "link": {
-              "data": "FancyBboxPatch",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.FancyBboxPatch",
+                  "version": "*"
+                },
+                "value": "FancyBboxPatch"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3338,8 +3708,18 @@
           },
           {
             "link": {
-              "data": "bb",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Bbox",
+                  "version": "*"
+                },
+                "value": "bb"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3352,8 +3732,18 @@
           },
           {
             "link": {
-              "data": "xmin",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.BboxBase.xmin",
+                  "version": "*"
+                },
+                "value": "xmin"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3373,8 +3763,18 @@
           },
           {
             "link": {
-              "data": "bb",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Bbox",
+                  "version": "*"
+                },
+                "value": "bb"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3387,8 +3787,18 @@
           },
           {
             "link": {
-              "data": "ymin",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.BboxBase.ymin",
+                  "version": "*"
+                },
+                "value": "ymin"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3415,8 +3825,18 @@
           },
           {
             "link": {
-              "data": "bb",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Bbox",
+                  "version": "*"
+                },
+                "value": "bb"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3429,8 +3849,18 @@
           },
           {
             "link": {
-              "data": "width",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.BboxBase.width",
+                  "version": "*"
+                },
+                "value": "width"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3450,8 +3880,18 @@
           },
           {
             "link": {
-              "data": "bb",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Bbox",
+                  "version": "*"
+                },
+                "value": "bb"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3464,8 +3904,18 @@
           },
           {
             "link": {
-              "data": "height",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.BboxBase.height",
+                  "version": "*"
+                },
+                "value": "height"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3737,8 +4187,18 @@
           },
           {
             "link": {
-              "data": "kwargs",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "kwargs"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3793,8 +4253,18 @@
           },
           {
             "link": {
-              "data": "fancy",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.FancyBboxPatch",
+                  "version": "*"
+                },
+                "value": "fancy"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3835,8 +4305,18 @@
           },
           {
             "link": {
-              "data": "fancy",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.FancyBboxPatch",
+                  "version": "*"
+                },
+                "value": "fancy"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3877,8 +4357,18 @@
           },
           {
             "link": {
-              "data": "draw_control_points_for_patches",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.draw_control_points_for_patches",
+                  "version": "*"
+                },
+                "value": "draw_control_points_for_patches"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -4255,8 +4745,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4304,8 +4804,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4318,8 +4828,18 @@
           },
           {
             "link": {
-              "data": "subplots",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.subplots",
+                  "version": "*"
+                },
+                "value": "subplots"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4465,8 +4985,18 @@
           },
           {
             "link": {
-              "data": "bb",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Bbox",
+                  "version": "*"
+                },
+                "value": "bb"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4493,8 +5023,18 @@
           },
           {
             "link": {
-              "data": "mtransforms",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms",
+                  "version": "*"
+                },
+                "value": "mtransforms"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4507,8 +5047,18 @@
           },
           {
             "link": {
-              "data": "Bbox",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Bbox",
+                  "version": "*"
+                },
+                "value": "Bbox"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4752,8 +5302,18 @@
           },
           {
             "link": {
-              "data": "fancy",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.FancyBboxPatch",
+                  "version": "*"
+                },
+                "value": "fancy"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4780,8 +5340,18 @@
           },
           {
             "link": {
-              "data": "add_fancy_patch_around",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.add_fancy_patch_around",
+                  "version": "*"
+                },
+                "value": "add_fancy_patch_around"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4815,8 +5385,18 @@
           },
           {
             "link": {
-              "data": "bb",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Bbox",
+                  "version": "*"
+                },
+                "value": "bb"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5284,8 +5864,18 @@
           },
           {
             "link": {
-              "data": "fancy",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.FancyBboxPatch",
+                  "version": "*"
+                },
+                "value": "fancy"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5312,8 +5902,18 @@
           },
           {
             "link": {
-              "data": "add_fancy_patch_around",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.add_fancy_patch_around",
+                  "version": "*"
+                },
+                "value": "add_fancy_patch_around"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5347,8 +5947,18 @@
           },
           {
             "link": {
-              "data": "bb",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Bbox",
+                  "version": "*"
+                },
+                "value": "bb"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5459,8 +6069,18 @@
           },
           {
             "link": {
-              "data": "fancy",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.FancyBboxPatch",
+                  "version": "*"
+                },
+                "value": "fancy"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5473,8 +6093,18 @@
           },
           {
             "link": {
-              "data": "set_boxstyle",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.FancyBboxPatch.set_boxstyle",
+                  "version": "*"
+                },
+                "value": "set_boxstyle"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5935,8 +6565,18 @@
           },
           {
             "link": {
-              "data": "fancy",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.FancyBboxPatch",
+                  "version": "*"
+                },
+                "value": "fancy"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5963,8 +6603,18 @@
           },
           {
             "link": {
-              "data": "add_fancy_patch_around",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.add_fancy_patch_around",
+                  "version": "*"
+                },
+                "value": "add_fancy_patch_around"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6012,8 +6662,18 @@
           },
           {
             "link": {
-              "data": "bb",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Bbox",
+                  "version": "*"
+                },
+                "value": "bb"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6530,8 +7190,18 @@
           },
           {
             "link": {
-              "data": "fancy",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.FancyBboxPatch",
+                  "version": "*"
+                },
+                "value": "fancy"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6558,8 +7228,18 @@
           },
           {
             "link": {
-              "data": "add_fancy_patch_around",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.add_fancy_patch_around",
+                  "version": "*"
+                },
+                "value": "add_fancy_patch_around"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6593,8 +7273,18 @@
           },
           {
             "link": {
-              "data": "bb",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Bbox",
+                  "version": "*"
+                },
+                "value": "bb"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6663,8 +7353,18 @@
           },
           {
             "link": {
-              "data": "fancy",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.FancyBboxPatch",
+                  "version": "*"
+                },
+                "value": "fancy"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6803,8 +7503,18 @@
           },
           {
             "link": {
-              "data": "fancy",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.FancyBboxPatch",
+                  "version": "*"
+                },
+                "value": "fancy"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6831,8 +7541,18 @@
           },
           {
             "link": {
-              "data": "add_fancy_patch_around",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.add_fancy_patch_around",
+                  "version": "*"
+                },
+                "value": "add_fancy_patch_around"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6880,8 +7600,18 @@
           },
           {
             "link": {
-              "data": "bb",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Bbox",
+                  "version": "*"
+                },
+                "value": "bb"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7377,8 +8107,18 @@
           },
           {
             "link": {
-              "data": "draw_control_points_for_patches",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.draw_control_points_for_patches",
+                  "version": "*"
+                },
+                "value": "draw_control_points_for_patches"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7440,8 +8180,18 @@
           },
           {
             "link": {
-              "data": "fancy",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.FancyBboxPatch",
+                  "version": "*"
+                },
+                "value": "fancy"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7468,8 +8218,18 @@
           },
           {
             "link": {
-              "data": "add_fancy_patch_around",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.add_fancy_patch_around",
+                  "version": "*"
+                },
+                "value": "add_fancy_patch_around"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7503,8 +8263,18 @@
           },
           {
             "link": {
-              "data": "bb",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Bbox",
+                  "version": "*"
+                },
+                "value": "bb"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7580,8 +8350,18 @@
           },
           {
             "link": {
-              "data": "fancy",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.FancyBboxPatch",
+                  "version": "*"
+                },
+                "value": "fancy"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7748,8 +8528,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7804,8 +8594,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7818,8 +8618,18 @@
           },
           {
             "link": {
-              "data": "show",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.show",
+                  "version": "*"
+                },
+                "value": "show"
+              },
+              "type": "Link"
             },
             "type": ""
           },

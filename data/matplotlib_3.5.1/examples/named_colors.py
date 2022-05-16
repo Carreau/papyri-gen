@@ -41,8 +41,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -55,8 +65,18 @@
           },
           {
             "link": {
-              "data": "patches",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches",
+                  "version": "*"
+                },
+                "value": "patches"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -83,8 +103,18 @@
           },
           {
             "link": {
-              "data": "Rectangle",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.Rectangle",
+                  "version": "*"
+                },
+                "value": "Rectangle"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -111,8 +141,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -125,8 +165,18 @@
           },
           {
             "link": {
-              "data": "pyplot",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "pyplot"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -153,8 +203,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -181,8 +241,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -195,8 +265,18 @@
           },
           {
             "link": {
-              "data": "colors",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.colors",
+                  "version": "*"
+                },
+                "value": "colors"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -223,8 +303,18 @@
           },
           {
             "link": {
-              "data": "mcolors",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.colors",
+                  "version": "*"
+                },
+                "value": "mcolors"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -265,8 +355,18 @@
           },
           {
             "link": {
-              "data": "plot_colortable",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.plot_colortable",
+                  "version": "*"
+                },
+                "value": "plot_colortable"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -279,8 +379,18 @@
           },
           {
             "link": {
-              "data": "colors",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "colors"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -300,8 +410,18 @@
           },
           {
             "link": {
-              "data": "title",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "title"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -321,8 +441,18 @@
           },
           {
             "link": {
-              "data": "sort_colors",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.bool",
+                  "version": "*"
+                },
+                "value": "sort_colors"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -356,8 +486,18 @@
           },
           {
             "link": {
-              "data": "emptycols",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "emptycols"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -412,8 +552,18 @@
           },
           {
             "link": {
-              "data": "cell_width",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "cell_width"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -461,8 +611,18 @@
           },
           {
             "link": {
-              "data": "cell_height",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "cell_height"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -510,8 +670,18 @@
           },
           {
             "link": {
-              "data": "swatch_width",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "swatch_width"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -559,8 +729,18 @@
           },
           {
             "link": {
-              "data": "margin",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "margin"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -608,8 +788,18 @@
           },
           {
             "link": {
-              "data": "topmargin",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "topmargin"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -699,8 +889,18 @@
           },
           {
             "link": {
-              "data": "sort_colors",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.bool",
+                  "version": "*"
+                },
+                "value": "sort_colors"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -755,8 +955,18 @@
           },
           {
             "link": {
-              "data": "by_hsv",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "by_hsv"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -783,8 +993,18 @@
           },
           {
             "link": {
-              "data": "sorted",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.sorted",
+                  "version": "*"
+                },
+                "value": "sorted"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -1014,8 +1234,18 @@
           },
           {
             "link": {
-              "data": "colors",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "colors"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1028,8 +1258,18 @@
           },
           {
             "link": {
-              "data": "items",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict.items",
+                  "version": "*"
+                },
+                "value": "items"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1070,8 +1310,18 @@
           },
           {
             "link": {
-              "data": "names",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "names"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1182,8 +1432,18 @@
           },
           {
             "link": {
-              "data": "by_hsv",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "by_hsv"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1238,8 +1498,18 @@
           },
           {
             "link": {
-              "data": "names",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "names"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1266,8 +1536,18 @@
           },
           {
             "link": {
-              "data": "list",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "list"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -1280,8 +1560,18 @@
           },
           {
             "link": {
-              "data": "colors",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "colors"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1315,8 +1605,18 @@
           },
           {
             "link": {
-              "data": "n",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "n"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1343,8 +1643,18 @@
           },
           {
             "link": {
-              "data": "len",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.len",
+                  "version": "*"
+                },
+                "value": "len"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -1357,8 +1667,18 @@
           },
           {
             "link": {
-              "data": "names",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "names"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1385,8 +1705,18 @@
           },
           {
             "link": {
-              "data": "ncols",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "ncols"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1441,8 +1771,18 @@
           },
           {
             "link": {
-              "data": "emptycols",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "emptycols"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1462,8 +1802,18 @@
           },
           {
             "link": {
-              "data": "nrows",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "nrows"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1490,8 +1840,18 @@
           },
           {
             "link": {
-              "data": "n",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "n"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1525,8 +1885,18 @@
           },
           {
             "link": {
-              "data": "ncols",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "ncols"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1553,8 +1923,18 @@
           },
           {
             "link": {
-              "data": "int",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "int"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -1567,8 +1947,18 @@
           },
           {
             "link": {
-              "data": "n",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "n"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1595,8 +1985,18 @@
           },
           {
             "link": {
-              "data": "ncols",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "ncols"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1658,8 +2058,18 @@
           },
           {
             "link": {
-              "data": "width",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "width"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1686,8 +2096,18 @@
           },
           {
             "link": {
-              "data": "cell_width",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "cell_width"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1770,8 +2190,18 @@
           },
           {
             "link": {
-              "data": "margin",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "margin"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1791,8 +2221,18 @@
           },
           {
             "link": {
-              "data": "height",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "height"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1819,8 +2259,18 @@
           },
           {
             "link": {
-              "data": "cell_height",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "cell_height"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1847,8 +2297,18 @@
           },
           {
             "link": {
-              "data": "nrows",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "nrows"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1875,8 +2335,18 @@
           },
           {
             "link": {
-              "data": "margin",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "margin"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1903,8 +2373,18 @@
           },
           {
             "link": {
-              "data": "topmargin",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "topmargin"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1924,8 +2404,18 @@
           },
           {
             "link": {
-              "data": "dpi",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "dpi"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2029,8 +2519,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2043,8 +2543,18 @@
           },
           {
             "link": {
-              "data": "subplots",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.subplots",
+                  "version": "*"
+                },
+                "value": "subplots"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2078,8 +2588,18 @@
           },
           {
             "link": {
-              "data": "width",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "width"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2106,8 +2626,18 @@
           },
           {
             "link": {
-              "data": "dpi",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "dpi"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2127,8 +2657,18 @@
           },
           {
             "link": {
-              "data": "height",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "height"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2155,8 +2695,18 @@
           },
           {
             "link": {
-              "data": "dpi",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "dpi"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2183,8 +2733,18 @@
           },
           {
             "link": {
-              "data": "dpi",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "dpi"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2197,8 +2757,18 @@
           },
           {
             "link": {
-              "data": "dpi",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "dpi"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2253,8 +2823,18 @@
           },
           {
             "link": {
-              "data": "margin",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "margin"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2267,8 +2847,18 @@
           },
           {
             "link": {
-              "data": "width",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "width"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2288,8 +2878,18 @@
           },
           {
             "link": {
-              "data": "margin",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "margin"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2302,8 +2902,18 @@
           },
           {
             "link": {
-              "data": "height",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "height"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2337,8 +2947,18 @@
           },
           {
             "link": {
-              "data": "width",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "width"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2351,8 +2971,18 @@
           },
           {
             "link": {
-              "data": "margin",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "margin"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2372,8 +3002,18 @@
           },
           {
             "link": {
-              "data": "width",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "width"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2400,8 +3040,18 @@
           },
           {
             "link": {
-              "data": "height",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "height"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2414,8 +3064,18 @@
           },
           {
             "link": {
-              "data": "topmargin",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "topmargin"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2435,8 +3095,18 @@
           },
           {
             "link": {
-              "data": "height",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "height"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2512,8 +3182,18 @@
           },
           {
             "link": {
-              "data": "cell_width",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "cell_width"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2596,8 +3276,18 @@
           },
           {
             "link": {
-              "data": "cell_height",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "cell_height"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2631,8 +3321,18 @@
           },
           {
             "link": {
-              "data": "nrows",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "nrows"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2680,8 +3380,18 @@
           },
           {
             "link": {
-              "data": "cell_height",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "cell_height"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2764,8 +3474,18 @@
           },
           {
             "link": {
-              "data": "False",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.bool",
+                  "version": "*"
+                },
+                "value": "False"
+              },
+              "type": "Link"
             },
             "type": "kc"
           },
@@ -2834,8 +3554,18 @@
           },
           {
             "link": {
-              "data": "False",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.bool",
+                  "version": "*"
+                },
+                "value": "False"
+              },
+              "type": "Link"
             },
             "type": "kc"
           },
@@ -2939,8 +3669,18 @@
           },
           {
             "link": {
-              "data": "title",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "title"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3156,8 +3896,18 @@
           },
           {
             "link": {
-              "data": "enumerate",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.enumerate",
+                  "version": "*"
+                },
+                "value": "enumerate"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -3170,8 +3920,18 @@
           },
           {
             "link": {
-              "data": "names",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "names"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3205,8 +3965,18 @@
           },
           {
             "link": {
-              "data": "row",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "row"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3261,8 +4031,18 @@
           },
           {
             "link": {
-              "data": "nrows",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "nrows"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4311,8 +5091,18 @@
           },
           {
             "link": {
-              "data": "plot_colortable",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.plot_colortable",
+                  "version": "*"
+                },
+                "value": "plot_colortable"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4325,8 +5115,18 @@
           },
           {
             "link": {
-              "data": "mcolors",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.colors",
+                  "version": "*"
+                },
+                "value": "mcolors"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4339,8 +5139,18 @@
           },
           {
             "link": {
-              "data": "BASE_COLORS",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "BASE_COLORS"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4472,8 +5282,18 @@
           },
           {
             "link": {
-              "data": "plot_colortable",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.plot_colortable",
+                  "version": "*"
+                },
+                "value": "plot_colortable"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4486,8 +5306,18 @@
           },
           {
             "link": {
-              "data": "mcolors",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.colors",
+                  "version": "*"
+                },
+                "value": "mcolors"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4500,8 +5330,18 @@
           },
           {
             "link": {
-              "data": "TABLEAU_COLORS",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "TABLEAU_COLORS"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4654,8 +5494,18 @@
           },
           {
             "link": {
-              "data": "plot_colortable",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.plot_colortable",
+                  "version": "*"
+                },
+                "value": "plot_colortable"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4668,8 +5518,18 @@
           },
           {
             "link": {
-              "data": "mcolors",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.colors",
+                  "version": "*"
+                },
+                "value": "mcolors"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4682,8 +5542,18 @@
           },
           {
             "link": {
-              "data": "CSS4_COLORS",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "CSS4_COLORS"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4794,8 +5664,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4808,8 +5688,18 @@
           },
           {
             "link": {
-              "data": "show",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.show",
+                  "version": "*"
+                },
+                "value": "show"
+              },
+              "type": "Link"
             },
             "type": ""
           },

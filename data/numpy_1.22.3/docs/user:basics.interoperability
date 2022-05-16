@@ -6,6 +6,18 @@
       "children": [
         {
           "data": {
+            "placeholder": "target",
+            "value": ".. _basics.interoperability:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "title": null
+    },
+    {
+      "children": [
+        {
+          "data": {
             "children": [
               {
                 "data": {
@@ -531,7 +543,7 @@
               },
               {
                 "data": {
-                  "value": " is yet another protocol to convert foriegn objects to NumPy arrays in a language and device agnostic manner. NumPy doesn't implicitly convert objects to ndarrays using DLPack. It provides the function "
+                  "value": " is yet another protocol to convert foreign objects to NumPy arrays in a language and device agnostic manner. NumPy doesn't implicitly convert objects to ndarrays using DLPack. It provides the function "
                 },
                 "type": "Words"
               },
@@ -713,11 +725,13 @@
         },
         {
           "data": {
-            "value": [
-              ">>> import numpy as np",
-              ">>> x = np.array([1, 2, 5.0, 8])",
-              ">>> x.__array_interface__",
-              "{'data': (94708397920832, False), 'strides': None, 'descr': [('', '<f8')], 'typestr': '<f8', 'shape': (4,), 'version': 3}"
+            "children": [
+              {
+                "data": {
+                  "value": ">>> import numpy as np\n>>> x = np.array([1, 2, 5.0, 8])\n>>> x.__array_interface__\n{'data': (94708397920832, False), 'strides': None, 'descr': [('', '<f8')], 'typestr': '<f8', 'shape': (4,), 'version': 3}"
+                },
+                "type": "BlockVerbatim"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -751,21 +765,13 @@
         },
         {
           "data": {
-            "value": [
-              ">>> class wrapper():",
-              "...     pass",
-              "... ",
-              ">>> arr = np.array([1, 2, 3, 4])",
-              ">>> buf = arr.__array_interface__",
-              ">>> buf",
-              "{'data': (140497590272032, False), 'strides': None, 'descr': [('', '<i8')], 'typestr': '<i8', 'shape': (4,), 'version': 3}",
-              ">>> buf['shape'] = (2, 2)",
-              ">>> w = wrapper()",
-              ">>> w.__array_interface__ = buf",
-              ">>> new_arr = np.array(w, copy=False)",
-              ">>> new_arr",
-              "array([[1, 2],",
-              "       [3, 4]])"
+            "children": [
+              {
+                "data": {
+                  "value": ">>> class wrapper():\n...     pass\n...\n>>> arr = np.array([1, 2, 3, 4])\n>>> buf = arr.__array_interface__\n>>> buf\n{'data': (140497590272032, False), 'strides': None, 'descr': [('', '<i8')], 'typestr': '<i8', 'shape': (4,), 'version': 3}\n>>> buf['shape'] = (2, 2)\n>>> w = wrapper()\n>>> w.__array_interface__ = buf\n>>> new_arr = np.array(w, copy=False)\n>>> new_arr\narray([[1, 2],\n       [3, 4]])"
+                },
+                "type": "BlockVerbatim"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -813,13 +819,13 @@
         },
         {
           "data": {
-            "value": [
-              ">>> new_arr[0, 0] = 1000",
-              ">>> new_arr",
-              "array([[1000,    2],",
-              "       [   3,    4]])",
-              ">>> arr",
-              "array([1000, 2, 3, 4])"
+            "children": [
+              {
+                "data": {
+                  "value": ">>> new_arr[0, 0] = 1000\n>>> new_arr\narray([[1000,    2],\n       [   3,    4]])\n>>> arr\narray([1000, 2, 3, 4])"
+                },
+                "type": "BlockVerbatim"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -1173,10 +1179,13 @@
         },
         {
           "data": {
-            "value": [
-              ">>> import numpy as np",
-              ">>> def f(x):",
-              "...     return np.mean(np.exp(x))"
+            "children": [
+              {
+                "data": {
+                  "value": ">>> import numpy as np\n>>> def f(x):\n...     return np.mean(np.exp(x))"
+                },
+                "type": "BlockVerbatim"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -1265,10 +1274,13 @@
         },
         {
           "data": {
-            "value": [
-              ">>> x = np.array([1, 2, 3, 4])",
-              ">>> f(x)",
-              "21.1977562209304"
+            "children": [
+              {
+                "data": {
+                  "value": ">>> x = np.array([1, 2, 3, 4])\n>>> f(x)\n21.1977562209304"
+                },
+                "type": "BlockVerbatim"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -1899,11 +1911,13 @@
         },
         {
           "data": {
-            "value": [
-              ">>> import pandas as pd",
-              ">>> ser = pd.Series([1, 2, 3, 4])",
-              ">>> type(ser)",
-              "pandas.core.series.Series"
+            "children": [
+              {
+                "data": {
+                  "value": ">>> import pandas as pd\n>>> ser = pd.Series([1, 2, 3, 4])\n>>> type(ser)\npandas.core.series.Series"
+                },
+                "type": "BlockVerbatim"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -1965,19 +1979,13 @@
         },
         {
           "data": {
-            "value": [
-              ">>> np.exp(ser)",
-              "   0     2.718282",
-              "   1     7.389056",
-              "   2    20.085537",
-              "   3    54.598150",
-              "   dtype: float64",
-              ">>> np.sin(ser)",
-              "   0    0.841471",
-              "   1    0.909297",
-              "   2    0.141120",
-              "   3   -0.756802",
-              "   dtype: float64"
+            "children": [
+              {
+                "data": {
+                  "value": ">>> np.exp(ser)\n   0     2.718282\n   1     7.389056\n   2    20.085537\n   3    54.598150\n   dtype: float64\n>>> np.sin(ser)\n   0    0.841471\n   1    0.909297\n   2    0.141120\n   3   -0.756802\n   dtype: float64"
+                },
+                "type": "BlockVerbatim"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -1997,18 +2005,13 @@
         },
         {
           "data": {
-            "value": [
-              ">>> np.add(ser, np.array([5, 6, 7, 8]))",
-              "   0     6",
-              "   1     8",
-              "   2    10",
-              "   3    12",
-              "   dtype: int64",
-              ">>> f(ser)",
-              "21.1977562209304",
-              ">>> result = ser.__array__()",
-              ">>> type(result)",
-              "numpy.ndarray"
+            "children": [
+              {
+                "data": {
+                  "value": ">>> np.add(ser, np.array([5, 6, 7, 8]))\n   0     6\n   1     8\n   2    10\n   3    12\n   dtype: int64\n>>> f(ser)\n21.1977562209304\n>>> result = ser.__array__()\n>>> type(result)\nnumpy.ndarray"
+                },
+                "type": "BlockVerbatim"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -2054,11 +2057,13 @@
         },
         {
           "data": {
-            "value": [
-              ">>> import torch",
-              ">>> data = [[1, 2],[3, 4]]",
-              ">>> x_np = np.array(data)",
-              ">>> x_tensor = torch.tensor(data)"
+            "children": [
+              {
+                "data": {
+                  "value": ">>> import torch\n>>> data = [[1, 2],[3, 4]]\n>>> x_np = np.array(data)\n>>> x_tensor = torch.tensor(data)"
+                },
+                "type": "BlockVerbatim"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -2106,13 +2111,13 @@
         },
         {
           "data": {
-            "value": [
-              ">>> x_np",
-              "array([[1, 2],",
-              "       [3, 4]])",
-              ">>> x_tensor",
-              "tensor([[1, 2],",
-              "        [3, 4]])"
+            "children": [
+              {
+                "data": {
+                  "value": ">>> x_np\narray([[1, 2],\n       [3, 4]])\n>>> x_tensor\ntensor([[1, 2],\n        [3, 4]])"
+                },
+                "type": "BlockVerbatim"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -2132,10 +2137,13 @@
         },
         {
           "data": {
-            "value": [
-              ">>> np.exp(x_tensor)",
-              "tensor([[ 2.7183,  7.3891],",
-              "        [20.0855, 54.5982]], dtype=torch.float64)"
+            "children": [
+              {
+                "data": {
+                  "value": ">>> np.exp(x_tensor)\ntensor([[ 2.7183,  7.3891],\n        [20.0855, 54.5982]], dtype=torch.float64)"
+                },
+                "type": "BlockVerbatim"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -2376,9 +2384,13 @@
         },
         {
           "data": {
-            "value": [
-              ">>> import cupy as cp",
-              ">>> x_gpu = cp.array([1, 2, 3, 4])"
+            "children": [
+              {
+                "data": {
+                  "value": ">>> import cupy as cp\n>>> x_gpu = cp.array([1, 2, 3, 4])"
+                },
+                "type": "BlockVerbatim"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -2426,9 +2438,13 @@
         },
         {
           "data": {
-            "value": [
-              ">>> np.mean(np.exp(x_gpu))",
-              "array(21.19775622)"
+            "children": [
+              {
+                "data": {
+                  "value": ">>> np.mean(np.exp(x_gpu))\narray(21.19775622)"
+                },
+                "type": "BlockVerbatim"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -2448,11 +2464,13 @@
         },
         {
           "data": {
-            "value": [
-              ">>> arr = cp.random.randn(1, 2, 3, 4).astype(cp.float32)",
-              ">>> result = np.sum(arr)",
-              ">>> print(type(result))",
-              "<class 'cupy._core.core.ndarray'>"
+            "children": [
+              {
+                "data": {
+                  "value": ">>> arr = cp.random.randn(1, 2, 3, 4).astype(cp.float32)\n>>> result = np.sum(arr)\n>>> print(type(result))\n<class 'cupy._core.core.ndarray'>"
+                },
+                "type": "BlockVerbatim"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -2521,10 +2539,13 @@
         },
         {
           "data": {
-            "value": [
-              ">>> a = np.random.randn(100, 100)",
-              ">>> a_gpu = cp.asarray(a)",
-              ">>> qr_gpu = np.linalg.qr(a_gpu)"
+            "children": [
+              {
+                "data": {
+                  "value": ">>> a = np.random.randn(100, 100)\n>>> a_gpu = cp.asarray(a)\n>>> qr_gpu = np.linalg.qr(a_gpu)"
+                },
+                "type": "BlockVerbatim"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -2631,13 +2652,13 @@
         },
         {
           "data": {
-            "value": [
-              ">>> import dask.array as da",
-              ">>> x = da.random.normal(1, 0.1, size=(20, 20), chunks=(10, 10))",
-              ">>> np.mean(np.exp(x))",
-              "dask.array<mean_agg-aggregate, shape=(), dtype=float64, chunksize=(), chunktype=numpy.ndarray>",
-              ">>> np.mean(np.exp(x)).compute()",
-              "5.090097550553843"
+            "children": [
+              {
+                "data": {
+                  "value": ">>> import dask.array as da\n>>> x = da.random.normal(1, 0.1, size=(20, 20), chunks=(10, 10))\n>>> np.mean(np.exp(x))\ndask.array<mean_agg-aggregate, shape=(), dtype=float64, chunksize=(), chunktype=numpy.ndarray>\n>>> np.mean(np.exp(x)).compute()\n5.090097550553843"
+                },
+                "type": "BlockVerbatim"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -2808,20 +2829,13 @@
         },
         {
           "data": {
-            "value": [
-              ">>> import torch",
-              ">>> x_torch = torch.arange(5)",
-              ">>> x_torch",
-              "tensor([0, 1, 2, 3, 4])",
-              ">>> x_np = np.from_dlpack(x_torch)",
-              ">>> x_np",
-              "array([0, 1, 2, 3, 4])",
-              ">>> # note that x_np is a view of x_torch",
-              ">>> x_torch[1] = 100",
-              ">>> x_torch",
-              "tensor([  0, 100,   2,   3,   4])",
-              ">>> x_np",
-              "array([  0, 100,   2,   3,   4])"
+            "children": [
+              {
+                "data": {
+                  "value": ">>> import torch\n>>> x_torch = torch.arange(5)\n>>> x_torch\ntensor([0, 1, 2, 3, 4])\n>>> x_np = np.from_dlpack(x_torch)\n>>> x_np\narray([0, 1, 2, 3, 4])\n>>> # note that x_np is a view of x_torch\n>>> x_torch[1] = 100\n>>> x_torch\ntensor([  0, 100,   2,   3,   4])\n>>> x_np\narray([  0, 100,   2,   3,   4])"
+                },
+                "type": "BlockVerbatim"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -2841,13 +2855,13 @@
         },
         {
           "data": {
-            "value": [
-              ">>> x.flags.writeable",
-              "False",
-              ">>> x_np[1] = 1",
-              "Traceback (most recent call last):",
-              "  File \"<stdin>\", line 1, in <module>",
-              "ValueError: assignment destination is read-only"
+            "children": [
+              {
+                "data": {
+                  "value": ">>> x.flags.writeable\nFalse\n>>> x_np[1] = 1\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nValueError: assignment destination is read-only"
+                },
+                "type": "BlockVerbatim"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -2867,9 +2881,13 @@
         },
         {
           "data": {
-            "value": [
-              ">>> x_np_copy = x_np.copy()",
-              ">>> x_np_copy.sort()  # works"
+            "children": [
+              {
+                "data": {
+                  "value": ">>> x_np_copy = x_np.copy()\n>>> x_np_copy.sort()  # works"
+                },
+                "type": "BlockVerbatim"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -2892,12 +2910,13 @@
               },
               {
                 "data": {
-                  "value": [
-                    ">>> x_torch = torch.arange(5, device='cuda')",
-                    ">>> np.from_dlpack(x_torch)",
-                    "Traceback (most recent call last):",
-                    "  File \"<stdin>\", line 1, in <module>",
-                    "RuntimeError: Unsupported device in DLTensor."
+                  "children": [
+                    {
+                      "data": {
+                        "value": ">>> x_torch = torch.arange(5, device='cuda')\n>>> np.from_dlpack(x_torch)\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nRuntimeError: Unsupported device in DLTensor."
+                      },
+                      "type": "BlockVerbatim"
+                    }
                   ]
                 },
                 "type": "BlockQuote"
@@ -2959,9 +2978,13 @@
               },
               {
                 "data": {
-                  "value": [
-                    ">>> x_torch = torch.arange(5, device='cuda')",
-                    ">>> x_cupy = cupy.from_dlpack(x_torch)"
+                  "children": [
+                    {
+                      "data": {
+                        "value": ">>> x_torch = torch.arange(5, device='cuda')\n>>> x_cupy = cupy.from_dlpack(x_torch)"
+                      },
+                      "type": "BlockVerbatim"
+                    }
                   ]
                 },
                 "type": "BlockQuote"
@@ -2987,9 +3010,13 @@
         },
         {
           "data": {
-            "value": [
-              ">>> x_np = np.arange(5)",
-              ">>> x_torch = torch.from_dlpack(x_np)"
+            "children": [
+              {
+                "data": {
+                  "value": ">>> x_np = np.arange(5)\n>>> x_torch = torch.from_dlpack(x_np)"
+                },
+                "type": "BlockVerbatim"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -3009,15 +3036,13 @@
         },
         {
           "data": {
-            "value": [
-              ">>> x_np = np.arange(5)",
-              ">>> x_np.flags.writeable = False",
-              ">>> torch.from_dlpack(x_np)  # doctest: +ELLIPSIS",
-              "Traceback (most recent call last):",
-              "  File \"<stdin>\", line 1, in <module>",
-              "  File \".../site-packages/torch/utils/dlpack.py\", line 63, in from_dlpack",
-              "    dlpack = ext_tensor.__dlpack__()",
-              "TypeError: NumPy currently only supports dlpack for writeable arrays"
+            "children": [
+              {
+                "data": {
+                  "value": ">>> x_np = np.arange(5)\n>>> x_np.flags.writeable = False\n>>> torch.from_dlpack(x_np)  # doctest: +ELLIPSIS\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\n  File \".../site-packages/torch/utils/dlpack.py\", line 63, in from_dlpack\n    dlpack = ext_tensor.__dlpack__()\nTypeError: NumPy currently only supports dlpack for writeable arrays"
+                },
+                "type": "BlockVerbatim"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -3365,7 +3390,6 @@
   "item_type": null,
   "ordered_sections": [],
   "references": null,
-  "refs": [],
   "see_also": [],
   "signature": {
     "value": null

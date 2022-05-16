@@ -197,80 +197,211 @@
         },
         {
           "data": {
-            "value": [
-              "Real-valued Variable-coefficient Ordinary Differential Equation",
-              "solver, with fixed-leading-coefficient implementation. It provides",
-              "implicit Adams method (for non-stiff problems) and a method based on",
-              "backward differentiation formulas (BDF) (for stiff problems).",
-              "",
-              "Source: http://www.netlib.org/ode/vode.f",
-              "",
-              ".. warning::",
-              "",
-              "   This integrator is not re-entrant. You cannot have two `ode`",
-              "   instances using the \"vode\" integrator at the same time.",
-              "",
-              "This integrator accepts the following parameters in `set_integrator`",
-              "method of the `ode` class:",
-              "",
-              "- atol : float or sequence",
-              "  absolute tolerance for solution",
-              "- rtol : float or sequence",
-              "  relative tolerance for solution",
-              "- lband : None or int",
-              "- uband : None or int",
-              "  Jacobian band width, jac[i,j] != 0 for i-lband <= j <= i+uband.",
-              "  Setting these requires your jac routine to return the jacobian",
-              "  in packed format, jac_packed[i-j+uband, j] = jac[i,j]. The",
-              "  dimension of the matrix must be (lband+uband+1, len(y)).",
-              "- method: 'adams' or 'bdf'",
-              "  Which solver to use, Adams (non-stiff) or BDF (stiff)",
-              "- with_jacobian : bool",
-              "  This option is only considered when the user has not supplied a",
-              "  Jacobian function and has not indicated (by setting either band)",
-              "  that the Jacobian is banded. In this case, `with_jacobian` specifies",
-              "  whether the iteration method of the ODE solver's correction step is",
-              "  chord iteration with an internally generated full Jacobian or",
-              "  functional iteration with no Jacobian.",
-              "- nsteps : int",
-              "  Maximum number of (internally defined) steps allowed during one",
-              "  call to the solver.",
-              "- first_step : float",
-              "- min_step : float",
-              "- max_step : float",
-              "  Limits for the step sizes used by the integrator.",
-              "- order : int",
-              "  Maximum order used by the integrator,",
-              "  order <= 12 for Adams, <= 5 for BDF.",
-              "",
-              "de\"",
-              "",
-              "Complex-valued Variable-coefficient Ordinary Differential Equation",
-              "solver, with fixed-leading-coefficient implementation. It provides",
-              "implicit Adams method (for non-stiff problems) and a method based on",
-              "backward differentiation formulas (BDF) (for stiff problems).",
-              "",
-              "Source: http://www.netlib.org/ode/zvode.f",
-              "",
-              ".. warning::",
-              "",
-              "   This integrator is not re-entrant. You cannot have two `ode`",
-              "   instances using the \"zvode\" integrator at the same time.",
-              "",
-              "This integrator accepts the same parameters in `set_integrator`",
-              "as the \"vode\" solver.",
-              "",
-              ".. note::",
-              "",
-              "    When using ZVODE for a stiff system, it should only be used for",
-              "    the case in which the function f is analytic, that is, when each f(i)",
-              "    is an analytic function of each y(j). Analyticity means that the",
-              "    partial derivative df(i)/dy(j) is a unique complex number, and this",
-              "    fact is critical in the way ZVODE solves the dense or banded linear",
-              "    systems that arise in the stiff case. For a complex stiff ODE system",
-              "    in which f is not analytic, ZVODE is likely to have convergence",
-              "    failures, and for this problem one should instead use DVODE on the",
-              "    equivalent real system (in the real and imaginary parts of y)."
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Real-valued Variable-coefficient Ordinary Differential Equation     solver, with fixed-leading-coefficient implementation. It provides     implicit Adams method (for non-stiff problems) and a method based on     backward differentiation formulas (BDF) (for stiff problems)."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Source: http://www.netlib.org/ode/vode.f"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "children": [
+                          {
+                            "dd": [
+                              {
+                                "data": {
+                                  "children": [
+                                    {
+                                      "data": {
+                                        "value": "instances using the \"vode\" integrator at the same time."
+                                      },
+                                      "type": "Words"
+                                    }
+                                  ]
+                                },
+                                "type": "Paragraph"
+                              }
+                            ],
+                            "dt": {
+                              "children": [
+                                {
+                                  "data": {
+                                    "value": "This integrator is not re-entrant. You cannot have two "
+                                  },
+                                  "type": "Words"
+                                },
+                                {
+                                  "data": {
+                                    "domain": null,
+                                    "role": null,
+                                    "value": "ode"
+                                  },
+                                  "type": "Directive"
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      },
+                      "type": "DefList"
+                    }
+                  ],
+                  "kind": "warning",
+                  "title": ""
+                },
+                "type": "Admonition"
+              },
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "This integrator accepts the following parameters in "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "set_integrator"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": "     method of the "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "exists": true,
+                        "kind": "module",
+                        "reference": {
+                          "kind": "module",
+                          "module": "scipy",
+                          "path": "scipy.integrate._ode.ode",
+                          "version": "1.8.0"
+                        },
+                        "value": "ode"
+                      },
+                      "type": "Link"
+                    },
+                    {
+                      "data": {
+                        "value": " class:"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "children": [
+                    {
+                      "children": []
+                    }
+                  ]
+                },
+                "type": "BulletList"
+              },
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "This integrator accepts the same parameters in "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "set_integrator"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": "     as the \"vode\" solver."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "children": [
+                          {
+                            "dd": [
+                              {
+                                "data": {
+                                  "children": [
+                                    {
+                                      "data": {
+                                        "value": "the case in which the function f is analytic, that is, when each f(i)     is an analytic function of each y(j). Analyticity means that the     partial derivative df(i)/dy(j) is a unique complex number, and this     fact is critical in the way ZVODE solves the dense or banded linear     systems that arise in the stiff case. For a complex stiff ODE system     in which f is not analytic, ZVODE is likely to have convergence     failures, and for this problem one should instead use DVODE on the     equivalent real system (in the real and imaginary parts of y)."
+                                      },
+                                      "type": "Words"
+                                    }
+                                  ]
+                                },
+                                "type": "Paragraph"
+                              }
+                            ],
+                            "dt": {
+                              "children": [
+                                {
+                                  "data": {
+                                    "value": "When using ZVODE for a stiff system, it should only be used for"
+                                  },
+                                  "type": "Words"
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      },
+                      "type": "DefList"
+                    }
+                  ],
+                  "kind": "note",
+                  "title": ""
+                },
+                "type": "Admonition"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -2459,26 +2590,6 @@
     "References"
   ],
   "references": null,
-  "refs": [
-    "__main__.f",
-    "__main__.jac",
-    "builtins.complex",
-    "builtins.float",
-    "builtins.int",
-    "builtins.list",
-    "builtins.print",
-    "odeint",
-    "quad",
-    "scipy",
-    "scipy.integrate",
-    "scipy.integrate._ode.ode",
-    "scipy.integrate._ode.ode.integrate",
-    "scipy.integrate._ode.ode.set_f_params",
-    "scipy.integrate._ode.ode.set_initial_value",
-    "scipy.integrate._ode.ode.set_integrator",
-    "scipy.integrate._ode.ode.set_jac_params",
-    "scipy.integrate._ode.ode.successful"
-  ],
   "see_also": [
     {
       "descriptions": [

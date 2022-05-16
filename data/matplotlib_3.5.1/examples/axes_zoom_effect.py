@@ -41,8 +41,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -55,8 +65,18 @@
           },
           {
             "link": {
-              "data": "pyplot",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "pyplot"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -83,8 +103,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -118,8 +148,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -132,8 +172,18 @@
           },
           {
             "link": {
-              "data": "transforms",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms",
+                  "version": "*"
+                },
+                "value": "transforms"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -181,8 +231,18 @@
           },
           {
             "link": {
-              "data": "Bbox",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Bbox",
+                  "version": "*"
+                },
+                "value": "Bbox"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -202,8 +262,18 @@
           },
           {
             "link": {
-              "data": "TransformedBbox",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.TransformedBbox",
+                  "version": "*"
+                },
+                "value": "TransformedBbox"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -223,8 +293,18 @@
           },
           {
             "link": {
-              "data": "blended_transform_factory",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.blended_transform_factory",
+                  "version": "*"
+                },
+                "value": "blended_transform_factory"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -258,8 +338,18 @@
           },
           {
             "link": {
-              "data": "mpl_toolkits",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits",
+                  "version": "*"
+                },
+                "value": "mpl_toolkits"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -272,8 +362,18 @@
           },
           {
             "link": {
-              "data": "axes_grid1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1",
+                  "version": "*"
+                },
+                "value": "axes_grid1"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -286,8 +386,18 @@
           },
           {
             "link": {
-              "data": "inset_locator",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator",
+                  "version": "*"
+                },
+                "value": "inset_locator"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -335,8 +445,18 @@
           },
           {
             "link": {
-              "data": "BboxPatch",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxPatch",
+                  "version": "*"
+                },
+                "value": "BboxPatch"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -356,8 +476,18 @@
           },
           {
             "link": {
-              "data": "BboxConnector",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxConnector",
+                  "version": "*"
+                },
+                "value": "BboxConnector"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -377,8 +507,18 @@
           },
           {
             "link": {
-              "data": "BboxConnectorPatch",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxConnectorPatch",
+                  "version": "*"
+                },
+                "value": "BboxConnectorPatch"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -426,8 +566,18 @@
           },
           {
             "link": {
-              "data": "connect_bbox",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.connect_bbox",
+                  "version": "*"
+                },
+                "value": "connect_bbox"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -440,8 +590,18 @@
           },
           {
             "link": {
-              "data": "bbox1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.TransformedBbox",
+                  "version": "*"
+                },
+                "value": "bbox1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -461,8 +621,18 @@
           },
           {
             "link": {
-              "data": "bbox2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.TransformedBbox",
+                  "version": "*"
+                },
+                "value": "bbox2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -489,8 +659,18 @@
           },
           {
             "link": {
-              "data": "loc1a",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "loc1a"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -510,8 +690,18 @@
           },
           {
             "link": {
-              "data": "loc2a",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "loc2a"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -531,8 +721,18 @@
           },
           {
             "link": {
-              "data": "loc1b",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "loc1b"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -552,8 +752,18 @@
           },
           {
             "link": {
-              "data": "loc2b",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "loc2b"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -580,8 +790,18 @@
           },
           {
             "link": {
-              "data": "prop_lines",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "prop_lines"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -601,8 +821,18 @@
           },
           {
             "link": {
-              "data": "prop_patches",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "prop_patches"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -664,8 +894,18 @@
           },
           {
             "link": {
-              "data": "prop_patches",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "prop_patches"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -720,8 +960,18 @@
           },
           {
             "link": {
-              "data": "prop_patches",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "prop_patches"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -783,8 +1033,18 @@
           },
           {
             "link": {
-              "data": "prop_lines",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "prop_lines"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -846,8 +1106,18 @@
           },
           {
             "link": {
-              "data": "prop_lines",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "prop_lines"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -860,8 +1130,18 @@
           },
           {
             "link": {
-              "data": "get",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "typing",
+                  "path": "typing.Mapping.get",
+                  "version": "*"
+                },
+                "value": "get"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1063,8 +1343,18 @@
           },
           {
             "link": {
-              "data": "c1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxConnector",
+                  "version": "*"
+                },
+                "value": "c1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1091,8 +1381,18 @@
           },
           {
             "link": {
-              "data": "BboxConnector",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxConnector",
+                  "version": "*"
+                },
+                "value": "BboxConnector"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1119,8 +1419,18 @@
           },
           {
             "link": {
-              "data": "bbox1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.TransformedBbox",
+                  "version": "*"
+                },
+                "value": "bbox1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1140,8 +1450,18 @@
           },
           {
             "link": {
-              "data": "bbox2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.TransformedBbox",
+                  "version": "*"
+                },
+                "value": "bbox2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1175,8 +1495,18 @@
           },
           {
             "link": {
-              "data": "loc1a",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "loc1a"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1210,8 +1540,18 @@
           },
           {
             "link": {
-              "data": "loc2a",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "loc2a"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1280,8 +1620,18 @@
           },
           {
             "link": {
-              "data": "prop_lines",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "prop_lines"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1308,8 +1658,18 @@
           },
           {
             "link": {
-              "data": "c2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxConnector",
+                  "version": "*"
+                },
+                "value": "c2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1336,8 +1696,18 @@
           },
           {
             "link": {
-              "data": "BboxConnector",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxConnector",
+                  "version": "*"
+                },
+                "value": "BboxConnector"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1364,8 +1734,18 @@
           },
           {
             "link": {
-              "data": "bbox1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.TransformedBbox",
+                  "version": "*"
+                },
+                "value": "bbox1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1385,8 +1765,18 @@
           },
           {
             "link": {
-              "data": "bbox2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.TransformedBbox",
+                  "version": "*"
+                },
+                "value": "bbox2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1420,8 +1810,18 @@
           },
           {
             "link": {
-              "data": "loc1b",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "loc1b"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1455,8 +1855,18 @@
           },
           {
             "link": {
-              "data": "loc2b",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "loc2b"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1525,8 +1935,18 @@
           },
           {
             "link": {
-              "data": "prop_lines",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "prop_lines"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1560,8 +1980,18 @@
           },
           {
             "link": {
-              "data": "bbox_patch1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxPatch",
+                  "version": "*"
+                },
+                "value": "bbox_patch1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1588,8 +2018,18 @@
           },
           {
             "link": {
-              "data": "BboxPatch",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxPatch",
+                  "version": "*"
+                },
+                "value": "BboxPatch"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1602,8 +2042,18 @@
           },
           {
             "link": {
-              "data": "bbox1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.TransformedBbox",
+                  "version": "*"
+                },
+                "value": "bbox1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1637,8 +2087,18 @@
           },
           {
             "link": {
-              "data": "prop_patches",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "prop_patches"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1665,8 +2125,18 @@
           },
           {
             "link": {
-              "data": "bbox_patch2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxPatch",
+                  "version": "*"
+                },
+                "value": "bbox_patch2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1693,8 +2163,18 @@
           },
           {
             "link": {
-              "data": "BboxPatch",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxPatch",
+                  "version": "*"
+                },
+                "value": "BboxPatch"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1707,8 +2187,18 @@
           },
           {
             "link": {
-              "data": "bbox2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.TransformedBbox",
+                  "version": "*"
+                },
+                "value": "bbox2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1742,8 +2232,18 @@
           },
           {
             "link": {
-              "data": "prop_patches",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "prop_patches"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1777,8 +2277,18 @@
           },
           {
             "link": {
-              "data": "p",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxConnectorPatch",
+                  "version": "*"
+                },
+                "value": "p"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1805,8 +2315,18 @@
           },
           {
             "link": {
-              "data": "BboxConnectorPatch",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxConnectorPatch",
+                  "version": "*"
+                },
+                "value": "BboxConnectorPatch"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1819,8 +2339,18 @@
           },
           {
             "link": {
-              "data": "bbox1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.TransformedBbox",
+                  "version": "*"
+                },
+                "value": "bbox1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1840,8 +2370,18 @@
           },
           {
             "link": {
-              "data": "bbox2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.TransformedBbox",
+                  "version": "*"
+                },
+                "value": "bbox2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1889,8 +2429,18 @@
           },
           {
             "link": {
-              "data": "loc1a",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "loc1a"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1903,8 +2453,18 @@
           },
           {
             "link": {
-              "data": "loc1a",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "loc1a"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1924,8 +2484,18 @@
           },
           {
             "link": {
-              "data": "loc2a",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "loc2a"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1938,8 +2508,18 @@
           },
           {
             "link": {
-              "data": "loc2a",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "loc2a"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1959,8 +2539,18 @@
           },
           {
             "link": {
-              "data": "loc1b",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "loc1b"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1973,8 +2563,18 @@
           },
           {
             "link": {
-              "data": "loc1b",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "loc1b"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1994,8 +2594,18 @@
           },
           {
             "link": {
-              "data": "loc2b",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "loc2b"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2008,8 +2618,18 @@
           },
           {
             "link": {
-              "data": "loc2b",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "loc2b"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2092,8 +2712,18 @@
           },
           {
             "link": {
-              "data": "prop_patches",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "prop_patches"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2141,8 +2771,18 @@
           },
           {
             "link": {
-              "data": "c1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxConnector",
+                  "version": "*"
+                },
+                "value": "c1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2162,8 +2802,18 @@
           },
           {
             "link": {
-              "data": "c2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxConnector",
+                  "version": "*"
+                },
+                "value": "c2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2183,8 +2833,18 @@
           },
           {
             "link": {
-              "data": "bbox_patch1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxPatch",
+                  "version": "*"
+                },
+                "value": "bbox_patch1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2204,8 +2864,18 @@
           },
           {
             "link": {
-              "data": "bbox_patch2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxPatch",
+                  "version": "*"
+                },
+                "value": "bbox_patch2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2225,8 +2895,18 @@
           },
           {
             "link": {
-              "data": "p",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxConnectorPatch",
+                  "version": "*"
+                },
+                "value": "p"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2267,8 +2947,18 @@
           },
           {
             "link": {
-              "data": "zoom_effect01",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.zoom_effect01",
+                  "version": "*"
+                },
+                "value": "zoom_effect01"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -2323,8 +3013,18 @@
           },
           {
             "link": {
-              "data": "xmin",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "xmin"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2344,8 +3044,18 @@
           },
           {
             "link": {
-              "data": "xmax",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "xmax"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2379,8 +3089,18 @@
           },
           {
             "link": {
-              "data": "kwargs",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "kwargs"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2442,8 +3162,18 @@
           },
           {
             "link": {
-              "data": "bbox",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Bbox",
+                  "version": "*"
+                },
+                "value": "bbox"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2470,8 +3200,18 @@
           },
           {
             "link": {
-              "data": "Bbox",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Bbox",
+                  "version": "*"
+                },
+                "value": "Bbox"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2484,8 +3224,18 @@
           },
           {
             "link": {
-              "data": "from_extents",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Bbox.from_extents",
+                  "version": "*"
+                },
+                "value": "from_extents"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2498,8 +3248,18 @@
           },
           {
             "link": {
-              "data": "xmin",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "xmin"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2540,8 +3300,18 @@
           },
           {
             "link": {
-              "data": "xmax",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "xmax"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2596,8 +3366,18 @@
           },
           {
             "link": {
-              "data": "mybbox1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.TransformedBbox",
+                  "version": "*"
+                },
+                "value": "mybbox1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2624,8 +3404,18 @@
           },
           {
             "link": {
-              "data": "TransformedBbox",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.TransformedBbox",
+                  "version": "*"
+                },
+                "value": "TransformedBbox"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2638,8 +3428,18 @@
           },
           {
             "link": {
-              "data": "bbox",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Bbox",
+                  "version": "*"
+                },
+                "value": "bbox"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2715,8 +3515,18 @@
           },
           {
             "link": {
-              "data": "mybbox2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.TransformedBbox",
+                  "version": "*"
+                },
+                "value": "mybbox2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2743,8 +3553,18 @@
           },
           {
             "link": {
-              "data": "TransformedBbox",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.TransformedBbox",
+                  "version": "*"
+                },
+                "value": "TransformedBbox"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2757,8 +3577,18 @@
           },
           {
             "link": {
-              "data": "bbox",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Bbox",
+                  "version": "*"
+                },
+                "value": "bbox"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2841,8 +3671,18 @@
           },
           {
             "link": {
-              "data": "prop_patches",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "prop_patches"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2890,8 +3730,18 @@
           },
           {
             "link": {
-              "data": "kwargs",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "kwargs"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3051,8 +3901,18 @@
           },
           {
             "link": {
-              "data": "c1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxConnector",
+                  "version": "*"
+                },
+                "value": "c1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3072,8 +3932,18 @@
           },
           {
             "link": {
-              "data": "c2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxConnector",
+                  "version": "*"
+                },
+                "value": "c2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3093,8 +3963,18 @@
           },
           {
             "link": {
-              "data": "bbox_patch1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxPatch",
+                  "version": "*"
+                },
+                "value": "bbox_patch1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3114,8 +3994,18 @@
           },
           {
             "link": {
-              "data": "bbox_patch2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxPatch",
+                  "version": "*"
+                },
+                "value": "bbox_patch2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3135,8 +4025,18 @@
           },
           {
             "link": {
-              "data": "p",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxConnectorPatch",
+                  "version": "*"
+                },
+                "value": "p"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3163,8 +4063,18 @@
           },
           {
             "link": {
-              "data": "connect_bbox",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.connect_bbox",
+                  "version": "*"
+                },
+                "value": "connect_bbox"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3191,8 +4101,18 @@
           },
           {
             "link": {
-              "data": "mybbox1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.TransformedBbox",
+                  "version": "*"
+                },
+                "value": "mybbox1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3212,8 +4132,18 @@
           },
           {
             "link": {
-              "data": "mybbox2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.TransformedBbox",
+                  "version": "*"
+                },
+                "value": "mybbox2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3401,8 +4331,18 @@
           },
           {
             "link": {
-              "data": "kwargs",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "kwargs"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3422,8 +4362,18 @@
           },
           {
             "link": {
-              "data": "prop_patches",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "prop_patches"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3436,8 +4386,18 @@
           },
           {
             "link": {
-              "data": "prop_patches",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "prop_patches"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3499,8 +4459,18 @@
           },
           {
             "link": {
-              "data": "bbox_patch1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxPatch",
+                  "version": "*"
+                },
+                "value": "bbox_patch1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3555,8 +4525,18 @@
           },
           {
             "link": {
-              "data": "bbox_patch2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxPatch",
+                  "version": "*"
+                },
+                "value": "bbox_patch2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3611,8 +4591,18 @@
           },
           {
             "link": {
-              "data": "c1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxConnector",
+                  "version": "*"
+                },
+                "value": "c1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3667,8 +4657,18 @@
           },
           {
             "link": {
-              "data": "c2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxConnector",
+                  "version": "*"
+                },
+                "value": "c2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3723,8 +4723,18 @@
           },
           {
             "link": {
-              "data": "p",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxConnectorPatch",
+                  "version": "*"
+                },
+                "value": "p"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3772,8 +4782,18 @@
           },
           {
             "link": {
-              "data": "c1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxConnector",
+                  "version": "*"
+                },
+                "value": "c1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3793,8 +4813,18 @@
           },
           {
             "link": {
-              "data": "c2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxConnector",
+                  "version": "*"
+                },
+                "value": "c2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3814,8 +4844,18 @@
           },
           {
             "link": {
-              "data": "bbox_patch1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxPatch",
+                  "version": "*"
+                },
+                "value": "bbox_patch1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3835,8 +4875,18 @@
           },
           {
             "link": {
-              "data": "bbox_patch2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxPatch",
+                  "version": "*"
+                },
+                "value": "bbox_patch2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3856,8 +4906,18 @@
           },
           {
             "link": {
-              "data": "p",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxConnectorPatch",
+                  "version": "*"
+                },
+                "value": "p"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3898,8 +4958,18 @@
           },
           {
             "link": {
-              "data": "zoom_effect02",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.zoom_effect02",
+                  "version": "*"
+                },
+                "value": "zoom_effect02"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -3968,8 +5038,18 @@
           },
           {
             "link": {
-              "data": "kwargs",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "kwargs"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4192,8 +5272,18 @@
           },
           {
             "link": {
-              "data": "trans",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.BlendedGenericTransform",
+                  "version": "*"
+                },
+                "value": "trans"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4220,8 +5310,18 @@
           },
           {
             "link": {
-              "data": "blended_transform_factory",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.blended_transform_factory",
+                  "version": "*"
+                },
+                "value": "blended_transform_factory"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4367,8 +5467,18 @@
           },
           {
             "link": {
-              "data": "mybbox2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.TransformedBbox",
+                  "version": "*"
+                },
+                "value": "mybbox2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4395,8 +5505,18 @@
           },
           {
             "link": {
-              "data": "TransformedBbox",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.TransformedBbox",
+                  "version": "*"
+                },
+                "value": "TransformedBbox"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4444,8 +5564,18 @@
           },
           {
             "link": {
-              "data": "trans",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.BlendedGenericTransform",
+                  "version": "*"
+                },
+                "value": "trans"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4479,8 +5609,18 @@
           },
           {
             "link": {
-              "data": "prop_patches",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "prop_patches"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4528,8 +5668,18 @@
           },
           {
             "link": {
-              "data": "kwargs",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "kwargs"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4689,8 +5839,18 @@
           },
           {
             "link": {
-              "data": "c1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxConnector",
+                  "version": "*"
+                },
+                "value": "c1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4710,8 +5870,18 @@
           },
           {
             "link": {
-              "data": "c2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxConnector",
+                  "version": "*"
+                },
+                "value": "c2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4731,8 +5901,18 @@
           },
           {
             "link": {
-              "data": "bbox_patch1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxPatch",
+                  "version": "*"
+                },
+                "value": "bbox_patch1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4752,8 +5932,18 @@
           },
           {
             "link": {
-              "data": "bbox_patch2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxPatch",
+                  "version": "*"
+                },
+                "value": "bbox_patch2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4773,8 +5963,18 @@
           },
           {
             "link": {
-              "data": "p",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxConnectorPatch",
+                  "version": "*"
+                },
+                "value": "p"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4801,8 +6001,18 @@
           },
           {
             "link": {
-              "data": "connect_bbox",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.connect_bbox",
+                  "version": "*"
+                },
+                "value": "connect_bbox"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4850,8 +6060,18 @@
           },
           {
             "link": {
-              "data": "mybbox2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.TransformedBbox",
+                  "version": "*"
+                },
+                "value": "mybbox2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5039,8 +6259,18 @@
           },
           {
             "link": {
-              "data": "kwargs",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "kwargs"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5060,8 +6290,18 @@
           },
           {
             "link": {
-              "data": "prop_patches",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "prop_patches"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5074,8 +6314,18 @@
           },
           {
             "link": {
-              "data": "prop_patches",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "prop_patches"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5137,8 +6387,18 @@
           },
           {
             "link": {
-              "data": "bbox_patch1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxPatch",
+                  "version": "*"
+                },
+                "value": "bbox_patch1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5193,8 +6453,18 @@
           },
           {
             "link": {
-              "data": "bbox_patch2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxPatch",
+                  "version": "*"
+                },
+                "value": "bbox_patch2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5249,8 +6519,18 @@
           },
           {
             "link": {
-              "data": "c1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxConnector",
+                  "version": "*"
+                },
+                "value": "c1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5305,8 +6585,18 @@
           },
           {
             "link": {
-              "data": "c2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxConnector",
+                  "version": "*"
+                },
+                "value": "c2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5361,8 +6651,18 @@
           },
           {
             "link": {
-              "data": "p",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxConnectorPatch",
+                  "version": "*"
+                },
+                "value": "p"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5410,8 +6710,18 @@
           },
           {
             "link": {
-              "data": "c1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxConnector",
+                  "version": "*"
+                },
+                "value": "c1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5431,8 +6741,18 @@
           },
           {
             "link": {
-              "data": "c2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxConnector",
+                  "version": "*"
+                },
+                "value": "c2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5452,8 +6772,18 @@
           },
           {
             "link": {
-              "data": "bbox_patch1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxPatch",
+                  "version": "*"
+                },
+                "value": "bbox_patch1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5473,8 +6803,18 @@
           },
           {
             "link": {
-              "data": "bbox_patch2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxPatch",
+                  "version": "*"
+                },
+                "value": "bbox_patch2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5494,8 +6834,18 @@
           },
           {
             "link": {
-              "data": "p",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axes_grid1.inset_locator.BboxConnectorPatch",
+                  "version": "*"
+                },
+                "value": "p"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5550,8 +6900,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5564,8 +6924,18 @@
           },
           {
             "link": {
-              "data": "figure",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.figure",
+                  "version": "*"
+                },
+                "value": "figure"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5963,8 +7333,18 @@
           },
           {
             "link": {
-              "data": "zoom_effect01",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.zoom_effect01",
+                  "version": "*"
+                },
+                "value": "zoom_effect01"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6264,8 +7644,18 @@
           },
           {
             "link": {
-              "data": "zoom_effect02",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.zoom_effect02",
+                  "version": "*"
+                },
+                "value": "zoom_effect02"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6397,8 +7787,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6411,8 +7811,18 @@
           },
           {
             "link": {
-              "data": "show",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.show",
+                  "version": "*"
+                },
+                "value": "show"
+              },
+              "type": "Link"
             },
             "type": ""
           },

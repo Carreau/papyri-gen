@@ -34,8 +34,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -48,8 +58,18 @@
           },
           {
             "link": {
-              "data": "tri",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.tri",
+                  "version": "*"
+                },
+                "value": "tri"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -76,8 +96,18 @@
           },
           {
             "link": {
-              "data": "Triangulation",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.tri.triangulation.Triangulation",
+                  "version": "*"
+                },
+                "value": "Triangulation"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -97,8 +127,18 @@
           },
           {
             "link": {
-              "data": "TriAnalyzer",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.tri.tritools.TriAnalyzer",
+                  "version": "*"
+                },
+                "value": "TriAnalyzer"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -118,8 +158,18 @@
           },
           {
             "link": {
-              "data": "UniformTriRefiner",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.tri.trirefine.UniformTriRefiner",
+                  "version": "*"
+                },
+                "value": "UniformTriRefiner"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -146,8 +196,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -160,8 +220,18 @@
           },
           {
             "link": {
-              "data": "pyplot",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "pyplot"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -188,8 +258,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -216,8 +296,18 @@
           },
           {
             "link": {
-              "data": "numpy",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "numpy"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -244,8 +334,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -328,8 +428,18 @@
           },
           {
             "link": {
-              "data": "experiment_res",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.experiment_res",
+                  "version": "*"
+                },
+                "value": "experiment_res"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -342,8 +452,18 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "x"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -363,8 +483,18 @@
           },
           {
             "link": {
-              "data": "y",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "y"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -419,8 +549,18 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "x"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -475,8 +615,18 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "x"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -524,8 +674,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -538,8 +698,18 @@
           },
           {
             "link": {
-              "data": "sqrt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ufunc",
+                  "version": "*"
+                },
+                "value": "sqrt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -587,8 +757,18 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "x"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -678,8 +858,18 @@
           },
           {
             "link": {
-              "data": "y",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "y"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -762,8 +952,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -776,8 +976,18 @@
           },
           {
             "link": {
-              "data": "arctan2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ufunc",
+                  "version": "*"
+                },
+                "value": "arctan2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -818,8 +1028,18 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "x"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -867,8 +1087,18 @@
           },
           {
             "link": {
-              "data": "y",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "y"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -923,8 +1153,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -937,8 +1177,18 @@
           },
           {
             "link": {
-              "data": "sqrt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ufunc",
+                  "version": "*"
+                },
+                "value": "sqrt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -965,8 +1215,18 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "x"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1063,8 +1323,18 @@
           },
           {
             "link": {
-              "data": "y",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "y"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1175,8 +1445,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1189,8 +1469,18 @@
           },
           {
             "link": {
-              "data": "arctan2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ufunc",
+                  "version": "*"
+                },
+                "value": "arctan2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1210,8 +1500,18 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "x"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1266,8 +1566,18 @@
           },
           {
             "link": {
-              "data": "y",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "y"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1322,8 +1632,18 @@
           },
           {
             "link": {
-              "data": "z",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "z"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1392,8 +1712,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1406,8 +1736,18 @@
           },
           {
             "link": {
-              "data": "exp",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ufunc",
+                  "version": "*"
+                },
+                "value": "exp"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1567,8 +1907,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1581,8 +1931,18 @@
           },
           {
             "link": {
-              "data": "cos",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ufunc",
+                  "version": "*"
+                },
+                "value": "cos"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1672,8 +2032,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1686,8 +2056,18 @@
           },
           {
             "link": {
-              "data": "exp",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ufunc",
+                  "version": "*"
+                },
+                "value": "exp"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1847,8 +2227,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1861,8 +2251,18 @@
           },
           {
             "link": {
-              "data": "cos",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ufunc",
+                  "version": "*"
+                },
+                "value": "cos"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1980,8 +2380,18 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "x"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2029,8 +2439,18 @@
           },
           {
             "link": {
-              "data": "y",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "y"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2106,8 +2526,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2120,8 +2550,18 @@
           },
           {
             "link": {
-              "data": "max",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.core.fromnumeric.amax",
+                  "version": "*"
+                },
+                "value": "max"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2134,8 +2574,18 @@
           },
           {
             "link": {
-              "data": "z",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "z"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2169,8 +2619,18 @@
           },
           {
             "link": {
-              "data": "z",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "z"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2211,8 +2671,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2225,8 +2695,18 @@
           },
           {
             "link": {
-              "data": "max",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.core.fromnumeric.amax",
+                  "version": "*"
+                },
+                "value": "max"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2239,8 +2719,18 @@
           },
           {
             "link": {
-              "data": "z",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "z"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2274,8 +2764,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2288,8 +2788,18 @@
           },
           {
             "link": {
-              "data": "min",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.core.fromnumeric.amin",
+                  "version": "*"
+                },
+                "value": "min"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2302,8 +2812,18 @@
           },
           {
             "link": {
-              "data": "z",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "z"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2414,8 +2934,18 @@
           },
           {
             "link": {
-              "data": "n_test",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "n_test"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2505,8 +3035,18 @@
           },
           {
             "link": {
-              "data": "subdiv",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "subdiv"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2582,8 +3122,18 @@
           },
           {
             "link": {
-              "data": "init_mask_frac",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "init_mask_frac"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2673,8 +3223,18 @@
           },
           {
             "link": {
-              "data": "min_circle_ratio",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "min_circle_ratio"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2736,8 +3296,18 @@
           },
           {
             "link": {
-              "data": "random_gen",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.random.mtrand.RandomState",
+                  "version": "*"
+                },
+                "value": "random_gen"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2764,8 +3334,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2778,8 +3358,18 @@
           },
           {
             "link": {
-              "data": "random",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.random",
+                  "version": "*"
+                },
+                "value": "random"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2792,8 +3382,18 @@
           },
           {
             "link": {
-              "data": "RandomState",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.random.mtrand.RandomState",
+                  "version": "*"
+                },
+                "value": "RandomState"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2841,8 +3441,18 @@
           },
           {
             "link": {
-              "data": "x_test",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "x_test"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2869,8 +3479,18 @@
           },
           {
             "link": {
-              "data": "random_gen",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.random.mtrand.RandomState",
+                  "version": "*"
+                },
+                "value": "random_gen"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2883,8 +3503,18 @@
           },
           {
             "link": {
-              "data": "uniform",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.random.mtrand.RandomState.uniform",
+                  "version": "*"
+                },
+                "value": "uniform"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2960,8 +3590,18 @@
           },
           {
             "link": {
-              "data": "n_test",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "n_test"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2981,8 +3621,18 @@
           },
           {
             "link": {
-              "data": "y_test",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "y_test"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3009,8 +3659,18 @@
           },
           {
             "link": {
-              "data": "random_gen",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.random.mtrand.RandomState",
+                  "version": "*"
+                },
+                "value": "random_gen"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3023,8 +3683,18 @@
           },
           {
             "link": {
-              "data": "uniform",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.random.mtrand.RandomState.uniform",
+                  "version": "*"
+                },
+                "value": "uniform"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3100,8 +3770,18 @@
           },
           {
             "link": {
-              "data": "n_test",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "n_test"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3121,8 +3801,18 @@
           },
           {
             "link": {
-              "data": "z_test",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "z_test"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3149,8 +3839,18 @@
           },
           {
             "link": {
-              "data": "experiment_res",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.experiment_res",
+                  "version": "*"
+                },
+                "value": "experiment_res"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3163,8 +3863,18 @@
           },
           {
             "link": {
-              "data": "x_test",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "x_test"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3184,8 +3894,18 @@
           },
           {
             "link": {
-              "data": "y_test",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "y_test"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3226,8 +3946,18 @@
           },
           {
             "link": {
-              "data": "tri",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.tri.triangulation.Triangulation",
+                  "version": "*"
+                },
+                "value": "tri"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3254,8 +3984,18 @@
           },
           {
             "link": {
-              "data": "Triangulation",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.tri.triangulation.Triangulation",
+                  "version": "*"
+                },
+                "value": "Triangulation"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3268,8 +4008,18 @@
           },
           {
             "link": {
-              "data": "x_test",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "x_test"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3289,8 +4039,18 @@
           },
           {
             "link": {
-              "data": "y_test",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "y_test"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3338,8 +4098,18 @@
           },
           {
             "link": {
-              "data": "tri",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.tri.triangulation.Triangulation",
+                  "version": "*"
+                },
+                "value": "tri"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3422,8 +4192,18 @@
           },
           {
             "link": {
-              "data": "mask_init",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "mask_init"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3450,8 +4230,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3464,8 +4254,18 @@
           },
           {
             "link": {
-              "data": "zeros",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.zeros",
+                  "version": "*"
+                },
+                "value": "zeros"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3513,8 +4313,18 @@
           },
           {
             "link": {
-              "data": "bool",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.bool",
+                  "version": "*"
+                },
+                "value": "bool"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -3534,8 +4344,18 @@
           },
           {
             "link": {
-              "data": "masked_tri",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "masked_tri"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3562,8 +4382,18 @@
           },
           {
             "link": {
-              "data": "random_gen",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.random.mtrand.RandomState",
+                  "version": "*"
+                },
+                "value": "random_gen"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3576,8 +4406,18 @@
           },
           {
             "link": {
-              "data": "randint",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.random.mtrand.RandomState.randint",
+                  "version": "*"
+                },
+                "value": "randint"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3632,8 +4472,18 @@
           },
           {
             "link": {
-              "data": "int",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "int"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -3674,8 +4524,18 @@
           },
           {
             "link": {
-              "data": "init_mask_frac",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "init_mask_frac"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3702,8 +4562,18 @@
           },
           {
             "link": {
-              "data": "mask_init",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "mask_init"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3716,8 +4586,18 @@
           },
           {
             "link": {
-              "data": "masked_tri",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "masked_tri"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3765,8 +4645,18 @@
           },
           {
             "link": {
-              "data": "tri",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.tri.triangulation.Triangulation",
+                  "version": "*"
+                },
+                "value": "tri"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3779,8 +4669,18 @@
           },
           {
             "link": {
-              "data": "set_mask",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.tri.triangulation.Triangulation.set_mask",
+                  "version": "*"
+                },
+                "value": "set_mask"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3793,8 +4693,18 @@
           },
           {
             "link": {
-              "data": "mask_init",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "mask_init"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3912,8 +4822,18 @@
           },
           {
             "link": {
-              "data": "TriAnalyzer",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.tri.tritools.TriAnalyzer",
+                  "version": "*"
+                },
+                "value": "TriAnalyzer"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3926,8 +4846,18 @@
           },
           {
             "link": {
-              "data": "tri",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.tri.triangulation.Triangulation",
+                  "version": "*"
+                },
+                "value": "tri"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3947,8 +4877,18 @@
           },
           {
             "link": {
-              "data": "get_flat_tri_mask",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.tri.tritools.TriAnalyzer.get_flat_tri_mask",
+                  "version": "*"
+                },
+                "value": "get_flat_tri_mask"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3961,8 +4901,18 @@
           },
           {
             "link": {
-              "data": "min_circle_ratio",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "min_circle_ratio"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3982,8 +4932,18 @@
           },
           {
             "link": {
-              "data": "tri",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.tri.triangulation.Triangulation",
+                  "version": "*"
+                },
+                "value": "tri"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3996,8 +4956,18 @@
           },
           {
             "link": {
-              "data": "set_mask",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.tri.triangulation.Triangulation.set_mask",
+                  "version": "*"
+                },
+                "value": "set_mask"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4052,8 +5022,18 @@
           },
           {
             "link": {
-              "data": "refiner",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.tri.trirefine.UniformTriRefiner",
+                  "version": "*"
+                },
+                "value": "refiner"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4080,8 +5060,18 @@
           },
           {
             "link": {
-              "data": "UniformTriRefiner",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.tri.trirefine.UniformTriRefiner",
+                  "version": "*"
+                },
+                "value": "UniformTriRefiner"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4094,8 +5084,18 @@
           },
           {
             "link": {
-              "data": "tri",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.tri.triangulation.Triangulation",
+                  "version": "*"
+                },
+                "value": "tri"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4115,8 +5115,18 @@
           },
           {
             "link": {
-              "data": "tri_refi",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.tri.triangulation.Triangulation",
+                  "version": "*"
+                },
+                "value": "tri_refi"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4164,8 +5174,18 @@
           },
           {
             "link": {
-              "data": "refiner",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.tri.trirefine.UniformTriRefiner",
+                  "version": "*"
+                },
+                "value": "refiner"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4178,8 +5198,18 @@
           },
           {
             "link": {
-              "data": "refine_field",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.tri.trirefine.UniformTriRefiner.refine_field",
+                  "version": "*"
+                },
+                "value": "refine_field"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4192,8 +5222,18 @@
           },
           {
             "link": {
-              "data": "z_test",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "z_test"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4213,8 +5253,18 @@
           },
           {
             "link": {
-              "data": "subdiv",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "subdiv"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4227,8 +5277,18 @@
           },
           {
             "link": {
-              "data": "subdiv",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "subdiv"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4297,8 +5357,18 @@
           },
           {
             "link": {
-              "data": "experiment_res",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.experiment_res",
+                  "version": "*"
+                },
+                "value": "experiment_res"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4311,8 +5381,18 @@
           },
           {
             "link": {
-              "data": "tri_refi",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.tri.triangulation.Triangulation",
+                  "version": "*"
+                },
+                "value": "tri_refi"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4346,8 +5426,18 @@
           },
           {
             "link": {
-              "data": "tri_refi",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.tri.triangulation.Triangulation",
+                  "version": "*"
+                },
+                "value": "tri_refi"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4402,8 +5492,18 @@
           },
           {
             "link": {
-              "data": "flat_tri",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.tri.triangulation.Triangulation",
+                  "version": "*"
+                },
+                "value": "flat_tri"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4430,8 +5530,18 @@
           },
           {
             "link": {
-              "data": "Triangulation",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.tri.triangulation.Triangulation",
+                  "version": "*"
+                },
+                "value": "Triangulation"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4444,8 +5554,18 @@
           },
           {
             "link": {
-              "data": "x_test",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "x_test"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4465,8 +5585,18 @@
           },
           {
             "link": {
-              "data": "y_test",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "y_test"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4486,8 +5616,18 @@
           },
           {
             "link": {
-              "data": "flat_tri",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.tri.triangulation.Triangulation",
+                  "version": "*"
+                },
+                "value": "flat_tri"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4500,8 +5640,18 @@
           },
           {
             "link": {
-              "data": "set_mask",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.tri.triangulation.Triangulation.set_mask",
+                  "version": "*"
+                },
+                "value": "set_mask"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4612,8 +5762,18 @@
           },
           {
             "link": {
-              "data": "plot_tri",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.bool",
+                  "version": "*"
+                },
+                "value": "plot_tri"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4668,8 +5828,18 @@
           },
           {
             "link": {
-              "data": "plot_masked_tri",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.bool",
+                  "version": "*"
+                },
+                "value": "plot_masked_tri"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4724,8 +5894,18 @@
           },
           {
             "link": {
-              "data": "plot_refi_tri",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.bool",
+                  "version": "*"
+                },
+                "value": "plot_refi_tri"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4780,8 +5960,18 @@
           },
           {
             "link": {
-              "data": "plot_expected",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.bool",
+                  "version": "*"
+                },
+                "value": "plot_expected"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4892,8 +6082,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4906,8 +6106,18 @@
           },
           {
             "link": {
-              "data": "arange",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.arange",
+                  "version": "*"
+                },
+                "value": "arange"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5039,8 +6249,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5053,8 +6273,18 @@
           },
           {
             "link": {
-              "data": "subplots",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.subplots",
+                  "version": "*"
+                },
+                "value": "subplots"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5298,8 +6528,18 @@
           },
           {
             "link": {
-              "data": "tri_refi",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.tri.triangulation.Triangulation",
+                  "version": "*"
+                },
+                "value": "tri_refi"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5571,8 +6811,18 @@
           },
           {
             "link": {
-              "data": "plot_expected",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.bool",
+                  "version": "*"
+                },
+                "value": "plot_expected"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5627,8 +6877,18 @@
           },
           {
             "link": {
-              "data": "tri_refi",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.tri.triangulation.Triangulation",
+                  "version": "*"
+                },
+                "value": "tri_refi"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5837,8 +7097,18 @@
           },
           {
             "link": {
-              "data": "plot_refi_tri",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.bool",
+                  "version": "*"
+                },
+                "value": "plot_refi_tri"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5893,8 +7163,18 @@
           },
           {
             "link": {
-              "data": "tri_refi",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.tri.triangulation.Triangulation",
+                  "version": "*"
+                },
+                "value": "tri_refi"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5991,8 +7271,18 @@
           },
           {
             "link": {
-              "data": "plot_tri",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.bool",
+                  "version": "*"
+                },
+                "value": "plot_tri"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6047,8 +7337,18 @@
           },
           {
             "link": {
-              "data": "tri",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.tri.triangulation.Triangulation",
+                  "version": "*"
+                },
+                "value": "tri"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6145,8 +7445,18 @@
           },
           {
             "link": {
-              "data": "plot_masked_tri",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.bool",
+                  "version": "*"
+                },
+                "value": "plot_masked_tri"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6201,8 +7511,18 @@
           },
           {
             "link": {
-              "data": "flat_tri",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.tri.triangulation.Triangulation",
+                  "version": "*"
+                },
+                "value": "flat_tri"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6278,8 +7598,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6292,8 +7622,18 @@
           },
           {
             "link": {
-              "data": "show",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.show",
+                  "version": "*"
+                },
+                "value": "show"
+              },
+              "type": "Link"
             },
             "type": ""
           },

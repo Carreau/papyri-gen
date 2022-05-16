@@ -41,8 +41,18 @@
           },
           {
             "link": {
-              "data": "numpy",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "numpy"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -69,8 +79,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -104,8 +124,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -118,8 +148,18 @@
           },
           {
             "link": {
-              "data": "pyplot",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "pyplot"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -146,8 +186,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -174,8 +224,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -188,8 +248,18 @@
           },
           {
             "link": {
-              "data": "projections",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.projections",
+                  "version": "*"
+                },
+                "value": "projections"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -216,7 +286,124 @@
           },
           {
             "link": {
-              "data": "PolarAxes",
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.projections.polar.PolarAxes",
+                  "version": "*"
+                },
+                "value": "PolarAxes"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "from",
+              "type": "str"
+            },
+            "type": "kn"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": ".",
+              "type": "str"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms",
+                  "version": "*"
+                },
+                "value": "transforms"
+              },
+              "type": "Link"
+            },
+            "type": "nn"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "import",
+              "type": "str"
+            },
+            "type": "kn"
+          },
+          {
+            "link": {
+              "data": " ",
+              "type": "str"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Affine2D",
+                  "version": "*"
+                },
+                "value": "Affine2D"
+              },
+              "type": "Link"
+            },
+            "type": ""
+          },
+          {
+            "link": {
+              "data": "\n",
               "type": "str"
             },
             "type": ""
@@ -244,8 +431,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits",
+                  "version": "*"
+                },
+                "value": "mpl_toolkits"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -258,8 +455,18 @@
           },
           {
             "link": {
-              "data": "transforms",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axisartist",
+                  "version": "*"
+                },
+                "value": "axisartist"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -286,85 +493,18 @@
           },
           {
             "link": {
-              "data": "Affine2D",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "\n",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "\n",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "from",
-              "type": "str"
-            },
-            "type": "kn"
-          },
-          {
-            "link": {
-              "data": " ",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "mpl_toolkits",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": ".",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "axisartist",
-              "type": "str"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": " ",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "import",
-              "type": "str"
-            },
-            "type": "kn"
-          },
-          {
-            "link": {
-              "data": " ",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "angle_helper",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axisartist.angle_helper",
+                  "version": "*"
+                },
+                "value": "angle_helper"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -384,8 +524,18 @@
           },
           {
             "link": {
-              "data": "Axes",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axisartist.axislines.Axes",
+                  "version": "*"
+                },
+                "value": "Axes"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -433,8 +583,18 @@
           },
           {
             "link": {
-              "data": "mpl_toolkits",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits",
+                  "version": "*"
+                },
+                "value": "mpl_toolkits"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -447,8 +607,18 @@
           },
           {
             "link": {
-              "data": "axisartist",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axisartist",
+                  "version": "*"
+                },
+                "value": "axisartist"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -461,8 +631,18 @@
           },
           {
             "link": {
-              "data": "grid_helper_curvelinear",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axisartist.grid_helper_curvelinear",
+                  "version": "*"
+                },
+                "value": "grid_helper_curvelinear"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -510,8 +690,18 @@
           },
           {
             "link": {
-              "data": "GridHelperCurveLinear",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axisartist.grid_helper_curvelinear.GridHelperCurveLinear",
+                  "version": "*"
+                },
+                "value": "GridHelperCurveLinear"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -559,8 +749,18 @@
           },
           {
             "link": {
-              "data": "curvelinear_test1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.curvelinear_test1",
+                  "version": "*"
+                },
+                "value": "curvelinear_test1"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -573,8 +773,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -664,8 +874,18 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "x"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -685,8 +905,18 @@
           },
           {
             "link": {
-              "data": "y",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "y"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -727,8 +957,18 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "x"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -748,8 +988,18 @@
           },
           {
             "link": {
-              "data": "y",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "y"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -776,8 +1026,18 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "x"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -965,8 +1225,18 @@
           },
           {
             "link": {
-              "data": "grid_helper",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axisartist.grid_helper_curvelinear.GridHelperCurveLinear",
+                  "version": "*"
+                },
+                "value": "grid_helper"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -993,8 +1263,18 @@
           },
           {
             "link": {
-              "data": "GridHelperCurveLinear",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axisartist.grid_helper_curvelinear.GridHelperCurveLinear",
+                  "version": "*"
+                },
+                "value": "GridHelperCurveLinear"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1105,8 +1385,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1210,8 +1500,18 @@
           },
           {
             "link": {
-              "data": "Axes",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axisartist.axislines.Axes",
+                  "version": "*"
+                },
+                "value": "Axes"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1231,8 +1531,18 @@
           },
           {
             "link": {
-              "data": "grid_helper",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axisartist.grid_helper_curvelinear.GridHelperCurveLinear",
+                  "version": "*"
+                },
+                "value": "grid_helper"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1245,8 +1555,18 @@
           },
           {
             "link": {
-              "data": "grid_helper",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axisartist.grid_helper_curvelinear.GridHelperCurveLinear",
+                  "version": "*"
+                },
+                "value": "grid_helper"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1336,8 +1656,18 @@
           },
           {
             "link": {
-              "data": "xx",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "xx"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1357,8 +1687,18 @@
           },
           {
             "link": {
-              "data": "yy",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.NoneType",
+                  "version": "*"
+                },
+                "value": "yy"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1399,8 +1739,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1413,8 +1763,18 @@
           },
           {
             "link": {
-              "data": "array",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.array",
+                  "version": "*"
+                },
+                "value": "array"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1490,8 +1850,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1504,8 +1874,18 @@
           },
           {
             "link": {
-              "data": "array",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.array",
+                  "version": "*"
+                },
+                "value": "array"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1616,8 +1996,18 @@
           },
           {
             "link": {
-              "data": "xx",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "xx"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1637,8 +2027,18 @@
           },
           {
             "link": {
-              "data": "yy",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.NoneType",
+                  "version": "*"
+                },
+                "value": "yy"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2309,8 +2709,18 @@
           },
           {
             "link": {
-              "data": "curvelinear_test2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.curvelinear_test2",
+                  "version": "*"
+                },
+                "value": "curvelinear_test2"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -2323,8 +2733,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2428,8 +2848,18 @@
           },
           {
             "link": {
-              "data": "tr",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Affine2D",
+                  "version": "*"
+                },
+                "value": "tr"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2456,8 +2886,18 @@
           },
           {
             "link": {
-              "data": "Affine2D",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Affine2D",
+                  "version": "*"
+                },
+                "value": "Affine2D"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2484,8 +2924,18 @@
           },
           {
             "link": {
-              "data": "scale",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Affine2D.scale",
+                  "version": "*"
+                },
+                "value": "scale"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2498,8 +2948,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2582,8 +3042,18 @@
           },
           {
             "link": {
-              "data": "PolarAxes",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.projections.polar.PolarAxes",
+                  "version": "*"
+                },
+                "value": "PolarAxes"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2694,8 +3164,18 @@
           },
           {
             "link": {
-              "data": "extreme_finder",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axisartist.angle_helper.ExtremeFinderCycle",
+                  "version": "*"
+                },
+                "value": "extreme_finder"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2722,8 +3202,18 @@
           },
           {
             "link": {
-              "data": "angle_helper",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axisartist.angle_helper",
+                  "version": "*"
+                },
+                "value": "angle_helper"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2736,8 +3226,18 @@
           },
           {
             "link": {
-              "data": "ExtremeFinderCycle",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axisartist.angle_helper.ExtremeFinderCycle",
+                  "version": "*"
+                },
+                "value": "ExtremeFinderCycle"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3009,8 +3509,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3100,8 +3610,18 @@
           },
           {
             "link": {
-              "data": "grid_locator1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axisartist.angle_helper.LocatorDMS",
+                  "version": "*"
+                },
+                "value": "grid_locator1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3128,8 +3648,18 @@
           },
           {
             "link": {
-              "data": "angle_helper",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axisartist.angle_helper",
+                  "version": "*"
+                },
+                "value": "angle_helper"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3142,8 +3672,18 @@
           },
           {
             "link": {
-              "data": "LocatorDMS",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axisartist.angle_helper.LocatorDMS",
+                  "version": "*"
+                },
+                "value": "LocatorDMS"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3247,8 +3787,18 @@
           },
           {
             "link": {
-              "data": "tick_formatter1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axisartist.angle_helper.FormatterDMS",
+                  "version": "*"
+                },
+                "value": "tick_formatter1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3275,8 +3825,18 @@
           },
           {
             "link": {
-              "data": "angle_helper",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axisartist.angle_helper",
+                  "version": "*"
+                },
+                "value": "angle_helper"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3289,8 +3849,18 @@
           },
           {
             "link": {
-              "data": "FormatterDMS",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axisartist.angle_helper.FormatterDMS",
+                  "version": "*"
+                },
+                "value": "FormatterDMS"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3331,8 +3901,18 @@
           },
           {
             "link": {
-              "data": "grid_helper",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axisartist.grid_helper_curvelinear.GridHelperCurveLinear",
+                  "version": "*"
+                },
+                "value": "grid_helper"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3359,8 +3939,18 @@
           },
           {
             "link": {
-              "data": "GridHelperCurveLinear",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axisartist.grid_helper_curvelinear.GridHelperCurveLinear",
+                  "version": "*"
+                },
+                "value": "GridHelperCurveLinear"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3387,8 +3977,18 @@
           },
           {
             "link": {
-              "data": "tr",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Affine2D",
+                  "version": "*"
+                },
+                "value": "tr"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3408,8 +4008,18 @@
           },
           {
             "link": {
-              "data": "extreme_finder",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axisartist.angle_helper.ExtremeFinderCycle",
+                  "version": "*"
+                },
+                "value": "extreme_finder"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3422,8 +4032,18 @@
           },
           {
             "link": {
-              "data": "extreme_finder",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axisartist.angle_helper.ExtremeFinderCycle",
+                  "version": "*"
+                },
+                "value": "extreme_finder"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3450,8 +4070,18 @@
           },
           {
             "link": {
-              "data": "grid_locator1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axisartist.angle_helper.LocatorDMS",
+                  "version": "*"
+                },
+                "value": "grid_locator1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3464,8 +4094,18 @@
           },
           {
             "link": {
-              "data": "grid_locator1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axisartist.angle_helper.LocatorDMS",
+                  "version": "*"
+                },
+                "value": "grid_locator1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3485,8 +4125,18 @@
           },
           {
             "link": {
-              "data": "tick_formatter1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axisartist.angle_helper.FormatterDMS",
+                  "version": "*"
+                },
+                "value": "tick_formatter1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3499,8 +4149,18 @@
           },
           {
             "link": {
-              "data": "tick_formatter1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axisartist.angle_helper.FormatterDMS",
+                  "version": "*"
+                },
+                "value": "tick_formatter1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3555,8 +4215,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3695,8 +4365,18 @@
           },
           {
             "link": {
-              "data": "grid_helper",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axisartist.grid_helper_curvelinear.GridHelperCurveLinear",
+                  "version": "*"
+                },
+                "value": "grid_helper"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3709,8 +4389,18 @@
           },
           {
             "link": {
-              "data": "grid_helper",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "mpl_toolkits",
+                  "path": "mpl_toolkits.axisartist.grid_helper_curvelinear.GridHelperCurveLinear",
+                  "version": "*"
+                },
+                "value": "grid_helper"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3856,8 +4546,18 @@
           },
           {
             "link": {
-              "data": "True",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.bool",
+                  "version": "*"
+                },
+                "value": "True"
+              },
+              "type": "Link"
             },
             "type": "kc"
           },
@@ -3975,8 +4675,18 @@
           },
           {
             "link": {
-              "data": "True",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.bool",
+                  "version": "*"
+                },
+                "value": "True"
+              },
+              "type": "Link"
             },
             "type": "kc"
           },
@@ -4738,8 +5448,18 @@
           },
           {
             "link": {
-              "data": "tr",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.Affine2D",
+                  "version": "*"
+                },
+                "value": "tr"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4906,8 +5626,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4920,8 +5650,18 @@
           },
           {
             "link": {
-              "data": "linspace",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.core.function_base.linspace",
+                  "version": "*"
+                },
+                "value": "linspace"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5004,8 +5744,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5018,8 +5768,18 @@
           },
           {
             "link": {
-              "data": "linspace",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.core.function_base.linspace",
+                  "version": "*"
+                },
+                "value": "linspace"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5179,8 +5939,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5193,8 +5963,18 @@
           },
           {
             "link": {
-              "data": "linspace",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.core.function_base.linspace",
+                  "version": "*"
+                },
+                "value": "linspace"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5277,8 +6057,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5291,8 +6081,18 @@
           },
           {
             "link": {
-              "data": "linspace",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.core.function_base.linspace",
+                  "version": "*"
+                },
+                "value": "linspace"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5382,8 +6182,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5396,8 +6206,18 @@
           },
           {
             "link": {
-              "data": "arange",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.arange",
+                  "version": "*"
+                },
+                "value": "arange"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5543,8 +6363,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5557,8 +6387,18 @@
           },
           {
             "link": {
-              "data": "linspace",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.core.function_base.linspace",
+                  "version": "*"
+                },
+                "value": "linspace"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5641,8 +6481,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5655,8 +6505,18 @@
           },
           {
             "link": {
-              "data": "linspace",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.core.function_base.linspace",
+                  "version": "*"
+                },
+                "value": "linspace"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5746,8 +6606,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5760,8 +6630,18 @@
           },
           {
             "link": {
-              "data": "arange",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.arange",
+                  "version": "*"
+                },
+                "value": "arange"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5949,8 +6829,18 @@
           },
           {
             "link": {
-              "data": "__name__",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "__name__"
+              },
+              "type": "Link"
             },
             "type": "vm"
           },
@@ -6019,8 +6909,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6047,8 +6947,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6061,8 +6971,18 @@
           },
           {
             "link": {
-              "data": "figure",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.figure",
+                  "version": "*"
+                },
+                "value": "figure"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6159,8 +7079,18 @@
           },
           {
             "link": {
-              "data": "curvelinear_test1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.curvelinear_test1",
+                  "version": "*"
+                },
+                "value": "curvelinear_test1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6173,8 +7103,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6201,8 +7141,18 @@
           },
           {
             "link": {
-              "data": "curvelinear_test2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.curvelinear_test2",
+                  "version": "*"
+                },
+                "value": "curvelinear_test2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6215,8 +7165,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6250,8 +7210,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6264,8 +7234,18 @@
           },
           {
             "link": {
-              "data": "show",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.show",
+                  "version": "*"
+                },
+                "value": "show"
+              },
+              "type": "Link"
             },
             "type": ""
           },

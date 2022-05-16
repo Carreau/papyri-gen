@@ -149,6 +149,208 @@
             ]
           },
           "type": "Paragraph"
+        }
+      ],
+      "title": "ndarrays and object creation"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Besides the additional complexities of subclassing a NumPy array, subclasses can run into unexpected behaviour because some functions may convert the subclass to a baseclass and \"forget\" any additional information associated with the subclass. This can result in surprising behavior if you use NumPy methods or functions you have not explicitly tested."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "On the other hand, compared to other interoperability approaches, subclassing can be a useful because many thing will \"just work\"."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "This means that subclassing can be a convenient approach and for a long time it was also often the only available approach. However, NumPy now provides additional interoperability protocols described in \""
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "Interoperability with NumPy <basics.interoperability>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "\". For many use-cases these interoperability protocols may now be a better fit or supplement the use of subclassing."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Subclassing can be a good fit if:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "you are less worried about maintainability or users other than yourself:   Subclass will be faster to implement and additional interoperability   can be added \"as-needed\".  And with few users, possible surprises are not   an issue."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "you do not think it is problematic if the subclass information is   ignored or lost silently.  An example is "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "np.memmap"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " where \"forgetting\"   about data being memory mapped cannot lead to a wrong result.   An example of a subclass that sometimes confuses users are NumPy's masked   arrays.  When they were introduced, subclassing was the only approach for   implementation.  However, today we would possibly try to avoid subclassing   and rely only on interoperability protocols."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Note that also subclass authors may wish to study "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "Interoperability with NumPy <basics.interoperability>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " to support more complex use-cases or work around the surprising behavior."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": [
+                    "astropy.units.Quantity"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "xarray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " are examples for array-like objects that interoperate well with NumPy.  Astropy's "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "Quantity"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is an example which uses a dual approach of both subclassing and interoperability protocols."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
         },
         {
           "data": {
@@ -158,7 +360,7 @@
           "type": "Unimplemented"
         }
       ],
-      "title": "ndarrays and object creation"
+      "title": "When to use subclassing"
     },
     {
       "children": [
@@ -1797,26 +1999,13 @@
         },
         {
           "data": {
-            "value": [
-              ">>> obj = InfoArray(shape=(3,)) # explicit constructor",
-              ">>> type(obj)",
-              "<class 'InfoArray'>",
-              ">>> obj.info is None",
-              "True",
-              ">>> obj = InfoArray(shape=(3,), info='information')",
-              ">>> obj.info",
-              "'information'",
-              ">>> v = obj[1:] # new-from-template - here - slicing",
-              ">>> type(v)",
-              "<class 'InfoArray'>",
-              ">>> v.info",
-              "'information'",
-              ">>> arr = np.arange(10)",
-              ">>> cast_arr = arr.view(InfoArray) # view casting",
-              ">>> type(cast_arr)",
-              "<class 'InfoArray'>",
-              ">>> cast_arr.info is None",
-              "True"
+            "children": [
+              {
+                "data": {
+                  "value": ">>> obj = InfoArray(shape=(3,)) # explicit constructor\n>>> type(obj)\n<class 'InfoArray'>\n>>> obj.info is None\nTrue\n>>> obj = InfoArray(shape=(3,), info='information')\n>>> obj.info\n'information'\n>>> v = obj[1:] # new-from-template - here - slicing\n>>> type(v)\n<class 'InfoArray'>\n>>> v.info\n'information'\n>>> arr = np.arange(10)\n>>> cast_arr = arr.view(InfoArray) # view casting\n>>> type(cast_arr)\n<class 'InfoArray'>\n>>> cast_arr.info is None\nTrue"
+                },
+                "type": "BlockVerbatim"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -1890,18 +2079,13 @@
         },
         {
           "data": {
-            "value": [
-              ">>> arr = np.arange(5)",
-              ">>> obj = RealisticInfoArray(arr, info='information')",
-              ">>> type(obj)",
-              "<class 'RealisticInfoArray'>",
-              ">>> obj.info",
-              "'information'",
-              ">>> v = obj[1:]",
-              ">>> type(v)",
-              "<class 'RealisticInfoArray'>",
-              ">>> v.info",
-              "'information'"
+            "children": [
+              {
+                "data": {
+                  "value": ">>> arr = np.arange(5)\n>>> obj = RealisticInfoArray(arr, info='information')\n>>> type(obj)\n<class 'RealisticInfoArray'>\n>>> obj.info\n'information'\n>>> v = obj[1:]\n>>> type(v)\n<class 'RealisticInfoArray'>\n>>> v.info\n'information'"
+                },
+                "type": "BlockVerbatim"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -1920,8 +2104,15 @@
       "children": [
         {
           "data": {
-            "value": [
-              ".. versionadded:: 1.13"
+            "children": [
+              {
+                "data": {
+                  "children": [],
+                  "kind": "versionadded",
+                  "title": "1.13"
+                },
+                "type": "Admonition"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -3785,7 +3976,6 @@
   "item_type": null,
   "ordered_sections": [],
   "references": null,
-  "refs": [],
   "see_also": [],
   "signature": {
     "value": null

@@ -41,8 +41,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -55,8 +65,18 @@
           },
           {
             "link": {
-              "data": "patches",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches",
+                  "version": "*"
+                },
+                "value": "patches"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -83,8 +103,18 @@
           },
           {
             "link": {
-              "data": "mpatches",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches",
+                  "version": "*"
+                },
+                "value": "mpatches"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -111,8 +141,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -125,8 +165,18 @@
           },
           {
             "link": {
-              "data": "pyplot",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "pyplot"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -153,8 +203,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -167,8 +227,18 @@
           },
           {
             "link": {
-              "data": "x_tail",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "x_tail"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -209,8 +279,18 @@
           },
           {
             "link": {
-              "data": "y_tail",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "y_tail"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -251,8 +331,18 @@
           },
           {
             "link": {
-              "data": "x_head",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "x_head"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -293,8 +383,18 @@
           },
           {
             "link": {
-              "data": "y_head",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "y_head"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -335,8 +435,18 @@
           },
           {
             "link": {
-              "data": "dx",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "dx"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -363,8 +473,18 @@
           },
           {
             "link": {
-              "data": "x_head",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "x_head"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -391,8 +511,18 @@
           },
           {
             "link": {
-              "data": "x_tail",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "x_tail"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -405,8 +535,18 @@
           },
           {
             "link": {
-              "data": "dy",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "dy"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -433,8 +573,18 @@
           },
           {
             "link": {
-              "data": "y_head",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "y_head"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -461,8 +611,18 @@
           },
           {
             "link": {
-              "data": "y_tail",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "y_tail"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -650,8 +810,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -699,8 +869,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -713,8 +893,18 @@
           },
           {
             "link": {
-              "data": "subplots",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.subplots",
+                  "version": "*"
+                },
+                "value": "subplots"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -762,8 +952,18 @@
           },
           {
             "link": {
-              "data": "arrow",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.FancyArrowPatch",
+                  "version": "*"
+                },
+                "value": "arrow"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -790,8 +990,18 @@
           },
           {
             "link": {
-              "data": "mpatches",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches",
+                  "version": "*"
+                },
+                "value": "mpatches"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -804,8 +1014,18 @@
           },
           {
             "link": {
-              "data": "FancyArrowPatch",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.FancyArrowPatch",
+                  "version": "*"
+                },
+                "value": "FancyArrowPatch"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -825,8 +1045,18 @@
           },
           {
             "link": {
-              "data": "x_tail",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "x_tail"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -846,8 +1076,18 @@
           },
           {
             "link": {
-              "data": "y_tail",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "y_tail"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -881,8 +1121,18 @@
           },
           {
             "link": {
-              "data": "x_head",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "x_head"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -902,8 +1152,18 @@
           },
           {
             "link": {
-              "data": "y_head",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "y_head"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1021,8 +1281,18 @@
           },
           {
             "link": {
-              "data": "arrow",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.FancyArrowPatch",
+                  "version": "*"
+                },
+                "value": "arrow"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1049,8 +1319,18 @@
           },
           {
             "link": {
-              "data": "arrow",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.FancyArrowPatch",
+                  "version": "*"
+                },
+                "value": "arrow"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1077,8 +1357,18 @@
           },
           {
             "link": {
-              "data": "mpatches",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches",
+                  "version": "*"
+                },
+                "value": "mpatches"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1091,8 +1381,18 @@
           },
           {
             "link": {
-              "data": "FancyArrowPatch",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.FancyArrowPatch",
+                  "version": "*"
+                },
+                "value": "FancyArrowPatch"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1112,8 +1412,18 @@
           },
           {
             "link": {
-              "data": "x_tail",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "x_tail"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1133,8 +1443,18 @@
           },
           {
             "link": {
-              "data": "y_tail",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "y_tail"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1168,8 +1488,18 @@
           },
           {
             "link": {
-              "data": "x_head",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "x_head"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1189,8 +1519,18 @@
           },
           {
             "link": {
-              "data": "y_head",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "y_head"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1308,8 +1648,18 @@
           },
           {
             "link": {
-              "data": "arrow",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.FancyArrowPatch",
+                  "version": "*"
+                },
+                "value": "arrow"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1714,8 +2064,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1763,8 +2123,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1777,8 +2147,18 @@
           },
           {
             "link": {
-              "data": "subplots",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.subplots",
+                  "version": "*"
+                },
+                "value": "subplots"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1826,8 +2206,18 @@
           },
           {
             "link": {
-              "data": "arrow",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.FancyArrowPatch",
+                  "version": "*"
+                },
+                "value": "arrow"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1854,8 +2244,18 @@
           },
           {
             "link": {
-              "data": "mpatches",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches",
+                  "version": "*"
+                },
+                "value": "mpatches"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1868,8 +2268,18 @@
           },
           {
             "link": {
-              "data": "FancyArrowPatch",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.FancyArrowPatch",
+                  "version": "*"
+                },
+                "value": "FancyArrowPatch"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1889,8 +2299,18 @@
           },
           {
             "link": {
-              "data": "x_tail",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "x_tail"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1910,8 +2330,18 @@
           },
           {
             "link": {
-              "data": "y_tail",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "y_tail"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1945,8 +2375,18 @@
           },
           {
             "link": {
-              "data": "x_head",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "x_head"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1966,8 +2406,18 @@
           },
           {
             "link": {
-              "data": "y_head",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "y_head"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2162,8 +2612,18 @@
           },
           {
             "link": {
-              "data": "arrow",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.FancyArrowPatch",
+                  "version": "*"
+                },
+                "value": "arrow"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2190,8 +2650,18 @@
           },
           {
             "link": {
-              "data": "arrow",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.FancyArrowPatch",
+                  "version": "*"
+                },
+                "value": "arrow"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2218,8 +2688,18 @@
           },
           {
             "link": {
-              "data": "mpatches",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches",
+                  "version": "*"
+                },
+                "value": "mpatches"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2232,8 +2712,18 @@
           },
           {
             "link": {
-              "data": "FancyArrowPatch",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.FancyArrowPatch",
+                  "version": "*"
+                },
+                "value": "FancyArrowPatch"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2253,8 +2743,18 @@
           },
           {
             "link": {
-              "data": "x_tail",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "x_tail"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2274,8 +2774,18 @@
           },
           {
             "link": {
-              "data": "y_tail",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "y_tail"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2309,8 +2819,18 @@
           },
           {
             "link": {
-              "data": "x_head",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "x_head"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2330,8 +2850,18 @@
           },
           {
             "link": {
-              "data": "y_head",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "y_head"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2526,8 +3056,18 @@
           },
           {
             "link": {
-              "data": "arrow",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.FancyArrowPatch",
+                  "version": "*"
+                },
+                "value": "arrow"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2953,8 +3493,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3002,8 +3552,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3016,8 +3576,18 @@
           },
           {
             "link": {
-              "data": "subplots",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.subplots",
+                  "version": "*"
+                },
+                "value": "subplots"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3072,8 +3642,18 @@
           },
           {
             "link": {
-              "data": "arrow",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.Arrow",
+                  "version": "*"
+                },
+                "value": "arrow"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3100,8 +3680,18 @@
           },
           {
             "link": {
-              "data": "mpatches",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches",
+                  "version": "*"
+                },
+                "value": "mpatches"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3114,8 +3704,18 @@
           },
           {
             "link": {
-              "data": "Arrow",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.Arrow",
+                  "version": "*"
+                },
+                "value": "Arrow"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3128,8 +3728,18 @@
           },
           {
             "link": {
-              "data": "x_tail",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "x_tail"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3149,8 +3759,18 @@
           },
           {
             "link": {
-              "data": "y_tail",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "y_tail"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3170,8 +3790,18 @@
           },
           {
             "link": {
-              "data": "dx",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "dx"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3191,8 +3821,18 @@
           },
           {
             "link": {
-              "data": "dy",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "dy"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3261,8 +3901,18 @@
           },
           {
             "link": {
-              "data": "arrow",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.Arrow",
+                  "version": "*"
+                },
+                "value": "arrow"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3282,8 +3932,18 @@
           },
           {
             "link": {
-              "data": "arrow",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.FancyArrow",
+                  "version": "*"
+                },
+                "value": "arrow"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3310,8 +3970,18 @@
           },
           {
             "link": {
-              "data": "mpatches",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches",
+                  "version": "*"
+                },
+                "value": "mpatches"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3324,8 +3994,18 @@
           },
           {
             "link": {
-              "data": "FancyArrow",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.FancyArrow",
+                  "version": "*"
+                },
+                "value": "FancyArrow"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3338,8 +4018,18 @@
           },
           {
             "link": {
-              "data": "x_tail",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "x_tail"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3359,8 +4049,18 @@
           },
           {
             "link": {
-              "data": "y_tail",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "y_tail"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3408,8 +4108,18 @@
           },
           {
             "link": {
-              "data": "dx",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "dx"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3429,8 +4139,18 @@
           },
           {
             "link": {
-              "data": "dy",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "dy"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3625,8 +4345,18 @@
           },
           {
             "link": {
-              "data": "arrow",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.FancyArrow",
+                  "version": "*"
+                },
+                "value": "arrow"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3695,8 +4425,18 @@
           },
           {
             "link": {
-              "data": "x_tail",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "x_tail"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3744,8 +4484,18 @@
           },
           {
             "link": {
-              "data": "y_tail",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "y_tail"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3793,8 +4543,18 @@
           },
           {
             "link": {
-              "data": "dx",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "dx"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3814,8 +4574,18 @@
           },
           {
             "link": {
-              "data": "dy",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "dy"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3968,8 +4738,18 @@
           },
           {
             "link": {
-              "data": "arrow",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.Arrow",
+                  "version": "*"
+                },
+                "value": "arrow"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3996,8 +4776,18 @@
           },
           {
             "link": {
-              "data": "mpatches",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches",
+                  "version": "*"
+                },
+                "value": "mpatches"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4010,8 +4800,18 @@
           },
           {
             "link": {
-              "data": "Arrow",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.Arrow",
+                  "version": "*"
+                },
+                "value": "Arrow"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4024,8 +4824,18 @@
           },
           {
             "link": {
-              "data": "x_tail",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "x_tail"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4045,8 +4855,18 @@
           },
           {
             "link": {
-              "data": "y_tail",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "y_tail"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4066,8 +4886,18 @@
           },
           {
             "link": {
-              "data": "dx",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "dx"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4087,8 +4917,18 @@
           },
           {
             "link": {
-              "data": "dy",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "dy"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4157,8 +4997,18 @@
           },
           {
             "link": {
-              "data": "arrow",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.Arrow",
+                  "version": "*"
+                },
+                "value": "arrow"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4178,8 +5028,18 @@
           },
           {
             "link": {
-              "data": "arrow",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.FancyArrow",
+                  "version": "*"
+                },
+                "value": "arrow"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4206,8 +5066,18 @@
           },
           {
             "link": {
-              "data": "mpatches",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches",
+                  "version": "*"
+                },
+                "value": "mpatches"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4220,8 +5090,18 @@
           },
           {
             "link": {
-              "data": "FancyArrow",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.FancyArrow",
+                  "version": "*"
+                },
+                "value": "FancyArrow"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4234,8 +5114,18 @@
           },
           {
             "link": {
-              "data": "x_tail",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "x_tail"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4255,8 +5145,18 @@
           },
           {
             "link": {
-              "data": "y_tail",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "y_tail"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4304,8 +5204,18 @@
           },
           {
             "link": {
-              "data": "dx",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "dx"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4325,8 +5235,18 @@
           },
           {
             "link": {
-              "data": "dy",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "dy"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4521,8 +5441,18 @@
           },
           {
             "link": {
-              "data": "arrow",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.FancyArrow",
+                  "version": "*"
+                },
+                "value": "arrow"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4591,8 +5521,18 @@
           },
           {
             "link": {
-              "data": "x_tail",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "x_tail"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4640,8 +5580,18 @@
           },
           {
             "link": {
-              "data": "y_tail",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "y_tail"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4689,8 +5639,18 @@
           },
           {
             "link": {
-              "data": "dx",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "dx"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4710,8 +5670,18 @@
           },
           {
             "link": {
-              "data": "dy",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "dy"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5074,8 +6044,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5088,8 +6068,18 @@
           },
           {
             "link": {
-              "data": "show",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.show",
+                  "version": "*"
+                },
+                "value": "show"
+              },
+              "type": "Link"
             },
             "type": ""
           },

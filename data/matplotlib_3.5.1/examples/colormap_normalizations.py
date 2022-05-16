@@ -5161,18 +5161,8 @@
           },
           {
             "link": {
-              "data": {
-                "exists": true,
-                "kind": "module",
-                "reference": {
-                  "kind": "module",
-                  "module": "numpy",
-                  "path": "numpy.ndarray",
-                  "version": "*"
-                },
-                "value": "X"
-              },
-              "type": "Link"
+              "data": "X",
+              "type": "str"
             },
             "type": ""
           },

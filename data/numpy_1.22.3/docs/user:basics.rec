@@ -49,12 +49,13 @@
         },
         {
           "data": {
-            "value": [
-              ">>> x = np.array([('Rex', 9, 81.0), ('Fido', 3, 27.0)],",
-              "...              dtype=[('name', 'U10'), ('age', 'i4'), ('weight', 'f4')])",
-              ">>> x",
-              "array([('Rex', 9, 81.), ('Fido', 3, 27.)],",
-              "      dtype=[('name', '<U10'), ('age', '<i4'), ('weight', '<f4')])"
+            "children": [
+              {
+                "data": {
+                  "value": ">>> x = np.array([('Rex', 9, 81.0), ('Fido', 3, 27.0)],\n...              dtype=[('name', 'U10'), ('age', 'i4'), ('weight', 'f4')])\n>>> x\narray([('Rex', 9, 81.), ('Fido', 3, 27.)],\n      dtype=[('name', '<U10'), ('age', '<i4'), ('weight', '<f4')])"
+                },
+                "type": "BlockVerbatim"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -366,9 +367,13 @@
                   },
                   {
                     "data": {
-                      "value": [
-                        ">>> np.dtype([('x', 'f4'), ('y', np.float32), ('z', 'f4', (2, 2))])",
-                        "dtype([('x', '<f4'), ('y', '<f4'), ('z', '<f4', (2, 2))])"
+                      "children": [
+                        {
+                          "data": {
+                            "value": ">>> np.dtype([('x', 'f4'), ('y', np.float32), ('z', 'f4', (2, 2))])\ndtype([('x', '<f4'), ('y', '<f4'), ('z', '<f4', (2, 2))])"
+                          },
+                          "type": "BlockVerbatim"
+                        }
                       ]
                     },
                     "type": "BlockQuote"
@@ -584,14 +589,13 @@
                   },
                   {
                     "data": {
-                      "value": [
-                        ">>> np.dtype({'names': ['col1', 'col2'], 'formats': ['i4', 'f4']})",
-                        "dtype([('col1', '<i4'), ('col2', '<f4')])",
-                        ">>> np.dtype({'names': ['col1', 'col2'],",
-                        "...           'formats': ['i4', 'f4'],",
-                        "...           'offsets': [0, 4],",
-                        "...           'itemsize': 12})",
-                        "dtype({'names': ['col1', 'col2'], 'formats': ['<i4', '<f4'], 'offsets': [0, 4], 'itemsize': 12})"
+                      "children": [
+                        {
+                          "data": {
+                            "value": ">>> np.dtype({'names': ['col1', 'col2'], 'formats': ['i4', 'f4']})\ndtype([('col1', '<i4'), ('col2', '<f4')])\n>>> np.dtype({'names': ['col1', 'col2'],\n...           'formats': ['i4', 'f4'],\n...           'offsets': [0, 4],\n...           'itemsize': 12})\ndtype({'names': ['col1', 'col2'], 'formats': ['<i4', '<f4'], 'offsets': [0, 4], 'itemsize': 12})"
+                          },
+                          "type": "BlockVerbatim"
+                        }
                       ]
                     },
                     "type": "BlockQuote"
@@ -1698,9 +1702,13 @@
         },
         {
           "data": {
-            "value": [
-              ">>> y.dtype, y.shape, y.strides",
-              "(dtype('float32'), (2,), (12,))"
+            "children": [
+              {
+                "data": {
+                  "value": ">>> y.dtype, y.shape, y.strides\n(dtype('float32'), (2,), (12,))"
+                },
+                "type": "BlockVerbatim"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -2026,10 +2034,13 @@
               },
               {
                 "data": {
-                  "value": [
-                    ">>> from numpy.lib.recfunctions import repack_fields",
-                    ">>> repack_fields(a[['a', 'c']]).view('i8')  # supported in 1.16",
-                    "array([0, 0, 0])"
+                  "children": [
+                    {
+                      "data": {
+                        "value": ">>> from numpy.lib.recfunctions import repack_fields\n>>> repack_fields(a[['a', 'c']]).view('i8')  # supported in 1.16\narray([0, 0, 0])"
+                      },
+                      "type": "BlockVerbatim"
+                    }
                   ]
                 },
                 "type": "BlockQuote"
@@ -2053,7 +2064,7 @@
                     },
                     {
                       "data": {
-                        "value": " which is a safer and more efficient alternative for users who wish to convert structured arrays to unstructured arrays, as the view above is often indeded to do. This function allows safe conversion to an unstructured type taking into account padding, often avoids a copy, and also casts the datatypes as needed, unlike the view. Code such as:"
+                        "value": " which is a safer and more efficient alternative for users who wish to convert structured arrays to unstructured arrays, as the view above is often intended to do. This function allows safe conversion to an unstructured type taking into account padding, often avoids a copy, and also casts the datatypes as needed, unlike the view. Code such as:"
                       },
                       "type": "Words"
                     }
@@ -2063,10 +2074,13 @@
               },
               {
                 "data": {
-                  "value": [
-                    ">>> b = np.zeros(3, dtype=[('x', 'f4'), ('y', 'f4'), ('z', 'f4')])",
-                    ">>> b[['x', 'z']].view('f4')",
-                    "array([0., 0., 0., 0., 0., 0., 0., 0., 0.], dtype=float32)"
+                  "children": [
+                    {
+                      "data": {
+                        "value": ">>> b = np.zeros(3, dtype=[('x', 'f4'), ('y', 'f4'), ('z', 'f4')])\n>>> b[['x', 'z']].view('f4')\narray([0., 0., 0., 0., 0., 0., 0., 0., 0.], dtype=float32)"
+                      },
+                      "type": "BlockVerbatim"
+                    }
                   ]
                 },
                 "type": "BlockQuote"
@@ -2086,12 +2100,13 @@
               },
               {
                 "data": {
-                  "value": [
-                    ">>> from numpy.lib.recfunctions import structured_to_unstructured",
-                    ">>> structured_to_unstructured(b[['x', 'z']])",
-                    "array([[0., 0.],",
-                    "       [0., 0.],",
-                    "       [0., 0.]], dtype=float32)"
+                  "children": [
+                    {
+                      "data": {
+                        "value": ">>> from numpy.lib.recfunctions import structured_to_unstructured\n>>> structured_to_unstructured(b[['x', 'z']])\narray([[0., 0.],\n       [0., 0.],\n       [0., 0.]], dtype=float32)"
+                      },
+                      "type": "BlockVerbatim"
+                    }
                   ]
                 },
                 "type": "BlockQuote"
@@ -2725,7 +2740,6 @@
   "item_type": null,
   "ordered_sections": [],
   "references": null,
-  "refs": [],
   "see_also": [],
   "signature": {
     "value": null

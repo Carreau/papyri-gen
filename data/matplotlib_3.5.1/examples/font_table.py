@@ -41,8 +41,18 @@
           },
           {
             "link": {
-              "data": "os",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "os",
+                  "path": "os",
+                  "version": "*"
+                },
+                "value": "os"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -69,8 +79,18 @@
           },
           {
             "link": {
-              "data": "pathlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "pathlib",
+                  "path": "pathlib",
+                  "version": "*"
+                },
+                "value": "pathlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -97,8 +117,18 @@
           },
           {
             "link": {
-              "data": "Path",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "pathlib",
+                  "path": "pathlib.Path",
+                  "version": "*"
+                },
+                "value": "Path"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -125,8 +155,18 @@
           },
           {
             "link": {
-              "data": "unicodedata",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "unicodedata",
+                  "path": "unicodedata",
+                  "version": "*"
+                },
+                "value": "unicodedata"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -160,8 +200,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -174,8 +224,18 @@
           },
           {
             "link": {
-              "data": "font_manager",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.font_manager",
+                  "version": "*"
+                },
+                "value": "font_manager"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -202,8 +262,18 @@
           },
           {
             "link": {
-              "data": "fm",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.font_manager",
+                  "version": "*"
+                },
+                "value": "fm"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -230,8 +300,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -244,8 +324,18 @@
           },
           {
             "link": {
-              "data": "ft2font",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.ft2font",
+                  "version": "*"
+                },
+                "value": "ft2font"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -272,8 +362,18 @@
           },
           {
             "link": {
-              "data": "FT2Font",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.ft2font.FT2Font",
+                  "version": "*"
+                },
+                "value": "FT2Font"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -300,8 +400,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -314,8 +424,18 @@
           },
           {
             "link": {
-              "data": "pyplot",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "pyplot"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -342,8 +462,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -384,8 +514,18 @@
           },
           {
             "link": {
-              "data": "print_glyphs",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.print_glyphs",
+                  "version": "*"
+                },
+                "value": "print_glyphs"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -398,8 +538,18 @@
           },
           {
             "link": {
-              "data": "path",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "path"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -468,8 +618,18 @@
           },
           {
             "link": {
-              "data": "path",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "path"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -524,8 +684,18 @@
           },
           {
             "link": {
-              "data": "path",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "path"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -552,8 +722,18 @@
           },
           {
             "link": {
-              "data": "fm",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.font_manager",
+                  "version": "*"
+                },
+                "value": "fm"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -566,8 +746,18 @@
           },
           {
             "link": {
-              "data": "findfont",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.font_manager.FontManager.findfont",
+                  "version": "*"
+                },
+                "value": "findfont"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -580,8 +770,18 @@
           },
           {
             "link": {
-              "data": "fm",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.font_manager",
+                  "version": "*"
+                },
+                "value": "fm"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -594,8 +794,18 @@
           },
           {
             "link": {
-              "data": "FontProperties",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.font_manager.FontProperties",
+                  "version": "*"
+                },
+                "value": "FontProperties"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -657,8 +867,18 @@
           },
           {
             "link": {
-              "data": "font",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.ft2font.FT2Font",
+                  "version": "*"
+                },
+                "value": "font"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -685,8 +905,18 @@
           },
           {
             "link": {
-              "data": "FT2Font",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.ft2font.FT2Font",
+                  "version": "*"
+                },
+                "value": "FT2Font"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -699,8 +929,18 @@
           },
           {
             "link": {
-              "data": "path",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "path"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -762,8 +1002,18 @@
           },
           {
             "link": {
-              "data": "font",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.ft2font.FT2Font",
+                  "version": "*"
+                },
+                "value": "font"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -776,8 +1026,18 @@
           },
           {
             "link": {
-              "data": "get_charmap",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.FT2Font.get_charmap",
+                  "version": "*"
+                },
+                "value": "get_charmap"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -811,8 +1071,18 @@
           },
           {
             "link": {
-              "data": "max_indices_len",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "max_indices_len"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -839,8 +1109,18 @@
           },
           {
             "link": {
-              "data": "len",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.len",
+                  "version": "*"
+                },
+                "value": "len"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -853,8 +1133,18 @@
           },
           {
             "link": {
-              "data": "str",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "str"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -867,8 +1157,18 @@
           },
           {
             "link": {
-              "data": "max",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.max",
+                  "version": "*"
+                },
+                "value": "max"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -958,8 +1258,18 @@
           },
           {
             "link": {
-              "data": "print",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.print",
+                  "version": "*"
+                },
+                "value": "print"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -1133,8 +1443,18 @@
           },
           {
             "link": {
-              "data": "char",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "char"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1161,8 +1481,18 @@
           },
           {
             "link": {
-              "data": "chr",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.chr",
+                  "version": "*"
+                },
+                "value": "chr"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -1203,8 +1533,18 @@
           },
           {
             "link": {
-              "data": "name",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "name"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1231,8 +1571,18 @@
           },
           {
             "link": {
-              "data": "unicodedata",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "unicodedata",
+                  "path": "unicodedata",
+                  "version": "*"
+                },
+                "value": "unicodedata"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1245,8 +1595,18 @@
           },
           {
             "link": {
-              "data": "name",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "unicodedata",
+                  "path": "unicodedata.name",
+                  "version": "*"
+                },
+                "value": "name"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1273,8 +1633,18 @@
           },
           {
             "link": {
-              "data": "char",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "char"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1301,8 +1671,18 @@
           },
           {
             "link": {
-              "data": "f",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "f"
+              },
+              "type": "Link"
             },
             "type": "sa"
           },
@@ -1364,8 +1744,18 @@
           },
           {
             "link": {
-              "data": "font",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.ft2font.FT2Font",
+                  "version": "*"
+                },
+                "value": "font"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1378,8 +1768,18 @@
           },
           {
             "link": {
-              "data": "get_glyph_name",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.FT2Font.get_glyph_name",
+                  "version": "*"
+                },
+                "value": "get_glyph_name"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1448,8 +1848,18 @@
           },
           {
             "link": {
-              "data": "print",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.print",
+                  "version": "*"
+                },
+                "value": "print"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -1462,8 +1872,18 @@
           },
           {
             "link": {
-              "data": "f",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.NoneType",
+                  "version": "*"
+                },
+                "value": "f"
+              },
+              "type": "Link"
             },
             "type": "sa"
           },
@@ -1511,8 +1931,18 @@
           },
           {
             "link": {
-              "data": "max_indices_len",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "max_indices_len"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1546,8 +1976,18 @@
           },
           {
             "link": {
-              "data": "char",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "char"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1574,8 +2014,18 @@
           },
           {
             "link": {
-              "data": "name",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "name"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1637,8 +2087,18 @@
           },
           {
             "link": {
-              "data": "draw_font_table",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.draw_font_table",
+                  "version": "*"
+                },
+                "value": "draw_font_table"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -1651,8 +2111,18 @@
           },
           {
             "link": {
-              "data": "path",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "path"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1721,8 +2191,18 @@
           },
           {
             "link": {
-              "data": "path",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "path"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1805,8 +2285,18 @@
           },
           {
             "link": {
-              "data": "fm",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.font_manager",
+                  "version": "*"
+                },
+                "value": "fm"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1819,8 +2309,18 @@
           },
           {
             "link": {
-              "data": "findfont",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.font_manager.FontManager.findfont",
+                  "version": "*"
+                },
+                "value": "findfont"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1833,8 +2333,18 @@
           },
           {
             "link": {
-              "data": "fm",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.font_manager",
+                  "version": "*"
+                },
+                "value": "fm"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1847,8 +2357,18 @@
           },
           {
             "link": {
-              "data": "FontProperties",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.font_manager.FontProperties",
+                  "version": "*"
+                },
+                "value": "FontProperties"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1910,8 +2430,18 @@
           },
           {
             "link": {
-              "data": "font",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.ft2font.FT2Font",
+                  "version": "*"
+                },
+                "value": "font"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1938,8 +2468,18 @@
           },
           {
             "link": {
-              "data": "FT2Font",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.ft2font.FT2Font",
+                  "version": "*"
+                },
+                "value": "FT2Font"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1952,8 +2492,18 @@
           },
           {
             "link": {
-              "data": "path",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "path"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2239,8 +2789,18 @@
           },
           {
             "link": {
-              "data": "font",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.ft2font.FT2Font",
+                  "version": "*"
+                },
+                "value": "font"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2253,8 +2813,18 @@
           },
           {
             "link": {
-              "data": "get_charmap",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.FT2Font.get_charmap",
+                  "version": "*"
+                },
+                "value": "get_charmap"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2323,8 +2893,18 @@
           },
           {
             "link": {
-              "data": "labelc",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "labelc"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2386,8 +2966,18 @@
           },
           {
             "link": {
-              "data": "format",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str.format",
+                  "version": "*"
+                },
+                "value": "format"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2400,8 +2990,18 @@
           },
           {
             "link": {
-              "data": "i",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "i"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2435,8 +3035,18 @@
           },
           {
             "link": {
-              "data": "i",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "i"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2463,8 +3073,18 @@
           },
           {
             "link": {
-              "data": "range",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.range",
+                  "version": "*"
+                },
+                "value": "range"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -2512,8 +3132,18 @@
           },
           {
             "link": {
-              "data": "labelr",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "labelr"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2575,8 +3205,18 @@
           },
           {
             "link": {
-              "data": "format",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str.format",
+                  "version": "*"
+                },
+                "value": "format"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2617,8 +3257,18 @@
           },
           {
             "link": {
-              "data": "i",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "i"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2652,8 +3302,18 @@
           },
           {
             "link": {
-              "data": "i",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "i"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2680,8 +3340,18 @@
           },
           {
             "link": {
-              "data": "range",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.range",
+                  "version": "*"
+                },
+                "value": "range"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -2729,8 +3399,18 @@
           },
           {
             "link": {
-              "data": "chars",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "chars"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2806,8 +3486,18 @@
           },
           {
             "link": {
-              "data": "c",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "c"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2834,8 +3524,18 @@
           },
           {
             "link": {
-              "data": "range",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.range",
+                  "version": "*"
+                },
+                "value": "range"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -2890,8 +3590,18 @@
           },
           {
             "link": {
-              "data": "r",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "r"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2918,8 +3628,18 @@
           },
           {
             "link": {
-              "data": "range",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.range",
+                  "version": "*"
+                },
+                "value": "range"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -3163,8 +3883,18 @@
           },
           {
             "link": {
-              "data": "row",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "row"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3184,8 +3914,18 @@
           },
           {
             "link": {
-              "data": "col",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "col"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3212,8 +3952,18 @@
           },
           {
             "link": {
-              "data": "divmod",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.divmod",
+                  "version": "*"
+                },
+                "value": "divmod"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -3275,8 +4025,18 @@
           },
           {
             "link": {
-              "data": "chars",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "chars"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3289,8 +4049,18 @@
           },
           {
             "link": {
-              "data": "row",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "row"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3310,8 +4080,18 @@
           },
           {
             "link": {
-              "data": "col",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "col"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3345,8 +4125,18 @@
           },
           {
             "link": {
-              "data": "chr",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.chr",
+                  "version": "*"
+                },
+                "value": "chr"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -3394,8 +4184,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3443,8 +4243,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3457,8 +4267,18 @@
           },
           {
             "link": {
-              "data": "subplots",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.subplots",
+                  "version": "*"
+                },
+                "value": "subplots"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3576,8 +4396,18 @@
           },
           {
             "link": {
-              "data": "os",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "os",
+                  "path": "os",
+                  "version": "*"
+                },
+                "value": "os"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3590,8 +4420,18 @@
           },
           {
             "link": {
-              "data": "path",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "os",
+                  "path": "os.path",
+                  "version": "*"
+                },
+                "value": "path"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3604,8 +4444,18 @@
           },
           {
             "link": {
-              "data": "basename",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "os",
+                  "path": "os.path.basename",
+                  "version": "*"
+                },
+                "value": "basename"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3618,8 +4468,18 @@
           },
           {
             "link": {
-              "data": "path",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "path"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3793,8 +4653,18 @@
           },
           {
             "link": {
-              "data": "chars",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "chars"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3835,8 +4705,18 @@
           },
           {
             "link": {
-              "data": "labelr",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "labelr"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3877,8 +4757,18 @@
           },
           {
             "link": {
-              "data": "labelc",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "labelc"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4171,8 +5061,18 @@
           },
           {
             "link": {
-              "data": "c",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "c"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4199,8 +5099,18 @@
           },
           {
             "link": {
-              "data": "range",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.range",
+                  "version": "*"
+                },
+                "value": "range"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -4255,8 +5165,18 @@
           },
           {
             "link": {
-              "data": "r",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "r"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4283,8 +5203,18 @@
           },
           {
             "link": {
-              "data": "range",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.range",
+                  "version": "*"
+                },
+                "value": "range"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -4864,8 +5794,18 @@
           },
           {
             "link": {
-              "data": "font",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.ft2font.FT2Font",
+                  "version": "*"
+                },
+                "value": "font"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4878,8 +5818,18 @@
           },
           {
             "link": {
-              "data": "Path",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "pathlib",
+                  "path": "pathlib.Path",
+                  "version": "*"
+                },
+                "value": "Path"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4892,8 +5842,18 @@
           },
           {
             "link": {
-              "data": "path",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "path"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4934,8 +5894,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4983,8 +5953,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4997,8 +5977,18 @@
           },
           {
             "link": {
-              "data": "show",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.show",
+                  "version": "*"
+                },
+                "value": "show"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5053,8 +6043,18 @@
           },
           {
             "link": {
-              "data": "__name__",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "__name__"
+              },
+              "type": "Link"
             },
             "type": "vm"
           },
@@ -5137,8 +6137,18 @@
           },
           {
             "link": {
-              "data": "argparse",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "argparse",
+                  "path": "argparse",
+                  "version": "*"
+                },
+                "value": "argparse"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -5165,8 +6175,18 @@
           },
           {
             "link": {
-              "data": "ArgumentParser",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "argparse",
+                  "path": "argparse.ArgumentParser",
+                  "version": "*"
+                },
+                "value": "ArgumentParser"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5193,8 +6213,18 @@
           },
           {
             "link": {
-              "data": "parser",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "argparse",
+                  "path": "argparse.ArgumentParser",
+                  "version": "*"
+                },
+                "value": "parser"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5221,8 +6251,18 @@
           },
           {
             "link": {
-              "data": "ArgumentParser",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "argparse",
+                  "path": "argparse.ArgumentParser",
+                  "version": "*"
+                },
+                "value": "ArgumentParser"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5291,8 +6331,18 @@
           },
           {
             "link": {
-              "data": "parser",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "argparse",
+                  "path": "argparse.ArgumentParser",
+                  "version": "*"
+                },
+                "value": "parser"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5305,8 +6355,18 @@
           },
           {
             "link": {
-              "data": "add_argument",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "argparse",
+                  "path": "argparse._ActionsContainer.add_argument",
+                  "version": "*"
+                },
+                "value": "add_argument"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5403,8 +6463,18 @@
           },
           {
             "link": {
-              "data": "help",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.help",
+                  "version": "*"
+                },
+                "value": "help"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5459,8 +6529,18 @@
           },
           {
             "link": {
-              "data": "parser",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "argparse",
+                  "path": "argparse.ArgumentParser",
+                  "version": "*"
+                },
+                "value": "parser"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5473,8 +6553,18 @@
           },
           {
             "link": {
-              "data": "add_argument",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "argparse",
+                  "path": "argparse._ActionsContainer.add_argument",
+                  "version": "*"
+                },
+                "value": "add_argument"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5578,8 +6668,18 @@
           },
           {
             "link": {
-              "data": "help",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.help",
+                  "version": "*"
+                },
+                "value": "help"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5634,8 +6734,18 @@
           },
           {
             "link": {
-              "data": "args",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "argparse",
+                  "path": "argparse.Namespace",
+                  "version": "*"
+                },
+                "value": "args"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5662,8 +6772,18 @@
           },
           {
             "link": {
-              "data": "parser",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "argparse",
+                  "path": "argparse.ArgumentParser",
+                  "version": "*"
+                },
+                "value": "parser"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5676,8 +6796,18 @@
           },
           {
             "link": {
-              "data": "parse_args",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "argparse",
+                  "path": "argparse.ArgumentParser.parse_args",
+                  "version": "*"
+                },
+                "value": "parse_args"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5732,8 +6862,18 @@
           },
           {
             "link": {
-              "data": "args",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "argparse",
+                  "path": "argparse.Namespace",
+                  "version": "*"
+                },
+                "value": "args"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5774,8 +6914,18 @@
           },
           {
             "link": {
-              "data": "print_glyphs",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.print_glyphs",
+                  "version": "*"
+                },
+                "value": "print_glyphs"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5788,8 +6938,18 @@
           },
           {
             "link": {
-              "data": "args",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "argparse",
+                  "path": "argparse.Namespace",
+                  "version": "*"
+                },
+                "value": "args"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5830,8 +6990,18 @@
           },
           {
             "link": {
-              "data": "draw_font_table",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.draw_font_table",
+                  "version": "*"
+                },
+                "value": "draw_font_table"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5844,8 +7014,18 @@
           },
           {
             "link": {
-              "data": "args",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "argparse",
+                  "path": "argparse.Namespace",
+                  "version": "*"
+                },
+                "value": "args"
+              },
+              "type": "Link"
             },
             "type": ""
           },

@@ -41,8 +41,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -55,8 +65,18 @@
           },
           {
             "link": {
-              "data": "artist",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.artist",
+                  "version": "*"
+                },
+                "value": "artist"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -83,8 +103,18 @@
           },
           {
             "link": {
-              "data": "artist",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.artist",
+                  "version": "*"
+                },
+                "value": "artist"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -111,8 +141,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -125,8 +165,18 @@
           },
           {
             "link": {
-              "data": "patches",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches",
+                  "version": "*"
+                },
+                "value": "patches"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -153,8 +203,18 @@
           },
           {
             "link": {
-              "data": "patches",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches",
+                  "version": "*"
+                },
+                "value": "patches"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -181,8 +241,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -195,8 +265,18 @@
           },
           {
             "link": {
-              "data": "pyplot",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "pyplot"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -223,8 +303,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -251,8 +341,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -265,8 +365,18 @@
           },
           {
             "link": {
-              "data": "transforms",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms",
+                  "version": "*"
+                },
+                "value": "transforms"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -293,8 +403,18 @@
           },
           {
             "link": {
-              "data": "IdentityTransform",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.IdentityTransform",
+                  "version": "*"
+                },
+                "value": "IdentityTransform"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -335,8 +455,18 @@
           },
           {
             "link": {
-              "data": "ItemProperties",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.ItemProperties",
+                  "version": "*"
+                },
+                "value": "ItemProperties"
+              },
+              "type": "Link"
             },
             "type": "nc"
           },
@@ -377,8 +507,18 @@
           },
           {
             "link": {
-              "data": "__init__",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.ItemProperties.__init__",
+                  "version": "*"
+                },
+                "value": "__init__"
+              },
+              "type": "Link"
             },
             "type": "fm"
           },
@@ -391,8 +531,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.ItemProperties",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -412,8 +562,18 @@
           },
           {
             "link": {
-              "data": "fontsize",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fontsize"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -447,8 +607,18 @@
           },
           {
             "link": {
-              "data": "labelcolor",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "labelcolor"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -496,8 +666,18 @@
           },
           {
             "link": {
-              "data": "bgcolor",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "bgcolor"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -552,8 +732,18 @@
           },
           {
             "link": {
-              "data": "alpha",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "alpha"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -601,8 +791,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.ItemProperties",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -615,8 +815,18 @@
           },
           {
             "link": {
-              "data": "fontsize",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fontsize"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -643,8 +853,18 @@
           },
           {
             "link": {
-              "data": "fontsize",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fontsize"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -664,8 +884,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.ItemProperties",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -678,8 +908,18 @@
           },
           {
             "link": {
-              "data": "labelcolor",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "labelcolor"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -706,8 +946,18 @@
           },
           {
             "link": {
-              "data": "labelcolor",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "labelcolor"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -727,8 +977,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.ItemProperties",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -741,8 +1001,18 @@
           },
           {
             "link": {
-              "data": "bgcolor",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "bgcolor"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -769,8 +1039,18 @@
           },
           {
             "link": {
-              "data": "bgcolor",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "bgcolor"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -790,8 +1070,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.ItemProperties",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -804,8 +1094,18 @@
           },
           {
             "link": {
-              "data": "alpha",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "alpha"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -832,8 +1132,18 @@
           },
           {
             "link": {
-              "data": "alpha",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.float",
+                  "version": "*"
+                },
+                "value": "alpha"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -874,8 +1184,18 @@
           },
           {
             "link": {
-              "data": "MenuItem",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "MenuItem"
+              },
+              "type": "Link"
             },
             "type": "nc"
           },
@@ -888,8 +1208,18 @@
           },
           {
             "link": {
-              "data": "artist",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.artist",
+                  "version": "*"
+                },
+                "value": "artist"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -902,8 +1232,18 @@
           },
           {
             "link": {
-              "data": "Artist",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.artist.Artist",
+                  "version": "*"
+                },
+                "value": "Artist"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -937,8 +1277,18 @@
           },
           {
             "link": {
-              "data": "padx",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "padx"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -986,8 +1336,18 @@
           },
           {
             "link": {
-              "data": "pady",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "pady"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1056,8 +1416,18 @@
           },
           {
             "link": {
-              "data": "__init__",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem.__init__",
+                  "version": "*"
+                },
+                "value": "__init__"
+              },
+              "type": "Link"
             },
             "type": "fm"
           },
@@ -1070,8 +1440,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1091,8 +1471,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1112,8 +1502,18 @@
           },
           {
             "link": {
-              "data": "labelstr",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "labelstr"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1133,8 +1533,18 @@
           },
           {
             "link": {
-              "data": "props",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.ItemProperties",
+                  "version": "*"
+                },
+                "value": "props"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1168,8 +1578,18 @@
           },
           {
             "link": {
-              "data": "hoverprops",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.ItemProperties",
+                  "version": "*"
+                },
+                "value": "hoverprops"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1210,8 +1630,18 @@
           },
           {
             "link": {
-              "data": "on_select",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.on_select",
+                  "version": "*"
+                },
+                "value": "on_select"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1259,8 +1689,18 @@
           },
           {
             "link": {
-              "data": "super",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.super",
+                  "version": "*"
+                },
+                "value": "super"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -1287,8 +1727,18 @@
           },
           {
             "link": {
-              "data": "__init__",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.artist.Artist.__init__",
+                  "version": "*"
+                },
+                "value": "__init__"
+              },
+              "type": "Link"
             },
             "type": "fm"
           },
@@ -1329,8 +1779,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1343,8 +1803,18 @@
           },
           {
             "link": {
-              "data": "set_figure",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.artist.Artist.set_figure",
+                  "version": "*"
+                },
+                "value": "set_figure"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1357,8 +1827,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1385,8 +1865,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1399,8 +1889,18 @@
           },
           {
             "link": {
-              "data": "labelstr",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "labelstr"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1427,8 +1927,18 @@
           },
           {
             "link": {
-              "data": "labelstr",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "labelstr"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1455,8 +1965,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1469,8 +1989,18 @@
           },
           {
             "link": {
-              "data": "props",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.ItemProperties",
+                  "version": "*"
+                },
+                "value": "props"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1497,8 +2027,18 @@
           },
           {
             "link": {
-              "data": "props",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.ItemProperties",
+                  "version": "*"
+                },
+                "value": "props"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1525,8 +2065,18 @@
           },
           {
             "link": {
-              "data": "props",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.ItemProperties",
+                  "version": "*"
+                },
+                "value": "props"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1595,8 +2145,18 @@
           },
           {
             "link": {
-              "data": "ItemProperties",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.ItemProperties",
+                  "version": "*"
+                },
+                "value": "ItemProperties"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1630,8 +2190,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1644,8 +2214,18 @@
           },
           {
             "link": {
-              "data": "hoverprops",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.ItemProperties",
+                  "version": "*"
+                },
+                "value": "hoverprops"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1693,8 +2273,18 @@
           },
           {
             "link": {
-              "data": "hoverprops",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.ItemProperties",
+                  "version": "*"
+                },
+                "value": "hoverprops"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1721,8 +2311,18 @@
           },
           {
             "link": {
-              "data": "hoverprops",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.ItemProperties",
+                  "version": "*"
+                },
+                "value": "hoverprops"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1791,8 +2391,18 @@
           },
           {
             "link": {
-              "data": "ItemProperties",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.ItemProperties",
+                  "version": "*"
+                },
+                "value": "ItemProperties"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1847,8 +2457,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1861,8 +2481,18 @@
           },
           {
             "link": {
-              "data": "props",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.ItemProperties",
+                  "version": "*"
+                },
+                "value": "props"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1875,8 +2505,18 @@
           },
           {
             "link": {
-              "data": "fontsize",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fontsize"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1903,8 +2543,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1917,8 +2567,18 @@
           },
           {
             "link": {
-              "data": "hoverprops",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.ItemProperties",
+                  "version": "*"
+                },
+                "value": "hoverprops"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1931,8 +2591,18 @@
           },
           {
             "link": {
-              "data": "fontsize",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fontsize"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1973,8 +2643,18 @@
           },
           {
             "link": {
-              "data": "NotImplementedError",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.NotImplementedError",
+                  "version": "*"
+                },
+                "value": "NotImplementedError"
+              },
+              "type": "Link"
             },
             "type": "ne"
           },
@@ -2050,8 +2730,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -2064,8 +2754,18 @@
           },
           {
             "link": {
-              "data": "on_select",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.on_select",
+                  "version": "*"
+                },
+                "value": "on_select"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2092,8 +2792,18 @@
           },
           {
             "link": {
-              "data": "on_select",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.on_select",
+                  "version": "*"
+                },
+                "value": "on_select"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2162,8 +2872,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -2204,8 +2924,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2274,8 +3004,18 @@
           },
           {
             "link": {
-              "data": "labelstr",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "labelstr"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2309,8 +3049,18 @@
           },
           {
             "link": {
-              "data": "IdentityTransform",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.IdentityTransform",
+                  "version": "*"
+                },
+                "value": "IdentityTransform"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2365,8 +3115,18 @@
           },
           {
             "link": {
-              "data": "props",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.ItemProperties",
+                  "version": "*"
+                },
+                "value": "props"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2379,8 +3139,18 @@
           },
           {
             "link": {
-              "data": "fontsize",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fontsize"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2407,8 +3177,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -2449,8 +3229,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -2505,8 +3295,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2582,8 +3382,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -2596,8 +3406,18 @@
           },
           {
             "link": {
-              "data": "rect",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.Rectangle",
+                  "version": "*"
+                },
+                "value": "rect"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2624,8 +3444,18 @@
           },
           {
             "link": {
-              "data": "patches",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches",
+                  "version": "*"
+                },
+                "value": "patches"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2638,8 +3468,18 @@
           },
           {
             "link": {
-              "data": "Rectangle",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.Rectangle",
+                  "version": "*"
+                },
+                "value": "Rectangle"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2778,8 +3618,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -2792,8 +3642,18 @@
           },
           {
             "link": {
-              "data": "set_hover_props",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem.set_hover_props",
+                  "version": "*"
+                },
+                "value": "set_hover_props"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2806,8 +3666,18 @@
           },
           {
             "link": {
-              "data": "False",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.bool",
+                  "version": "*"
+                },
+                "value": "False"
+              },
+              "type": "Link"
             },
             "type": "kc"
           },
@@ -2841,8 +3711,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2918,8 +3798,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -2932,8 +3822,18 @@
           },
           {
             "link": {
-              "data": "check_select",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem.check_select",
+                  "version": "*"
+                },
+                "value": "check_select"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2981,8 +3881,18 @@
           },
           {
             "link": {
-              "data": "check_select",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem.check_select",
+                  "version": "*"
+                },
+                "value": "check_select"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -2995,8 +3905,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -3051,8 +3971,18 @@
           },
           {
             "link": {
-              "data": "over",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.NoneType",
+                  "version": "*"
+                },
+                "value": "over"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3072,8 +4002,18 @@
           },
           {
             "link": {
-              "data": "_",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "_"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3100,8 +4040,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -3114,8 +4064,18 @@
           },
           {
             "link": {
-              "data": "rect",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.Rectangle",
+                  "version": "*"
+                },
+                "value": "rect"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3128,8 +4088,18 @@
           },
           {
             "link": {
-              "data": "contains",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.Patch.contains",
+                  "version": "*"
+                },
+                "value": "contains"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3198,8 +4168,18 @@
           },
           {
             "link": {
-              "data": "over",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.NoneType",
+                  "version": "*"
+                },
+                "value": "over"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3261,8 +4241,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -3275,8 +4265,18 @@
           },
           {
             "link": {
-              "data": "on_select",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.on_select",
+                  "version": "*"
+                },
+                "value": "on_select"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3345,8 +4345,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -3359,8 +4369,18 @@
           },
           {
             "link": {
-              "data": "on_select",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.on_select",
+                  "version": "*"
+                },
+                "value": "on_select"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3373,8 +4393,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -3422,8 +4452,18 @@
           },
           {
             "link": {
-              "data": "set_extent",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem.set_extent",
+                  "version": "*"
+                },
+                "value": "set_extent"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -3436,8 +4476,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -3457,8 +4507,18 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "x"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3478,8 +4538,18 @@
           },
           {
             "link": {
-              "data": "y",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "y"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3499,8 +4569,18 @@
           },
           {
             "link": {
-              "data": "w",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "w"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3520,8 +4600,18 @@
           },
           {
             "link": {
-              "data": "h",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "h"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3541,8 +4631,18 @@
           },
           {
             "link": {
-              "data": "depth",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "_typeshed",
+                  "path": "_typeshed.SupportsLessThan",
+                  "version": "*"
+                },
+                "value": "depth"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3576,8 +4676,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -3590,8 +4700,18 @@
           },
           {
             "link": {
-              "data": "rect",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.Rectangle",
+                  "version": "*"
+                },
+                "value": "rect"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3618,8 +4738,18 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "x"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3632,8 +4762,18 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "x"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3653,8 +4793,18 @@
           },
           {
             "link": {
-              "data": "y",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "y"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3667,8 +4817,18 @@
           },
           {
             "link": {
-              "data": "y",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "y"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3702,8 +4862,18 @@
           },
           {
             "link": {
-              "data": "w",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "w"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3737,8 +4907,18 @@
           },
           {
             "link": {
-              "data": "h",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "h"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3765,8 +4945,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -3828,8 +5018,18 @@
           },
           {
             "link": {
-              "data": "x",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "x"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3856,8 +5056,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -3870,8 +5080,18 @@
           },
           {
             "link": {
-              "data": "padx",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "padx"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3891,8 +5111,18 @@
           },
           {
             "link": {
-              "data": "y",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "y"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3919,8 +5149,18 @@
           },
           {
             "link": {
-              "data": "depth",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "_typeshed",
+                  "path": "_typeshed.SupportsLessThan",
+                  "version": "*"
+                },
+                "value": "depth"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3947,8 +5187,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -3961,8 +5211,18 @@
           },
           {
             "link": {
-              "data": "pady",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "pady"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4010,8 +5270,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -4024,8 +5294,18 @@
           },
           {
             "link": {
-              "data": "hover",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.NoneType",
+                  "version": "*"
+                },
+                "value": "hover"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4094,8 +5374,18 @@
           },
           {
             "link": {
-              "data": "draw",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem.draw",
+                  "version": "*"
+                },
+                "value": "draw"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -4108,8 +5398,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -4164,8 +5464,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -4178,8 +5488,18 @@
           },
           {
             "link": {
-              "data": "rect",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.Rectangle",
+                  "version": "*"
+                },
+                "value": "rect"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4192,8 +5512,18 @@
           },
           {
             "link": {
-              "data": "draw",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.Patch.draw",
+                  "version": "*"
+                },
+                "value": "draw"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4234,8 +5564,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -4325,8 +5665,18 @@
           },
           {
             "link": {
-              "data": "set_hover_props",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem.set_hover_props",
+                  "version": "*"
+                },
+                "value": "set_hover_props"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -4339,8 +5689,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -4360,8 +5720,18 @@
           },
           {
             "link": {
-              "data": "b",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.NoneType",
+                  "version": "*"
+                },
+                "value": "b"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4395,8 +5765,18 @@
           },
           {
             "link": {
-              "data": "props",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.ItemProperties",
+                  "version": "*"
+                },
+                "value": "props"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4423,8 +5803,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -4437,8 +5827,18 @@
           },
           {
             "link": {
-              "data": "hoverprops",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.ItemProperties",
+                  "version": "*"
+                },
+                "value": "hoverprops"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4465,8 +5865,18 @@
           },
           {
             "link": {
-              "data": "b",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.NoneType",
+                  "version": "*"
+                },
+                "value": "b"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4493,8 +5903,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -4507,8 +5927,18 @@
           },
           {
             "link": {
-              "data": "props",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.ItemProperties",
+                  "version": "*"
+                },
+                "value": "props"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4528,8 +5958,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -4584,8 +6024,18 @@
           },
           {
             "link": {
-              "data": "props",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.ItemProperties",
+                  "version": "*"
+                },
+                "value": "props"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4598,8 +6048,18 @@
           },
           {
             "link": {
-              "data": "labelcolor",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "labelcolor"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4626,8 +6086,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -4640,8 +6110,18 @@
           },
           {
             "link": {
-              "data": "rect",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.Rectangle",
+                  "version": "*"
+                },
+                "value": "rect"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4682,8 +6162,18 @@
           },
           {
             "link": {
-              "data": "props",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.ItemProperties",
+                  "version": "*"
+                },
+                "value": "props"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4794,8 +6284,18 @@
           },
           {
             "link": {
-              "data": "set_hover",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem.set_hover",
+                  "version": "*"
+                },
+                "value": "set_hover"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -4808,8 +6308,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -4934,8 +6444,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -5004,8 +6524,18 @@
           },
           {
             "link": {
-              "data": "changed",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.bool",
+                  "version": "*"
+                },
+                "value": "changed"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5067,8 +6597,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -5081,8 +6621,18 @@
           },
           {
             "link": {
-              "data": "hover",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.bool",
+                  "version": "*"
+                },
+                "value": "hover"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5123,8 +6673,18 @@
           },
           {
             "link": {
-              "data": "changed",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.bool",
+                  "version": "*"
+                },
+                "value": "changed"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5151,8 +6711,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -5165,8 +6735,18 @@
           },
           {
             "link": {
-              "data": "set_hover_props",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem.set_hover_props",
+                  "version": "*"
+                },
+                "value": "set_hover_props"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5207,8 +6787,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -5221,8 +6811,18 @@
           },
           {
             "link": {
-              "data": "hover",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.bool",
+                  "version": "*"
+                },
+                "value": "hover"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5284,8 +6884,18 @@
           },
           {
             "link": {
-              "data": "changed",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.bool",
+                  "version": "*"
+                },
+                "value": "changed"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5326,8 +6936,18 @@
           },
           {
             "link": {
-              "data": "Menu",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.Menu",
+                  "version": "*"
+                },
+                "value": "Menu"
+              },
+              "type": "Link"
             },
             "type": "nc"
           },
@@ -5368,8 +6988,18 @@
           },
           {
             "link": {
-              "data": "__init__",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.Menu.__init__",
+                  "version": "*"
+                },
+                "value": "__init__"
+              },
+              "type": "Link"
             },
             "type": "fm"
           },
@@ -5382,8 +7012,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.Menu",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -5403,8 +7043,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5424,8 +7074,18 @@
           },
           {
             "link": {
-              "data": "menuitems",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "menuitems"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5459,8 +7119,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.Menu",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -5473,8 +7143,18 @@
           },
           {
             "link": {
-              "data": "figure",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "figure"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5501,8 +7181,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5529,8 +7219,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.Menu",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -5543,8 +7243,18 @@
           },
           {
             "link": {
-              "data": "menuitems",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "menuitems"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5571,8 +7281,18 @@
           },
           {
             "link": {
-              "data": "menuitems",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "menuitems"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5599,8 +7319,18 @@
           },
           {
             "link": {
-              "data": "maxw",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "_typeshed",
+                  "path": "_typeshed.SupportsLessThan",
+                  "version": "*"
+                },
+                "value": "maxw"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5627,8 +7357,18 @@
           },
           {
             "link": {
-              "data": "max",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.max",
+                  "version": "*"
+                },
+                "value": "max"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -5641,8 +7381,18 @@
           },
           {
             "link": {
-              "data": "item",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "item"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5697,8 +7447,18 @@
           },
           {
             "link": {
-              "data": "item",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "item"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5725,8 +7485,18 @@
           },
           {
             "link": {
-              "data": "menuitems",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "menuitems"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5753,8 +7523,18 @@
           },
           {
             "link": {
-              "data": "maxh",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "_typeshed",
+                  "path": "_typeshed.SupportsLessThan",
+                  "version": "*"
+                },
+                "value": "maxh"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5781,8 +7561,18 @@
           },
           {
             "link": {
-              "data": "max",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.max",
+                  "version": "*"
+                },
+                "value": "max"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -5795,8 +7585,18 @@
           },
           {
             "link": {
-              "data": "item",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "item"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5851,8 +7651,18 @@
           },
           {
             "link": {
-              "data": "item",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "item"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5879,8 +7689,18 @@
           },
           {
             "link": {
-              "data": "menuitems",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "menuitems"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5907,8 +7727,18 @@
           },
           {
             "link": {
-              "data": "depth",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "_typeshed",
+                  "path": "_typeshed.SupportsLessThan",
+                  "version": "*"
+                },
+                "value": "depth"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5935,8 +7765,18 @@
           },
           {
             "link": {
-              "data": "max",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.max",
+                  "version": "*"
+                },
+                "value": "max"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -5956,8 +7796,18 @@
           },
           {
             "link": {
-              "data": "item",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "item"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6012,8 +7862,18 @@
           },
           {
             "link": {
-              "data": "item",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "item"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6040,8 +7900,18 @@
           },
           {
             "link": {
-              "data": "menuitems",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "menuitems"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6075,8 +7945,18 @@
           },
           {
             "link": {
-              "data": "x0",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "x0"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6124,8 +8004,18 @@
           },
           {
             "link": {
-              "data": "y0",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "y0"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6180,8 +8070,18 @@
           },
           {
             "link": {
-              "data": "width",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "width"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6208,8 +8108,18 @@
           },
           {
             "link": {
-              "data": "maxw",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "_typeshed",
+                  "path": "_typeshed.SupportsLessThan",
+                  "version": "*"
+                },
+                "value": "maxw"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6250,8 +8160,18 @@
           },
           {
             "link": {
-              "data": "MenuItem",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "MenuItem"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6264,8 +8184,18 @@
           },
           {
             "link": {
-              "data": "padx",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "padx"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6285,8 +8215,18 @@
           },
           {
             "link": {
-              "data": "height",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "height"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6313,8 +8253,18 @@
           },
           {
             "link": {
-              "data": "maxh",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "_typeshed",
+                  "path": "_typeshed.SupportsLessThan",
+                  "version": "*"
+                },
+                "value": "maxh"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6341,8 +8291,18 @@
           },
           {
             "link": {
-              "data": "MenuItem",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "MenuItem"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6355,8 +8315,18 @@
           },
           {
             "link": {
-              "data": "pady",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "pady"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6397,8 +8367,18 @@
           },
           {
             "link": {
-              "data": "item",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "item"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6425,8 +8405,18 @@
           },
           {
             "link": {
-              "data": "menuitems",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "menuitems"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6453,8 +8443,18 @@
           },
           {
             "link": {
-              "data": "left",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "left"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6481,8 +8481,18 @@
           },
           {
             "link": {
-              "data": "x0",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "x0"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6502,8 +8512,18 @@
           },
           {
             "link": {
-              "data": "bottom",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "bottom"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6530,8 +8550,18 @@
           },
           {
             "link": {
-              "data": "y0",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "y0"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6558,8 +8588,18 @@
           },
           {
             "link": {
-              "data": "maxh",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "_typeshed",
+                  "path": "_typeshed.SupportsLessThan",
+                  "version": "*"
+                },
+                "value": "maxh"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6586,8 +8626,18 @@
           },
           {
             "link": {
-              "data": "MenuItem",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "MenuItem"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6600,8 +8650,18 @@
           },
           {
             "link": {
-              "data": "pady",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "pady"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6628,8 +8688,18 @@
           },
           {
             "link": {
-              "data": "item",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "item"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6642,8 +8712,18 @@
           },
           {
             "link": {
-              "data": "set_extent",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem.set_extent",
+                  "version": "*"
+                },
+                "value": "set_extent"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6656,8 +8736,18 @@
           },
           {
             "link": {
-              "data": "left",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "left"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6677,8 +8767,18 @@
           },
           {
             "link": {
-              "data": "bottom",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "bottom"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6698,8 +8798,18 @@
           },
           {
             "link": {
-              "data": "width",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "width"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6719,8 +8829,18 @@
           },
           {
             "link": {
-              "data": "height",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "height"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6740,8 +8860,18 @@
           },
           {
             "link": {
-              "data": "depth",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "_typeshed",
+                  "path": "_typeshed.SupportsLessThan",
+                  "version": "*"
+                },
+                "value": "depth"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6775,8 +8905,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6817,8 +8957,18 @@
           },
           {
             "link": {
-              "data": "item",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "item"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6845,8 +8995,18 @@
           },
           {
             "link": {
-              "data": "y0",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "y0"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6880,8 +9040,18 @@
           },
           {
             "link": {
-              "data": "maxh",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "_typeshed",
+                  "path": "_typeshed.SupportsLessThan",
+                  "version": "*"
+                },
+                "value": "maxh"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6908,8 +9078,18 @@
           },
           {
             "link": {
-              "data": "MenuItem",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "MenuItem"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6922,8 +9102,18 @@
           },
           {
             "link": {
-              "data": "pady",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "pady"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6950,8 +9140,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7027,8 +9227,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.Menu",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -7041,8 +9251,18 @@
           },
           {
             "link": {
-              "data": "on_move",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.Menu.on_move",
+                  "version": "*"
+                },
+                "value": "on_move"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7090,8 +9310,18 @@
           },
           {
             "link": {
-              "data": "on_move",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.Menu.on_move",
+                  "version": "*"
+                },
+                "value": "on_move"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -7104,8 +9334,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.Menu",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -7174,8 +9414,18 @@
           },
           {
             "link": {
-              "data": "any",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.any",
+                  "version": "*"
+                },
+                "value": "any"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -7188,8 +9438,18 @@
           },
           {
             "link": {
-              "data": "item",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "item"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7202,8 +9462,18 @@
           },
           {
             "link": {
-              "data": "set_hover",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem.set_hover",
+                  "version": "*"
+                },
+                "value": "set_hover"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7251,8 +9521,18 @@
           },
           {
             "link": {
-              "data": "item",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "item"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7279,8 +9559,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.Menu",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -7293,8 +9583,18 @@
           },
           {
             "link": {
-              "data": "menuitems",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "menuitems"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7328,8 +9628,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.Menu",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -7342,8 +9652,18 @@
           },
           {
             "link": {
-              "data": "figure",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "figure"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7412,8 +9732,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7440,8 +9770,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7454,8 +9794,18 @@
           },
           {
             "link": {
-              "data": "figure",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.figure",
+                  "version": "*"
+                },
+                "value": "figure"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7482,8 +9832,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7545,8 +9905,18 @@
           },
           {
             "link": {
-              "data": "props",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.ItemProperties",
+                  "version": "*"
+                },
+                "value": "props"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7573,8 +9943,18 @@
           },
           {
             "link": {
-              "data": "ItemProperties",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.ItemProperties",
+                  "version": "*"
+                },
+                "value": "ItemProperties"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7762,8 +10142,18 @@
           },
           {
             "link": {
-              "data": "hoverprops",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.ItemProperties",
+                  "version": "*"
+                },
+                "value": "hoverprops"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7790,8 +10180,18 @@
           },
           {
             "link": {
-              "data": "ItemProperties",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.ItemProperties",
+                  "version": "*"
+                },
+                "value": "ItemProperties"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7986,8 +10386,18 @@
           },
           {
             "link": {
-              "data": "menuitems",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "menuitems"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -8049,8 +10459,18 @@
           },
           {
             "link": {
-              "data": "label",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "label"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -8287,8 +10707,18 @@
           },
           {
             "link": {
-              "data": "on_select",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.on_select",
+                  "version": "*"
+                },
+                "value": "on_select"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -8336,8 +10766,18 @@
           },
           {
             "link": {
-              "data": "print",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.print",
+                  "version": "*"
+                },
+                "value": "print"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -8441,8 +10881,18 @@
           },
           {
             "link": {
-              "data": "item",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "item"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -8469,8 +10919,18 @@
           },
           {
             "link": {
-              "data": "MenuItem",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "MenuItem"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -8483,8 +10943,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -8504,8 +10974,18 @@
           },
           {
             "link": {
-              "data": "label",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "label"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -8525,8 +11005,18 @@
           },
           {
             "link": {
-              "data": "props",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.ItemProperties",
+                  "version": "*"
+                },
+                "value": "props"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -8539,8 +11029,18 @@
           },
           {
             "link": {
-              "data": "props",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.ItemProperties",
+                  "version": "*"
+                },
+                "value": "props"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -8560,8 +11060,18 @@
           },
           {
             "link": {
-              "data": "hoverprops",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.ItemProperties",
+                  "version": "*"
+                },
+                "value": "hoverprops"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -8574,8 +11084,18 @@
           },
           {
             "link": {
-              "data": "hoverprops",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.ItemProperties",
+                  "version": "*"
+                },
+                "value": "hoverprops"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -8602,8 +11122,18 @@
           },
           {
             "link": {
-              "data": "on_select",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.on_select",
+                  "version": "*"
+                },
+                "value": "on_select"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -8616,8 +11146,18 @@
           },
           {
             "link": {
-              "data": "on_select",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.on_select",
+                  "version": "*"
+                },
+                "value": "on_select"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -8644,8 +11184,18 @@
           },
           {
             "link": {
-              "data": "menuitems",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "menuitems"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -8658,8 +11208,18 @@
           },
           {
             "link": {
-              "data": "append",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list.append",
+                  "version": "*"
+                },
+                "value": "append"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -8672,8 +11232,18 @@
           },
           {
             "link": {
-              "data": "item",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.MenuItem",
+                  "version": "*"
+                },
+                "value": "item"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -8700,8 +11270,18 @@
           },
           {
             "link": {
-              "data": "menu",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.Menu",
+                  "version": "*"
+                },
+                "value": "menu"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -8728,8 +11308,18 @@
           },
           {
             "link": {
-              "data": "Menu",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.Menu",
+                  "version": "*"
+                },
+                "value": "Menu"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -8742,8 +11332,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -8763,8 +11363,18 @@
           },
           {
             "link": {
-              "data": "menuitems",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.list",
+                  "version": "*"
+                },
+                "value": "menuitems"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -8784,8 +11394,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -8798,8 +11418,18 @@
           },
           {
             "link": {
-              "data": "show",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.show",
+                  "version": "*"
+                },
+                "value": "show"
+              },
+              "type": "Link"
             },
             "type": ""
           },

@@ -238,40 +238,473 @@
         },
         {
           "data": {
-            "value": [
-              "1. A constructor must accept parameters presented in the base class",
-              "   (listed below) along with any other parameters specific to a solver.",
-              "2. A constructor must accept arbitrary extraneous arguments",
-              "   ``**extraneous``, but warn that these arguments are irrelevant",
-              "   using `common.warn_extraneous` function. Do not pass these",
-              "   arguments to the base class.",
-              "3. A solver must implement a private method `_step_impl(self)` which",
-              "   propagates a solver one step further. It must return tuple",
-              "   ``(success, message)``, where ``success`` is a boolean indicating",
-              "   whether a step was successful, and ``message`` is a string",
-              "   containing description of a failure if a step failed or None",
-              "   otherwise.",
-              "4. A solver must implement a private method `_dense_output_impl(self)`,",
-              "   which returns a `DenseOutput` object covering the last successful",
-              "   step.",
-              "5. A solver must have attributes listed below in Attributes section.",
-              "   Note that ``t_old`` and ``step_size`` are updated automatically.",
-              "6. Use `fun(self, t, y)` method for the system rhs evaluation, this",
-              "   way the number of function evaluations (`nfev`) will be tracked",
-              "   automatically.",
-              "7. For convenience, a base class provides `fun_single(self, t, y)` and",
-              "   `fun_vectorized(self, t, y)` for evaluating the rhs in",
-              "   non-vectorized and vectorized fashions respectively (regardless of",
-              "   how `fun` from the constructor is implemented). These calls don't",
-              "   increment `nfev`.",
-              "8. If a solver uses a Jacobian matrix and LU decompositions, it should",
-              "   track the number of Jacobian evaluations (`njev`) and the number of",
-              "   LU decompositions (`nlu`).",
-              "9. By convention, the function evaluations used to compute a finite",
-              "   difference approximation of the Jacobian should not be counted in",
-              "   `nfev`, thus use `fun_single(self, t, y)` or",
-              "   `fun_vectorized(self, t, y)` when computing a finite difference",
-              "   approximation of the Jacobian."
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "A constructor must accept parameters presented in the base class        (listed below) along with any other parameters specific to a solver."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "children": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "A constructor must accept arbitrary extraneous arguments        "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "**extraneous"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": ", but warn that these arguments are irrelevant        using "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "exists": true,
+                                  "kind": "module",
+                                  "reference": {
+                                    "kind": "module",
+                                    "module": "scipy",
+                                    "path": "scipy.integrate._ivp.common.warn_extraneous",
+                                    "version": "1.8.0"
+                                  },
+                                  "value": "common.warn_extraneous"
+                                },
+                                "type": "Link"
+                              },
+                              {
+                                "data": {
+                                  "value": " function. Do not pass these        arguments to the base class."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "children": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "A solver must implement a private method "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "domain": null,
+                                  "role": null,
+                                  "value": "_step_impl(self)"
+                                },
+                                "type": "Directive"
+                              },
+                              {
+                                "data": {
+                                  "value": " which        propagates a solver one step further. It must return tuple        "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "(success, message)"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": ", where "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "success"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": " is a boolean indicating        whether a step was successful, and "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "message"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": " is a string        containing description of a failure if a step failed or None        otherwise."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "children": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "A solver must implement a private method "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "domain": null,
+                                  "role": null,
+                                  "value": "_dense_output_impl(self)"
+                                },
+                                "type": "Directive"
+                              },
+                              {
+                                "data": {
+                                  "value": ",        which returns a "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "exists": true,
+                                  "kind": "module",
+                                  "reference": {
+                                    "kind": "module",
+                                    "module": "scipy",
+                                    "path": "scipy.integrate._ivp.base.DenseOutput",
+                                    "version": "1.8.0"
+                                  },
+                                  "value": "DenseOutput"
+                                },
+                                "type": "Link"
+                              },
+                              {
+                                "data": {
+                                  "value": " object covering the last successful        step."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "children": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "A solver must have attributes listed below in Attributes section.        Note that "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "t_old"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": " and "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "step_size"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": " are updated automatically."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "children": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "Use "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "domain": null,
+                                  "role": null,
+                                  "value": "fun(self, t, y)"
+                                },
+                                "type": "Directive"
+                              },
+                              {
+                                "data": {
+                                  "value": " method for the system rhs evaluation, this        way the number of function evaluations ("
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "domain": null,
+                                  "role": null,
+                                  "value": "nfev"
+                                },
+                                "type": "Directive"
+                              },
+                              {
+                                "data": {
+                                  "value": ") will be tracked        automatically."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "children": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "For convenience, a base class provides "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "domain": null,
+                                  "role": null,
+                                  "value": "fun_single(self, t, y)"
+                                },
+                                "type": "Directive"
+                              },
+                              {
+                                "data": {
+                                  "value": " and        "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "domain": null,
+                                  "role": null,
+                                  "value": "fun_vectorized(self, t, y)"
+                                },
+                                "type": "Directive"
+                              },
+                              {
+                                "data": {
+                                  "value": " for evaluating the rhs in        non-vectorized and vectorized fashions respectively (regardless of        how "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "domain": null,
+                                  "role": null,
+                                  "value": "fun"
+                                },
+                                "type": "Directive"
+                              },
+                              {
+                                "data": {
+                                  "value": " from the constructor is implemented). These calls don't        increment "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "domain": null,
+                                  "role": null,
+                                  "value": "nfev"
+                                },
+                                "type": "Directive"
+                              },
+                              {
+                                "data": {
+                                  "value": "."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "children": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "If a solver uses a Jacobian matrix and LU decompositions, it should        track the number of Jacobian evaluations ("
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "domain": null,
+                                  "role": null,
+                                  "value": "njev"
+                                },
+                                "type": "Directive"
+                              },
+                              {
+                                "data": {
+                                  "value": ") and the number of        LU decompositions ("
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "domain": null,
+                                  "role": null,
+                                  "value": "nlu"
+                                },
+                                "type": "Directive"
+                              },
+                              {
+                                "data": {
+                                  "value": ")."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "children": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "By convention, the function evaluations used to compute a finite        difference approximation of the Jacobian should not be counted in        "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "domain": null,
+                                  "role": null,
+                                  "value": "nfev"
+                                },
+                                "type": "Directive"
+                              },
+                              {
+                                "data": {
+                                  "value": ", thus use "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "domain": null,
+                                  "role": null,
+                                  "value": "fun_single(self, t, y)"
+                                },
+                                "type": "Directive"
+                              },
+                              {
+                                "data": {
+                                  "value": " or        "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "domain": null,
+                                  "role": null,
+                                  "value": "fun_vectorized(self, t, y)"
+                                },
+                                "type": "Directive"
+                              },
+                              {
+                                "data": {
+                                  "value": " when computing a finite difference        approximation of the Jacobian."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "type": "EnumeratedList"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -590,7 +1023,6 @@
     "Attributes"
   ],
   "references": null,
-  "refs": [],
   "see_also": [],
   "signature": {
     "value": null

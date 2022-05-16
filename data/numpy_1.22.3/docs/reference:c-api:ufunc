@@ -81,14 +81,7 @@
                     }
                   ]
                 }
-              }
-            ]
-          },
-          "type": "DefList"
-        },
-        {
-          "data": {
-            "children": [
+              },
               {
                 "dd": [
                   {
@@ -212,14 +205,7 @@
                     }
                   ]
                 }
-              }
-            ]
-          },
-          "type": "DefList"
-        },
-        {
-          "data": {
-            "children": [
+              },
               {
                 "dd": [
                   {
@@ -347,81 +333,950 @@
         },
         {
           "data": {
-            "value": [
-              "Create a new broadcasting universal function from required variables.",
-              "Each ufunc builds around the notion of an element-by-element",
-              "operation. Each ufunc object contains pointers to 1-d loops",
-              "implementing the basic functionality for each supported type.",
-              "",
-              ".. note::",
-              "",
-              "   The *func*, *data*, *types*, *name*, and *doc* arguments are not",
-              "   copied by :c:func:`PyUFunc_FromFuncAndData`. The caller must ensure",
-              "   that the memory used by these arrays is not freed as long as the",
-              "   ufunc object is alive.",
-              "",
-              ":param func:",
-              "    Must point to an array containing *ntypes*",
-              "    :c:type:`PyUFuncGenericFunction` elements.",
-              "",
-              ":param data:",
-              "    Should be ``NULL`` or a pointer to an array of size *ntypes*.",
-              "    This array may contain arbitrary extra-data to be passed to",
-              "    the corresponding loop function in the func array, including",
-              "    ``NULL``.",
-              "",
-              ":param types:",
-              "   Length ``(nin + nout) * ntypes`` array of ``char`` encoding the",
-              "   `numpy.dtype.num` (built-in only) that the corresponding",
-              "   function in the ``func`` array accepts. For instance, for a comparison",
-              "   ufunc with three ``ntypes``, two ``nin`` and one ``nout``, where the",
-              "   first function accepts `numpy.int32` and the second",
-              "   `numpy.int64`, with both returning `numpy.bool_`, ``types`` would",
-              "   be ``(char[]) {5, 5, 0, 7, 7, 0}`` since ``NPY_INT32`` is 5,",
-              "   ``NPY_INT64`` is 7, and ``NPY_BOOL`` is 0.",
-              "",
-              "   The bit-width names can also be used (e.g. :c:data:`NPY_INT32`,",
-              "   :c:data:`NPY_COMPLEX128` ) if desired.",
-              "",
-              "   :ref:`ufuncs.casting` will be used at runtime to find the first",
-              "   ``func`` callable by the input/output provided.",
-              "",
-              ":param ntypes:",
-              "    How many different data-type-specific functions the ufunc has implemented.",
-              "",
-              ":param nin:",
-              "    The number of inputs to this operation.",
-              "",
-              ":param nout:",
-              "    The number of outputs",
-              "",
-              ":param identity:",
-              "",
-              "    Either :c:data:`PyUFunc_One`, :c:data:`PyUFunc_Zero`,",
-              "    :c:data:`PyUFunc_MinusOne`, or :c:data:`PyUFunc_None`.",
-              "    This specifies what should be returned when",
-              "    an empty array is passed to the reduce method of the ufunc.",
-              "    The special value :c:data:`PyUFunc_IdentityValue` may only be used with",
-              "    the :c:func:`PyUFunc_FromFuncAndDataAndSignatureAndIdentity` method, to",
-              "    allow an arbitrary python object to be used as the identity.",
-              "",
-              ":param name:",
-              "    The name for the ufunc as a ``NULL`` terminated string.  Specifying",
-              "    a name of 'add' or 'multiply' enables a special behavior for",
-              "    integer-typed reductions when no dtype is given. If the input type is an",
-              "    integer (or boolean) data type smaller than the size of the `numpy.int_`",
-              "    data type, it will be internally upcast to the `numpy.int_` (or",
-              "    `numpy.uint`) data type.",
-              "",
-              ":param doc:",
-              "    Allows passing in a documentation string to be stored with the",
-              "    ufunc.  The documentation string should not contain the name",
-              "    of the function or the calling signature as that will be",
-              "    dynamically determined from the object and available when",
-              "    accessing the **__doc__** attribute of the ufunc.",
-              "",
-              ":param unused:",
-              "    Unused and present for backwards compatibility of the C-API."
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Create a new broadcasting universal function from required variables.     Each ufunc builds around the notion of an element-by-element     operation. Each ufunc object contains pointers to 1-d loops     implementing the basic functionality for each supported type."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "children": [
+                          {
+                            "dd": [
+                              {
+                                "data": {
+                                  "children": [
+                                    {
+                                      "data": {
+                                        "value": "copied by "
+                                      },
+                                      "type": "Words"
+                                    },
+                                    {
+                                      "data": {
+                                        "domain": "c",
+                                        "role": "func",
+                                        "value": "PyUFunc_FromFuncAndData"
+                                      },
+                                      "type": "Directive"
+                                    },
+                                    {
+                                      "data": {
+                                        "value": ". The caller must ensure     that the memory used by these arrays is not freed as long as the     ufunc object is alive."
+                                      },
+                                      "type": "Words"
+                                    }
+                                  ]
+                                },
+                                "type": "Paragraph"
+                              }
+                            ],
+                            "dt": {
+                              "children": [
+                                {
+                                  "data": {
+                                    "value": "The "
+                                  },
+                                  "type": "Words"
+                                },
+                                {
+                                  "data": {
+                                    "value": {
+                                      "value": "func"
+                                    }
+                                  },
+                                  "type": "Emph"
+                                },
+                                {
+                                  "data": {
+                                    "value": ", "
+                                  },
+                                  "type": "Words"
+                                },
+                                {
+                                  "data": {
+                                    "value": {
+                                      "value": "data"
+                                    }
+                                  },
+                                  "type": "Emph"
+                                },
+                                {
+                                  "data": {
+                                    "value": ", "
+                                  },
+                                  "type": "Words"
+                                },
+                                {
+                                  "data": {
+                                    "value": {
+                                      "value": "types"
+                                    }
+                                  },
+                                  "type": "Emph"
+                                },
+                                {
+                                  "data": {
+                                    "value": ", "
+                                  },
+                                  "type": "Words"
+                                },
+                                {
+                                  "data": {
+                                    "value": {
+                                      "value": "name"
+                                    }
+                                  },
+                                  "type": "Emph"
+                                },
+                                {
+                                  "data": {
+                                    "value": ", and "
+                                  },
+                                  "type": "Words"
+                                },
+                                {
+                                  "data": {
+                                    "value": {
+                                      "value": "doc"
+                                    }
+                                  },
+                                  "type": "Emph"
+                                },
+                                {
+                                  "data": {
+                                    "value": " arguments are not"
+                                  },
+                                  "type": "Words"
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      },
+                      "type": "DefList"
+                    }
+                  ],
+                  "kind": "note",
+                  "title": ""
+                },
+                "type": "Admonition"
+              },
+              {
+                "data": {
+                  "children": [
+                    {
+                      "body": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "Must point to an array containing "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": {
+                                    "value": "ntypes"
+                                  }
+                                },
+                                "type": "Emph"
+                              },
+                              {
+                                "data": {
+                                  "value": "         "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "PyUFuncGenericFunction"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": " elements."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ],
+                      "name": [
+                        {
+                          "data": {
+                            "value": "paramfunc"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    {
+                      "body": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "Should be "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "NULL"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": " or a pointer to an array of size "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": {
+                                    "value": "ntypes"
+                                  }
+                                },
+                                "type": "Emph"
+                              },
+                              {
+                                "data": {
+                                  "value": ".         This array may contain arbitrary extra-data to be passed to         the corresponding loop function in the func array, including         "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "NULL"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": "."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ],
+                      "name": [
+                        {
+                          "data": {
+                            "value": "paramdata"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    {
+                      "body": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "Length "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "(nin + nout) * ntypes"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": " array of "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "char"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": " encoding the        "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "domain": null,
+                                  "role": null,
+                                  "value": "numpy.dtype.num"
+                                },
+                                "type": "Directive"
+                              },
+                              {
+                                "data": {
+                                  "value": " (built-in only) that the corresponding        function in the "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "func"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": " array accepts. For instance, for a comparison        ufunc with three "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "ntypes"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": ", two "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "nin"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": " and one "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "nout"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": ", where the        first function accepts "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "exists": true,
+                                  "kind": "module",
+                                  "reference": {
+                                    "kind": "api",
+                                    "module": "numpy",
+                                    "path": "numpy.int32",
+                                    "version": "*"
+                                  },
+                                  "value": "numpy.int32"
+                                },
+                                "type": "Link"
+                              },
+                              {
+                                "data": {
+                                  "value": " and the second        "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "exists": true,
+                                  "kind": "module",
+                                  "reference": {
+                                    "kind": "api",
+                                    "module": "numpy",
+                                    "path": "numpy.int64",
+                                    "version": "*"
+                                  },
+                                  "value": "numpy.int64"
+                                },
+                                "type": "Link"
+                              },
+                              {
+                                "data": {
+                                  "value": ", with both returning "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "exists": true,
+                                  "kind": "module",
+                                  "reference": {
+                                    "kind": "api",
+                                    "module": "numpy",
+                                    "path": "numpy.bool_",
+                                    "version": "*"
+                                  },
+                                  "value": "numpy.bool_"
+                                },
+                                "type": "Link"
+                              },
+                              {
+                                "data": {
+                                  "value": ", "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "types"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": " would        be "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "(char[]) {5, 5, 0, 7, 7, 0}"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": " since "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "NPY_INT32"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": " is 5,        "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "NPY_INT64"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": " is 7, and "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "NPY_BOOL"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": " is 0."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        },
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "The bit-width names can also be used (e.g. "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "NPY_INT32"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": ",        "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "NPY_COMPLEX128"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": " ) if desired."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        },
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": [
+                                    "ufuncs.casting"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": " will be used at runtime to find the first        "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "func"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": " callable by the input/output provided."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ],
+                      "name": [
+                        {
+                          "data": {
+                            "value": "paramtypes"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    {
+                      "body": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "How many different data-type-specific functions the ufunc has implemented."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ],
+                      "name": [
+                        {
+                          "data": {
+                            "value": "paramntypes"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    {
+                      "body": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "The number of inputs to this operation."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ],
+                      "name": [
+                        {
+                          "data": {
+                            "value": "paramnin"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    {
+                      "body": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "The number of outputs"
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ],
+                      "name": [
+                        {
+                          "data": {
+                            "value": "paramnout"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    {
+                      "body": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "Either "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "PyUFunc_One"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": ", "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "PyUFunc_Zero"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": ",         "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "PyUFunc_MinusOne"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": ", or "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "PyUFunc_None"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": ".         This specifies what should be returned when         an empty array is passed to the reduce method of the ufunc.         The special value "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "PyUFunc_IdentityValue"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": " may only be used with         the "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "PyUFunc_FromFuncAndDataAndSignatureAndIdentity"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": " method, to         allow an arbitrary python object to be used as the identity."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ],
+                      "name": [
+                        {
+                          "data": {
+                            "value": "paramidentity"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    {
+                      "body": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "The name for the ufunc as a "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "NULL"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": " terminated string.  Specifying         a name of 'add' or 'multiply' enables a special behavior for         integer-typed reductions when no dtype is given. If the input type is an         integer (or boolean) data type smaller than the size of the "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "exists": true,
+                                  "kind": "module",
+                                  "reference": {
+                                    "kind": "api",
+                                    "module": "numpy",
+                                    "path": "numpy.int64",
+                                    "version": "*"
+                                  },
+                                  "value": "numpy.int_"
+                                },
+                                "type": "Link"
+                              },
+                              {
+                                "data": {
+                                  "value": "         data type, it will be internally upcast to the "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "exists": true,
+                                  "kind": "module",
+                                  "reference": {
+                                    "kind": "api",
+                                    "module": "numpy",
+                                    "path": "numpy.int64",
+                                    "version": "*"
+                                  },
+                                  "value": "numpy.int_"
+                                },
+                                "type": "Link"
+                              },
+                              {
+                                "data": {
+                                  "value": " (or         "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "exists": true,
+                                  "kind": "module",
+                                  "reference": {
+                                    "kind": "api",
+                                    "module": "numpy",
+                                    "path": "numpy.uint64",
+                                    "version": "*"
+                                  },
+                                  "value": "numpy.uint"
+                                },
+                                "type": "Link"
+                              },
+                              {
+                                "data": {
+                                  "value": ") data type."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ],
+                      "name": [
+                        {
+                          "data": {
+                            "value": "paramname"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    {
+                      "body": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "Allows passing in a documentation string to be stored with the         ufunc.  The documentation string should not contain the name         of the function or the calling signature as that will be         dynamically determined from the object and available when         accessing the "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "content": {
+                                    "value": "__doc__"
+                                  }
+                                },
+                                "type": "Strong"
+                              },
+                              {
+                                "data": {
+                                  "value": " attribute of the ufunc."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ],
+                      "name": [
+                        {
+                          "data": {
+                            "value": "paramdoc"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    {
+                      "body": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "Unused and present for backwards compatibility of the C-API."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ],
+                      "name": [
+                        {
+                          "data": {
+                            "value": "paramunused"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "type": "FieldList"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -437,18 +1292,94 @@
         },
         {
           "data": {
-            "value": [
-              "This function is very similar to PyUFunc_FromFuncAndData above, but has",
-              "an extra *signature* argument, to define a",
-              ":ref:`generalized universal functions <c-api.generalized-ufuncs>`.",
-              "Similarly to how ufuncs are built around an element-by-element operation,",
-              "gufuncs are around subarray-by-subarray operations, the",
-              ":ref:`signature <details-of-signature>` defining the subarrays to operate on.",
-              "",
-              ":param signature:",
-              "     The signature for the new gufunc. Setting it to NULL is equivalent",
-              "     to calling PyUFunc_FromFuncAndData. A copy of the string is made,",
-              "     so the passed in buffer can be freed."
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "This function is very similar to PyUFunc_FromFuncAndData above, but has    an extra "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": {
+                          "value": "signature"
+                        }
+                      },
+                      "type": "Emph"
+                    },
+                    {
+                      "data": {
+                        "value": " argument, to define a    "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "generalized universal functions <c-api.generalized-ufuncs>"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ".    Similarly to how ufuncs are built around an element-by-element operation,    gufuncs are around subarray-by-subarray operations, the    "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "signature <details-of-signature>"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " defining the subarrays to operate on."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "children": [
+                    {
+                      "body": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "The signature for the new gufunc. Setting it to NULL is equivalent         to calling PyUFunc_FromFuncAndData. A copy of the string is made,         so the passed in buffer can be freed."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ],
+                      "name": [
+                        {
+                          "data": {
+                            "value": "paramsignature"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "type": "FieldList"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -464,15 +1395,150 @@
         },
         {
           "data": {
-            "value": [
-              "This function is very similar to `PyUFunc_FromFuncAndDataAndSignature` above,",
-              "but has an extra *identity_value* argument, to define an arbitrary identity",
-              "for the ufunc when ``identity`` is passed as ``PyUFunc_IdentityValue``.",
-              "",
-              ":param identity_value:",
-              "     The identity for the new gufunc. Must be passed as ``NULL`` unless the",
-              "     ``identity`` argument is ``PyUFunc_IdentityValue``. Setting it to NULL",
-              "     is equivalent to calling PyUFunc_FromFuncAndDataAndSignature."
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "This function is very similar to "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "PyUFunc_FromFuncAndDataAndSignature"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " above,    but has an extra "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": {
+                          "value": "identity_value"
+                        }
+                      },
+                      "type": "Emph"
+                    },
+                    {
+                      "data": {
+                        "value": " argument, to define an arbitrary identity    for the ufunc when "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "identity"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " is passed as "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "PyUFunc_IdentityValue"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": "."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "children": [
+                    {
+                      "body": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "The identity for the new gufunc. Must be passed as "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "NULL"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": " unless the         "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "identity"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": " argument is "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "PyUFunc_IdentityValue"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": ". Setting it to NULL         is equivalent to calling PyUFunc_FromFuncAndDataAndSignature."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ],
+                      "name": [
+                        {
+                          "data": {
+                            "value": "paramidentity_value"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "type": "FieldList"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -488,17 +1554,62 @@
         },
         {
           "data": {
-            "value": [
-              "This function allows the user to register a 1-d loop with an",
-              "already- created ufunc to be used whenever the ufunc is called",
-              "with any of its input arguments as the user-defined",
-              "data-type. This is needed in order to make ufuncs work with",
-              "built-in data-types. The data-type must have been previously",
-              "registered with the numpy system. The loop is passed in as",
-              "*function*. This loop can take arbitrary data which should be",
-              "passed in as *data*. The data-types the loop requires are passed",
-              "in as *arg_types* which must be a pointer to memory at least as",
-              "large as ufunc->nargs."
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "This function allows the user to register a 1-d loop with an     already- created ufunc to be used whenever the ufunc is called     with any of its input arguments as the user-defined     data-type. This is needed in order to make ufuncs work with     built-in data-types. The data-type must have been previously     registered with the numpy system. The loop is passed in as     "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": {
+                          "value": "function"
+                        }
+                      },
+                      "type": "Emph"
+                    },
+                    {
+                      "data": {
+                        "value": ". This loop can take arbitrary data which should be     passed in as "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": {
+                          "value": "data"
+                        }
+                      },
+                      "type": "Emph"
+                    },
+                    {
+                      "data": {
+                        "value": ". The data-types the loop requires are passed     in as "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": {
+                          "value": "arg_types"
+                        }
+                      },
+                      "type": "Emph"
+                    },
+                    {
+                      "data": {
+                        "value": " which must be a pointer to memory at least as     large as ufunc->nargs."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -514,12 +1625,20 @@
         },
         {
           "data": {
-            "value": [
-              "This function behaves like PyUFunc_RegisterLoopForType above, except",
-              "that it allows the user to register a 1-d loop using PyArray_Descr",
-              "objects instead of dtype type num values. This allows a 1-d loop to be",
-              "registered for structured array data-dtypes and custom data-types",
-              "instead of scalar data-types."
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "This function behaves like PyUFunc_RegisterLoopForType above, except    that it allows the user to register a 1-d loop using PyArray_Descr    objects instead of dtype type num values. This allows a 1-d loop to be    registered for structured array data-dtypes and custom data-types    instead of scalar data-types."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -535,14 +1654,76 @@
         },
         {
           "data": {
-            "value": [
-              "Replace a 1-d loop matching the given *signature* in the",
-              "already-created *ufunc* with the new 1-d loop newfunc. Return the",
-              "old 1-d loop function in *oldfunc*. Return 0 on success and -1 on",
-              "failure. This function works only with built-in types (use",
-              ":c:func:`PyUFunc_RegisterLoopForType` for user-defined types). A",
-              "signature is an array of data-type numbers indicating the inputs",
-              "followed by the outputs assumed by the 1-d loop."
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Replace a 1-d loop matching the given "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": {
+                          "value": "signature"
+                        }
+                      },
+                      "type": "Emph"
+                    },
+                    {
+                      "data": {
+                        "value": " in the     already-created "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": {
+                          "value": "ufunc"
+                        }
+                      },
+                      "type": "Emph"
+                    },
+                    {
+                      "data": {
+                        "value": " with the new 1-d loop newfunc. Return the     old 1-d loop function in "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": {
+                          "value": "oldfunc"
+                        }
+                      },
+                      "type": "Emph"
+                    },
+                    {
+                      "data": {
+                        "value": ". Return 0 on success and -1 on     failure. This function works only with built-in types (use     "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "PyUFunc_RegisterLoopForType"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " for user-defined types). A     signature is an array of data-type numbers indicating the inputs     followed by the outputs assumed by the 1-d loop."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -576,14 +1757,62 @@
         },
         {
           "data": {
-            "value": [
-              "Get the Python values used for ufunc processing from the",
-              "thread-local storage area unless the defaults have been set in",
-              "which case the name lookup is bypassed. The name is placed as a",
-              "string in the first element of *\\*errobj*. The second element is",
-              "the looked-up function to call on error callback. The value of the",
-              "looked-up buffer-size to use is passed into *bufsize*, and the",
-              "value of the error mask is placed into *errmask*."
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Get the Python values used for ufunc processing from the     thread-local storage area unless the defaults have been set in     which case the name lookup is bypassed. The name is placed as a     string in the first element of "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": {
+                          "value": "\\*errobj"
+                        }
+                      },
+                      "type": "Emph"
+                    },
+                    {
+                      "data": {
+                        "value": ". The second element is     the looked-up function to call on error callback. The value of the     looked-up buffer-size to use is passed into "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": {
+                          "value": "bufsize"
+                        }
+                      },
+                      "type": "Emph"
+                    },
+                    {
+                      "data": {
+                        "value": ", and the     value of the error mask is placed into "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": {
+                          "value": "errmask"
+                        }
+                      },
+                      "type": "Emph"
+                    },
+                    {
+                      "data": {
+                        "value": "."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -719,19 +1948,174 @@
         },
         {
           "data": {
-            "value": [
-              "Type specific, core 1-d functions for ufuncs where each",
-              "calculation is obtained by calling a function taking one input",
-              "argument and returning one output. This function is passed in",
-              "``func``. The letters correspond to dtypechar's of the supported",
-              "data types ( ``e`` - half, ``f`` - float, ``d`` - double,",
-              "``g`` - long double, ``F`` - cfloat, ``D`` - cdouble,",
-              "``G`` - clongdouble). The argument *func* must support the same",
-              "signature. The _As_X_X variants assume ndarray's of one data type",
-              "but cast the values to use an underlying function that takes a",
-              "different data type. Thus, :c:func:`PyUFunc_f_f_As_d_d` uses",
-              "ndarrays of data type :c:data:`NPY_FLOAT` but calls out to a",
-              "C-function that takes double and returns double."
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Type specific, core 1-d functions for ufuncs where each     calculation is obtained by calling a function taking one input     argument and returning one output. This function is passed in     "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "func"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ". The letters correspond to dtypechar's of the supported     data types ( "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "e"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " - half, "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "f"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " - float, "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "d"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " - double,     "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "g"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " - long double, "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "F"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " - cfloat, "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "D"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " - cdouble,     "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "G"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " - clongdouble). The argument "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": {
+                          "value": "func"
+                        }
+                      },
+                      "type": "Emph"
+                    },
+                    {
+                      "data": {
+                        "value": " must support the same     signature. The _As_X_X variants assume ndarray's of one data type     but cast the values to use an underlying function that takes a     different data type. Thus, "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "PyUFunc_f_f_As_d_d"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " uses     ndarrays of data type "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "NPY_FLOAT"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " but calls out to a     C-function that takes double and returns double."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -837,16 +2221,62 @@
         },
         {
           "data": {
-            "value": [
-              "Type specific, core 1-d functions for ufuncs where each",
-              "calculation is obtained by calling a function taking two input",
-              "arguments and returning one output. The underlying function to",
-              "call is passed in as *func*. The letters correspond to",
-              "dtypechar's of the specific data type supported by the",
-              "general-purpose function. The argument ``func`` must support the",
-              "corresponding signature. The ``_As_XX_X`` variants assume ndarrays",
-              "of one data type but cast the values at each iteration of the loop",
-              "to use the underlying function that takes a different data type."
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Type specific, core 1-d functions for ufuncs where each     calculation is obtained by calling a function taking two input     arguments and returning one output. The underlying function to     call is passed in as "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": {
+                          "value": "func"
+                        }
+                      },
+                      "type": "Emph"
+                    },
+                    {
+                      "data": {
+                        "value": ". The letters correspond to     dtypechar's of the specific data type supported by the     general-purpose function. The argument "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "func"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " must support the     corresponding signature. The "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "_As_XX_X"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " variants assume ndarrays     of one data type but cast the values at each iteration of the loop     to use the underlying function that takes a different data type."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -871,13 +2301,104 @@
         },
         {
           "data": {
-            "value": [
-              "One-input, one-output, and two-input, one-output core 1-d functions",
-              "for the :c:data:`NPY_OBJECT` data type. These functions handle reference",
-              "count issues and return early on error. The actual function to call is",
-              "*func* and it must accept calls with the signature ``(PyObject*)",
-              "(PyObject*)`` for :c:func:`PyUFunc_O_O` or ``(PyObject*)(PyObject *,",
-              "PyObject *)`` for :c:func:`PyUFunc_OO_O`."
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "One-input, one-output, and two-input, one-output core 1-d functions     for the "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "NPY_OBJECT"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " data type. These functions handle reference     count issues and return early on error. The actual function to call is     "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": {
+                          "value": "func"
+                        }
+                      },
+                      "type": "Emph"
+                    },
+                    {
+                      "data": {
+                        "value": " and it must accept calls with the signature "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "(PyObject*)\n    (PyObject*)"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " for "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "PyUFunc_O_O"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " or "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "(PyObject*)(PyObject *,\n    PyObject *)"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " for "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "PyUFunc_OO_O"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": "."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -893,11 +2414,48 @@
         },
         {
           "data": {
-            "value": [
-              "This general purpose 1-d core function assumes that *func* is a string",
-              "representing a method of the input object. For each",
-              "iteration of the loop, the Python object is extracted from the array",
-              "and its *func* method is called returning the result to the output array."
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "This general purpose 1-d core function assumes that "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": {
+                          "value": "func"
+                        }
+                      },
+                      "type": "Emph"
+                    },
+                    {
+                      "data": {
+                        "value": " is a string     representing a method of the input object. For each     iteration of the loop, the Python object is extracted from the array     and its "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": {
+                          "value": "func"
+                        }
+                      },
+                      "type": "Emph"
+                    },
+                    {
+                      "data": {
+                        "value": " method is called returning the result to the output array."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -913,13 +2471,76 @@
         },
         {
           "data": {
-            "value": [
-              "This general purpose 1-d core function assumes that *func* is a",
-              "string representing a method of the input object that takes one",
-              "argument. The first argument in *args* is the method whose function is",
-              "called, the second argument in *args* is the argument passed to the",
-              "function. The output of the function is stored in the third entry",
-              "of *args*."
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "This general purpose 1-d core function assumes that "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": {
+                          "value": "func"
+                        }
+                      },
+                      "type": "Emph"
+                    },
+                    {
+                      "data": {
+                        "value": " is a     string representing a method of the input object that takes one     argument. The first argument in "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": {
+                          "value": "args"
+                        }
+                      },
+                      "type": "Emph"
+                    },
+                    {
+                      "data": {
+                        "value": " is the method whose function is     called, the second argument in "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": {
+                          "value": "args"
+                        }
+                      },
+                      "type": "Emph"
+                    },
+                    {
+                      "data": {
+                        "value": " is the argument passed to the     function. The output of the function is stored in the third entry     of "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": {
+                          "value": "args"
+                        }
+                      },
+                      "type": "Emph"
+                    },
+                    {
+                      "data": {
+                        "value": "."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -935,25 +2556,98 @@
         },
         {
           "data": {
-            "value": [
-              "This is the 1-d core function used by the dynamic ufuncs created",
-              "by umath.frompyfunc(function, nin, nout). In this case *func* is a",
-              "pointer to a :c:type:`PyUFunc_PyFuncData` structure which has definition",
-              "",
-              ".. c:type:: PyUFunc_PyFuncData",
-              "",
-              "   .. code-block:: c",
-              "",
-              "       typedef struct {",
-              "           int nin;",
-              "           int nout;",
-              "           PyObject *callable;",
-              "       } PyUFunc_PyFuncData;",
-              "",
-              "At each iteration of the loop, the *nin* input objects are extracted",
-              "from their object arrays and placed into an argument tuple, the Python",
-              "*callable* is called with the input arguments, and the nout",
-              "outputs are placed into their object arrays."
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "This is the 1-d core function used by the dynamic ufuncs created     by umath.frompyfunc(function, nin, nout). In this case "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": {
+                          "value": "func"
+                        }
+                      },
+                      "type": "Emph"
+                    },
+                    {
+                      "data": {
+                        "value": " is a     pointer to a "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "PyUFunc_PyFuncData"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " structure which has definition"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "argument": "PyUFunc_PyFuncData",
+                  "content": ".. code-block:: c\n\n        typedef struct {\n            int nin;\n            int nout;\n            PyObject *callable;\n        } PyUFunc_PyFuncData;",
+                  "name": "c:type",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "At each iteration of the loop, the "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": {
+                          "value": "nin"
+                        }
+                      },
+                      "type": "Emph"
+                    },
+                    {
+                      "data": {
+                        "value": " input objects are extracted     from their object arrays and placed into an argument tuple, the Python     "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": {
+                          "value": "callable"
+                        }
+                      },
+                      "type": "Emph"
+                    },
+                    {
+                      "data": {
+                        "value": " is called with the input arguments, and the nout     outputs are placed into their object arrays."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -1012,7 +2706,6 @@
   "item_type": null,
   "ordered_sections": [],
   "references": null,
-  "refs": [],
   "see_also": [],
   "signature": {
     "value": null

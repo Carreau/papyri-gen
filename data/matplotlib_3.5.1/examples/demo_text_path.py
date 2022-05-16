@@ -41,8 +41,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -55,8 +65,18 @@
           },
           {
             "link": {
-              "data": "pyplot",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "pyplot"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -83,8 +103,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -111,8 +141,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -125,8 +165,18 @@
           },
           {
             "link": {
-              "data": "cbook",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.cbook",
+                  "version": "*"
+                },
+                "value": "cbook"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -153,8 +203,18 @@
           },
           {
             "link": {
-              "data": "get_sample_data",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.cbook.get_sample_data",
+                  "version": "*"
+                },
+                "value": "get_sample_data"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -181,8 +241,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -195,8 +265,18 @@
           },
           {
             "link": {
-              "data": "image",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.image",
+                  "version": "*"
+                },
+                "value": "image"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -223,8 +303,18 @@
           },
           {
             "link": {
-              "data": "BboxImage",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.image.BboxImage",
+                  "version": "*"
+                },
+                "value": "BboxImage"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -251,8 +341,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -265,8 +365,18 @@
           },
           {
             "link": {
-              "data": "offsetbox",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox",
+                  "version": "*"
+                },
+                "value": "offsetbox"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -314,8 +424,18 @@
           },
           {
             "link": {
-              "data": "AnnotationBbox",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox.AnnotationBbox",
+                  "version": "*"
+                },
+                "value": "AnnotationBbox"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -335,8 +455,18 @@
           },
           {
             "link": {
-              "data": "AnchoredOffsetbox",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox.AnchoredOffsetbox",
+                  "version": "*"
+                },
+                "value": "AnchoredOffsetbox"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -356,8 +486,18 @@
           },
           {
             "link": {
-              "data": "AuxTransformBox",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox.AuxTransformBox",
+                  "version": "*"
+                },
+                "value": "AuxTransformBox"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -391,8 +531,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -405,8 +555,18 @@
           },
           {
             "link": {
-              "data": "patches",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches",
+                  "version": "*"
+                },
+                "value": "patches"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -433,8 +593,18 @@
           },
           {
             "link": {
-              "data": "PathPatch",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.PathPatch",
+                  "version": "*"
+                },
+                "value": "PathPatch"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -454,8 +624,18 @@
           },
           {
             "link": {
-              "data": "Shadow",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.Shadow",
+                  "version": "*"
+                },
+                "value": "Shadow"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -482,8 +662,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -496,8 +686,18 @@
           },
           {
             "link": {
-              "data": "text",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.text",
+                  "version": "*"
+                },
+                "value": "text"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -524,8 +724,18 @@
           },
           {
             "link": {
-              "data": "TextPath",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.textpath.TextPath",
+                  "version": "*"
+                },
+                "value": "TextPath"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -552,8 +762,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -566,8 +786,18 @@
           },
           {
             "link": {
-              "data": "transforms",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms",
+                  "version": "*"
+                },
+                "value": "transforms"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -594,8 +824,18 @@
           },
           {
             "link": {
-              "data": "IdentityTransform",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.IdentityTransform",
+                  "version": "*"
+                },
+                "value": "IdentityTransform"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -622,8 +862,18 @@
           },
           {
             "link": {
-              "data": "numpy",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "numpy"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -650,8 +900,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -692,8 +952,18 @@
           },
           {
             "link": {
-              "data": "PathClippedImagePatch",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.PathClippedImagePatch",
+                  "version": "*"
+                },
+                "value": "PathClippedImagePatch"
+              },
+              "type": "Link"
             },
             "type": "nc"
           },
@@ -706,8 +976,18 @@
           },
           {
             "link": {
-              "data": "PathPatch",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.PathPatch",
+                  "version": "*"
+                },
+                "value": "PathPatch"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -783,8 +1063,18 @@
           },
           {
             "link": {
-              "data": "__init__",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.PathClippedImagePatch.__init__",
+                  "version": "*"
+                },
+                "value": "__init__"
+              },
+              "type": "Link"
             },
             "type": "fm"
           },
@@ -797,8 +1087,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.PathClippedImagePatch",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -818,8 +1118,18 @@
           },
           {
             "link": {
-              "data": "path",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.textpath.TextPath",
+                  "version": "*"
+                },
+                "value": "path"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -839,8 +1149,18 @@
           },
           {
             "link": {
-              "data": "bbox_image",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "bbox_image"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -874,8 +1194,18 @@
           },
           {
             "link": {
-              "data": "kwargs",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "kwargs"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -909,8 +1239,18 @@
           },
           {
             "link": {
-              "data": "super",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.super",
+                  "version": "*"
+                },
+                "value": "super"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -937,8 +1277,18 @@
           },
           {
             "link": {
-              "data": "__init__",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.PathPatch.__init__",
+                  "version": "*"
+                },
+                "value": "__init__"
+              },
+              "type": "Link"
             },
             "type": "fm"
           },
@@ -951,8 +1301,18 @@
           },
           {
             "link": {
-              "data": "path",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.textpath.TextPath",
+                  "version": "*"
+                },
+                "value": "path"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -986,8 +1346,18 @@
           },
           {
             "link": {
-              "data": "kwargs",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.dict",
+                  "version": "*"
+                },
+                "value": "kwargs"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1014,8 +1384,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.PathClippedImagePatch",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1028,8 +1408,18 @@
           },
           {
             "link": {
-              "data": "bbox_image",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.image.BboxImage",
+                  "version": "*"
+                },
+                "value": "bbox_image"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1056,8 +1446,18 @@
           },
           {
             "link": {
-              "data": "BboxImage",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.image.BboxImage",
+                  "version": "*"
+                },
+                "value": "BboxImage"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1084,8 +1484,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.PathClippedImagePatch",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1098,8 +1508,18 @@
           },
           {
             "link": {
-              "data": "get_window_extent",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.Patch.get_window_extent",
+                  "version": "*"
+                },
+                "value": "get_window_extent"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1196,8 +1616,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.PathClippedImagePatch",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1210,8 +1640,18 @@
           },
           {
             "link": {
-              "data": "bbox_image",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.image.BboxImage",
+                  "version": "*"
+                },
+                "value": "bbox_image"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1224,8 +1664,18 @@
           },
           {
             "link": {
-              "data": "set_data",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.image._ImageBase.set_data",
+                  "version": "*"
+                },
+                "value": "set_data"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1238,8 +1688,18 @@
           },
           {
             "link": {
-              "data": "bbox_image",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "bbox_image"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1287,8 +1747,18 @@
           },
           {
             "link": {
-              "data": "set_facecolor",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.PathClippedImagePatch.set_facecolor",
+                  "version": "*"
+                },
+                "value": "set_facecolor"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -1301,8 +1771,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.PathClippedImagePatch",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1378,8 +1858,18 @@
           },
           {
             "link": {
-              "data": "super",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.super",
+                  "version": "*"
+                },
+                "value": "super"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -1406,8 +1896,18 @@
           },
           {
             "link": {
-              "data": "set_facecolor",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.Patch.set_facecolor",
+                  "version": "*"
+                },
+                "value": "set_facecolor"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1483,8 +1983,18 @@
           },
           {
             "link": {
-              "data": "draw",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.PathClippedImagePatch.draw",
+                  "version": "*"
+                },
+                "value": "draw"
+              },
+              "type": "Link"
             },
             "type": "nf"
           },
@@ -1497,8 +2007,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.PathClippedImagePatch",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1518,8 +2038,18 @@
           },
           {
             "link": {
-              "data": "renderer",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.NoneType",
+                  "version": "*"
+                },
+                "value": "renderer"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1588,8 +2118,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.PathClippedImagePatch",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1602,8 +2142,18 @@
           },
           {
             "link": {
-              "data": "bbox_image",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.image.BboxImage",
+                  "version": "*"
+                },
+                "value": "bbox_image"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1616,8 +2166,18 @@
           },
           {
             "link": {
-              "data": "set_clip_path",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.artist.Artist.set_clip_path",
+                  "version": "*"
+                },
+                "value": "set_clip_path"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1630,8 +2190,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.PathClippedImagePatch",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1665,8 +2235,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.PathClippedImagePatch",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1679,8 +2259,18 @@
           },
           {
             "link": {
-              "data": "get_transform",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.Patch.get_transform",
+                  "version": "*"
+                },
+                "value": "get_transform"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1721,8 +2311,18 @@
           },
           {
             "link": {
-              "data": "self",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.PathClippedImagePatch",
+                  "version": "*"
+                },
+                "value": "self"
+              },
+              "type": "Link"
             },
             "type": "bp"
           },
@@ -1735,8 +2335,18 @@
           },
           {
             "link": {
-              "data": "bbox_image",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.image.BboxImage",
+                  "version": "*"
+                },
+                "value": "bbox_image"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1749,8 +2359,18 @@
           },
           {
             "link": {
-              "data": "draw",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.image._ImageBase.draw",
+                  "version": "*"
+                },
+                "value": "draw"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1763,8 +2383,18 @@
           },
           {
             "link": {
-              "data": "renderer",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.NoneType",
+                  "version": "*"
+                },
+                "value": "renderer"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1791,8 +2421,18 @@
           },
           {
             "link": {
-              "data": "super",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.super",
+                  "version": "*"
+                },
+                "value": "super"
+              },
+              "type": "Link"
             },
             "type": "nb"
           },
@@ -1819,8 +2459,18 @@
           },
           {
             "link": {
-              "data": "draw",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.Patch.draw",
+                  "version": "*"
+                },
+                "value": "draw"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1833,8 +2483,18 @@
           },
           {
             "link": {
-              "data": "renderer",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.NoneType",
+                  "version": "*"
+                },
+                "value": "renderer"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1882,8 +2542,18 @@
           },
           {
             "link": {
-              "data": "__name__",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "__name__"
+              },
+              "type": "Link"
             },
             "type": "vm"
           },
@@ -1959,8 +2629,18 @@
           },
           {
             "link": {
-              "data": "usetex",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.NoneType",
+                  "version": "*"
+                },
+                "value": "usetex"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1987,8 +2667,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2001,8 +2691,18 @@
           },
           {
             "link": {
-              "data": "rcParams",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.RcParams",
+                  "version": "*"
+                },
+                "value": "rcParams"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2064,8 +2764,18 @@
           },
           {
             "link": {
-              "data": "fig",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "fig"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2148,8 +2858,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2162,8 +2882,18 @@
           },
           {
             "link": {
-              "data": "subplots",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.subplots",
+                  "version": "*"
+                },
+                "value": "subplots"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2239,8 +2969,18 @@
           },
           {
             "link": {
-              "data": "arr",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "arr"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2267,8 +3007,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2281,8 +3031,18 @@
           },
           {
             "link": {
-              "data": "imread",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.imread",
+                  "version": "*"
+                },
+                "value": "imread"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2295,8 +3055,18 @@
           },
           {
             "link": {
-              "data": "get_sample_data",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.cbook.get_sample_data",
+                  "version": "*"
+                },
+                "value": "get_sample_data"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2365,8 +3135,18 @@
           },
           {
             "link": {
-              "data": "text_path",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.textpath.TextPath",
+                  "version": "*"
+                },
+                "value": "text_path"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2393,8 +3173,18 @@
           },
           {
             "link": {
-              "data": "TextPath",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.textpath.TextPath",
+                  "version": "*"
+                },
+                "value": "TextPath"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2540,8 +3330,18 @@
           },
           {
             "link": {
-              "data": "p",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.PathClippedImagePatch",
+                  "version": "*"
+                },
+                "value": "p"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2568,8 +3368,18 @@
           },
           {
             "link": {
-              "data": "PathClippedImagePatch",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.PathClippedImagePatch",
+                  "version": "*"
+                },
+                "value": "PathClippedImagePatch"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2582,8 +3392,18 @@
           },
           {
             "link": {
-              "data": "text_path",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.textpath.TextPath",
+                  "version": "*"
+                },
+                "value": "text_path"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2603,8 +3423,18 @@
           },
           {
             "link": {
-              "data": "arr",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "arr"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2694,8 +3524,18 @@
           },
           {
             "link": {
-              "data": "IdentityTransform",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.IdentityTransform",
+                  "version": "*"
+                },
+                "value": "IdentityTransform"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2764,8 +3604,18 @@
           },
           {
             "link": {
-              "data": "offsetbox",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox.AuxTransformBox",
+                  "version": "*"
+                },
+                "value": "offsetbox"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2792,8 +3642,18 @@
           },
           {
             "link": {
-              "data": "AuxTransformBox",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox.AuxTransformBox",
+                  "version": "*"
+                },
+                "value": "AuxTransformBox"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2806,8 +3666,18 @@
           },
           {
             "link": {
-              "data": "IdentityTransform",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.IdentityTransform",
+                  "version": "*"
+                },
+                "value": "IdentityTransform"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2848,8 +3718,18 @@
           },
           {
             "link": {
-              "data": "offsetbox",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox.AuxTransformBox",
+                  "version": "*"
+                },
+                "value": "offsetbox"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2862,8 +3742,18 @@
           },
           {
             "link": {
-              "data": "add_artist",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox.AuxTransformBox.add_artist",
+                  "version": "*"
+                },
+                "value": "add_artist"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2876,8 +3766,18 @@
           },
           {
             "link": {
-              "data": "p",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.PathClippedImagePatch",
+                  "version": "*"
+                },
+                "value": "p"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2932,8 +3832,18 @@
           },
           {
             "link": {
-              "data": "ao",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox.AnchoredOffsetbox",
+                  "version": "*"
+                },
+                "value": "ao"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -2960,8 +3870,18 @@
           },
           {
             "link": {
-              "data": "AnchoredOffsetbox",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox.AnchoredOffsetbox",
+                  "version": "*"
+                },
+                "value": "AnchoredOffsetbox"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3037,8 +3957,18 @@
           },
           {
             "link": {
-              "data": "offsetbox",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox.AuxTransformBox",
+                  "version": "*"
+                },
+                "value": "offsetbox"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3170,8 +4100,18 @@
           },
           {
             "link": {
-              "data": "ao",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox.AnchoredOffsetbox",
+                  "version": "*"
+                },
+                "value": "ao"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3240,8 +4180,18 @@
           },
           {
             "link": {
-              "data": "matplotlib",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib",
+                  "version": "*"
+                },
+                "value": "matplotlib"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -3254,8 +4204,18 @@
           },
           {
             "link": {
-              "data": "patches",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches",
+                  "version": "*"
+                },
+                "value": "patches"
+              },
+              "type": "Link"
             },
             "type": "nn"
           },
@@ -3282,8 +4242,18 @@
           },
           {
             "link": {
-              "data": "PathPatch",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.PathPatch",
+                  "version": "*"
+                },
+                "value": "PathPatch"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3317,8 +4287,18 @@
           },
           {
             "link": {
-              "data": "usetex",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.NoneType",
+                  "version": "*"
+                },
+                "value": "usetex"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3345,8 +4325,18 @@
           },
           {
             "link": {
-              "data": "r",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "r"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3492,8 +4482,18 @@
           },
           {
             "link": {
-              "data": "r",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "r"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3569,8 +4569,18 @@
           },
           {
             "link": {
-              "data": "text_path",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.textpath.TextPath",
+                  "version": "*"
+                },
+                "value": "text_path"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3597,8 +4607,18 @@
           },
           {
             "link": {
-              "data": "TextPath",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.textpath.TextPath",
+                  "version": "*"
+                },
+                "value": "TextPath"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3667,8 +4687,18 @@
           },
           {
             "link": {
-              "data": "r",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "r"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3723,8 +4753,18 @@
           },
           {
             "link": {
-              "data": "usetex",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.NoneType",
+                  "version": "*"
+                },
+                "value": "usetex"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3737,8 +4777,18 @@
           },
           {
             "link": {
-              "data": "usetex",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.NoneType",
+                  "version": "*"
+                },
+                "value": "usetex"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3772,8 +4822,18 @@
           },
           {
             "link": {
-              "data": "p1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.PathPatch",
+                  "version": "*"
+                },
+                "value": "p1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3800,8 +4860,18 @@
           },
           {
             "link": {
-              "data": "PathPatch",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.PathPatch",
+                  "version": "*"
+                },
+                "value": "PathPatch"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -3814,8 +4884,18 @@
           },
           {
             "link": {
-              "data": "text_path",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.textpath.TextPath",
+                  "version": "*"
+                },
+                "value": "text_path"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4024,8 +5104,18 @@
           },
           {
             "link": {
-              "data": "IdentityTransform",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.IdentityTransform",
+                  "version": "*"
+                },
+                "value": "IdentityTransform"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4066,8 +5156,18 @@
           },
           {
             "link": {
-              "data": "p2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.PathPatch",
+                  "version": "*"
+                },
+                "value": "p2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4094,8 +5194,18 @@
           },
           {
             "link": {
-              "data": "PathPatch",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.PathPatch",
+                  "version": "*"
+                },
+                "value": "PathPatch"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4108,8 +5218,18 @@
           },
           {
             "link": {
-              "data": "text_path",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.textpath.TextPath",
+                  "version": "*"
+                },
+                "value": "text_path"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4248,8 +5368,18 @@
           },
           {
             "link": {
-              "data": "IdentityTransform",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.IdentityTransform",
+                  "version": "*"
+                },
+                "value": "IdentityTransform"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4297,8 +5427,18 @@
           },
           {
             "link": {
-              "data": "offsetbox2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox.AuxTransformBox",
+                  "version": "*"
+                },
+                "value": "offsetbox2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4325,8 +5465,18 @@
           },
           {
             "link": {
-              "data": "AuxTransformBox",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox.AuxTransformBox",
+                  "version": "*"
+                },
+                "value": "AuxTransformBox"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4339,8 +5489,18 @@
           },
           {
             "link": {
-              "data": "IdentityTransform",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.IdentityTransform",
+                  "version": "*"
+                },
+                "value": "IdentityTransform"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4381,8 +5541,18 @@
           },
           {
             "link": {
-              "data": "offsetbox2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox.AuxTransformBox",
+                  "version": "*"
+                },
+                "value": "offsetbox2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4395,8 +5565,18 @@
           },
           {
             "link": {
-              "data": "add_artist",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox.AuxTransformBox.add_artist",
+                  "version": "*"
+                },
+                "value": "add_artist"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4409,8 +5589,18 @@
           },
           {
             "link": {
-              "data": "p1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.PathPatch",
+                  "version": "*"
+                },
+                "value": "p1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4437,8 +5627,18 @@
           },
           {
             "link": {
-              "data": "offsetbox2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox.AuxTransformBox",
+                  "version": "*"
+                },
+                "value": "offsetbox2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4451,8 +5651,18 @@
           },
           {
             "link": {
-              "data": "add_artist",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox.AuxTransformBox.add_artist",
+                  "version": "*"
+                },
+                "value": "add_artist"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4465,8 +5675,18 @@
           },
           {
             "link": {
-              "data": "p2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.PathPatch",
+                  "version": "*"
+                },
+                "value": "p2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4500,8 +5720,18 @@
           },
           {
             "link": {
-              "data": "ab",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox.AnnotationBbox",
+                  "version": "*"
+                },
+                "value": "ab"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4528,8 +5758,18 @@
           },
           {
             "link": {
-              "data": "AnnotationBbox",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox.AnnotationBbox",
+                  "version": "*"
+                },
+                "value": "AnnotationBbox"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4542,8 +5782,18 @@
           },
           {
             "link": {
-              "data": "offsetbox2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox.AuxTransformBox",
+                  "version": "*"
+                },
+                "value": "offsetbox2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4899,8 +6149,18 @@
           },
           {
             "link": {
-              "data": "ab",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox.AnnotationBbox",
+                  "version": "*"
+                },
+                "value": "ab"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5144,8 +6404,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5158,8 +6428,18 @@
           },
           {
             "link": {
-              "data": "cm",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.cm",
+                  "version": "*"
+                },
+                "value": "cm"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5340,8 +6620,18 @@
           },
           {
             "link": {
-              "data": "arr",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "arr"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5368,8 +6658,18 @@
           },
           {
             "link": {
-              "data": "np",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy",
+                  "version": "*"
+                },
+                "value": "np"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5382,8 +6682,18 @@
           },
           {
             "link": {
-              "data": "arange",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.arange",
+                  "version": "*"
+                },
+                "value": "arange"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5529,8 +6839,18 @@
           },
           {
             "link": {
-              "data": "usetex",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.NoneType",
+                  "version": "*"
+                },
+                "value": "usetex"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5557,8 +6877,18 @@
           },
           {
             "link": {
-              "data": "s",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "s"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -5592,8 +6922,18 @@
           },
           {
             "link": {
-              "data": "r",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "r"
+              },
+              "type": "Link"
             },
             "type": "sa"
           },
@@ -5858,8 +7198,18 @@
           },
           {
             "link": {
-              "data": "s",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "s"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6068,8 +7418,18 @@
           },
           {
             "link": {
-              "data": "text_path",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.textpath.TextPath",
+                  "version": "*"
+                },
+                "value": "text_path"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6096,8 +7456,18 @@
           },
           {
             "link": {
-              "data": "TextPath",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.textpath.TextPath",
+                  "version": "*"
+                },
+                "value": "TextPath"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6166,8 +7536,18 @@
           },
           {
             "link": {
-              "data": "s",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.str",
+                  "version": "*"
+                },
+                "value": "s"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6222,8 +7602,18 @@
           },
           {
             "link": {
-              "data": "usetex",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.NoneType",
+                  "version": "*"
+                },
+                "value": "usetex"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6236,8 +7626,18 @@
           },
           {
             "link": {
-              "data": "usetex",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.NoneType",
+                  "version": "*"
+                },
+                "value": "usetex"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6264,8 +7664,18 @@
           },
           {
             "link": {
-              "data": "text_patch",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.PathClippedImagePatch",
+                  "version": "*"
+                },
+                "value": "text_patch"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6292,8 +7702,18 @@
           },
           {
             "link": {
-              "data": "PathClippedImagePatch",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.PathClippedImagePatch",
+                  "version": "*"
+                },
+                "value": "PathClippedImagePatch"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6306,8 +7726,18 @@
           },
           {
             "link": {
-              "data": "text_path",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.textpath.TextPath",
+                  "version": "*"
+                },
+                "value": "text_path"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6327,8 +7757,18 @@
           },
           {
             "link": {
-              "data": "arr",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "builtins",
+                  "path": "builtins.int",
+                  "version": "*"
+                },
+                "value": "arr"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6418,8 +7858,18 @@
           },
           {
             "link": {
-              "data": "IdentityTransform",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.IdentityTransform",
+                  "version": "*"
+                },
+                "value": "IdentityTransform"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6467,8 +7917,18 @@
           },
           {
             "link": {
-              "data": "shadow1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.Shadow",
+                  "version": "*"
+                },
+                "value": "shadow1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6495,8 +7955,18 @@
           },
           {
             "link": {
-              "data": "Shadow",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.Shadow",
+                  "version": "*"
+                },
+                "value": "Shadow"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6509,8 +7979,18 @@
           },
           {
             "link": {
-              "data": "text_patch",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.PathClippedImagePatch",
+                  "version": "*"
+                },
+                "value": "text_patch"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6719,8 +8199,18 @@
           },
           {
             "link": {
-              "data": "shadow2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.Shadow",
+                  "version": "*"
+                },
+                "value": "shadow2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6747,8 +8237,18 @@
           },
           {
             "link": {
-              "data": "Shadow",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.Shadow",
+                  "version": "*"
+                },
+                "value": "Shadow"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6761,8 +8261,18 @@
           },
           {
             "link": {
-              "data": "text_patch",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.PathClippedImagePatch",
+                  "version": "*"
+                },
+                "value": "text_patch"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6964,8 +8474,18 @@
           },
           {
             "link": {
-              "data": "offsetbox",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox.AuxTransformBox",
+                  "version": "*"
+                },
+                "value": "offsetbox"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6992,8 +8512,18 @@
           },
           {
             "link": {
-              "data": "AuxTransformBox",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox.AuxTransformBox",
+                  "version": "*"
+                },
+                "value": "AuxTransformBox"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7006,8 +8536,18 @@
           },
           {
             "link": {
-              "data": "IdentityTransform",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.transforms.IdentityTransform",
+                  "version": "*"
+                },
+                "value": "IdentityTransform"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7048,8 +8588,18 @@
           },
           {
             "link": {
-              "data": "offsetbox",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox.AuxTransformBox",
+                  "version": "*"
+                },
+                "value": "offsetbox"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7062,8 +8612,18 @@
           },
           {
             "link": {
-              "data": "add_artist",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox.AuxTransformBox.add_artist",
+                  "version": "*"
+                },
+                "value": "add_artist"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7076,8 +8636,18 @@
           },
           {
             "link": {
-              "data": "shadow1",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.Shadow",
+                  "version": "*"
+                },
+                "value": "shadow1"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7104,8 +8674,18 @@
           },
           {
             "link": {
-              "data": "offsetbox",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox.AuxTransformBox",
+                  "version": "*"
+                },
+                "value": "offsetbox"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7118,8 +8698,18 @@
           },
           {
             "link": {
-              "data": "add_artist",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox.AuxTransformBox.add_artist",
+                  "version": "*"
+                },
+                "value": "add_artist"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7132,8 +8722,18 @@
           },
           {
             "link": {
-              "data": "shadow2",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.patches.Shadow",
+                  "version": "*"
+                },
+                "value": "shadow2"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7160,8 +8760,18 @@
           },
           {
             "link": {
-              "data": "offsetbox",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox.AuxTransformBox",
+                  "version": "*"
+                },
+                "value": "offsetbox"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7174,8 +8784,18 @@
           },
           {
             "link": {
-              "data": "add_artist",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox.AuxTransformBox.add_artist",
+                  "version": "*"
+                },
+                "value": "add_artist"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7188,8 +8808,18 @@
           },
           {
             "link": {
-              "data": "text_patch",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "__main__",
+                  "path": "__main__.PathClippedImagePatch",
+                  "version": "*"
+                },
+                "value": "text_patch"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7244,8 +8874,18 @@
           },
           {
             "link": {
-              "data": "ab",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox.AnnotationBbox",
+                  "version": "*"
+                },
+                "value": "ab"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7272,8 +8912,18 @@
           },
           {
             "link": {
-              "data": "AnnotationBbox",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox.AnnotationBbox",
+                  "version": "*"
+                },
+                "value": "AnnotationBbox"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7286,8 +8936,18 @@
           },
           {
             "link": {
-              "data": "offsetbox",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox.AuxTransformBox",
+                  "version": "*"
+                },
+                "value": "offsetbox"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7615,8 +9275,18 @@
           },
           {
             "link": {
-              "data": "ab",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.offsetbox.AnnotationBbox",
+                  "version": "*"
+                },
+                "value": "ab"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7811,8 +9481,18 @@
           },
           {
             "link": {
-              "data": "plt",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot",
+                  "version": "*"
+                },
+                "value": "plt"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -7825,8 +9505,18 @@
           },
           {
             "link": {
-              "data": "show",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "matplotlib",
+                  "path": "matplotlib.pyplot.show",
+                  "version": "*"
+                },
+                "value": "show"
+              },
+              "type": "Link"
             },
             "type": ""
           },

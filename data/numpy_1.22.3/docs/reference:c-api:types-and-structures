@@ -388,131 +388,245 @@
         },
         {
           "data": {
-            "value": [
-              "The :c:type:`PyArrayObject` C-structure contains all of the required",
-              "information for an array. All instances of an ndarray (and its",
-              "subclasses) will have this structure.  For future compatibility,",
-              "these structure members should normally be accessed using the",
-              "provided macros. If you need a shorter name, then you can make use",
-              "of :c:type:`NPY_AO` (deprecated) which is defined to be equivalent to",
-              ":c:type:`PyArrayObject`. Direct access to the struct fields are",
-              "deprecated. Use the ``PyArray_*(arr)`` form instead.",
-              "As of NumPy 1.20, the size of this struct is not considered part of",
-              "the NumPy ABI (see note at the end of the member list).",
-              "",
-              ".. code-block:: c",
-              "",
-              "   typedef struct PyArrayObject {",
-              "       PyObject_HEAD",
-              "       char *data;",
-              "       int nd;",
-              "       npy_intp *dimensions;",
-              "       npy_intp *strides;",
-              "       PyObject *base;",
-              "       PyArray_Descr *descr;",
-              "       int flags;",
-              "       PyObject *weakreflist;",
-              "       /* version dependent private members */",
-              "   } PyArrayObject;",
-              "",
-              ".. c:macro:: PyObject_HEAD",
-              "",
-              "    This is needed by all Python objects. It consists of (at least)",
-              "    a reference count member ( ``ob_refcnt`` ) and a pointer to the",
-              "    typeobject ( ``ob_type`` ). (Other elements may also be present",
-              "    if Python was compiled with special options see",
-              "    Include/object.h in the Python source tree for more",
-              "    information). The ob_type member points to a Python type",
-              "    object.",
-              "",
-              ".. c:member:: char *data",
-              "",
-              "    Accessible via :c:data:`PyArray_DATA`, this data member is a",
-              "    pointer to the first element of the array. This pointer can",
-              "    (and normally should) be recast to the data type of the array.",
-              "",
-              ".. c:member:: int nd",
-              "",
-              "    An integer providing the number of dimensions for this",
-              "    array. When nd is 0, the array is sometimes called a rank-0",
-              "    array. Such arrays have undefined dimensions and strides and",
-              "    cannot be accessed. Macro :c:data:`PyArray_NDIM` defined in",
-              "    ``ndarraytypes.h`` points to this data member. :c:data:`NPY_MAXDIMS`",
-              "    is the largest number of dimensions for any array.",
-              "",
-              ".. c:member:: npy_intp dimensions",
-              "",
-              "    An array of integers providing the shape in each dimension as",
-              "    long as nd :math:`\\geq` 1. The integer is always large enough",
-              "    to hold a pointer on the platform, so the dimension size is",
-              "    only limited by memory. :c:data:`PyArray_DIMS` is the macro",
-              "    associated with this data member.",
-              "",
-              ".. c:member:: npy_intp *strides",
-              "",
-              "    An array of integers providing for each dimension the number of",
-              "    bytes that must be skipped to get to the next element in that",
-              "    dimension. Associated with macro :c:data:`PyArray_STRIDES`.",
-              "",
-              ".. c:member:: PyObject *base",
-              "",
-              "    Pointed to by :c:data:`PyArray_BASE`, this member is used to hold a",
-              "    pointer to another Python object that is related to this array.",
-              "    There are two use cases:",
-              "",
-              "    - If this array does not own its own memory, then base points to the",
-              "      Python object that owns it (perhaps another array object)",
-              "    - If this array has the :c:data:`NPY_ARRAY_WRITEBACKIFCOPY` flag set,",
-              "      then this array is a working copy of a \"misbehaved\" array.",
-              "",
-              "    When ``PyArray_ResolveWritebackIfCopy`` is called, the array pointed to",
-              "    by base will be updated with the contents of this array.",
-              "",
-              ".. c:member:: PyArray_Descr *descr",
-              "",
-              "    A pointer to a data-type descriptor object (see below). The",
-              "    data-type descriptor object is an instance of a new built-in",
-              "    type which allows a generic description of memory. There is a",
-              "    descriptor structure for each data type supported. This",
-              "    descriptor structure contains useful information about the type",
-              "    as well as a pointer to a table of function pointers to",
-              "    implement specific functionality. As the name suggests, it is",
-              "    associated with the macro :c:data:`PyArray_DESCR`.",
-              "",
-              ".. c:member:: int flags",
-              "",
-              "    Pointed to by the macro :c:data:`PyArray_FLAGS`, this data member represents",
-              "    the flags indicating how the memory pointed to by data is to be",
-              "    interpreted. Possible flags are :c:data:`NPY_ARRAY_C_CONTIGUOUS`,",
-              "    :c:data:`NPY_ARRAY_F_CONTIGUOUS`, :c:data:`NPY_ARRAY_OWNDATA`,",
-              "    :c:data:`NPY_ARRAY_ALIGNED`, :c:data:`NPY_ARRAY_WRITEABLE`,",
-              "    :c:data:`NPY_ARRAY_WRITEBACKIFCOPY`.",
-              "",
-              ".. c:member:: PyObject *weakreflist",
-              "",
-              "    This member allows array objects to have weak references (using the",
-              "    weakref module).",
-              "",
-              ".. note::",
-              "",
-              "   Further members are considered private and version dependent. If the size",
-              "   of the struct is important for your code, special care must be taken.",
-              "   A possible use-case when this is relevant is subclassing in C.",
-              "   If your code relies on ``sizeof(PyArrayObject)`` to be constant,",
-              "   you must add the following check at import time:",
-              "",
-              "   .. code-block:: c",
-              "",
-              "      if (sizeof(PyArrayObject) < PyArray_Type.tp_basicsize) {",
-              "          PyErr_SetString(PyExc_ImportError,",
-              "             \"Binary incompatibility with NumPy, must recompile/update X.\");",
-              "          return NULL;",
-              "      }",
-              "",
-              "   To ensure that your code does not have to be compiled for a specific",
-              "   NumPy version, you may add a constant, leaving room for changes in NumPy.",
-              "   A solution guaranteed to be compatible with any future NumPy version",
-              "   requires the use of a runtime calculate offset and allocation size."
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "The "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "PyArrayObject"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " C-structure contains all of the required    information for an array. All instances of an ndarray (and its    subclasses) will have this structure.  For future compatibility,    these structure members should normally be accessed using the    provided macros. If you need a shorter name, then you can make use    of "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "NPY_AO"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " (deprecated) which is defined to be equivalent to    "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "PyArrayObject"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ". Direct access to the struct fields are    deprecated. Use the "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "PyArray_*(arr)"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " form instead.    As of NumPy 1.20, the size of this struct is not considered part of    the NumPy ABI (see note at the end of the member list)."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "argument": "c",
+                  "content": "typedef struct PyArrayObject {\n       PyObject_HEAD\n       char *data;\n       int nd;\n       npy_intp *dimensions;\n       npy_intp *strides;\n       PyObject *base;\n       PyArray_Descr *descr;\n       int flags;\n       PyObject *weakreflist;\n       /* version dependent private members */\n   } PyArrayObject;",
+                  "name": "code-block",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "PyObject_HEAD",
+                  "content": "This is needed by all Python objects. It consists of (at least)\n   a reference count member ( ``ob_refcnt`` ) and a pointer to the\n   typeobject ( ``ob_type`` ). (Other elements may also be present\n   if Python was compiled with special options see\n   Include/object.h in the Python source tree for more\n   information). The ob_type member points to a Python type\n   object.",
+                  "name": "c:macro",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "char *data",
+                  "content": "Accessible via :c:data:`PyArray_DATA`, this data member is a\n   pointer to the first element of the array. This pointer can\n   (and normally should) be recast to the data type of the array.",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "int nd",
+                  "content": "An integer providing the number of dimensions for this\n   array. When nd is 0, the array is sometimes called a rank-0\n   array. Such arrays have undefined dimensions and strides and\n   cannot be accessed. Macro :c:data:`PyArray_NDIM` defined in\n   ``ndarraytypes.h`` points to this data member. :c:data:`NPY_MAXDIMS`\n   is the largest number of dimensions for any array.",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "npy_intp dimensions",
+                  "content": "An array of integers providing the shape in each dimension as\n   long as nd :math:`\\geq` 1. The integer is always large enough\n   to hold a pointer on the platform, so the dimension size is\n   only limited by memory. :c:data:`PyArray_DIMS` is the macro\n   associated with this data member.",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "npy_intp *strides",
+                  "content": "An array of integers providing for each dimension the number of\n   bytes that must be skipped to get to the next element in that\n   dimension. Associated with macro :c:data:`PyArray_STRIDES`.",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "PyObject *base",
+                  "content": "Pointed to by :c:data:`PyArray_BASE`, this member is used to hold a\n   pointer to another Python object that is related to this array.\n   There are two use cases:\n\n   - If this array does not own its own memory, then base points to the\n     Python object that owns it (perhaps another array object)\n   - If this array has the :c:data:`NPY_ARRAY_WRITEBACKIFCOPY` flag set,\n     then this array is a working copy of a \"misbehaved\" array.\n\n   When ``PyArray_ResolveWritebackIfCopy`` is called, the array pointed to\n   by base will be updated with the contents of this array.",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "PyArray_Descr *descr",
+                  "content": "A pointer to a data-type descriptor object (see below). The\n   data-type descriptor object is an instance of a new built-in\n   type which allows a generic description of memory. There is a\n   descriptor structure for each data type supported. This\n   descriptor structure contains useful information about the type\n   as well as a pointer to a table of function pointers to\n   implement specific functionality. As the name suggests, it is\n   associated with the macro :c:data:`PyArray_DESCR`.",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "int flags",
+                  "content": "Pointed to by the macro :c:data:`PyArray_FLAGS`, this data member represents\n   the flags indicating how the memory pointed to by data is to be\n   interpreted. Possible flags are :c:data:`NPY_ARRAY_C_CONTIGUOUS`,\n   :c:data:`NPY_ARRAY_F_CONTIGUOUS`, :c:data:`NPY_ARRAY_OWNDATA`,\n   :c:data:`NPY_ARRAY_ALIGNED`, :c:data:`NPY_ARRAY_WRITEABLE`,\n   :c:data:`NPY_ARRAY_WRITEBACKIFCOPY`.",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "PyObject *weakreflist",
+                  "content": "This member allows array objects to have weak references (using the\n   weakref module).",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "children": [
+                          {
+                            "dd": [
+                              {
+                                "data": {
+                                  "children": [
+                                    {
+                                      "data": {
+                                        "value": "of the struct is important for your code, special care must be taken.    A possible use-case when this is relevant is subclassing in C.    If your code relies on "
+                                      },
+                                      "type": "Words"
+                                    },
+                                    {
+                                      "data": {
+                                        "value": [
+                                          "sizeof(PyArrayObject)"
+                                        ]
+                                      },
+                                      "type": "Verbatim"
+                                    },
+                                    {
+                                      "data": {
+                                        "value": " to be constant,    you must add the following check at import time:"
+                                      },
+                                      "type": "Words"
+                                    }
+                                  ]
+                                },
+                                "type": "Paragraph"
+                              },
+                              {
+                                "data": {
+                                  "argument": "c",
+                                  "content": "if (sizeof(PyArrayObject) < PyArray_Type.tp_basicsize) {\n       PyErr_SetString(PyExc_ImportError,\n          \"Binary incompatibility with NumPy, must recompile/update X.\");\n       return NULL;\n   }",
+                                  "name": "code-block",
+                                  "options": []
+                                },
+                                "type": "BlockDirective"
+                              },
+                              {
+                                "data": {
+                                  "children": [
+                                    {
+                                      "data": {
+                                        "value": "To ensure that your code does not have to be compiled for a specific    NumPy version, you may add a constant, leaving room for changes in NumPy.    A solution guaranteed to be compatible with any future NumPy version    requires the use of a runtime calculate offset and allocation size."
+                                      },
+                                      "type": "Words"
+                                    }
+                                  ]
+                                },
+                                "type": "Paragraph"
+                              }
+                            ],
+                            "dt": {
+                              "children": [
+                                {
+                                  "data": {
+                                    "value": "Further members are considered private and version dependent. If the size"
+                                  },
+                                  "type": "Words"
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      },
+                      "type": "DefList"
+                    }
+                  ],
+                  "kind": "note",
+                  "title": ""
+                },
+                "type": "Admonition"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -617,95 +731,106 @@
         },
         {
           "data": {
-            "value": [
-              ".. c:member:: int type_num",
-              "",
-              "    A number that uniquely identifies the data type. For new data-types,",
-              "    this number is assigned when the data-type is registered.",
-              "",
-              ".. c:member:: int elsize",
-              "",
-              "    For data types that are always the same size (such as long), this",
-              "    holds the size of the data type. For flexible data types where",
-              "    different arrays can have a different elementsize, this should be",
-              "    0.",
-              "",
-              ".. c:member:: int alignment",
-              "",
-              "    A number providing alignment information for this data type.",
-              "    Specifically, it shows how far from the start of a 2-element",
-              "    structure (whose first element is a ``char`` ), the compiler",
-              "    places an item of this type: ``offsetof(struct {char c; type v;},",
-              "    v)``",
-              "",
-              ".. c:member:: PyArray_ArrayDescr *subarray",
-              "",
-              "    If this is non- ``NULL``, then this data-type descriptor is a",
-              "    C-style contiguous array of another data-type descriptor. In",
-              "    other-words, each element that this descriptor describes is",
-              "    actually an array of some other base descriptor. This is most",
-              "    useful as the data-type descriptor for a field in another",
-              "    data-type descriptor. The fields member should be ``NULL`` if this",
-              "    is non- ``NULL`` (the fields member of the base descriptor can be",
-              "    non- ``NULL`` however).",
-              "",
-              "    .. c:type:: PyArray_ArrayDescr",
-              "",
-              "        .. code-block:: c",
-              "",
-              "           typedef struct {",
-              "               PyArray_Descr *base;",
-              "               PyObject *shape;",
-              "           } PyArray_ArrayDescr;",
-              "",
-              "        .. c:member:: PyArray_Descr *base",
-              "",
-              "            The data-type-descriptor object of the base-type.",
-              "",
-              "        .. c:member:: PyObject *shape",
-              "",
-              "            The shape (always C-style contiguous) of the sub-array as a Python",
-              "            tuple.",
-              "",
-              ".. c:member:: PyObject *fields",
-              "",
-              "    If this is non-NULL, then this data-type-descriptor has fields",
-              "    described by a Python dictionary whose keys are names (and also",
-              "    titles if given) and whose values are tuples that describe the",
-              "    fields. Recall that a data-type-descriptor always describes a",
-              "    fixed-length set of bytes. A field is a named sub-region of that",
-              "    total, fixed-length collection. A field is described by a tuple",
-              "    composed of another data- type-descriptor and a byte",
-              "    offset. Optionally, the tuple may contain a title which is",
-              "    normally a Python string. These tuples are placed in this",
-              "    dictionary keyed by name (and also title if given).",
-              "",
-              ".. c:member:: PyObject *names",
-              "",
-              "    An ordered tuple of field names. It is NULL if no field is",
-              "    defined.",
-              "",
-              ".. c:member:: PyArray_ArrFuncs *f",
-              "",
-              "    A pointer to a structure containing functions that the type needs",
-              "    to implement internal features. These functions are not the same",
-              "    thing as the universal functions (ufuncs) described later. Their",
-              "    signatures can vary arbitrarily.",
-              "",
-              ".. c:member:: PyObject *metadata",
-              "",
-              "    Metadata about this dtype.",
-              "",
-              ".. c:member:: NpyAuxData *c_metadata",
-              "",
-              "    Metadata specific to the C implementation",
-              "    of the particular dtype. Added for NumPy 1.7.0.",
-              "",
-              ".. c:type:: npy_hash_t",
-              ".. c:member:: npy_hash_t *hash",
-              "",
-              "    Currently unused. Reserved for future use in caching",
-              "    hash values."
+            "children": [
+              {
+                "data": {
+                  "argument": "int type_num",
+                  "content": "A number that uniquely identifies the data type. For new data-types,\n   this number is assigned when the data-type is registered.",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "int elsize",
+                  "content": "For data types that are always the same size (such as long), this\n   holds the size of the data type. For flexible data types where\n   different arrays can have a different elementsize, this should be\n   0.",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "int alignment",
+                  "content": "A number providing alignment information for this data type.\n   Specifically, it shows how far from the start of a 2-element\n   structure (whose first element is a ``char`` ), the compiler\n   places an item of this type: ``offsetof(struct {char c; type v;},\n   v)``",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "PyArray_ArrayDescr *subarray",
+                  "content": "If this is non- ``NULL``, then this data-type descriptor is a\n   C-style contiguous array of another data-type descriptor. In\n   other-words, each element that this descriptor describes is\n   actually an array of some other base descriptor. This is most\n   useful as the data-type descriptor for a field in another\n   data-type descriptor. The fields member should be ``NULL`` if this\n   is non- ``NULL`` (the fields member of the base descriptor can be\n   non- ``NULL`` however).\n\n   .. c:type:: PyArray_ArrayDescr\n\n       .. code-block:: c\n\n          typedef struct {\n              PyArray_Descr *base;\n              PyObject *shape;\n          } PyArray_ArrayDescr;\n\n       .. c:member:: PyArray_Descr *base\n\n           The data-type-descriptor object of the base-type.\n\n       .. c:member:: PyObject *shape\n\n           The shape (always C-style contiguous) of the sub-array as a Python\n           tuple.",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "PyObject *fields",
+                  "content": "If this is non-NULL, then this data-type-descriptor has fields\n   described by a Python dictionary whose keys are names (and also\n   titles if given) and whose values are tuples that describe the\n   fields. Recall that a data-type-descriptor always describes a\n   fixed-length set of bytes. A field is a named sub-region of that\n   total, fixed-length collection. A field is described by a tuple\n   composed of another data- type-descriptor and a byte\n   offset. Optionally, the tuple may contain a title which is\n   normally a Python string. These tuples are placed in this\n   dictionary keyed by name (and also title if given).",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "PyObject *names",
+                  "content": "An ordered tuple of field names. It is NULL if no field is\n   defined.",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "PyArray_ArrFuncs *f",
+                  "content": "A pointer to a structure containing functions that the type needs\n   to implement internal features. These functions are not the same\n   thing as the universal functions (ufuncs) described later. Their\n   signatures can vary arbitrarily.",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "PyObject *metadata",
+                  "content": "Metadata about this dtype.",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "NpyAuxData *c_metadata",
+                  "content": "Metadata specific to the C implementation\n   of the particular dtype. Added for NumPy 1.7.0.",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "npy_hash_t",
+                  "content": "",
+                  "name": "c:type",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "npy_hash_t *hash",
+                  "content": "Currently unused. Reserved for future use in caching\n   hash values.",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -930,11 +1055,16 @@
         },
         {
           "data": {
-            "value": [
-              ".. c:member:: PyObject *identity_value",
-              "",
-              "    Identity for reduction, when :c:member:`PyUFuncObject.identity`",
-              "    is equal to :c:data:`PyUFunc_IdentityValue`."
+            "children": [
+              {
+                "data": {
+                  "argument": "PyObject *identity_value",
+                  "content": "Identity for reduction, when :c:member:`PyUFuncObject.identity`\n   is equal to :c:data:`PyUFunc_IdentityValue`.",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -1162,12 +1292,322 @@
         },
         {
           "data": {
-            "value": [
-              "**Bool**, **Byte**, **Short**, **Int**, **Long**, **LongLong**,",
-              "**UByte**, **UShort**, **UInt**, **ULong**, **ULongLong**,",
-              "**Half**, **Float**, **Double**, **LongDouble**, **CFloat**,",
-              "**CDouble**, **CLongDouble**, **String**, **Unicode**, **Void**, and",
-              "**Object**."
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "content": {
+                          "value": "Bool"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "Byte"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "Short"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "Int"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "Long"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "LongLong"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ",     "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "UByte"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "UShort"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "UInt"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "ULong"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "ULongLong"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ",     "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "Half"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "Float"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "Double"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "LongDouble"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "CFloat"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ",     "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "CDouble"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "CLongDouble"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "String"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "Unicode"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "Void"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", and     "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "Object"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": "."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              }
             ]
           },
           "type": "BlockQuote"
@@ -1377,7 +1817,6 @@
   "item_type": null,
   "ordered_sections": [],
   "references": null,
-  "refs": [],
   "see_also": [],
   "signature": {
     "value": null

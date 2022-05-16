@@ -98,14 +98,7 @@
                     "type": "Paragraph"
                   }
                 ]
-              }
-            ]
-          },
-          "type": "BulletList"
-        },
-        {
-          "data": {
-            "children": [
+              },
               {
                 "children": [
                   {
@@ -302,7 +295,7 @@
         },
         {
           "data": {
-            "value": "// The header should be located at numpy/numpy/core/src/common/_cpu_dispatch.h\n/**NOTE\n ** C definitions prefixed with \"NPY_HAVE_\" represent\n ** the required optimzations.\n **\n ** C definitions prefixed with 'NPY__CPU_TARGET_' are protected and\n ** shouldn't be used by any NumPy C sources.\n */\n/******* baseline features *******/\n/** SSE **/\n#define NPY_HAVE_SSE 1\n#include <xmmintrin.h>\n/** SSE2 **/\n#define NPY_HAVE_SSE2 1\n#include <emmintrin.h>\n/** SSE3 **/\n#define NPY_HAVE_SSE3 1\n#include <pmmintrin.h>\n\n/******* dispatch-able features *******/\n#ifdef NPY__CPU_TARGET_SSSE3\n  /** SSSE3 **/\n  #define NPY_HAVE_SSSE3 1\n  #include <tmmintrin.h>\n#endif\n#ifdef NPY__CPU_TARGET_SSE41\n  /** SSE41 **/\n  #define NPY_HAVE_SSE41 1\n  #include <smmintrin.h>\n#endif"
+            "value": "// The header should be located at numpy/numpy/core/src/common/_cpu_dispatch.h\n/**NOTE\n ** C definitions prefixed with \"NPY_HAVE_\" represent\n ** the required optimizations.\n **\n ** C definitions prefixed with 'NPY__CPU_TARGET_' are protected and\n ** shouldn't be used by any NumPy C sources.\n */\n/******* baseline features *******/\n/** SSE **/\n#define NPY_HAVE_SSE 1\n#include <xmmintrin.h>\n/** SSE2 **/\n#define NPY_HAVE_SSE2 1\n#include <emmintrin.h>\n/** SSE3 **/\n#define NPY_HAVE_SSE3 1\n#include <pmmintrin.h>\n\n/******* dispatch-able features *******/\n#ifdef NPY__CPU_TARGET_SSSE3\n  /** SSSE3 **/\n  #define NPY_HAVE_SSSE3 1\n  #include <tmmintrin.h>\n#endif\n#ifdef NPY__CPU_TARGET_SSE41\n  /** SSE41 **/\n  #define NPY_HAVE_SSE41 1\n  #include <smmintrin.h>\n#endif"
           },
           "type": "BlockVerbatim"
         },
@@ -728,14 +721,7 @@
                     "type": "Paragraph"
                   }
                 ]
-              }
-            ]
-          },
-          "type": "BulletList"
-        },
-        {
-          "data": {
-            "children": [
+              },
               {
                 "children": [
                   {
@@ -752,14 +738,7 @@
                     "type": "Paragraph"
                   }
                 ]
-              }
-            ]
-          },
-          "type": "BulletList"
-        },
-        {
-          "data": {
-            "children": [
+              },
               {
                 "children": [
                   {
@@ -893,14 +872,7 @@
                     "type": "Paragraph"
                   }
                 ]
-              }
-            ]
-          },
-          "type": "BulletList"
-        },
-        {
-          "data": {
-            "children": [
+              },
               {
                 "children": [
                   {
@@ -925,14 +897,7 @@
                     "type": "Paragraph"
                   }
                 ]
-              }
-            ]
-          },
-          "type": "BulletList"
-        },
-        {
-          "data": {
-            "children": [
+              },
               {
                 "children": [
                   {
@@ -1033,14 +998,7 @@
                     "type": "BlockVerbatim"
                   }
                 ]
-              }
-            ]
-          },
-          "type": "BulletList"
-        },
-        {
-          "data": {
-            "children": [
+              },
               {
                 "children": [
                   {
@@ -1201,7 +1159,7 @@
                   },
                   {
                     "data": {
-                      "value": "// NOTE: The following macros are only defined for demonstration purposes only.\n  // NumPy already has a collections of macros located at\n  // numpy/numpy/core/src/common/npy_cpu_dispatch.h, that covers all dispatching\n  // and declarations scenarios.\n\n  #include \"numpy/npy_cpu_features.h\" // NPY_CPU_HAVE\n  #include \"numpy/utils.h\" // NPY_CAT, NPY_EXPAND\n\n  // An example for setting a macro that calls all the exported symbols at once\n  // after checking if they're supported by the running machine.\n  #define DISPATCH_CALL_ALL(FN, ARGS) \\\n      NPY__CPU_DISPATCH_CALL(NPY_CPU_HAVE, DISPATCH_CALL_ALL_CB, FN, ARGS) \\\n      NPY__CPU_DISPATCH_BASELINE_CALL(DISPATCH_CALL_BASELINE_ALL_CB, FN, ARGS)\n  // The preprocessor callbacks.\n  // The same suffixes as we define it in the dispatch-able source.\n  #define DISPATCH_CALL_ALL_CB(CHECK, TARGET_NAME, FN, ARGS) \\\n    if (CHECK) { NPY_CAT(NPY_CAT(FN, _), TARGET_NAME) ARGS; }\n  #define DISPATCH_CALL_BASELINE_ALL_CB(FN, ARGS) \\\n    FN NPY_EXPAND(ARGS);\n\n  // An example for setting a macro that calls the exported symbols of highest\n  // interest optimization, after checking if they're supported by the running machine.\n  #define DISPATCH_CALL_HIGH(FN, ARGS) \\\n    if (0) {} \\\n      NPY__CPU_DISPATCH_CALL(NPY_CPU_HAVE, DISPATCH_CALL_HIGH_CB, FN, ARGS) \\\n      NPY__CPU_DISPATCH_BASELINE_CALL(DISPATCH_CALL_BASELINE_HIGH_CB, FN, ARGS)\n  // The preprocessor callbacks\n  // The same suffixes as we define it in the dispatch-able source.\n  #define DISPATCH_CALL_HIGH_CB(CHECK, TARGET_NAME, FN, ARGS) \\\n    else if (CHECK) { NPY_CAT(NPY_CAT(FN, _), TARGET_NAME) ARGS; }\n  #define DISPATCH_CALL_BASELINE_HIGH_CB(FN, ARGS) \\\n    else { FN NPY_EXPAND(ARGS); }\n\n  // NumPy has a macro called 'NPY_CPU_DISPATCH_DECLARE' can be used\n  // for forward declrations any kind of prototypes based on\n  // 'NPY__CPU_DISPATCH_CALL' and 'NPY__CPU_DISPATCH_BASELINE_CALL'.\n  // However in this example, we just handle it manually.\n  void simd_whoami(const char *extra_info);\n  void simd_whoami_AVX512F(const char *extra_info);\n  void simd_whoami_SSE41(const char *extra_info);\n\n  void trigger_me(void)\n  {\n      // bring the auto-gernreated config header\n      // which contains config macros 'NPY__CPU_DISPATCH_CALL' and\n      // 'NPY__CPU_DISPATCH_BASELINE_CALL'.\n      // it highely recomaned to include the config header before exectuing\n    // the dispatching macros in case if there's another header in the scope.\n      #include \"hello.dispatch.h\"\n      DISPATCH_CALL_ALL(simd_whoami, (\"all\"))\n      DISPATCH_CALL_HIGH(simd_whoami, (\"the highest interest\"))\n      // An example of including multiple config headers in the same source\n      // #include \"hello2.dispatch.h\"\n      // DISPATCH_CALL_HIGH(another_function, (\"the highest interest\"))\n  }"
+                      "value": "// NOTE: The following macros are only defined for demonstration purposes only.\n  // NumPy already has a collections of macros located at\n  // numpy/numpy/core/src/common/npy_cpu_dispatch.h, that covers all dispatching\n  // and declarations scenarios.\n\n  #include \"numpy/npy_cpu_features.h\" // NPY_CPU_HAVE\n  #include \"numpy/utils.h\" // NPY_CAT, NPY_EXPAND\n\n  // An example for setting a macro that calls all the exported symbols at once\n  // after checking if they're supported by the running machine.\n  #define DISPATCH_CALL_ALL(FN, ARGS) \\\n      NPY__CPU_DISPATCH_CALL(NPY_CPU_HAVE, DISPATCH_CALL_ALL_CB, FN, ARGS) \\\n      NPY__CPU_DISPATCH_BASELINE_CALL(DISPATCH_CALL_BASELINE_ALL_CB, FN, ARGS)\n  // The preprocessor callbacks.\n  // The same suffixes as we define it in the dispatch-able source.\n  #define DISPATCH_CALL_ALL_CB(CHECK, TARGET_NAME, FN, ARGS) \\\n    if (CHECK) { NPY_CAT(NPY_CAT(FN, _), TARGET_NAME) ARGS; }\n  #define DISPATCH_CALL_BASELINE_ALL_CB(FN, ARGS) \\\n    FN NPY_EXPAND(ARGS);\n\n  // An example for setting a macro that calls the exported symbols of highest\n  // interest optimization, after checking if they're supported by the running machine.\n  #define DISPATCH_CALL_HIGH(FN, ARGS) \\\n    if (0) {} \\\n      NPY__CPU_DISPATCH_CALL(NPY_CPU_HAVE, DISPATCH_CALL_HIGH_CB, FN, ARGS) \\\n      NPY__CPU_DISPATCH_BASELINE_CALL(DISPATCH_CALL_BASELINE_HIGH_CB, FN, ARGS)\n  // The preprocessor callbacks\n  // The same suffixes as we define it in the dispatch-able source.\n  #define DISPATCH_CALL_HIGH_CB(CHECK, TARGET_NAME, FN, ARGS) \\\n    else if (CHECK) { NPY_CAT(NPY_CAT(FN, _), TARGET_NAME) ARGS; }\n  #define DISPATCH_CALL_BASELINE_HIGH_CB(FN, ARGS) \\\n    else { FN NPY_EXPAND(ARGS); }\n\n  // NumPy has a macro called 'NPY_CPU_DISPATCH_DECLARE' can be used\n  // for forward declarations any kind of prototypes based on\n  // 'NPY__CPU_DISPATCH_CALL' and 'NPY__CPU_DISPATCH_BASELINE_CALL'.\n  // However in this example, we just handle it manually.\n  void simd_whoami(const char *extra_info);\n  void simd_whoami_AVX512F(const char *extra_info);\n  void simd_whoami_SSE41(const char *extra_info);\n\n  void trigger_me(void)\n  {\n      // bring the auto-generated config header\n      // which contains config macros 'NPY__CPU_DISPATCH_CALL' and\n      // 'NPY__CPU_DISPATCH_BASELINE_CALL'.\n      // it is highly recommended to include the config header before executing\n    // the dispatching macros in case if there's another header in the scope.\n      #include \"hello.dispatch.h\"\n      DISPATCH_CALL_ALL(simd_whoami, (\"all\"))\n      DISPATCH_CALL_HIGH(simd_whoami, (\"the highest interest\"))\n      // An example of including multiple config headers in the same source\n      // #include \"hello2.dispatch.h\"\n      // DISPATCH_CALL_HIGH(another_function, (\"the highest interest\"))\n  }"
                     },
                     "type": "BlockVerbatim"
                   }
@@ -1224,7 +1182,6 @@
   "item_type": null,
   "ordered_sections": [],
   "references": null,
-  "refs": [],
   "see_also": [],
   "signature": {
     "value": null

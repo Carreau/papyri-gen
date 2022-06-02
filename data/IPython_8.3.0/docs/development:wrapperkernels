@@ -1,0 +1,260 @@
+{
+  "_content": {},
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "children": [],
+            "kind": "versionadded",
+            "title": "3.0"
+          },
+          "type": "Admonition"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "You can now re-use the kernel machinery in IPython to easily make new kernels. This is useful for languages that have Python bindings, such as "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "Octave\n<http://www.gnu.org/software/octave/>"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " (via "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "http://blink1073.github.io/oct2py/",
+                  "value": "Oct2Py"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": "), or languages where the REPL can be controlled in a tty using "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://pexpect.readthedocs.io/en/latest/",
+                  "value": "pexpect"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ", such as bash."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "",
+            "content": "`bash_kernel <https://github.com/takluyver/bash_kernel>`_\n  A simple kernel for bash, written using this machinery",
+            "name": "seealso",
+            "options": []
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "title": "Making simple Python wrapper kernels"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Subclass "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ipykernel.kernelbase.Kernel"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", and implement the following methods and attributes:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "MyKernel",
+            "content": ".. attribute:: implementation\n               implementation_version\n               language\n               language_version\n               banner\n\n  Information for :ref:`msging_kernel_info` replies. 'Implementation' refers\n  to the kernel (e.g. IPython), and 'language' refers to the language it\n  interprets (e.g. Python). The 'banner' is displayed to the user in console\n  UIs before the first prompt. All of these values are strings.\n\n.. attribute:: language_info\n\n  Language information for :ref:`msging_kernel_info` replies, in a dictionary.\n  This should contain the key ``mimetype`` with the mimetype of code in the\n  target language (e.g. ``'text/x-python'``), and ``file_extension`` (e.g.\n  ``'py'``).\n  It may also contain keys ``codemirror_mode`` and ``pygments_lexer`` if they\n  need to differ from :attr:`language`.\n\n  Other keys may be added to this later.\n\n.. method:: do_execute(code, silent, store_history=True, user_expressions=None, allow_stdin=False)\n\n  Execute user code.\n\n  :param str code: The code to be executed.\n  :param bool silent: Whether to display output.\n  :param bool store_history: Whether to record this code in history and\n      increase the execution count. If silent is True, this is implicitly\n      False.\n  :param dict user_expressions: Mapping of names to expressions to evaluate\n      after the code has run. You can ignore this if you need to.\n  :param bool allow_stdin: Whether the frontend can provide input on request\n      (e.g. for Python's :func:`raw_input`).\n\n  Your method should return a dict containing the fields described in\n  :ref:`execution_results`. To display output, it can send messages\n  using :meth:`~ipykernel.kernelbase.Kernel.send_response`.\n  See :doc:`messaging` for details of the different message types.",
+            "name": "class",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "To launch your kernel, add this at the end of your module::      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "if __name__ == '__main__':\n    from ipykernel.kernelapp import IPKernelApp\n    IPKernelApp.launch_instance(kernel_class=MyKernel)"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "title": "Required steps"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": [
+                    "echokernel.py"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " will simply echo any input it's given to stdout::      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "from ipykernel.kernelbase import Kernel\n\nclass EchoKernel(Kernel):\n    implementation = 'Echo'\n    implementation_version = '1.0'\n    language = 'no-op'\n    language_version = '0.1'\n    language_info = {'mimetype': 'text/plain'}\n    banner = \"Echo kernel - as useful as a parrot\"\n\n    def do_execute(self, code, silent, store_history=True, user_expressions=None,\n                   allow_stdin=False):\n        if not silent:\n            stream_content = {'name': 'stdout', 'text': code}\n            self.send_response(self.iopub_socket, 'stream', stream_content)\n\n        return {'status': 'ok',\n                # The base class increments the execution count\n                'execution_count': self.execution_count,\n                'payload': [],\n                'user_expressions': {},\n               }\n\nif __name__ == '__main__':\n    from ipykernel.kernelapp import IPKernelApp\n    IPKernelApp.launch_instance(kernel_class=EchoKernel)"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Here's the Kernel spec "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "kernel.json"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " file for this::      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "{\"argv\":[\"python\",\"-m\",\"echokernel\", \"-f\", \"{connection_file}\"],\n \"display_name\":\"Echo\"\n}"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "title": "Example"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "You can override a number of other methods to improve the functionality of your kernel. All of these methods should return a dictionary as described in the relevant section of the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "messaging spec <messaging>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "MyBetterKernel",
+            "content": ".. method:: do_complete(code, cusor_pos)\n\n  Code completion\n\n  :param str code: The code already present\n  :param int cursor_pos: The position in the code where completion is requested\n\n  .. seealso::\n\n     :ref:`msging_completion` messages\n\n.. method:: do_inspect(code, cusor_pos, detail_level=0)\n\n  Object introspection\n\n  :param str code: The code\n  :param int cursor_pos: The position in the code where introspection is requested\n  :param int detail_level: 0 or 1 for more or less detail. In IPython, 1 gets\n      the source code.\n\n  .. seealso::\n\n     :ref:`msging_inspection` messages\n\n.. method:: do_history(hist_access_type, output, raw, session=None, start=None, stop=None, n=None, pattern=None, unique=False)\n\n  History access. Only the relevant parameters for the type of history\n  request concerned will be passed, so your method definition must have defaults\n  for all the arguments shown with defaults here.\n\n  .. seealso::\n\n     :ref:`msging_history` messages\n\n.. method:: do_is_complete(code)\n\n  Is code entered in a console-like interface complete and ready to execute,\n  or should a continuation prompt be shown?\n\n  :param str code: The code entered so far - possibly multiple lines\n\n  .. seealso::\n\n     :ref:`msging_is_complete` messages\n\n.. method:: do_shutdown(restart)\n\n  Shutdown the kernel. You only need to handle your own clean up - the kernel\n  machinery will take care of cleaning up its own things before stopping.\n\n  :param bool restart: Whether the kernel will be started again afterwards\n\n  .. seealso::\n\n     :ref:`msging_shutdown` messages",
+            "name": "class",
+            "options": []
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "title": "Optional steps"
+    }
+  ],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

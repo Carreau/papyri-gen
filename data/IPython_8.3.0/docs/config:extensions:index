@@ -1,0 +1,752 @@
+{
+  "_content": {},
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _extensions_overview:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "title": null
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "A level above configuration are IPython extensions, Python modules which modify the behaviour of the shell. They are referred to by an importable module name, and can be placed anywhere you'd normally import from, or in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    ".ipython/extensions/"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "IPython extensions"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "A few important extensions are "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "bundled with IPython <bundled_extensions>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". Others can be found on the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "extensions index\n<https://github.com/ipython/ipython/wiki/Extensions-Index>"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " on the wiki, and the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://pypi.python.org/pypi?:action=browse&c=586",
+                  "value": "Framework :: IPython tag"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": " on PyPI."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Extensions on PyPI can be installed using "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "pip"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", like any other Python package."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Getting extensions"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "To load an extension while IPython is running, use the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "%load_ext"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " magic:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "ipython",
+            "content": "In [1]: %load_ext myextension",
+            "name": "sourcecode",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "To load it each time IPython starts, list it in your configuration file::      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "c.InteractiveShellApp.extensions = [\n    'myextension'\n]"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "title": "Using extensions"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "An IPython extension is an importable Python module that has a couple of special functions to load and unload it. Here is a template::      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "# myextension.py\n\ndef load_ipython_extension(ipython):\n    # The `ipython` argument is the currently active `InteractiveShell`\n    # instance, which can be used in any way. This allows you to register\n    # new magics or aliases, for example.\n\ndef unload_ipython_extension(ipython):\n    # If you want your extension to be unloadable, put that logic here."
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "This "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "load_ipython_extension"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " function is called after your extension is imported, and the currently active "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~IPython.core.interactiveshell.InteractiveShell"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " instance is passed as the only argument. You can do anything you want with IPython at that point."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": [
+                    "load_ipython_extension"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " will not be called again if the user use "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "%load_extension"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ".  The user have to explicitly ask the extension to be reloaded (with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "%reload_extension"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": "). In case where the use ask the extension to be reloaded, , the extension will be unloaded (with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "unload_ipython_extension"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": "), and loaded again."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Useful "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "InteractiveShell"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " methods include "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~IPython.core.interactiveshell.InteractiveShell.register_magic_function"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ",  "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~IPython.core.interactiveshell.InteractiveShell.push"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " (to add variables to the user namespace) and  "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~IPython.core.interactiveshell.InteractiveShell.drop_by_id"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " (to remove variables on unloading)."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "",
+            "content": ":ref:`defining_magics`",
+            "name": "seealso",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "You can put your extension modules anywhere you want, as long as they can be imported by Python's standard import mechanism. However, to make it easy to write extensions, you can also put your extensions in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "extensions/"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " within the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "IPython directory <ipythondir>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". This directory is added to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "sys.path"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " automatically."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "When your extension is ready for general use, please add it to the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/ipython/ipython/wiki/Extensions-Index",
+                  "value": "extensions\nindex"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ". We also encourage you to upload it to PyPI and use the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "Framework :: IPython"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " classifier, so that users can install it with standard packaging tools."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _bundled_extensions:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "title": "Writing extensions"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "argument": "",
+            "content": "autoreload\nstoremagic",
+            "name": "toctree",
+            "options": [
+              [
+                "maxdepth",
+                "1"
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              "octavemagic"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " used to be bundled, but is now part of "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://blink1073.github.io/oct2py/",
+                            "value": "oct2py"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ".   Use "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "%load_ext oct2py.ipython"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " to load it."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              "rmagic"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " is now part of "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "http://rpy.sourceforge.net/",
+                            "value": "rpy2"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ". Use   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "%load_ext rpy2.ipython"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " to load it, and see "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "rpy2.ipython.rmagic"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " for   details of how to use it."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              "cythonmagic"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " used to be bundled, but is now part of "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/cython/cython/",
+                            "value": "cython"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": "   Use "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "%load_ext Cython"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " to load it."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              "sympyprinting"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " used to be a bundled extension, but you should now use   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "sympy.init_printing"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " instead."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        }
+      ],
+      "title": "Extensions bundled with IPython"
+    }
+  ],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

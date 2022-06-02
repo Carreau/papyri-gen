@@ -1,0 +1,505 @@
+{
+  "_content": {},
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "IPython extends Python syntax to allow things like magic commands, and help with the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "?"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " syntax. There are several ways to customise how the user's input is processed into Python code to be executed."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "These hooks are mainly for other projects using IPython as the core of their interactive interface. Using them carelessly can easily break IPython!"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Custom input transformation"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "argument": "IPython.core.inputtransforms",
+            "content": "",
+            "name": "currentmodule",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "When the user enters code, it is first processed as a string. By the end of this stage, it must be valid Python syntax."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "The API for string and token-based transformations has been completely redesigned. Any third party code extending input transformation will need to be rewritten. The new API is, hopefully, simpler."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "kind": "versionchanged",
+            "title": "7.0"
+          },
+          "type": "Admonition"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "String based transformations are functions which accept a list of strings: each string is a single line of the input cell, including its line ending. The transformation function should return output in the same structure."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "These transformations are in two groups, accessible as attributes of the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~IPython.core.interactiveshell.InteractiveShell"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " instance. Each group is a list of transformation functions."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              "input_transformers_cleanup"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " run first on input, to do things like stripping   prompts and leading indents from copied code. It may not be possible at this   stage to parse the input as valid Python code."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Then IPython runs its own transformations to handle its special syntax, like   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "%magics"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "!system"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " commands. This part does not expose extension   points."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              "input_transformers_post"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " run as the last step, to do things like converting   float literals into decimal objects. These may attempt to parse the input as   Python code."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "These transformers may raise "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "SyntaxError"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " if the input code is invalid, but in most cases it is clearer to pass unrecognised code through unmodified and let Python's own parser decide whether it is valid."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For example, imagine we want to obfuscate our code by reversing each line, so we'd write "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    ")5(f =+ a"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " instead of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "a += f(5)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". Here's how we could swap it back the right way before IPython tries to run it::      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "def reverse_line_chars(lines):\n    new_lines = []\n    for line in lines:\n        chars = line[:-1]  # the newline needs to stay at the end\n        new_lines.append(chars[::-1] + '\\n')\n    return new_lines"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "To start using this::      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "ip = get_ipython()\nip.input_transformers_cleanup.append(reverse_line_chars)"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "input_transformers can now have an attribute "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "has_side_effects"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " set to "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "True"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": ", which will prevent the transformers from being ran when IPython is trying to guess whether the user input is complete."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "kind": "versionadded",
+            "title": "7.17"
+          },
+          "type": "Admonition"
+        }
+      ],
+      "title": "String based transformations"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "After the code has been parsed as Python syntax, you can use Python's powerful "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "Abstract Syntax Tree"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " tools to modify it. Subclass "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ast.NodeTransformer"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", and add an instance to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "shell.ast_transformers"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "This example wraps integer literals in an "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "Integer"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " class, which is useful for mathematical frameworks that want to handle e.g. "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "1/3"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " as a precise fraction::       "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "class IntegerWrapper(ast.NodeTransformer):\n    \"\"\"Wraps all integers in a call to Integer()\"\"\"\n    def visit_Num(self, node):\n        if isinstance(node.n, int):\n            return ast.Call(func=ast.Name(id='Integer', ctx=ast.Load()),\n                            args=[node], keywords=[])\n        return node"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "title": "AST transformations"
+    }
+  ],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

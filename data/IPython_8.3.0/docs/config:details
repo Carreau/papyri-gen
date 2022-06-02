@@ -1,0 +1,1547 @@
+{
+  "_content": {},
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _custom_prompts:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "title": "Specific config details"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [],
+            "kind": "versionchanged",
+            "title": "5.0"
+          },
+          "type": "Admonition"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "From IPython 5, prompts are produced as a list of Pygments tokens, which are tuples of (token_type, text). You can customise prompts by writing a method which generates a list of tokens."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "There are four kinds of prompt:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "content": {
+                              "value": "in"
+                            }
+                          },
+                          "type": "Strong"
+                        },
+                        {
+                          "data": {
+                            "value": " prompt is shown before the first line of input   (default like "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "In [1]:"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ")."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "content": {
+                              "value": "continuation"
+                            }
+                          },
+                          "type": "Strong"
+                        },
+                        {
+                          "data": {
+                            "value": " prompt is shown before further lines of input   (default like "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "...:"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ")."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "content": {
+                              "value": "rewrite"
+                            }
+                          },
+                          "type": "Strong"
+                        },
+                        {
+                          "data": {
+                            "value": " prompt is shown to highlight how special syntax has been   interpreted (default like "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "----->"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ")."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "content": {
+                              "value": "out"
+                            }
+                          },
+                          "type": "Strong"
+                        },
+                        {
+                          "data": {
+                            "value": " prompt is shown before the result from evaluating the input   (default like "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "Out[1]:"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ")."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Custom prompts are supplied together as a class. If you want to customise only some of the prompts, inherit from "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "IPython.terminal.prompts.Prompts"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", which defines the defaults. The required interface is like this:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "MyPrompts(shell)",
+            "content": "Prompt style definition. *shell* is a reference to the\n:class:`~.TerminalInteractiveShell` instance.\n\n.. method:: in_prompt_tokens(cli=None)\n            continuation_prompt_tokens(self, cli=None, width=None)\n            rewrite_prompt_tokens()\n            out_prompt_tokens()\n\n   Return the respective prompts as lists of ``(token_type, text)`` tuples.\n\n   For continuation prompts, *width* is an integer representing the width of\n   the prompt area in terminal columns.\n\n   *cli*, where used, is the prompt_toolkit ``CommandLineInterface`` instance.\n   This is mainly for compatibility with the API prompt_toolkit expects.",
+            "name": "class",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Here is an example Prompt class that will show the current working directory in the input prompt:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "python",
+            "content": "from IPython.terminal.prompts import Prompts, Token\nimport os\n\nclass MyPrompt(Prompts):\n     def in_prompt_tokens(self, cli=None):\n         return [(Token, os.getcwd()),\n                 (Token.Prompt, ' >>>')]",
+            "name": "code-block",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "To set the new prompt, assign it to the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "prompts"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " attribute of the IPython shell:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "python",
+            "content": "In [2]: ip = get_ipython()\n   ...: ip.prompts = MyPrompt(ip)\n\n/home/bob >>> # it works",
+            "name": "code-block",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "See "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "IPython/example/utils/cwd_prompt.py"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " for an example of how to write an extensions to customise prompts."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Inside IPython or in a startup script, you can use a custom prompts class by setting "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "get_ipython().prompts"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " to an "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "instance"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " of the class. In configuration, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "TerminalInteractiveShell.prompts_class"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " may be set to either the class object, or a string of its full importable name."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "To include invisible terminal control sequences in a prompt, use "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "Token.ZeroWidthEscape"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " as the token type. Tokens with this type are ignored when calculating the width."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Colours in the prompt are determined by the token types and the highlighting style; see below for more details. The tokens used in the default prompts are "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "Prompt"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "PromptNum"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "OutPrompt"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "OutPromptNum"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _termcolour:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "title": "Custom Prompts"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [],
+            "kind": "versionchanged",
+            "title": "5.0"
+          },
+          "type": "Admonition"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "There are two main configuration options controlling colours."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": [
+                    "InteractiveShell.colors"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " sets the colour of tracebacks and object info (the output from e.g. "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "zip?"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "). It may also affect other things if the option below is set to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "'legacy'"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". It has four case-insensitive values: "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "'nocolor', 'neutral', 'linux', 'lightbg'"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". The default is "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "neutral"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": ", which should be legible on either dark or light terminal backgrounds. "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "linux"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " is optimised for dark backgrounds and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "lightbg"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " for light ones."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": [
+                    "TerminalInteractiveShell.highlighting_style"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " determines prompt colours and syntax highlighting. It takes the name (as a string) or class (as a subclass of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "pygments.style.Style"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ") of a Pygments style, or the special value "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "'legacy'"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " to pick a style in accordance with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "InteractiveShell.colors"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "You can see the Pygments styles available on your system by running::      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "import pygments\nlist(pygments.styles.get_all_styles())"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Additionally, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "TerminalInteractiveShell.highlighting_style_overrides"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " can override specific styles in the highlighting. It should be a dictionary mapping Pygments token types to strings defining the style. See "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "Pygments' documentation\n<http://pygments.org/docs/styles/#creating-own-styles>"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " for the language used to define styles."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Terminal Colors"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "On some systems, the default pager has problems with ANSI colour codes. To configure your default pager to allow these:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Set the environment PAGER variable to "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "less"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Set the environment LESS variable to "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "-r"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " (plus any other options    you always want to pass to less by default). This tells less to    properly interpret control sequences, which is how color    information is given to your terminal."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "EnumeratedList"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _editors:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "title": "Colors in the pager"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "IPython can integrate with text editors in a number of different ways:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Editors (such as "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "(X)Emacs"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ", "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "vim_"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": " and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "TextMate_"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ") can   send code to IPython for execution."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "IPython's "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "%edit"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " magic command can open an editor of choice to edit   a code block."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The %edit command (and its alias %ed) will invoke the editor set in your environment as "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": "envvar",
+                  "value": "EDITOR"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ". If this variable is not set, it will default to vi under Linux/Unix and to notepad under Windows. You may want to set this variable properly and to a lightweight editor which doesn't take too long to start (that is, something other than a new instance of Emacs). This way you can edit multi-line code quickly and with the power of a real editor right inside IPython."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "You can also control the editor by setting "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "TerminalInteractiveShell.editor"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ipython_config.py"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Editor configuration"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Paul Ivanov's "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/ivanov/vim-ipython",
+                  "value": "vim-ipython"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": " provides powerful IPython integration for vim."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _emacs:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "title": "Vim"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "If you are a dedicated Emacs user, and want to use Emacs when IPython's "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "%edit"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " magic command is called you should set up the Emacs server so that new requests are handled by the original process. This means that almost no time is spent in handling the request (assuming an Emacs process is already running). For this to work, you need to set your EDITOR environment variable to 'emacsclient'. The code below, supplied by Francois Pinard, can then be used in your "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    ".emacs"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " file to enable the server:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "common-lisp",
+            "content": "(defvar server-buffer-clients)\n(when (and (fboundp 'server-start) (string-equal (getenv \"TERM\") 'xterm))\n  (server-start)\n  (defun fp-kill-server-with-buffer-routine ()\n    (and server-buffer-clients (server-done)))\n  (add-hook 'kill-buffer-hook 'fp-kill-server-with-buffer-routine))",
+            "name": "code-block",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Thanks to the work of Alexander Schmolck and Prabhu Ramachandran, currently (X)Emacs and IPython get along very well in other ways."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "With (X)EMacs >= 24, You can enable IPython in python-mode with:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "common-lisp",
+            "content": "(require 'python)\n(setq python-shell-interpreter \"ipython\")",
+            "name": "code-block",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _`(X)Emacs`: http://www.gnu.org/software/emacs/"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _TextMate: http://macromates.com/"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _vim: http://www.vim.org/"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _custom_keyboard_shortcuts:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "title": "(X)Emacs"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [],
+            "kind": "versionchanged",
+            "title": "5.0"
+          },
+          "type": "Admonition"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "You can customise keyboard shortcuts for terminal IPython. Put code like this in a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "startup file <startup_files>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "from IPython import get_ipython\nfrom prompt_toolkit.enums import DEFAULT_BUFFER\nfrom prompt_toolkit.keys import Keys\nfrom prompt_toolkit.filters import HasFocus, HasSelection, ViInsertMode, EmacsInsertMode\n\nip = get_ipython()\ninsert_mode = ViInsertMode() | EmacsInsertMode()\n\ndef insert_unexpected(event):\n    buf = event.current_buffer\n    buf.insert_text('The Spanish Inquisition')\n# Register the shortcut if IPython is using prompt_toolkit\nif getattr(ip, 'pt_app', None):\n    registry = ip.pt_app.key_bindings\n    registry.add_binding(Keys.ControlN,\n                     filter=(HasFocus(DEFAULT_BUFFER)\n                             & ~HasSelection()\n                             & insert_mode))(insert_unexpected)"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Here is a second example that bind the key sequence "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "j"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "k"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " to switch to VI input mode to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "Normal"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " when in insert mode::     "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "from IPython import get_ipython\nfrom prompt_toolkit.enums import DEFAULT_BUFFER\nfrom prompt_toolkit.filters import HasFocus, ViInsertMode\nfrom prompt_toolkit.key_binding.vi_state import InputMode\n\nip = get_ipython()\n\ndef switch_to_navigation_mode(event):\n   vi_state = event.cli.vi_state\n   vi_state.input_mode = InputMode.NAVIGATION\n\nif getattr(ip, 'pt_app', None):\n   registry = ip.pt_app.key_bindings\n   registry.add_binding(u'j',u'k',\n                        filter=(HasFocus(DEFAULT_BUFFER)\n                                 & ViInsertMode()))(switch_to_navigation_mode)"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For more information on filters and what you can do with the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "event"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " object, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "see the prompt_toolkit docs\n<https://python-prompt-toolkit.readthedocs.io/en/latest/pages/asking_for_input.html#adding-custom-key-bindings>"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "title": "Keyboard Shortcuts"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "In the Terminal IPython shell \u2013 which by default uses the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "prompt_toolkit"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " interface, the semantic meaning of pressing the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "Enter"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " key can be ambiguous. In some case "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "Enter"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " should execute code, and in others it should add a new line. IPython uses heuristics to decide whether to execute or insert a new line at cursor position. For example, if we detect that the current code is not valid Python, then the user is likely editing code and the right behavior is to likely to insert a new line. If the current code is a simple statement like "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "ord('*')"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", then the right behavior is likely to execute. Though the exact desired semantics often varies from users to users."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "As the exact behavior of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "Enter"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is ambiguous, it has been special cased to allow users to completely configure the behavior they like. Hence you can have enter always execute code. If you prefer fancier behavior, you need to get your hands dirty and read the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "prompt_toolkit"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and IPython documentation though. See "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/ipython/ipython/pull/10500",
+                  "value": "#10500"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ", set the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "c.TerminalInteractiveShell.handle_return"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " option and get inspiration from the following example that only auto-executes the input if it begins with a bang or a modulo character ("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "!"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " or "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "%"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "). To use the following code, add it to your IPython configuration::      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "def custom_return(shell):\n\n    \"\"\"This function is required by the API. It takes a reference to\n    the shell, which is the same thing `get_ipython()` evaluates to.\n    This function must return a function that handles each keypress\n    event. That function, named `handle` here, references `shell`\n    by closure.\"\"\"\n\n    def handle(event):\n\n        \"\"\"This function is called each time `Enter` is pressed,\n        and takes a reference to a Prompt Toolkit event object.\n        If the current input starts with a bang or modulo, then\n        the input is executed, otherwise a newline is entered,\n        followed by any spaces needed to auto-indent.\"\"\"\n\n        # set up a few handy references to nested items...\n\n        buffer = event.current_buffer\n        document = buffer.document\n        text = document.text\n\n        if text.startswith('!') or text.startswith('%'): # execute the input...\n\n            buffer.accept_action.validate_and_handle(event.cli, buffer)\n\n        else: # insert a newline with auto-indentation...\n\n            if document.line_count > 1: text = text[:document.cursor_position]\n            indent = shell.check_complete(text)[1]\n            buffer.insert_text('\\n' + indent)\n        \n            # if you just wanted a plain newline without any indentation, you\n            # could use `buffer.insert_text('\\n')` instead of the lines above\n\n    return handle\n\nc.TerminalInteractiveShell.handle_return = custom_return"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "title": "Enter to execute"
+    }
+  ],
+  "example_section_data": {
+    "children": [],
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

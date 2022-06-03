@@ -1,5 +1,4 @@
 {
-  "_content": {},
   "aliases": [],
   "arbitrary": [
     {
@@ -52,6 +51,7 @@
       "title": "numpy.random.Generator.f"
     }
   ],
+  "content": {},
   "example_section_data": {
     "children": [],
     "title": null

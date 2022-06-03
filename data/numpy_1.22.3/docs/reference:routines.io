@@ -1,5 +1,4 @@
 {
-  "_content": {},
   "aliases": [],
   "arbitrary": [
     {
@@ -149,6 +148,7 @@
       "title": "Binary Format Description"
     }
   ],
+  "content": {},
   "example_section_data": {
     "children": [],
     "title": null

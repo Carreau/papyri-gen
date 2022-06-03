@@ -5990,18 +5990,8 @@
           },
           {
             "link": {
-              "data": {
-                "exists": true,
-                "kind": "module",
-                "reference": {
-                  "kind": "module",
-                  "module": "builtins",
-                  "path": "builtins.list",
-                  "version": "*"
-                },
-                "value": "dependency"
-              },
-              "type": "Link"
+              "data": "dependency",
+              "type": "str"
             },
             "type": ""
           },

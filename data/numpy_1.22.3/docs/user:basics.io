@@ -1,5 +1,4 @@
 {
-  "_content": {},
   "aliases": [],
   "arbitrary": [
     {
@@ -22,6 +21,7 @@
       "title": "I/O with NumPy"
     }
   ],
+  "content": {},
   "example_section_data": {
     "children": [],
     "title": null

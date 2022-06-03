@@ -1,5 +1,4 @@
 {
-  "_content": {},
   "aliases": [],
   "arbitrary": [
     {
@@ -731,7 +730,7 @@
                       "children": [
                         {
                           "data": {
-                            "value": "The use of this form of specification is discouraged, but documented here      because older numpy code may use it. The keys of the dictionary are the      field names and the values are tuples specifying type and offset::        "
+                            "value": "The keys of the dictionary are the field names and the values are tuples      specifying type and offset::        "
                           },
                           "type": "Words"
                         }
@@ -750,7 +749,7 @@
                       "children": [
                         {
                           "data": {
-                            "value": "This form is discouraged because Python dictionaries do not preserve order      in Python versions before Python 3.6, and the order of the fields in a      structured dtype has meaning. "
+                            "value": "This form was discouraged because Python dictionaries did not preserve order      in Python versions before Python 3.6. "
                           },
                           "type": "Words"
                         },
@@ -2281,6 +2280,13 @@
             ]
           },
           "type": "Paragraph"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _structured_dtype_comparison_and_promotion:"
+          },
+          "type": "Unimplemented"
         }
       ],
       "title": "Viewing Structured Arrays Containing Objects"
@@ -2306,7 +2312,7 @@
               },
               {
                 "data": {
-                  "value": " where all fields of the corresponding structures are equal. Structured dtypes are equal if the field names, dtypes and titles are the same, ignoring endianness, and the fields are in the same order::   "
+                  "value": " where all fields of the corresponding structures are equal::   "
                 },
                 "type": "Words"
               }
@@ -2316,7 +2322,7 @@
         },
         {
           "data": {
-            "value": ">>> a = np.zeros(2, dtype=[('a', 'i4'), ('b', 'i4')])\n>>> b = np.ones(2, dtype=[('a', 'i4'), ('b', 'i4')])\n>>> a == b\narray([False, False])"
+            "value": ">>> a = np.array([(1, 1), (2, 2)], dtype=[('a', 'i4'), ('b', 'i4')])\n>>> b = np.array([(1, 1), (2, 3)], dtype=[('a', 'i4'), ('b', 'i4')])\n>>> a == b\narray([True, False])"
           },
           "type": "BlockVerbatim"
         },
@@ -2325,27 +2331,220 @@
             "children": [
               {
                 "data": {
-                  "value": "Currently, if the dtypes of two void structured arrays are not equivalent the comparison fails, returning the scalar value "
+                  "value": "NumPy will promote individual field datatypes to perform the comparison. So the following is also valid (note the "
                 },
                 "type": "Words"
               },
               {
                 "data": {
                   "value": [
-                    "False"
+                    "'f4'"
                   ]
                 },
                 "type": "Verbatim"
               },
               {
                 "data": {
-                  "value": ". This behavior is deprecated as of numpy 1.10 and will raise an error or perform elementwise comparison in the future."
+                  "value": " dtype for the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "'a'"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " field):"
                 },
                 "type": "Words"
               }
             ]
           },
           "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": ">>> b = np.array([(1.0, 1), (2.5, 2)], dtype=[(\"a\", \"f4\"), (\"b\", \"i4\")])\n>>> a == b\narray([True, False])"
+                },
+                "type": "BlockVerbatim"
+              }
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "To compare two structured arrays, it must be possible to promote them to a common dtype as returned by "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "numpy",
+                    "path": "numpy.result_type",
+                    "version": "*"
+                  },
+                  "value": "numpy.result_type"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "np.promote_types"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ". This enforces that the number of fields, the field names, and the field titles must match precisely. When promotion is not possible, for example due to mismatching field names, NumPy will raise an error. Promotion between two structured dtypes results in a canonical dtype that ensures native byte-order for all fields::      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> np.result_type(np.dtype(\"i,>i\"))\ndtype([('f0', '<i4'), ('f1', '<i4')])\n>>> np.result_type(np.dtype(\"i,>i\"), np.dtype(\"i,i\"))\ndtype([('f0', '<i4'), ('f1', '<i4')])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The resulting dtype from promotion is also guaranteed to be packed, meaning that all fields are ordered contiguously and any unnecessary padding is removed::      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> dt = np.dtype(\"i1,V3,i4,V1\")[[\"f0\", \"f2\"]]\n>>> dt\ndtype({'names':['f0','f2'], 'formats':['i1','<i4'], 'offsets':[0,4], 'itemsize':9})\n>>> np.result_type(dt)\ndtype([('f0', 'i1'), ('f2', '<i4')])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Note that the result prints without "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "offsets"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " or "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "itemsize"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " indicating no additional padding. If a structured dtype is created with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "align=True"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " ensuring that "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "dtype.isalignedstruct"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is true, this property is preserved::      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> dt = np.dtype(\"i1,V3,i4,V1\", align=True)[[\"f0\", \"f2\"]]\n>>> dt\ndtype({'names':['f0','f2'], 'formats':['i1','<i4'], 'offsets':[0,4], 'itemsize':12}, align=True)\n>>> np.result_type(dt)\ndtype([('f0', 'i1'), ('f2', '<i4')], align=True)\n>>> np.result_type(dt).isalignedstruct\nTrue"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "When promoting multiple dtypes, the result is aligned if any of the inputs is::      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> np.result_type(np.dtype(\"i,i\"), np.dtype(\"i,i\", align=True))\ndtype([('f0', '<i4'), ('f1', '<i4')], align=True)"
+          },
+          "type": "BlockVerbatim"
         },
         {
           "data": {
@@ -2401,9 +2600,45 @@
             ]
           },
           "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Before NumPy 1.23, a warning was given and "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "False"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " returned when promotion to a common dtype failed. Further, promotion was much more restrictive: It would reject the mixed float/integer comparison example above."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "kind": "versionchanged",
+            "title": "1.23"
+          },
+          "type": "Admonition"
         }
       ],
-      "title": "Structure Comparison"
+      "title": "Structure Comparison and Promotion"
     },
     {
       "children": [
@@ -2731,6 +2966,7 @@
       "title": "Recarray Helper Functions"
     }
   ],
+  "content": {},
   "example_section_data": {
     "children": [],
     "title": null

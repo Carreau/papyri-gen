@@ -1,5 +1,4 @@
 {
-  "_content": {},
   "aliases": [],
   "arbitrary": [
     {
@@ -188,7 +187,7 @@
         },
         {
           "data": {
-            "value": ">>> from numpy.polynomial import Polynomial as P\n>>> p = P([1,2,3])\n>>> p\nPolynomial([1., 2., 3.], domain=[-1,  1], window=[-1,  1])"
+            "value": ">>> from numpy.polynomial import Polynomial as P\n>>> p = P([1,2,3])\n>>> p\nPolynomial([1., 2., 3.], domain=[-1,  1], window=[-1,  1], symbol='x')"
           },
           "type": "BlockVerbatim"
         },
@@ -316,7 +315,7 @@
         },
         {
           "data": {
-            "value": ">>> p + p\nPolynomial([2., 4., 6.], domain=[-1.,  1.], window=[-1.,  1.])\n>>> p - p\nPolynomial([0.], domain=[-1.,  1.], window=[-1.,  1.])"
+            "value": ">>> p + p\nPolynomial([2., 4., 6.], domain=[-1.,  1.], window=[-1.,  1.], symbol='x')\n>>> p - p\nPolynomial([0.], domain=[-1.,  1.], window=[-1.,  1.], symbol='x')"
           },
           "type": "BlockVerbatim"
         },
@@ -335,7 +334,7 @@
         },
         {
           "data": {
-            "value": ">>> p * p\nPolynomial([ 1.,   4.,  10.,  12.,   9.], domain=[-1.,  1.], window=[-1.,  1.])"
+            "value": ">>> p * p\nPolynomial([ 1.,   4.,  10.,  12.,   9.], domain=[-1.,  1.], window=[-1.,  1.], symbol='x')"
           },
           "type": "BlockVerbatim"
         },
@@ -354,7 +353,7 @@
         },
         {
           "data": {
-            "value": ">>> p**2\nPolynomial([ 1.,   4., 10., 12.,  9.], domain=[-1.,  1.], window=[-1.,  1.])"
+            "value": ">>> p**2\nPolynomial([ 1.,   4., 10., 12.,  9.], domain=[-1.,  1.], window=[-1.,  1.], symbol='x')"
           },
           "type": "BlockVerbatim"
         },
@@ -386,7 +385,7 @@
         },
         {
           "data": {
-            "value": ">>> p // P([-1, 1])\nPolynomial([5.,  3.], domain=[-1.,  1.], window=[-1.,  1.])"
+            "value": ">>> p // P([-1, 1])\nPolynomial([5.,  3.], domain=[-1.,  1.], window=[-1.,  1.], symbol='x')"
           },
           "type": "BlockVerbatim"
         },
@@ -405,7 +404,7 @@
         },
         {
           "data": {
-            "value": ">>> p % P([-1, 1])\nPolynomial([6.], domain=[-1.,  1.], window=[-1.,  1.])"
+            "value": ">>> p % P([-1, 1])\nPolynomial([6.], domain=[-1.,  1.], window=[-1.,  1.], symbol='x')"
           },
           "type": "BlockVerbatim"
         },
@@ -424,7 +423,7 @@
         },
         {
           "data": {
-            "value": ">>> quo, rem = divmod(p, P([-1, 1]))\n>>> quo\nPolynomial([5.,  3.], domain=[-1.,  1.], window=[-1.,  1.])\n>>> rem\nPolynomial([6.], domain=[-1.,  1.], window=[-1.,  1.])"
+            "value": ">>> quo, rem = divmod(p, P([-1, 1]))\n>>> quo\nPolynomial([5.,  3.], domain=[-1.,  1.], window=[-1.,  1.], symbol='x')\n>>> rem\nPolynomial([6.], domain=[-1.,  1.], window=[-1.,  1.], symbol='x')"
           },
           "type": "BlockVerbatim"
         },
@@ -475,7 +474,7 @@
         },
         {
           "data": {
-            "value": ">>> p(p)\nPolynomial([ 6., 16., 36., 36., 27.], domain=[-1.,  1.], window=[-1.,  1.])"
+            "value": ">>> p(p)\nPolynomial([ 6., 16., 36., 36., 27.], domain=[-1.,  1.], window=[-1.,  1.], symbol='x')"
           },
           "type": "BlockVerbatim"
         },
@@ -513,7 +512,7 @@
         },
         {
           "data": {
-            "value": ">>> p + [1, 2, 3]\nPolynomial([2., 4., 6.], domain=[-1.,  1.], window=[-1.,  1.])\n>>> [1, 2, 3] * p\nPolynomial([ 1.,  4., 10., 12.,  9.], domain=[-1.,  1.], window=[-1.,  1.])\n>>> p / 2\nPolynomial([0.5, 1. , 1.5], domain=[-1.,  1.], window=[-1.,  1.])"
+            "value": ">>> p + [1, 2, 3]\nPolynomial([2., 4., 6.], domain=[-1.,  1.], window=[-1.,  1.], symbol='x')\n>>> [1, 2, 3] * p\nPolynomial([ 1.,  4., 10., 12.,  9.], domain=[-1.,  1.], window=[-1.,  1.], symbol='x')\n>>> p / 2\nPolynomial([0.5, 1. , 1.5], domain=[-1.,  1.], window=[-1.,  1.], symbol='x')"
           },
           "type": "BlockVerbatim"
         },
@@ -551,7 +550,7 @@
         },
         {
           "data": {
-            "value": ">>> p(T([0, 1]))\nChebyshev([2.5, 2. , 1.5], domain=[-1.,  1.], window=[-1.,  1.])"
+            "value": ">>> p(T([0, 1]))\nChebyshev([2.5, 2. , 1.5], domain=[-1.,  1.], window=[-1.,  1.], symbol='x')"
           },
           "type": "BlockVerbatim"
         },
@@ -679,7 +678,7 @@
         },
         {
           "data": {
-            "value": ">>> from numpy.polynomial import Polynomial as P\n>>> p = P([2, 6])\n>>> p.integ()\nPolynomial([0., 2., 3.], domain=[-1.,  1.], window=[-1.,  1.])\n>>> p.integ(2)\nPolynomial([0., 0., 1., 1.], domain=[-1.,  1.], window=[-1.,  1.])"
+            "value": ">>> from numpy.polynomial import Polynomial as P\n>>> p = P([2, 6])\n>>> p.integ()\nPolynomial([0., 2., 3.], domain=[-1.,  1.], window=[-1.,  1.], symbol='x')\n>>> p.integ(2)\nPolynomial([0., 0., 1., 1.], domain=[-1.,  1.], window=[-1.,  1.], symbol='x')"
           },
           "type": "BlockVerbatim"
         },
@@ -712,7 +711,7 @@
         },
         {
           "data": {
-            "value": ">>> p.integ(lbnd=-1)\nPolynomial([-1.,  2.,  3.], domain=[-1.,  1.], window=[-1.,  1.])\n>>> p.integ(lbnd=-1, k=1)\nPolynomial([0., 2., 3.], domain=[-1.,  1.], window=[-1.,  1.])"
+            "value": ">>> p.integ(lbnd=-1)\nPolynomial([-1.,  2.,  3.], domain=[-1.,  1.], window=[-1.,  1.], symbol='x')\n>>> p.integ(lbnd=-1, k=1)\nPolynomial([0., 2., 3.], domain=[-1.,  1.], window=[-1.,  1.], symbol='x')"
           },
           "type": "BlockVerbatim"
         },
@@ -731,7 +730,7 @@
         },
         {
           "data": {
-            "value": ">>> p = P([1, 2, 3])\n>>> p.deriv(1)\nPolynomial([2., 6.], domain=[-1.,  1.], window=[-1.,  1.])\n>>> p.deriv(2)\nPolynomial([6.], domain=[-1.,  1.], window=[-1.,  1.])"
+            "value": ">>> p = P([1, 2, 3])\n>>> p.deriv(1)\nPolynomial([2., 6.], domain=[-1.,  1.], window=[-1.,  1.], symbol='x')\n>>> p.deriv(2)\nPolynomial([6.], domain=[-1.,  1.], window=[-1.,  1.], symbol='x')"
           },
           "type": "BlockVerbatim"
         }
@@ -755,7 +754,7 @@
         },
         {
           "data": {
-            "value": ">>> from numpy.polynomial import Polynomial as P\n>>> from numpy.polynomial import Chebyshev as T\n>>> p = P.fromroots([1, 2, 3])\n>>> p\nPolynomial([-6., 11., -6.,  1.], domain=[-1.,  1.], window=[-1.,  1.])\n>>> p.convert(kind=T)\nChebyshev([-9.  , 11.75, -3.  ,  0.25], domain=[-1.,  1.], window=[-1.,  1.])"
+            "value": ">>> from numpy.polynomial import Polynomial as P\n>>> from numpy.polynomial import Chebyshev as T\n>>> p = P.fromroots([1, 2, 3])\n>>> p\nPolynomial([-6., 11., -6.,  1.], domain=[-1.,  1.], window=[-1.,  1.], symbol='x')\n>>> p.convert(kind=T)\nChebyshev([-9.  , 11.75, -3.  ,  0.25], domain=[-1.,  1.], window=[-1.,  1.], symbol='x')"
           },
           "type": "BlockVerbatim"
         },
@@ -774,7 +773,7 @@
         },
         {
           "data": {
-            "value": ">>> p.convert(kind=T, domain=[0, 1])\nChebyshev([-2.4375 ,  2.96875, -0.5625 ,  0.03125], domain=[0.,  1.], window=[-1.,  1.])\n>>> p.convert(kind=P, domain=[0, 1])\nPolynomial([-1.875,  2.875, -1.125,  0.125], domain=[0.,  1.], window=[-1.,  1.])"
+            "value": ">>> p.convert(kind=T, domain=[0, 1])\nChebyshev([-2.4375 ,  2.96875, -0.5625 ,  0.03125], domain=[0.,  1.], window=[-1.,  1.], symbol='x')\n>>> p.convert(kind=P, domain=[0, 1])\nPolynomial([-1.875,  2.875, -1.125,  0.125], domain=[0.,  1.], window=[-1.,  1.], symbol='x')"
           },
           "type": "BlockVerbatim"
         },
@@ -821,7 +820,7 @@
         },
         {
           "data": {
-            "value": ">>> P.basis(3)\nPolynomial([0., 0., 0., 1.], domain=[-1.,  1.], window=[-1.,  1.])\n>>> T.cast(p)\nChebyshev([-9.  , 11.75, -3. ,  0.25], domain=[-1.,  1.], window=[-1.,  1.])"
+            "value": ">>> P.basis(3)\nPolynomial([0., 0., 0., 1.], domain=[-1.,  1.], window=[-1.,  1.], symbol='x')\n>>> T.cast(p)\nChebyshev([-9.  , 11.75, -3. ,  0.25], domain=[-1.,  1.], window=[-1.,  1.], symbol='x')"
           },
           "type": "BlockVerbatim"
         },
@@ -1025,6 +1024,7 @@
       "title": "Fitting"
     }
   ],
+  "content": {},
   "example_section_data": {
     "children": [],
     "title": null

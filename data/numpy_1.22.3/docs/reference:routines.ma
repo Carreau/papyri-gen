@@ -1,5 +1,4 @@
 {
-  "_content": {},
   "aliases": [],
   "arbitrary": [
     {
@@ -172,7 +171,7 @@
       "children": [
         {
           "data": {
-            "value": ".. autosummary:: \n    :toctree:generated/\n    ma.flatnotmasked_contiguous\n    ma.flatnotmasked_edges\n    ma.notmasked_contiguous\n    ma.notmasked_edges\n    ma.clump_masked\n    ma.clump_unmasked"
+            "value": ".. autosummary:: \n    :toctree:generated/\n    ma.ndenumerate\n    ma.flatnotmasked_contiguous\n    ma.flatnotmasked_edges\n    ma.notmasked_contiguous\n    ma.notmasked_edges\n    ma.clump_masked\n    ma.clump_unmasked"
           },
           "type": "BlockVerbatim"
         }
@@ -334,6 +333,7 @@
       "title": "Miscellanea"
     }
   ],
+  "content": {},
   "example_section_data": {
     "children": [],
     "title": null

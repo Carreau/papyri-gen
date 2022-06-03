@@ -1,5 +1,4 @@
 {
-  "_content": {},
   "aliases": [],
   "arbitrary": [
     {
@@ -22,6 +21,7 @@
       "title": "setup.py"
     }
   ],
+  "content": {},
   "example_section_data": {
     "children": [],
     "title": null

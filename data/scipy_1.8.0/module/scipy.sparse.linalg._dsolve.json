@@ -1,5 +1,66 @@
 {
-  "_content": {
+  "aliases": [
+    "scipy.signal._filter_design.optimize._differentiable_functions.sps.linalg._dsolve"
+  ],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The default solver is SuperLU (included in the scipy distribution), which can solve real or complex linear systems in both single and double precisions.  It is automatically replaced by UMFPACK, if available.  Note that UMFPACK works in double precision only, so switch it off by::      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> use_solver(useUmfpack=False)"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "to solve in the single precision. See also use_solver documentation."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Example session::      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> from scipy.sparse import csc_matrix, spdiags\n>>> from numpy import array\n>>> from scipy.sparse.linalg import spsolve, use_solver\n>>>\n>>> print(\"Inverting a sparse linear system:\")\n>>> print(\"The sparse matrix (constructed from diagonals):\")\n>>> a = spdiags([[1, 2, 3, 4, 5], [6, 5, 8, 9, 10]], [0, 1], 5, 5)\n>>> b = array([1, 2, 3, 4, 5])\n>>> print(\"Solve: single precision complex:\")\n>>> use_solver( useUmfpack = False )\n>>> a = a.astype('F')\n>>> x = spsolve(a, b)\n>>> print(x)\n>>> print(\"Error: \", a@x-b)\n>>>\n>>> print(\"Solve: double precision complex:\")\n>>> use_solver( useUmfpack = True )\n>>> a = a.astype('D')\n>>> x = spsolve(a, b)\n>>> print(x)\n>>> print(\"Error: \", a@x-b)\n>>>\n>>> print(\"Solve: double precision:\")\n>>> a = a.astype('d')\n>>> x = spsolve(a, b)\n>>> print(x)\n>>> print(\"Error: \", a@x-b)\n>>>\n>>> print(\"Solve: single precision:\")\n>>> use_solver( useUmfpack = False )\n>>> a = a.astype('f')\n>>> x = spsolve(a, b.astype('f'))\n>>> print(x)\n>>> print(\"Error: \", a@x-b)"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "title": "Linear Solvers"
+    }
+  ],
+  "content": {
     "Attributes": {
       "children": [],
       "title": null
@@ -67,67 +128,6 @@
       "title": null
     }
   },
-  "aliases": [
-    "scipy.signal._filter_design.optimize._differentiable_functions.sps.linalg._dsolve"
-  ],
-  "arbitrary": [
-    {
-      "children": [
-        {
-          "data": {
-            "children": [
-              {
-                "data": {
-                  "value": "The default solver is SuperLU (included in the scipy distribution), which can solve real or complex linear systems in both single and double precisions.  It is automatically replaced by UMFPACK, if available.  Note that UMFPACK works in double precision only, so switch it off by::      "
-                },
-                "type": "Words"
-              }
-            ]
-          },
-          "type": "Paragraph"
-        },
-        {
-          "data": {
-            "value": ">>> use_solver(useUmfpack=False)"
-          },
-          "type": "BlockVerbatim"
-        },
-        {
-          "data": {
-            "children": [
-              {
-                "data": {
-                  "value": "to solve in the single precision. See also use_solver documentation."
-                },
-                "type": "Words"
-              }
-            ]
-          },
-          "type": "Paragraph"
-        },
-        {
-          "data": {
-            "children": [
-              {
-                "data": {
-                  "value": "Example session::      "
-                },
-                "type": "Words"
-              }
-            ]
-          },
-          "type": "Paragraph"
-        },
-        {
-          "data": {
-            "value": ">>> from scipy.sparse import csc_matrix, spdiags\n>>> from numpy import array\n>>> from scipy.sparse.linalg import spsolve, use_solver\n>>>\n>>> print(\"Inverting a sparse linear system:\")\n>>> print(\"The sparse matrix (constructed from diagonals):\")\n>>> a = spdiags([[1, 2, 3, 4, 5], [6, 5, 8, 9, 10]], [0, 1], 5, 5)\n>>> b = array([1, 2, 3, 4, 5])\n>>> print(\"Solve: single precision complex:\")\n>>> use_solver( useUmfpack = False )\n>>> a = a.astype('F')\n>>> x = spsolve(a, b)\n>>> print(x)\n>>> print(\"Error: \", a@x-b)\n>>>\n>>> print(\"Solve: double precision complex:\")\n>>> use_solver( useUmfpack = True )\n>>> a = a.astype('D')\n>>> x = spsolve(a, b)\n>>> print(x)\n>>> print(\"Error: \", a@x-b)\n>>>\n>>> print(\"Solve: double precision:\")\n>>> a = a.astype('d')\n>>> x = spsolve(a, b)\n>>> print(x)\n>>> print(\"Error: \", a@x-b)\n>>>\n>>> print(\"Solve: single precision:\")\n>>> use_solver( useUmfpack = False )\n>>> a = a.astype('f')\n>>> x = spsolve(a, b.astype('f'))\n>>> print(x)\n>>> print(\"Error: \", a@x-b)"
-          },
-          "type": "BlockVerbatim"
-        }
-      ],
-      "title": "Linear Solvers"
-    }
-  ],
   "example_section_data": {
     "children": [],
     "title": null

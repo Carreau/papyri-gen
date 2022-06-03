@@ -1,5 +1,159 @@
 {
-  "_content": {
+  "aliases": [
+    "papyri.miniserde"
+  ],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "A mini-implementation of an automatic serialiser-deserialiser for nested dataclass like class based on type annotations."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Example::       "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "In [14]: from dataclasses import dataclass\n    ...: from typing import Optional, Union, List\n    ...:\n\nNote that Author and Reviewer are isomorphic even if totally unrelated.\n\nIn [15]: @dataclass\n    ...: class Author:\n    ...:     first: Optional[str]\n    ...:     last: str\n    ...:\n    ...: @dataclass\n    ...: class Reviewer:\n    ...:     first: Optional[str]\n    ...:     last: str\n    ...:\n\nHere, items can be heterogenous, or of ambiguous type based only on its fields values.\n\nIn [16]: @dataclass\n    ...: class Book:\n    ...:     author: List[Union[Author, Reviewer]]\n    ...:     title: str\n    ...:\n\n\nIn [17]: obj = Book([Author(\"Matthias\", \"B\"), Reviewer(\"Tony\", \"Fast\")], \"pyshs\")\n    ...:\n    ...: data = serialize(obj , Book)\n    ...:\n    ...: deserialize(Book, Book, data)\n\nOut[17]: Book(author=[Author(first='Matthias', last='B'), Reviewer(first='Tony', last='Fast')], title='pyshs')\n\n                      ^...................................^\n                                        .\n                                        .Note the conserved types."
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Unlike other similar libraries that automatically serialise/deserialise it has the following properties:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "object do not need to have a give baseclass, they need to have an __init__   or _deserialise class method that takes each parameter as kwargs."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Subclass or isomorphic classes are kept in the de-serialisation, in   particular in Union and List of Unions. That is to say it will properly   de-serialise and heterogenous list or dict, as long as those respect the   type annotation."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Both Pydantic and Jetblack-serialize would have erased the types and returned either 2 Authors or 2 Reviewers."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "dd": [
+                            {
+                              "data": {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "value": "critical but nice to have)"
+                                    },
+                                    "type": "Words"
+                                  }
+                                ]
+                              },
+                              "type": "Paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "it is also compatible with Rust Serde with adjacently tagged Unions (not"
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "type": "DefList"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        }
+      ],
+      "title": null
+    }
+  ],
+  "content": {
     "Attributes": {
       "children": [],
       "title": null
@@ -199,160 +353,6 @@
       "title": null
     }
   },
-  "aliases": [
-    "papyri.miniserde"
-  ],
-  "arbitrary": [
-    {
-      "children": [
-        {
-          "data": {
-            "children": [
-              {
-                "data": {
-                  "value": "A mini-implementation of an automatic serialiser-deserialiser for nested dataclass like class based on type annotations."
-                },
-                "type": "Words"
-              }
-            ]
-          },
-          "type": "Paragraph"
-        },
-        {
-          "data": {
-            "children": [
-              {
-                "data": {
-                  "value": "Example::       "
-                },
-                "type": "Words"
-              }
-            ]
-          },
-          "type": "Paragraph"
-        },
-        {
-          "data": {
-            "value": "In [14]: from dataclasses import dataclass\n    ...: from typing import Optional, Union, List\n    ...:\n\nNote that Author and Reviewer are isomorphic even if totally unrelated.\n\nIn [15]: @dataclass\n    ...: class Author:\n    ...:     first: Optional[str]\n    ...:     last: str\n    ...:\n    ...: @dataclass\n    ...: class Reviewer:\n    ...:     first: Optional[str]\n    ...:     last: str\n    ...:\n\nHere, items can be heterogenous, or of ambiguous type based only on its fields values.\n\nIn [16]: @dataclass\n    ...: class Book:\n    ...:     author: List[Union[Author, Reviewer]]\n    ...:     title: str\n    ...:\n\n\nIn [17]: obj = Book([Author(\"Matthias\", \"B\"), Reviewer(\"Tony\", \"Fast\")], \"pyshs\")\n    ...:\n    ...: data = serialize(obj , Book)\n    ...:\n    ...: deserialize(Book, Book, data)\n\nOut[17]: Book(author=[Author(first='Matthias', last='B'), Reviewer(first='Tony', last='Fast')], title='pyshs')\n\n                      ^...................................^\n                                        .\n                                        .Note the conserved types."
-          },
-          "type": "BlockVerbatim"
-        },
-        {
-          "data": {
-            "children": [
-              {
-                "data": {
-                  "value": "Unlike other similar libraries that automatically serialise/deserialise it has the following properties:"
-                },
-                "type": "Words"
-              }
-            ]
-          },
-          "type": "Paragraph"
-        },
-        {
-          "data": {
-            "children": [
-              {
-                "children": [
-                  {
-                    "data": {
-                      "children": [
-                        {
-                          "data": {
-                            "value": "object do not need to have a give baseclass, they need to have an __init__   or _deserialise class method that takes each parameter as kwargs."
-                          },
-                          "type": "Words"
-                        }
-                      ]
-                    },
-                    "type": "Paragraph"
-                  }
-                ]
-              },
-              {
-                "children": [
-                  {
-                    "data": {
-                      "children": [
-                        {
-                          "data": {
-                            "value": "Subclass or isomorphic classes are kept in the de-serialisation, in   particular in Union and List of Unions. That is to say it will properly   de-serialise and heterogenous list or dict, as long as those respect the   type annotation."
-                          },
-                          "type": "Words"
-                        }
-                      ]
-                    },
-                    "type": "Paragraph"
-                  }
-                ]
-              }
-            ]
-          },
-          "type": "BulletList"
-        },
-        {
-          "data": {
-            "children": [
-              {
-                "data": {
-                  "value": "Both Pydantic and Jetblack-serialize would have erased the types and returned either 2 Authors or 2 Reviewers."
-                },
-                "type": "Words"
-              }
-            ]
-          },
-          "type": "Paragraph"
-        },
-        {
-          "data": {
-            "children": [
-              {
-                "children": [
-                  {
-                    "data": {
-                      "children": [
-                        {
-                          "dd": [
-                            {
-                              "data": {
-                                "children": [
-                                  {
-                                    "data": {
-                                      "value": "critical but nice to have)"
-                                    },
-                                    "type": "Words"
-                                  }
-                                ]
-                              },
-                              "type": "Paragraph"
-                            }
-                          ],
-                          "dt": {
-                            "children": [
-                              {
-                                "data": {
-                                  "value": "it is also compatible with Rust Serde with adjacently tagged Unions (not"
-                                },
-                                "type": "Words"
-                              }
-                            ]
-                          }
-                        }
-                      ]
-                    },
-                    "type": "DefList"
-                  }
-                ]
-              }
-            ]
-          },
-          "type": "BulletList"
-        }
-      ],
-      "title": null
-    }
-  ],
   "example_section_data": {
     "children": [],
     "title": null

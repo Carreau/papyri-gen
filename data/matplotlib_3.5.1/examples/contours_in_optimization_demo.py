@@ -2390,18 +2390,8 @@
           },
           {
             "link": {
-              "data": {
-                "exists": true,
-                "kind": "module",
-                "reference": {
-                  "kind": "module",
-                  "module": "numpy",
-                  "path": "numpy.ndarray",
-                  "version": "*"
-                },
-                "value": "x1"
-              },
-              "type": "Link"
+              "data": "x1",
+              "type": "str"
             },
             "type": ""
           },

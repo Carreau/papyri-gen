@@ -1,5 +1,118 @@
 {
-  "_content": {
+  "aliases": [
+    "numpy.core._dtype_ctypes"
+  ],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Conversion from ctypes to dtype."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "In an ideal world, we could achieve this through the PEP3118 buffer protocol, something like::      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "def dtype_from_ctypes_type(t):\n    # needed to ensure that the shape of `t` is within memoryview.format\n    class DummyStruct(ctypes.Structure):\n        _fields_ = [('a', t)]\n\n    # empty to avoid memory allocation\n    ctype_0 = (DummyStruct * 0)()\n    mv = memoryview(ctype_0)\n\n    # convert the struct, and slice back out the field\n    return _dtype_from_pep3118(mv.format)['a']"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Unfortunately, this fails because:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "ctypes cannot handle length-0 arrays with PEP3118 (bpo-32782)"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "PEP3118 cannot represent unions, but both numpy and ctypes can"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "ctypes cannot handle big-endian structs with PEP3118 (bpo-32780)"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        }
+      ],
+      "title": null
+    }
+  ],
+  "content": {
     "Attributes": {
       "children": [],
       "title": null
@@ -158,119 +271,6 @@
       "title": null
     }
   },
-  "aliases": [
-    "numpy.core._dtype_ctypes"
-  ],
-  "arbitrary": [
-    {
-      "children": [
-        {
-          "data": {
-            "children": [
-              {
-                "data": {
-                  "value": "Conversion from ctypes to dtype."
-                },
-                "type": "Words"
-              }
-            ]
-          },
-          "type": "Paragraph"
-        },
-        {
-          "data": {
-            "children": [
-              {
-                "data": {
-                  "value": "In an ideal world, we could achieve this through the PEP3118 buffer protocol, something like::      "
-                },
-                "type": "Words"
-              }
-            ]
-          },
-          "type": "Paragraph"
-        },
-        {
-          "data": {
-            "value": "def dtype_from_ctypes_type(t):\n    # needed to ensure that the shape of `t` is within memoryview.format\n    class DummyStruct(ctypes.Structure):\n        _fields_ = [('a', t)]\n\n    # empty to avoid memory allocation\n    ctype_0 = (DummyStruct * 0)()\n    mv = memoryview(ctype_0)\n\n    # convert the struct, and slice back out the field\n    return _dtype_from_pep3118(mv.format)['a']"
-          },
-          "type": "BlockVerbatim"
-        },
-        {
-          "data": {
-            "children": [
-              {
-                "data": {
-                  "value": "Unfortunately, this fails because:"
-                },
-                "type": "Words"
-              }
-            ]
-          },
-          "type": "Paragraph"
-        },
-        {
-          "data": {
-            "children": [
-              {
-                "children": [
-                  {
-                    "data": {
-                      "children": [
-                        {
-                          "data": {
-                            "value": "ctypes cannot handle length-0 arrays with PEP3118 (bpo-32782)"
-                          },
-                          "type": "Words"
-                        }
-                      ]
-                    },
-                    "type": "Paragraph"
-                  }
-                ]
-              },
-              {
-                "children": [
-                  {
-                    "data": {
-                      "children": [
-                        {
-                          "data": {
-                            "value": "PEP3118 cannot represent unions, but both numpy and ctypes can"
-                          },
-                          "type": "Words"
-                        }
-                      ]
-                    },
-                    "type": "Paragraph"
-                  }
-                ]
-              },
-              {
-                "children": [
-                  {
-                    "data": {
-                      "children": [
-                        {
-                          "data": {
-                            "value": "ctypes cannot handle big-endian structs with PEP3118 (bpo-32780)"
-                          },
-                          "type": "Words"
-                        }
-                      ]
-                    },
-                    "type": "Paragraph"
-                  }
-                ]
-              }
-            ]
-          },
-          "type": "BulletList"
-        }
-      ],
-      "title": null
-    }
-  ],
   "example_section_data": {
     "children": [],
     "title": null

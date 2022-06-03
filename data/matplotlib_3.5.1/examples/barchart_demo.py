@@ -2147,7 +2147,7 @@
                 "reference": {
                   "kind": "module",
                   "module": "builtins",
-                  "path": "builtins.str",
+                  "path": "builtins.int",
                   "version": "*"
                 },
                 "value": "value"

@@ -8504,7 +8504,7 @@
                 "reference": {
                   "kind": "module",
                   "module": "builtins",
-                  "path": "builtins.FileIO.write",
+                  "path": "builtins._BufferedIOBase.write",
                   "version": "*"
                 },
                 "value": "write"
@@ -8733,7 +8733,7 @@
                 "reference": {
                   "kind": "module",
                   "module": "builtins",
-                  "path": "builtins._BufferedIOBase.write",
+                  "path": "builtins.BufferedWriter.write",
                   "version": "*"
                 },
                 "value": "write"
@@ -8844,7 +8844,7 @@
                 "reference": {
                   "kind": "module",
                   "module": "builtins",
-                  "path": "builtins.FileIO.write",
+                  "path": "builtins._BufferedIOBase.write",
                   "version": "*"
                 },
                 "value": "write"
@@ -9329,7 +9329,7 @@
                 "reference": {
                   "kind": "module",
                   "module": "builtins",
-                  "path": "builtins._TextIOBase.write",
+                  "path": "builtins._BufferedIOBase.write",
                   "version": "*"
                 },
                 "value": "write"

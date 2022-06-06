@@ -1,0 +1,810 @@
+{
+  "aliases": [
+    "networkx.soft_random_geometric_graph"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The soft random geometric graph [1] model places "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "n",
+                    "version": null
+                  },
+                  "value": "n"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " nodes uniformly at random in the unit cube in dimension "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "dim"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ". Two nodes of distance, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "dist",
+                    "path": "dist",
+                    "version": "*"
+                  },
+                  "value": "dist"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": ", computed by the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "p",
+                    "version": null
+                  },
+                  "value": "p"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": "-Minkowski distance metric are joined by an edge with probability "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "p_dist"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " if the computed distance metric value of the nodes is at most "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.algorithms.distance_measures.radius",
+                    "version": "2.8.2"
+                  },
+                  "value": "radius"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": ", otherwise they are not joined."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Edges within "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.algorithms.distance_measures.radius",
+                    "version": "2.8.2"
+                  },
+                  "value": "radius"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " of each other are determined using a KDTree when SciPy is available. This reduces the time complexity from "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "O(n^2)"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "O(n)"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "This uses a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "k"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": "-d tree to build the graph."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "pos"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " keyword argument can be used to specify node positions so you can create an arbitrary distribution and domain for positions."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For example, to use a 2D Gaussian distribution of node positions with mean (0, 0) and standard deviation 2"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The scipy.stats package can be used to define the probability distribution with the .pdf method used as "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "p_dist"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> import random\n>>> import math\n>>> n = 100\n>>> pos = {i: (random.gauss(0, 2), random.gauss(0, 2)) for i in range(n)}\n>>> p_dist = lambda dist: math.exp(-dist)\n>>> G = nx.soft_random_geometric_graph(n, 0.2, pos=pos, p_dist=p_dist)"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 0,
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Number of nodes or iterable of nodes"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "n",
+                "type_": "int or iterable"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Distance threshold value"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "radius: float",
+                "type_": ""
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Dimension of graph"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "dim",
+                "type_": "int, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A dictionary keyed by node with node positions as values."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "pos",
+                "type_": "dict, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Which Minkowski distance metric to use. "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "p",
+                              "version": null
+                            },
+                            "value": "p"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " has to meet the condition "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "1 <= p <= infinity"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "If this argument is not specified, the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": "L^2"
+                          },
+                          "type": "Math"
+                        },
+                        {
+                          "data": {
+                            "value": " metric (the Euclidean distance metric), p = 2 is used."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "This should not be confused with the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "p",
+                              "version": null
+                            },
+                            "value": "p"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " of an Erd\u0151s-R\u00e9nyi random graph, which represents probability."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "p",
+                "type_": "float, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A probability density function computing the probability of connecting two nodes that are of distance, dist, computed by the Minkowski distance metric. The probability density function, "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "p_dist"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ", must be any function that takes the metric value as input and outputs a single probability value between 0-1. The scipy.stats package has many probability distribution functions implemented and tools for custom probability distribution definitions [2], and passing the .pdf method of scipy.stats distributions can be used here.  If the probability function, "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "p_dist"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ", is not supplied, the default function is an exponential distribution with rate parameter "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": "\\lambda=1"
+                          },
+                          "type": "Math"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "p_dist",
+                "type_": "function, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Indicator of random number generation state. See "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "Randomness<randomness>"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "seed",
+                "type_": "integer, random_state, or None (default)"
+              }
+            ]
+          },
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A soft random geometric graph, undirected and without self-loops. Each node has a node attribute "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "'pos'"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " that stores the position of that node in Euclidean space as provided by the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "pos"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " keyword argument or, if "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "pos"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " was not provided, as generated by this function."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "",
+                "type_": "Graph"
+              }
+            ]
+          },
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Returns a soft random geometric graph in the unit cube."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "title": null
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "value": "Default Graph:"
+              },
+              "type": "Words"
+            }
+          ]
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "value": "G = nx.soft_random_geometric_graph(50, 0.2)"
+              },
+              "type": "Words"
+            }
+          ]
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "value": "Custom Graph:"
+              },
+              "type": "Words"
+            }
+          ]
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "value": "Create a soft random geometric graph on 100 uniformly distributed nodes where nodes are joined by an edge with probability computed from an exponential distribution with rate parameter "
+              },
+              "type": "Words"
+            },
+            {
+              "data": {
+                "value": "\\lambda=1"
+              },
+              "type": "Math"
+            },
+            {
+              "data": {
+                "value": " if their Euclidean distance is at most 0.2."
+              },
+              "type": "Words"
+            }
+          ]
+        },
+        "type": "Paragraph"
+      }
+    ],
+    "level": 0,
+    "title": null
+  },
+  "item_file": "/networkx/generators/geometric.py",
+  "item_line": 197,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": "soft_random_geometric_graph(n, radius, dim=2, pos=None, p=2, p_dist=None, seed=None)"
+  }
+}

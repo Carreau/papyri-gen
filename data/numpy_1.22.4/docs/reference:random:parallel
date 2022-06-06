@@ -1,0 +1,925 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "There are three strategies implemented that can be used to produce repeatable pseudo-random numbers across multiple processes (local or distributed)."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "numpy.random",
+            "content": "",
+            "name": "currentmodule",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _seedsequence-spawn:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "level": 0,
+      "title": "Parallel Random Number Generation"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "~SeedSequence"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "implements an algorithm"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " to process a user-provided seed, typically as an integer of some size, and to convert it into an initial state for a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "~BitGenerator"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ". It uses hashing techniques to ensure that low-quality seeds are turned into high quality initial states (at least, with very high probability)."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For example, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "MT19937"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " has a state consisting of 624 "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "uint32"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " integers. A naive way to take a 32-bit integer seed would be to just set the last element of the state to the 32-bit seed and leave the rest 0s. This is a valid state for "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "MT19937"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", but not a good one. The Mersenne Twister algorithm "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "suffers if there are too many 0s"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ". Similarly, two adjacent 32-bit integer seeds (i.e. "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "12345"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "12346"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ") would produce very similar streams."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "~SeedSequence"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " avoids these problems by using successions of integer hashes with good "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "avalanche properties"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " to ensure that flipping any bit in the input has about a 50% chance of flipping any bit in the output. Two input seeds that are very close to each other will produce initial states that are very far from each other (with very high probability). It is also constructed in such a way that you can provide arbitrary-sized integers or lists of integers. "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "~SeedSequence"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " will take all of the bits that you provide and mix them together to produce however many bits the consuming "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "~BitGenerator"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " needs to initialize itself."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "These properties together mean that we can safely mix together the usual user-provided seed with simple incrementing counters to get "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "~BitGenerator"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " states that are (to very high probability) independent of each other. We can wrap this together into an API that is easy to use and difficult to misuse."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "python",
+            "content": "from numpy.random import SeedSequence, default_rng\n\nss = SeedSequence(12345)\n\n# Spawn off 10 child SeedSequences to pass to child processes.\nchild_seeds = ss.spawn(10)\nstreams = [default_rng(s) for s in child_seeds]",
+            "name": "code-block",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "value": ".. end_block"
+          },
+          "type": "Comment"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Child "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "~SeedSequence"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " objects can also spawn to make grandchildren, and so on. Each "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "~SeedSequence"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " has its position in the tree of spawned "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "~SeedSequence"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " objects mixed in with the user-provided seed to generate independent (with very high probability) streams."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "python",
+            "content": "grandchildren = child_seeds[0].spawn(4)\ngrand_streams = [default_rng(s) for s in grandchildren]",
+            "name": "code-block",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "value": ".. end_block"
+          },
+          "type": "Comment"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "This feature lets you make local decisions about when and how to split up streams without coordination between processes. You do not have to preallocate space to avoid overlapping or request streams from a common global service. This general \"tree-hashing\" scheme is "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "not unique to numpy"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " but not yet widespread. Python has increasingly-flexible mechanisms for parallelization available, and this scheme fits in very well with that kind of use."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Using this scheme, an upper bound on the probability of a collision can be estimated if one knows the number of streams that you derive. "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "~SeedSequence"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " hashes its inputs, both the seed and the spawn-tree-path, down to a 128-bit pool by default. The probability that there is a collision in that pool, pessimistically-estimated (), will be about "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "n^2*2^{-128}"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " where "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "n"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " is the number of streams spawned. If a program uses an aggressive million streams, about "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "2^{20}"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": ", then the probability that at least one pair of them are identical is about "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "2^{-88}"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": ", which is in solidly-ignorable territory ()."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [1] The algorithm is carefully designed to eliminate a number of possible\n       ways to collide. For example, if one only does one level of spawning, it\n       is guaranteed that all states will be unique. But it's easier to\n       estimate the naive upper bound on a napkin and take comfort knowing\n       that the probability is actually lower."
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [2] In this calculation, we can mostly ignore the amount of numbers drawn from each\n       stream. See :ref:`upgrading-pcg64` for the technical details about\n       `PCG64`. The other PRNGs we provide have some extra protection built in\n       that avoids overlaps if the `~SeedSequence` pools differ in the\n       slightest bit. `PCG64DXSM` has :math:`2^{127}` separate cycles\n       determined by the seed in addition to the position in the\n       :math:`2^{128}` long period for each cycle, so one has to both get on or\n       near the same cycle *and* seed a nearby position in the cycle.\n       `Philox` has completely independent cycles determined by the seed.\n       `SFC64` incorporates a 64-bit counter so every unique seed is at\n       least :math:`2^{64}` iterations away from any other seed. And\n       finally, `MT19937` has just an unimaginably huge period. Getting\n       a collision internal to `SeedSequence` is the way a failure would be\n       observed."
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _`implements an algorithm`: http://www.pcg-random.org/posts/developing-a-seed_seq-alternative.html"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _`suffers if there are too many 0s`: http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/MT2002/emt19937ar.html"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _`avalanche properties`: https://en.wikipedia.org/wiki/Avalanche_effect"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _`not unique to numpy`: https://www.iro.umontreal.ca/~lecuyer/myftp/papers/parallel-rng-imacs.pdf"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _independent-streams:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "level": 1,
+      "title": "`~SeedSequence` spawning"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "Philox"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " is a counter-based RNG based which generates values by encrypting an incrementing counter using weak cryptographic primitives. The seed determines the key that is used for the encryption. Unique keys create unique, independent streams. "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "Philox"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " lets you bypass the seeding algorithm to directly set the 128-bit key. Similar, but different, keys will still create independent streams."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "python",
+            "content": "import secrets\nfrom numpy.random import Philox\n\n# 128-bit number as a seed\nroot_seed = secrets.getrandbits(128)\nstreams = [Philox(key=root_seed + stream_id) for stream_id in range(10)]",
+            "name": "code-block",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "value": ".. end_block"
+          },
+          "type": "Comment"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "This scheme does require that you avoid reusing stream IDs. This may require coordination between the parallel processes."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _parallel-jumped:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "level": 1,
+      "title": "Independent Streams"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": [
+                    "jumped"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " advances the state of the BitGenerator "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "as-if"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " a large number of random numbers have been drawn, and returns a new instance with this state. The specific number of draws varies by BitGenerator, and ranges from "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "2^{64}"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "2^{128}"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": ".  Additionally, the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "as-if"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " draws also depend on the size of the default random number produced by the specific BitGenerator. The BitGenerators that support "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "jumped"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", along with the period of the BitGenerator, the size of the jump and the bits in the default unsigned random are listed below."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "+-----------------+-------------------------+-------------------------+-------------------------+ | BitGenerator    | Period                  |  Jump Size              | Bits per Draw           | +=================+=========================+=========================+=========================+ | MT19937         | "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "2^{19937}-1"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": "     | "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "2^{128}"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": "         | 32                      | +-----------------+-------------------------+-------------------------+-------------------------+ | PCG64           | "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "2^{128}"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": "         | "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "~2^{127}"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " () | 64                      | +-----------------+-------------------------+-------------------------+-------------------------+ | PCG64DXSM       | "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "2^{128}"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": "         | "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "~2^{127}"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " () | 64                      | +-----------------+-------------------------+-------------------------+-------------------------+ | Philox          | "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "2^{256}"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": "         | "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "2^{128}"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": "         | 64                      | +-----------------+-------------------------+-------------------------+-------------------------+"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [3] The jump size is :math:`(\\phi-1)*2^{128}` where :math:`\\phi` is the\n       golden ratio. As the jumps wrap around the period, the actual distances\n       between neighboring streams will slowly grow smaller than the jump size,\n       but using the golden ratio this way is a classic method of constructing\n       a low-discrepancy sequence that spreads out the states around the period\n       optimally. You will not be able to jump enough to make those distances\n       small enough to overlap in your lifetime."
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": [
+                    "jumped"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " can be used to produce long blocks which should be long enough to not overlap."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "python",
+            "content": "import secrets\nfrom numpy.random import PCG64\n\nseed = secrets.getrandbits(128)\nblocked_rng = []\nrng = PCG64(seed)\nfor i in range(10):\n    blocked_rng.append(rng.jumped(i))",
+            "name": "code-block",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "value": ".. end_block"
+          },
+          "type": "Comment"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "When using "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "jumped"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", one does have to take care not to jump to a stream that was already used. In the above example, one could not later use "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "blocked_rng[0].jumped()"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " as it would overlap with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "blocked_rng[1]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". Like with the independent streams, if the main process here wants to split off 10 more streams by jumping, then it needs to start with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "range(10, 20)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", otherwise it would recreate the same streams. On the other hand, if you carefully construct the streams, then you are guaranteed to have streams that do not overlap."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 1,
+      "title": "Jumping the BitGenerator state"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

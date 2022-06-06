@@ -1,0 +1,1427 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _f2py-windows:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "level": 0,
+      "title": null
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "children": [
+                          {
+                            "dd": [
+                              {
+                                "data": {
+                                  "children": [
+                                    {
+                                      "data": {
+                                        "value": "OS specific flags can be seen via "
+                                      },
+                                      "type": "Words"
+                                    },
+                                    {
+                                      "data": {
+                                        "value": [
+                                          "python -m numpy.f2py"
+                                        ]
+                                      },
+                                      "type": "Verbatim"
+                                    }
+                                  ]
+                                },
+                                "type": "Paragraph"
+                              }
+                            ],
+                            "dt": {
+                              "children": [
+                                {
+                                  "data": {
+                                    "value": "F2PY support for Windows is not at par with Linux support, and"
+                                  },
+                                  "type": "Words"
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      },
+                      "type": "DefList"
+                    }
+                  ]
+                },
+                "type": "BlockQuote"
+              }
+            ],
+            "kind": "warning",
+            "title": ""
+          },
+          "type": "Admonition"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Broadly speaking, there are two issues working with F2PY on Windows:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "the lack of actively developed FOSS Fortran compilers, and,"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "the linking issues related to the C runtime library for building Python-C extensions."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The focus of this section is to establish a guideline for developing and extending Fortran modules for Python natively, via F2PY on Windows."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "title": "F2PY and Windows"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "From a user perspective, the most UNIX compatible Windows development environment is through emulation, either via the Windows Subsystem on Linux, or facilitated by Docker. In a similar vein, traditional virtualization methods like VirtualBox are also reasonable methods to develop UNIX tools on Windows."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Native Windows support is typically stunted beyond the usage of commercial compilers. However, as of 2022, most commercial compilers have free plans which are sufficient for general use. Additionally, the Fortran language features supported by "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "f2py"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " (partial coverage of Fortran 2003), means that newer toolchains are often not required. Briefly, then, for an end user, in order of use:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "These are maintained actively, though licensing restrictions may apply as    further detailed in "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "f2py-win-intel"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Suitable for general use for those building native Windows programs by    building off of MSVC."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Classic Intel Compilers (commercial)"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "In conjunction with the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "mingw-w64"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " project, "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "gfortran"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "gcc"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "    toolchains can be used to natively build Windows programs."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "MSYS2 (FOSS)"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Assuming the usage of "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "gfortran"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", this can be used for cross-compiling    Windows applications, but is significantly more complicated."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Windows Subsystem for Linux"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Windows support for compilers in "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "conda"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " is facilitated by pulling MSYS2    binaries, however these "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "are outdated"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ", and therefore not recommended (as of 30-01-2022)."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Conda"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Unmaintained but sufficient if an existing license is present. Works    natively, but has been superseded by the Nvidia HPC SDK, with no "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "native\n   Windows support"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "PGI Compilers (commercial)"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Can also be used for "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "gfortran"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ". Howeve, the POSIX API compatibility layer provided by    Cygwin is meant to compile UNIX software on Windows, instead of building    native Windows programs. This means cross compilation is required."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Cygwin (FOSS)"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The compilation suites described so far are compatible with the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "now\ndeprecated"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "np.distutils"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " build backend which is exposed by the F2PY CLI. Additional build system usage ("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "meson"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "cmake"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ") as described in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "f2py-bldsys"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " allows for a more flexible set of compiler backends including:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The newer Intel compilers ("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "ifx"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "icx"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ") are based on LLVM and can be    used for native compilation. Licensing requirements can be onerous."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Intel oneAPI"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The backbone of the PGI compilers were cannibalized to form the \"classic\" or    "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "legacy version of Flang"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ". This may be compiled from source and used    natively. "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "LLVM Flang"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": " does not support Windows yet (30-01-2022)."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Classic Flang (FOSS)"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "One of two LLVM based compilers. Not all of F2PY supported Fortran can be    compiled yet (30-01-2022) but uses MSVC for native linking."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "LFortran (FOSS)"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        }
+      ],
+      "level": 1,
+      "title": "Overview"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For this document we will asume the following basic tools:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The IDE being considered is the community supported "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "Microsoft Visual Studio Code"
+                          },
+                          "type": "Directive"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The terminal being used is the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "Windows Terminal"
+                          },
+                          "type": "Directive"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The shell environment is assumed to be "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "Powershell 7.x"
+                          },
+                          "type": "Directive"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "dd": [
+                            {
+                              "data": {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "value": [
+                                        "Get-Command python.exe"
+                                      ]
+                                    },
+                                    "type": "Verbatim"
+                                  },
+                                  {
+                                    "data": {
+                                      "value": " resolving to    "
+                                    },
+                                    "type": "Words"
+                                  },
+                                  {
+                                    "data": {
+                                      "value": [
+                                        "C:\\Users\\$USERNAME\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe"
+                                      ]
+                                    },
+                                    "type": "Verbatim"
+                                  }
+                                ]
+                              },
+                              "type": "Paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "Python 3.10 from "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "domain": null,
+                                  "role": null,
+                                  "value": "the Microsoft Store"
+                                },
+                                "type": "Directive"
+                              },
+                              {
+                                "data": {
+                                  "value": " and this can be tested with"
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "type": "DefList"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The Microsoft Visual C++ (MSVC) toolset"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "With this baseline configuration, we will further consider a configuration matrix as follows:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _table-f2py-winsup-mat:"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "argument": "Support matrix, exe implies a Windows installer",
+            "content": "+----------------------+--------------------+-------------------+\n| **Fortran Compiler** | **C/C++ Compiler** | **Source**        |\n+======================+====================+===================+\n| Intel Fortran        | MSVC / ICC         | exe               |\n+----------------------+--------------------+-------------------+\n| GFortran             | MSVC               | MSYS2/exe         |\n+----------------------+--------------------+-------------------+\n| GFortran             | GCC                | WSL               |\n+----------------------+--------------------+-------------------+\n| Classic Flang        | MSVC               | Source / Conda    |\n+----------------------+--------------------+-------------------+\n| Anaconda GFortran    | Anaconda GCC       | exe               |\n+----------------------+--------------------+-------------------+",
+            "name": "table",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For an understanding of the key issues motivating the need for such a matrix "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "Pauli Virtanen's in-depth post on wheels with Fortran for Windows"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " is an excellent resource. An entertaining explanation of an application binary interface (ABI) can be found in this post by "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "JeanHeyd Meneide"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 1,
+      "title": "Baseline"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "MSVC is installed either via the Visual Studio Bundle or the lighter (preferred) "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "Build Tools for Visual Studio"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " with the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "Desktop development with C++"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " setting."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "This can take a significant amount of time as it includes a download of around 2GB and requires a restart."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "kind": "note",
+            "title": ""
+          },
+          "type": "Admonition"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "It is possible to use the resulting environment from a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "standard command\nprompt"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ". However, it is more pleasant to use a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "developer powershell"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", with a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "profile in Windows Terminal"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ". This can be achieved by adding the following block to the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "profiles->list"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " section of the JSON file used to  configure Windows Terminal (see "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "Settings->Open JSON file"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "):"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "json",
+            "content": "{\n\"name\": \"Developer PowerShell for VS 2019\",\n\"commandline\": \"powershell.exe -noe -c \\\"$vsPath = (Join-Path ${env:ProgramFiles(x86)} -ChildPath 'Microsoft Visual Studio\\\\2019\\\\BuildTools'); Import-Module (Join-Path $vsPath 'Common7\\\\Tools\\\\Microsoft.VisualStudio.DevShell.dll'); Enter-VsDevShell -VsInstallPath $vsPath -SkipAutomaticLocation\\\"\",\n\"icon\": \"ms-appx:///ProfileIcons/{61c54bbd-c2c6-5271-96e7-009a87ff44bf}.png\"\n}",
+            "name": "code-block",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Now, testing the compiler toolchain could look like:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "powershell",
+            "content": "# New Windows Developer Powershell instance / tab\n# or\n$vsPath = (Join-Path ${env:ProgramFiles(x86)} -ChildPath 'Microsoft Visual Studio\\\\2019\\\\BuildTools'); \nImport-Module (Join-Path $vsPath 'Common7\\\\Tools\\\\Microsoft.VisualStudio.DevShell.dll');\nEnter-VsDevShell -VsInstallPath $vsPath -SkipAutomaticLocation\n**********************************************************************\n** Visual Studio 2019 Developer PowerShell v16.11.9\n** Copyright (c) 2021 Microsoft Corporation\n**********************************************************************\ncd $HOME\necho \"#include<stdio.h>\" > blah.cpp; echo 'int main(){printf(\"Hi\");return 1;}' >> blah.cpp\ncl blah.cpp",
+            "name": "code-block",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "# Hi    rm blah.cpp"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": ".\\blah.exe"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "It is also possible to check that the environment has been updated correctly with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "$ENV:PATH"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 1,
+      "title": "Powershell and MSVC"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The MS Windows version of Python discussed here installs to a non-deterministic path using a hash. This needs to be added to the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "PATH"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " variable."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "powershell",
+            "content": "$Env:Path += \";$env:LOCALAPPDATA\\packages\\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\\localcache\\local-packages\\python310\\scripts\"",
+            "name": "code-block",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "argument": "",
+            "content": "intel\nmsys2\nconda\npgi",
+            "name": "toctree",
+            "options": [
+              [
+                "maxdepth",
+                "2"
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _the Microsoft Store: https://www.microsoft.com/en-us/p/python-310/9pjpw5ldxlz5"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _Microsoft Visual Studio Code: https://code.visualstudio.com/Download"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _more complete POSIX environment: https://www.cygwin.com/"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _This MSYS2 document: https://www.msys2.org/wiki/How-does-MSYS2-differ-from-Cygwin/"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _Build Tools for Visual Studio: https://visualstudio.microsoft.com/downloads/#build-tools-for-visual-studio-2019"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _Windows Terminal: https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?activetab=pivot:overviewtab"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _Powershell 7.x: https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.1"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _standard command prompt: https://docs.microsoft.com/en-us/cpp/build/building-on-the-command-line?view=msvc-160#developer_command_file_locations"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _developer powershell: https://docs.microsoft.com/en-us/visualstudio/ide/reference/command-prompt-powershell?view=vs-2019"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _profile in Windows Terminal: https://techcommunity.microsoft.com/t5/microsoft-365-pnp-blog/add-developer-powershell-and-developer-command-prompt-for-visual/ba-p/2243078"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _Pauli Virtanen's in-depth post on wheels with Fortran for Windows: https://pav.iki.fi/blog/2017-10-08/pywingfortran.html#building-python-wheels-with-fortran-for-windows"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _Nvidia HPC SDK: https://www.pgroup.com/index.html"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _JeanHeyd Meneide: https://thephd.dev/binary-banshees-digital-demons-abi-c-c++-help-me-god-please"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _legacy version of Flang: https://github.com/flang-compiler/flang"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _native Windows support: https://developer.nvidia.com/nvidia-hpc-sdk-downloads#collapseFour"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _are outdated: https://github.com/conda-forge/conda-forge.github.io/issues/1044"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _now deprecated: https://github.com/numpy/numpy/pull/20875"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _LLVM Flang: https://releases.llvm.org/11.0.0/tools/flang/docs/ReleaseNotes.html"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "level": 1,
+      "title": "Windows Store Python Paths"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

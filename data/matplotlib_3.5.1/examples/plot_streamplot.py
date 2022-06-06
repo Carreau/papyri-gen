@@ -3197,8 +3197,18 @@
           },
           {
             "link": {
-              "data": "seed_points",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "seed_points"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4058,8 +4068,18 @@
           },
           {
             "link": {
-              "data": "seed_points",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "seed_points"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4072,8 +4092,18 @@
           },
           {
             "link": {
-              "data": "T",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy._ArrayOrScalarCommon.T",
+                  "version": "*"
+                },
+                "value": "T"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4278,8 +4308,18 @@
           },
           {
             "link": {
-              "data": "seed_points",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "seed_points"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -4320,8 +4360,18 @@
           },
           {
             "link": {
-              "data": "seed_points",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "seed_points"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -6310,5 +6360,6 @@
       "type": "Fig"
     }
   ],
+  "level": 0,
   "title": null
 }

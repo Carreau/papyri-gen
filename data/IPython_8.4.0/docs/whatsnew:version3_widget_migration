@@ -1,0 +1,3499 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [],
+      "level": 0,
+      "title": "Migrating Widgets to IPython 3"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The first thing you'll notice when upgrading an IPython 2.0 widget    notebook to IPython 3.0 is the \"Notebook converted\" dialog. Click    \"ok\"."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "All of the widgets distributed with IPython have been renamed. The    \"Widget\" suffix was removed from the end of the class name. i.e.    "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "ButtonWidget"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " is now "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "Button"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              "ContainerWidget"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " was renamed to "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "Box"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              "PopupWidget"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " was removed from IPython, because bootstrapjs was     problematic (creates global variables, etc.). If you use the    "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "PopupWidget"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", try using a "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "Box"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " widget instead. If your notebook    can't live without the popup functionality, subclass the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "Box"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "    widget (both in Python and JS) and use JQuery UI's "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "draggable()"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "    and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "resizable()"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " methods to mimic the behavior."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              "add_class"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "remove_class"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " were removed. More often than not    a new attribute exists on the widget that allows you to achieve the    same explicitly. i.e. the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "Button"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " widget now has a    "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "button_style"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " attribute which you can set to 'primary', 'success',    'info', 'warning', 'danger', or '' instead of using "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "add_class"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " to    add the bootstrap class. "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "VBox"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "HBox"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " classes (flexible    "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "Box"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " subclasses) were added that allow you to avoid using    "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "add_class"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "remove_class"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " to make flexible box model    layouts. As a last resort, if you can't find a built in attribute for    the class you want to use, a new "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "_dom_classes"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " list trait was    added, which combines "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "add_class"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "remove_class"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " into one    stateful list."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              "set_css"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "get_css"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " were removed in favor of explicit style    attributes - "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "visible"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "width"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "height"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "padding"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ",    "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "margin"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "color"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "background_color"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "border_color"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ",    "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "border_width"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "border_radius"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "border_style"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ",    "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "font_style"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "font_weight"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "font_size"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "font_family"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "    are a few. If you can't find a trait to see the css attribute you    need, you can, in order of preference, (A) subclass to create your    own custom widget, (B) use CSS and the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "_dom_classes"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " trait to set    "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "_dom_classes"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", or (C) use the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "_css"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " dictionary to set CSS    styling like "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "set_css"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "get_css"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "For selection widgets, such as "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "Dropdown"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "values"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " argument    has been renamed to "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "options"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "EnumeratedList"
+        }
+      ],
+      "level": 1,
+      "title": "Upgrading Notebooks"
+    },
+    {
+      "children": [],
+      "level": 1,
+      "title": "Upgrading Custom Widgets"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "If you are distributing your widget and decide to use the deferred    loading technique (preferred), you can remove all references to the    WidgetManager and the register model/view calls (see the Python    section below for more information)."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "In 2.0 require.js was used incorrectly, that has been fixed and now    loading works more like Python's import. Requiring    "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "widgets/js/widget"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " doesn't import the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "WidgetManager"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " class,    instead it imports a dictionary that exposes the classes within that    module:"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": "{\n   'WidgetModel': WidgetModel,\n   'WidgetView': WidgetView,\n   'DOMWidgetView': DOMWidgetView,\n   'ViewList': ViewList,\n   }"
+                    },
+                    "type": "BlockVerbatim"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "If you decide to continue to use the widget registry (by registering    your widgets with the manager), you can import a dictionary with a    handle to the WidgetManager class by requiring    "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "widgets/js/manager"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ". Doing so will import:"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": "{'WidgetManager': WidgetManager}"
+                    },
+                    "type": "BlockVerbatim"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Don't rely on the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "IPython"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " namespace for anything. To inherit from    the DOMWidgetView, WidgetView, or WidgetModel, require    "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "widgets/js/widget"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " as "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "widget"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ". If you were inheriting from    DOMWidgetView, and the code looked like this:"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": "IPython.DOMWidgetView.extend({...})"
+                    },
+                    "type": "BlockVerbatim"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "It would become this:"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": "widget.DOMWidgetView.extend({...})"
+                    },
+                    "type": "BlockVerbatim"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Custom models are encouraged. When possible, it's recommended to move    your code into a custom model, so actions are performed 1 time,    instead of N times where N is the number of displayed views."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "EnumeratedList"
+        }
+      ],
+      "level": 2,
+      "title": "Javascript"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Generally, custom widget Python code can remain unchanged. If you distribute your custom widget, you may be using "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "display"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "Javascript"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " to publish the widget's Javascript to the front-end. That is no longer the recommended way of distributing widget Javascript. Instead have the user install the Javascript to his/her nbextension directory or their profile's static directory. Then use the new "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "_view_module"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "_model_module"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " traitlets in combination with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "_view_name"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "_model_name"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " to instruct require.js on how to load the widget's Javascript. The Javascript is then loaded when the widget is used for the first time."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "title": "Python"
+    },
+    {
+      "children": [],
+      "level": 1,
+      "title": "Details"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "In the IPython 2.x series the only way to register custom widget views and models was to use the registry in the widget manager. Unfortunately, using this method made distributing and running custom widgets difficult. The widget maintainer had to either use the rich display framework to push the widget's Javascript to the notebook or instruct the users to install the Javascript by hand in a custom profile. With the first method, the maintainer would have to be careful about when the Javascript was pushed to the front-end. If the Javascript was pushed on Python widget "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "import"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", the widgets wouldn't work after page refresh. This is because refreshing the page does not restart the kernel, and the Python "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "import"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " statement only runs once in a given kernel instance (unless you reload the Python modules, which isn't straight forward). This meant the maintainer would have to have a separate "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "push_js()"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " method that the user would have to call after importing the widget's Python code."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Our solution was to add support for loading widget views and models using require.js paths. Thus the comm and widget frameworks now support lazy loading. To do so, everything had to be converted to asynchronous code. HTML5 promises are used to accomplish that ("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/ipython/ipython/pull/6818",
+                  "value": "#6818"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/ipython/ipython/pull/6914",
+                  "value": "#6914"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ")."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "title": "Asynchronous"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "In IPython 3.0, widgets can be instantiated from the front-end ("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/ipython/ipython/pull/6664",
+                  "value": "#6664"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": "). On top of this, a widget persistence API was added ("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/ipython/ipython/pull/7163",
+                  "value": "#7163"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/ipython/ipython/pull/7227",
+                  "value": "#7227"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": "). With the widget persistence API, you can persist your widget instances using Javascript. This makes it easy to persist your widgets to your notebook document (with a small amount of custom JS). By default, the widgets are persisted to your web browsers local storage which makes them reappear when your refresh the page."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "title": "Symmetry"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Latex math is supported in widget "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "description"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "\\ s    ("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/5937",
+                            "value": "#5937"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ")."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Widgets can be display more than once within a single container    widget ("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/5963",
+                            "value": "#5963"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ",    "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6990",
+                            "value": "#6990"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ")."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              "FloatRangeSlider"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "IntRangeSlider"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " were added    ("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6050",
+                            "value": "#6050"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ")."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "\"Widget\" was removed from the ends of all of the widget class names    ("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6125",
+                            "value": "#6125"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ")."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              "ContainerWidget"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " was renamed to "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "Box"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "    ("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6125",
+                            "value": "#6125"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ")."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              "HBox"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "VBox"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " widgets were added    ("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6125",
+                            "value": "#6125"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ")."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              "add\\_class"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "remove\\_class"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " were removed in favor of a    "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "_dom_classes"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " list    ("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6235",
+                            "value": "#6235"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ")."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              "get\\_css"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "set\\_css"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " were removed in favor of explicit    traits for widget styling    ("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6235",
+                            "value": "#6235"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ")."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              "jslink"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "jsdlink"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " were added    ("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6454",
+                            "value": "#6454"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ",    "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/7468",
+                            "value": "#7468"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ")."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "An "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "Output"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " widget was added, which allows you to "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "print"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and    "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "display"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " within widgets    ("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6670",
+                            "value": "#6670"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ")."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              "PopupWidget"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " was removed    ("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/7341",
+                            "value": "#7341"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ")."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A visual cue was added for widgets with 'dead' comms    ("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/7227",
+                            "value": "#7227"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ")."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "SelectMultiple"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " widget was added (a "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "Select"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " widget that    allows multiple things to be selected at once)    ("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6890",
+                            "value": "#6890"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ")."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A class was added to help manage children views    ("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6990",
+                            "value": "#6990"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ")."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A warning was added that shows on widget import because it's expected    that the API will change again by IPython 4.0. This warning can be    suppressed ("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/7107",
+                            "value": "#7107"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ",    "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/7200",
+                            "value": "#7200"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ",    "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/7201",
+                            "value": "#7201"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ",    "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/7204",
+                            "value": "#7204"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ")."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        }
+      ],
+      "level": 2,
+      "title": "Smaller Changes"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Here is a chronological list of PRs affecting the widget and comm frameworks for IPython 3.0. Note that later PRs may revert changes made in earlier PRs:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Add placeholder attribute to text widgets   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/5652",
+                            "value": "#5652"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Add latex support in widget labels,   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/5937",
+                            "value": "#5937"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Allow widgets to display more than once within container widgets.   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/5963",
+                            "value": "#5963"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "use require.js,   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/5980",
+                            "value": "#5980"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Range widgets   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6050",
+                            "value": "#6050"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Interact on\\_demand option   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6051",
+                            "value": "#6051"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Allow text input on slider widgets   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6106",
+                            "value": "#6106"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "support binary buffers in comm messages   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6110",
+                            "value": "#6110"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Embrace the flexible box model in the widgets   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6125",
+                            "value": "#6125"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Widget trait serialization   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6128",
+                            "value": "#6128"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Make Container widgets take children as the first positional   argument "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6153",
+                            "value": "#6153"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "once-displayed   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6168",
+                            "value": "#6168"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Validate slider value, when limits change   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6171",
+                            "value": "#6171"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Unregistering comms in Comm Manager   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6216",
+                            "value": "#6216"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Add EventfulList and EventfulDict trait types.   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6228",
+                            "value": "#6228"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Remove add/remove\\_class and set/get\\_css.   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6235",
+                            "value": "#6235"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "avoid unregistering widget model twice   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6250",
+                            "value": "#6250"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Widget property lock should compare json states, not python states   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6332",
+                            "value": "#6332"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Strip the IPY\\_MODEL\\_ prefix from widget IDs before referencing   them. "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6377",
+                            "value": "#6377"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "\"event\" is not defined error in Firefox   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6437",
+                            "value": "#6437"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Javascript link   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6454",
+                            "value": "#6454"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Bulk update of widget attributes   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6463",
+                            "value": "#6463"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Creating a widget registry on the Python side.   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6493",
+                            "value": "#6493"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Allow widget views to be loaded from require modules   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6494",
+                            "value": "#6494"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Fix Issue #6530   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6532",
+                            "value": "#6532"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Make comm manager (mostly) independent of InteractiveShell   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6540",
+                            "value": "#6540"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Add semantic classes to top-level containers for single widgets   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6609",
+                            "value": "#6609"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Selection Widgets: forcing 'value' to be in 'values'   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6617",
+                            "value": "#6617"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Allow widgets to be constructed from Javascript   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6664",
+                            "value": "#6664"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Output widget   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6670",
+                            "value": "#6670"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Minor change in widgets.less to fix alignment issue   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6681",
+                            "value": "#6681"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Make Selection widgets respect values order.   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6747",
+                            "value": "#6747"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Widget persistence API   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6789",
+                            "value": "#6789"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Add promises to the widget framework.   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6818",
+                            "value": "#6818"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "SelectMultiple widget   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6890",
+                            "value": "#6890"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Tooltip on toggle button   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6923",
+                            "value": "#6923"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Allow empty text box \\*while typing\\* for numeric widgets   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6943",
+                            "value": "#6943"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Ignore failure of widget MathJax typesetting   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6948",
+                            "value": "#6948"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Refactor the do\\_diff and manual child view lists into a separate   ViewList object   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/6990",
+                            "value": "#6990"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Add warning to widget namespace import.   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/7107",
+                            "value": "#7107"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "lazy load widgets   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/7120",
+                            "value": "#7120"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Fix padding of widgets.   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/7139",
+                            "value": "#7139"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Persist widgets across page refresh   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/7163",
+                            "value": "#7163"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Make the widget experimental error a real python warning   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/7200",
+                            "value": "#7200"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Make the widget error message shorter and more understandable.   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/7201",
+                            "value": "#7201"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Make the widget warning brief and easy to filter   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/7204",
+                            "value": "#7204"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Add visual cue for widgets with dead comms   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/7227",
+                            "value": "#7227"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Widget values as positional arguments   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/7260",
+                            "value": "#7260"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Remove the popup widget   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/7341",
+                            "value": "#7341"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "document and validate link, dlink   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/7468",
+                            "value": "#7468"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Document interact 5637   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/7525",
+                            "value": "#7525"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Update some broken examples of using widgets   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/7547",
+                            "value": "#7547"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Use Output widget with Interact   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/7554",
+                            "value": "#7554"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "don't send empty execute\\_result messages   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/7560",
+                            "value": "#7560"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Validation on the python side   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/7602",
+                            "value": "#7602"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "only show prompt overlay if there's a prompt   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/7661",
+                            "value": "#7661"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Allow predictate to be used for comparison in selection widgets   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/7674",
+                            "value": "#7674"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Fix widget view persistence.   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/7680",
+                            "value": "#7680"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Revert \"Use Output widget with Interact\"   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/ipython/ipython/pull/7703",
+                            "value": "#7703"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        }
+      ],
+      "level": 1,
+      "title": "Comm and Widget PR Index"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

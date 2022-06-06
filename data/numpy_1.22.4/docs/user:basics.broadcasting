@@ -1,0 +1,1359 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _basics.broadcasting:"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _array-broadcasting-in-numpy:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "level": 0,
+      "title": null
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "argument": "",
+            "content": ":class:`numpy.broadcast`",
+            "name": "seealso",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The term broadcasting describes how NumPy treats arrays with different shapes during arithmetic operations. Subject to certain constraints, the smaller array is \"broadcast\" across the larger array so that they have compatible shapes. Broadcasting provides a means of vectorizing array operations so that looping occurs in C instead of Python. It does this without making needless copies of data and usually leads to efficient algorithm implementations. There are, however, cases where broadcasting is a bad idea because it leads to inefficient use of memory that slows computation."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "NumPy operations are usually done on pairs of arrays on an element-by-element basis.  In the simplest case, the two arrays must have exactly the same shape, as in the following example:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": ">>> a = np.array([1.0, 2.0, 3.0])\n>>> b = np.array([2.0, 2.0, 2.0])\n>>> a * b\narray([2.,  4.,  6.])"
+                },
+                "type": "BlockVerbatim"
+              }
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "NumPy's broadcasting rule relaxes this constraint when the arrays' shapes meet certain constraints. The simplest broadcasting example occurs when an array and a scalar value are combined in an operation:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> a = np.array([1.0, 2.0, 3.0])\n>>> b = 2.0\n>>> a * b\narray([2.,  4.,  6.])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The result is equivalent to the previous example where "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "b"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " was an array. We can think of the scalar "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "b"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " being "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "stretched"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " during the arithmetic operation into an array with the same shape as "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "a"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". The new elements in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "b"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", as shown in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "broadcasting.figure-1"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", are simply copies of the original scalar. The stretching analogy is only conceptual.  NumPy is smart enough to use the original scalar value without actually making copies so that broadcasting operations are as memory and computationally efficient as possible."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "broadcasting_1.png",
+            "content": "*Figure 1*\n\n*In the simplest example of broadcasting, the scalar* ``b`` *is\nstretched to become an array of same shape as* ``a`` *so the shapes\nare compatible for element-by-element multiplication.*",
+            "name": "figure",
+            "options": [
+              [
+                "alt",
+                "A scalar is broadcast to match the shape of the 1-d array it\n          is being multiplied to."
+              ],
+              [
+                "name",
+                "broadcasting.figure-1"
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The code in the second example is more efficient than that in the first because broadcasting moves less memory around during the multiplication ("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "b"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is a scalar rather than an array)."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _general-broadcasting-rules:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "level": 0,
+      "title": "Broadcasting"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "When operating on two arrays, NumPy compares their shapes element-wise. It starts with the trailing (i.e. rightmost) dimensions and works its way left.  Two dimensions are compatible when"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "they are equal, or"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "one of them is 1"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "EnumeratedList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "If these conditions are not met, a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ValueError: operands could not be broadcast together"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " exception is thrown, indicating that the arrays have incompatible shapes. The size of the resulting array is the size that is not 1 along each axis of the inputs."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Arrays do not need to have the same "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "number"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " of dimensions.  For example, if you have a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "256x256x3"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " array of RGB values, and you want to scale each color in the image by a different value, you can multiply the image by a one-dimensional array with 3 values. Lining up the sizes of the trailing axes of these arrays according to the broadcast rules, shows that they are compatible:    "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "Image  (3d array): 256 x 256 x 3\nScale  (1d array):             3\nResult (3d array): 256 x 256 x 3"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "When either of the dimensions compared is one, the other is used.  In other words, dimensions with size 1 are stretched or \"copied\" to match the other."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "In the following example, both the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "A"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "B"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " arrays have axes with length one that are expanded to a larger size during the broadcast operation:    "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "A      (4d array):  8 x 1 x 6 x 1\nB      (3d array):      7 x 1 x 5\nResult (4d array):  8 x 7 x 6 x 5"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _arrays.broadcasting.broadcastable:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "level": 1,
+      "title": "General Broadcasting Rules"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "argument": "broadcastable",
+            "content": "",
+            "name": "index",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "A set of arrays is called \"broadcastable\" to the same shape if the above rules produce a valid result."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For example, if "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "a.shape"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is (5,1), "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "b.shape"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is (1,6), "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "c.shape"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is (6,) and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "d.shape"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is () so that "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "d"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " is a scalar, then "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "a"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "b"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "c"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": ", and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "d"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " are all broadcastable to dimension (5,6); and"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": {
+                              "value": "a"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " acts like a (5,6) array where "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "a[:,0]"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " is broadcast to the other   columns,"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": {
+                              "value": "b"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " acts like a (5,6) array where "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "b[0,:]"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " is broadcast   to the other rows,"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": {
+                              "value": "c"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " acts like a (1,6) array and therefore like a (5,6) array   where "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "c[:]"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " is broadcast to every row, and finally,"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": {
+                              "value": "d"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " acts like a (5,6) array where the single value is repeated."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Here are some more examples:    "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "A      (2d array):  5 x 4\nB      (1d array):      1\nResult (2d array):  5 x 4\n\nA      (2d array):  5 x 4\nB      (1d array):      4\nResult (2d array):  5 x 4\n\nA      (3d array):  15 x 3 x 5\nB      (3d array):  15 x 1 x 5\nResult (3d array):  15 x 3 x 5\n\nA      (3d array):  15 x 3 x 5\nB      (2d array):       3 x 5\nResult (3d array):  15 x 3 x 5\n\nA      (3d array):  15 x 3 x 5\nB      (2d array):       3 x 1\nResult (3d array):  15 x 3 x 5"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Here are examples of shapes that do not broadcast:    "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "A      (1d array):  3\nB      (1d array):  4 # trailing dimensions do not match\n\nA      (2d array):      2 x 1\nB      (3d array):  8 x 4 x 3 # second from last dimensions mismatched"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "An example of broadcasting when a 1-d array is added to a 2-d array:    "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> a = np.array([[ 0.0,  0.0,  0.0],\n...               [10.0, 10.0, 10.0],\n...               [20.0, 20.0, 20.0],\n...               [30.0, 30.0, 30.0]])\n>>> b = np.array([1.0, 2.0, 3.0])\n>>> a + b\narray([[  1.,   2.,   3.],\n        [11.,  12.,  13.],\n        [21.,  22.,  23.],\n        [31.,  32.,  33.]])\n>>> b = np.array([1.0, 2.0, 3.0, 4.0])\n>>> a + b\nTraceback (most recent call last):\nValueError: operands could not be broadcast together with shapes (4,3) (4,)"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "As shown in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "broadcasting.figure-2"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "b"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is added to each row of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "a"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". In "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "broadcasting.figure-3"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", an exception is raised because of the incompatible shapes."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "broadcasting_2.png",
+            "content": "*Figure 2*\n\n*A one dimensional array added to a two dimensional array results in\nbroadcasting if number of 1-d array elements matches the number of 2-d\narray columns.*",
+            "name": "figure",
+            "options": [
+              [
+                "alt",
+                "A 1-d array with shape (3) is stretched to match the 2-d array of\n          shape (4, 3) it is being added to, and the result is a 2-d array of shape\n          (4, 3)."
+              ],
+              [
+                "name",
+                "broadcasting.figure-2"
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "argument": "broadcasting_3.png",
+            "content": "*Figure 3*\n\n*When the trailing dimensions of the arrays are unequal, broadcasting fails\nbecause it is impossible to align the values in the rows of the 1st array\nwith the elements of the 2nd arrays for element-by-element addition.*",
+            "name": "figure",
+            "options": [
+              [
+                "alt",
+                "A huge cross over the 2-d array of shape (4, 3) and the 1-d array\n          of shape (4) shows that they can not be broadcast due to mismatch\n          of shapes and thus produce no result."
+              ],
+              [
+                "name",
+                "broadcasting.figure-3"
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Broadcasting provides a convenient way of taking the outer product (or any other outer operation) of two arrays. The following example shows an outer addition operation of two 1-d arrays:    "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> a = np.array([0.0, 10.0, 20.0, 30.0])\n>>> b = np.array([1.0, 2.0, 3.0])\n>>> a[:, np.newaxis] + b\narray([[ 1.,   2.,   3.],\n       [11.,  12.,  13.],\n       [21.,  22.,  23.],\n       [31.,  32.,  33.]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "argument": "broadcasting_4.png",
+            "content": "*Figure 4*\n\n*In some cases, broadcasting stretches both arrays to form an output array\nlarger than either of the initial arrays.*",
+            "name": "figure",
+            "options": [
+              [
+                "alt",
+                "A 2-d array of shape (4, 1) and a 1-d array of shape (3) are\n          stretched to match their shapes and produce a resultant array\n          of shape (4, 3)."
+              ],
+              [
+                "name",
+                "broadcasting.figure-4"
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Here the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "newaxis"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " index operator inserts a new axis into "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "a"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", making it a two-dimensional "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "4x1"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " array.  Combining the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "4x1"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " array with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "b"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", which has shape "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(3,)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", yields a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "4x3"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " array."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 1,
+      "title": "Broadcastable arrays"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Broadcasting comes up quite often in real world problems. A typical example occurs in the vector quantization (VQ) algorithm used in information theory, classification, and other related areas. The basic operation in VQ finds the closest point in a set of points, called "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "codes"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " in VQ jargon, to a given point, called the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "observation"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". In the very simple, two-dimensional case shown below, the values in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "observation"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " describe the weight and height of an athlete to be classified. The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "codes"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " represent different classes of athletes.  Finding the closest point requires calculating the distance between observation and each of the codes. The shortest distance provides the best match. In this example, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "codes[0]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is the closest class indicating that the athlete is likely a basketball player."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": ">>> from numpy import array, argmin, sqrt, sum\n>>> observation = array([111.0, 188.0])\n>>> codes = array([[102.0, 203.0],\n...                [132.0, 193.0],\n...                [45.0, 155.0],\n...                [57.0, 173.0]])\n>>> diff = codes - observation    # the broadcast happens here\n>>> dist = sqrt(sum(diff**2,axis=-1))\n>>> argmin(dist)\n0"
+                },
+                "type": "BlockVerbatim"
+              }
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "In this example, the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "observation"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " array is stretched to match the shape of the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "codes"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " array:    "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "Observation      (1d array):      2\nCodes            (2d array):  4 x 2\nDiff             (2d array):  4 x 2"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "argument": "broadcasting_5.png",
+            "content": "*Figure 5*\n\n*The basic operation of vector quantization calculates the distance between\nan object to be classified, the dark square, and multiple known codes, the\ngray circles. In this simple case, the codes represent individual classes.\nMore complex cases use multiple codes per class.*",
+            "name": "figure",
+            "options": [
+              [
+                "alt",
+                "A height versus weight graph that shows data of a female\n          gymnast, marathon runner, basketball player, football\n          lineman and the athlete to be classified. Shortest distance\n          is found between the basketball player and the athlete\n          to be classified."
+              ],
+              [
+                "name",
+                "broadcasting.figure-5"
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Typically, a large number of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "observations"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", perhaps read from a database, are compared to a set of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "codes"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". Consider this scenario:    "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "Observation      (2d array):      10 x 3\nCodes            (2d array):       5 x 3\nDiff             (3d array):  5 x 10 x 3"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The three-dimensional array, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "diff"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", is a consequence of broadcasting, not a necessity for the calculation. Large data sets will generate a large intermediate array that is computationally inefficient. Instead, if each observation is calculated individually using a Python loop around the code in the two-dimensional example above, a much smaller array is used."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Broadcasting is a powerful tool for writing short and usually intuitive code that does its computations very efficiently in C. However, there are cases when broadcasting uses unnecessarily large amounts of memory for a particular algorithm. In these cases, it is better to write the algorithm's outer loop in Python. This may also produce more readable code, as algorithms that use broadcasting tend to become more difficult to interpret as the number of dimensions in the broadcast increases."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "Footnotes",
+            "content": "",
+            "name": "rubric",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [#f1]\n    In this example, weight has more impact on the distance calculation\n    than height because of the larger values. In practice, it is important to\n    normalize the height and weight, often by their standard deviation across the\n    data set, so that both have equal influence on the distance calculation."
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "level": 1,
+      "title": "A Practical Example: Vector Quantization"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

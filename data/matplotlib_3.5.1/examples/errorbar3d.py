@@ -1140,7 +1140,7 @@
                 "reference": {
                   "kind": "module",
                   "module": "builtins",
-                  "path": "builtins.NoneType",
+                  "path": "builtins.int",
                   "version": "*"
                 },
                 "value": "zuplims"
@@ -1849,7 +1849,7 @@
                 "reference": {
                   "kind": "module",
                   "module": "builtins",
-                  "path": "builtins.NoneType",
+                  "path": "builtins.int",
                   "version": "*"
                 },
                 "value": "zuplims"
@@ -1873,7 +1873,7 @@
                 "reference": {
                   "kind": "module",
                   "module": "builtins",
-                  "path": "builtins.NoneType",
+                  "path": "builtins.int",
                   "version": "*"
                 },
                 "value": "zuplims"
@@ -2278,5 +2278,6 @@
       "type": "Fig"
     }
   ],
+  "level": 0,
   "title": null
 }

@@ -8504,7 +8504,7 @@
                 "reference": {
                   "kind": "module",
                   "module": "builtins",
-                  "path": "builtins._BufferedIOBase.write",
+                  "path": "builtins._TextIOBase.write",
                   "version": "*"
                 },
                 "value": "write"
@@ -8733,7 +8733,7 @@
                 "reference": {
                   "kind": "module",
                   "module": "builtins",
-                  "path": "builtins.BufferedWriter.write",
+                  "path": "builtins._BufferedIOBase.write",
                   "version": "*"
                 },
                 "value": "write"
@@ -8844,7 +8844,7 @@
                 "reference": {
                   "kind": "module",
                   "module": "builtins",
-                  "path": "builtins._BufferedIOBase.write",
+                  "path": "builtins.FileIO.write",
                   "version": "*"
                 },
                 "value": "write"
@@ -9329,7 +9329,7 @@
                 "reference": {
                   "kind": "module",
                   "module": "builtins",
-                  "path": "builtins._BufferedIOBase.write",
+                  "path": "builtins.BufferedWriter.write",
                   "version": "*"
                 },
                 "value": "write"
@@ -9897,5 +9897,6 @@
       "type": "Fig"
     }
   ],
+  "level": 0,
   "title": null
 }

@@ -1,0 +1,2050 @@
+{
+  "aliases": [
+    "networkx.utils.argmap"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "This class provides a decorator that maps (transforms) arguments of the function before the function is called. Thus for example, we have similar code in many functions to determine whether an argument is the number of nodes to be created, or a list of nodes to be handled. The decorator provides the code to accept either -- transforming the indicated argument into a list of nodes before the actual function is called."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "This decorator class allows us to process single or multiple arguments. The arguments to be processed can be specified by string, naming the argument, or by index, specifying the item in the args list."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "An object of this class is callable and intended to be used when defining a decorator. Generally, a decorator takes a function as input and constructs a function as output. Specifically, an "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.utils.decorators.argmap",
+                    "version": "2.8.2"
+                  },
+                  "value": "argmap"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " object returns the input function decorated/wrapped so that specified arguments are mapped (transformed) to new values before the decorated function is called."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "As an overview, the argmap object returns a new function with all the dunder values of the original function (like "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "__doc__"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "__name__"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", etc). Code for this decorated function is built based on the original function's signature. It starts by mapping the input arguments to potentially new values. Then it calls the decorated function with these new values in place of the indicated arguments that have been mapped. The return value of the original function is then returned. This new function is the function that is actually called by the user."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "data": {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "value": "The code is lazily compiled. That is, the new function is returned"
+                                    },
+                                    "type": "Words"
+                                  }
+                                ]
+                              },
+                              "type": "Paragraph"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "type": "EnumeratedList"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "as an object without the code compiled, but with all information     needed so it can be compiled upon it's first invocation. This saves     time on import at the cost of additional time on the first call of     the function. Subsequent calls are then just as fast as normal."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "data": {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "value": "If the \"try_finally\" keyword-only argument is True, a try block"
+                                    },
+                                    "type": "Words"
+                                  }
+                                ]
+                              },
+                              "type": "Paragraph"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "type": "EnumeratedList"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "follows each mapped argument, matched on the other side of the wrapped     call, by a finally block closing that mapping.  We expect func to return     a 2-tuple: the mapped value and a function to be called in the finally     clause.  This feature was included so the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "exists": true,
+                            "kind": "module",
+                            "reference": {
+                              "kind": "module",
+                              "module": "networkx",
+                              "path": "networkx.utils.decorators.open_file",
+                              "version": "2.8.2"
+                            },
+                            "value": "open_file"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " decorator could     provide a file handle to the decorated function and close the file handle     after the function call. It even keeps track of whether to close the file     handle or not based on whether it had to open the file or the input was     already open. So, the decorated function does not need to include any     code to open or close files."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "data": {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "value": "The maps applied can process multiple arguments. For example,"
+                                    },
+                                    "type": "Words"
+                                  }
+                                ]
+                              },
+                              "type": "Paragraph"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "type": "EnumeratedList"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "you could swap two arguments using a mapping, or transform     them to their sum and their difference. This was included to allow     a decorator in the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "quality.py"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": " module that checks that an input     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "partition"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": " is a valid partition of the nodes of the input graph "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "G"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ".     In this example, the map has inputs "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "(G, partition)"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ". After checking     for a valid partition, the map either raises an exception or leaves     the inputs unchanged. Thus many functions that make this check can     use the decorator rather than copy the checking code into each function.     More complicated nested argument structures are described below."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Three additional features are provided."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The remaining notes describe the code structure and methods for this class in broad terms to aid in understanding how to use it."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Instantiating an "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.utils.decorators.argmap",
+                    "version": "2.8.2"
+                  },
+                  "value": "argmap"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " object simply stores the mapping function and the input identifiers of which arguments to map. The resulting decorator is ready to use this map to decorate any function. Calling that object ("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.utils.decorators.argmap.__call__",
+                    "version": "2.8.2"
+                  },
+                  "value": "argmap.__call__"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": ", but usually done via "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "@my_decorator"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ") a lazily compiled thin wrapper of the decorated function is constructed, wrapped with the necessary function dunder attributes like "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "__doc__"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "__name__"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ". That thinly wrapped function is returned as the decorated function. When that decorated function is called, the thin wrapper of code calls "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "argmap._lazy_compile"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " which compiles the decorated function (using "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.utils.decorators.argmap.compile",
+                    "version": "2.8.2"
+                  },
+                  "value": "argmap.compile"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": ") and replaces the code of the thin wrapper with the newly compiled code. This saves the compilation step every import of networkx, at the cost of compiling upon the first call to the decorated function."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "When the decorated function is compiled, the code is recursively assembled using the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.utils.decorators.argmap.assemble",
+                    "version": "2.8.2"
+                  },
+                  "value": "argmap.assemble"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " method. The recursive nature is needed in case of nested decorators. The result of the assembly is a number of useful objects."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "sig"
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "data": {
+                              "value": "sig"
+                            },
+                            "type": "Words"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "dd": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "wrapped_name"
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "data": {
+                              "value": "wrapped_name"
+                            },
+                            "type": "Words"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "dd": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "functions"
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "data": {
+                              "value": "functions"
+                            },
+                            "type": "Words"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "dd": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "mapblock"
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "data": {
+                              "value": "mapblock"
+                            },
+                            "type": "Words"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "dd": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "finallys"
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "data": {
+                              "value": "finallys"
+                            },
+                            "type": "Words"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "dd": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "mutable_args"
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "data": {
+                              "value": "mutable_args"
+                            },
+                            "type": "Words"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "type": "DefList"
+              }
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "After this recursive assembly process, the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.utils.decorators.argmap.compile",
+                    "version": "2.8.2"
+                  },
+                  "value": "argmap.compile"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " method constructs code (as strings) to convert the tuple "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "sig.args"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " to a list if needed. It joins the defining code with appropriate indents and compiles the result.  Finally, this code is evaluated and the original wrapper's implementation is replaced with the compiled version (see "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "argmap._lazy_compile"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " for more details)."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Other "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.utils.decorators.argmap",
+                    "version": "2.8.2"
+                  },
+                  "value": "argmap"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " methods include "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "_name"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "_count"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " which allow internally generated names to be unique within a python session. The methods "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "_flatten"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "_indent"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " process the nested lists of strings into properly indented python code ready to be compiled."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "More complicated nested tuples of arguments also allowed though usually not used. For the simple 2 argument case, the argmap input (\"a\", \"b\") implies the mapping function will take 2 arguments and return a 2-tuple of mapped values. A more complicated example with argmap input "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "(\"a\", (\"b\", \"c\"))"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " requires the mapping function take 2 inputs, with the second being a 2-tuple. It then must output the 3 mapped values in the same nested structure "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "(newa, (newb, newc))"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ". This level of generality is not often needed, but was convenient to implement when handling the multiple arguments."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The function to apply to arguments"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "func",
+                "type_": "callable"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A list of parameters, specified either as strings (their names), ints (numerical indices) or tuples, which may contain ints, strings, and (recursively) tuples. Each indicates which parameters the decorator should map. Tuples indicate that the map function takes (and returns) multiple parameters in the same order and nested structure as indicated here."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "*args",
+                "type_": "iterable of (int, str or tuple)"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "When True, wrap the function call in a try-finally block with code for the finally block created by "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "func"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ". This is used when the map function constructs an object (like a file handle) that requires post-processing (like closing)."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Note: try_finally decorators cannot be used to decorate generator functions."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "try_finally",
+                "type_": "bool (default: False)"
+              }
+            ]
+          },
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "A decorator to apply a map to arguments before calling the function"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "title": null
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "children": [
+                  {
+                    "data": {
+                      "value": "@convert_to(\"US_Dollars\", \"income\")     def show_me_the_money(name, income):         print(f\"{name} : {income}\")"
+                    },
+                    "type": "Words"
+                  }
+                ]
+              },
+              "type": "Paragraph"
+            }
+          ]
+        },
+        "type": "BlockQuote"
+      },
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "value": "Despite this common idiom for argmap, most of the following examples use the "
+              },
+              "type": "Words"
+            },
+            {
+              "data": {
+                "domain": null,
+                "role": null,
+                "value": "@argmap(...)"
+              },
+              "type": "Directive"
+            },
+            {
+              "data": {
+                "value": " idiom to save space."
+              },
+              "type": "Words"
+            }
+          ]
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "children": [
+                  {
+                    "data": {
+                      "value": "@argmap(sum, \"xlist\", \"zlist\")     def foo(xlist, y, zlist):         return xlist - y + zlist"
+                    },
+                    "type": "Words"
+                  }
+                ]
+              },
+              "type": "Paragraph"
+            }
+          ]
+        },
+        "type": "BlockQuote"
+      },
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "children": [
+                  {
+                    "dd": [
+                      {
+                        "data": {
+                          "children": [
+                            {
+                              "data": {
+                                "value": "x = sum(xlist)         z = sum(zlist)         return x - y + z"
+                              },
+                              "type": "Words"
+                            }
+                          ]
+                        },
+                        "type": "Paragraph"
+                      }
+                    ],
+                    "dt": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "def foo(xlist, y, zlist):"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "type": "DefList"
+            }
+          ]
+        },
+        "type": "BlockQuote"
+      },
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "children": [
+                  {
+                    "data": {
+                      "value": "@argmap(sum, \"xlist\", 2)     def foo(xlist, y, zlist):         return xlist - y + zlist"
+                    },
+                    "type": "Words"
+                  }
+                ]
+              },
+              "type": "Paragraph"
+            }
+          ]
+        },
+        "type": "BlockQuote"
+      },
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "children": [
+                  {
+                    "data": {
+                      "value": "@argmap(sum, \"zlist\", 0)     def foo(xlist, y, zlist):         return xlist - y + zlist"
+                    },
+                    "type": "Words"
+                  }
+                ]
+              },
+              "type": "Paragraph"
+            }
+          ]
+        },
+        "type": "BlockQuote"
+      },
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "children": [
+                  {
+                    "dd": [
+                      {
+                        "data": {
+                          "children": [
+                            {
+                              "data": {
+                                "value": "return y, x"
+                              },
+                              "type": "Words"
+                            }
+                          ]
+                        },
+                        "type": "Paragraph"
+                      }
+                    ],
+                    "dt": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "def swap(x, y):"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "type": "DefList"
+            }
+          ]
+        },
+        "type": "BlockQuote"
+      },
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "children": [
+                  {
+                    "data": {
+                      "value": "# the 2-tuple tells argmap that the map "
+                    },
+                    "type": "Words"
+                  },
+                  {
+                    "data": {
+                      "domain": null,
+                      "role": null,
+                      "value": "swap"
+                    },
+                    "type": "Directive"
+                  },
+                  {
+                    "data": {
+                      "value": " has 2 inputs/outputs.     @argmap(swap, (\"a\", \"b\")):     def foo(a, b, c):         return a / b * c"
+                    },
+                    "type": "Words"
+                  }
+                ]
+              },
+              "type": "Paragraph"
+            }
+          ]
+        },
+        "type": "BlockQuote"
+      },
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "children": [
+                  {
+                    "dd": [
+                      {
+                        "data": {
+                          "children": [
+                            {
+                              "data": {
+                                "value": "a, b = swap(a, b)         return a / b * c"
+                              },
+                              "type": "Words"
+                            }
+                          ]
+                        },
+                        "type": "Paragraph"
+                      }
+                    ],
+                    "dt": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "def foo(a, b, c):"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "type": "DefList"
+            }
+          ]
+        },
+        "type": "BlockQuote"
+      },
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "value": "More generally, the applied arguments can be nested tuples of strings or ints. The syntax "
+              },
+              "type": "Words"
+            },
+            {
+              "data": {
+                "domain": null,
+                "role": null,
+                "value": "@argmap(some_func, (\"a\", (\"b\", \"c\")))"
+              },
+              "type": "Directive"
+            },
+            {
+              "data": {
+                "value": " would expect "
+              },
+              "type": "Words"
+            },
+            {
+              "data": {
+                "domain": null,
+                "role": null,
+                "value": "some_func"
+              },
+              "type": "Directive"
+            },
+            {
+              "data": {
+                "value": " to accept 2 inputs with the second expected to be a 2-tuple. It should then return 2 outputs with the second a 2-tuple. The returns values would replace input \"a\" \"b\" and \"c\" respectively. Similarly for "
+              },
+              "type": "Words"
+            },
+            {
+              "data": {
+                "domain": null,
+                "role": null,
+                "value": "@argmap(some_func, (0, (\"b\", 2)))"
+              },
+              "type": "Directive"
+            },
+            {
+              "data": {
+                "value": "."
+              },
+              "type": "Words"
+            }
+          ]
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "children": [
+                  {
+                    "dd": [
+                      {
+                        "data": {
+                          "children": [
+                            {
+                              "data": {
+                                "value": "return 2 * a"
+                              },
+                              "type": "Words"
+                            }
+                          ]
+                        },
+                        "type": "Paragraph"
+                      }
+                    ],
+                    "dt": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "def double(a):"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "type": "DefList"
+            }
+          ]
+        },
+        "type": "BlockQuote"
+      },
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "children": [
+                  {
+                    "data": {
+                      "value": "@argmap(double, 3)     def overflow(a, *args):         return a, args"
+                    },
+                    "type": "Words"
+                  }
+                ]
+              },
+              "type": "Paragraph"
+            }
+          ]
+        },
+        "type": "BlockQuote"
+      },
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "children": [
+                  {
+                    "data": {
+                      "value": "print(overflow(1, 2, 3, 4, 5, 6))  # output is 1, (2, 3, 8, 5, 6)"
+                    },
+                    "type": "Words"
+                  }
+                ]
+              },
+              "type": "Paragraph"
+            }
+          ]
+        },
+        "type": "BlockQuote"
+      },
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "content": {
+                  "value": "Try Finally"
+                }
+              },
+              "type": "Strong"
+            }
+          ]
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "value": "Additionally, this "
+              },
+              "type": "Words"
+            },
+            {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "networkx",
+                  "path": "networkx.utils.decorators.argmap",
+                  "version": "2.8.2"
+                },
+                "value": "argmap"
+              },
+              "type": "Link"
+            },
+            {
+              "data": {
+                "value": " class can be used to create a decorator that initiates a try...finally block. The decorator must be written to return both the transformed argument and a closing function. This feature was included to enable the "
+              },
+              "type": "Words"
+            },
+            {
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "networkx",
+                  "path": "networkx.utils.decorators.open_file",
+                  "version": "2.8.2"
+                },
+                "value": "open_file"
+              },
+              "type": "Link"
+            },
+            {
+              "data": {
+                "value": " decorator which might need to close the file or not depending on whether it had to open that file. This feature uses the keyword-only "
+              },
+              "type": "Words"
+            },
+            {
+              "data": {
+                "domain": null,
+                "role": null,
+                "value": "try_finally"
+              },
+              "type": "Directive"
+            },
+            {
+              "data": {
+                "value": " argument to "
+              },
+              "type": "Words"
+            },
+            {
+              "data": {
+                "domain": null,
+                "role": null,
+                "value": "@argmap"
+              },
+              "type": "Directive"
+            },
+            {
+              "data": {
+                "value": "."
+              },
+              "type": "Words"
+            }
+          ]
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "children": [
+                  {
+                    "dd": [
+                      {
+                        "data": {
+                          "children": [
+                            {
+                              "data": {
+                                "value": "f = open(fn)         return f, lambda: f.close()"
+                              },
+                              "type": "Words"
+                            }
+                          ]
+                        },
+                        "type": "Paragraph"
+                      }
+                    ],
+                    "dt": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "def open_file(fn):"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "type": "DefList"
+            }
+          ]
+        },
+        "type": "BlockQuote"
+      },
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "children": [
+                  {
+                    "data": {
+                      "value": "@argmap(open_file, \"file\", try_finally=True)     def foo(file):         print(file.read())"
+                    },
+                    "type": "Words"
+                  }
+                ]
+              },
+              "type": "Paragraph"
+            }
+          ]
+        },
+        "type": "BlockQuote"
+      },
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "children": [
+                  {
+                    "dd": [
+                      {
+                        "data": {
+                          "children": [
+                            {
+                              "data": {
+                                "value": "file, close_file = open_file(file)         try:             print(file.read())         finally:             close_file()"
+                              },
+                              "type": "Words"
+                            }
+                          ]
+                        },
+                        "type": "Paragraph"
+                      }
+                    ],
+                    "dt": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "def foo(file):"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "type": "DefList"
+            }
+          ]
+        },
+        "type": "BlockQuote"
+      },
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "children": [
+                  {
+                    "data": {
+                      "value": "@argmap(open_file, 0, try_finally=True)     def foo(file):         print(file.read())"
+                    },
+                    "type": "Words"
+                  }
+                ]
+              },
+              "type": "Paragraph"
+            }
+          ]
+        },
+        "type": "BlockQuote"
+      },
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "children": [
+                  {
+                    "data": {
+                      "value": "@my_closing_decorator(\"file\")     def fancy_reader(file=None):         # this code doesn't need to worry about closing the file         print(file.read())"
+                    },
+                    "type": "Words"
+                  }
+                ]
+              },
+              "type": "Paragraph"
+            }
+          ]
+        },
+        "type": "BlockQuote"
+      },
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "children": [
+                  {
+                    "data": {
+                      "value": "@argmap(open_file, \"file\", try_finally=True)     def file_to_lines(file):         for line in file.readlines():             yield line"
+                    },
+                    "type": "Words"
+                  }
+                ]
+              },
+              "type": "Paragraph"
+            }
+          ]
+        },
+        "type": "BlockQuote"
+      },
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "children": [
+                  {
+                    "dd": [
+                      {
+                        "data": {
+                          "children": [
+                            {
+                              "dd": [
+                                {
+                                  "data": {
+                                    "children": [
+                                      {
+                                        "data": {
+                                          "value": "yield line"
+                                        },
+                                        "type": "Words"
+                                      }
+                                    ]
+                                  },
+                                  "type": "Paragraph"
+                                }
+                              ],
+                              "dt": {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "value": "for line in file.readlines():"
+                                    },
+                                    "type": "Words"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        },
+                        "type": "DefList"
+                      }
+                    ],
+                    "dt": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "def file_to_lines_wrapped(file):"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "type": "DefList"
+            }
+          ]
+        },
+        "type": "BlockQuote"
+      },
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "children": [
+                  {
+                    "dd": [
+                      {
+                        "data": {
+                          "children": [
+                            {
+                              "dd": [
+                                {
+                                  "data": {
+                                    "children": [
+                                      {
+                                        "data": {
+                                          "value": "file = open_file(file)             return file_to_lines_wrapped(file)"
+                                        },
+                                        "type": "Words"
+                                      }
+                                    ]
+                                  },
+                                  "type": "Paragraph"
+                                }
+                              ],
+                              "dt": {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "value": "try:"
+                                    },
+                                    "type": "Words"
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "dd": [
+                                {
+                                  "data": {
+                                    "children": [
+                                      {
+                                        "data": {
+                                          "value": "file.close()"
+                                        },
+                                        "type": "Words"
+                                      }
+                                    ]
+                                  },
+                                  "type": "Paragraph"
+                                }
+                              ],
+                              "dt": {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "value": "finally:"
+                                    },
+                                    "type": "Words"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        },
+                        "type": "DefList"
+                      }
+                    ],
+                    "dt": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "def file_to_lines_wrapper(file):"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "type": "DefList"
+            }
+          ]
+        },
+        "type": "BlockQuote"
+      },
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "children": [
+                  {
+                    "dd": [
+                      {
+                        "data": {
+                          "children": [
+                            {
+                              "data": {
+                                "value": "file = open_file(file)         file.close()         for line in file.readlines():             yield line"
+                              },
+                              "type": "Words"
+                            }
+                          ]
+                        },
+                        "type": "Paragraph"
+                      }
+                    ],
+                    "dt": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "def file_to_lines_whoops(file):"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "type": "DefList"
+            }
+          ]
+        },
+        "type": "BlockQuote"
+      },
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "value": "because the "
+              },
+              "type": "Words"
+            },
+            {
+              "data": {
+                "domain": null,
+                "role": null,
+                "value": "finally"
+              },
+              "type": "Directive"
+            },
+            {
+              "data": {
+                "value": " block of "
+              },
+              "type": "Words"
+            },
+            {
+              "data": {
+                "domain": null,
+                "role": null,
+                "value": "file_to_lines_wrapper"
+              },
+              "type": "Directive"
+            },
+            {
+              "data": {
+                "value": " is executed before the caller has a chance to exhaust the iterator."
+              },
+              "type": "Words"
+            }
+          ]
+        },
+        "type": "Paragraph"
+      }
+    ],
+    "level": 0,
+    "title": null
+  },
+  "item_file": "/networkx/utils/decorators.py",
+  "item_line": 433,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Examples",
+    "Notes",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.utils.decorators.not_implemented_for",
+          "version": "2.8.2"
+        },
+        "value": "not_implemented_for"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.utils.decorators.open_file",
+          "version": "2.8.2"
+        },
+        "value": "open_file"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.utils.decorators.nodes_or_number",
+          "version": "2.8.2"
+        },
+        "value": "nodes_or_number"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.utils.decorators.random_state",
+          "version": "2.8.2"
+        },
+        "value": "random_state"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.utils.decorators.py_random_state",
+          "version": "2.8.2"
+        },
+        "value": "py_random_state"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "networkx.community.quality.require_partition",
+          "version": "current-version"
+        },
+        "value": "networkx.community.quality.require_partition"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.algorithms.community.quality._require_partition",
+          "version": "2.8.2"
+        },
+        "value": "require_partition"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "value": null
+  }
+}

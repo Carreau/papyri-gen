@@ -5996,7 +5996,7 @@
                 "reference": {
                   "kind": "module",
                   "module": "builtins",
-                  "path": "builtins.list",
+                  "path": "builtins.str",
                   "version": "*"
                 },
                 "value": "dependency"
@@ -11852,5 +11852,6 @@
       "type": "Fig"
     }
   ],
+  "level": 0,
   "title": null
 }

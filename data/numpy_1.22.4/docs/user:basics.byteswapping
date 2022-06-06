@@ -1,0 +1,700 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [],
+      "level": 0,
+      "title": "Byte-swapping"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ndarray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is an object that provide a python array interface to data in memory."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "It often happens that the memory that you want to view with an array is not of the same byte ordering as the computer on which you are running Python."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For example, I might be working on a computer with a little-endian CPU - such as an Intel Pentium, but I have loaded some data from a file written by a computer that is big-endian.  Let's say I have loaded 4 bytes from a file written by a Sun (big-endian) computer.  I know that these 4 bytes represent two 16-bit integers.  On a big-endian machine, a two-byte integer is stored with the Most Significant Byte (MSB) first, and then the Least Significant Byte (LSB). Thus the bytes are, in memory order:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "MSB integer 1"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "LSB integer 1"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "MSB integer 2"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "LSB integer 2"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "EnumeratedList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Let's say the two integers were in fact 1 and 770.  Because 770 = 256 * 3 + 2, the 4 bytes in memory would contain respectively: 0, 1, 3, 2. The bytes I have loaded from the file would have these contents:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> big_end_buffer = bytearray([0,1,3,2])\n>>> big_end_buffer\nbytearray(b'\\x00\\x01\\x03\\x02')"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "We might want to use an "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ndarray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " to access these integers.  In that case, we can create an array around this memory, and tell numpy that there are two integers, and that they are 16 bit and big-endian:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> import numpy as np\n>>> big_end_arr = np.ndarray(shape=(2,),dtype='>i2', buffer=big_end_buffer)\n>>> big_end_arr[0]\n1\n>>> big_end_arr[1]\n770"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Note the array "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "dtype"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " above of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    ">i2"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ".  The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    ">"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " means 'big-endian' ("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "<"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is little-endian) and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "i2"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " means 'signed 2-byte integer'.  For example, if our data represented a single unsigned 4-byte little-endian integer, the dtype string would be "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "<u4"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "In fact, why don't we try that?"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> little_end_u4 = np.ndarray(shape=(1,),dtype='<u4', buffer=big_end_buffer)\n>>> little_end_u4[0] == 1 * 256**1 + 3 * 256**2 + 2 * 256**3\nTrue"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Returning to our "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "big_end_arr"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " - in this case our underlying data is big-endian (data endianness) and we've set the dtype to match (the dtype is also big-endian).  However, sometimes you need to flip these around."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Scalars currently do not include byte order information, so extracting a scalar from an array will return an integer in native byte order. Hence:"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "value": ">>> big_end_arr[0].dtype.byteorder == little_end_u4[0].dtype.byteorder\nTrue"
+                },
+                "type": "BlockVerbatim"
+              }
+            ],
+            "kind": "warning",
+            "title": ""
+          },
+          "type": "Admonition"
+        }
+      ],
+      "level": 1,
+      "title": "Introduction to byte ordering and ndarrays"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "As you can imagine from the introduction, there are two ways you can affect the relationship between the byte ordering of the array and the underlying memory it is looking at:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Change the byte-ordering information in the array dtype so that it   interprets the underlying data as being in a different byte order.   This is the role of "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "arr.newbyteorder()"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Change the byte-ordering of the underlying data, leaving the dtype   interpretation as it was.  This is what "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "arr.byteswap()"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " does."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The common situations in which you need to change byte ordering are:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Your data and dtype endianness don't match, and you want to change    the dtype so that it matches the data."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Your data and dtype endianness don't match, and you want to swap the    data so that they match the dtype"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Your data and dtype endianness match, but you want the data swapped    and the dtype to reflect this"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "EnumeratedList"
+        }
+      ],
+      "level": 1,
+      "title": "Changing byte ordering"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "We make something where they don't match:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> wrong_end_dtype_arr = np.ndarray(shape=(2,),dtype='<i2', buffer=big_end_buffer)\n>>> wrong_end_dtype_arr[0]\n256"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The obvious fix for this situation is to change the dtype so it gives the correct endianness:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> fixed_end_dtype_arr = wrong_end_dtype_arr.newbyteorder()\n>>> fixed_end_dtype_arr[0]\n1"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Note the array has not changed in memory:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> fixed_end_dtype_arr.tobytes() == big_end_buffer\nTrue"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 2,
+      "title": "Data and dtype endianness don't match, change dtype to match data"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "You might want to do this if you need the data in memory to be a certain ordering.  For example you might be writing the memory out to a file that needs a certain byte ordering."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> fixed_end_mem_arr = wrong_end_dtype_arr.byteswap()\n>>> fixed_end_mem_arr[0]\n1"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Now the array "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "has"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " changed in memory:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> fixed_end_mem_arr.tobytes() == big_end_buffer\nFalse"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 2,
+      "title": "Data and type endianness don't match, change data to match dtype"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "You may have a correctly specified array dtype, but you need the array to have the opposite byte order in memory, and you want the dtype to match so the array values make sense.  In this case you just do both of the previous operations:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> swapped_end_arr = big_end_arr.byteswap().newbyteorder()\n>>> swapped_end_arr[0]\n1\n>>> swapped_end_arr.tobytes() == big_end_buffer\nFalse"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "An easier way of casting the data to a specific dtype and byte ordering can be achieved with the ndarray astype method:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> swapped_end_arr = big_end_arr.astype('<i2')\n>>> swapped_end_arr[0]\n1\n>>> swapped_end_arr.tobytes() == big_end_buffer\nFalse"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 2,
+      "title": "Data and dtype endianness match, swap data and dtype"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

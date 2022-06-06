@@ -1,0 +1,934 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _howto-build-docs:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "level": 0,
+      "title": null
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "If you only want to get the documentation, note that pre-built versions can be found at"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "https://numpy.org/doc/"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              }
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "in several different formats."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "title": "Building the NumPy API and reference docs"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Before proceeding further it should be noted that the documentation is built with the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "make"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " tool, which is not natively available on Windows. MacOS or Linux users can jump to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "how-todoc.prerequisites"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". It is recommended for Windows users to set up their development environment on "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "Gitpod <development-gitpod>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " or "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://docs.microsoft.com/en-us/windows/wsl/install-win10",
+                  "value": "Windows Subsystem\nfor Linux (WSL)"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ". WSL is a good option for a persistent local set-up."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 1,
+      "title": "Development environments"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Gitpod is an open-source platform that automatically creates the correct development environment right in your browser, reducing the need to install local development environments and deal with incompatible dependencies."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "If you have good internet connectivity and want a temporary set-up, it is often faster to build with Gitpod. Here are the in-depth instructions for "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "building NumPy with Gitpod <development-gitpod>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _how-todoc.prerequisites:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "level": 2,
+      "title": "Gitpod"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Building the NumPy documentation and API reference requires the following:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 1,
+      "title": "Prerequisites"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Since large parts of the main documentation are obtained from NumPy via "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "import numpy"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and examining the docstrings, you will need to first "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "build <building-from-source>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and install it so that the correct version is imported. NumPy has to be re-built and re-installed every time you fetch the latest version of the repository, before generating the documentation. This ensures that the NumPy version and the git repository version are in sync."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Note that you can e.g. install NumPy to a temporary location and set the PYTHONPATH environment variable appropriately. Alternatively, if using Python virtual environments (via e.g. "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "conda"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "virtualenv"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " or the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "venv"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " module), installing NumPy into a new virtual environment is recommended."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "title": "NumPy"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "All of the necessary dependencies for building the NumPy docs except for "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "Doxygen_"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " can be installed with:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "pip install -r doc_requirements.txt"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "We currently use "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "Sphinx_"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " along with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "Doxygen_"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " for generating the API and reference documentation for NumPy. In addition, building the documentation requires the Sphinx extension "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "plot_directive"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", which is shipped with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "Matplotlib <matplotlib:index>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". We also use "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "numpydoc_"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " to render docstrings in the generated API documentation. "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "SciPy <scipy:index>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is installed since some parts of the documentation require SciPy functions."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For installing "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "Doxygen_"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", please check the official "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://www.doxygen.nl/download.html#srcbin",
+                  "value": "download"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://www.doxygen.nl/manual/install.html",
+                  "value": "installation"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": " pages, or if you are using Linux then you can install it through your distribution package manager."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Try to install a newer version of "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "Doxygen_"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " > 1.8.10 otherwise you may get some warnings during the build."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "kind": "note",
+            "title": ""
+          },
+          "type": "Admonition"
+        }
+      ],
+      "level": 2,
+      "title": "Dependencies"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "If you obtained NumPy via git, also get the git submodules that contain additional parts required for building the documentation:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "git submodule update --init"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _Sphinx: http://www.sphinx-doc.org/"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _numpydoc: https://numpydoc.readthedocs.io/en/latest/index.html"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _Doxygen: https://www.doxygen.nl/index.html"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "level": 2,
+      "title": "Submodules"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Now you are ready to generate the docs, so write:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "cd doc\nmake html"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "If all goes well, this will generate a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "build/html"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " subdirectory in the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "/doc"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " directory, containing the built documentation. If you get a message about "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "installed numpy != current repo git version"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", you must either override the check by setting "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "GITVER"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " or re-install NumPy."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "If you have built NumPy into a virtual environment and get an error that says "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy not found, cannot build documentation without..."
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", you need to override the makefile "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "PYTHON"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " variable at the command line, so instead of writing "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "make  html"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " write:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "make PYTHON=python html"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "To build the PDF documentation, do instead:     "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "make latex\nmake -C build/latex all-pdf"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "You will need to have "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "LaTeX_"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " installed for this, inclusive of support for Greek letters.  For example, on Ubuntu xenial "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "texlive-lang-greek"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "cm-super"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " are needed.  Also, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "latexmk"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is needed on non-Windows systems."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Instead of the above, you can also do:     "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "make dist"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "which will rebuild NumPy, install it to a temporary location, and build the documentation in all formats. This will most likely again only work on Unix platforms."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The documentation for NumPy distributed at https://numpy.org/doc in html and pdf format is also built with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "make dist"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ".  See "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "HOWTO RELEASE"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " for details on how to update https://numpy.org/doc."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _LaTeX: https://www.latex-project.org/"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _HOWTO RELEASE: https://github.com/numpy/numpy/blob/main/doc/HOWTO_RELEASE.rst"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "level": 1,
+      "title": "Instructions"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

@@ -1,0 +1,702 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "argument": "numpy.random",
+            "content": "",
+            "name": "currentmodule",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _extending:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "level": 0,
+      "title": null
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The BitGenerators have been designed to be extendable using standard tools for high-performance Python -- numba and Cython.  The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "~Generator"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " object can also be used with user-provided BitGenerators as long as these export a small set of required functions."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "title": "Extending"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Numba can be used with either CTypes or CFFI.  The current iteration of the BitGenerators all export a small set of functions through both interfaces."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "This example shows how numba can be used to produce gaussian samples using a pure Python implementation which is then compiled.  The random numbers are provided by "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ctypes.next_double"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "../../../../numpy/random/_examples/numba/extending.py",
+            "content": "",
+            "name": "literalinclude",
+            "options": [
+              [
+                "language",
+                "python"
+              ],
+              [
+                "end-before",
+                "example 2"
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Both CTypes and CFFI allow the more complicated distributions to be used directly in Numba after compiling the file distributions.c into a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "DLL"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " or "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "so"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ".  An example showing the use of a more complicated distribution is in the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "examples",
+                    "path": "examples",
+                    "version": "*"
+                  },
+                  "value": "examples"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " section below."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _random_cython:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "level": 1,
+      "title": "Numba"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Cython can be used to unpack the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "PyCapsule"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " provided by a BitGenerator. This example uses "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "PCG64"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " and the example from above.  The usual caveats for writing high-performance code using Cython -- removing bounds checks and wrap around, providing array alignment information -- still apply."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "../../../../numpy/random/_examples/cython/extending_distributions.pyx",
+            "content": "",
+            "name": "literalinclude",
+            "options": [
+              [
+                "language",
+                "cython"
+              ],
+              [
+                "end-before",
+                "example 2"
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The BitGenerator can also be directly accessed using the members of the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "bitgen_t"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " struct."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "../../../../numpy/random/_examples/cython/extending_distributions.pyx",
+            "content": "",
+            "name": "literalinclude",
+            "options": [
+              [
+                "language",
+                "cython"
+              ],
+              [
+                "start-after",
+                "example 2"
+              ],
+              [
+                "end-before",
+                "example 3"
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Cython can be used to directly access the functions in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy/random/c_distributions.pxd"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". This requires linking with the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "npyrandom"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " library located in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy/random/lib"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "../../../../numpy/random/_examples/cython/extending_distributions.pyx",
+            "content": "",
+            "name": "literalinclude",
+            "options": [
+              [
+                "language",
+                "cython"
+              ],
+              [
+                "start-after",
+                "example 3"
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "See "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "extending_cython_example"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " for the complete listings of these examples and a minimal "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "setup.py"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " to build the c-extension modules."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 1,
+      "title": "Cython"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "CFFI can be used to directly access the functions in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "include/numpy/random/distributions.h"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". Some \"massaging\" of the header file is required:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "../../../../numpy/random/_examples/cffi/extending.py",
+            "content": "",
+            "name": "literalinclude",
+            "options": [
+              [
+                "language",
+                "python"
+              ],
+              [
+                "end-before",
+                "dlopen"
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Once the header is parsed by "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ffi.cdef"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", the functions can be accessed directly from the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "_generator"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " shared object, using the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "BitGenerator.cffi"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " interface."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "../../../../numpy/random/_examples/cffi/extending.py",
+            "content": "",
+            "name": "literalinclude",
+            "options": [
+              [
+                "language",
+                "python"
+              ],
+              [
+                "start-after",
+                "dlopen"
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 1,
+      "title": "CFFI"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "~Generator"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " can be used with user-provided "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "~BitGenerator"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": "\\ s. The simplest way to write a new BitGenerator is to examine the pyx file of one of the existing BitGenerators. The key structure that must be provided is the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "capsule"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " which contains a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "PyCapsule"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " to a struct pointer of type "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "bitgen_t"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ","
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "c",
+            "content": "typedef struct bitgen {\n  void *state;\n  uint64_t (*next_uint64)(void *st);\n  uint32_t (*next_uint32)(void *st);\n  double (*next_double)(void *st);\n  uint64_t (*next_raw)(void *st);\n} bitgen_t;",
+            "name": "code-block",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "which provides 5 pointers. The first is an opaque pointer to the data structure used by the BitGenerators.  The next three are function pointers which return the next 64- and 32-bit unsigned integers, the next random double and the next raw value.  This final function is used for testing and so can be set to the next 64-bit unsigned integer function if not needed. Functions inside "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "Generator"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " use this structure as in"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "c",
+            "content": "bitgen_state->next_uint64(bitgen_state->state)",
+            "name": "code-block",
+            "options": []
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 1,
+      "title": "New Bit Generators"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "argument": "",
+            "content": "Numba <examples/numba>\nCFFI + Numba <examples/numba_cffi> \nCython <examples/cython/index>\nCFFI <examples/cffi>",
+            "name": "toctree",
+            "options": []
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 1,
+      "title": "Examples"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

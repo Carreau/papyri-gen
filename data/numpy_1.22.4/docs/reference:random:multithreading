@@ -1,0 +1,330 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The four core distributions ("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~.Generator.random"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~.Generator.standard_normal"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~.Generator.standard_exponential"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~.Generator.standard_gamma"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ") all allow existing arrays to be filled using the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "out"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " keyword argument. Existing arrays need to be contiguous and well-behaved (writable and aligned). Under normal circumstances, arrays created using the common constructors such as "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.empty"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " will satisfy these requirements."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "This example makes use of Python 3 "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "concurrent.futures"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " to fill an array using multiple threads.  Threads are long-lived so that repeated calls do not require any additional overheads from thread creation."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The random numbers generated are reproducible in the sense that the same seed will produce the same outputs, given that the number of threads does not change."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "ipython",
+            "content": "from numpy.random import default_rng, SeedSequence\nimport multiprocessing\nimport concurrent.futures\nimport numpy as np\n\nclass MultithreadedRNG:\n    def __init__(self, n, seed=None, threads=None):\n        if threads is None:\n            threads = multiprocessing.cpu_count()\n        self.threads = threads\n\n        seq = SeedSequence(seed)\n        self._random_generators = [default_rng(s)\n                                   for s in seq.spawn(threads)]\n\n        self.n = n\n        self.executor = concurrent.futures.ThreadPoolExecutor(threads)\n        self.values = np.empty(n)\n        self.step = np.ceil(n / threads).astype(np.int_)\n\n    def fill(self):\n        def _fill(random_state, out, first, last):\n            random_state.standard_normal(out=out[first:last])\n\n        futures = {}\n        for i in range(self.threads):\n            args = (_fill,\n                    self._random_generators[i],\n                    self.values,\n                    i * self.step,\n                    (i + 1) * self.step)\n            futures[self.executor.submit(*args)] = i\n        concurrent.futures.wait(futures)\n\n    def __del__(self):\n        self.executor.shutdown(False)",
+            "name": "code-block",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The multithreaded random number generator can be used to fill an array. The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "values"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " attributes shows the zero-value before the fill and the random value after."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "ipython",
+            "content": "In [2]: mrng = MultithreadedRNG(10000000, seed=12345)\n   ...: print(mrng.values[-1])\nOut[2]: 0.0\n\nIn [3]: mrng.fill()\n   ...: print(mrng.values[-1])\nOut[3]: 2.4545724517479104",
+            "name": "code-block",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The time required to produce using multiple threads can be compared to the time required to generate using a single thread."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "ipython",
+            "content": "In [4]: print(mrng.threads)\n   ...: %timeit mrng.fill()\n\nOut[4]: 4\n   ...: 32.8 ms \u00b1 2.71 ms per loop (mean \u00b1 std. dev. of 7 runs, 10 loops each)",
+            "name": "code-block",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The single threaded call directly uses the BitGenerator."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "ipython",
+            "content": "In [5]: values = np.empty(10000000)\n   ...: rg = default_rng()\n   ...: %timeit rg.standard_normal(out=values)\n\nOut[5]: 99.6 ms \u00b1 222 \u00b5s per loop (mean \u00b1 std. dev. of 7 runs, 10 loops each)",
+            "name": "code-block",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The gains are substantial and the scaling is reasonable even for arrays that are only moderately large. The gains are even larger when compared to a call that does not use an existing array due to array creation overhead."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "ipython",
+            "content": "In [6]: rg = default_rng()\n   ...: %timeit rg.standard_normal(10000000)\n\nOut[6]: 125 ms \u00b1 309 \u00b5s per loop (mean \u00b1 std. dev. of 7 runs, 10 loops each)",
+            "name": "code-block",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Note that if "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "threads"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " is not set by the user, it will be determined by "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "multiprocessing",
+                    "path": "multiprocessing.context.BaseContext.cpu_count",
+                    "version": "*"
+                  },
+                  "value": "multiprocessing.cpu_count()"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "ipython",
+            "content": "In [7]: # simulate the behavior for `threads=None`, if the machine had only one thread\n   ...: mrng = MultithreadedRNG(10000000, seed=12345, threads=1)\n   ...: print(mrng.values[-1])\nOut[7]: 1.1800150052158556",
+            "name": "code-block",
+            "options": []
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 0,
+      "title": "Multithreaded Generation"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

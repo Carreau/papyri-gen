@@ -1,0 +1,40 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "argument": "../../../../../../numpy/random/_examples/cython/extending.pyx",
+            "content": "",
+            "name": "literalinclude",
+            "options": [
+              [
+                "language",
+                "cython"
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 0,
+      "title": "extending.pyx"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

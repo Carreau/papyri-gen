@@ -1,0 +1,3246 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "argument": "Pierre Gerard-Marchant <pierregmcode@gmail.com>",
+            "content": "",
+            "name": "sectionauthor",
+            "options": []
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 0,
+      "title": null
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "NumPy provides several functions to create arrays from tabular data. We focus here on the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~numpy.genfromtxt"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " function."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "In a nutshell, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~numpy.genfromtxt"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " runs two main loops.  The first loop converts each line of the file in a sequence of strings.  The second loop converts each string to the appropriate data type.  This mechanism is slower than a single loop, but gives more flexibility.  In particular, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~numpy.genfromtxt"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is able to take missing data into account, when other faster and simpler functions like "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~numpy.loadtxt"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " cannot."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "When giving examples, we will use the following conventions:      "
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "value": ">>> import numpy as np\n>>> from io import StringIO"
+                },
+                "type": "BlockVerbatim"
+              }
+            ],
+            "kind": "note",
+            "title": ""
+          },
+          "type": "Admonition"
+        }
+      ],
+      "level": 0,
+      "title": "Importing data with :func:`~numpy.genfromtxt`"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The only mandatory argument of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~numpy.genfromtxt"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is the source of the data. It can be a string, a list of strings, a generator or an open file-like object with a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "read"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " method, for example, a file or  "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "io.StringIO"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " object. If a single string is provided, it is assumed to be the name of a local or remote file. If a list of strings or a generator returning strings is provided, each string is treated as one line in a file. When the URL of a remote file is passed, the file is automatically downloaded to the current directory and opened."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Recognized file types are text files and archives.  Currently, the function recognizes "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "gzip"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "bz2"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " ("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "bzip2"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ") archives.  The type of the archive is determined from the extension of the file: if the filename ends with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "'.gz'"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "gzip"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " archive is expected; if it ends with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "'bz2'"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "bzip2"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " archive is assumed."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 1,
+      "title": "Defining the input"
+    },
+    {
+      "children": [],
+      "level": 1,
+      "title": "Splitting the lines into columns"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Once the file is defined and open for reading, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~numpy.genfromtxt"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " splits each non-empty line into a sequence of strings.  Empty or commented lines are just skipped.  The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "delimiter"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " keyword is used to define how the splitting should take place."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Quite often, a single character marks the separation between columns.  For example, comma-separated files (CSV) use a comma ("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    ","
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ") or a semicolon ("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    ";"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ") as delimiter:     "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> data = u\"1, 2, 3\\n4, 5, 6\"\n>>> np.genfromtxt(StringIO(data), delimiter=\",\")\narray([[1.,  2.,  3.],\n       [4.,  5.,  6.]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Another common separator is "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "\"\\t\""
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", the tabulation character.  However, we are not limited to a single character, any string will do.  By default, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~numpy.genfromtxt"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " assumes "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "delimiter=None"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", meaning that the line is split along white spaces (including tabs) and that consecutive white spaces are considered as a single white space."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Alternatively, we may be dealing with a fixed-width file, where columns are defined as a given number of characters.  In that case, we need to set "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "delimiter"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " to a single integer (if all the columns have the same size) or to a sequence of integers (if columns can have different sizes):     "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> data = u\"  1  2  3\\n  4  5 67\\n890123  4\"\n>>> np.genfromtxt(StringIO(data), delimiter=3)\narray([[  1.,    2.,    3.],\n       [  4.,    5.,   67.],\n       [890.,  123.,    4.]])\n>>> data = u\"123456789\\n   4  7 9\\n   4567 9\"\n>>> np.genfromtxt(StringIO(data), delimiter=(4, 3, 2))\narray([[1234.,   567.,    89.],\n       [   4.,     7.,     9.],\n       [   4.,   567.,     9.]])"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 2,
+      "title": "The ``delimiter`` argument"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "By default, when a line is decomposed into a series of strings, the individual entries are not stripped of leading nor trailing white spaces. This behavior can be overwritten by setting the optional argument "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "autostrip"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " to a value of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "True"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ":     "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> data = u\"1, abc , 2\\n 3, xxx, 4\"\n>>> # Without autostrip\n>>> np.genfromtxt(StringIO(data), delimiter=\",\", dtype=\"|U5\")\narray([['1', ' abc ', ' 2'],\n       ['3', ' xxx', ' 4']], dtype='<U5')\n>>> # With autostrip\n>>> np.genfromtxt(StringIO(data), delimiter=\",\", dtype=\"|U5\", autostrip=True)\narray([['1', 'abc', '2'],\n       ['3', 'xxx', '4']], dtype='<U5')"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 2,
+      "title": "The ``autostrip`` argument"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The optional argument "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "comments"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is used to define a character string that marks the beginning of a comment.  By default, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~numpy.genfromtxt"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " assumes "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "comments='#'"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ".  The comment marker may occur anywhere on the line.  Any character present after the comment marker(s) is simply ignored:     "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> data = u\"\"\"#\n... # Skip me !\n... # Skip me too !\n... 1, 2\n... 3, 4\n... 5, 6 #This is the third line of the data\n... 7, 8\n... # And here comes the last line\n... 9, 0\n... \"\"\"\n>>> np.genfromtxt(StringIO(data), comments=\"#\", delimiter=\",\")\narray([[1., 2.],\n       [3., 4.],\n       [5., 6.],\n       [7., 8.],\n       [9., 0.]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "When "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "comments"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " is set to "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "None"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ", no lines are treated as comments."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "kind": "versionadded",
+            "title": "1.7.0"
+          },
+          "type": "Admonition"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "There is one notable exception to this behavior: if the optional argument "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "names=True"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ", the first commented line will be examined for names."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "kind": "note",
+            "title": ""
+          },
+          "type": "Admonition"
+        }
+      ],
+      "level": 2,
+      "title": "The ``comments`` argument"
+    },
+    {
+      "children": [],
+      "level": 1,
+      "title": "Skipping lines and choosing columns"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The presence of a header in the file can hinder data processing.  In that case, we need to use the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "skip_header"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " optional argument.  The values of this argument must be an integer which corresponds to the number of lines to skip at the beginning of the file, before any other action is performed.  Similarly, we can skip the last "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "n"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " lines of the file by using the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "skip_footer"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " attribute and giving it a value of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "n"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ":     "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> data = u\"\\n\".join(str(i) for i in range(10))\n>>> np.genfromtxt(StringIO(data),)\narray([0.,  1.,  2.,  3.,  4.,  5.,  6.,  7.,  8.,  9.])\n>>> np.genfromtxt(StringIO(data),\n...               skip_header=3, skip_footer=5)\narray([3.,  4.])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "By default, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "skip_header=0"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "skip_footer=0"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", meaning that no lines are skipped."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "title": "The ``skip_header`` and ``skip_footer`` arguments"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "In some cases, we are not interested in all the columns of the data but only a few of them.  We can select which columns to import with the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "usecols"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " argument.  This argument accepts a single integer or a sequence of integers corresponding to the indices of the columns to import. Remember that by convention, the first column has an index of 0.  Negative integers behave the same as regular Python negative indexes."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For example, if we want to import only the first and the last columns, we can use "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "usecols=(0, -1)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ":     "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> data = u\"1 2 3\\n4 5 6\"\n>>> np.genfromtxt(StringIO(data), usecols=(0, -1))\narray([[1.,  3.],\n       [4.,  6.]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "If the columns have names, we can also select which columns to import by giving their name to the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "usecols"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " argument, either as a sequence of strings or a comma-separated string:     "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> data = u\"1 2 3\\n4 5 6\"\n>>> np.genfromtxt(StringIO(data),\n...               names=\"a, b, c\", usecols=(\"a\", \"c\"))\narray([(1., 3.), (4., 6.)], dtype=[('a', '<f8'), ('c', '<f8')])\n>>> np.genfromtxt(StringIO(data),\n...               names=\"a, b, c\", usecols=(\"a, c\"))\n    array([(1., 3.), (4., 6.)], dtype=[('a', '<f8'), ('c', '<f8')])"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 2,
+      "title": "The ``usecols`` argument"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The main way to control how the sequences of strings we have read from the file are converted to other types is to set the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "dtype"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " argument. Acceptable values for this argument are:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "a single type, such as "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "dtype=float"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ".   The output will be 2D with the given dtype, unless a name has been   associated with each column with the use of the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "names"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " argument   (see below).  Note that "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "dtype=float"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " is the default for   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "~numpy.genfromtxt"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "a sequence of types, such as "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "dtype=(int, float, float)"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "a comma-separated string, such as "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "dtype=\"i4,f8,|U3\""
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "a dictionary with two keys "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "'names'"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "'formats'"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "a sequence of tuples "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "(name, type)"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", such as   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "dtype=[('A', int), ('B', float)]"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "an existing "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "numpy.dtype"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " object."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "the special value "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "None"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ".   In that case, the type of the columns will be determined from the data   itself (see below)."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "In all the cases but the first one, the output will be a 1D array with a structured dtype.  This dtype has as many fields as items in the sequence. The field names are defined with the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "names"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " keyword."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "When "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "dtype=None"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", the type of each column is determined iteratively from its data.  We start by checking whether a string can be converted to a boolean (that is, if the string matches "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "true"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " or "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "false"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " in lower cases); then whether it can be converted to an integer, then to a float, then to a complex and eventually to a string."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The option "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "dtype=None"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is provided for convenience.  However, it is significantly slower than setting the dtype explicitly."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 1,
+      "title": "Choosing the data type"
+    },
+    {
+      "children": [],
+      "level": 1,
+      "title": "Setting the names"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "A natural approach when dealing with tabular data is to allocate a name to each column.  A first possibility is to use an explicit structured dtype, as mentioned previously:     "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> data = StringIO(\"1 2 3\\n 4 5 6\")\n>>> np.genfromtxt(data, dtype=[(_, int) for _ in \"abc\"])\narray([(1, 2, 3), (4, 5, 6)],\n      dtype=[('a', '<i8'), ('b', '<i8'), ('c', '<i8')])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Another simpler possibility is to use the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "names"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " keyword with a sequence of strings or a comma-separated string:     "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> data = StringIO(\"1 2 3\\n 4 5 6\")\n>>> np.genfromtxt(data, names=\"A, B, C\")\narray([(1., 2., 3.), (4., 5., 6.)],\n      dtype=[('A', '<f8'), ('B', '<f8'), ('C', '<f8')])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "In the example above, we used the fact that by default, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "dtype=float"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". By giving a sequence of names, we are forcing the output to a structured dtype."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "We may sometimes need to define the column names from the data itself.  In that case, we must use the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "names"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " keyword with a value of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "True"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ".  The names will then be read from the first line (after the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "skip_header"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " ones), even if the line is commented out:     "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> data = StringIO(\"So it goes\\n#a b c\\n1 2 3\\n 4 5 6\")\n>>> np.genfromtxt(data, skip_header=1, names=True)\narray([(1., 2., 3.), (4., 5., 6.)],\n      dtype=[('a', '<f8'), ('b', '<f8'), ('c', '<f8')])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The default value of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "names"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "None"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ".  If we give any other value to the keyword, the new names will overwrite the field names we may have defined with the dtype:     "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> data = StringIO(\"1 2 3\\n 4 5 6\")\n>>> ndtype=[('a',int), ('b', float), ('c', int)]\n>>> names = [\"A\", \"B\", \"C\"]\n>>> np.genfromtxt(data, names=names, dtype=ndtype)\narray([(1, 2., 3), (4, 5., 6)],\n      dtype=[('A', '<i8'), ('B', '<f8'), ('C', '<i8')])"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 2,
+      "title": "The ``names`` argument"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "If "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "names=None"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " but a structured dtype is expected, names are defined with the standard NumPy default of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "\"f%i\""
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", yielding names like "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "f0"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "f1"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and so forth:     "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> data = StringIO(\"1 2 3\\n 4 5 6\")\n>>> np.genfromtxt(data, dtype=(int, float, int))\narray([(1, 2., 3), (4, 5., 6)],\n      dtype=[('f0', '<i8'), ('f1', '<f8'), ('f2', '<i8')])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "In the same way, if we don't give enough names to match the length of the dtype, the missing names will be defined with this default template:     "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> data = StringIO(\"1 2 3\\n 4 5 6\")\n>>> np.genfromtxt(data, dtype=(int, float, int), names=\"a\")\narray([(1, 2., 3), (4, 5., 6)],\n      dtype=[('a', '<i8'), ('f0', '<f8'), ('f1', '<i8')])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "We can overwrite this default with the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "defaultfmt"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " argument, that takes any format string:     "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> data = StringIO(\"1 2 3\\n 4 5 6\")\n>>> np.genfromtxt(data, dtype=(int, float, int), defaultfmt=\"var_%02i\")\narray([(1, 2., 3), (4, 5., 6)],\n      dtype=[('var_00', '<i8'), ('var_01', '<f8'), ('var_02', '<i8')])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "We need to keep in mind that "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "defaultfmt"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " is used only if some names are expected but not defined."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "kind": "note",
+            "title": ""
+          },
+          "type": "Admonition"
+        }
+      ],
+      "level": 2,
+      "title": "The ``defaultfmt`` argument"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "NumPy arrays with a structured dtype can also be viewed as "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~numpy.recarray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", where a field can be accessed as if it were an attribute.  For that reason, we may need to make sure that the field name doesn't contain any space or invalid character, or that it does not correspond to the name of a standard attribute (like "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "size"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " or "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "shape"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "), which would confuse the interpreter.  "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~numpy.genfromtxt"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " accepts three optional arguments that provide a finer control on the names:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "Gives a string combining all the characters that must be deleted from       the name. By default, invalid characters are       "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "~!@#$%^&*()-=+~\\|]}[{';:\n      /?.>,<"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": "."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "data": {
+                              "value": [
+                                "deletechars"
+                              ]
+                            },
+                            "type": "Verbatim"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "dd": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "Gives a list of the names to exclude, such as "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "return"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": ", "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "file"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": ",       "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "print"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": "...  If one of the input name is part of this list, an       underscore character ("
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "'_'"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": ") will be appended to it."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "data": {
+                              "value": [
+                                "excludelist"
+                              ]
+                            },
+                            "type": "Verbatim"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "dd": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "Whether the names should be case-sensitive ("
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "case_sensitive=True"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": "),       converted to upper case ("
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "case_sensitive=False"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": " or       "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "case_sensitive='upper'"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": ") or to lower case       ("
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "case_sensitive='lower'"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": ")."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "data": {
+                              "value": [
+                                "case_sensitive"
+                              ]
+                            },
+                            "type": "Verbatim"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "type": "DefList"
+              }
+            ]
+          },
+          "type": "BlockQuote"
+        }
+      ],
+      "level": 2,
+      "title": "Validating names"
+    },
+    {
+      "children": [],
+      "level": 1,
+      "title": "Tweaking the conversion"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Usually, defining a dtype is sufficient to define how the sequence of strings must be converted.  However, some additional control may sometimes be required.  For example, we may want to make sure that a date in a format "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "YYYY/MM/DD"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is converted to a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~datetime.datetime"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " object, or that a string like "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "xx%"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is properly converted to a float between 0 and 1.  In such cases, we should define conversion functions with the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "converters"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " arguments."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The value of this argument is typically a dictionary with column indices or column names as keys and a conversion functions as values.  These conversion functions can either be actual functions or lambda functions. In any case, they should accept only a string as input and output only a single element of the wanted type."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "In the following example, the second column is converted from as string representing a percentage to a float between 0 and 1:     "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> convertfunc = lambda x: float(x.strip(b\"%\"))/100.\n>>> data = u\"1, 2.3%, 45.\\n6, 78.9%, 0\"\n>>> names = (\"i\", \"p\", \"n\")\n>>> # General case .....\n>>> np.genfromtxt(StringIO(data), delimiter=\",\", names=names)\narray([(1., nan, 45.), (6., nan, 0.)],\n      dtype=[('i', '<f8'), ('p', '<f8'), ('n', '<f8')])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "We need to keep in mind that by default, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "dtype=float"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ".  A float is therefore expected for the second column.  However, the strings "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "' 2.3%'"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "' 78.9%'"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " cannot be converted to float and we end up having "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "np.nan"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " instead.  Let's now use a converter:     "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> # Converted case ...\n>>> np.genfromtxt(StringIO(data), delimiter=\",\", names=names,\n...               converters={1: convertfunc})\narray([(1., 0.023, 45.), (6., 0.789, 0.)],\n      dtype=[('i', '<f8'), ('p', '<f8'), ('n', '<f8')])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The same results can be obtained by using the name of the second column ("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "\"p\""
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ") as key instead of its index (1):     "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> # Using a name for the converter ...\n>>> np.genfromtxt(StringIO(data), delimiter=\",\", names=names,\n...               converters={\"p\": convertfunc})\narray([(1., 0.023, 45.), (6., 0.789, 0.)],\n      dtype=[('i', '<f8'), ('p', '<f8'), ('n', '<f8')])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Converters can also be used to provide a default for missing entries.  In the following example, the converter "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "convert"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " transforms a stripped string into the corresponding float or into -999 if the string is empty. We need to explicitly strip the string from white spaces as it is not done by default:     "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> data = u\"1, , 3\\n 4, 5, 6\"\n>>> convert = lambda x: float(x.strip() or -999)\n>>> np.genfromtxt(StringIO(data), delimiter=\",\",\n...               converters={1: convert})\narray([[   1., -999.,    3.],\n       [   4.,    5.,    6.]])"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 2,
+      "title": "The ``converters`` argument"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Some entries may be missing in the dataset we are trying to import.  In a previous example, we used a converter to transform an empty string into a float.  However, user-defined converters may rapidly become cumbersome to manage."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~numpy.genfromtxt"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " function provides two other complementary mechanisms: the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "missing_values"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " argument is used to recognize missing data and a second argument, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "filling_values"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", is used to process these missing data."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "title": "Using missing and filling values"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "By default, any empty string is marked as missing.  We can also consider more complex strings, such as "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "\"N/A\""
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " or "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "\"???\""
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " to represent missing or invalid data.  The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "missing_values"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " argument accepts three kinds of values:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "This string will be used as the marker for missing data for all the       columns"
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "data": {
+                              "value": "a string or a comma-separated string"
+                            },
+                            "type": "Words"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "dd": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "In that case, each item is associated to a column, in order."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "data": {
+                              "value": "a sequence of strings"
+                            },
+                            "type": "Words"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "dd": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "Values of the dictionary are strings or sequence of strings.  The       corresponding keys can be column indices (integers) or column names       (strings). In addition, the special key "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "None"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": " can be used to       define a default applicable to all columns."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "data": {
+                              "value": "a dictionary"
+                            },
+                            "type": "Words"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "type": "DefList"
+              }
+            ]
+          },
+          "type": "BlockQuote"
+        }
+      ],
+      "level": 2,
+      "title": "``missing_values``"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "We know how to recognize missing data, but we still need to provide a value for these missing entries.  By default, this value is determined from the expected dtype according to this table:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "=============  ============== Expected type  Default =============  ============== "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "bool"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "       "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "False"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "int"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "        "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "-1"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "float"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "      "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "np.nan"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "complex"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "    "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "np.nan+0j"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "string"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "     "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "'???'"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " =============  =============="
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "We can get a finer control on the conversion of missing values with the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "filling_values"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " optional argument.  Like "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "missing_values"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", this argument accepts different kind of values:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "This will be the default for all columns"
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "data": {
+                              "value": "a single value"
+                            },
+                            "type": "Words"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "dd": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "Each entry will be the default for the corresponding column"
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "data": {
+                              "value": "a sequence of values"
+                            },
+                            "type": "Words"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "dd": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "Each key can be a column index or a column name, and the       corresponding value should be a single object.  We can use the       special key "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "None"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": " to define a default for all columns."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "data": {
+                              "value": "a dictionary"
+                            },
+                            "type": "Words"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "type": "DefList"
+              }
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "In the following example, we suppose that the missing values are flagged with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "\"N/A\""
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " in the first column and by "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "\"???\""
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " in the third column. We wish to transform these missing values to 0 if they occur in the first and second column, and to -999 if they occur in the last column:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> data = u\"N/A, 2, 3\\n4, ,???\"\n>>> kwargs = dict(delimiter=\",\",\n...               dtype=int,\n...               names=\"a,b,c\",\n...               missing_values={0:\"N/A\", 'b':\" \", 2:\"???\"},\n...               filling_values={0:0, 'b':0, 2:-999})\n>>> np.genfromtxt(StringIO(data), **kwargs)\narray([(0, 2, 3), (4, 0, -999)],\n      dtype=[('a', '<i8'), ('b', '<i8'), ('c', '<i8')])"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 2,
+      "title": "``filling_values``"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "We may also want to keep track of the occurrence of missing data by constructing a boolean mask, with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "True"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " entries where data was missing and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "False"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " otherwise.  To do that, we just have to set the optional argument "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "usemask"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "True"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " (the default is "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "False"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ").  The output array will then be a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~numpy.ma.MaskedArray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ".. unpack=None, loose=True, invalid_raise=True)"
+          },
+          "type": "Comment"
+        }
+      ],
+      "level": 2,
+      "title": "``usemask``"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "In addition to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~numpy.genfromtxt"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.lib.npyio"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " module provides several convenience functions derived from "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~numpy.genfromtxt"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ".  These functions work the same way as the original, but they have different default values."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Returns a standard "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "numpy.recarray"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " (if "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "usemask=False"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ") or a    "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "numpy.ma.mrecords.MaskedRecords"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " array (if "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "usemaske=True"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ").  The    default dtype is "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "dtype=None"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", meaning that the types of each column    will be automatically determined."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": [
+                          "numpy.lib.npyio.recfromtxt"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    }
+                  ]
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Like "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "numpy.lib.npyio.recfromtxt"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", but with a default "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "delimiter=\",\""
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": [
+                          "numpy.lib.npyio.recfromcsv"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        }
+      ],
+      "level": 1,
+      "title": "Shortcut functions"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

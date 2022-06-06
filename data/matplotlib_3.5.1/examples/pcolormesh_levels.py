@@ -930,8 +930,18 @@
           },
           {
             "link": {
-              "data": "y",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "y"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1270,8 +1280,18 @@
           },
           {
             "link": {
-              "data": "y",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "y"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1590,8 +1610,18 @@
           },
           {
             "link": {
-              "data": "y",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "y"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1881,8 +1911,18 @@
           },
           {
             "link": {
-              "data": "y",
-              "type": "str"
+              "data": {
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
+                  "version": "*"
+                },
+                "value": "y"
+              },
+              "type": "Link"
             },
             "type": ""
           },
@@ -1907,8 +1947,8 @@
                 "kind": "module",
                 "reference": {
                   "kind": "module",
-                  "module": "builtins",
-                  "path": "builtins.float",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
                   "version": "*"
                 },
                 "value": "X"
@@ -2133,8 +2173,8 @@
                 "kind": "module",
                 "reference": {
                   "kind": "module",
-                  "module": "builtins",
-                  "path": "builtins.float",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
                   "version": "*"
                 },
                 "value": "X"
@@ -2313,8 +2353,8 @@
                 "kind": "module",
                 "reference": {
                   "kind": "module",
-                  "module": "builtins",
-                  "path": "builtins.float",
+                  "module": "numpy",
+                  "path": "numpy.ndarray",
                   "version": "*"
                 },
                 "value": "X"
@@ -5171,18 +5211,8 @@
           },
           {
             "link": {
-              "data": {
-                "exists": true,
-                "kind": "module",
-                "reference": {
-                  "kind": "module",
-                  "module": "numpy",
-                  "path": "numpy.ndarray",
-                  "version": "*"
-                },
-                "value": "y"
-              },
-              "type": "Link"
+              "data": "y",
+              "type": "str"
             },
             "type": ""
           },
@@ -7527,5 +7557,6 @@
       "type": "Fig"
     }
   ],
+  "level": 0,
   "title": null
 }

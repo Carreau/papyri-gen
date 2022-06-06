@@ -1,0 +1,605 @@
+{
+  "aliases": [
+    "IPython.core.magic_arguments"
+  ],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "A decorator-based method of constructing IPython magics with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "argparse",
+                    "path": "argparse",
+                    "version": "*"
+                  },
+                  "value": "argparse"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " option handling."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "New magic functions can be defined like so:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "from IPython.core.magic_arguments import (argument, magic_arguments,\n    parse_argstring)\n\n@magic_arguments()\n@argument('-o', '--option', help='An optional argument.')\n@argument('arg', type=int, help='An integer positional argument.')\ndef magic_cool(self, arg):\n    \"\"\" A really cool magic command.\n\n\"\"\"\n    args = parse_argstring(magic_cool, arg)\n    ..."
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "@magic_arguments"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " decorator marks the function as having argparse arguments. The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "@argument"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " decorator adds an argument using the same syntax as argparse's "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "add_argument()"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " method. More sophisticated uses may also require the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "@argument_group"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " or "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "@kwds"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " decorator to customize the formatting and the parsing."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Help text for the magic is automatically generated from the docstring and the arguments:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "In[1]: %cool?\n    %cool [-o OPTION] arg\n\n    A really cool magic command.\n\n    positional arguments:\n      arg                   An integer positional argument.\n\n    optional arguments:\n      -o OPTION, --option OPTION\n                            An optional argument."
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Here is an elaborated example that uses default parameters in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "IPython",
+                    "path": "IPython.core.magic_arguments.argument",
+                    "version": "8.4.0"
+                  },
+                  "value": "argument"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " and calls the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "args"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " in the cell magic:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "from IPython.core.magic import register_cell_magic\nfrom IPython.core.magic_arguments import (argument, magic_arguments,\n                                        parse_argstring)\n\n\n@magic_arguments()\n@argument(\n    \"--option\",\n    \"-o\",\n    help=(\"Add an option here\"),\n)\n@argument(\n    \"--style\",\n    \"-s\",\n    default=\"foo\",\n    help=(\"Add some style arguments\"),\n)\n@register_cell_magic\ndef my_cell_magic(line, cell):\n    args = parse_argstring(my_cell_magic, line)\n    print(f\"{args.option=}\")\n    print(f\"{args.style=}\")\n    print(f\"{cell=}\")"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "In a jupyter notebook, this cell magic can be executed like this:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "%%my_cell_magic -o Hello\nprint(\"bar\")\ni = 42"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Inheritance diagram:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "IPython.core.magic_arguments",
+            "content": "",
+            "name": "inheritance-diagram",
+            "options": [
+              [
+                "parts",
+                "3"
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 0,
+      "title": null
+    }
+  ],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "New magic functions can be defined like so:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "from IPython.core.magic_arguments import (argument, magic_arguments,\n    parse_argstring)\n\n@magic_arguments()\n@argument('-o', '--option', help='An optional argument.')\n@argument('arg', type=int, help='An integer positional argument.')\ndef magic_cool(self, arg):\n    \"\"\" A really cool magic command.\n\n\"\"\"\n    args = parse_argstring(magic_cool, arg)\n    ..."
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "@magic_arguments"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " decorator marks the function as having argparse arguments. The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "@argument"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " decorator adds an argument using the same syntax as argparse's "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "add_argument()"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " method. More sophisticated uses may also require the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "@argument_group"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " or "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "@kwds"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " decorator to customize the formatting and the parsing."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Help text for the magic is automatically generated from the docstring and the arguments:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "In[1]: %cool?\n    %cool [-o OPTION] arg\n\n    A really cool magic command.\n\n    positional arguments:\n      arg                   An integer positional argument.\n\n    optional arguments:\n      -o OPTION, --option OPTION\n                            An optional argument."
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Here is an elaborated example that uses default parameters in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "IPython",
+                    "path": "IPython.core.magic_arguments.argument",
+                    "version": "8.4.0"
+                  },
+                  "value": "argument"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " and calls the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "args"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " in the cell magic:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "from IPython.core.magic import register_cell_magic\nfrom IPython.core.magic_arguments import (argument, magic_arguments,\n                                        parse_argstring)\n\n@magic_arguments()\n@argument(\n    \"--option\",\n    \"-o\",\n    help=(\"Add an option here\"),\n)\n@argument(\n    \"--style\",\n    \"-s\",\n    default=\"foo\",\n    help=(\"Add some style arguments\"),\n)\n@register_cell_magic\ndef my_cell_magic(line, cell):\n    args = parse_argstring(my_cell_magic, line)\n    print(f\"{args.option=}\")\n    print(f\"{args.style=}\")\n    print(f\"{cell=}\")"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "In a jupyter notebook, this cell magic can be executed like this:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "%%my_cell_magic -o Hello\nprint(\"bar\")\ni = 42"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Inheritance diagram:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "IPython.core.magic_arguments",
+            "content": "",
+            "name": "inheritance-diagram",
+            "options": [
+              [
+                "parts",
+                "3"
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 0,
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "title": null
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "title": null
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "A decorator-based method of constructing IPython magics with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "argparse",
+                    "path": "argparse",
+                    "version": "*"
+                  },
+                  "value": "argparse"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " option handling."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "title": null
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "title": null
+  },
+  "item_file": "/IPython/core/magic_arguments.py",
+  "item_line": 0,
+  "item_type": "<class 'module'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

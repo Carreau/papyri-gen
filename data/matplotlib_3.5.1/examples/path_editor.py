@@ -4943,18 +4943,8 @@
           },
           {
             "link": {
-              "data": {
-                "exists": true,
-                "kind": "module",
-                "reference": {
-                  "kind": "module",
-                  "module": "numpy",
-                  "path": "numpy.ma.core.MaskedArray",
-                  "version": "*"
-                },
-                "value": "xyt"
-              },
-              "type": "Link"
+              "data": "xyt",
+              "type": "str"
             },
             "type": ""
           },
@@ -10131,5 +10121,6 @@
       "type": "Fig"
     }
   ],
+  "level": 0,
   "title": null
 }

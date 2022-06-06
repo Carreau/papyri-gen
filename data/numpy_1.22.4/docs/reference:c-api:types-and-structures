@@ -1,0 +1,1840 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "argument": "Travis E. Oliphant",
+            "content": "",
+            "name": "sectionauthor",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Several new types are defined in the C-code. Most of these are accessible from Python, but a few are not exposed due to their limited use. Every new Python type has an associated "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "PyObject *"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " with an internal structure that includes a pointer to a \"method table\" that defines how the new object behaves in Python. When you receive a Python object into C code, you always get a pointer to a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "PyObject"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " structure. Because a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "PyObject"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " structure is very generic and defines only "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "PyObject_HEAD"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", by itself it is not very interesting. However, different objects contain more details after the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "PyObject_HEAD"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " (but you have to cast to the correct type to access them --- or use accessor functions or macros)."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "title": "Python Types and C-Structures"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Python types are the functional equivalent in C of classes in Python. By constructing a new Python type you make available a new object for Python. The ndarray object is an example of a new type defined in C. New types are defined in C by two basic steps:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "creating a C-structure (usually named "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "Py{Name}Object"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ") that is    binary- compatible with the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "PyObject"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " structure itself but holds    the additional information needed for that particular object;"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "populating the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "PyTypeObject"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " table (pointed to by the ob_type    member of the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "PyObject"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " structure) with pointers to functions    that implement the desired behavior for the type."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "EnumeratedList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Instead of special method names which define behavior for Python classes, there are \"function tables\" which point to functions that implement the desired results. Since Python 2.2, the PyTypeObject itself has become dynamic which allows C types that can be \"sub-typed \"from other C-types in C, and sub-classed in Python. The children types inherit the attributes and methods from their parent(s)."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "There are two major new types: the ndarray ( "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "PyArray_Type"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " ) and the ufunc ( "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "PyUFunc_Type"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " ). Additional types play a supportive role: the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "PyArrayIter_Type"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "PyArrayMultiIter_Type"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", and the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "PyArrayDescr_Type"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " . The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "PyArrayIter_Type"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is the type for a flat iterator for an ndarray (the object that is returned when getting the flat attribute). The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "PyArrayMultiIter_Type"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is the type of the object returned when calling "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "broadcast"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " (). It handles iteration and broadcasting over a collection of nested sequences. Also, the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "PyArrayDescr_Type"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is the data-type-descriptor type whose instances describe the data.  Finally, there are 21 new scalar-array types which are new Python scalars corresponding to each of the fundamental data types available for arrays. An additional 10 other types are place holders that allow the array scalars to fit into a hierarchy of actual Python types."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 1,
+      "title": "New Python Types Defined"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "argument": "PyTypeObject PyArray_Type",
+            "content": "The Python type of the ndarray is :c:data:`PyArray_Type`. In C, every\nndarray is a pointer to a :c:type:`PyArrayObject` structure. The ob_type\nmember of this structure contains a pointer to the :c:data:`PyArray_Type`\ntypeobject.",
+            "name": "c:var",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "argument": "PyArrayObject",
+            "content": "NPY_AO",
+            "name": "c:type",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "The "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "PyArrayObject"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " C-structure contains all of the required    information for an array. All instances of an ndarray (and its    subclasses) will have this structure.  For future compatibility,    these structure members should normally be accessed using the    provided macros. If you need a shorter name, then you can make use    of "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "NPY_AO"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " (deprecated) which is defined to be equivalent to    "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "PyArrayObject"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ". Direct access to the struct fields are    deprecated. Use the "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "PyArray_*(arr)"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " form instead.    As of NumPy 1.20, the size of this struct is not considered part of    the NumPy ABI (see note at the end of the member list)."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "argument": "c",
+                  "content": "typedef struct PyArrayObject {\n       PyObject_HEAD\n       char *data;\n       int nd;\n       npy_intp *dimensions;\n       npy_intp *strides;\n       PyObject *base;\n       PyArray_Descr *descr;\n       int flags;\n       PyObject *weakreflist;\n       /* version dependent private members */\n   } PyArrayObject;",
+                  "name": "code-block",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "PyObject_HEAD",
+                  "content": "This is needed by all Python objects. It consists of (at least)\n   a reference count member ( ``ob_refcnt`` ) and a pointer to the\n   typeobject ( ``ob_type`` ). (Other elements may also be present\n   if Python was compiled with special options see\n   Include/object.h in the Python source tree for more\n   information). The ob_type member points to a Python type\n   object.",
+                  "name": "c:macro",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "char *data",
+                  "content": "Accessible via :c:data:`PyArray_DATA`, this data member is a\n   pointer to the first element of the array. This pointer can\n   (and normally should) be recast to the data type of the array.",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "int nd",
+                  "content": "An integer providing the number of dimensions for this\n   array. When nd is 0, the array is sometimes called a rank-0\n   array. Such arrays have undefined dimensions and strides and\n   cannot be accessed. Macro :c:data:`PyArray_NDIM` defined in\n   ``ndarraytypes.h`` points to this data member. :c:data:`NPY_MAXDIMS`\n   is the largest number of dimensions for any array.",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "npy_intp dimensions",
+                  "content": "An array of integers providing the shape in each dimension as\n   long as nd :math:`\\geq` 1. The integer is always large enough\n   to hold a pointer on the platform, so the dimension size is\n   only limited by memory. :c:data:`PyArray_DIMS` is the macro\n   associated with this data member.",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "npy_intp *strides",
+                  "content": "An array of integers providing for each dimension the number of\n   bytes that must be skipped to get to the next element in that\n   dimension. Associated with macro :c:data:`PyArray_STRIDES`.",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "PyObject *base",
+                  "content": "Pointed to by :c:data:`PyArray_BASE`, this member is used to hold a\n   pointer to another Python object that is related to this array.\n   There are two use cases:\n\n   - If this array does not own its own memory, then base points to the\n     Python object that owns it (perhaps another array object)\n   - If this array has the :c:data:`NPY_ARRAY_WRITEBACKIFCOPY` flag set,\n     then this array is a working copy of a \"misbehaved\" array.\n\n   When ``PyArray_ResolveWritebackIfCopy`` is called, the array pointed to\n   by base will be updated with the contents of this array.",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "PyArray_Descr *descr",
+                  "content": "A pointer to a data-type descriptor object (see below). The\n   data-type descriptor object is an instance of a new built-in\n   type which allows a generic description of memory. There is a\n   descriptor structure for each data type supported. This\n   descriptor structure contains useful information about the type\n   as well as a pointer to a table of function pointers to\n   implement specific functionality. As the name suggests, it is\n   associated with the macro :c:data:`PyArray_DESCR`.",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "int flags",
+                  "content": "Pointed to by the macro :c:data:`PyArray_FLAGS`, this data member represents\n   the flags indicating how the memory pointed to by data is to be\n   interpreted. Possible flags are :c:data:`NPY_ARRAY_C_CONTIGUOUS`,\n   :c:data:`NPY_ARRAY_F_CONTIGUOUS`, :c:data:`NPY_ARRAY_OWNDATA`,\n   :c:data:`NPY_ARRAY_ALIGNED`, :c:data:`NPY_ARRAY_WRITEABLE`,\n   :c:data:`NPY_ARRAY_WRITEBACKIFCOPY`.",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "PyObject *weakreflist",
+                  "content": "This member allows array objects to have weak references (using the\n   weakref module).",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "children": [
+                          {
+                            "dd": [
+                              {
+                                "data": {
+                                  "children": [
+                                    {
+                                      "data": {
+                                        "value": "of the struct is important for your code, special care must be taken.    A possible use-case when this is relevant is subclassing in C.    If your code relies on "
+                                      },
+                                      "type": "Words"
+                                    },
+                                    {
+                                      "data": {
+                                        "value": [
+                                          "sizeof(PyArrayObject)"
+                                        ]
+                                      },
+                                      "type": "Verbatim"
+                                    },
+                                    {
+                                      "data": {
+                                        "value": " to be constant,    you must add the following check at import time:"
+                                      },
+                                      "type": "Words"
+                                    }
+                                  ]
+                                },
+                                "type": "Paragraph"
+                              },
+                              {
+                                "data": {
+                                  "argument": "c",
+                                  "content": "if (sizeof(PyArrayObject) < PyArray_Type.tp_basicsize) {\n       PyErr_SetString(PyExc_ImportError,\n          \"Binary incompatibility with NumPy, must recompile/update X.\");\n       return NULL;\n   }",
+                                  "name": "code-block",
+                                  "options": []
+                                },
+                                "type": "BlockDirective"
+                              },
+                              {
+                                "data": {
+                                  "children": [
+                                    {
+                                      "data": {
+                                        "value": "To ensure that your code does not have to be compiled for a specific    NumPy version, you may add a constant, leaving room for changes in NumPy.    A solution guaranteed to be compatible with any future NumPy version    requires the use of a runtime calculate offset and allocation size."
+                                      },
+                                      "type": "Words"
+                                    }
+                                  ]
+                                },
+                                "type": "Paragraph"
+                              }
+                            ],
+                            "dt": {
+                              "children": [
+                                {
+                                  "data": {
+                                    "value": "Further members are considered private and version dependent. If the size"
+                                  },
+                                  "type": "Words"
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      },
+                      "type": "DefList"
+                    }
+                  ],
+                  "kind": "note",
+                  "title": ""
+                },
+                "type": "Admonition"
+              }
+            ]
+          },
+          "type": "BlockQuote"
+        }
+      ],
+      "level": 2,
+      "title": "PyArray_Type and PyArrayObject"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "argument": "PyTypeObject PyArrayDescr_Type",
+            "content": "The :c:data:`PyArrayDescr_Type` is the built-in type of the\ndata-type-descriptor objects used to describe how the bytes comprising\nthe array are to be interpreted.  There are 21 statically-defined\n:c:type:`PyArray_Descr` objects for the built-in data-types. While these\nparticipate in reference counting, their reference count should never\nreach zero.  There is also a dynamic table of user-defined\n:c:type:`PyArray_Descr` objects that is also maintained. Once a\ndata-type-descriptor object is \"registered\" it should never be\ndeallocated either. The function :c:func:`PyArray_DescrFromType` (...) can\nbe used to retrieve a :c:type:`PyArray_Descr` object from an enumerated\ntype-number (either built-in or user- defined).",
+            "name": "c:var",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "argument": "PyArray_Descr",
+            "content": "The :c:type:`PyArray_Descr` structure lies at the heart of the\n:c:data:`PyArrayDescr_Type`. While it is described here for\ncompleteness, it should be considered internal to NumPy and manipulated via\n``PyArrayDescr_*`` or ``PyDataType*`` functions and macros. The size of this\nstructure is subject to change across versions of NumPy. To ensure\ncompatibility:\n\n- Never declare a non-pointer instance of the struct\n- Never perform pointer arithmetic\n- Never use ``sizof(PyArray_Descr)``\n\nIt has the following structure:\n\n.. code-block:: c\n\n   typedef struct {\n       PyObject_HEAD\n       PyTypeObject *typeobj;\n       char kind;\n       char type;\n       char byteorder;\n       char flags;\n       int type_num;\n       int elsize;\n       int alignment;\n       PyArray_ArrayDescr *subarray;\n       PyObject *fields;\n       PyObject *names;\n       PyArray_ArrFuncs *f;\n       PyObject *metadata;\n       NpyAuxData *c_metadata;\n       npy_hash_t hash;\n   } PyArray_Descr;\n\n.. c:member:: PyTypeObject *typeobj\n\n    Pointer to a typeobject that is the corresponding Python type for\n    the elements of this array. For the builtin types, this points to\n    the corresponding array scalar. For user-defined types, this\n    should point to a user-defined typeobject. This typeobject can\n    either inherit from array scalars or not. If it does not inherit\n    from array scalars, then the :c:data:`NPY_USE_GETITEM` and\n    :c:data:`NPY_USE_SETITEM` flags should be set in the ``flags`` member.\n\n.. c:member:: char kind\n\n    A character code indicating the kind of array (using the array\n    interface typestring notation). A 'b' represents Boolean, a 'i'\n    represents signed integer, a 'u' represents unsigned integer, 'f'\n    represents floating point, 'c' represents complex floating point, 'S'\n    represents 8-bit zero-terminated bytes, 'U' represents 32-bit/character\n    unicode string, and 'V' represents arbitrary.\n\n.. c:member:: char type\n\n    A traditional character code indicating the data type.\n\n.. c:member:: char byteorder\n\n    A character indicating the byte-order: '>' (big-endian), '<' (little-\n    endian), '=' (native), '\\|' (irrelevant, ignore). All builtin data-\n    types have byteorder '='.\n\n.. c:member:: char flags\n\n    A data-type bit-flag that determines if the data-type exhibits object-\n    array like behavior. Each bit in this member is a flag which are named\n    as:\n\n.. c:member:: int alignment\n\n    Non-NULL if this type is an array (C-contiguous) of some other type",
+            "name": "c:type",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "value": "..\n  dedented to allow internal linking, pending a refactoring"
+          },
+          "type": "Comment"
+        },
+        {
+          "data": {
+            "argument": "NPY_ITEM_REFCOUNT",
+            "content": "Indicates that items of this data-type must be reference\ncounted (using :c:func:`Py_INCREF` and :c:func:`Py_DECREF` ).\n\n   .. c:macro:: NPY_ITEM_HASOBJECT\n\n       Same as :c:data:`NPY_ITEM_REFCOUNT`.",
+            "name": "c:macro",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "value": "..\n  dedented to allow internal linking, pending a refactoring"
+          },
+          "type": "Comment"
+        },
+        {
+          "data": {
+            "argument": "NPY_LIST_PICKLE",
+            "content": "Indicates arrays of this data-type must be converted to a list\nbefore pickling.",
+            "name": "c:macro",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "argument": "NPY_ITEM_IS_POINTER",
+            "content": "Indicates the item is a pointer to some other data-type",
+            "name": "c:macro",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "argument": "NPY_NEEDS_INIT",
+            "content": "Indicates memory for this data-type must be initialized (set\nto 0) on creation.",
+            "name": "c:macro",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "argument": "NPY_NEEDS_PYAPI",
+            "content": "Indicates this data-type requires the Python C-API during\naccess (so don't give up the GIL if array access is going to\nbe needed).",
+            "name": "c:macro",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "argument": "NPY_USE_GETITEM",
+            "content": "On array access use the ``f->getitem`` function pointer\ninstead of the standard conversion to an array scalar. Must\nuse if you don't define an array scalar to go along with\nthe data-type.",
+            "name": "c:macro",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "argument": "NPY_USE_SETITEM",
+            "content": "When creating a 0-d array from an array scalar use\n``f->setitem`` instead of the standard copy from an array\nscalar. Must use if you don't define an array scalar to go\nalong with the data-type.\n\n   .. c:macro:: NPY_FROM_FIELDS\n\n       The bits that are inherited for the parent data-type if these\n       bits are set in any field of the data-type. Currently (\n       :c:data:`NPY_NEEDS_INIT` \\| :c:data:`NPY_LIST_PICKLE` \\|\n       :c:data:`NPY_ITEM_REFCOUNT` \\| :c:data:`NPY_NEEDS_PYAPI` ).\n\n   .. c:macro:: NPY_OBJECT_DTYPE_FLAGS\n\n       Bits set for the object data-type: ( :c:data:`NPY_LIST_PICKLE`\n       \\| :c:data:`NPY_USE_GETITEM` \\| :c:data:`NPY_ITEM_IS_POINTER` \\|\n       :c:data:`NPY_ITEM_REFCOUNT` \\| :c:data:`NPY_NEEDS_INIT` \\|\n       :c:data:`NPY_NEEDS_PYAPI`).\n\n   .. c:function:: int PyDataType_FLAGCHK(PyArray_Descr *dtype, int flags)\n\n       Return true if all the given flags are set for the data-type\n       object.\n\n   .. c:function:: int PyDataType_REFCHK(PyArray_Descr *dtype)\n\n       Equivalent to :c:func:`PyDataType_FLAGCHK` (*dtype*,\n       :c:data:`NPY_ITEM_REFCOUNT`).",
+            "name": "c:macro",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "argument": "int type_num",
+                  "content": "A number that uniquely identifies the data type. For new data-types,\n   this number is assigned when the data-type is registered.",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "int elsize",
+                  "content": "For data types that are always the same size (such as long), this\n   holds the size of the data type. For flexible data types where\n   different arrays can have a different elementsize, this should be\n   0.",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "int alignment",
+                  "content": "A number providing alignment information for this data type.\n   Specifically, it shows how far from the start of a 2-element\n   structure (whose first element is a ``char`` ), the compiler\n   places an item of this type: ``offsetof(struct {char c; type v;},\n   v)``",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "PyArray_ArrayDescr *subarray",
+                  "content": "If this is non- ``NULL``, then this data-type descriptor is a\n   C-style contiguous array of another data-type descriptor. In\n   other-words, each element that this descriptor describes is\n   actually an array of some other base descriptor. This is most\n   useful as the data-type descriptor for a field in another\n   data-type descriptor. The fields member should be ``NULL`` if this\n   is non- ``NULL`` (the fields member of the base descriptor can be\n   non- ``NULL`` however).\n\n   .. c:type:: PyArray_ArrayDescr\n\n       .. code-block:: c\n\n          typedef struct {\n              PyArray_Descr *base;\n              PyObject *shape;\n          } PyArray_ArrayDescr;\n\n       .. c:member:: PyArray_Descr *base\n\n           The data-type-descriptor object of the base-type.\n\n       .. c:member:: PyObject *shape\n\n           The shape (always C-style contiguous) of the sub-array as a Python\n           tuple.",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "PyObject *fields",
+                  "content": "If this is non-NULL, then this data-type-descriptor has fields\n   described by a Python dictionary whose keys are names (and also\n   titles if given) and whose values are tuples that describe the\n   fields. Recall that a data-type-descriptor always describes a\n   fixed-length set of bytes. A field is a named sub-region of that\n   total, fixed-length collection. A field is described by a tuple\n   composed of another data- type-descriptor and a byte\n   offset. Optionally, the tuple may contain a title which is\n   normally a Python string. These tuples are placed in this\n   dictionary keyed by name (and also title if given).",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "PyObject *names",
+                  "content": "An ordered tuple of field names. It is NULL if no field is\n   defined.",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "PyArray_ArrFuncs *f",
+                  "content": "A pointer to a structure containing functions that the type needs\n   to implement internal features. These functions are not the same\n   thing as the universal functions (ufuncs) described later. Their\n   signatures can vary arbitrarily.",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "PyObject *metadata",
+                  "content": "Metadata about this dtype.",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "NpyAuxData *c_metadata",
+                  "content": "Metadata specific to the C implementation\n   of the particular dtype. Added for NumPy 1.7.0.",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "npy_hash_t",
+                  "content": "",
+                  "name": "c:type",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "npy_hash_t *hash",
+                  "content": "Currently unused. Reserved for future use in caching\n   hash values.",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              }
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "argument": "PyArray_ArrFuncs",
+            "content": "Functions implementing internal features. Not all of these\nfunction pointers must be defined for a given type. The required\nmembers are ``nonzero``, ``copyswap``, ``copyswapn``, ``setitem``,\n``getitem``, and ``cast``. These are assumed to be non- ``NULL``\nand ``NULL`` entries will cause a program crash. The other\nfunctions may be ``NULL`` which will just mean reduced\nfunctionality for that data-type. (Also, the nonzero function will\nbe filled in with a default function if it is ``NULL`` when you\nregister a user-defined data-type).\n\n.. code-block:: c\n\n   typedef struct {\n       PyArray_VectorUnaryFunc *cast[NPY_NTYPES];\n       PyArray_GetItemFunc *getitem;\n       PyArray_SetItemFunc *setitem;\n       PyArray_CopySwapNFunc *copyswapn;\n       PyArray_CopySwapFunc *copyswap;\n       PyArray_CompareFunc *compare;\n       PyArray_ArgFunc *argmax;\n       PyArray_DotFunc *dotfunc;\n       PyArray_ScanFunc *scanfunc;\n       PyArray_FromStrFunc *fromstr;\n       PyArray_NonzeroFunc *nonzero;\n       PyArray_FillFunc *fill;\n       PyArray_FillWithScalarFunc *fillwithscalar;\n       PyArray_SortFunc *sort[NPY_NSORTS];\n       PyArray_ArgSortFunc *argsort[NPY_NSORTS];\n       PyObject *castdict;\n       PyArray_ScalarKindFunc *scalarkind;\n       int **cancastscalarkindto;\n       int *cancastto;\n       PyArray_FastClipFunc *fastclip;  /* deprecated */\n       PyArray_FastPutmaskFunc *fastputmask;  /* deprecated */\n       PyArray_FastTakeFunc *fasttake;  /* deprecated */\n       PyArray_ArgFunc *argmin;\n   } PyArray_ArrFuncs;\n\nThe concept of a behaved segment is used in the description of the\nfunction pointers. A behaved segment is one that is aligned and in\nnative machine byte-order for the data-type. The ``nonzero``,\n``copyswap``, ``copyswapn``, ``getitem``, and ``setitem``\nfunctions can (and must) deal with mis-behaved arrays. The other\nfunctions require behaved memory segments.\n\n.. c:member:: void cast( \\\n        void *from, void *to, npy_intp n, void *fromarr, void *toarr)\n\n    An array of function pointers to cast from the current type to\n    all of the other builtin types. Each function casts a\n    contiguous, aligned, and notswapped buffer pointed at by\n    *from* to a contiguous, aligned, and notswapped buffer pointed\n    at by *to* The number of items to cast is given by *n*, and\n    the arguments *fromarr* and *toarr* are interpreted as\n    PyArrayObjects for flexible arrays to get itemsize\n    information.\n\n.. c:member:: PyObject *getitem(void *data, void *arr)\n\n    A pointer to a function that returns a standard Python object\n    from a single element of the array object *arr* pointed to by\n    *data*. This function must be able to deal with \"misbehaved\n    \"(misaligned and/or swapped) arrays correctly.\n\n.. c:member:: int setitem(PyObject *item, void *data, void *arr)\n\n    A pointer to a function that sets the Python object *item*\n    into the array, *arr*, at the position pointed to by *data*\n    . This function deals with \"misbehaved\" arrays. If successful,\n    a zero is returned, otherwise, a negative one is returned (and\n    a Python error set).\n\n.. c:member:: void copyswapn( \\\n        void *dest, npy_intp dstride, void *src, npy_intp sstride, \\\n        npy_intp n, int swap, void *arr)\n\n.. c:member:: void copyswap(void *dest, void *src, int swap, void *arr)\n\n    These members are both pointers to functions to copy data from\n    *src* to *dest* and *swap* if indicated. The value of arr is\n    only used for flexible ( :c:data:`NPY_STRING`, :c:data:`NPY_UNICODE`,\n    and :c:data:`NPY_VOID` ) arrays (and is obtained from\n    ``arr->descr->elsize`` ). The second function copies a single\n    value, while the first loops over n values with the provided\n    strides. These functions can deal with misbehaved *src*\n    data. If *src* is NULL then no copy is performed. If *swap* is\n    0, then no byteswapping occurs. It is assumed that *dest* and\n    *src* do not overlap. If they overlap, then use ``memmove``\n    (...) first followed by ``copyswap(n)`` with NULL valued\n    ``src``.\n\n.. c:member:: int compare(const void* d1, const void* d2, void* arr)\n\n    A pointer to a function that compares two elements of the\n    array, ``arr``, pointed to by ``d1`` and ``d2``. This\n    function requires behaved (aligned and not swapped) arrays.\n    The return value is 1 if * ``d1`` > * ``d2``, 0 if * ``d1`` == *\n    ``d2``, and -1 if * ``d1`` < * ``d2``. The array object ``arr`` is\n    used to retrieve itemsize and field information for flexible arrays.\n\n.. c:member:: int argmax( \\\n        void* data, npy_intp n, npy_intp* max_ind, void* arr)\n\n    A pointer to a function that retrieves the index of the\n    largest of ``n`` elements in ``arr`` beginning at the element\n    pointed to by ``data``. This function requires that the\n    memory segment be contiguous and behaved. The return value is\n    always 0. The index of the largest element is returned in\n    ``max_ind``.\n\n.. c:member:: void dotfunc( \\\n        void* ip1, npy_intp is1, void* ip2, npy_intp is2, void* op, \\\n        npy_intp n, void* arr)\n\n    A pointer to a function that multiplies two ``n`` -length\n    sequences together, adds them, and places the result in\n    element pointed to by ``op`` of ``arr``. The start of the two\n    sequences are pointed to by ``ip1`` and ``ip2``. To get to\n    the next element in each sequence requires a jump of ``is1``\n    and ``is2`` *bytes*, respectively. This function requires\n    behaved (though not necessarily contiguous) memory.\n\n.. c:member:: int scanfunc(FILE* fd, void* ip, void* arr)\n\n    A pointer to a function that scans (scanf style) one element\n    of the corresponding type from the file descriptor ``fd`` into\n    the array memory pointed to by ``ip``. The array is assumed\n    to be behaved. \n    The last argument ``arr`` is the array to be scanned into.\n    Returns number of receiving arguments successfully assigned (which\n    may be zero in case a matching failure occurred before the first\n    receiving argument was assigned), or EOF if input failure occurs \n    before the first receiving argument was assigned.\n    This function should be called without holding the Python GIL, and\n    has to grab it for error reporting.\n\n.. c:member:: int fromstr(char* str, void* ip, char** endptr, void* arr)\n\n    A pointer to a function that converts the string pointed to by\n    ``str`` to one element of the corresponding type and places it\n    in the memory location pointed to by ``ip``. After the\n    conversion is completed, ``*endptr`` points to the rest of the\n    string. The last argument ``arr`` is the array into which ip\n    points (needed for variable-size data- types). Returns 0 on\n    success or -1 on failure. Requires a behaved array.\n    This function should be called without holding the Python GIL, and\n    has to grab it for error reporting.\n\n.. c:member:: npy_bool nonzero(void* data, void* arr)\n\n    A pointer to a function that returns TRUE if the item of\n    ``arr`` pointed to by ``data`` is nonzero. This function can\n    deal with misbehaved arrays.\n\n.. c:member:: void fill(void* data, npy_intp length, void* arr)\n\n    A pointer to a function that fills a contiguous array of given\n    length with data. The first two elements of the array must\n    already be filled- in. From these two values, a delta will be\n    computed and the values from item 3 to the end will be\n    computed by repeatedly adding this computed delta. The data\n    buffer must be well-behaved.\n\n.. c:member:: void fillwithscalar( \\\n        void* buffer, npy_intp length, void* value, void* arr)\n\n    A pointer to a function that fills a contiguous ``buffer`` of\n    the given ``length`` with a single scalar ``value`` whose\n    address is given. The final argument is the array which is\n    needed to get the itemsize for variable-length arrays.\n\n.. c:member:: int sort(void* start, npy_intp length, void* arr)\n\n    An array of function pointers to a particular sorting\n    algorithms. A particular sorting algorithm is obtained using a\n    key (so far :c:data:`NPY_QUICKSORT`, :c:data:`NPY_HEAPSORT`,\n    and :c:data:`NPY_MERGESORT` are defined). These sorts are done\n    in-place assuming contiguous and aligned data.\n\n.. c:member:: int argsort( \\\n        void* start, npy_intp* result, npy_intp length, void *arr)\n\n    An array of function pointers to sorting algorithms for this\n    data type. The same sorting algorithms as for sort are\n    available. The indices producing the sort are returned in\n    ``result`` (which must be initialized with indices 0 to\n    ``length-1`` inclusive).\n\n.. c:member:: PyObject *castdict\n\n    Either ``NULL`` or a dictionary containing low-level casting\n    functions for user- defined data-types. Each function is\n    wrapped in a :c:expr:`PyCapsule *` and keyed by\n    the data-type number.\n\n.. c:member:: NPY_SCALARKIND scalarkind(PyArrayObject* arr)\n\n    A function to determine how scalars of this type should be\n    interpreted. The argument is ``NULL`` or a 0-dimensional array\n    containing the data (if that is needed to determine the kind\n    of scalar). The return value must be of type\n    :c:type:`NPY_SCALARKIND`.\n\n.. c:member:: int **cancastscalarkindto\n\n    Either ``NULL`` or an array of :c:type:`NPY_NSCALARKINDS`\n    pointers. These pointers should each be either ``NULL`` or a\n    pointer to an array of integers (terminated by\n    :c:data:`NPY_NOTYPE`) indicating data-types that a scalar of\n    this data-type of the specified kind can be cast to safely\n    (this usually means without losing precision).\n\n.. c:member:: int *cancastto\n\n    Either ``NULL`` or an array of integers (terminated by\n    :c:data:`NPY_NOTYPE` ) indicated data-types that this data-type\n    can be cast to safely (this usually means without losing\n    precision).\n\n.. c:member:: void fastclip( \\\n        void *in, npy_intp n_in, void *min, void *max, void *out)\n\n    .. deprecated:: 1.17\n        The use of this function will give a deprecation warning when\n        ``np.clip``. Instead of this function, the datatype must\n        instead use ``PyUFunc_RegisterLoopForDescr`` to attach a custom\n        loop to ``np.core.umath.clip``, ``np.minimum``, and ``np.maximum``.\n\n    .. deprecated:: 1.19\n        Setting this function is deprecated and should always be ``NULL``,\n        if set, it will be ignored.\n\n    A function that reads ``n_in`` items from ``in``, and writes to\n    ``out`` the read value if it is within the limits pointed to by\n    ``min`` and ``max``, or the corresponding limit if outside. The\n    memory segments must be contiguous and behaved, and either\n    ``min`` or ``max`` may be ``NULL``, but not both.\n\n.. c:member:: void fastputmask( \\\n        void *in, void *mask, npy_intp n_in, void *values, npy_intp nv)\n\n    .. deprecated:: 1.19\n        Setting this function is deprecated and should always be ``NULL``,\n        if set, it will be ignored.\n\n    A function that takes a pointer ``in`` to an array of ``n_in``\n    items, a pointer ``mask`` to an array of ``n_in`` boolean\n    values, and a pointer ``vals`` to an array of ``nv`` items.\n    Items from ``vals`` are copied into ``in`` wherever the value\n    in ``mask`` is non-zero, tiling ``vals`` as needed if\n    ``nv < n_in``. All arrays must be contiguous and behaved.\n\n.. c:member:: void fasttake( \\\n        void *dest, void *src, npy_intp *indarray, npy_intp nindarray, \\\n        npy_intp n_outer, npy_intp m_middle, npy_intp nelem, \\\n        NPY_CLIPMODE clipmode)\n\n    .. deprecated:: 1.19\n        Setting this function is deprecated and should always be ``NULL``,\n        if set, it will be ignored.\n\n    A function that takes a pointer ``src`` to a C contiguous,\n    behaved segment, interpreted as a 3-dimensional array of shape\n    ``(n_outer, nindarray, nelem)``, a pointer ``indarray`` to a\n    contiguous, behaved segment of ``m_middle`` integer indices,\n    and a pointer ``dest`` to a C contiguous, behaved segment,\n    interpreted as a 3-dimensional array of shape\n    ``(n_outer, m_middle, nelem)``. The indices in ``indarray`` are\n    used to index ``src`` along the second dimension, and copy the\n    corresponding chunks of ``nelem`` items into ``dest``.\n    ``clipmode`` (which can take on the values :c:data:`NPY_RAISE`,\n    :c:data:`NPY_WRAP` or :c:data:`NPY_CLIP`) determines how will\n    indices smaller than 0 or larger than ``nindarray`` will be\n    handled.\n\n.. c:member:: int argmin( \\\n        void* data, npy_intp n, npy_intp* min_ind, void* arr)\n\n    A pointer to a function that retrieves the index of the\n    smallest of ``n`` elements in ``arr`` beginning at the element\n    pointed to by ``data``. This function requires that the\n    memory segment be contiguous and behaved. The return value is\n    always 0. The index of the smallest element is returned in\n    ``min_ind``.",
+            "name": "c:type",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "PyArray_Type"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " typeobject implements many of the features of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "Python objects <PyTypeObject>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " including the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "tp_as_number\n<PyTypeObject.tp_as_number>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "tp_as_sequence\n<PyTypeObject.tp_as_sequence>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "tp_as_mapping\n<PyTypeObject.tp_as_mapping>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "tp_as_buffer\n<PyTypeObject.tp_as_buffer>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " interfaces. The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "rich comparison\n<richcmpfunc>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ") is also used along with new-style attribute lookup for member ("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "tp_members <PyTypeObject.tp_members>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ") and properties ("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "tp_getset <PyTypeObject.tp_getset>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "). The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "PyArray_Type"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " can also be sub-typed."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "",
+            "content": "The ``tp_as_number`` methods use a generic approach to call whatever\nfunction has been registered for handling the operation.  When the\n``_multiarray_umath module`` is imported, it sets the numeric operations\nfor all arrays to the corresponding ufuncs. This choice can be changed with\n:c:func:`PyUFunc_ReplaceLoopBySignature` The ``tp_str`` and ``tp_repr``\nmethods can also be altered using :c:func:`PyArray_SetStringFunction`.",
+            "name": "tip",
+            "options": []
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 2,
+      "title": "PyArrayDescr_Type and PyArray_Descr"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "argument": "PyTypeObject PyUFunc_Type",
+            "content": "The ufunc object is implemented by creation of the\n:c:data:`PyUFunc_Type`. It is a very simple type that implements only\nbasic getattribute behavior, printing behavior, and has call\nbehavior which allows these objects to act like functions. The\nbasic idea behind the ufunc is to hold a reference to fast\n1-dimensional (vector) loops for each data type that supports the\noperation. These one-dimensional loops all have the same signature\nand are the key to creating a new ufunc. They are called by the\ngeneric looping code as appropriate to implement the N-dimensional\nfunction. There are also some generic 1-d loops defined for\nfloating and complexfloating arrays that allow you to define a\nufunc using a single scalar function (*e.g.* atanh).",
+            "name": "c:var",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "argument": "PyUFuncObject",
+            "content": "The core of the ufunc is the :c:type:`PyUFuncObject` which contains all\nthe information needed to call the underlying C-code loops that\nperform the actual work. While it is described here for completeness, it\nshould be considered internal to NumPy and manipulated via ``PyUFunc_*``\nfunctions. The size of this structure is subject to change across versions\nof NumPy. To ensure compatibility:\n\n- Never declare a non-pointer instance of the struct\n- Never perform pointer arithmetic\n- Never use ``sizeof(PyUFuncObject)``\n\nIt has the following structure:\n\n.. code-block:: c\n\n   typedef struct {\n       PyObject_HEAD\n       int nin;\n       int nout;\n       int nargs;\n       int identity;\n       PyUFuncGenericFunction *functions;\n       void **data;\n       int ntypes;\n       int reserved1;\n       const char *name;\n       char *types;\n       const char *doc;\n       void *ptr;\n       PyObject *obj;\n       PyObject *userloops;\n       int core_enabled;\n       int core_num_dim_ix;\n       int *core_num_dims;\n       int *core_dim_ixs;\n       int *core_offsets;\n       char *core_signature;\n       PyUFunc_TypeResolutionFunc *type_resolver;\n       PyUFunc_LegacyInnerLoopSelectionFunc *legacy_inner_loop_selector;\n       void *reserved2;\n       npy_uint32 *op_flags;\n       npy_uint32 *iter_flags;\n       /* new in API version 0x0000000D */\n       npy_intp *core_dim_sizes;\n       npy_uint32 *core_dim_flags;\n       PyObject *identity_value;\n       /* Further private slots (size depends on the NumPy version) */\n   } PyUFuncObject;\n\n.. c:macro: PyObject_HEAD\n\n    required for all Python objects.\n\n.. c:member:: int nin\n\n    The number of input arguments.\n\n.. c:member:: int nout\n\n    The number of output arguments.\n\n.. c:member:: int nargs\n\n    The total number of arguments (*nin* + *nout*). This must be\n    less than :c:data:`NPY_MAXARGS`.\n\n.. c:member:: int identity\n\n    Either :c:data:`PyUFunc_One`, :c:data:`PyUFunc_Zero`,\n    :c:data:`PyUFunc_MinusOne`, :c:data:`PyUFunc_None`,\n    :c:data:`PyUFunc_ReorderableNone`, or\n    :c:data:`PyUFunc_IdentityValue` to indicate\n    the identity for this operation. It is only used for a\n    reduce-like call on an empty array.\n\n.. c:member:: void functions( \\\n       char** args, npy_intp* dims, npy_intp* steps, void* extradata)\n\n    An array of function pointers --- one for each data type\n    supported by the ufunc. This is the vector loop that is called\n    to implement the underlying function *dims* [0] times. The\n    first argument, *args*, is an array of *nargs* pointers to\n    behaved memory. Pointers to the data for the input arguments\n    are first, followed by the pointers to the data for the output\n    arguments. How many bytes must be skipped to get to the next\n    element in the sequence is specified by the corresponding entry\n    in the *steps* array. The last argument allows the loop to\n    receive extra information.  This is commonly used so that a\n    single, generic vector loop can be used for multiple\n    functions. In this case, the actual scalar function to call is\n    passed in as *extradata*. The size of this function pointer\n    array is ntypes.\n\n.. c:member:: void **data\n\n    Extra data to be passed to the 1-d vector loops or ``NULL`` if\n    no extra-data is needed. This C-array must be the same size (\n    *i.e.* ntypes) as the functions array. ``NULL`` is used if\n    extra_data is not needed. Several C-API calls for UFuncs are\n    just 1-d vector loops that make use of this extra data to\n    receive a pointer to the actual function to call.\n\n.. c:member:: int ntypes\n\n    The number of supported data types for the ufunc. This number\n    specifies how many different 1-d loops (of the builtin data\n    types) are available.\n\n.. c:member:: int reserved1\n\n    Unused.\n\n.. c:member:: char *name\n\n    A string name for the ufunc. This is used dynamically to build\n    the __doc\\__ attribute of ufuncs.\n\n.. c:member:: char *types\n\n    An array of :math:`nargs \\times ntypes` 8-bit type_numbers\n    which contains the type signature for the function for each of\n    the supported (builtin) data types. For each of the *ntypes*\n    functions, the corresponding set of type numbers in this array\n    shows how the *args* argument should be interpreted in the 1-d\n    vector loop. These type numbers do not have to be the same type\n    and mixed-type ufuncs are supported.\n\n.. c:member:: char *doc\n\n    Documentation for the ufunc. Should not contain the function\n    signature as this is generated dynamically when __doc\\__ is\n    retrieved.\n\n.. c:member:: void *ptr\n\n    Any dynamically allocated memory. Currently, this is used for\n    dynamic ufuncs created from a python function to store room for\n    the types, data, and name members.\n\n.. c:member:: PyObject *obj\n\n    For ufuncs dynamically created from python functions, this member\n    holds a reference to the underlying Python function.\n\n.. c:member:: PyObject *userloops\n\n    A dictionary of user-defined 1-d vector loops (stored as CObject\n    ptrs) for user-defined types. A loop may be registered by the\n    user for any user-defined type. It is retrieved by type number.\n    User defined type numbers are always larger than\n    :c:data:`NPY_USERDEF`.\n\n.. c:member:: int core_enabled\n\n    0 for scalar ufuncs; 1 for generalized ufuncs\n\n.. c:member:: int core_num_dim_ix\n\n    Number of distinct core dimension names in the signature\n\n.. c:member:: int *core_num_dims\n\n    Number of core dimensions of each argument\n\n.. c:member:: int *core_dim_ixs\n\n    Dimension indices in a flattened form; indices of argument ``k`` are\n    stored in ``core_dim_ixs[core_offsets[k] : core_offsets[k] +\n    core_numdims[k]]``\n\n.. c:member:: int *core_offsets\n\n    Position of 1st core dimension of each argument in ``core_dim_ixs``,\n    equivalent to cumsum(``core_num_dims``)\n\n.. c:member:: char *core_signature\n\n    Core signature string\n\n.. c:member:: PyUFunc_TypeResolutionFunc *type_resolver\n\n    A function which resolves the types and fills an array with the dtypes\n    for the inputs and outputs\n\n.. c:member:: PyUFunc_LegacyInnerLoopSelectionFunc *legacy_inner_loop_selector\n\n    .. deprecated:: 1.22\n\n         Some fallback support for this slot exists, but will be removed\n         eventually.  A universal function that relied on this will\n         have to be ported eventually.\n         See ref:`NEP 41 <NEP41>` and ref:`NEP 43 <NEP43>`\n\n.. c:member:: void *reserved2\n\n    For a possible future loop selector with a different signature.\n\n.. c:member:: npy_uint32 op_flags\n\n    Override the default operand flags for each ufunc operand.\n\n.. c:member:: npy_uint32 iter_flags\n\n    Override the default nditer flags for the ufunc.\n\nAdded in API version 0x0000000D\n\n.. c:member:: npy_intp *core_dim_sizes\n\n    For each distinct core dimension, the possible\n    :ref:`frozen <frozen>` size if\n    :c:data:`UFUNC_CORE_DIM_SIZE_INFERRED` is ``0``\n\n.. c:member:: npy_uint32 *core_dim_flags\n\n    For each distinct core dimension, a set of ``UFUNC_CORE_DIM*`` flags",
+            "name": "c:type",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "value": "..\n  dedented to allow internal linking, pending a refactoring"
+          },
+          "type": "Comment"
+        },
+        {
+          "data": {
+            "argument": "UFUNC_CORE_DIM_CAN_IGNORE",
+            "content": "if the dim name ends in ``?``",
+            "name": "c:macro",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "argument": "UFUNC_CORE_DIM_SIZE_INFERRED",
+            "content": "if the dim size will be determined from the operands\nand not from a :ref:`frozen <frozen>` signature",
+            "name": "c:macro",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "argument": "PyObject *identity_value",
+                  "content": "Identity for reduction, when :c:member:`PyUFuncObject.identity`\n   is equal to :c:data:`PyUFunc_IdentityValue`.",
+                  "name": "c:member",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              }
+            ]
+          },
+          "type": "BlockQuote"
+        }
+      ],
+      "level": 2,
+      "title": "PyUFunc_Type and PyUFuncObject"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "argument": "PyTypeObject PyArrayIter_Type",
+            "content": "This is an iterator object that makes it easy to loop over an\nN-dimensional array. It is the object returned from the flat\nattribute of an ndarray. It is also used extensively throughout the\nimplementation internals to loop over an N-dimensional array. The\ntp_as_mapping interface is implemented so that the iterator object\ncan be indexed (using 1-d indexing), and a few methods are\nimplemented through the tp_methods table. This object implements the\nnext method and can be used anywhere an iterator can be used in\nPython.",
+            "name": "c:var",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "argument": "PyArrayIterObject",
+            "content": "The C-structure corresponding to an object of :c:data:`PyArrayIter_Type` is\nthe :c:type:`PyArrayIterObject`. The :c:type:`PyArrayIterObject` is used to\nkeep track of a pointer into an N-dimensional array. It contains associated\ninformation used to quickly march through the array. The pointer can\nbe adjusted in three basic ways: 1) advance to the \"next\" position in\nthe array in a C-style contiguous fashion, 2) advance to an arbitrary\nN-dimensional coordinate in the array, and 3) advance to an arbitrary\none-dimensional index into the array. The members of the\n:c:type:`PyArrayIterObject` structure are used in these\ncalculations. Iterator objects keep their own dimension and strides\ninformation about an array. This can be adjusted as needed for\n\"broadcasting,\" or to loop over only specific dimensions.\n\n.. code-block:: c\n\n   typedef struct {\n       PyObject_HEAD\n       int   nd_m1;\n       npy_intp  index;\n       npy_intp  size;\n       npy_intp  coordinates[NPY_MAXDIMS];\n       npy_intp  dims_m1[NPY_MAXDIMS];\n       npy_intp  strides[NPY_MAXDIMS];\n       npy_intp  backstrides[NPY_MAXDIMS];\n       npy_intp  factors[NPY_MAXDIMS];\n       PyArrayObject *ao;\n       char  *dataptr;\n       npy_bool  contiguous;\n   } PyArrayIterObject;\n\n.. c:member:: int nd_m1\n\n    :math:`N-1` where :math:`N` is the number of dimensions in the\n    underlying array.\n\n.. c:member:: npy_intp index\n\n    The current 1-d index into the array.\n\n.. c:member:: npy_intp size\n\n    The total size of the underlying array.\n\n.. c:member:: npy_intp *coordinates\n\n    An :math:`N` -dimensional index into the array.\n\n.. c:member:: npy_intp *dims_m1\n\n    The size of the array minus 1 in each dimension.\n\n.. c:member:: npy_intp *strides\n\n    The strides of the array. How many bytes needed to jump to the next\n    element in each dimension.\n\n.. c:member:: npy_intp *backstrides\n\n    How many bytes needed to jump from the end of a dimension back\n    to its beginning. Note that ``backstrides[k] == strides[k] *\n    dims_m1[k]``, but it is stored here as an optimization.\n\n.. c:member:: npy_intp *factors\n\n    This array is used in computing an N-d index from a 1-d index. It\n    contains needed products of the dimensions.\n\n.. c:member:: PyArrayObject *ao\n\n    A pointer to the underlying ndarray this iterator was created to\n    represent.\n\n.. c:member:: char *dataptr\n\n    This member points to an element in the ndarray indicated by the\n    index.\n\n.. c:member:: npy_bool contiguous\n\n    This flag is true if the underlying array is\n    :c:data:`NPY_ARRAY_C_CONTIGUOUS`. It is used to simplify\n    calculations when possible.",
+            "name": "c:type",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "How to use an array iterator on a C-level is explained more fully in later sections. Typically, you do not need to concern yourself with the internal structure of the iterator object, and merely interact with it through the use of the macros "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "PyArray_ITER_NEXT"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " (it), "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "PyArray_ITER_GOTO"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " (it, dest), or "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "PyArray_ITER_GOTO1D"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " (it, index). All of these macros require the argument "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "it"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " to be a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "PyArrayIterObject *"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "title": "PyArrayIter_Type and PyArrayIterObject"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "argument": "PyTypeObject PyArrayMultiIter_Type",
+            "content": "This type provides an iterator that encapsulates the concept of\nbroadcasting. It allows :math:`N` arrays to be broadcast together\nso that the loop progresses in C-style contiguous fashion over the\nbroadcasted array. The corresponding C-structure is the\n:c:type:`PyArrayMultiIterObject` whose memory layout must begin any\nobject, *obj*, passed in to the :c:func:`PyArray_Broadcast` (obj)\nfunction. Broadcasting is performed by adjusting array iterators so\nthat each iterator represents the broadcasted shape and size, but\nhas its strides adjusted so that the correct element from the array\nis used at each iteration.",
+            "name": "c:var",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "argument": "PyArrayMultiIterObject",
+            "content": ".. code-block:: c\n\n   typedef struct {\n       PyObject_HEAD\n       int numiter;\n       npy_intp size;\n       npy_intp index;\n       int nd;\n       npy_intp dimensions[NPY_MAXDIMS];\n       PyArrayIterObject *iters[NPY_MAXDIMS];\n   } PyArrayMultiIterObject;\n\n.. c:macro: PyObject_HEAD\n\n    Needed at the start of every Python object (holds reference count\n    and type identification).\n\n.. c:member:: int numiter\n\n    The number of arrays that need to be broadcast to the same shape.\n\n.. c:member:: npy_intp size\n\n    The total broadcasted size.\n\n.. c:member:: npy_intp index\n\n    The current (1-d) index into the broadcasted result.\n\n.. c:member:: int nd\n\n    The number of dimensions in the broadcasted result.\n\n.. c:member:: npy_intp *dimensions\n\n    The shape of the broadcasted result (only ``nd`` slots are used).\n\n.. c:member:: PyArrayIterObject **iters\n\n    An array of iterator objects that holds the iterators for the\n    arrays to be broadcast together. On return, the iterators are\n    adjusted for broadcasting.",
+            "name": "c:type",
+            "options": []
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 2,
+      "title": "PyArrayMultiIter_Type and PyArrayMultiIterObject"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "argument": "PyTypeObject PyArrayNeighborhoodIter_Type",
+            "content": "This is an iterator object that makes it easy to loop over an\nN-dimensional neighborhood.",
+            "name": "c:var",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "argument": "PyArrayNeighborhoodIterObject",
+            "content": "The C-structure corresponding to an object of\n:c:data:`PyArrayNeighborhoodIter_Type` is the\n:c:type:`PyArrayNeighborhoodIterObject`.\n\n.. code-block:: c\n\n   typedef struct {\n       PyObject_HEAD\n       int nd_m1;\n       npy_intp index, size;\n       npy_intp coordinates[NPY_MAXDIMS]\n       npy_intp dims_m1[NPY_MAXDIMS];\n       npy_intp strides[NPY_MAXDIMS];\n       npy_intp backstrides[NPY_MAXDIMS];\n       npy_intp factors[NPY_MAXDIMS];\n       PyArrayObject *ao;\n       char *dataptr;\n       npy_bool contiguous;\n       npy_intp bounds[NPY_MAXDIMS][2];\n       npy_intp limits[NPY_MAXDIMS][2];\n       npy_intp limits_sizes[NPY_MAXDIMS];\n       npy_iter_get_dataptr_t translate;\n       npy_intp nd;\n       npy_intp dimensions[NPY_MAXDIMS];\n       PyArrayIterObject* _internal_iter;\n       char* constant;\n       int mode;\n   } PyArrayNeighborhoodIterObject;",
+            "name": "c:type",
+            "options": []
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 2,
+      "title": "PyArrayNeighborhoodIter_Type and PyArrayNeighborhoodIterObject"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "argument": "PyTypeObject PyArrayFlags_Type",
+            "content": "When the flags attribute is retrieved from Python, a special\nbuiltin object of this type is constructed. This special type makes\nit easier to work with the different flags by accessing them as\nattributes or by accessing them as if the object were a dictionary\nwith the flag names as entries.",
+            "name": "c:var",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "argument": "PyArrayFlagsObject",
+            "content": ".. code-block:: c\n\n   typedef struct PyArrayFlagsObject {\n           PyObject_HEAD\n           PyObject *arr;\n           int flags;\n   } PyArrayFlagsObject;",
+            "name": "c:type",
+            "options": []
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 2,
+      "title": "PyArrayFlags_Type and PyArrayFlagsObject"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "There is a Python type for each of the different built-in data types that can be present in the array Most of these are simple wrappers around the corresponding data type in C. The C-names for these types are "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "Py{TYPE}ArrType_Type"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " where "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "{TYPE}"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " can be"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "content": {
+                          "value": "Bool"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "Byte"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "Short"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "Int"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "Long"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "LongLong"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ",     "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "UByte"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "UShort"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "UInt"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "ULong"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "ULongLong"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ",     "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "Half"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "Float"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "Double"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "LongDouble"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "CFloat"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ",     "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "CDouble"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "CLongDouble"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "String"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "Unicode"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "Void"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ", and     "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "content": {
+                          "value": "Object"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": "."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              }
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "These type names are part of the C-API and can therefore be created in extension C-code. There is also a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "PyIntpArrType_Type"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "PyUIntpArrType_Type"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " that are simple substitutes for one of the integer types that can hold a pointer on the platform. The structure of these scalar objects is not exposed to C-code. The function "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "PyArray_ScalarAsCtype"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " (..) can be used to extract the C-type value from the array scalar and the function "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "PyArray_Scalar"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " (...) can be used to construct an array scalar from a C-value."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "title": "ScalarArrayTypes"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "A few new C-structures were found to be useful in the development of NumPy. These C-structures are used in at least one C-API call and are therefore documented here. The main reason these structures were defined is to make it easy to use the Python ParseTuple C-API to convert from Python objects to a useful C-Object."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 1,
+      "title": "Other C-Structures"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "argument": "PyArray_Dims",
+            "content": "This structure is very useful when shape and/or strides information\nis supposed to be interpreted. The structure is:\n\n.. code-block:: c\n\n   typedef struct {\n       npy_intp *ptr;\n       int len;\n   } PyArray_Dims;\n\nThe members of this structure are\n\n.. c:member:: npy_intp *ptr\n\n    A pointer to a list of (:c:type:`npy_intp`) integers which\n    usually represent array shape or array strides.\n\n.. c:member:: int len\n\n    The length of the list of integers. It is assumed safe to\n    access *ptr* [0] to *ptr* [len-1].",
+            "name": "c:type",
+            "options": []
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 2,
+      "title": "PyArray_Dims"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "argument": "PyArray_Chunk",
+            "content": "This is equivalent to the buffer object structure in Python up to\nthe ptr member. On 32-bit platforms (*i.e.* if :c:data:`NPY_SIZEOF_INT`\n== :c:data:`NPY_SIZEOF_INTP`), the len member also matches an equivalent\nmember of the buffer object. It is useful to represent a generic\nsingle-segment chunk of memory.\n\n.. code-block:: c\n\n   typedef struct {\n       PyObject_HEAD\n       PyObject *base;\n       void *ptr;\n       npy_intp len;\n       int flags;\n   } PyArray_Chunk;\n\nThe members are\n\n.. c:macro: PyObject_HEAD\n\n    Necessary for all Python objects. Included here so that the\n    :c:type:`PyArray_Chunk` structure matches that of the buffer object\n    (at least to the len member).\n\n.. c:member:: PyObject *base\n\n    The Python object this chunk of memory comes from. Needed so that\n    memory can be accounted for properly.\n\n.. c:member:: void *ptr\n\n    A pointer to the start of the single-segment chunk of memory.\n\n.. c:member:: npy_intp len\n\n    The length of the segment in bytes.\n\n.. c:member:: int flags\n\n    Any data flags (*e.g.* :c:data:`NPY_ARRAY_WRITEABLE` ) that should\n    be used to interpret the memory.",
+            "name": "c:type",
+            "options": []
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 2,
+      "title": "PyArray_Chunk"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "argument": ":ref:`arrays.interface`",
+            "content": "",
+            "name": "seealso",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "argument": "PyArrayInterface",
+            "content": "The :c:type:`PyArrayInterface` structure is defined so that NumPy and\nother extension modules can use the rapid array interface\nprotocol. The :obj:`~object.__array_struct__` method of an object that\nsupports the rapid array interface protocol should return a\n:c:type:`PyCapsule` that contains a pointer to a :c:type:`PyArrayInterface`\nstructure with the relevant details of the array. After the new\narray is created, the attribute should be ``DECREF``'d which will\nfree the :c:type:`PyArrayInterface` structure. Remember to ``INCREF`` the\nobject (whose :obj:`~object.__array_struct__` attribute was retrieved) and\npoint the base member of the new :c:type:`PyArrayObject` to this same\nobject. In this way the memory for the array will be managed\ncorrectly.\n\n.. code-block:: c\n\n   typedef struct {\n       int two;\n       int nd;\n       char typekind;\n       int itemsize;\n       int flags;\n       npy_intp *shape;\n       npy_intp *strides;\n       void *data;\n       PyObject *descr;\n   } PyArrayInterface;\n\n.. c:member:: int two\n\n    the integer 2 as a sanity check.\n\n.. c:member:: int nd\n\n    the number of dimensions in the array.\n\n.. c:member:: char typekind\n\n    A character indicating what kind of array is present according to the\n    typestring convention with 't' -> bitfield, 'b' -> Boolean, 'i' ->\n    signed integer, 'u' -> unsigned integer, 'f' -> floating point, 'c' ->\n    complex floating point, 'O' -> object, 'S' -> (byte-)string, 'U' ->\n    unicode, 'V' -> void.\n\n.. c:member:: int itemsize\n\n    The number of bytes each item in the array requires.\n\n.. c:member:: int flags\n\n    Any of the bits :c:data:`NPY_ARRAY_C_CONTIGUOUS` (1),\n    :c:data:`NPY_ARRAY_F_CONTIGUOUS` (2), :c:data:`NPY_ARRAY_ALIGNED` (0x100),\n    :c:data:`NPY_ARRAY_NOTSWAPPED` (0x200), or :c:data:`NPY_ARRAY_WRITEABLE`\n    (0x400) to indicate something about the data. The\n    :c:data:`NPY_ARRAY_ALIGNED`, :c:data:`NPY_ARRAY_C_CONTIGUOUS`, and\n    :c:data:`NPY_ARRAY_F_CONTIGUOUS` flags can actually be determined from\n    the other parameters. The flag :c:data:`NPY_ARR_HAS_DESCR`\n    (0x800) can also be set to indicate to objects consuming the\n    version 3 array interface that the descr member of the\n    structure is present (it will be ignored by objects consuming\n    version 2 of the array interface).\n\n.. c:member:: npy_intp *shape\n\n    An array containing the size of the array in each dimension.\n\n.. c:member:: npy_intp *strides\n\n    An array containing the number of bytes to jump to get to the next\n    element in each dimension.\n\n.. c:member:: void *data\n\n    A pointer *to* the first element of the array.\n\n.. c:member:: PyObject *descr\n\n    A Python object describing the data-type in more detail (same\n    as the *descr* key in :obj:`~object.__array_interface__`). This can be\n    ``NULL`` if *typekind* and *itemsize* provide enough\n    information. This field is also ignored unless\n    :c:data:`NPY_ARR_HAS_DESCR` flag is on in *flags*.",
+            "name": "c:type",
+            "options": []
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 2,
+      "title": "PyArrayInterface"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Internally, the code uses some additional Python objects primarily for memory management. These types are not accessible directly from Python, and are not exposed to the C-API. They are included here only for completeness and assistance in understanding the code."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "PyUFuncLoopObject",
+            "content": "A loose wrapper for a C-structure that contains the information\nneeded for looping. This is useful if you are trying to understand\nthe ufunc looping code. The :c:type:`PyUFuncLoopObject` is the associated\nC-structure. It is defined in the ``ufuncobject.h`` header.",
+            "name": "c:type",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "argument": "PyUFuncReduceObject",
+            "content": "A loose wrapper for the C-structure that contains the information\nneeded for reduce-like methods of ufuncs. This is useful if you are\ntrying to understand the reduce, accumulate, and reduce-at\ncode. The :c:type:`PyUFuncReduceObject` is the associated C-structure. It\nis defined in the ``ufuncobject.h`` header.",
+            "name": "c:type",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "argument": "PyUFunc_Loop1d",
+            "content": "A simple linked-list of C-structures containing the information needed\nto define a 1-d loop for a ufunc for every defined signature of a\nuser-defined data-type.",
+            "name": "c:type",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "argument": "PyTypeObject PyArrayMapIter_Type",
+            "content": "Advanced indexing is handled with this Python type. It is simply a\nloose wrapper around the C-structure containing the variables\nneeded for advanced array indexing. The associated C-structure,\n``PyArrayMapIterObject``, is useful if you are trying to\nunderstand the advanced-index mapping code. It is defined in the\n``arrayobject.h`` header. This type is not exposed to Python and\ncould be replaced with a C-structure. As a Python type it takes\nadvantage of reference- counted memory management.",
+            "name": "c:var",
+            "options": []
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 2,
+      "title": "Internally used structures"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

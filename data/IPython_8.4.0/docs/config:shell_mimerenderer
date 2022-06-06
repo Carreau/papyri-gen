@@ -1,0 +1,223 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _shell_mimerenderer:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "level": 0,
+      "title": null
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Like it's cousins, Jupyter Notebooks and JupyterLab, Terminal IPython can be thought to render a number of mimetypes in the shell. This can be used to either display inline images if your terminal emulator supports it; or open some display results with external file viewers."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Registering new mimetype handlers can so far only be done by extensions and requires 4 steps:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "Define a callable that takes 2 parameters:``data`` and ``metadata``; return      value of the callable is so far ignored. This callable is responsible for      \"displaying\" the given mimetype. Which can be sending the right escape      sequences and bytes to the current terminal; or open an external program. -"
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "children": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "Appending the right mimetype to "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "ipython.display_formatter.active_types"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              },
+                              {
+                                "data": {
+                                  "value": "      for IPython to know it should not ignore those mimetypes."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "children": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "Enabling the given mimetype: "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "ipython.display_formatter.formatters[mime].enabled = True"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "children": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "Registering above callable with mimetype handler:      "
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "value": [
+                                    "ipython.mime_renderers[mime] = handler"
+                                  ]
+                                },
+                                "type": "Verbatim"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "type": "BulletList"
+              }
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Here is a complete IPython extension to display images inline and convert math to png, before displaying it inline for iterm2 on macOS :       "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "from base64 import encodebytes\nfrom IPython.lib.latextools import latex_to_png\n\n\ndef mathcat(data, meta):\n    png = latex_to_png(f'$${data}$$'.replace('\\displaystyle', '').replace('$$$', '$$'))\n    imcat(png, meta)\n\nIMAGE_CODE = '\\033]1337;File=name=name;inline=true;:{}\\a'\n\ndef imcat(image_data, metadata):\n    try:\n        print(IMAGE_CODE.format(encodebytes(image_data).decode()))\n    # bug workaround\n    except:\n        print(IMAGE_CODE.format(image_data))\n\ndef register_mimerenderer(ipython, mime, handler):\n    ipython.display_formatter.active_types.append(mime)\n    ipython.display_formatter.formatters[mime].enabled = True\n    ipython.mime_renderers[mime] = handler\n\ndef load_ipython_extension(ipython):\n    register_mimerenderer(ipython, 'image/png', imcat)\n    register_mimerenderer(ipython, 'image/jpeg', imcat)\n    register_mimerenderer(ipython, 'text/latex', mathcat)"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "This example only work for iterm2 on macOS and skip error handling for brevity. One could also invoke an external viewer with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "subprocess.run()"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and a temporary file, which is left as an exercise."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "title": "Mime Renderer Extensions"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

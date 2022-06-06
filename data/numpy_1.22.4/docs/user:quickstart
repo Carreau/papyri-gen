@@ -1,0 +1,5500 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "argument": "numpy",
+            "content": "",
+            "name": "currentmodule",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "argument": "",
+            "content": ">>> import numpy as np\n>>> import sys",
+            "name": "testsetup",
+            "options": []
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 0,
+      "title": "NumPy quickstart"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "You'll need to know a bit of Python. For a refresher, see the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://docs.python.org/tutorial/",
+                  "value": "Python\ntutorial"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "To work the examples, you'll need "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "matplotlib"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " installed in addition to NumPy."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "content": {
+                    "value": "Learner profile"
+                  }
+                },
+                "type": "Strong"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "This is a quick overview of arrays in NumPy. It demonstrates how n-dimensional ("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "n>=2"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": ") arrays are represented and can be manipulated. In particular, if you don't know how to apply common functions to n-dimensional arrays (without using for-loops), or if you want to understand axis and shape properties for n-dimensional arrays, this article might be of help."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "content": {
+                    "value": "Learning Objectives"
+                  }
+                },
+                "type": "Strong"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "After reading, you should be able to:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Understand the difference between one-, two- and n-dimensional arrays in   NumPy;"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Understand how to apply some linear algebra operations to n-dimensional   arrays without using for-loops;"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Understand axis and shape properties for n-dimensional arrays."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _quickstart.the-basics:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "level": 1,
+      "title": "Prerequisites"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "NumPy's main object is the homogeneous multidimensional array. It is a table of elements (usually numbers), all of the same type, indexed by a tuple of non-negative integers. In NumPy dimensions are called "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "axes"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For example, the array for the coordinates of a point in 3D space, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "[1, 2, 1]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", has one axis. That axis has 3 elements in it, so we say it has a length of 3. In the example pictured below, the array has 2  axes. The first axis has a length of 2, the second axis has a length of  3."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "[[1., 0., 0.],\n [0., 1., 2.]]"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "NumPy's array class is called "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ndarray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". It is also known by the alias "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "array"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". Note that "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.array"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is not the same as the Standard Python Library class "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "array.array"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", which only handles one-dimensional arrays and offers less functionality. The more important attributes of an "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ndarray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " object are:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "the number of axes (dimensions) of the array."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "ndarray.ndim"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "the dimensions of the array. This is a tuple of integers indicating     the size of the array in each dimension. For a matrix with "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "n"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " rows     and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "m"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " columns, "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "shape"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " will be "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "(n,m)"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ". The length of the     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "shape"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " tuple is therefore the number of axes, "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "ndim"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "ndarray.shape"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "the total number of elements of the array. This is equal to the     product of the elements of "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "shape"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "ndarray.size"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "an object describing the type of the elements in the array. One can     create or specify dtype's using standard Python types. Additionally     NumPy provides types of its own. numpy.int32, numpy.int16, and     numpy.float64 are some examples."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "ndarray.dtype"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "the size in bytes of each element of the array. For example, an     array of elements of type "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "float64"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " has "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "itemsize"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " 8 (=64/8),     while one of type "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "complex32"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " has "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "itemsize"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " 4 (=32/8). It is     equivalent to "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "ndarray.dtype.itemsize"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "ndarray.itemsize"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "the buffer containing the actual elements of the array. Normally, we     won't need to use this attribute because we will access the elements     in an array using indexing facilities."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "ndarray.data"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        }
+      ],
+      "level": 1,
+      "title": "The Basics"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": ">>> import numpy as np\n>>> a = np.arange(15).reshape(3, 5)\n>>> a\narray([[ 0,  1,  2,  3,  4],\n       [ 5,  6,  7,  8,  9],\n       [10, 11, 12, 13, 14]])\n>>> a.shape\n(3, 5)\n>>> a.ndim\n2\n>>> a.dtype.name\n'int64'\n>>> a.itemsize\n8\n>>> a.size\n15\n>>> type(a)\n<class 'numpy.ndarray'>\n>>> b = np.array([6, 7, 8])\n>>> b\narray([6, 7, 8])\n>>> type(b)\n<class 'numpy.ndarray'>"
+                },
+                "type": "BlockVerbatim"
+              }
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _quickstart.array-creation:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "level": 2,
+      "title": "An example"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "There are several ways to create arrays."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For example, you can create an array from a regular Python list or tuple using the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "array"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " function. The type of the resulting array is deduced from the type of the elements in the sequences."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> import numpy as np\n>>> a = np.array([2, 3, 4])\n>>> a\narray([2, 3, 4])\n>>> a.dtype\ndtype('int64')\n>>> b = np.array([1.2, 3.5, 5.1])\n>>> b.dtype\ndtype('float64')"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "A frequent error consists in calling "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "array"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " with multiple arguments, rather than providing a single sequence as an argument."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> a = np.array(1, 2, 3, 4)    # WRONG\nTraceback (most recent call last):\n  ...\nTypeError: array() takes from 1 to 2 positional arguments but 4 were given\n>>> a = np.array([1, 2, 3, 4])  # RIGHT"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": [
+                    "array"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " transforms sequences of sequences into two-dimensional arrays, sequences of sequences of sequences into three-dimensional arrays, and so on."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> b = np.array([(1.5, 2, 3), (4, 5, 6)])\n>>> b\narray([[1.5, 2. , 3. ],\n       [4. , 5. , 6. ]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The type of the array can also be explicitly specified at creation time:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> c = np.array([[1, 2], [3, 4]], dtype=complex)\n>>> c\narray([[1.+0.j, 2.+0.j],\n       [3.+0.j, 4.+0.j]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Often, the elements of an array are originally unknown, but its size is known. Hence, NumPy offers several functions to create arrays with initial placeholder content. These minimize the necessity of growing arrays, an expensive operation."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The function "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "zeros"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " creates an array full of zeros, the function "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ones"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " creates an array full of ones, and the function "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "empty"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " creates an array whose initial content is random and depends on the state of the memory. By default, the dtype of the created array is "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "float64"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", but it can be specified via the key word argument "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "dtype"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> np.zeros((3, 4))\narray([[0., 0., 0., 0.],\n       [0., 0., 0., 0.],\n       [0., 0., 0., 0.]])\n>>> np.ones((2, 3, 4), dtype=np.int16)\narray([[[1, 1, 1, 1],\n        [1, 1, 1, 1],\n        [1, 1, 1, 1]],\n<BLANKLINE>\n       [[1, 1, 1, 1],\n        [1, 1, 1, 1],\n        [1, 1, 1, 1]]], dtype=int16)\n>>> np.empty((2, 3)) #doctest: +SKIP\narray([[3.73603959e-262, 6.02658058e-154, 6.55490914e-260],  # may vary\n       [5.30498948e-313, 3.14673309e-307, 1.00000000e+000]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "To create sequences of numbers, NumPy provides the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "arange"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " function which is analogous to the Python built-in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "range"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", but returns an array."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> np.arange(10, 30, 5)\narray([10, 15, 20, 25])\n>>> np.arange(0, 2, 0.3)  # it accepts float arguments\narray([0. , 0.3, 0.6, 0.9, 1.2, 1.5, 1.8])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "When "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "arange"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is used with floating point arguments, it is generally not possible to predict the number of elements obtained, due to the finite floating point precision. For this reason, it is usually better to use the function "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "linspace"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " that receives as an argument the number of elements that we want, instead of the step:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> from numpy import pi\n>>> np.linspace(0, 2, 9)                   # 9 numbers from 0 to 2\narray([0.  , 0.25, 0.5 , 0.75, 1.  , 1.25, 1.5 , 1.75, 2.  ])\n>>> x = np.linspace(0, 2 * pi, 100)        # useful to evaluate function at lots of points\n>>> f = np.sin(x)"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "argument": "",
+            "content": "`array`,\n`zeros`,\n`zeros_like`,\n`ones`,\n`ones_like`,\n`empty`,\n`empty_like`,\n`arange`,\n`linspace`,\n`numpy.random.Generator.rand`,\n`numpy.random.Generator.randn`,\n`fromfunction`,\n`fromfile`",
+            "name": "seealso",
+            "options": []
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 2,
+      "title": "Array Creation"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "When you print an array, NumPy displays it in a similar way to nested lists, but with the following layout:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "the last axis is printed from left to right,"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "the second-to-last is printed from top to bottom,"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "the rest are also printed from top to bottom, with each slice    separated from the next by an empty line."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "One-dimensional arrays are then printed as rows, bidimensionals as matrices and tridimensionals as lists of matrices."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> a = np.arange(6)                    # 1d array\n>>> print(a)\n[0 1 2 3 4 5]\n>>> \n>>> b = np.arange(12).reshape(4, 3)     # 2d array\n>>> print(b)\n[[ 0  1  2]\n [ 3  4  5]\n [ 6  7  8]\n [ 9 10 11]]\n>>> \n>>> c = np.arange(24).reshape(2, 3, 4)  # 3d array\n>>> print(c)\n[[[ 0  1  2  3]\n  [ 4  5  6  7]\n  [ 8  9 10 11]]\n<BLANKLINE>\n [[12 13 14 15]\n  [16 17 18 19]\n  [20 21 22 23]]]"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "See "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "below <quickstart.shape-manipulation>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " to get more details on "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "reshape"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "If an array is too large to be printed, NumPy automatically skips the central part of the array and only prints the corners:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> print(np.arange(10000))\n[   0    1    2 ... 9997 9998 9999]\n>>> \n>>> print(np.arange(10000).reshape(100, 100))\n[[   0    1    2 ...   97   98   99]\n [ 100  101  102 ...  197  198  199]\n [ 200  201  202 ...  297  298  299]\n ...\n [9700 9701 9702 ... 9797 9798 9799]\n [9800 9801 9802 ... 9897 9898 9899]\n [9900 9901 9902 ... 9997 9998 9999]]"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "To disable this behaviour and force NumPy to print the entire array, you can change the printing options using "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "set_printoptions"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> np.set_printoptions(threshold=sys.maxsize)  # sys module should be imported"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _quickstart.basic-operations:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "level": 2,
+      "title": "Printing Arrays"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Arithmetic operators on arrays apply "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "elementwise"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": ". A new array is created and filled with the result."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> a = np.array([20, 30, 40, 50])\n>>> b = np.arange(4)\n>>> b\narray([0, 1, 2, 3])\n>>> c = a - b\n>>> c\narray([20, 29, 38, 47])\n>>> b**2\narray([0, 1, 4, 9])\n>>> 10 * np.sin(a)\narray([ 9.12945251, -9.88031624,  7.4511316 , -2.62374854])\n>>> a < 35\narray([ True,  True, False, False])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Unlike in many matrix languages, the product operator "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "*"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " operates elementwise in NumPy arrays. The matrix product can be performed using the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "@"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " operator (in python >=3.5) or the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "dot"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " function or method:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> A = np.array([[1, 1],\n...               [0, 1]])\n>>> B = np.array([[2, 0],\n...               [3, 4]])\n>>> A * B     # elementwise product\narray([[2, 0],\n       [0, 4]])\n>>> A @ B     # matrix product\narray([[5, 4],\n       [3, 4]])\n>>> A.dot(B)  # another matrix product\narray([[5, 4],\n       [3, 4]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Some operations, such as "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "+="
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "*="
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", act in place to modify an existing array rather than create a new one."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> rg = np.random.default_rng(1)  # create instance of default random number generator\n>>> a = np.ones((2, 3), dtype=int)\n>>> b = rg.random((2, 3))\n>>> a *= 3\n>>> a\narray([[3, 3, 3],\n       [3, 3, 3]])\n>>> b += a\n>>> b\narray([[3.51182162, 3.9504637 , 3.14415961],\n       [3.94864945, 3.31183145, 3.42332645]])\n>>> a += b  # b is not automatically converted to integer type\nTraceback (most recent call last):\n    ...\nnumpy.core._exceptions._UFuncOutputCastingError: Cannot cast ufunc 'add' output from dtype('float64') to dtype('int64') with casting rule 'same_kind'"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "When operating with arrays of different types, the type of the resulting array corresponds to the more general or precise one (a behavior known as upcasting)."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> a = np.ones(3, dtype=np.int32)\n>>> b = np.linspace(0, pi, 3)\n>>> b.dtype.name\n'float64'\n>>> c = a + b\n>>> c\narray([1.        , 2.57079633, 4.14159265])\n>>> c.dtype.name\n'float64'\n>>> d = np.exp(c * 1j)\n>>> d\narray([ 0.54030231+0.84147098j, -0.84147098+0.54030231j,\n       -0.54030231-0.84147098j])\n>>> d.dtype.name\n'complex128'"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Many unary operations, such as computing the sum of all the elements in the array, are implemented as methods of the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ndarray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " class."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> a = rg.random((2, 3))\n>>> a\narray([[0.82770259, 0.40919914, 0.54959369],\n       [0.02755911, 0.75351311, 0.53814331]])\n>>> a.sum()\n3.1057109529998157\n>>> a.min()\n0.027559113243068367\n>>> a.max()\n0.8277025938204418"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "By default, these operations apply to the array as though it were a list of numbers, regardless of its shape. However, by specifying the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "axis"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " parameter you can apply an operation along the specified axis of an array:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> b = np.arange(12).reshape(3, 4)\n>>> b\narray([[ 0,  1,  2,  3],\n       [ 4,  5,  6,  7],\n       [ 8,  9, 10, 11]])\n>>>\n>>> b.sum(axis=0)     # sum of each column\narray([12, 15, 18, 21])\n>>>\n>>> b.min(axis=1)     # min of each row\narray([0, 4, 8])\n>>>\n>>> b.cumsum(axis=1)  # cumulative sum along each row\narray([[ 0,  1,  3,  6],\n       [ 4,  9, 15, 22],\n       [ 8, 17, 27, 38]])"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 2,
+      "title": "Basic Operations"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "NumPy provides familiar mathematical functions such as sin, cos, and exp. In NumPy, these are called \"universal functions\" (\\ "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ufunc"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "). Within NumPy, these functions operate elementwise on an array, producing an array as output."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> B = np.arange(3)\n>>> B\narray([0, 1, 2])\n>>> np.exp(B)\narray([1.        , 2.71828183, 7.3890561 ])\n>>> np.sqrt(B)\narray([0.        , 1.        , 1.41421356])\n>>> C = np.array([2., -1., 4.])\n>>> np.add(B, C)\narray([2., 0., 6.])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "argument": "",
+            "content": "`all`,\n`any`,\n`apply_along_axis`,\n`argmax`,\n`argmin`,\n`argsort`,\n`average`,\n`bincount`,\n`ceil`,\n`clip`,\n`conj`,\n`corrcoef`,\n`cov`,\n`cross`,\n`cumprod`,\n`cumsum`,\n`diff`,\n`dot`,\n`floor`,\n`inner`,\n`invert`,\n`lexsort`,\n`max`,\n`maximum`,\n`mean`,\n`median`,\n`min`,\n`minimum`,\n`nonzero`,\n`outer`,\n`prod`,\n`re`,\n`round`,\n`sort`,\n`std`,\n`sum`,\n`trace`,\n`transpose`,\n`var`,\n`vdot`,\n`vectorize`,\n`where`",
+            "name": "seealso",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _quickstart.indexing-slicing-and-iterating:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "level": 2,
+      "title": "Universal Functions"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "content": {
+                    "value": "One-dimensional"
+                  }
+                },
+                "type": "Strong"
+              },
+              {
+                "data": {
+                  "value": " arrays can be indexed, sliced and iterated over, much like "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://docs.python.org/tutorial/introduction.html#lists",
+                  "value": "lists"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": " and other Python sequences."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> a = np.arange(10)**3\n>>> a\narray([  0,   1,   8,  27,  64, 125, 216, 343, 512, 729])\n>>> a[2]\n8\n>>> a[2:5]\narray([ 8, 27, 64])\n>>> # equivalent to a[0:6:2] = 1000;\n>>> # from start to position 6, exclusive, set every 2nd element to 1000\n>>> a[:6:2] = 1000\n>>> a\narray([1000,    1, 1000,   27, 1000,  125,  216,  343,  512,  729])\n>>> a[::-1]  # reversed a\narray([ 729,  512,  343,  216,  125, 1000,   27, 1000,    1, 1000])\n>>> for i in a:\n...     print(i**(1 / 3.))\n...\n9.999999999999998\n1.0\n9.999999999999998\n3.0\n9.999999999999998\n4.999999999999999\n5.999999999999999\n6.999999999999999\n7.999999999999999\n8.999999999999998"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "content": {
+                    "value": "Multidimensional"
+                  }
+                },
+                "type": "Strong"
+              },
+              {
+                "data": {
+                  "value": " arrays can have one index per axis. These indices are given in a tuple separated by commas:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> def f(x, y):\n...     return 10 * x + y\n...\n>>> b = np.fromfunction(f, (5, 4), dtype=int)\n>>> b\narray([[ 0,  1,  2,  3],\n       [10, 11, 12, 13],\n       [20, 21, 22, 23],\n       [30, 31, 32, 33],\n       [40, 41, 42, 43]])\n>>> b[2, 3]\n23\n>>> b[0:5, 1]  # each row in the second column of b\narray([ 1, 11, 21, 31, 41])\n>>> b[:, 1]    # equivalent to the previous example\narray([ 1, 11, 21, 31, 41])\n>>> b[1:3, :]  # each column in the second and third row of b\narray([[10, 11, 12, 13],\n       [20, 21, 22, 23]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "When fewer indices are provided than the number of axes, the missing indices are considered complete slices\\ "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    ":"
+                  ]
+                },
+                "type": "Verbatim"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> b[-1]   # the last row. Equivalent to b[-1, :]\narray([40, 41, 42, 43])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The expression within brackets in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "b[i]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is treated as an "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "i"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " followed by as many instances of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    ":"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " as needed to represent the remaining axes. NumPy also allows you to write this using dots as "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "b[i, ...]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "content": {
+                    "value": "dots"
+                  }
+                },
+                "type": "Strong"
+              },
+              {
+                "data": {
+                  "value": " ("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "..."
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ") represent as many colons as needed to produce a complete indexing tuple. For example, if "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is an array with 5 axes, then"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              "x[1, 2, ...]"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " is equivalent to "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "x[1, 2, :, :, :]"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ","
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              "x[..., 3]"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " to "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "x[:, :, :, :, 3]"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              "x[4, ..., 5, :]"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " to "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "x[4, :, :, 5, :]"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "value": ">>> c = np.array([[[  0,  1,  2],  # a 3D array (two stacked 2D arrays)\n...                [ 10, 12, 13]],\n...               [[100, 101, 102],\n...                [110, 112, 113]]])\n>>> c.shape\n(2, 2, 3)\n>>> c[1, ...]  # same as c[1, :, :] or c[1]\narray([[100, 101, 102],\n       [110, 112, 113]])\n>>> c[..., 2]  # same as c[:, :, 2]\narray([[  2,  13],\n       [102, 113]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "content": {
+                    "value": "Iterating"
+                  }
+                },
+                "type": "Strong"
+              },
+              {
+                "data": {
+                  "value": " over multidimensional arrays is done with respect to the first axis:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> for row in b:\n...     print(row)\n...\n[0 1 2 3]\n[10 11 12 13]\n[20 21 22 23]\n[30 31 32 33]\n[40 41 42 43]"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "However, if one wants to perform an operation on each element in the array, one can use the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "flat"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " attribute which is an "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://docs.python.org/tutorial/classes.html#iterators",
+                  "value": "iterator"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": " over all the elements of the array:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> for element in b.flat:\n...     print(element)\n...\n0\n1\n2\n3\n10\n11\n12\n13\n20\n21\n22\n23\n30\n31\n32\n33\n40\n41\n42\n43"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "argument": "",
+            "content": ":ref:`basics.indexing`,\n:ref:`arrays.indexing` (reference),\n`newaxis`,\n`ndenumerate`,\n`indices`",
+            "name": "seealso",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _quickstart.shape-manipulation:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "level": 2,
+      "title": "Indexing, Slicing and Iterating"
+    },
+    {
+      "children": [],
+      "level": 1,
+      "title": "Shape Manipulation"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "An array has a shape given by the number of elements along each axis:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> a = np.floor(10 * rg.random((3, 4)))\n>>> a\narray([[3., 7., 3., 4.],\n       [1., 4., 2., 2.],\n       [7., 2., 4., 9.]])\n>>> a.shape\n(3, 4)"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The shape of an array can be changed with various commands. Note that the following three commands all return a modified array, but do not change the original array:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> a.ravel()  # returns the array, flattened\narray([3., 7., 3., 4., 1., 4., 2., 2., 7., 2., 4., 9.])\n>>> a.reshape(6, 2)  # returns the array with a modified shape\narray([[3., 7.],\n       [3., 4.],\n       [1., 4.],\n       [2., 2.],\n       [7., 2.],\n       [4., 9.]])\n>>> a.T  # returns the array, transposed\narray([[3., 1., 7.],\n       [7., 4., 2.],\n       [3., 2., 4.],\n       [4., 2., 9.]])\n>>> a.T.shape\n(4, 3)\n>>> a.shape\n(3, 4)"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The order of the elements in the array resulting from "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ravel"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is normally \"C-style\", that is, the rightmost index \"changes the fastest\", so the element after "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "a[0, 0]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "a[0, 1]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". If the array is reshaped to some other shape, again the array is treated as \"C-style\". NumPy normally creates arrays stored in this order, so "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ravel"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " will usually not need to copy its argument, but if the array was made by taking slices of another array or created with unusual options, it may need to be copied. The functions "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ravel"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "reshape"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " can also be instructed, using an optional argument, to use FORTRAN-style arrays, in which the leftmost index changes the fastest."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "reshape"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " function returns its argument with a modified shape, whereas the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "ndarray.resize"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " method modifies the array itself:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> a\narray([[3., 7., 3., 4.],\n       [1., 4., 2., 2.],\n       [7., 2., 4., 9.]])\n>>> a.resize((2, 6))\n>>> a\narray([[3., 7., 3., 4., 1., 4.],\n       [2., 2., 7., 2., 4., 9.]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "If a dimension is given as "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "-1"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " in a reshaping operation, the other dimensions are automatically calculated:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> a.reshape(3, -1)\narray([[3., 7., 3., 4.],\n       [1., 4., 2., 2.],\n       [7., 2., 4., 9.]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "argument": "",
+            "content": "`ndarray.shape`,\n`reshape`,\n`resize`,\n`ravel`",
+            "name": "seealso",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _quickstart.stacking-arrays:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "level": 2,
+      "title": "Changing the shape of an array"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Several arrays can be stacked together along different axes:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> a = np.floor(10 * rg.random((2, 2)))\n>>> a\narray([[9., 7.],\n       [5., 2.]])\n>>> b = np.floor(10 * rg.random((2, 2)))\n>>> b\narray([[1., 9.],\n       [5., 1.]])\n>>> np.vstack((a, b))\narray([[9., 7.],\n       [5., 2.],\n       [1., 9.],\n       [5., 1.]])\n>>> np.hstack((a, b))\narray([[9., 7., 1., 9.],\n       [5., 2., 5., 1.]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The function "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "column_stack"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " stacks 1D arrays as columns into a 2D array. It is equivalent to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "hstack"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " only for 2D arrays:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> from numpy import newaxis\n>>> np.column_stack((a, b))  # with 2D arrays\narray([[9., 7., 1., 9.],\n       [5., 2., 5., 1.]])\n>>> a = np.array([4., 2.])\n>>> b = np.array([3., 8.])\n>>> np.column_stack((a, b))  # returns a 2D array\narray([[4., 3.],\n       [2., 8.]])\n>>> np.hstack((a, b))        # the result is different\narray([4., 2., 3., 8.])\n>>> a[:, newaxis]  # view `a` as a 2D column vector\narray([[4.],\n       [2.]])\n>>> np.column_stack((a[:, newaxis], b[:, newaxis]))\narray([[4., 3.],\n       [2., 8.]])\n>>> np.hstack((a[:, newaxis], b[:, newaxis]))  # the result is the same\narray([[4., 3.],\n       [2., 8.]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "On the other hand, the function "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "row_stack"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " is equivalent to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "vstack"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " for any input arrays. In fact, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "row_stack"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " is an alias for "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "vstack"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ":      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> np.column_stack is np.hstack\nFalse\n>>> np.row_stack is np.vstack\nTrue"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "In general, for arrays with more than two dimensions, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "hstack"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " stacks along their second axes, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "vstack"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " stacks along their first axes, and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "concatenate"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " allows for an optional arguments giving the number of the axis along which the concatenation should happen."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "content": {
+                    "value": "Note"
+                  }
+                },
+                "type": "Strong"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "In complex cases, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "r_"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "c_"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " are useful for creating arrays by stacking numbers along one axis. They allow the use of range literals "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    ":"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". :         "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> np.r_[1:4, 0, 4]\narray([1, 2, 3, 0, 4])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "When used with arrays as arguments, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "r_"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "c_"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " are similar to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "vstack"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "hstack"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " in their default behavior, but allow for an optional argument giving the number of the axis along which to concatenate."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "",
+            "content": "`hstack`,\n`vstack`,\n`column_stack`,\n`concatenate`,\n`c_`,\n`r_`",
+            "name": "seealso",
+            "options": []
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 2,
+      "title": "Stacking together different arrays"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Using "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "hsplit"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", you can split an array along its horizontal axis, either by specifying the number of equally shaped arrays to return, or by specifying the columns after which the division should occur:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> a = np.floor(10 * rg.random((2, 12)))\n>>> a\narray([[6., 7., 6., 9., 0., 5., 4., 0., 6., 8., 5., 2.],\n       [8., 5., 5., 7., 1., 8., 6., 7., 1., 8., 1., 0.]])\n>>> # Split `a` into 3\n>>> np.hsplit(a, 3)\n[array([[6., 7., 6., 9.],\n       [8., 5., 5., 7.]]), array([[0., 5., 4., 0.],\n       [1., 8., 6., 7.]]), array([[6., 8., 5., 2.],\n       [1., 8., 1., 0.]])]\n>>> # Split `a` after the third and the fourth column\n>>> np.hsplit(a, (3, 4))\n[array([[6., 7., 6.],\n       [8., 5., 5.]]), array([[9.],\n       [7.]]), array([[0., 5., 4., 0., 6., 8., 5., 2.],\n       [1., 8., 6., 7., 1., 8., 1., 0.]])]"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "vsplit"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " splits along the vertical axis, and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "array_split"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " allows one to specify along which axis to split."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _quickstart.copies-and-views:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "level": 2,
+      "title": "Splitting one array into several smaller ones"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "When operating and manipulating arrays, their data is sometimes copied into a new array and sometimes not. This is often a source of confusion for beginners. There are three cases:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 1,
+      "title": "Copies and Views"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Simple assignments make no copy of objects or their data."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> a = np.array([[ 0,  1,  2,  3],\n...               [ 4,  5,  6,  7],\n...               [ 8,  9, 10, 11]])\n>>> b = a            # no new object is created\n>>> b is a           # a and b are two names for the same ndarray object\nTrue"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Python passes mutable objects as references, so function calls make no copy."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> def f(x):\n...     print(id(x))\n...\n>>> id(a)  # id is a unique identifier of an object #doctest: +SKIP\n148293216  # may vary\n>>> f(a)   #doctest: +SKIP\n148293216  # may vary"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 2,
+      "title": "No Copy at All"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Different array objects can share the same data. The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "view"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " method creates a new array object that looks at the same data."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> c = a.view()\n>>> c is a\nFalse\n>>> c.base is a            # c is a view of the data owned by a\nTrue\n>>> c.flags.owndata\nFalse\n>>>\n>>> c = c.reshape((2, 6))  # a's shape doesn't change\n>>> a.shape\n(3, 4)\n>>> c[0, 4] = 1234         # a's data changes\n>>> a\narray([[   0,    1,    2,    3],\n       [1234,    5,    6,    7],\n       [   8,    9,   10,   11]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Slicing an array returns a view of it:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> s = a[:, 1:3]\n>>> s[:] = 10  # s[:] is a view of s. Note the difference between s = 10 and s[:] = 10\n>>> a\narray([[   0,   10,   10,    3],\n       [1234,   10,   10,    7],\n       [   8,   10,   10,   11]])"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 2,
+      "title": "View or Shallow Copy"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "copy"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " method makes a complete copy of the array and its data."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> d = a.copy()  # a new array object with new data is created\n>>> d is a\nFalse\n>>> d.base is a  # d doesn't share anything with a\nFalse\n>>> d[0, 0] = 9999\n>>> a\narray([[   0,   10,   10,    3],\n       [1234,   10,   10,    7],\n       [   8,   10,   10,   11]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Sometimes "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "copy"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " should be called after slicing if the original array is not required anymore. For example, suppose "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "a"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is a huge intermediate result and the final result "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "b"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " only contains a small fraction of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "a"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", a deep copy should be made when constructing "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "b"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " with slicing:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> a = np.arange(int(1e8))\n>>> b = a[:100].copy()\n>>> del a  # the memory of ``a`` can be released."
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "If "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "b = a[:100]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is used instead, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "a"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is referenced by "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "b"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and will persist in memory even if "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "del a"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is executed."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "title": "Deep Copy"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Here is a list of some useful NumPy functions and methods names ordered in categories. See "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "routines"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " for the full list."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "arange"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "exists": true,
+                            "kind": "module",
+                            "reference": {
+                              "kind": "api",
+                              "module": "array",
+                              "path": "array",
+                              "version": "*"
+                            },
+                            "value": "array"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "exists": true,
+                            "kind": "module",
+                            "reference": {
+                              "kind": "api",
+                              "module": "copy",
+                              "path": "copy",
+                              "version": "*"
+                            },
+                            "value": "copy"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "empty"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "empty_like"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "eye"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "fromfile"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "fromfunction"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "identity"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "linspace"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "logspace"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "mgrid"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "ogrid"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "ones"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "ones_like"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "r_"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "zeros"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "zeros_like"
+                          },
+                          "type": "Directive"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Array Creation"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "ndarray.astype"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",    "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "atleast_1d"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",    "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "atleast_2d"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",    "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "atleast_3d"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",    "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "mat"
+                          },
+                          "type": "Directive"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Conversions"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "array_split"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "column_stack"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "concatenate"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "diagonal"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "dsplit"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "dstack"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "hsplit"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "hstack"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "ndarray.item"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "newaxis"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "ravel"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "repeat"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "reshape"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "resize"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "squeeze"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "swapaxes"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "take"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "transpose"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "vsplit"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "vstack"
+                          },
+                          "type": "Directive"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Manipulations"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "all"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "any"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "nonzero"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "where"
+                          },
+                          "type": "Directive"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Questions"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "argmax"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "argmin"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "argsort"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "max"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "min"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "ptp"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "searchsorted"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "sort"
+                          },
+                          "type": "Directive"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Ordering"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "choose"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "compress"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "cumprod"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "cumsum"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "inner"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "ndarray.fill"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "imag"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "prod"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "put"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "putmask"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "real"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "sum"
+                          },
+                          "type": "Directive"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Operations"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "cov"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "mean"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "std"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "var"
+                          },
+                          "type": "Directive"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Basic Statistics"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "cross"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "dot"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "outer"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "linalg.svd"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ",     "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "vdot"
+                          },
+                          "type": "Directive"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Basic Linear Algebra"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        }
+      ],
+      "level": 2,
+      "title": "Functions and Methods Overview"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _broadcasting-rules:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "level": 1,
+      "title": "Less Basic"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Broadcasting allows universal functions to deal in a meaningful way with inputs that do not have exactly the same shape."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The first rule of broadcasting is that if all input arrays do not have the same number of dimensions, a \"1\" will be repeatedly prepended to the shapes of the smaller arrays until all the arrays have the same number of dimensions."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The second rule of broadcasting ensures that arrays with a size of 1 along a particular dimension act as if they had the size of the array with the largest shape along that dimension. The value of the array element is assumed to be the same along that dimension for the \"broadcast\" array."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "After application of the broadcasting rules, the sizes of all arrays must match. More details can be found in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "basics.broadcasting"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "title": "Broadcasting rules"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "NumPy offers more indexing facilities than regular Python sequences. In addition to indexing by integers and slices, as we saw before, arrays can be indexed by arrays of integers and arrays of booleans."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 1,
+      "title": "Advanced indexing and index tricks"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "value": ">>> a = np.arange(12)**2  # the first 12 square numbers\n>>> i = np.array([1, 1, 3, 8, 5])  # an array of indices\n>>> a[i]  # the elements of `a` at the positions `i`\narray([ 1,  1,  9, 64, 25])\n>>> \n>>> j = np.array([[3, 4], [9, 7]])  # a bidimensional array of indices\n>>> a[j]  # the same shape as `j`\narray([[ 9, 16],\n       [81, 49]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "When the indexed array "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "a"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is multidimensional, a single array of indices refers to the first dimension of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "a"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". The following example shows this behavior by converting an image of labels into a color image using a palette."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> palette = np.array([[0, 0, 0],         # black\n...                     [255, 0, 0],       # red\n...                     [0, 255, 0],       # green\n...                     [0, 0, 255],       # blue\n...                     [255, 255, 255]])  # white\n>>> image = np.array([[0, 1, 2, 0],  # each value corresponds to a color in the palette\n...                   [0, 3, 4, 0]])\n>>> palette[image]  # the (2, 4, 3) color image\narray([[[  0,   0,   0],\n        [255,   0,   0],\n        [  0, 255,   0],\n        [  0,   0,   0]],\n<BLANKLINE>\n       [[  0,   0,   0],\n        [  0,   0, 255],\n        [255, 255, 255],\n        [  0,   0,   0]]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "We can also give indexes for more than one dimension. The arrays of indices for each dimension must have the same shape."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> a = np.arange(12).reshape(3, 4)\n>>> a\narray([[ 0,  1,  2,  3],\n       [ 4,  5,  6,  7],\n       [ 8,  9, 10, 11]])\n>>> i = np.array([[0, 1],  # indices for the first dim of `a`\n...               [1, 2]])\n>>> j = np.array([[2, 1],  # indices for the second dim\n...               [3, 3]])\n>>> \n>>> a[i, j]  # i and j must have equal shape\narray([[ 2,  5],\n       [ 7, 11]])\n>>> \n>>> a[i, 2]\narray([[ 2,  6],\n       [ 6, 10]])\n>>> \n>>> a[:, j]\narray([[[ 2,  1],\n        [ 3,  3]],\n<BLANKLINE>\n       [[ 6,  5],\n        [ 7,  7]],\n<BLANKLINE>\n       [[10,  9],\n        [11, 11]]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "In Python, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "arr[i, j]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is exactly the same as "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "arr[(i, j)]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "---so we can put "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "i"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "j"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " in a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "tuple"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and then do the indexing with that."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> l = (i, j)\n>>> # equivalent to a[i, j]\n>>> a[l]\narray([[ 2,  5],\n       [ 7, 11]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "However, we can not do this by putting "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "i"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "j"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " into an array, because this array will be interpreted as indexing the first dimension of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "a"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> s = np.array([i, j])\n>>> # not what we want\n>>> a[s]\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nIndexError: index 3 is out of bounds for axis 0 with size 3\n>>> # same as `a[i, j]`\n>>> a[tuple(s)]\narray([[ 2,  5],\n       [ 7, 11]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Another common use of indexing with arrays is the search of the maximum value of time-dependent series:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> time = np.linspace(20, 145, 5)  # time scale\n>>> data = np.sin(np.arange(20)).reshape(5, 4)  # 4 time-dependent series\n>>> time\narray([ 20.  ,  51.25,  82.5 , 113.75, 145.  ])\n>>> data\narray([[ 0.        ,  0.84147098,  0.90929743,  0.14112001],\n       [-0.7568025 , -0.95892427, -0.2794155 ,  0.6569866 ],\n       [ 0.98935825,  0.41211849, -0.54402111, -0.99999021],\n       [-0.53657292,  0.42016704,  0.99060736,  0.65028784],\n       [-0.28790332, -0.96139749, -0.75098725,  0.14987721]])\n>>> # index of the maxima for each series\n>>> ind = data.argmax(axis=0)\n>>> ind\narray([2, 0, 3, 1])\n>>> # times corresponding to the maxima\n>>> time_max = time[ind]\n>>> \n>>> data_max = data[ind, range(data.shape[1])]  # => data[ind[0], 0], data[ind[1], 1]...\n>>> time_max\narray([ 82.5 ,  20.  , 113.75,  51.25])\n>>> data_max\narray([0.98935825, 0.84147098, 0.99060736, 0.6569866 ])\n>>> np.all(data_max == data.max(axis=0))\nTrue"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "You can also use indexing with arrays as a target to assign to:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> a = np.arange(5)\n>>> a\narray([0, 1, 2, 3, 4])\n>>> a[[1, 3, 4]] = 0\n>>> a\narray([0, 0, 2, 0, 0])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "However, when the list of indices contains repetitions, the assignment is done several times, leaving behind the last value:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> a = np.arange(5)\n>>> a[[0, 0, 2]] = [1, 2, 3]\n>>> a\narray([2, 1, 3, 3, 4])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "This is reasonable enough, but watch out if you want to use Python's "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "+="
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " construct, as it may not do what you expect:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> a = np.arange(5)\n>>> a[[0, 0, 2]] += 1\n>>> a\narray([1, 1, 3, 3, 4])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Even though 0 occurs twice in the list of indices, the 0th element is only incremented once. This is because Python requires "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "a += 1"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " to be equivalent to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "a = a + 1"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "title": "Indexing with Arrays of Indices"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "When we index arrays with arrays of (integer) indices we are providing the list of indices to pick. With boolean indices the approach is different; we explicitly choose which items in the array we want and which ones we don't."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The most natural way one can think of for boolean indexing is to use boolean arrays that have "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "the same shape"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " as the original array:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> a = np.arange(12).reshape(3, 4)\n>>> b = a > 4\n>>> b  # `b` is a boolean with `a`'s shape\narray([[False, False, False, False],\n       [False,  True,  True,  True],\n       [ True,  True,  True,  True]])\n>>> a[b]  # 1d array with the selected elements\narray([ 5,  6,  7,  8,  9, 10, 11])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "This property can be very useful in assignments:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> a[b] = 0  # All elements of `a` higher than 4 become 0\n>>> a\narray([[0, 1, 2, 3],\n       [4, 0, 0, 0],\n       [0, 0, 0, 0]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "You can look at the following example to see how to use boolean indexing to generate an image of the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://en.wikipedia.org/wiki/Mandelbrot_set",
+                  "value": "Mandelbrot\nset"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ":"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "",
+            "content": ">>> import numpy as np\n>>> import matplotlib.pyplot as plt\n>>> def mandelbrot(h, w, maxit=20, r=2):\n...     \"\"\"Returns an image of the Mandelbrot fractal of size (h,w).\"\"\"\n...     x = np.linspace(-2.5, 1.5, 4*h+1)\n...     y = np.linspace(-1.5, 1.5, 3*w+1)\n...     A, B = np.meshgrid(x, y)\n...     C = A + B*1j\n...     z = np.zeros_like(C)\n...     divtime = maxit + np.zeros(z.shape, dtype=int)\n...\n...     for i in range(maxit):\n...         z = z**2 + C\n...         diverge = abs(z) > r                    # who is diverging\n...         div_now = diverge & (divtime == maxit)  # who is diverging now\n...         divtime[div_now] = i                    # note when\n...         z[diverge] = r                          # avoid diverging too much\n...\n...     return divtime\n>>> plt.clf()\n>>> plt.imshow(mandelbrot(400, 400))",
+            "name": "plot",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The second way of indexing with booleans is more similar to integer indexing; for each dimension of the array we give a 1D boolean array selecting the slices we want:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> a = np.arange(12).reshape(3, 4)\n>>> b1 = np.array([False, True, True])         # first dim selection\n>>> b2 = np.array([True, False, True, False])  # second dim selection\n>>> \n>>> a[b1, :]                                   # selecting rows\narray([[ 4,  5,  6,  7],\n       [ 8,  9, 10, 11]])\n>>> \n>>> a[b1]                                      # same thing\narray([[ 4,  5,  6,  7],\n       [ 8,  9, 10, 11]])\n>>> \n>>> a[:, b2]                                   # selecting columns\narray([[ 0,  2],\n       [ 4,  6],\n       [ 8, 10]])\n>>> \n>>> a[b1, b2]                                  # a weird thing to do\narray([ 4, 10])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Note that the length of the 1D boolean array must coincide with the length of the dimension (or axis) you want to slice. In the previous example, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "b1"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " has length 3 (the number of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "rows"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "a"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "), and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "b2"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " (of length 4) is suitable to index the 2nd axis (columns) of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "a"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "title": "Indexing with Boolean Arrays"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "ix_"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " function can be used to combine different vectors so as to obtain the result for each n-uplet. For example, if you want to compute all the a+b\\*c for all the triplets taken from each of the vectors a, b and c:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> a = np.array([2, 3, 4, 5])\n>>> b = np.array([8, 5, 4])\n>>> c = np.array([5, 4, 6, 8, 3])\n>>> ax, bx, cx = np.ix_(a, b, c)\n>>> ax\narray([[[2]],\n<BLANKLINE>\n       [[3]],\n<BLANKLINE>\n       [[4]],\n<BLANKLINE>\n       [[5]]])\n>>> bx\narray([[[8],\n        [5],\n        [4]]])\n>>> cx\narray([[[5, 4, 6, 8, 3]]])\n>>> ax.shape, bx.shape, cx.shape\n((4, 1, 1), (1, 3, 1), (1, 1, 5))\n>>> result = ax + bx * cx\n>>> result\narray([[[42, 34, 50, 66, 26],\n        [27, 22, 32, 42, 17],\n        [22, 18, 26, 34, 14]],\n<BLANKLINE>\n       [[43, 35, 51, 67, 27],\n        [28, 23, 33, 43, 18],\n        [23, 19, 27, 35, 15]],\n<BLANKLINE>\n       [[44, 36, 52, 68, 28],\n        [29, 24, 34, 44, 19],\n        [24, 20, 28, 36, 16]],\n<BLANKLINE>\n       [[45, 37, 53, 69, 29],\n        [30, 25, 35, 45, 20],\n        [25, 21, 29, 37, 17]]])\n>>> result[3, 2, 4]\n17\n>>> a[3] + b[2] * c[4]\n17"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "You could also implement the reduce as follows:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> def ufunc_reduce(ufct, *vectors):\n...    vs = np.ix_(*vectors)\n...    r = ufct.identity\n...    for v in vs:\n...        r = ufct(r, v)\n...    return r"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "and then use it as:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> ufunc_reduce(np.add, a, b, c)\narray([[[15, 14, 16, 18, 13],\n        [12, 11, 13, 15, 10],\n        [11, 10, 12, 14,  9]],\n<BLANKLINE>\n       [[16, 15, 17, 19, 14],\n        [13, 12, 14, 16, 11],\n        [12, 11, 13, 15, 10]],\n<BLANKLINE>\n       [[17, 16, 18, 20, 15],\n        [14, 13, 15, 17, 12],\n        [13, 12, 14, 16, 11]],\n<BLANKLINE>\n       [[18, 17, 19, 21, 16],\n        [15, 14, 16, 18, 13],\n        [14, 13, 15, 17, 12]]])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The advantage of this version of reduce compared to the normal ufunc.reduce is that it makes use of the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "broadcasting rules <broadcasting-rules>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " in order to avoid creating an argument array the size of the output times the number of vectors."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "title": "The ix_() function"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "See "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "structured_arrays"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "title": "Indexing with strings"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Here we give a list of short and useful tips."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 1,
+      "title": "Tricks and Tips"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "To change the dimensions of an array, you can omit one of the sizes which will then be deduced automatically:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> a = np.arange(30)\n>>> b = a.reshape((2, -1, 3))  # -1 means \"whatever is needed\"\n>>> b.shape\n(2, 5, 3)\n>>> b\narray([[[ 0,  1,  2],\n        [ 3,  4,  5],\n        [ 6,  7,  8],\n        [ 9, 10, 11],\n        [12, 13, 14]],\n<BLANKLINE>\n       [[15, 16, 17],\n        [18, 19, 20],\n        [21, 22, 23],\n        [24, 25, 26],\n        [27, 28, 29]]])"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 2,
+      "title": "\"Automatic\" Reshaping"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "How do we construct a 2D array from a list of equally-sized row vectors? In MATLAB this is quite easy: if "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "y"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " are two vectors of the same length you only need do "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "m=[x;y]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". In NumPy this works via the functions "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "column_stack"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "dstack"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "hstack"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "vstack"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", depending on the dimension in which the stacking is to be done. For example:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> x = np.arange(0, 10, 2)\n>>> y = np.arange(5)\n>>> m = np.vstack([x, y])\n>>> m\narray([[0, 2, 4, 6, 8],\n       [0, 1, 2, 3, 4]])\n>>> xy = np.hstack([x, y])\n>>> xy\narray([0, 2, 4, 6, 8, 0, 1, 2, 3, 4])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The logic behind those functions in more than two dimensions can be strange."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "",
+            "content": ":doc:`numpy-for-matlab-users`",
+            "name": "seealso",
+            "options": []
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 2,
+      "title": "Vector Stacking"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The NumPy "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "histogram"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " function applied to an array returns a pair of vectors: the histogram of the array and a vector of the bin edges. Beware: "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "matplotlib"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " also has a function to build histograms (called "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "hist"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", as in Matlab) that differs from the one in NumPy. The main difference is that "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "pylab.hist"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " plots the histogram automatically, while "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.histogram"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " only generates the data."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "",
+            "content": ">>> import numpy as np\n>>> rg = np.random.default_rng(1)\n>>> import matplotlib.pyplot as plt\n>>> # Build a vector of 10000 normal deviates with variance 0.5^2 and mean 2\n>>> mu, sigma = 2, 0.5\n>>> v = rg.normal(mu, sigma, 10000)\n>>> # Plot a normalized histogram with 50 bins\n>>> plt.hist(v, bins=50, density=True)       # matplotlib version (plot)\n(array...)\n>>> # Compute the histogram with numpy and then plot it\n>>> (n, bins) = np.histogram(v, bins=50, density=True)  # NumPy version (no plot)\n>>> plt.plot(.5 * (bins[1:] + bins[:-1]), n) #doctest: +SKIP",
+            "name": "plot",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "With Matplotlib >=3.4 you can also use "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "plt.stairs(n, bins)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "title": "Histograms"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://docs.python.org/tutorial/",
+                            "value": "Python tutorial"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              "reference"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "target": "https://docs.scipy.org/doc/scipy/reference/tutorial/index.html",
+                            "value": "SciPy Tutorial"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "target": "https://scipy-lectures.org",
+                            "value": "SciPy Lecture Notes"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "http://mathesaurus.sf.net/",
+                            "value": "matlab, R, IDL, NumPy/SciPy dictionary"
+                          },
+                          "type": "ExternalLink"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              "tutorial-svd <content/tutorial-svd>"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        }
+      ],
+      "level": 1,
+      "title": "Further reading"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

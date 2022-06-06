@@ -2629,18 +2629,8 @@
           },
           {
             "link": {
-              "data": {
-                "exists": true,
-                "kind": "module",
-                "reference": {
-                  "kind": "module",
-                  "module": "builtins",
-                  "path": "builtins.NoneType",
-                  "version": "*"
-                },
-                "value": "usetex"
-              },
-              "type": "Link"
+              "data": "usetex",
+              "type": "str"
             },
             "type": ""
           },
@@ -2764,18 +2754,8 @@
           },
           {
             "link": {
-              "data": {
-                "exists": true,
-                "kind": "module",
-                "reference": {
-                  "kind": "module",
-                  "module": "builtins",
-                  "path": "builtins.int",
-                  "version": "*"
-                },
-                "value": "fig"
-              },
-              "type": "Link"
+              "data": "fig",
+              "type": "str"
             },
             "type": ""
           },
@@ -4287,18 +4267,8 @@
           },
           {
             "link": {
-              "data": {
-                "exists": true,
-                "kind": "module",
-                "reference": {
-                  "kind": "module",
-                  "module": "builtins",
-                  "path": "builtins.NoneType",
-                  "version": "*"
-                },
-                "value": "usetex"
-              },
-              "type": "Link"
+              "data": "usetex",
+              "type": "str"
             },
             "type": ""
           },
@@ -4753,18 +4723,8 @@
           },
           {
             "link": {
-              "data": {
-                "exists": true,
-                "kind": "module",
-                "reference": {
-                  "kind": "module",
-                  "module": "builtins",
-                  "path": "builtins.NoneType",
-                  "version": "*"
-                },
-                "value": "usetex"
-              },
-              "type": "Link"
+              "data": "usetex",
+              "type": "str"
             },
             "type": ""
           },
@@ -4777,18 +4737,8 @@
           },
           {
             "link": {
-              "data": {
-                "exists": true,
-                "kind": "module",
-                "reference": {
-                  "kind": "module",
-                  "module": "builtins",
-                  "path": "builtins.NoneType",
-                  "version": "*"
-                },
-                "value": "usetex"
-              },
-              "type": "Link"
+              "data": "usetex",
+              "type": "str"
             },
             "type": ""
           },
@@ -6839,18 +6789,8 @@
           },
           {
             "link": {
-              "data": {
-                "exists": true,
-                "kind": "module",
-                "reference": {
-                  "kind": "module",
-                  "module": "builtins",
-                  "path": "builtins.NoneType",
-                  "version": "*"
-                },
-                "value": "usetex"
-              },
-              "type": "Link"
+              "data": "usetex",
+              "type": "str"
             },
             "type": ""
           },
@@ -7602,18 +7542,8 @@
           },
           {
             "link": {
-              "data": {
-                "exists": true,
-                "kind": "module",
-                "reference": {
-                  "kind": "module",
-                  "module": "builtins",
-                  "path": "builtins.NoneType",
-                  "version": "*"
-                },
-                "value": "usetex"
-              },
-              "type": "Link"
+              "data": "usetex",
+              "type": "str"
             },
             "type": ""
           },
@@ -7626,18 +7556,8 @@
           },
           {
             "link": {
-              "data": {
-                "exists": true,
-                "kind": "module",
-                "reference": {
-                  "kind": "module",
-                  "module": "builtins",
-                  "path": "builtins.NoneType",
-                  "version": "*"
-                },
-                "value": "usetex"
-              },
-              "type": "Link"
+              "data": "usetex",
+              "type": "str"
             },
             "type": ""
           },
@@ -9547,5 +9467,6 @@
       "type": "Code2"
     }
   ],
+  "level": 0,
   "title": null
 }

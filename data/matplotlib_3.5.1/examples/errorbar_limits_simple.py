@@ -4084,5 +4084,6 @@
       "type": "Fig"
     }
   ],
+  "level": 0,
   "title": null
 }

@@ -1,0 +1,1229 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Read the Docs uses "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "Elasticsearch_"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " instead of the built in Sphinx search for providing better search results. Documents are indexed in the Elasticsearch index and the search is made through the API. All the Search Code is open source and lives in the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "GitHub Repository"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ". Currently we are using "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "Elasticsearch 6.3"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "title": "Server Side Search"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Elasticsearch is installed and run as part of the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "development installation guide </install>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 1,
+      "title": "Local development configuration"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For using search, you need to index data to the Elasticsearch Index. Run "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "reindex_elasticsearch"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " management command:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "bash",
+            "content": "inv docker.manage reindex_elasticsearch",
+            "name": "prompt",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For performance optimization, we implemented our own version of management command rather than the built in management command provided by the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "django-elasticsearch-dsl"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " package."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "title": "Indexing into Elasticsearch"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "By default, Auto Indexing is turned off in development mode. To turn it on, change the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ELASTICSEARCH_DSL_AUTOSYNC"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " settings to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "True"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " in the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "readthedocs/settings/dev.py"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " file. After that, whenever a documentation successfully builds, or project gets added, the search index will update automatically."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "title": "Auto indexing"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The search architecture is divided into 2 parts."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "One part is responsible for "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "content": {
+                              "value": "indexing"
+                            }
+                          },
+                          "type": "Strong"
+                        },
+                        {
+                          "data": {
+                            "value": " the documents and projects ("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "documents.py"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ")"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The other part is responsible for "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "content": {
+                              "value": "querying"
+                            }
+                          },
+                          "type": "Strong"
+                        },
+                        {
+                          "data": {
+                            "value": " the Index to show the proper results to users ("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "faceted_search.py"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ")"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "We use the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "django-elasticsearch-dsl"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " package for our Document abstraction. "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "django-elasticsearch-dsl"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " is a wrapper around "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "elasticsearch-dsl"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " for easy configuration with Django."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 1,
+      "title": "Architecture"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "All the Sphinx documents are indexed into Elasticsearch after the build is successful. Currently, we do not index MkDocs documents to elasticsearch, but "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/readthedocs/readthedocs.org/issues/1088",
+                  "value": "any kind of help is welcome"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "title": "Indexing"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "If you get an error like:     "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "RequestError(400, 'search_phase_execution_exception', 'failed to create query: ..."
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "You can fix this by deleting the page index and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "re-indexing <server-side-search:indexing into elasticsearch>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ":"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "bash",
+            "content": "inv docker.manage 'search_index --delete'\ninv docker.manage reindex_elasticsearch",
+            "name": "prompt",
+            "options": []
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 2,
+      "title": "Troubleshooting"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "After any build is successfully finished, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "HTMLFile"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " objects are created for each of the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "HTML"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " files and the old version's "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "HTMLFile"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " object is deleted. By default, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "django-elasticsearch-dsl"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " package listens to the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "post_create"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": "/"
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "post_delete"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " signals to index/delete documents, but it has performance drawbacks as it send HTTP request whenever any "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "HTMLFile"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " objects is created or deleted. To optimize the performance, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "bulk_post_create"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "bulk_post_delete"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "signals_"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " are dispatched with list of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "HTMLFIle"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " objects so its possible to bulk index documents in elasticsearch ( "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "bulk_post_create"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " signal is dispatched for created and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "bulk_post_delete"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " is dispatched for deleted objects). Both of the signals are dispatched with the list of the instances of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "HTMLFile"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "instance_list"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " parameter."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "We listen to the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "bulk_post_create"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "bulk_post_delete"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " signals in our "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "Search"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " application and index/delete the documentation content from the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "HTMLFile"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " instances."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 3,
+      "title": "How we index documentations"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "We also index project information in our search index so that the user can search for projects from the main site. We listen to the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "post_create"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "post_delete"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " signals of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "Project"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " model and index/delete into Elasticsearch accordingly."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 3,
+      "title": "How we index projects"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "elasticsearch-dsl"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " provides a model-like wrapper for "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "the Elasticsearch document"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ". As per requirements of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "django-elasticsearch-dsl"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", it is stored in the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "readthedocs/search/documents.py"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " file."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "content": {
+                          "value": "ProjectDocument:"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": " It is used for indexing projects. Signal listener of     "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "django-elasticsearch-dsl"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " listens to the "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "post_save"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " signal of "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "Project"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " model and     then index/delete into Elasticsearch."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "content": {
+                          "value": "PageDocument"
+                        }
+                      },
+                      "type": "Strong"
+                    },
+                    {
+                      "data": {
+                        "value": ": It is used for indexing documentation of projects.     As mentioned above, our "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "Search"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " app listens to the "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "bulk_post_create"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " and "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "bulk_post_delete"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": "     signals and indexes/deleted documentation into Elasticsearch. The signal listeners are in     the "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "readthedocs/search/signals.py"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " file. Both of the signals are dispatched     after a successful documentation build."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "The fields and ES Datatypes are specified in the "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "PageDocument"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": ". The indexable data is taken     from "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "processed_json"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " property of "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "HTMLFile"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": ". This property provides python dictionary with     document data like "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "title"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "sections"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "path"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " etc."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              }
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _Elasticsearch: https://www.elastic.co/products/elasticsearch"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _Elasticsearch 6.3: https://www.elastic.co/guide/en/elasticsearch/reference/6.3/index.html"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _GitHub Repository: https://github.com/readthedocs/readthedocs.org/tree/main/readthedocs/search"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _the Elasticsearch document: https://www.elastic.co/guide/en/elasticsearch/guide/current/document.html"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _django-elasticsearch-dsl: https://github.com/sabricot/django-elasticsearch-dsl"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _elasticsearch-dsl: https://elasticsearch-dsl.readthedocs.io/en/latest/"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _signals: https://docs.djangoproject.com/en/2.1/topics/signals/"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "level": 3,
+      "title": "Elasticsearch document"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

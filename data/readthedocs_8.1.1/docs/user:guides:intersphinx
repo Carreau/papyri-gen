@@ -1,0 +1,865 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "You may be familiar with using the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    ":ref: role <sphinx:ref-role>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "link to any location of your docs </guides/cross-referencing-with-sphinx>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". It helps you to keep all links within your docs up to date and warns you if a reference target moves or changes so you can ensure that your docs don't have broken cross-references."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Sometimes you may need to link to a specific section of another project's documentation. While you could just hyperlink directly, there is a better way. "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "Intersphinx <sphinx:usage/extensions/intersphinx>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " allows you to use all "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "cross-reference roles <sphinx:xref-syntax>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " from Sphinx with objects in other projects. That is, you could use the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    ":ref:"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " role to link to sections of other documentation projects. Sphinx will ensure that your cross-references to the other project exist and will raise a warning if they are deleted or changed so you can keep your docs up to date."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "You can also use Sphinx's "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "linkcheck"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " builder to check for broken links. By default it will also check the validity of "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "#anchors"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " in links."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "argument": "bash $",
+                  "content": "sphinx-build -b linkcheck . _build/linkcheck",
+                  "name": "prompt",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "See all the "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "options for the linkcheck builder <https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-the-linkcheck-builder>"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": "."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "kind": "note",
+            "title": ""
+          },
+          "type": "Admonition"
+        }
+      ],
+      "level": 0,
+      "title": "Link to Other Projects' Documentation With Intersphinx"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "To use Intersphinx you need to add it to the list of extensions in your "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "conf.py"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " file."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "# conf.py file\n\nextensions = [\n    'sphinx.ext.intersphinx',\n]"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "And use the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "intersphinx_mapping"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " configuration to indicate the name and link of the projects you want to use."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "# conf.py file\n\nintersphinx_mapping = {\n    'sphinx': ('https://www.sphinx-doc.org/en/master/', None),\n}"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Now you can use the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "sphinx"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " name with a cross-reference role:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "",
+            "content": ".. tab:: reStructuredText\n\n   .. code-block:: rst\n\n      - :ref:`sphinx:ref-role`\n      - :ref:`:ref: role <sphinx:ref-role>`\n      - :doc:`sphinx:usage/extensions/intersphinx`\n      - :doc:`Intersphinx <sphinx:usage/extensions/intersphinx>`\n\n.. tab:: MyST (Markdown)\n\n   .. code-block:: md\n\n      - {ref}`sphinx:ref-role`\n      - {ref}`:ref: role <sphinx:ref-role>`\n      - {doc}`sphinx:usage/extensions/intersphinx`\n      - {doc}`Intersphinx <sphinx:usage/extensions/intersphinx>`",
+            "name": "tabs",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Result:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              "sphinx:ref-role"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              ":ref: role <sphinx:ref-role>"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              "sphinx:usage/extensions/intersphinx"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              "Intersphinx <sphinx:usage/extensions/intersphinx>"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "You can get the targets used in Intersphinx by inspecting the source file of the project or using "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": null,
+                        "value": "this utility <https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#showing-all-links-of-an-intersphinx-mapping-file>"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " provided by Intersphinx:"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "argument": "bash $",
+                  "content": "python -msphinx.ext.intersphinx https://www.sphinx-doc.org/en/master/objects.inv",
+                  "name": "prompt",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              }
+            ],
+            "kind": "note",
+            "title": ""
+          },
+          "type": "Admonition"
+        }
+      ],
+      "level": 1,
+      "title": "Using Intersphinx"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "You can use Intersphinx to link to subprojects, translations, another version or any other project hosted in Read the Docs. For example:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "# conf.py file\n\nintersphinx_mapping = {\n    # Links to \"v2\" version of the \"docs\" project.\n    'docs-v2': ('https://docs.readthedocs.io/en/v2', None),\n    # Links to the French translation of the \"docs\" project.\n    'docs-fr': ('https://docs.readthedocs.io/fr/latest', None),\n    # Links to the \"apis\" subproject of the \"docs\" project.\n    'sub-apis': ('https://docs.readthedocs.io/projects/apis/en/latest', None),\n}"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 1,
+      "title": "Intersphinx in Read the Docs"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "If you are using "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "/commercial/index"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", Intersphinx will not be able to fetch the inventory file from private docs."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Intersphinx supports "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html#using-intersphinx-with-inventory-file-under-basic-authorization",
+                  "value": "URLs with Basic Authorization"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ", which Read the Docs supports "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "using a token <commercial/sharing:Basic Authorization>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". You need to generate a token for each project you want to use with Intersphinx."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Go the project you want to use with Intersphinx"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Click "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": "guilabel",
+                            "value": "Admin"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": " > "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": "guilabel",
+                            "value": "Sharing"
+                          },
+                          "type": "Directive"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Select "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "HTTP Header Token"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Set an expiration date long enough to use the token when building your project"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Click on "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "Share!"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "EnumeratedList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Now we can add the link to the private project with the token like:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "# conf.py file\n\nintersphinx_mapping = {\n    # Links to a private project named \"docs\"\n    'docs': ('https://<token-for-docs>:@readthedocs-docs.readthedocs-hosted.com/en/latest', None),\n    # Links to the private French translation of the \"docs\" project\n    'docs': ('https://<token-for-fr-translation>:@readthedocs-docs.readthedocs-hosted.com/fr/latest', None),\n    # Links to the private \"apis\" subproject of the \"docs\" project\n    'docs': ('https://<token-for-apis>:@readthedocs-docs.readthedocs-hosted.com/projects/apis/en/latest', None),\n}"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Sphinx will strip the token from the URLs when generating the links."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "kind": "note",
+            "title": ""
+          },
+          "type": "Admonition"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "You can use your tokens with environment variables, so you don't have to hard code them in your "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "conf.py"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " file. See "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "/environment-variables"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " to use environment variables inside Read the Docs."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For example, if you create an environment variable named "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "RTD_TOKEN_DOCS"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " with the token from the \"docs\" project. You can use it like this:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "# conf.py file\n\nimport os\nRTD_TOKEN_DOCS = os.environ.get('RTD_TOKEN_DOCS')\n\nintersphinx_mapping = {\n    # Links to a private project named \"docs\"\n    'docs': (f'https://{RTD_TOKEN_DOCS}:@readthedocs-docs.readthedocs-hosted.com/en/latest', None),\n}"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Another way of using Intersphinx with private projects is to download the inventory file and keep it in sync when the project changes. The inventory file is by default located at "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "objects.inv"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ", for example "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "https://readthedocs-docs.readthedocs-hosted.com/en/latest/objects.inv"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": "."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "argument": "python",
+                  "content": "# conf.py file\n\nintersphinx_mapping = {\n    # Links to a private project named \"docs\" using a local inventory file.\n    'docs': ('https://readthedocs-docs.readthedocs-hosted.com/en/latest', 'path/to/local/objects.inv'),\n}",
+                  "name": "code",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              }
+            ],
+            "kind": "note",
+            "title": ""
+          },
+          "type": "Admonition"
+        }
+      ],
+      "level": 1,
+      "title": "Intersphinx with private projects"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

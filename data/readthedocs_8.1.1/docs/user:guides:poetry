@@ -1,0 +1,322 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [],
+      "level": 0,
+      "title": "Specifying your dependencies with Poetry"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Poetry is a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://peps.python.org/pep-0517/",
+                  "value": "Pep 517"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": "-compliant build backend, which means that "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://python-poetry.org/docs/pyproject/#poetry-and-pep-517",
+                  "value": "it can generate your project\nmetadata"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": " using a standardized interface that can be consumed directly by pip. To do that, first make sure that the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "build-system"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " section of your "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "pyproject.toml"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " declares the build backend as follows:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "toml",
+            "content": "[build-system]\nrequires = [\"poetry_core>=1.0.0\"]\nbuild-backend = \"poetry.core.masonry.api\"",
+            "name": "code-block",
+            "options": [
+              [
+                "caption",
+                "pyproject.toml"
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Then, you will be able to install it on Read the Docs just using pip, with a configuration like this:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "yaml",
+            "content": "version: 2\n\nbuild:\n  os: ubuntu-20.04\n  tools:\n    python: \"3.9\"\n\npython:\n  install:\n    - method: pip\n      path: .",
+            "name": "code-block",
+            "options": [
+              [
+                "caption",
+                ".readthedocs.yaml"
+              ],
+              [
+                "emphasize-lines",
+                "8-11"
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For example, the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://rich.readthedocs.io/",
+                  "value": "rich"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": " Python library "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/willmcgugan/rich/blob/ba5d0c2c/pyproject.toml#L49-L51",
+                  "value": "uses Poetry"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": " to declare its library dependencies and installs itself on Read the Docs "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/willmcgugan/rich/blob/ba5d0c2c/.readthedocs.yml#L18-L19",
+                  "value": "with pip"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 1,
+      "title": "Declaring your project metadata"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "With your "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "pyproject.toml"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " file you are free to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://python-poetry.org/docs/dependency-specification/",
+                  "value": "specify the dependency\nversions"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": " that are most appropriate for your project, either by leaving them unpinned or setting some constraints. However, to achieve "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "/guides/reproducible-builds"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " it is better that you lock your dependencies, so that the decision to upgrade any of them is yours. Poetry does this using "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "poetry.lock"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " files that contain the exact versions of all your transitive dependencies (that is, all the dependencies of your dependencies)."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The first time you run "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "poetry install"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " in your project directory "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://python-poetry.org/docs/basic-usage/#installing-without-poetrylock",
+                  "value": "Poetry will generate a new poetry.lock\nfile"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": " with the versions available at that moment. You can then "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control",
+                  "value": "commit your poetry.lock to version\ncontrol"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": " so that Read the Docs also uses these exact dependencies."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 1,
+      "title": "Locking your dependencies"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

@@ -1,0 +1,532 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Once a project has been imported and a build is triggered, Read the Docs executes specific "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "pre-defined jobs <pre-defined build jobs>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " to build the project's documentation and update the hosted content. This page explains in detail what happens behind the scenes, and an overview of how you can change this process."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "title": "Build process"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Understanding how your content is built helps with debugging the problems that may appear in the process. It also allows you customize the steps of the build process."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "All the steps are run inside a Docker container with the image the project defines in "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": "ref",
+                        "value": "config-file/v2:build.os"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": ", and all the "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": "doc",
+                        "value": "/environment-variables"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " defined are exposed to them."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "kind": "note",
+            "title": ""
+          },
+          "type": "Admonition"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The following are the pre-defined jobs executed by Read the Docs:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "body": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Checks out project's code from the URL's repository defined for this project.    It will use "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "git clone"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ", "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "hg clone"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": ", etc depending on the version control system you choose."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "name": [
+                  {
+                    "data": {
+                      "value": "checkout"
+                    },
+                    "type": "Words"
+                  }
+                ]
+              },
+              {
+                "body": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Installs operating system & system-level dependencies.    This includes specific version of languages (e.g. Python, Node.js, Go, Rust) and also "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "apt"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " packages."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "At this point, "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "config-file/v2:build.tools"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " can be used to define a language version,    and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "config-file/v2:build.apt_packages"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " to define "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "apt"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " packages."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "name": [
+                  {
+                    "data": {
+                      "value": "system_dependencies"
+                    },
+                    "type": "Words"
+                  }
+                ]
+              },
+              {
+                "body": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Creates a Python environment to install all the dependencies in an isolated and reproducible way.    Depending on what's defined by the project a virtualenv or a conda environment ("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "config-file/v2:conda"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ") will be used."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "name": [
+                  {
+                    "data": {
+                      "value": "create_environment"
+                    },
+                    "type": "Words"
+                  }
+                ]
+              },
+              {
+                "body": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Install "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "default common dependencies <build-default-versions>"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "If the project has extra Python requirements,    "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "config-file/v2:python.install"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " can be used to specify them."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "argument": "",
+                      "content": "We strongly recommend :ref:`pinning all the versions <guides/reproducible-builds:pinning dependencies>` required to build the documentation to avoid unexpected build errors.",
+                      "name": "tip",
+                      "options": []
+                    },
+                    "type": "BlockDirective"
+                  }
+                ],
+                "name": [
+                  {
+                    "data": {
+                      "value": "install"
+                    },
+                    "type": "Words"
+                  }
+                ]
+              },
+              {
+                "body": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Runs the main command to build the documentation for each of the formats declared ("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "config-file/v2:formats"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ").    It will use Sphinx ("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "config-file/v2:sphinx"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ") or MkDocs ("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "config-file/v2:mkdocs"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ") depending on the project."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "name": [
+                  {
+                    "data": {
+                      "value": "build"
+                    },
+                    "type": "Words"
+                  }
+                ]
+              },
+              {
+                "body": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Once the build process finishes successfully,    the resulting artifacts are uploaded to our servers, and the CDN is purged so the newer version of the documentation is served."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "name": [
+                  {
+                    "data": {
+                      "value": "upload"
+                    },
+                    "type": "Words"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "FieldList"
+        },
+        {
+          "data": {
+            "argument": "",
+            "content": "If there are extra steps required to build the documentation,\nor you need to execute additional commands to integrate with other tools,\nit's possible to run user-defined commands and :doc:`customize the build process <build-customization>`.",
+            "name": "seealso",
+            "options": []
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 1,
+      "title": "Understanding what's going on"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Every build has limited resources to avoid misuse of the platform. Currently, these build limits are:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "",
+            "content": ".. tab:: |org_brand|\n\n   * 15 minutes build time\n   * 3GB of memory\n   * 2 concurrent builds\n\n   We can increase build limits on a per-project basis.\n   Send an email to support@readthedocs.org providing a good reason why your documentation needs more resources.\n\n   If your business is hitting build limits hosting documentation on Read the Docs,\n   please consider :doc:`Read the Docs for Business </commercial/index>`\n   which has much higher build resources.\n\n.. tab:: |com_brand|\n\n   * 30 minutes build time\n   * 7GB of memory\n   * Concurrent builds vary based on your pricing plan\n\n   If you are having trouble with your documentation builds,\n   you can reach our support at support@readthedocs.com.",
+            "name": "tabs",
+            "options": []
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 1,
+      "title": "Build resources"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

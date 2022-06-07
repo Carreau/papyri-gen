@@ -1,0 +1,2096 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "Jupyter"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " notebooks are a popular tool to describe computational narratives that mix code, prose, images, interactive components, and more. Embedding them in your Sphinx project allows using these rich documents as documentation, which can provide a great experience for tutorials, examples, and other types of technical content. There are a few extensions that allow integrating Jupyter and Sphinx, and this document will explain how to achieve some of the most commonly requested features."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _Jupyter: https://jupyter.org/"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _ipynb-notebooks-sphinx:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "level": 0,
+      "title": "How to use Jupyter notebooks in Sphinx"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "There are two main extensions that add support Jupyter notebooks as source files in Sphinx: "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "nbsphinx_"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "MyST-NB_"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ". They have similar intent and basic functionality: both can read notebooks in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    ".ipynb"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and additional formats supported by "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "jupytext"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", and are configured in a similar way (see "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "nb-background"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " for more background on their differences)."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "First of all, create a Jupyter notebook using the editor of your liking (for example, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "JupyterLab_"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": "). For example, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "source/notebooks/Example 1.ipynb"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ":"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "/_static/images/guides/example-notebook.png",
+            "content": "Example Jupyter notebook created on JupyterLab",
+            "name": "figure",
+            "options": [
+              [
+                "width",
+                "80%"
+              ],
+              [
+                "align",
+                "center"
+              ],
+              [
+                "alt",
+                "Example Jupyter notebook created on JupyterLab"
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _JupyterLab: https://jupyterlab.readthedocs.io/"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Next, you will need to enable one of the extensions, as follows:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "",
+            "content": ".. tab:: nbsphinx\n\n   .. code-block:: python\n      :caption: conf.py\n\n      extensions = [\n          \"nbsphinx\",\n      ]\n\n.. tab:: MyST-NB\n\n   .. code-block:: python\n      :caption: conf.py\n\n      extensions = [\n          \"myst_nb\",\n      ]",
+            "name": "tabs",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Finally, you can include the notebook in any "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "toctree"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": ". For example, add this to your root document:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "",
+            "content": ".. tab:: reStructuredText\n\n   .. code-block:: rst\n\n      .. toctree::\n         :maxdepth: 2\n         :caption: Contents:\n\n         notebooks/Example 1\n\n.. tab:: MyST (Markdown)\n\n   .. code-block:: md\n\n      ```{toctree}\n      ---\n      maxdepth: 2\n      caption: Contents:\n      ---\n      notebooks/Example 1\n      ```",
+            "name": "tabs",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The notebook will render as any other HTML page in your documentation after doing "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "make html"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "/_static/images/guides/example-notebook-rendered.png",
+            "content": "Example Jupyter notebook rendered on HTML by nbsphinx",
+            "name": "figure",
+            "options": [
+              [
+                "width",
+                "80%"
+              ],
+              [
+                "align",
+                "center"
+              ],
+              [
+                "alt",
+                "Example Jupyter notebook rendered on HTML by nbsphinx"
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "To further customize the rendering process among other things, refer to the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "nbsphinx_"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " or "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "MyST-NB_"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " documentation."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 1,
+      "title": "Including classic ``.ipynb`` notebooks in Sphinx documentation"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Widgets are eventful python objects that have a representation in the browser and that you can use to build interactive GUIs for your notebooks. Basic widgets using "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "ipywidgets",
+                    "path": "ipywidgets",
+                    "version": "*"
+                  },
+                  "value": "ipywidgets"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " include controls like sliders, textboxes, and buttons, and more complex widgets include interactive maps, like the ones provided by "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "ipyleaflet"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _ipywidgets: https://ipywidgets.readthedocs.io/"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _ipyleaflet: https://ipyleaflet.readthedocs.io/"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "You can embed these interactive widgets on HTML Sphinx documentation. For this to work, it's necessary to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "save the widget state"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " before generating the HTML documentation, otherwise the widget will appear as empty. Each editor has a different way of doing it:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The classical Jupyter Notebook interface   provides a \"Save Notebook Widget State\" action in the \"Widgets\" menu,   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "as explained in the ipywidgets\n  documentation <ipywidgets:/embedding.md#embedding-widgets-in-html-web-pages>"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ".   You need to click it before exporting your notebook to HTML."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "JupyterLab provides a \"Save Widget State Automatically\" option in the \"Settings\" menu.   You need to leave it checked so that widget state is automatically saved."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "In Visual Studio Code "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/microsoft/vscode-jupyter/issues/4404",
+                            "value": "it's not possible to save the widget\n  state"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": "   at the time of writing (June 2021)."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "argument": "/_static/images/guides/jupyterlab-save-widget-state.png",
+            "content": "JupyterLab option to save the interactive widget state automatically",
+            "name": "figure",
+            "options": [
+              [
+                "width",
+                "30%"
+              ],
+              [
+                "align",
+                "center"
+              ],
+              [
+                "alt",
+                "JupyterLab option to save the interactive widget state automatically"
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For example, if you create a notebook with a simple "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ipywidgets:/examples/widget list.ipynb#intslider"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " widget from ipywidgets and save the widget state, the slider will render correctly in Sphinx."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "/_static/images/guides/widget-html.gif",
+            "content": "Interactive widget rendered in HTML by Sphinx",
+            "name": "figure",
+            "options": [
+              [
+                "width",
+                "80%"
+              ],
+              [
+                "align",
+                "center"
+              ],
+              [
+                "alt",
+                "Interactive widget rendered in HTML by Sphinx"
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "To see more elaborate examples:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "ipyleaflet"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": " provides several widgets for interactive maps,   and renders live versions of them "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "in their documentation <ipyleaflet:layers/velocity>"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "target": "https://docs.pyvista.org/",
+                            "value": "PyVista"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": " is used for scientific 3D visualization   with several interactive backends and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://docs.pyvista.org/index.html#maps-and-geoscience",
+                            "value": "examples in their\n  documentation"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": " as well."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Although widgets themselves can be embedded in HTML, "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": "doc",
+                        "value": "events <ipywidgets:examples/Widget Events>"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " require a backend (kernel) to execute. Therefore, "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "@interact"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ", "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          ".observe"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ", and related functionalities relying on them will not work as expected."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "kind": "warning",
+            "title": ""
+          },
+          "type": "Admonition"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "If your widgets need some additional JavaScript libraries, you can add them using "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": "py",
+                        "role": "meth",
+                        "value": "~sphinx.application.Sphinx.add_js_file"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": "."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "kind": "note",
+            "title": ""
+          },
+          "type": "Admonition"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _other-formats:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "level": 1,
+      "title": "Rendering interactive widgets"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For example, this is how a simple notebook looks like in MyST Markdown format:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "",
+            "content": "---\njupytext:\ntext_representation:\n   extension: .md\n   format_name: myst\n   format_version: 0.13\n   jupytext_version: 1.10.3\nkernelspec:\ndisplay_name: Python 3\nlanguage: python\nname: python3\n---\n\n# Plain-text notebook formats\n\nThis is a example of a Jupyter notebook stored in MyST Markdown format.\n\n```{code-cell} ipython3\nimport sys\nprint(sys.version)\n```\n\n```{code-cell} ipython3\nfrom IPython.display import Image\n```\n\n```{code-cell} ipython3\nImage(\"http://sipi.usc.edu/database/preview/misc/4.2.03.png\")\n```",
+            "name": "code-block",
+            "options": [
+              [
+                "caption",
+                "Example 3.md"
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "To render this notebook in Sphinx you will need to add this to your "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "conf.py"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ":"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "",
+            "content": ".. tab:: nbsphinx\n\n   .. code-block:: python\n      :caption: conf.py\n\n      nbsphinx_custom_formats = {\n          \".md\": [\"jupytext.reads\", {\"fmt\": \"mystnb\"}],\n      }\n\n.. tab:: MyST-NB\n\n   .. code-block:: python\n      :caption: conf.py\n\n      nb_custom_formats = {\n          \".md\": [\"jupytext.reads\", {\"fmt\": \"mystnb\"}],\n      }",
+            "name": "tabs",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Notice that the Markdown format does not store the outputs of the computation. Sphinx will automatically execute notebooks without outputs, so in your HTML documentation they appear as complete."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _notebook-galleries:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "level": 1,
+      "title": "Using notebooks in other formats"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "nbsphinx"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " has support for "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "creating thumbnail galleries from a list of Jupyter\nnotebooks <nbsphinx:subdir/gallery>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". This functionality relies on "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://sphinx-gallery.github.io/",
+                  "value": "Sphinx-Gallery"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": " and extends it to work with Jupyter notebooks rather than Python scripts."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "To use it, you will need to install both nbsphinx and Sphinx-Gallery, and modify your "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "conf.py"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " as follows:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "python",
+            "content": "extensions = [\n   'nbsphinx',\n   'sphinx_gallery.load_style',\n]",
+            "name": "code-block",
+            "options": [
+              [
+                "caption",
+                "conf.py"
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "After doing that, there are two ways to create the gallery:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "From a reStructuredText source file, using the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              ".. nbgallery::"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " directive,   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "as showcased in the\n  documentation <nbsphinx:/a-normal-rst-file.rst#thumbnail-galleries>"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "From a Jupyter notebook, adding a "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "\"nbsphinx-gallery\""
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " tag to the metadata of a cell.   Each editor has a different way of modifying the cell metadata (see figure below)."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "argument": "/_static/images/guides/jupyterlab-metadata.png",
+            "content": "Panel to modify cell metadata in JupyterLab",
+            "name": "figure",
+            "options": [
+              [
+                "width",
+                "80%"
+              ],
+              [
+                "align",
+                "center"
+              ],
+              [
+                "alt",
+                "Panel to modify cell metadata in JupyterLab"
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For example, this reST markup would create a thumbnail gallery with generic images as thumbnails, thanks to the Sphinx-Gallery default style:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "",
+            "content": ".. tab:: reStructuredText\n\n   .. code-block:: rst\n\n      Thumbnails gallery\n      ==================\n\n      .. nbgallery::\n         notebooks/Example 1\n         notebooks/Example 2\n\n.. tab:: MyST (Markdown)\n\n   .. code-block:: md\n\n      # Thumbnails gallery\n\n      ```{nbgallery}\n      notebooks/Example 1\n      notebooks/Example 2\n      ```",
+            "name": "tabs",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "argument": "/_static/images/guides/thumbnail-gallery.png",
+            "content": "Simple thumbnail gallery created using nbsphinx",
+            "name": "figure",
+            "options": [
+              [
+                "width",
+                "80%"
+              ],
+              [
+                "align",
+                "center"
+              ],
+              [
+                "alt",
+                "Simple thumbnail gallery created using nbsphinx"
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "To see some examples of notebook galleries in the wild:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "target": "https://docs.poliastro.space/",
+                            "value": "poliastro"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": " offers tools for interactive Astrodynamics in Python,   and features "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "several examples and how-to guides using notebooks <poliastro:gallery>"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "   and displays them in an appealing thumbnail gallery.   In addition, "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/poliastro/poliastro/tree/0.15.x/docs/source/examples",
+                            "value": "poliastro uses unpaired MyST\n  Notebooks"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": "   to reduce repository size and improve integration with git."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "target": "https://qiskit.org/",
+                            "value": "Qiskit"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": " is a framework for quantum computing   that leverages "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "nbgallery"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "for its tutorials <qiskit:tutorials>"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "   and uses a highly customized style to match the branding of the website."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        }
+      ],
+      "level": 1,
+      "title": "Creating galleries of examples using notebooks"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _nb-background:"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "level": 1,
+      "title": "Background"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "In the first part of this document we have seen that "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "nbsphinx"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "MyST-NB"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " are similar. However, there are some differences between them:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "nsphinx uses "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://pandoc.org/",
+                            "value": "pandoc"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": "   to convert the Markdown from Jupyter notebooks to reStructuredText   and then to "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://docutils.sourceforge.io/docs/ref/doctree.html",
+                            "value": "docutils AST"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ",   whereas MyST-NB uses "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "MyST-Parser"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": "   to directly convert the Markdown text to docutils AST.   Therefore, nbsphinx assumes "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://pandoc.org/MANUAL.html#pandocs-markdown",
+                            "value": "pandoc flavored Markdown"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ",   whereas MyST-NB uses "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "MyST flavored Markdown <myst-parser:syntax/syntax>"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ".   Both Markdown flavors are mostly equal,   but they have some differences."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "nbsphinx executes each notebook during the parsing phase,   whereas MyST-NB can execute all notebooks up front   and cache them with "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://jupyter-cache.readthedocs.io/",
+                            "value": "jupyter-cache"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ".   This can result in shorter build times when notebooks are modified   if using MyST-NB."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "nbsphinx provides functionality to create thumbnail galleries,   whereas MyST-NB does not have such functionality at the moment   (see "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "notebook-galleries"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " for more information about galleries)."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "MyST-NB allows embedding Python objects coming from the notebook in the documentation   (read "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "their \"glue\" documentation <myst-nb:glue>"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "   for more information)   and provides more sophisticated "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "error reporting <myst-nb:start/error-reporting>"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "   than the one nbsphinx has."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The visual appearance of code cells and their outputs is slightly different:   nbsphinx renders the cell numbers by default,   whereas MyST-NB doesn't."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _nbsphinx: https://nbsphinx.readthedocs.io/"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _MyST-NB: https://myst-nb.readthedocs.io/"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _MyST-Parser: https://myst-parser.readthedocs.io/"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _jupytext: https://jupytext.readthedocs.io/"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Deciding which one to use depends on your use case. As general recommendations:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "If you want to use "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "other notebook formats <other-formats>"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "   or "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "generate a thumbnail gallery from your notebooks <notebook-galleries>"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ",   nbsphinx is the right choice."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "If you want to leverage a more optimized execution workflow   and a more streamlined parsing mechanism,   as well as some of the unique MyST-NB functionalities   ("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "glue"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", better error reporting)   you should use MyST-NB."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        }
+      ],
+      "level": 2,
+      "title": "Existing relevant extensions"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Jupyter notebooks in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    ".ipynb"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " format (as described in the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://nbformat.readthedocs.io/",
+                  "value": "nbformat\ndocumentation"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ") are by far the most widely used for historical reasons."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "However, to compensate some of the disadvantages of the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    ".ipynb"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " format (like cumbersome integration with version control systems), "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "jupytext"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " offers "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "other formats <jupytext:formats>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " based on plain text rather than JSON."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "As a result, there are three modes of operation:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Using classic "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              ".ipynb"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " notebooks. It's the most straightforward option,   since all the tooling is prepared to work with them,   and does not require additional pieces of software.   It is therefore simpler to manage, since there are fewer moving parts.   However, it requires some care when working with Version Control Systems (like git),   by doing one of these things:"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "data": {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "value": "Clear outputs before commit.     Minimizes conflicts, but might defeat the purpose of notebooks themselves,     since the computation results are not stored."
+                                    },
+                                    "type": "Words"
+                                  }
+                                ]
+                              },
+                              "type": "Paragraph"
+                            }
+                          ]
+                        },
+                        {
+                          "children": [
+                            {
+                              "data": {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "value": "Use tools like "
+                                    },
+                                    "type": "Words"
+                                  },
+                                  {
+                                    "data": {
+                                      "target": "https://nbdime.readthedocs.io/",
+                                      "value": "nbdime"
+                                    },
+                                    "type": "ExternalLink"
+                                  },
+                                  {
+                                    "data": {
+                                      "value": " (open source)     or "
+                                    },
+                                    "type": "Words"
+                                  },
+                                  {
+                                    "data": {
+                                      "target": "https://www.reviewnb.com/",
+                                      "value": "ReviewNB"
+                                    },
+                                    "type": "ExternalLink"
+                                  },
+                                  {
+                                    "data": {
+                                      "value": " (proprietary)     to improve the review process."
+                                    },
+                                    "type": "Words"
+                                  }
+                                ]
+                              },
+                              "type": "Paragraph"
+                            }
+                          ]
+                        },
+                        {
+                          "children": [
+                            {
+                              "data": {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "value": "Use a different collaboration workflow that doesn't involve notebooks."
+                                    },
+                                    "type": "Words"
+                                  }
+                                ]
+                              },
+                              "type": "Paragraph"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "type": "BulletList"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Replace "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              ".ipynb"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " notebooks with "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "a text-based format <jupytext:formats>"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ".   These formats behave better under version control   and they can also be edited with normal text editors   that do not support cell-based JSON notebooks.   However, text-based formats do not store the outputs of the cells,   and this might not be what you want."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Pairing "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              ".ipynb"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " notebooks with a text-based format,   and putting the text-based file in version control,   as suggested in the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "jupytext documentation <jupytext:paired-notebooks>"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ".   This solution has the best of both worlds.   In some rare cases you might experience synchronization issues between both files."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "These approaches are not mutually exclusive, nor you have to use a single format for all your notebooks. For the examples in this document, we have used the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "MyST Markdown\nformat <jupytext:formats.md#myst-markdown>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "If you are using alternative formats for Jupyter notebooks, you can include them in your Sphinx documentation using either "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "nbsphinx"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " or "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "MyST-NB"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " (see "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "nb-background"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " for more information about the differences between them)."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "title": "Alternative notebook formats"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

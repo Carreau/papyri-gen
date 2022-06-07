@@ -1,0 +1,825 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Your docs depend on tools and other dependencies to be built. If your docs don't have reproducible builds, an update in a dependency can break your builds when least expected, or make your docs look different from your local version. This guide will help you to keep your builds working over time, and in a reproducible way."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "Contents",
+            "content": "",
+            "name": "contents",
+            "options": [
+              [
+                "local",
+                ""
+              ],
+              [
+                "depth",
+                "3"
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 0,
+      "title": "Reproducible Builds"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "To test your build process, you can build them locally in a clean environment (this is without any dependencies installed). Then you should make sure you are running those same steps on Read the Docs."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "You can configure how your project is built from the web interface ("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": "guilabel",
+                  "value": "Admin"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " tab), or by "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "using a configuration file <guides/reproducible-builds:using a configuration file>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " (recommended). If you aren't familiar with these tools, check our docs:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              "/intro/getting-started-with-sphinx"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              "/intro/getting-started-with-mkdocs"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              "/config-file/v2"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "You can see the exact commands that are run on Read the Docs by going to the "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "domain": null,
+                        "role": "guilabel",
+                        "value": "Builds"
+                      },
+                      "type": "Directive"
+                    },
+                    {
+                      "data": {
+                        "value": " tab of your project."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "kind": "note",
+            "title": ""
+          },
+          "type": "Admonition"
+        }
+      ],
+      "level": 1,
+      "title": "Building your docs"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "If you use the web interface to configure your project, the options are applied to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "all"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " versions and builds of your docs, and can be lost after changing them over time. Using a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "configuration file </config-file/v2>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "content": {
+                    "value": "provides you per version settings"
+                  }
+                },
+                "type": "Strong"
+              },
+              {
+                "data": {
+                  "value": ", and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "content": {
+                    "value": "those settings live in your repository"
+                  }
+                },
+                "type": "Strong"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "A configuration file with explicit dependencies looks like this:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "yaml",
+            "content": "version: 2\n\nbuild:\n  os: \"ubuntu-20.04\"\n  tools:\n    python: \"3.9\"\n\n# Build from the docs/ directory with Sphinx\nsphinx:\n  configuration: docs/conf.py\n\n# Explicitly set the version of Python and its requirements\npython:\n  install:\n    - requirements: docs/requirements.txt",
+            "name": "code-block",
+            "options": [
+              [
+                "caption",
+                ".readthedocs.yaml"
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "argument": "",
+            "content": "# Defining the exact version will make sure things don't break\nsphinx==4.2.0\nsphinx_rtd_theme==1.0.0\nreadthedocs-sphinx-search==0.1.1",
+            "name": "code-block",
+            "options": [
+              [
+                "caption",
+                "docs/requirements.txt"
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 1,
+      "title": "Using a configuration file"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "By default Read the Docs will install the tool you chose to build your docs, and other dependencies, this is done so new users can build their docs without much configuration."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "We highly recommend not to assume these dependencies will always be present or that their versions won't change. Always declare your dependencies explicitly using a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "configuration file <guides/reproducible-builds:using a configuration file>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", for example:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Your project is declaring the Python version explicitly,    and its dependencies using a requirements file."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "argument": "yaml",
+                      "content": "version: 2\n\n   build:\n     os: \"ubuntu-20.04\"\n     tools:\n       python: \"3.9\"\n\n   sphinx:\n     configuration: docs/conf.py\n\n   python:\n     install:\n       - requirements: docs/requirements.txt",
+                      "name": "code-block",
+                      "options": [
+                        [
+                          "caption",
+                          ".readthedocs.yaml"
+                        ]
+                      ]
+                    },
+                    "type": "BlockDirective"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "\u2705 Good:"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Your project is relying on the default Python version and default installed dependencies."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "argument": "yaml",
+                      "content": "version: 2\n\n   sphinx:\n      configuration: docs/conf.py",
+                      "name": "code-block",
+                      "options": [
+                        [
+                          "caption",
+                          ".readthedocs.yaml"
+                        ]
+                      ]
+                    },
+                    "type": "BlockDirective"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "\u274c Bad:"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        }
+      ],
+      "level": 1,
+      "title": "Don't rely on implicit dependencies"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "As you shouldn't rely on implicit dependencies, you shouldn't rely on undefined versions of your dependencies. Some examples:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The specified versions will be used for all your builds,    in all platforms, and won't be updated unexpectedly."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "argument": "",
+                      "content": "sphinx==4.2.0\n   sphinx_rtd_theme==1.0.0\n   readthedocs-sphinx-search==0.1.1",
+                      "name": "code-block",
+                      "options": [
+                        [
+                          "caption",
+                          "docs/requirements.txt"
+                        ]
+                      ]
+                    },
+                    "type": "BlockDirective"
+                  },
+                  {
+                    "data": {
+                      "argument": "yaml",
+                      "content": "name: docs\n   channels:\n     - conda-forge\n     - defaults\n   dependencies:\n     - sphinx==4.2.0\n     - nbsphinx==0.8.1\n     - pip:\n       - sphinx_rtd_theme==1.0.0",
+                      "name": "code-block",
+                      "options": [
+                        [
+                          "caption",
+                          "docs/environment.yaml"
+                        ]
+                      ]
+                    },
+                    "type": "BlockDirective"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "\u2705 Good:"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The latest or any other already installed version will be used,    and your builds can fail or change unexpectedly any time."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "argument": "",
+                      "content": "sphinx\n   sphinx_rtd_theme\n   readthedocs-sphinx-search",
+                      "name": "code-block",
+                      "options": [
+                        [
+                          "caption",
+                          "docs/requirements.txt"
+                        ]
+                      ]
+                    },
+                    "type": "BlockDirective"
+                  },
+                  {
+                    "data": {
+                      "argument": "yaml",
+                      "content": "name: docs\n   channels:\n     - conda-forge\n     - defaults\n   dependencies:\n     - sphinx\n     - nbsphinx\n     - pip:\n       - sphinx_rtd_theme",
+                      "name": "code-block",
+                      "options": [
+                        [
+                          "caption",
+                          "docs/environment.yaml"
+                        ]
+                      ]
+                    },
+                    "type": "BlockDirective"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "\u274c Bad:"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Check the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "pip user guide"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " for more information about requirements files, or our Conda docs about "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "environment files <guides/conda:creating the \\'\\'environment.yml\\'\\'>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _`pip user guide`: https://pip.pypa.io/en/stable/user_guide/#requirements-files"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "argument": "",
+            "content": "Remember to update your docs' dependencies from time to time to get new improvements and fixes.\nIt also makes it easy to manage in case a version reaches its end of support date.",
+            "name": "tip",
+            "options": []
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 1,
+      "title": "Pinning dependencies"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Once you have pinned your own dependencies, the next things to worry about are the dependencies of your dependencies. These are called "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "transitive dependencies"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": ", and they can upgrade without warning if you do not pin these packages as well."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "We recommend "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "pip-tools"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " to help address this problem. It allows you to specify a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "requirements.in"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " file with your first-level dependencies, and it generates a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "requirements.txt"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " file with the full set of transitive dependencies."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "placeholder": "target",
+            "value": ".. _pip-tools: https://pip-tools.readthedocs.io/en/latest/"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "All your transitive dependencies will stay defined,     which ensures new package releases will not break your docs."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "\u2705 Good:"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "argument": "",
+                  "content": "sphinx==4.2.0",
+                  "name": "code-block",
+                  "options": [
+                    [
+                      "caption",
+                      "docs/requirements.in"
+                    ]
+                  ]
+                },
+                "type": "BlockDirective"
+              },
+              {
+                "data": {
+                  "argument": "yaml",
+                  "content": "# This file is autogenerated by pip-compile with python 3.7\n   # To update, run:\n   #\n   #    pip-compile docs.in\n   #\n   alabaster==0.7.12\n       # via sphinx\n   babel==2.10.1\n       # via sphinx\n   certifi==2021.10.8\n       # via requests\n   charset-normalizer==2.0.12\n       # via requests\n   docutils==0.17.1\n       # via sphinx\n   idna==3.3\n       # via requests\n   imagesize==1.3.0\n       # via sphinx\n   importlib-metadata==4.11.3\n       # via sphinx\n   jinja2==3.1.2\n       # via sphinx\n   markupsafe==2.1.1\n       # via jinja2\n   packaging==21.3\n       # via sphinx\n   pygments==2.11.2\n       # via sphinx\n   pyparsing==3.0.8\n       # via packaging\n   pytz==2022.1\n       # via babel\n   requests==2.27.1\n       # via sphinx\n   snowballstemmer==2.2.0\n       # via sphinx\n   sphinx==4.4.0\n       # via -r docs.in\n   sphinxcontrib-applehelp==1.0.2\n       # via sphinx\n   sphinxcontrib-devhelp==1.0.2\n       # via sphinx\n   sphinxcontrib-htmlhelp==2.0.0\n       # via sphinx\n   sphinxcontrib-jsmath==1.0.1\n       # via sphinx\n   sphinxcontrib-qthelp==1.0.3\n       # via sphinx\n   sphinxcontrib-serializinghtml==1.1.5\n       # via sphinx\n   typing-extensions==4.2.0\n       # via importlib-metadata\n   urllib3==1.26.9\n       # via requests\n   zipp==3.8.0\n       # via importlib-metadata",
+                  "name": "code-block",
+                  "options": [
+                    [
+                      "caption",
+                      "docs/requirements.txt"
+                    ]
+                  ]
+                },
+                "type": "BlockDirective"
+              }
+            ]
+          },
+          "type": "BlockQuote"
+        }
+      ],
+      "level": 1,
+      "title": "Pinning transitive dependencies"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

@@ -35,6 +35,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -73,6 +74,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -111,6 +113,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -156,6 +159,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -180,6 +184,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -218,6 +223,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -284,6 +290,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -4228,6 +4235,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -4266,6 +4274,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -4290,6 +4299,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -4349,6 +4359,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -4422,6 +4433,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -4649,6 +4661,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -4687,6 +4700,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -4711,6 +4725,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -4840,6 +4855,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -5326,6 +5342,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -5602,6 +5619,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -5668,6 +5686,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -5727,6 +5746,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -5765,6 +5785,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -5859,6 +5880,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -5995,6 +6017,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -6222,6 +6245,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -6260,6 +6284,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -6291,6 +6316,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -6336,6 +6362,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -6360,6 +6387,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -6384,6 +6412,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -6443,6 +6472,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -6467,6 +6497,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -6498,6 +6529,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -6550,6 +6582,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -6644,6 +6677,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -6710,6 +6744,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -6748,6 +6783,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -6779,6 +6815,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -6817,6 +6854,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -6855,6 +6893,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -6886,6 +6925,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -7001,6 +7041,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -7158,6 +7199,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -7189,6 +7231,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -7241,6 +7284,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -7272,6 +7316,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -7331,6 +7376,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -7453,6 +7499,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -7554,6 +7601,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -7620,6 +7668,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -7679,6 +7728,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -7794,6 +7844,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -7874,6 +7925,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -7940,6 +7992,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -7999,6 +8052,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -8079,6 +8133,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -8103,6 +8158,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -8211,6 +8267,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -8235,6 +8292,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -8329,6 +8387,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -8437,6 +8496,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -8475,6 +8535,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -8499,12 +8560,13 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
                   "kind": "module",
                   "module": "builtins",
-                  "path": "builtins._TextIOBase.write",
+                  "path": "builtins.BufferedWriter.write",
                   "version": "*"
                 },
                 "value": "write"
@@ -8586,6 +8648,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -8610,12 +8673,13 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
                   "kind": "module",
                   "module": "builtins",
-                  "path": "builtins._BufferedIOBase.write",
+                  "path": "builtins.FileIO.write",
                   "version": "*"
                 },
                 "value": "write"
@@ -8704,6 +8768,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -8728,12 +8793,13 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
                   "kind": "module",
                   "module": "builtins",
-                  "path": "builtins._BufferedIOBase.write",
+                  "path": "builtins.FileIO.write",
                   "version": "*"
                 },
                 "value": "write"
@@ -8815,6 +8881,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -8839,12 +8906,13 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
                   "kind": "module",
                   "module": "builtins",
-                  "path": "builtins.FileIO.write",
+                  "path": "builtins.BufferedWriter.write",
                   "version": "*"
                 },
                 "value": "write"
@@ -8947,6 +9015,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -8985,6 +9054,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -9009,6 +9079,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -9061,6 +9132,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -9099,6 +9171,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -9123,6 +9196,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -9147,6 +9221,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -9262,6 +9337,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -9300,6 +9376,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -9324,12 +9401,13 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
                   "kind": "module",
                   "module": "builtins",
-                  "path": "builtins.BufferedWriter.write",
+                  "path": "builtins.FileIO.write",
                   "version": "*"
                 },
                 "value": "write"
@@ -9411,6 +9489,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -9456,6 +9535,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -9480,6 +9560,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -9567,6 +9648,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -9591,6 +9673,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -9685,6 +9768,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -9709,6 +9793,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -9845,6 +9930,7 @@
           {
             "link": {
               "data": {
+                "anchor": null,
                 "exists": true,
                 "kind": "module",
                 "reference": {
@@ -9898,5 +9984,6 @@
     }
   ],
   "level": 0,
+  "target": null,
   "title": null
 }

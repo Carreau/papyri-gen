@@ -2,16 +2,9 @@
   "aliases": [],
   "arbitrary": [
     {
-      "children": [
-        {
-          "data": {
-            "placeholder": "target",
-            "value": ".. _custom_prompts:"
-          },
-          "type": "Unimplemented"
-        }
-      ],
+      "children": [],
       "level": 0,
+      "target": null,
       "title": "Specific config details"
     },
     {
@@ -508,16 +501,10 @@
             ]
           },
           "type": "Paragraph"
-        },
-        {
-          "data": {
-            "placeholder": "target",
-            "value": ".. _termcolour:"
-          },
-          "type": "Unimplemented"
         }
       ],
       "level": 1,
+      "target": "custom_prompts",
       "title": "Custom Prompts"
     },
     {
@@ -773,6 +760,7 @@
         }
       ],
       "level": 1,
+      "target": "termcolour",
       "title": "Terminal Colors"
     },
     {
@@ -858,16 +846,10 @@
             ]
           },
           "type": "EnumeratedList"
-        },
-        {
-          "data": {
-            "placeholder": "target",
-            "value": ".. _editors:"
-          },
-          "type": "Unimplemented"
         }
       ],
       "level": 2,
+      "target": null,
       "title": "Colors in the pager"
     },
     {
@@ -1052,6 +1034,7 @@
         }
       ],
       "level": 1,
+      "target": "editors",
       "title": "Editor configuration"
     },
     {
@@ -1081,16 +1064,10 @@
             ]
           },
           "type": "Paragraph"
-        },
-        {
-          "data": {
-            "placeholder": "target",
-            "value": ".. _emacs:"
-          },
-          "type": "Unimplemented"
         }
       ],
       "level": 2,
+      "target": null,
       "title": "Vim"
     },
     {
@@ -1200,16 +1177,10 @@
             "value": ".. _vim: http://www.vim.org/"
           },
           "type": "Unimplemented"
-        },
-        {
-          "data": {
-            "placeholder": "target",
-            "value": ".. _custom_keyboard_shortcuts:"
-          },
-          "type": "Unimplemented"
         }
       ],
       "level": 2,
+      "target": "emacs",
       "title": "(X)Emacs"
     },
     {
@@ -1359,6 +1330,7 @@
         }
       ],
       "level": 1,
+      "target": "custom_keyboard_shortcuts",
       "title": "Keyboard Shortcuts"
     },
     {
@@ -1530,12 +1502,13 @@
         },
         {
           "data": {
-            "value": "def custom_return(shell):\n\n    \"\"\"This function is required by the API. It takes a reference to\n    the shell, which is the same thing `get_ipython()` evaluates to.\n    This function must return a function that handles each keypress\n    event. That function, named `handle` here, references `shell`\n    by closure.\"\"\"\n\n    def handle(event):\n\n        \"\"\"This function is called each time `Enter` is pressed,\n        and takes a reference to a Prompt Toolkit event object.\n        If the current input starts with a bang or modulo, then\n        the input is executed, otherwise a newline is entered,\n        followed by any spaces needed to auto-indent.\"\"\"\n\n        # set up a few handy references to nested items...\n\n        buffer = event.current_buffer\n        document = buffer.document\n        text = document.text\n\n        if text.startswith('!') or text.startswith('%'): # execute the input...\n\n            buffer.accept_action.validate_and_handle(event.cli, buffer)\n\n        else: # insert a newline with auto-indentation...\n\n            if document.line_count > 1: text = text[:document.cursor_position]\n            indent = shell.check_complete(text)[1]\n            buffer.insert_text('\\n' + indent)\n        \n            # if you just wanted a plain newline without any indentation, you\n            # could use `buffer.insert_text('\\n')` instead of the lines above\n\n    return handle\n\nc.TerminalInteractiveShell.handle_return = custom_return"
+            "value": "def custom_return(shell):\n\n    \"\"\"This function is required by the API. It takes a reference to\n    the shell, which is the same thing `get_ipython()` evaluates to.\n    This function must return a function that handles each keypress\n    event. That function, named `handle` here, references `shell`\n    by closure.\"\"\"\n\n    def handle(event):\n\n        \"\"\"This function is called each time `Enter` is pressed,\n        and takes a reference to a Prompt Toolkit event object.\n        If the current input starts with a bang or modulo, then\n        the input is executed, otherwise a newline is entered,\n        followed by any spaces needed to auto-indent.\"\"\"\n\n        # set up a few handy references to nested items...\n\n        buffer = event.current_buffer\n        document = buffer.document\n        text = document.text\n\n        if text.startswith('!') or text.startswith('%'): # execute the input...\n\n            buffer.accept_action.validate_and_handle(event.cli, buffer)\n\n        else: # insert a newline with auto-indentation...\n\n            if document.line_count > 1: text = text[:document.cursor_position]\n            indent = shell.check_complete(text)[1]\n            buffer.insert_text('\\n' + indent)\n\n            # if you just wanted a plain newline without any indentation, you\n            # could use `buffer.insert_text('\\n')` instead of the lines above\n\n    return handle\n\nc.TerminalInteractiveShell.handle_return = custom_return"
           },
           "type": "BlockVerbatim"
         }
       ],
       "level": 2,
+      "target": null,
       "title": "Enter to execute"
     }
   ],
@@ -1543,6 +1516,7 @@
   "example_section_data": {
     "children": [],
     "level": 0,
+    "target": null,
     "title": null
   },
   "item_file": null,

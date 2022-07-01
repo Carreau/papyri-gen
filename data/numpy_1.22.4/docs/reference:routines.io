@@ -5,19 +5,6 @@
       "children": [
         {
           "data": {
-            "placeholder": "target",
-            "value": ".. _routines.io:"
-          },
-          "type": "Unimplemented"
-        }
-      ],
-      "level": 0,
-      "title": null
-    },
-    {
-      "children": [
-        {
-          "data": {
             "argument": "numpy",
             "content": "",
             "name": "currentmodule",
@@ -27,6 +14,7 @@
         }
       ],
       "level": 0,
+      "target": "routines.io",
       "title": "Input and output"
     },
     {
@@ -60,6 +48,7 @@
         }
       ],
       "level": 1,
+      "target": null,
       "title": "NumPy binary files (NPY, NPZ)"
     },
     {
@@ -72,6 +61,7 @@
         }
       ],
       "level": 1,
+      "target": null,
       "title": "Text files"
     },
     {
@@ -84,6 +74,7 @@
         }
       ],
       "level": 1,
+      "target": null,
       "title": "Raw binary files"
     },
     {
@@ -96,6 +87,7 @@
         }
       ],
       "level": 1,
+      "target": null,
       "title": "String formatting"
     },
     {
@@ -108,6 +100,7 @@
         }
       ],
       "level": 1,
+      "target": null,
       "title": "Memory mapping files"
     },
     {
@@ -120,6 +113,7 @@
         }
       ],
       "level": 1,
+      "target": null,
       "title": "Text formatting options"
     },
     {
@@ -132,6 +126,7 @@
         }
       ],
       "level": 1,
+      "target": null,
       "title": "Base-n representations"
     },
     {
@@ -144,6 +139,7 @@
         }
       ],
       "level": 1,
+      "target": null,
       "title": "Data sources"
     },
     {
@@ -156,6 +152,7 @@
         }
       ],
       "level": 1,
+      "target": null,
       "title": "Binary Format Description"
     }
   ],
@@ -163,6 +160,7 @@
   "example_section_data": {
     "children": [],
     "level": 0,
+    "target": null,
     "title": null
   },
   "item_file": null,

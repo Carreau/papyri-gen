@@ -19,6 +19,7 @@
         }
       ],
       "level": 0,
+      "target": null,
       "title": "I/O with NumPy"
     }
   ],
@@ -26,6 +27,7 @@
   "example_section_data": {
     "children": [],
     "level": 0,
+    "target": null,
     "title": null
   },
   "item_file": null,

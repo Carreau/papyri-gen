@@ -5,19 +5,6 @@
       "children": [
         {
           "data": {
-            "placeholder": "target",
-            "value": ".. _routines.ma:"
-          },
-          "type": "Unimplemented"
-        }
-      ],
-      "level": 0,
-      "title": null
-    },
-    {
-      "children": [
-        {
-          "data": {
             "argument": "numpy",
             "content": "",
             "name": "currentmodule",
@@ -27,6 +14,7 @@
         }
       ],
       "level": 0,
+      "target": "routines.ma",
       "title": "Masked array operations"
     },
     {
@@ -39,11 +27,13 @@
         }
       ],
       "level": 1,
+      "target": null,
       "title": "Constants"
     },
     {
       "children": [],
       "level": 1,
+      "target": null,
       "title": "Creation"
     },
     {
@@ -56,6 +46,7 @@
         }
       ],
       "level": 2,
+      "target": null,
       "title": "From existing data"
     },
     {
@@ -72,6 +63,7 @@
         }
       ],
       "level": 2,
+      "target": null,
       "title": "Ones and zeros"
     },
     {
@@ -94,11 +86,13 @@
         }
       ],
       "level": 1,
+      "target": null,
       "title": "Inspecting the array"
     },
     {
       "children": [],
       "level": 1,
+      "target": null,
       "title": "Manipulating a MaskedArray"
     },
     {
@@ -111,6 +105,7 @@
         }
       ],
       "level": 2,
+      "target": null,
       "title": "Changing the shape"
     },
     {
@@ -123,6 +118,7 @@
         }
       ],
       "level": 2,
+      "target": null,
       "title": "Modifying axes"
     },
     {
@@ -135,6 +131,7 @@
         }
       ],
       "level": 2,
+      "target": null,
       "title": "Changing the number of dimensions"
     },
     {
@@ -151,11 +148,13 @@
         }
       ],
       "level": 2,
+      "target": null,
       "title": "Joining arrays"
     },
     {
       "children": [],
       "level": 1,
+      "target": null,
       "title": "Operations on masks"
     },
     {
@@ -168,6 +167,7 @@
         }
       ],
       "level": 2,
+      "target": null,
       "title": "Creating a mask"
     },
     {
@@ -180,6 +180,7 @@
         }
       ],
       "level": 2,
+      "target": null,
       "title": "Accessing a mask"
     },
     {
@@ -192,6 +193,7 @@
         }
       ],
       "level": 2,
+      "target": null,
       "title": "Finding masked data"
     },
     {
@@ -208,11 +210,13 @@
         }
       ],
       "level": 2,
+      "target": null,
       "title": "Modifying a mask"
     },
     {
       "children": [],
       "level": 1,
+      "target": null,
       "title": "Conversion operations"
     },
     {
@@ -225,6 +229,7 @@
         }
       ],
       "level": 2,
+      "target": null,
       "title": "> to a masked array"
     },
     {
@@ -237,6 +242,7 @@
         }
       ],
       "level": 2,
+      "target": null,
       "title": "> to a ndarray"
     },
     {
@@ -249,6 +255,7 @@
         }
       ],
       "level": 2,
+      "target": null,
       "title": "> to another object"
     },
     {
@@ -271,11 +278,13 @@
         }
       ],
       "level": 2,
+      "target": null,
       "title": "Filling a masked array"
     },
     {
       "children": [],
       "level": 1,
+      "target": null,
       "title": "Masked arrays arithmetic"
     },
     {
@@ -288,6 +297,7 @@
         }
       ],
       "level": 2,
+      "target": null,
       "title": "Arithmetic"
     },
     {
@@ -300,6 +310,7 @@
         }
       ],
       "level": 2,
+      "target": null,
       "title": "Minimum/maximum"
     },
     {
@@ -312,6 +323,7 @@
         }
       ],
       "level": 2,
+      "target": null,
       "title": "Sorting"
     },
     {
@@ -324,6 +336,7 @@
         }
       ],
       "level": 2,
+      "target": null,
       "title": "Algebra"
     },
     {
@@ -336,6 +349,7 @@
         }
       ],
       "level": 2,
+      "target": null,
       "title": "Polynomial fit"
     },
     {
@@ -348,6 +362,7 @@
         }
       ],
       "level": 2,
+      "target": null,
       "title": "Clipping and rounding"
     },
     {
@@ -360,6 +375,7 @@
         }
       ],
       "level": 2,
+      "target": null,
       "title": "Miscellanea"
     }
   ],
@@ -367,6 +383,7 @@
   "example_section_data": {
     "children": [],
     "level": 0,
+    "target": null,
     "title": null
   },
   "item_file": null,

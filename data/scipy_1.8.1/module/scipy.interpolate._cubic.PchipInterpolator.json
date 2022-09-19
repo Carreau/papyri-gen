@@ -1,0 +1,667 @@
+{
+  "aliases": [
+    "scipy.signal._ltisys.interpolate.PchipInterpolator"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": [
+                    "x"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "y"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " are arrays of values used to approximate some function f, with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "y = f(x)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". The interpolant uses monotonic cubic splines to find the value of new points. (PCHIP stands for Piecewise Cubic Hermite Interpolating Polynomial)."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Methods": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "desc": [],
+                "param": "__call__",
+                "type_": ""
+              },
+              {
+                "desc": [],
+                "param": "derivative",
+                "type_": ""
+              },
+              {
+                "desc": [],
+                "param": "antiderivative",
+                "type_": ""
+              },
+              {
+                "desc": [],
+                "param": "roots",
+                "type_": ""
+              }
+            ]
+          },
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The interpolator preserves monotonicity in the interpolation data and does not overshoot if the data is not smooth."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The first derivatives are guaranteed to be continuous, but the second derivatives may jump at "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "x_k"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Determines the derivatives at the points "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "x_k"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "f'_k"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": ", by using PCHIP algorithm ."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Let "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "h_k = x_{k+1} - x_k"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": ", and  "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "d_k = (y_{k+1} - y_k) / h_k"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " are the slopes at internal points "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "x_k"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": ". If the signs of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "d_k"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "d_{k-1}"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " are different or either of them equals zero, then "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "f'_k = 0"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": ". Otherwise, it is given by the weighted harmonic mean"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "\\frac{w_1 + w_2}{f'_k} = \\frac{w_1}{d_{k-1}} + \\frac{w_2}{d_k}"
+          },
+          "type": "BlockMath"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "where "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "w_1 = 2 h_k + h_{k-1}"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "w_2 = h_k + 2 h_{k-1}"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The end slopes are set using a one-sided scheme ."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A 1-D array of monotonically increasing real values. "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "x"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " cannot include duplicate values (otherwise f is overspecified)"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "x",
+                "type_": "ndarray"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A 1-D array of real values. "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "y"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "'s length along the interpolation axis must be equal to the length of "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "x"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ". If N-D array, use "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "axis"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " parameter to select correct axis."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "y",
+                "type_": "ndarray"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Axis in the y array corresponding to the x-coordinate values."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "axis",
+                "type_": "int, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Whether to extrapolate to out-of-bounds points based on first and last intervals, or to return NaNs."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "extrapolate",
+                "type_": "bool, optional"
+              }
+            ]
+          },
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "PCHIP 1-D monotonic cubic interpolation."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null
+  },
+  "item_file": "/scipy/interpolate/_cubic.py",
+  "item_line": 156,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Methods",
+    "See Also",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "data": {
+                "value": "Piecewise-cubic interpolator."
+              },
+              "type": "Words"
+            }
+          ]
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.interpolate._cubic.CubicHermiteSpline",
+          "version": "1.8.1"
+        },
+        "value": "CubicHermiteSpline"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "data": {
+                "value": "Akima 1D interpolator."
+              },
+              "type": "Words"
+            }
+          ]
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.interpolate._cubic.Akima1DInterpolator",
+          "version": "1.8.1"
+        },
+        "value": "Akima1DInterpolator"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "data": {
+                "value": "Cubic spline data interpolator."
+              },
+              "type": "Words"
+            }
+          ]
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.interpolate._cubic.CubicSpline",
+          "version": "1.8.1"
+        },
+        "value": "CubicSpline"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "data": {
+                "value": "Piecewise polynomial in terms of coefficients and breakpoints."
+              },
+              "type": "Words"
+            }
+          ]
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.interpolate._interpolate.PPoly",
+          "version": "1.8.1"
+        },
+        "value": "PPoly"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "value": null
+  }
+}

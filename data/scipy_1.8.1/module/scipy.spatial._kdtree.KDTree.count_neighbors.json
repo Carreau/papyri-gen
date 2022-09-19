@@ -1,0 +1,2263 @@
+{
+  "aliases": [
+    "scipy.signal._ltisys.interpolate._rbfinterp.KDTree.count_neighbors"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Count the number of pairs "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(x1,x2)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " can be formed, with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x1"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " drawn from "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "self"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x2"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " drawn from "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "other"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", and where "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "distance(x1, x2, p) <= r"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Data points on "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "self"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "other"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " are optionally weighted by the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "weights"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " argument. (See below)"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "This is adapted from the \"two-point correlation\" algorithm described by Gray and Moore .  See notes for further discussion."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Pair-counting is the basic operation used to calculate the two point correlation functions from a data set composed of position of objects."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Two point correlation function measures the clustering of objects and is widely used in cosmology to quantify the large scale structure in our Universe, but it may be useful for data analysis in other fields where self-similar assembly of objects also occur."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The Landy-Szalay estimator for the two point correlation function of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "D"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " measures the clustering signal in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "D"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For example, given the position of two sets of objects,"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "objects "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "D"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " (data) contains the clustering signal, and"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "objects "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "R"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " (random) that contains no signal,"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "value": "\\xi(r) = \\frac{<D, D> - 2 f <D, R> + f^2<R, R>}{f^2<R, R>},"
+          },
+          "type": "BlockMath"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "where the brackets represents counting pairs between two data sets in a finite bin around "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "r"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " (distance), corresponding to setting "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "cumulative=False"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ", and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "f = float(len(D)) / float(len(R))"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is the ratio between number of objects from data and random."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The algorithm implemented here is loosely based on the dual-tree algorithm described in . We switch between two different pair-cumulation scheme depending on the setting of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "cumulative"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". The computing time of the method we use when for "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "cumulative == False"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " does not scale with the total number of bins. The algorithm for "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "cumulative == True"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " scales linearly with the number of bins, though it is slightly faster when only 1 or 2 bins are used. ."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "As an extension to the naive pair-counting, weighted pair-counting counts the product of weights instead of number of pairs. Weighted pair-counting is used to estimate marked correlation functions (, section 2.2), or to properly calculate the average of data per distance bin (e.g. , section 2.1 on redshift)."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [1] Gray and Moore,\n       \"N-body problems in statistical learning\",\n       Mining the sky, 2000,\n       https://arxiv.org/abs/astro-ph/0012333"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [2] Landy and Szalay,\n       \"Bias and variance of angular correlation functions\",\n       The Astrophysical Journal, 1993,\n       http://adsabs.harvard.edu/abs/1993ApJ...412...64L"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [3] Sheth, Connolly and Skibba,\n       \"Marked correlations in galaxy formation models\",\n       Arxiv e-print, 2005,\n       https://arxiv.org/abs/astro-ph/0511773"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [4] Hawkins, et al.,\n       \"The 2dF Galaxy Redshift Survey: correlation functions,\n       peculiar velocities and the matter density of the Universe\",\n       Monthly Notices of the Royal Astronomical Society, 2002,\n       http://adsabs.harvard.edu/abs/2003MNRAS.346...78H"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [5] https://github.com/scipy/scipy/pull/5647#issuecomment-168474926"
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The other tree to draw points from, can be the same tree as self."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "other",
+                "type_": "KDTree"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The radius to produce a count for. Multiple radii are searched with a single tree traversal. If the count is non-cumulative("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "cumulative=False"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "), "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "r"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " defines the edges of the bins, and must be non-decreasing."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "r",
+                "type_": "float or one-dimensional array of floats"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "1<=p<=infinity. Which Minkowski p-norm to use. Default 2.0. A finite large p may cause a ValueError if overflow can occur."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "p",
+                "type_": "float, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "If None, the pair-counting is unweighted. If given as a tuple, weights[0] is the weights of points in "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "self"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", and weights[1] is the weights of points in "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "other"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "; either can be None to indicate the points are unweighted. If given as an array_like, weights is the weights of points in "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "self"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "other"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ". For this to make sense, "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "self"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "other"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " must be the same tree. If "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "self"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "other"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " are two different trees, a "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "ValueError"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " is raised. Default: None"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [],
+                      "kind": "versionadded",
+                      "title": "1.6.0"
+                    },
+                    "type": "Admonition"
+                  }
+                ],
+                "param": "weights",
+                "type_": "tuple, array_like, or None, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Whether the returned counts are cumulative. When cumulative is set to "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "False"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " the algorithm is optimized to work with a large number of bins (>10) specified by "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "r"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ". When "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "cumulative"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " is set to True, the algorithm is optimized to work with a small number of "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "r"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ". Default: True"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [],
+                      "kind": "versionadded",
+                      "title": "1.6.0"
+                    },
+                    "type": "Admonition"
+                  }
+                ],
+                "param": "cumulative",
+                "type_": "bool, optional"
+              }
+            ]
+          },
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The number of pairs. For unweighted counts, the result is integer. For weighted counts, the result is float. If cumulative is False, "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "result[i]"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " contains the counts with "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "(-inf if i == 0 else r[i-1]) < R <= r[i]"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "result",
+                "type_": "scalar or 1-D array"
+              }
+            ]
+          },
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Count how many nearby pairs can be formed."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "value": "You can count neighbors number between two kd-trees within a distance:"
+              },
+              "type": "Words"
+            }
+          ]
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            {
+              "link": {
+                "data": "import",
+                "type": "str"
+              },
+              "type": "kn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy",
+                    "version": "*"
+                  },
+                  "value": "numpy"
+                },
+                "type": "Link"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "as",
+                "type": "str"
+              },
+              "type": "k"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy",
+                    "version": "*"
+                  },
+                  "value": "np"
+                },
+                "type": "Link"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "from",
+                "type": "str"
+              },
+              "type": "kn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy",
+                    "version": "1.8.1"
+                  },
+                  "value": "scipy"
+                },
+                "type": "Link"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.spatial",
+                    "version": "1.8.1"
+                  },
+                  "value": "spatial"
+                },
+                "type": "Link"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "import",
+                "type": "str"
+              },
+              "type": "kn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.spatial._kdtree.KDTree",
+                    "version": "1.8.1"
+                  },
+                  "value": "KDTree"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.random._generator.Generator",
+                    "version": "*"
+                  },
+                  "value": "rng"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy",
+                    "version": "*"
+                  },
+                  "value": "np"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.random",
+                    "version": "*"
+                  },
+                  "value": "random"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.random._generator.default_rng",
+                    "version": "*"
+                  },
+                  "value": "default_rng"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.float",
+                    "version": "*"
+                  },
+                  "value": "points1"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.random._generator.Generator",
+                    "version": "*"
+                  },
+                  "value": "rng"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.random._generator.Generator.random",
+                    "version": "*"
+                  },
+                  "value": "random"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "5",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "2",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.float",
+                    "version": "*"
+                  },
+                  "value": "points2"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.random._generator.Generator",
+                    "version": "*"
+                  },
+                  "value": "rng"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.random._generator.Generator.random",
+                    "version": "*"
+                  },
+                  "value": "random"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "5",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "2",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.spatial._kdtree.KDTree",
+                    "version": "1.8.1"
+                  },
+                  "value": "kd_tree1"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.spatial._kdtree.KDTree",
+                    "version": "1.8.1"
+                  },
+                  "value": "KDTree"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.float",
+                    "version": "*"
+                  },
+                  "value": "points1"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.spatial._kdtree.KDTree",
+                    "version": "1.8.1"
+                  },
+                  "value": "kd_tree2"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.spatial._kdtree.KDTree",
+                    "version": "1.8.1"
+                  },
+                  "value": "KDTree"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.float",
+                    "version": "*"
+                  },
+                  "value": "points2"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.spatial._kdtree.KDTree",
+                    "version": "1.8.1"
+                  },
+                  "value": "kd_tree1"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.spatial._kdtree.KDTree.count_neighbors",
+                    "version": "1.8.1"
+                  },
+                  "value": "count_neighbors"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.spatial._kdtree.KDTree",
+                    "version": "1.8.1"
+                  },
+                  "value": "kd_tree2"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "0.2",
+                "type": "str"
+              },
+              "type": "mf"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            }
+          ],
+          "out": "1"
+        },
+        "type": "Code2"
+      },
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "value": "This number is same as the total pair number calculated by "
+              },
+              "type": "Words"
+            },
+            {
+              "data": {
+                "anchor": null,
+                "exists": true,
+                "kind": "module",
+                "reference": {
+                  "kind": "module",
+                  "module": "scipy",
+                  "path": "scipy.spatial._kdtree.KDTree.query_ball_tree",
+                  "version": "1.8.1"
+                },
+                "value": "query_ball_tree"
+              },
+              "type": "Link"
+            },
+            {
+              "data": {
+                "value": ":"
+              },
+              "type": "Words"
+            }
+          ]
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.list",
+                    "version": "*"
+                  },
+                  "value": "indexes"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.spatial._kdtree.KDTree",
+                    "version": "1.8.1"
+                  },
+                  "value": "kd_tree1"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.spatial._kdtree.KDTree.query_ball_tree",
+                    "version": "1.8.1"
+                  },
+                  "value": "query_ball_tree"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.spatial._kdtree.KDTree",
+                    "version": "1.8.1"
+                  },
+                  "value": "kd_tree2"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "r",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "0.2",
+                "type": "str"
+              },
+              "type": "mf"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.sum",
+                    "version": "*"
+                  },
+                  "value": "sum"
+                },
+                "type": "Link"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "[",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.len",
+                    "version": "*"
+                  },
+                  "value": "len"
+                },
+                "type": "Link"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.list",
+                    "version": "*"
+                  },
+                  "value": "i"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "for",
+                "type": "str"
+              },
+              "type": "k"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.list",
+                    "version": "*"
+                  },
+                  "value": "i"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "in",
+                "type": "str"
+              },
+              "type": "ow"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.list",
+                    "version": "*"
+                  },
+                  "value": "indexes"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "]",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            }
+          ],
+          "out": "1"
+        },
+        "type": "Code2"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null
+  },
+  "item_file": "/scipy/spatial/_kdtree.py",
+  "item_line": 663,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": "count_neighbors(self, other, r, p=2.0, weights=None, cumulative=True)"
+  }
+}

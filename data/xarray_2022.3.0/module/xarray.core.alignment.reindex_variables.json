@@ -1,0 +1,415 @@
+{
+  "aliases": [
+    "xarray.core.alignment.reindex_variables"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Not public API."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Dictionary of xarray.Variable objects."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "variables",
+                "type_": "dict-like"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Dictionary from dimension names to integer sizes."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "sizes",
+                "type_": "dict-like"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Dictionary of indexes associated with variables."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "indexes",
+                "type_": "dict-like"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Dictionary with keys given by dimension names and values given by arrays of coordinates tick labels. Any mis-matched coordinate values will be filled in with NaN, and any mis-matched dimension names will simply be ignored."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "indexers",
+                "type_": "dict"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Method to use for filling index values in "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "indexers"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " not found in this dataset:   * None (default): don't fill gaps   * pad / ffill: propagate last valid index value forward   * backfill / bfill: propagate next valid index value backward   * nearest: use nearest valid index value"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "method",
+                "type_": "{None, 'nearest', 'pad'/'ffill', 'backfill'/'bfill'}, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Maximum distance between original and new labels for inexact matches. The values of the index at the matching locations must satisfy the equation "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "abs(index[indexer] - target) <= tolerance"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ". Tolerance may be a scalar value, which applies the same tolerance to all values, or list-like, which applies variable tolerance per element. List-like must be the same size as the index and its dtype must exactly match the index\u2019s type."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "tolerance",
+                "type_": "optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "If "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "copy=True"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", data in the return values is always copied. If "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "copy=False"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and reindexing is unnecessary, or can be performed with only slice operations, then the output may share memory with the input. In either case, new xarray objects are always returned."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "copy",
+                "type_": "bool, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Value to use for newly missing values"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "fill_value",
+                "type_": "scalar, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Use an sparse-array"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "sparse",
+                "type_": "bool, optional"
+              }
+            ]
+          },
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Dict of reindexed variables."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "reindexed",
+                "type_": "dict"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Dict of indexes associated with the reindexed variables."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "new_indexes",
+                "type_": "dict"
+              }
+            ]
+          },
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Conform a dictionary of aligned variables onto a new set of variables, filling in missing values with NaN."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null
+  },
+  "item_file": "/xarray/core/alignment.py",
+  "item_line": 502,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": "reindex_variables(variables: Mapping[Any, xarray.core.variable.Variable], sizes: Mapping[Any, int], indexes: Mapping[Any, xarray.core.indexes.Index], indexers: Mapping, method: Optional[str] = None, tolerance: Union[int, float, Iterable[Union[int, float]]] = None, copy: bool = True, fill_value: Optional[Any] = <NA>, sparse: bool = False) -> Tuple[Dict[Hashable, xarray.core.variable.Variable], Dict[Hashable, xarray.core.indexes.Index]]"
+  }
+}

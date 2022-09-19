@@ -1,0 +1,495 @@
+{
+  "aliases": [
+    "scipy.signal._ltisys.integrate._ivp.bdf.num_jac"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "This function computes finite difference approximation to the Jacobian matrix of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "fun",
+                    "version": null
+                  },
+                  "value": "fun"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " with respect to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "y",
+                    "version": null
+                  },
+                  "value": "y"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " using forward differences. The Jacobian matrix has shape (n, n) and its element (i, j) is equal to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "d f_i / d y_j"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "A special feature of this function is the ability to correct the step size from iteration to iteration. The main idea is to keep the finite difference significantly separated from its round-off error which approximately equals "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "EPS * np.abs(f)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". It reduces a possibility of a huge error and assures that the estimated derivative are reasonably close to the true values (i.e., the finite difference approximation is at least qualitatively reflects the structure of the true Jacobian)."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Right-hand side of the system implemented in a vectorized fashion."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "fun",
+                "type_": "callable"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Current time."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "t",
+                "type_": "float"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Current state."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "y",
+                "type_": "ndarray, shape (n,)"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Value of the right hand side at (t, y)."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "f",
+                "type_": "ndarray, shape (n,)"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Threshold for "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "y",
+                              "version": null
+                            },
+                            "value": "y"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " value used for computing the step size as "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "factor * np.maximum(np.abs(y), threshold)"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ". Typically, the value of absolute tolerance (atol) for a solver should be passed as "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "threshold",
+                              "version": null
+                            },
+                            "value": "threshold"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "threshold",
+                "type_": "float"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Factor to use for computing the step size. Pass None for the very evaluation, then use the value returned from this function."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "factor",
+                "type_": "ndarray with shape (n,) or None"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Sparsity structure of the Jacobian, "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "structure"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": " must be csc_matrix."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "sparsity",
+                "type_": "tuple (structure, groups) or None"
+              }
+            ]
+          },
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Jacobian matrix."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "J",
+                "type_": "ndarray or csc_matrix, shape (n, n)"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Suggested "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "factor",
+                              "version": null
+                            },
+                            "value": "factor"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " for the next evaluation."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "factor",
+                "type_": "ndarray, shape (n,)"
+              }
+            ]
+          },
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Finite differences Jacobian approximation tailored for ODE solvers."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null
+  },
+  "item_file": "/scipy/integrate/_ivp/common.py",
+  "item_line": 248,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": "num_jac(fun, t, y, f, threshold, factor, sparsity=None)"
+  }
+}

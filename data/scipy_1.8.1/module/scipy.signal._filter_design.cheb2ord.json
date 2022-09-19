@@ -1,0 +1,3656 @@
+{
+  "aliases": [
+    "scipy.signal.cheb2ord"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Return the order of the lowest order digital or analog Chebyshev Type II filter that loses no more than "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "gpass",
+                    "version": null
+                  },
+                  "value": "gpass"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " dB in the passband and has at least "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "gstop",
+                    "version": null
+                  },
+                  "value": "gstop"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " dB attenuation in the stopband."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Passband and stopband edge frequencies."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "For digital filters, these are in the same units as "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "fs",
+                              "version": null
+                            },
+                            "value": "fs"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": ". By default, "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "fs",
+                              "version": null
+                            },
+                            "value": "fs"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " is 2 half-cycles/sample, so these are normalized from 0 to 1, where 1 is the Nyquist frequency. ("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "wp",
+                              "version": null
+                            },
+                            "value": "wp"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "ws",
+                              "version": null
+                            },
+                            "value": "ws"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " are thus in half-cycles / sample.)  For example:"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "data": {
+                                            "value": "Lowpass:   wp = 0.2,          ws = 0.3"
+                                          },
+                                          "type": "Words"
+                                        }
+                                      ]
+                                    },
+                                    "type": "Paragraph"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "data": {
+                                            "value": "Highpass:  wp = 0.3,          ws = 0.2"
+                                          },
+                                          "type": "Words"
+                                        }
+                                      ]
+                                    },
+                                    "type": "Paragraph"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "data": {
+                                            "value": "Bandpass:  wp = [0.2, 0.5],   ws = [0.1, 0.6]"
+                                          },
+                                          "type": "Words"
+                                        }
+                                      ]
+                                    },
+                                    "type": "Paragraph"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "data": {
+                                            "value": "Bandstop:  wp = [0.1, 0.6],   ws = [0.2, 0.5]"
+                                          },
+                                          "type": "Words"
+                                        }
+                                      ]
+                                    },
+                                    "type": "Paragraph"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "type": "BulletList"
+                        }
+                      ]
+                    },
+                    "type": "BlockQuote"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "For analog filters, "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "wp",
+                              "version": null
+                            },
+                            "value": "wp"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "ws",
+                              "version": null
+                            },
+                            "value": "ws"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " are angular frequencies (e.g., rad/s)."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "wp, ws",
+                "type_": "float"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The maximum loss in the passband (dB)."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "gpass",
+                "type_": "float"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The minimum attenuation in the stopband (dB)."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "gstop",
+                "type_": "float"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "When True, return an analog filter, otherwise a digital filter is returned."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "analog",
+                "type_": "bool, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The sampling frequency of the digital system."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [],
+                      "kind": "versionadded",
+                      "title": "1.2.0"
+                    },
+                    "type": "Admonition"
+                  }
+                ],
+                "param": "fs",
+                "type_": "float, optional"
+              }
+            ]
+          },
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The lowest order for a Chebyshev type II filter that meets specs."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "ord",
+                "type_": "int"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The Chebyshev natural frequency (the \"3dB frequency\") for use with "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "module",
+                            "reference": {
+                              "kind": "module",
+                              "module": "scipy",
+                              "path": "scipy.signal._filter_design.cheby2",
+                              "version": "1.8.1"
+                            },
+                            "value": "cheby2"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " to give filter results. If "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "fs",
+                              "version": null
+                            },
+                            "value": "fs"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " is specified, this is in the same units, and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "fs",
+                              "version": null
+                            },
+                            "value": "fs"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " must also be passed to "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "module",
+                            "reference": {
+                              "kind": "module",
+                              "module": "scipy",
+                              "path": "scipy.signal._filter_design.cheby2",
+                              "version": "1.8.1"
+                            },
+                            "value": "cheby2"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "wn",
+                "type_": "ndarray or float"
+              }
+            ]
+          },
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Chebyshev type II filter order selection."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "value": "Design a digital bandstop filter which rejects -60 dB from 0.2*(fs/2) to 0.5*(fs/2), while staying within 3 dB below 0.1*(fs/2) or above 0.6*(fs/2). Plot its frequency response, showing the passband and stopband constraints in gray."
+              },
+              "type": "Words"
+            }
+          ]
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            {
+              "link": {
+                "data": "from",
+                "type": "str"
+              },
+              "type": "kn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy",
+                    "version": "1.8.1"
+                  },
+                  "value": "scipy"
+                },
+                "type": "Link"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "import",
+                "type": "str"
+              },
+              "type": "kn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.signal",
+                    "version": "1.8.1"
+                  },
+                  "value": "signal"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "import",
+                "type": "str"
+              },
+              "type": "kn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib",
+                    "version": "*"
+                  },
+                  "value": "matplotlib"
+                },
+                "type": "Link"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot",
+                    "version": "*"
+                  },
+                  "value": "pyplot"
+                },
+                "type": "Link"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "as",
+                "type": "str"
+              },
+              "type": "k"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot",
+                    "version": "*"
+                  },
+                  "value": "plt"
+                },
+                "type": "Link"
+              },
+              "type": "nn"
+            }
+          ],
+          "out": ""
+        },
+        "type": "Code2"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.int",
+                    "version": "*"
+                  },
+                  "value": "N"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "Wn",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.signal",
+                    "version": "1.8.1"
+                  },
+                  "value": "signal"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.signal._filter_design.cheb2ord",
+                    "version": "1.8.1"
+                  },
+                  "value": "cheb2ord"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "[",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "0.1",
+                "type": "str"
+              },
+              "type": "mf"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "0.6",
+                "type": "str"
+              },
+              "type": "mf"
+            },
+            {
+              "link": {
+                "data": "]",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "[",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "0.2",
+                "type": "str"
+              },
+              "type": "mf"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "0.5",
+                "type": "str"
+              },
+              "type": "mf"
+            },
+            {
+              "link": {
+                "data": "]",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "3",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "60",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ndarray",
+                    "version": "*"
+                  },
+                  "value": "b"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.int",
+                    "version": "*"
+                  },
+                  "value": "a"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.signal",
+                    "version": "1.8.1"
+                  },
+                  "value": "signal"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.signal._filter_design.cheby2",
+                    "version": "1.8.1"
+                  },
+                  "value": "cheby2"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.int",
+                    "version": "*"
+                  },
+                  "value": "N"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "60",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ndarray",
+                    "version": "*"
+                  },
+                  "value": "Wn"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "stop",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "w",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "h",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.signal",
+                    "version": "1.8.1"
+                  },
+                  "value": "signal"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.signal._filter_design.freqz",
+                    "version": "1.8.1"
+                  },
+                  "value": "freqz"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ndarray",
+                    "version": "*"
+                  },
+                  "value": "b"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.int",
+                    "version": "*"
+                  },
+                  "value": "a"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot",
+                    "version": "*"
+                  },
+                  "value": "plt"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot.semilogx",
+                    "version": "*"
+                  },
+                  "value": "semilogx"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ndarray",
+                    "version": "*"
+                  },
+                  "value": "w"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "/",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy",
+                    "version": "*"
+                  },
+                  "value": "np"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.float",
+                    "version": "*"
+                  },
+                  "value": "pi"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "20",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "*",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy",
+                    "version": "*"
+                  },
+                  "value": "np"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ufunc",
+                    "version": "*"
+                  },
+                  "value": "log10"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.abs",
+                    "version": "*"
+                  },
+                  "value": "abs"
+                },
+                "type": "Link"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ndarray",
+                    "version": "*"
+                  },
+                  "value": "h"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot",
+                    "version": "*"
+                  },
+                  "value": "plt"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot.title",
+                    "version": "*"
+                  },
+                  "value": "title"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "Chebyshev II bandstop filter fit to constraints",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot",
+                    "version": "*"
+                  },
+                  "value": "plt"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot.xlabel",
+                    "version": "*"
+                  },
+                  "value": "xlabel"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "Normalized frequency",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot",
+                    "version": "*"
+                  },
+                  "value": "plt"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot.ylabel",
+                    "version": "*"
+                  },
+                  "value": "ylabel"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "Amplitude [dB]",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot",
+                    "version": "*"
+                  },
+                  "value": "plt"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot.grid",
+                    "version": "*"
+                  },
+                  "value": "grid"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "which",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "both",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "axis",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "both",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot",
+                    "version": "*"
+                  },
+                  "value": "plt"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot.fill",
+                    "version": "*"
+                  },
+                  "value": "fill"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "[",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".01",
+                "type": "str"
+              },
+              "type": "mf"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".1",
+                "type": "str"
+              },
+              "type": "mf"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".1",
+                "type": "str"
+              },
+              "type": "mf"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".01",
+                "type": "str"
+              },
+              "type": "mf"
+            },
+            {
+              "link": {
+                "data": "]",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "[",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "-",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "3",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "  ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "-",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "3",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "-",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "99",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "-",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "99",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": "]",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "0.9",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "lw",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "0",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "# stop",
+                "type": "str"
+              },
+              "type": "c1"
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot",
+                    "version": "*"
+                  },
+                  "value": "plt"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot.fill",
+                    "version": "*"
+                  },
+                  "value": "fill"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "[",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".2",
+                "type": "str"
+              },
+              "type": "mf"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "  ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".2",
+                "type": "str"
+              },
+              "type": "mf"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".5",
+                "type": "str"
+              },
+              "type": "mf"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "  ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".5",
+                "type": "str"
+              },
+              "type": "mf"
+            },
+            {
+              "link": {
+                "data": "]",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "[",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "9",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "-",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "60",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "-",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "60",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "   ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "9",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": "]",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "0.9",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "lw",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "0",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "# pass",
+                "type": "str"
+              },
+              "type": "c1"
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot",
+                    "version": "*"
+                  },
+                  "value": "plt"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot.fill",
+                    "version": "*"
+                  },
+                  "value": "fill"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "[",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".6",
+                "type": "str"
+              },
+              "type": "mf"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "  ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".6",
+                "type": "str"
+              },
+              "type": "mf"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "  ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "2",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "   ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "2",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": "]",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "[",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "-",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "99",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "-",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "3",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "  ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "-",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "3",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "-",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "99",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": "]",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "0.9",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "lw",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "0",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "# stop",
+                "type": "str"
+              },
+              "type": "c1"
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot",
+                    "version": "*"
+                  },
+                  "value": "plt"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot.axis",
+                    "version": "*"
+                  },
+                  "value": "axis"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "[",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "0.06",
+                "type": "str"
+              },
+              "type": "mf"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "1",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "-",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "80",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "3",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": "]",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot",
+                    "version": "*"
+                  },
+                  "value": "plt"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot.show",
+                    "version": "*"
+                  },
+                  "value": "show"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            }
+          ],
+          "out": ""
+        },
+        "type": "Code2"
+      },
+      {
+        "data": {
+          "value": {
+            "kind": "assets",
+            "module": "scipy",
+            "path": "fig-scipy.signal._filter_design.cheb2ord-0-0ed3424b.png",
+            "version": "1.8.1"
+          }
+        },
+        "type": "Fig"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null
+  },
+  "item_file": "/scipy/signal/_filter_design.py",
+  "item_line": 3944,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "data": {
+                "value": "Filter design using order and critical points"
+              },
+              "type": "Words"
+            }
+          ]
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._filter_design.cheby2",
+          "version": "1.8.1"
+        },
+        "value": "cheby2"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "data": {
+                "value": "Find order and critical points from passband and stopband spec"
+              },
+              "type": "Words"
+            }
+          ]
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._filter_design.buttord",
+          "version": "1.8.1"
+        },
+        "value": "buttord"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._filter_design.cheb1ord",
+          "version": "1.8.1"
+        },
+        "value": "cheb1ord"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._filter_design.ellipord",
+          "version": "1.8.1"
+        },
+        "value": "ellipord"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "data": {
+                "value": "General filter design using order and critical frequencies"
+              },
+              "type": "Words"
+            }
+          ]
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._filter_design.iirfilter",
+          "version": "1.8.1"
+        },
+        "value": "iirfilter"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "data": {
+                "value": "General filter design using passband and stopband spec"
+              },
+              "type": "Words"
+            }
+          ]
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._filter_design.iirdesign",
+          "version": "1.8.1"
+        },
+        "value": "iirdesign"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "value": "cheb2ord(wp, ws, gpass, gstop, analog=False, fs=None)"
+  }
+}

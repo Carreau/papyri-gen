@@ -5,17 +5,36 @@
       "children": [
         {
           "data": {
-            "argument": "",
-            "content": "basics.io.genfromtxt",
-            "name": "toctree",
-            "options": [
-              [
-                "maxdepth",
-                "2"
-              ]
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "exists",
+                            "reference": {
+                              "kind": "?",
+                              "module": "",
+                              "path": "basics.io.genfromtxt",
+                              "version": ""
+                            },
+                            "value": "basics.io.genfromtxt"
+                          },
+                          "type": "Link"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
             ]
           },
-          "type": "BlockDirective"
+          "type": "BulletList"
         }
       ],
       "level": 0,

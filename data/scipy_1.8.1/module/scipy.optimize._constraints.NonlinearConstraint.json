@@ -1,0 +1,1138 @@
+{
+  "aliases": [
+    "scipy.signal._filter_design.optimize.NonlinearConstraint"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The constraint has the general inequality form:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "lb <= fun(x) <= ub"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Here the vector of independent variables x is passed as ndarray of shape (n,) and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "fun"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " returns a vector with m components."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "It is possible to use equal bounds to represent an equality constraint or infinite bounds to represent a one-sided constraint."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Finite difference schemes {'2-point', '3-point', 'cs'} may be used for approximating either the Jacobian or the Hessian. We, however, do not allow its use for approximating both simultaneously. Hence whenever the Jacobian is estimated via finite-differences, we require the Hessian to be estimated using one of the quasi-Newton strategies."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The scheme 'cs' is potentially the most accurate, but requires the function to correctly handles complex inputs and be analytically continuable to the complex plane. The scheme '3-point' is more accurate than '2-point' but requires twice as many operations."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The function defining the constraint. The signature is "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "fun(x) -> array_like, shape (m,)"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "fun",
+                "type_": "callable"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Lower and upper bounds on the constraint. Each array must have the shape (m,) or be a scalar, in the latter case a bound will be the same for all components of the constraint. Use "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "np.inf"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " with an appropriate sign to specify a one-sided constraint. Set components of "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "lb",
+                              "version": null
+                            },
+                            "value": "lb"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "ub",
+                              "version": null
+                            },
+                            "value": "ub"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " equal to represent an equality constraint. Note that you can mix constraints of different types: interval, one-sided or equality, by setting different components of "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "lb",
+                              "version": null
+                            },
+                            "value": "lb"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "ub",
+                              "version": null
+                            },
+                            "value": "ub"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " as  necessary."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "lb, ub",
+                "type_": "array_like"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Method of computing the Jacobian matrix (an m-by-n matrix, where element (i, j) is the partial derivative of f[i] with respect to x[j]).  The keywords {'2-point', '3-point', 'cs'} select a finite difference scheme for the numerical estimation. A callable must have the following signature: "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "jac(x) -> {ndarray, sparse matrix}, shape (m, n)"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ". Default is '2-point'."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "jac",
+                "type_": "{callable,  '2-point', '3-point', 'cs'}, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Method for computing the Hessian matrix. The keywords {'2-point', '3-point', 'cs'} select a finite difference scheme for numerical  estimation.  Alternatively, objects implementing "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "module",
+                            "reference": {
+                              "kind": "module",
+                              "module": "scipy",
+                              "path": "scipy.optimize._hessian_update_strategy.HessianUpdateStrategy",
+                              "version": "1.8.1"
+                            },
+                            "value": "HessianUpdateStrategy"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " interface can be used to approximate the Hessian. Currently available implementations are:"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "data": {
+                                            "anchor": null,
+                                            "exists": true,
+                                            "kind": "module",
+                                            "reference": {
+                                              "kind": "module",
+                                              "module": "scipy",
+                                              "path": "scipy.optimize._hessian_update_strategy.BFGS",
+                                              "version": "1.8.1"
+                                            },
+                                            "value": "BFGS"
+                                          },
+                                          "type": "Link"
+                                        },
+                                        {
+                                          "data": {
+                                            "value": " (default option)"
+                                          },
+                                          "type": "Words"
+                                        }
+                                      ]
+                                    },
+                                    "type": "Paragraph"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "data": {
+                                            "anchor": null,
+                                            "exists": true,
+                                            "kind": "module",
+                                            "reference": {
+                                              "kind": "module",
+                                              "module": "scipy",
+                                              "path": "scipy.optimize._hessian_update_strategy.SR1",
+                                              "version": "1.8.1"
+                                            },
+                                            "value": "SR1"
+                                          },
+                                          "type": "Link"
+                                        }
+                                      ]
+                                    },
+                                    "type": "Paragraph"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "type": "BulletList"
+                        }
+                      ]
+                    },
+                    "type": "BlockQuote"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A callable must return the Hessian matrix of "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "dot(fun, v)"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and must have the following signature: "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "hess(x, v) -> {LinearOperator, sparse matrix, array_like}, shape (n, n)"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ". Here "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "v"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " is ndarray with shape (m,) containing Lagrange multipliers."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "hess",
+                "type_": "{callable, '2-point', '3-point', 'cs', HessianUpdateStrategy, None}, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Whether to keep the constraint components feasible throughout iterations. A single value set this property for all components. Default is False. Has no effect for equality constraints."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "keep_feasible",
+                "type_": "array_like of bool, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Relative step size for the finite difference approximation. Default is None, which will select a reasonable value automatically depending on a finite difference scheme."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "finite_diff_rel_step: None or array_like, optional",
+                "type_": ""
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Defines the sparsity structure of the Jacobian matrix for finite difference estimation, its shape must be (m, n). If the Jacobian has only few non-zero elements in "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "each"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " row, providing the sparsity structure will greatly speed up the computations. A zero entry means that a corresponding element in the Jacobian is identically zero. If provided, forces the use of 'lsmr' trust-region solver. If None (default) then dense differencing will be used."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "finite_diff_jac_sparsity: {None, array_like, sparse matrix}, optional",
+                "type_": ""
+              }
+            ]
+          },
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Nonlinear constraint on the variables."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "value": "Constrain "
+              },
+              "type": "Words"
+            },
+            {
+              "data": {
+                "value": [
+                  "x[0] < sin(x[1]) + 1.9"
+                ]
+              },
+              "type": "Verbatim"
+            }
+          ]
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            {
+              "link": {
+                "data": "from",
+                "type": "str"
+              },
+              "type": "kn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy",
+                    "version": "1.8.1"
+                  },
+                  "value": "scipy"
+                },
+                "type": "Link"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.optimize",
+                    "version": "1.8.1"
+                  },
+                  "value": "optimize"
+                },
+                "type": "Link"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "import",
+                "type": "str"
+              },
+              "type": "kn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.optimize._constraints.NonlinearConstraint",
+                    "version": "1.8.1"
+                  },
+                  "value": "NonlinearConstraint"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "con",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "lambda",
+                "type": "str"
+              },
+              "type": "k"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "x",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ":",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "x",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "[",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "0",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": "]",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "-",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy",
+                    "version": "*"
+                  },
+                  "value": "np"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ufunc",
+                    "version": "*"
+                  },
+                  "value": "sin"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "x",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "[",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "1",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": "]",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.optimize._constraints.NonlinearConstraint",
+                    "version": "1.8.1"
+                  },
+                  "value": "nlc"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.optimize._constraints.NonlinearConstraint",
+                    "version": "1.8.1"
+                  },
+                  "value": "NonlinearConstraint"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "con",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "-",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy",
+                    "version": "*"
+                  },
+                  "value": "np"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.float",
+                    "version": "*"
+                  },
+                  "value": "inf"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "1.9",
+                "type": "str"
+              },
+              "type": "mf"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            }
+          ],
+          "out": ""
+        },
+        "type": "Code2"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null
+  },
+  "item_file": "/scipy/optimize/_constraints.py",
+  "item_line": 18,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

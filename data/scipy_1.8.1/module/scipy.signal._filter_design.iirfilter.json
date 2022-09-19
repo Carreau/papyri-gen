@@ -1,0 +1,4786 @@
+{
+  "aliases": [
+    "scipy.signal.iirfilter"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Design an Nth-order digital or analog filter and return the filter coefficients."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "'sos'"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " output parameter was added in 0.16.0."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The order of the filter."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "N",
+                "type_": "int"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A scalar or length-2 sequence giving the critical frequencies."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "For digital filters, "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "Wn",
+                              "version": null
+                            },
+                            "value": "Wn"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " are in the same units as "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "fs",
+                              "version": null
+                            },
+                            "value": "fs"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": ". By default, "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "fs",
+                              "version": null
+                            },
+                            "value": "fs"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " is 2 half-cycles/sample, so these are normalized from 0 to 1, where 1 is the Nyquist frequency. ("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "Wn",
+                              "version": null
+                            },
+                            "value": "Wn"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " is thus in half-cycles / sample.)"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "For analog filters, "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "Wn",
+                              "version": null
+                            },
+                            "value": "Wn"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " is an angular frequency (e.g., rad/s)."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "Wn",
+                "type_": "array_like"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "For Chebyshev and elliptic filters, provides the maximum ripple in the passband. (dB)"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "rp",
+                "type_": "float, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "For Chebyshev and elliptic filters, provides the minimum attenuation in the stop band. (dB)"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "rs",
+                "type_": "float, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The type of filter.  Default is 'bandpass'."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "btype",
+                "type_": "{'bandpass', 'lowpass', 'highpass', 'bandstop'}, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "When True, return an analog filter, otherwise a digital filter is returned."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "analog",
+                "type_": "bool, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The type of IIR filter to design:"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "ftype",
+                "type_": "str, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Filter form of the output:"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "output",
+                "type_": "{'ba', 'zpk', 'sos'}, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The sampling frequency of the digital system."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [],
+                      "kind": "versionadded",
+                      "title": "1.2.0"
+                    },
+                    "type": "Admonition"
+                  }
+                ],
+                "param": "fs",
+                "type_": "float, optional"
+              }
+            ]
+          },
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Numerator ("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "b",
+                              "version": null
+                            },
+                            "value": "b"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": ") and denominator ("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "a",
+                              "version": null
+                            },
+                            "value": "a"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": ") polynomials of the IIR filter. Only returned if "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "output='ba'"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "b, a",
+                "type_": "ndarray, ndarray"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Zeros, poles, and system gain of the IIR filter transfer function.  Only returned if "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "output='zpk'"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "z, p, k",
+                "type_": "ndarray, ndarray, float"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Second-order sections representation of the IIR filter. Only returned if "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "output=='sos'"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "sos",
+                "type_": "ndarray"
+              }
+            ]
+          },
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "IIR digital and analog filter design given order and critical points."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "value": "Generate a 17th-order Chebyshev II analog bandpass filter from 50 Hz to 200 Hz and plot the frequency response:"
+              },
+              "type": "Words"
+            }
+          ]
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            {
+              "link": {
+                "data": "from",
+                "type": "str"
+              },
+              "type": "kn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy",
+                    "version": "1.8.1"
+                  },
+                  "value": "scipy"
+                },
+                "type": "Link"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "import",
+                "type": "str"
+              },
+              "type": "kn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.signal",
+                    "version": "1.8.1"
+                  },
+                  "value": "signal"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "import",
+                "type": "str"
+              },
+              "type": "kn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib",
+                    "version": "*"
+                  },
+                  "value": "matplotlib"
+                },
+                "type": "Link"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot",
+                    "version": "*"
+                  },
+                  "value": "pyplot"
+                },
+                "type": "Link"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "as",
+                "type": "str"
+              },
+              "type": "k"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot",
+                    "version": "*"
+                  },
+                  "value": "plt"
+                },
+                "type": "Link"
+              },
+              "type": "nn"
+            }
+          ],
+          "out": ""
+        },
+        "type": "Code2"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ndarray",
+                    "version": "*"
+                  },
+                  "value": "b"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.int",
+                    "version": "*"
+                  },
+                  "value": "a"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.signal",
+                    "version": "1.8.1"
+                  },
+                  "value": "signal"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.signal._filter_design.iirfilter",
+                    "version": "1.8.1"
+                  },
+                  "value": "iirfilter"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "17",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "[",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "2",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": "*",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy",
+                    "version": "*"
+                  },
+                  "value": "np"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.float",
+                    "version": "*"
+                  },
+                  "value": "pi"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "*",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "50",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "2",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": "*",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy",
+                    "version": "*"
+                  },
+                  "value": "np"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.float",
+                    "version": "*"
+                  },
+                  "value": "pi"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "*",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "200",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": "]",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "rs",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "60",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "                        ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "btype",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "band",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "analog",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "True",
+                "type": "str"
+              },
+              "type": "kc"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "ftype",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "cheby2",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "w",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "h",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.signal",
+                    "version": "1.8.1"
+                  },
+                  "value": "signal"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.signal._filter_design.freqs",
+                    "version": "1.8.1"
+                  },
+                  "value": "freqs"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ndarray",
+                    "version": "*"
+                  },
+                  "value": "b"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.int",
+                    "version": "*"
+                  },
+                  "value": "a"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "1000",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "fig",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot",
+                    "version": "*"
+                  },
+                  "value": "plt"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot.figure",
+                    "version": "*"
+                  },
+                  "value": "figure"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "ax",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.figure.Figure",
+                    "version": "*"
+                  },
+                  "value": "fig"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.figure.FigureBase.add_subplot",
+                    "version": "*"
+                  },
+                  "value": "add_subplot"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "1",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "1",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "1",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._subplots.AxesSubplot",
+                    "version": "*"
+                  },
+                  "value": "ax"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._axes.Axes.semilogx",
+                    "version": "*"
+                  },
+                  "value": "semilogx"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ndarray",
+                    "version": "*"
+                  },
+                  "value": "w"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "/",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "2",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": "*",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy",
+                    "version": "*"
+                  },
+                  "value": "np"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.float",
+                    "version": "*"
+                  },
+                  "value": "pi"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "20",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "*",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy",
+                    "version": "*"
+                  },
+                  "value": "np"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ufunc",
+                    "version": "*"
+                  },
+                  "value": "log10"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy",
+                    "version": "*"
+                  },
+                  "value": "np"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ufunc",
+                    "version": "*"
+                  },
+                  "value": "maximum"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.abs",
+                    "version": "*"
+                  },
+                  "value": "abs"
+                },
+                "type": "Link"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ndarray",
+                    "version": "*"
+                  },
+                  "value": "h"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "1e-5",
+                "type": "str"
+              },
+              "type": "mf"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._subplots.AxesSubplot",
+                    "version": "*"
+                  },
+                  "value": "ax"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._axes.Axes.set_title",
+                    "version": "*"
+                  },
+                  "value": "set_title"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "Chebyshev Type II bandpass frequency response",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._subplots.AxesSubplot",
+                    "version": "*"
+                  },
+                  "value": "ax"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._base._AxesBase.set_xlabel",
+                    "version": "*"
+                  },
+                  "value": "set_xlabel"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "Frequency [Hz]",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._subplots.AxesSubplot",
+                    "version": "*"
+                  },
+                  "value": "ax"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._base._AxesBase.set_ylabel",
+                    "version": "*"
+                  },
+                  "value": "set_ylabel"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "Amplitude [dB]",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._subplots.AxesSubplot",
+                    "version": "*"
+                  },
+                  "value": "ax"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._base._AxesBase.axis",
+                    "version": "*"
+                  },
+                  "value": "axis"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "10",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "1000",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "-",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "100",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "10",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._subplots.AxesSubplot",
+                    "version": "*"
+                  },
+                  "value": "ax"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._base._AxesBase.grid",
+                    "version": "*"
+                  },
+                  "value": "grid"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "which",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "both",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "axis",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "both",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot",
+                    "version": "*"
+                  },
+                  "value": "plt"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot.show",
+                    "version": "*"
+                  },
+                  "value": "show"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            }
+          ],
+          "out": ""
+        },
+        "type": "Code2"
+      },
+      {
+        "data": {
+          "value": {
+            "kind": "assets",
+            "module": "scipy",
+            "path": "fig-scipy.signal._filter_design.iirfilter-0-278e3bc6.png",
+            "version": "1.8.1"
+          }
+        },
+        "type": "Fig"
+      },
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "value": "Create a digital filter with the same properties, in a system with sampling rate of 2000 Hz, and plot the frequency response. (Second-order sections implementation is required to ensure stability of a filter of this order):"
+              },
+              "type": "Words"
+            }
+          ]
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.tuple",
+                    "version": "*"
+                  },
+                  "value": "sos"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.signal",
+                    "version": "1.8.1"
+                  },
+                  "value": "signal"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.signal._filter_design.iirfilter",
+                    "version": "1.8.1"
+                  },
+                  "value": "iirfilter"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "17",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "[",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "50",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "200",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": "]",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "rs",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "60",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "btype",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "band",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "                       ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "analog",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "False",
+                "type": "str"
+              },
+              "type": "kc"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "ftype",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "cheby2",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "fs",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "2000",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "                       ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "output",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "sos",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "w",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "h",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.signal",
+                    "version": "1.8.1"
+                  },
+                  "value": "signal"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.signal._filter_design.sosfreqz",
+                    "version": "1.8.1"
+                  },
+                  "value": "sosfreqz"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.tuple",
+                    "version": "*"
+                  },
+                  "value": "sos"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "2000",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "fs",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "2000",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "fig",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot",
+                    "version": "*"
+                  },
+                  "value": "plt"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot.figure",
+                    "version": "*"
+                  },
+                  "value": "figure"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "ax",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.figure.Figure",
+                    "version": "*"
+                  },
+                  "value": "fig"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.figure.FigureBase.add_subplot",
+                    "version": "*"
+                  },
+                  "value": "add_subplot"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "1",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "1",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "1",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._subplots.AxesSubplot",
+                    "version": "*"
+                  },
+                  "value": "ax"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._axes.Axes.semilogx",
+                    "version": "*"
+                  },
+                  "value": "semilogx"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ndarray",
+                    "version": "*"
+                  },
+                  "value": "w"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "20",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "*",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy",
+                    "version": "*"
+                  },
+                  "value": "np"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ufunc",
+                    "version": "*"
+                  },
+                  "value": "log10"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy",
+                    "version": "*"
+                  },
+                  "value": "np"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ufunc",
+                    "version": "*"
+                  },
+                  "value": "maximum"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "builtins",
+                    "path": "builtins.abs",
+                    "version": "*"
+                  },
+                  "value": "abs"
+                },
+                "type": "Link"
+              },
+              "type": "nb"
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.ndarray",
+                    "version": "*"
+                  },
+                  "value": "h"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "1e-5",
+                "type": "str"
+              },
+              "type": "mf"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._subplots.AxesSubplot",
+                    "version": "*"
+                  },
+                  "value": "ax"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._axes.Axes.set_title",
+                    "version": "*"
+                  },
+                  "value": "set_title"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "Chebyshev Type II bandpass frequency response",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._subplots.AxesSubplot",
+                    "version": "*"
+                  },
+                  "value": "ax"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._base._AxesBase.set_xlabel",
+                    "version": "*"
+                  },
+                  "value": "set_xlabel"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "Frequency [Hz]",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._subplots.AxesSubplot",
+                    "version": "*"
+                  },
+                  "value": "ax"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._base._AxesBase.set_ylabel",
+                    "version": "*"
+                  },
+                  "value": "set_ylabel"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "Amplitude [dB]",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._subplots.AxesSubplot",
+                    "version": "*"
+                  },
+                  "value": "ax"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._base._AxesBase.axis",
+                    "version": "*"
+                  },
+                  "value": "axis"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "10",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "1000",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "-",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "100",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "10",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._subplots.AxesSubplot",
+                    "version": "*"
+                  },
+                  "value": "ax"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.axes._base._AxesBase.grid",
+                    "version": "*"
+                  },
+                  "value": "grid"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "which",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "both",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "axis",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "both",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": "'",
+                "type": "str"
+              },
+              "type": "s1"
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot",
+                    "version": "*"
+                  },
+                  "value": "plt"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.pyplot.show",
+                    "version": "*"
+                  },
+                  "value": "show"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            }
+          ],
+          "out": ""
+        },
+        "type": "Code2"
+      },
+      {
+        "data": {
+          "value": {
+            "kind": "assets",
+            "module": "scipy",
+            "path": "fig-scipy.signal._filter_design.iirfilter-1-c0d74489.png",
+            "version": "1.8.1"
+          }
+        },
+        "type": "Fig"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null
+  },
+  "item_file": "/scipy/signal/_filter_design.py",
+  "item_line": 2324,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "data": {
+                "value": "Filter design using order and critical points"
+              },
+              "type": "Words"
+            }
+          ]
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._filter_design.butter",
+          "version": "1.8.1"
+        },
+        "value": "butter"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._filter_design.cheby1",
+          "version": "1.8.1"
+        },
+        "value": "cheby1"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._filter_design.cheby2",
+          "version": "1.8.1"
+        },
+        "value": "cheby2"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._filter_design.ellip",
+          "version": "1.8.1"
+        },
+        "value": "ellip"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._filter_design.bessel",
+          "version": "1.8.1"
+        },
+        "value": "bessel"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "data": {
+                "value": "Find order and critical points from passband and stopband spec"
+              },
+              "type": "Words"
+            }
+          ]
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._filter_design.buttord",
+          "version": "1.8.1"
+        },
+        "value": "buttord"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._filter_design.cheb1ord",
+          "version": "1.8.1"
+        },
+        "value": "cheb1ord"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._filter_design.cheb2ord",
+          "version": "1.8.1"
+        },
+        "value": "cheb2ord"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._filter_design.ellipord",
+          "version": "1.8.1"
+        },
+        "value": "ellipord"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "data": {
+                "value": "General filter design using passband and stopband spec"
+              },
+              "type": "Words"
+            }
+          ]
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._filter_design.iirdesign",
+          "version": "1.8.1"
+        },
+        "value": "iirdesign"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "value": "iirfilter(N, Wn, rp=None, rs=None, btype='band', analog=False, ftype='butter', output='ba', fs=None)"
+  }
+}

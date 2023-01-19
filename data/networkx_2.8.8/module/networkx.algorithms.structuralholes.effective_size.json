@@ -1,0 +1,443 @@
+{
+  "aliases": [
+    "networkx.effective_size"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "effective size"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " of a node's ego network is based on the concept of redundancy. A person's ego network has redundancy to the extent that her contacts are connected to each other as well. The nonredundant part of a person's relationships it's the effective size of her ego network .  Formally, the effective size of a node $u$, denoted $e(u)$, is defined by"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "e(u) = \\sum_{v \\in N(u) \\setminus \\{u\\}}\n\\left(1 - \\sum_{w \\in N(v)} p_{uw} m_{vw}\\right)"
+          },
+          "type": "BlockMath"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "where $N(u)$ is the set of neighbors of $u$ and $p_{uw}$ is the normalized mutual weight of the (directed or undirected) edges joining $u$ and $v$, for each vertex $u$ and $v$ . And $m_{vw}$ is the mutual weight of $v$ and $w$ divided by $v$ highest mutual weight with any of its neighbors. The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "mutual weight"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " of $u$ and $v$ is the sum of the weights of edges joining them (edge weights are assumed to be one if the graph is unweighted)."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For the case of unweighted and undirected graphs, Borgatti proposed a simplified formula to compute effective size"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "e(u) = n - \\frac{2t}{n}"
+          },
+          "type": "BlockMath"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "where "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "t"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " is the number of ties in the ego network (not including ties to ego) and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "n"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " is the number of nodes (excluding ego)."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Burt also defined the related concept of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "efficiency"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " of a node's ego network, which is its effective size divided by the degree of that node . So you can easily compute efficiency:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> G = nx.DiGraph()\n>>> G.add_edges_from([(0, 1), (0, 2), (1, 0), (2, 1)])\n>>> esize = nx.effective_size(G)\n>>> efficiency = {n: v / G.degree(n) for n, v in esize.items()}"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The graph containing "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "v"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ". Directed graphs are treated like undirected graphs when computing neighbors of "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "v"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "G",
+                "type_": "NetworkX graph"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Container of nodes in the graph "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "G"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " to compute the effective size. If None, the effective size of every node is computed."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "nodes",
+                "type_": "container, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "If None, all edge weights are considered equal. Otherwise holds the name of the edge attribute used as weight."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "weight",
+                "type_": "None or string, optional"
+              }
+            ]
+          },
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Dictionary with nodes as keys and the effective size of the node as values."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "",
+                "type_": "dict"
+              }
+            ]
+          },
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Returns the effective size of all nodes in the graph "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "G"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null
+  },
+  "item_file": "/networkx/algorithms/structuralholes.py",
+  "item_line": 50,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "See Also",
+    "References"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.algorithms.structuralholes.constraint",
+          "version": "2.8.8"
+        },
+        "value": "constraint"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "value": "effective_size(G, nodes=None, weight=None)"
+  }
+}

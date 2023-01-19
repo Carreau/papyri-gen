@@ -1,0 +1,850 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "argument": "numpy.ma",
+            "content": "",
+            "name": "currentmodule",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "value": ".. for doctests\n   >>> from numpy import ma"
+          },
+          "type": "Comment"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "In addition to the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "MaskedArray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " class, the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.ma"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " module defines several constants."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "masked",
+            "content": "The :attr:`masked` constant is a special case of :class:`MaskedArray`,\nwith a float datatype and a null shape. It is used to test whether a\nspecific entry of a masked array is masked, or to mask one or several\nentries of a masked array::\n\n   >>> x = ma.array([1, 2, 3], mask=[0, 1, 0])\n   >>> x[1] is ma.masked\n   True\n   >>> x[-1] = ma.masked\n   >>> x\n   masked_array(data=[1, --, --],\n                mask=[False,  True,  True],\n          fill_value=999999)",
+            "name": "data",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "argument": "nomask",
+            "content": "Value indicating that a masked array has no invalid entry.\n:attr:`nomask` is used internally to speed up computations when the mask\nis not needed. It is represented internally as ``np.False_``.",
+            "name": "data",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "argument": "masked_print_option",
+            "content": "String used in lieu of missing data when a masked array is printed.\nBy default, this string is ``'--'``.\n\nUse ``set_display()`` to change the default string.\nExample usage: ``numpy.ma.masked_print_option.set_display('X')`` \nreplaces missing data with ``'X'``.",
+            "name": "data",
+            "options": []
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 0,
+      "target": "numpy.ma.constants",
+      "title": "Constants of the :mod:`numpy.ma` module"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "argument": "MaskedArray",
+            "content": "",
+            "name": "class",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "A subclass of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~numpy.ndarray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " designed to manipulate numerical arrays with missing data."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "An instance of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "MaskedArray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " can be thought as the combination of several elements:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "~MaskedArray.data"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", as a regular "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "numpy.ndarray"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " of any shape or datatype (the data)."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A boolean "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "~numpy.ma.MaskedArray.mask"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " with the same shape as the data, where a "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "True"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " value indicates that the corresponding element of the data is invalid.   The special value "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "nomask"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " is also acceptable for arrays without named fields, and indicates that no data is invalid."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "~numpy.ma.MaskedArray.fill_value"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", a value that may be used to replace the invalid entries in order to return a standard "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "numpy.ndarray"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        }
+      ],
+      "level": 0,
+      "target": "maskedarray.baseclass",
+      "title": "The :class:`MaskedArray` class"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "argument": ":ref:`Array Attributes <arrays.ndarray.attributes>`",
+            "content": "",
+            "name": "seealso",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "argument": "MaskedArray.data",
+            "content": "",
+            "name": "autoattribute",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "argument": "MaskedArray.mask",
+            "content": "",
+            "name": "autoattribute",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "argument": "MaskedArray.recordmask",
+            "content": "",
+            "name": "autoattribute",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "argument": "MaskedArray.fill_value",
+            "content": "",
+            "name": "autoattribute",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "argument": "MaskedArray.baseclass",
+            "content": "",
+            "name": "autoattribute",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "argument": "MaskedArray.sharedmask",
+            "content": "",
+            "name": "autoattribute",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "argument": "MaskedArray.hardmask",
+            "content": "",
+            "name": "autoattribute",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "As "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "MaskedArray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is a subclass of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~numpy.ndarray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", a masked array also inherits all the attributes and properties of a  "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~numpy.ndarray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " instance."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ".. autosummary:: \n    :toctree:generated/\n    MaskedArray.base\n    MaskedArray.ctypes\n    MaskedArray.dtype\n    MaskedArray.flags\n\n    MaskedArray.itemsize\n    MaskedArray.nbytes\n    MaskedArray.ndim\n    MaskedArray.shape\n    MaskedArray.size\n    MaskedArray.strides\n\n    MaskedArray.imag\n    MaskedArray.real\n\n    MaskedArray.flat\n    MaskedArray.__array_priority__"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 1,
+      "target": "ma-attributes",
+      "title": "Attributes and properties of masked arrays"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "argument": ":ref:`Array methods <array.ndarray.methods>`",
+            "content": "",
+            "name": "seealso",
+            "options": []
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": ":class:`MaskedArray` methods"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "value": ".. autosummary:: \n    :toctree:generated/\n    MaskedArray.__float__\n    MaskedArray.__int__\n\n    MaskedArray.view\n    MaskedArray.astype\n    MaskedArray.byteswap\n\n    MaskedArray.compressed\n    MaskedArray.filled\n    MaskedArray.tofile\n    MaskedArray.toflex\n    MaskedArray.tolist\n    MaskedArray.torecords\n    MaskedArray.tostring\n    MaskedArray.tobytes"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Conversion"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For reshape, resize, and transpose, the single tuple argument may be replaced with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "n"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " integers which will be interpreted as an n-tuple."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ".. autosummary:: \n    :toctree:generated/\n    MaskedArray.flatten\n    MaskedArray.ravel\n    MaskedArray.reshape\n    MaskedArray.resize\n    MaskedArray.squeeze\n    MaskedArray.swapaxes\n    MaskedArray.transpose\n    MaskedArray.T"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Shape manipulation"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For array methods that take an "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "axis"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " keyword, it defaults to None. If axis is None, then the array is treated as a 1-D array. Any other value for "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "axis"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " represents the dimension along which the operation should proceed."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ".. autosummary:: \n    :toctree:generated/\n    MaskedArray.argmax\n    MaskedArray.argmin\n    MaskedArray.argsort\n    MaskedArray.choose\n    MaskedArray.compress\n    MaskedArray.diagonal\n    MaskedArray.fill\n    MaskedArray.item\n    MaskedArray.nonzero\n    MaskedArray.put\n    MaskedArray.repeat\n    MaskedArray.searchsorted\n    MaskedArray.sort\n    MaskedArray.take"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Item selection and manipulation"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "value": ".. autosummary:: \n    :toctree:generated/\n    MaskedArray.copy\n    MaskedArray.dump\n    MaskedArray.dumps"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Pickling and copy"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "value": ".. autosummary:: \n    :toctree:generated/\n    MaskedArray.all\n    MaskedArray.anom\n    MaskedArray.any\n    MaskedArray.clip\n    MaskedArray.conj\n    MaskedArray.conjugate\n    MaskedArray.cumprod\n    MaskedArray.cumsum\n    MaskedArray.max\n    MaskedArray.mean\n    MaskedArray.min\n    MaskedArray.prod\n    MaskedArray.product\n    MaskedArray.ptp\n    MaskedArray.round\n    MaskedArray.std\n    MaskedArray.sum\n    MaskedArray.trace\n    MaskedArray.var"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Calculations"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "argument": "comparison, arithmetic, operation, operator",
+            "content": "",
+            "name": "index",
+            "options": []
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Arithmetic and comparison operations"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "value": ".. autosummary:: \n    :toctree:generated/\n    MaskedArray.__lt__\n    MaskedArray.__le__\n    MaskedArray.__gt__\n    MaskedArray.__ge__\n    MaskedArray.__eq__\n    MaskedArray.__ne__"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Comparison operators:"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "value": ".. autosummary:: \n    :toctree:generated/\n    MaskedArray.__bool__"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Truth value of an array (:class:`bool() <bool>`):"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "value": ".. autosummary:: \n    :toctree:generated/\n    MaskedArray.__abs__\n    MaskedArray.__add__\n    MaskedArray.__radd__\n    MaskedArray.__sub__\n    MaskedArray.__rsub__\n    MaskedArray.__mul__\n    MaskedArray.__rmul__\n    MaskedArray.__div__\n    MaskedArray.__truediv__\n    MaskedArray.__rtruediv__\n    MaskedArray.__floordiv__\n    MaskedArray.__rfloordiv__\n    MaskedArray.__mod__\n    MaskedArray.__rmod__\n    MaskedArray.__divmod__\n    MaskedArray.__rdivmod__\n    MaskedArray.__pow__\n    MaskedArray.__rpow__\n    MaskedArray.__lshift__\n    MaskedArray.__rlshift__\n    MaskedArray.__rshift__\n    MaskedArray.__rrshift__\n    MaskedArray.__and__\n    MaskedArray.__rand__\n    MaskedArray.__or__\n    MaskedArray.__ror__\n    MaskedArray.__xor__\n    MaskedArray.__rxor__"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Arithmetic:"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "value": ".. autosummary:: \n    :toctree:generated/\n    MaskedArray.__iadd__\n    MaskedArray.__isub__\n    MaskedArray.__imul__\n    MaskedArray.__idiv__\n    MaskedArray.__itruediv__\n    MaskedArray.__ifloordiv__\n    MaskedArray.__imod__\n    MaskedArray.__ipow__\n    MaskedArray.__ilshift__\n    MaskedArray.__irshift__\n    MaskedArray.__iand__\n    MaskedArray.__ior__\n    MaskedArray.__ixor__"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Arithmetic, in-place:"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "value": ".. autosummary:: \n    :toctree:generated/\n    MaskedArray.__repr__\n    MaskedArray.__str__\n\n    MaskedArray.ids\n    MaskedArray.iscontiguous"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Representation"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For standard library functions:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ".. autosummary:: \n    :toctree:generated/\n    MaskedArray.__copy__\n    MaskedArray.__deepcopy__\n    MaskedArray.__getstate__\n    MaskedArray.__reduce__\n    MaskedArray.__setstate__"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Basic customization:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ".. autosummary:: \n    :toctree:generated/\n    MaskedArray.__new__\n    MaskedArray.__array__\n    MaskedArray.__array_wrap__"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Container customization: (see "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "Indexing <arrays.indexing>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ")"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ".. autosummary:: \n    :toctree:generated/\n    MaskedArray.__len__\n    MaskedArray.__getitem__\n    MaskedArray.__setitem__\n    MaskedArray.__delitem__\n    MaskedArray.__contains__"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Special methods"
+    },
+    {
+      "children": [],
+      "level": 1,
+      "target": null,
+      "title": "Specific methods"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The following methods can be used to access information about the mask or to manipulate the mask."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ".. autosummary:: \n    :toctree:generated/\n    MaskedArray.__setmask__\n\n    MaskedArray.harden_mask\n    MaskedArray.soften_mask\n    MaskedArray.unshare_mask\n    MaskedArray.shrink_mask"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Handling the mask"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "value": ".. autosummary:: \n    :toctree:generated/\n    MaskedArray.get_fill_value\n    MaskedArray.set_fill_value"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Handling the `fill_value`"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "value": ".. autosummary:: \n    :toctree:generated/\n    MaskedArray.count"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Counting the missing elements"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

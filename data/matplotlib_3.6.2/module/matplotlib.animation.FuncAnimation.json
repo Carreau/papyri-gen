@@ -1,0 +1,930 @@
+{
+  "aliases": [
+    "matplotlib.animation.FuncAnimation"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "You must store the created Animation in a variable that lives as long as the animation should run. Otherwise, the Animation object will be garbage-collected and the animation stops."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              }
+            ],
+            "kind": "note",
+            "title": ""
+          },
+          "type": "Admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The figure object used to get needed events, such as draw or resize."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "fig",
+                "type_": "`~matplotlib.figure.Figure`"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The function to call at each frame.  The first argument will be the next value in "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "frames"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": ".   Any additional positional arguments can be supplied using "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "module",
+                            "reference": {
+                              "kind": "api",
+                              "module": "functools",
+                              "path": "functools.partial",
+                              "version": "*"
+                            },
+                            "value": "functools.partial"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " or via the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "fargs"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " parameter."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The required signature is:      "
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": "def func(frame, *fargs) -> iterable_of_artists"
+                    },
+                    "type": "BlockVerbatim"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "It is often more convenient to provide the arguments using "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "module",
+                            "reference": {
+                              "kind": "api",
+                              "module": "functools",
+                              "path": "functools.partial",
+                              "version": "*"
+                            },
+                            "value": "functools.partial"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": ". In this way it is also possible to pass keyword arguments. To pass a function with both positional and keyword arguments, set all arguments as keyword arguments, just leaving the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "frame"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " argument unset:      "
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": "def func(frame, art, *, y=None):\n    ...\n\nani = FuncAnimation(fig, partial(func, art=ln, y='foo'))"
+                    },
+                    "type": "BlockVerbatim"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "If "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "blit == True"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "func"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " must return an iterable of all artists that were modified or created. This information is used by the blitting algorithm to determine which parts of the figure have to be updated. The return value is unused if "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "blit == False"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and may be omitted in that case."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "func",
+                "type_": "callable"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Source of data to pass "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "func"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " and each frame of the animation"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "data": {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "value": "If an iterable, then simply use the values provided.  If the   iterable has a length, it will override the "
+                                    },
+                                    "type": "Words"
+                                  },
+                                  {
+                                    "data": {
+                                      "value": {
+                                        "value": "save_count"
+                                      }
+                                    },
+                                    "type": "Emph"
+                                  },
+                                  {
+                                    "data": {
+                                      "value": " kwarg."
+                                    },
+                                    "type": "Words"
+                                  }
+                                ]
+                              },
+                              "type": "Paragraph"
+                            }
+                          ]
+                        },
+                        {
+                          "children": [
+                            {
+                              "data": {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "value": "If an integer, then equivalent to passing "
+                                    },
+                                    "type": "Words"
+                                  },
+                                  {
+                                    "data": {
+                                      "value": [
+                                        "range(frames)"
+                                      ]
+                                    },
+                                    "type": "Verbatim"
+                                  }
+                                ]
+                              },
+                              "type": "Paragraph"
+                            }
+                          ]
+                        },
+                        {
+                          "children": [
+                            {
+                              "data": {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "value": "If a generator function, then must have the signature:       "
+                                    },
+                                    "type": "Words"
+                                  }
+                                ]
+                              },
+                              "type": "Paragraph"
+                            },
+                            {
+                              "data": {
+                                "value": "def gen_function() -> obj"
+                              },
+                              "type": "BlockVerbatim"
+                            }
+                          ]
+                        },
+                        {
+                          "children": [
+                            {
+                              "data": {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "value": "If "
+                                    },
+                                    "type": "Words"
+                                  },
+                                  {
+                                    "data": {
+                                      "value": {
+                                        "value": "None"
+                                      }
+                                    },
+                                    "type": "Emph"
+                                  },
+                                  {
+                                    "data": {
+                                      "value": ", then equivalent to passing "
+                                    },
+                                    "type": "Words"
+                                  },
+                                  {
+                                    "data": {
+                                      "value": [
+                                        "itertools.count"
+                                      ]
+                                    },
+                                    "type": "Verbatim"
+                                  },
+                                  {
+                                    "data": {
+                                      "value": "."
+                                    },
+                                    "type": "Words"
+                                  }
+                                ]
+                              },
+                              "type": "Paragraph"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "type": "BulletList"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "In all of these cases, the values in "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "frames"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " is simply passed through to the user-supplied "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "func"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " and thus can be of any type."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "frames",
+                "type_": "iterable, int, generator function, or None, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A function used to draw a clear frame. If not given, the results of drawing from the first item in the frames sequence will be used. This function will be called once before the first frame."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The required signature is:      "
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": "def init_func() -> iterable_of_artists"
+                    },
+                    "type": "BlockVerbatim"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "If "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "blit == True"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "init_func"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " must return an iterable of artists to be re-drawn. This information is used by the blitting algorithm to determine which parts of the figure have to be updated.  The return value is unused if "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "blit == False"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and may be omitted in that case."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "init_func",
+                "type_": "callable, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Additional arguments to pass to each call to "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "func"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": ". Note: the use of "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "module",
+                            "reference": {
+                              "kind": "api",
+                              "module": "functools",
+                              "path": "functools.partial",
+                              "version": "*"
+                            },
+                            "value": "functools.partial"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " is preferred over "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "fargs"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": ". See "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "func"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " for details."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "fargs",
+                "type_": "tuple or None, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Fallback for the number of values from "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "frames"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " to cache. This is only used if the number of frames cannot be inferred from "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "frames"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": ", i.e. when it's an iterator without length or a generator."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "save_count",
+                "type_": "int, default: 100"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Delay between frames in milliseconds."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "interval",
+                "type_": "int, default: 200"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The delay in milliseconds between consecutive animation runs, if "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "repeat"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " is True."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "repeat_delay",
+                "type_": "int, default: 0"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Whether the animation repeats when the sequence of frames is completed."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "repeat",
+                "type_": "bool, default: True"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Whether blitting is used to optimize drawing.  Note: when using blitting, any animated artists will be drawn according to their zorder; however, they will be drawn on top of any previous artists, regardless of their zorder."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "blit",
+                "type_": "bool, default: False"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Whether frame data is cached.  Disabling cache might be helpful when frames contain large objects."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "cache_frame_data",
+                "type_": "bool, default: True"
+              }
+            ]
+          },
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "matplotlib",
+                    "path": "matplotlib.animation.TimedAnimation",
+                    "version": "3.6.2"
+                  },
+                  "value": "TimedAnimation"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " subclass that makes an animation by repeatedly calling a function "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "func"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null
+  },
+  "item_file": "/matplotlib/animation.py",
+  "item_line": 1504,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

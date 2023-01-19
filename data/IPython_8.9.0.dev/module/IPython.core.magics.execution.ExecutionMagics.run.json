@@ -1,0 +1,820 @@
+{
+  "aliases": [
+    "IPython.core.magics.ExecutionMagics.run"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Usage:    "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "%run [-n -i -e -G]\n     [( -t [-N<N>] | -d [-b<N>] | -p [profile options] )]\n     ( -m mod | filename ) [args]"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The filename argument should be either a pure Python script (with extension "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    ".py"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "), or a file with custom IPython syntax (such as magics). If the latter, the file can be either a script with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    ".ipy"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " extension, or a Jupyter notebook with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    ".ipynb"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " extension. When running a Jupyter notebook, the output from print statements and other displayed objects will appear in the terminal (even matplotlib figures will open, if a terminal-compliant backend is being used). Note that, at the system command line, the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "jupyter run"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " command offers similar functionality for executing notebooks (albeit currently with some differences in supported options)."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Parameters after the filename are passed as command-line arguments to the program (put in sys.argv). Then, control returns to IPython's prompt."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "This is similar to running at a system prompt "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "python file args"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", but with the advantage of giving you IPython's tracebacks, and of loading all variables into your interactive namespace for further use (unless -p is used, see below)."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The file is executed in a namespace initially consisting only of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "__name__=='__main__'"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and sys.argv constructed as indicated. It thus sees its environment as if it were being run as a stand-alone program (except for sharing global objects such as previously imported modules). But after execution, the IPython interactive namespace gets updated with all variables defined in the program (except for __name__ and sys.argv). This allows for very convenient loading of code for interactive work, while giving each program a 'clean sheet' to run in."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Arguments are expanded using shell-like glob match.  Patterns '"
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": {
+                    "value": "', '?', '[seq]' and '[!seq]' can be used.  Additionally,\ntilde '~' will be expanded into user's home directory.  Unlike\nreal shells, quotation does not suppress expansions.  Use\n*two"
+                  }
+                },
+                "type": "Emph"
+              },
+              {
+                "data": {
+                  "value": " back slashes (e.g. "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "\\\\*"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ") to suppress expansions. To completely disable these expansions, you can use -G flag."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "On Windows systems, the use of single quotes "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "'"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " when specifying a file is not supported. Use double quotes "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "\""
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Options:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "__name__ is NOT set to '__main__', but to the running file's name   without extension (as python does under import).  This allows running   scripts and reloading the definitions in them without calling code   protected by an "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "if __name__ == \"__main__\""
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " clause."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "-n"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "run the file in IPython's namespace instead of an empty one. This   is useful if you are experimenting with code written in a text editor   which depends on variables defined interactively."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "-i"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "ignore sys.exit() calls or SystemExit exceptions in the script   being run.  This is particularly useful if IPython is being used to   run unittests, which always exit with a sys.exit() call.  In such   cases you are interested in the output of the test results, not in   seeing a traceback of the unittest module."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "-e"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "print timing information at the end of the run.  IPython will give   you an estimated CPU time consumption for your script, which under   Unix uses the resource module to avoid the wraparound problems of   time.clock().  Under Unix, an estimate of time spent on system tasks   is also given (for Windows platforms this is reported as 0.0)."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "-t"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "If -t is given, an additional "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "-N<N>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " option can be given, where <N> must be an integer indicating how many times you want the script to run.  The final timing report will include total and per run results."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For example (testing the script uniq_stable.py):      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "In [1]: run -t uniq_stable\n\nIPython CPU timings (estimated):\n  User  :    0.19597 s.\n  System:        0.0 s.\n\nIn [2]: run -t -N5 uniq_stable\n\nIPython CPU timings (estimated):\nTotal runs performed: 5\n  Times :      Total       Per run\n  User  :   0.910862 s,  0.1821724 s.\n  System:        0.0 s,        0.0 s."
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "run your program under the control of pdb, the Python debugger.   This allows you to execute your program step by step, watch variables,   etc.  Internally, what IPython does is similar to calling:        "
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": "pdb.run('execfile(\"YOURFILENAME\")')"
+                    },
+                    "type": "BlockVerbatim"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "with a breakpoint set on line 1 of your file.  You can change the line   number for this automatic breakpoint to be <N> by using the -bN option   (where N must be an integer). For example:        "
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": "%run -d -b40 myscript"
+                    },
+                    "type": "BlockVerbatim"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "will set the first breakpoint at line 40 in myscript.py.  Note that   the first breakpoint must be set on a line which actually does   something (not a comment or docstring) for it to stop execution."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Or you can specify a breakpoint in a different file:        "
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": "%run -d -b myotherfile.py:20 myscript"
+                    },
+                    "type": "BlockVerbatim"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "When the pdb debugger starts, you will see a (Pdb) prompt.  You must   first enter 'c' (without quotes) to start execution up to the first   breakpoint."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Entering 'help' gives information about the use of the debugger.  You   can easily see pdb's full documentation with \"import pdb;pdb.help()\"   at a prompt."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "-d"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "run program under the control of the Python profiler module (which   prints a detailed report of execution times, function calls, etc)."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "You can pass other options after -p which affect the behavior of the   profiler itself. See the docs for %prun for details."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "In this mode, the program's variables do NOT propagate back to the   IPython interactive namespace (because they remain in the namespace   where the profiler executes them)."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Internally this triggers a call to %prun, see its documentation for   details on the options available specifically for profiling."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "-p"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "There is one special usage for which the text above doesn't apply: if the filename ends with .ipy[nb], the file is run as ipython script, just as if the commands were written on IPython prompt."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "specify module name to load instead of script path. Similar to   the -m option for the python interpreter. Use this option last if you   want to combine with other %run options. Unlike the python interpreter   only source modules are allowed no .pyc or .pyo files.   For example:        "
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": "%run -m example"
+                    },
+                    "type": "BlockVerbatim"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "will run the example module."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "-m"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "disable shell-like glob expansion of arguments."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "-G"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Run the named file inside IPython as a program."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null
+  },
+  "item_file": "/dev/ipython/IPython/core/magics/execution.py",
+  "item_line": 507,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": "run(self, parameter_s='', runner=None, file_finder=<function get_py_filename at 0x0000000>)"
+  }
+}

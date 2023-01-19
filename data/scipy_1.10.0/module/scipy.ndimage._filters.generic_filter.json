@@ -1,0 +1,1061 @@
+{
+  "aliases": [
+    "scipy.ndimage.generic_filter"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "At each element the provided function is called. The input values within the filter footprint at that element are passed to the function as a 1-D array of double values."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "This function also accepts low-level callback functions with one of the following signatures and wrapped in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "scipy",
+                    "path": "scipy._lib._ccallback.LowLevelCallable",
+                    "version": "*"
+                  },
+                  "value": "scipy.LowLevelCallable"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": ":"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "int callback(double *buffer, npy_intp filter_size,\n             double *return_value, void *user_data)\nint callback(double *buffer, intptr_t filter_size,\n             double *return_value, void *user_data)"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The calling function iterates over the elements of the input and output arrays, calling the callback function at each element. The elements within the footprint of the filter at the current element are passed through the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "buffer"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " parameter, and the number of elements within the footprint through "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "filter_size"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". The calculated value is returned in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "return_value"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "user_data"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is the data pointer provided to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "scipy",
+                    "path": "scipy._lib._ccallback.LowLevelCallable",
+                    "version": "*"
+                  },
+                  "value": "scipy.LowLevelCallable"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " as-is."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The callback function must return an integer error status that is zero if something went wrong and one otherwise. If an error occurs, you should normally set the python error status with an informative message before returning, otherwise a default error message is set by the calling function."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "In addition, some other low-level function pointer specifications are accepted, but these are for backward compatibility only and should not be used in new code."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The input array."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "input",
+                "type_": "array_like"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Function to apply at each element."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "function",
+                "type_": "{callable, scipy.LowLevelCallable}"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "See footprint, below. Ignored if footprint is given."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "size",
+                "type_": "scalar or tuple, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Either "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "size",
+                              "version": null
+                            },
+                            "value": "size"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " or "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "footprint",
+                              "version": null
+                            },
+                            "value": "footprint"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " must be defined. "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "size",
+                              "version": null
+                            },
+                            "value": "size"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " gives the shape that is taken from the input array, at every element position, to define the input to the filter function. "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "footprint",
+                              "version": null
+                            },
+                            "value": "footprint"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " is a boolean array that specifies (implicitly) a shape, but also which of the elements within this shape will get passed to the filter function. Thus "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "size=(n,m)"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " is equivalent to "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "footprint=np.ones((n,m))"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ".  We adjust "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "size",
+                              "version": null
+                            },
+                            "value": "size"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " to the number of dimensions of the input array, so that, if the input array is shape (10,10,10), and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "size",
+                              "version": null
+                            },
+                            "value": "size"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " is 2, then the actual size used is (2,2,2). When "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "footprint",
+                              "version": null
+                            },
+                            "value": "footprint"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " is given, "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "size",
+                              "version": null
+                            },
+                            "value": "size"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " is ignored."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "footprint",
+                "type_": "array, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The array in which to place the output, or the dtype of the returned array. By default an array of the same dtype as input will be created."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "output",
+                "type_": "array or dtype, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "mode",
+                              "version": null
+                            },
+                            "value": "mode"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " parameter determines how the input array is extended beyond its boundaries. Default is 'reflect'. Behavior for each valid value is as follows:"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "dd": [
+                            {
+                              "data": {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "value": "The input is extended by reflecting about the edge of the last     pixel. This mode is also sometimes referred to as half-sample     symmetric."
+                                    },
+                                    "type": "Words"
+                                  }
+                                ]
+                              },
+                              "type": "Paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "'reflect' ("
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "domain": null,
+                                  "role": null,
+                                  "value": "d c b a | a b c d | d c b a"
+                                },
+                                "type": "Directive"
+                              },
+                              {
+                                "data": {
+                                  "value": ")"
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "dd": [
+                            {
+                              "data": {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "value": "The input is extended by filling all values beyond the edge with     the same constant value, defined by the "
+                                    },
+                                    "type": "Words"
+                                  },
+                                  {
+                                    "data": {
+                                      "anchor": null,
+                                      "exists": true,
+                                      "kind": "local",
+                                      "reference": {
+                                        "kind": "local",
+                                        "module": null,
+                                        "path": "cval",
+                                        "version": null
+                                      },
+                                      "value": "cval"
+                                    },
+                                    "type": "Link"
+                                  },
+                                  {
+                                    "data": {
+                                      "value": " parameter."
+                                    },
+                                    "type": "Words"
+                                  }
+                                ]
+                              },
+                              "type": "Paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "'constant' ("
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "domain": null,
+                                  "role": null,
+                                  "value": "k k k k | a b c d | k k k k"
+                                },
+                                "type": "Directive"
+                              },
+                              {
+                                "data": {
+                                  "value": ")"
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "dd": [
+                            {
+                              "data": {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "value": "The input is extended by replicating the last pixel."
+                                    },
+                                    "type": "Words"
+                                  }
+                                ]
+                              },
+                              "type": "Paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "'nearest' ("
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "domain": null,
+                                  "role": null,
+                                  "value": "a a a a | a b c d | d d d d"
+                                },
+                                "type": "Directive"
+                              },
+                              {
+                                "data": {
+                                  "value": ")"
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "dd": [
+                            {
+                              "data": {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "value": "The input is extended by reflecting about the center of the last     pixel. This mode is also sometimes referred to as whole-sample     symmetric."
+                                    },
+                                    "type": "Words"
+                                  }
+                                ]
+                              },
+                              "type": "Paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "'mirror' ("
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "domain": null,
+                                  "role": null,
+                                  "value": "d c b | a b c d | c b a"
+                                },
+                                "type": "Directive"
+                              },
+                              {
+                                "data": {
+                                  "value": ")"
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "dd": [
+                            {
+                              "data": {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "value": "The input is extended by wrapping around to the opposite edge."
+                                    },
+                                    "type": "Words"
+                                  }
+                                ]
+                              },
+                              "type": "Paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "'wrap' ("
+                                },
+                                "type": "Words"
+                              },
+                              {
+                                "data": {
+                                  "domain": null,
+                                  "role": null,
+                                  "value": "a b c d | a b c d | a b c d"
+                                },
+                                "type": "Directive"
+                              },
+                              {
+                                "data": {
+                                  "value": ")"
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "type": "DefList"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "For consistency with the interpolation functions, the following mode names can also be used:"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "dd": [
+                            {
+                              "data": {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "value": "This is a synonym for 'reflect'."
+                                    },
+                                    "type": "Words"
+                                  }
+                                ]
+                              },
+                              "type": "Paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "'grid-mirror'"
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "dd": [
+                            {
+                              "data": {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "value": "This is a synonym for 'constant'."
+                                    },
+                                    "type": "Words"
+                                  }
+                                ]
+                              },
+                              "type": "Paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "'grid-constant'"
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "dd": [
+                            {
+                              "data": {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "value": "This is a synonym for 'wrap'."
+                                    },
+                                    "type": "Words"
+                                  }
+                                ]
+                              },
+                              "type": "Paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "'grid-wrap'"
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "type": "DefList"
+                  }
+                ],
+                "param": "mode",
+                "type_": "{'reflect', 'constant', 'nearest', 'mirror', 'wrap'}, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Value to fill past edges of input if "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "mode",
+                              "version": null
+                            },
+                            "value": "mode"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " is 'constant'. Default is 0.0."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "cval",
+                "type_": "scalar, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Controls the placement of the filter on the input array's pixels. A value of 0 (the default) centers the filter over the pixel, with positive values shifting the filter to the left, and negative ones to the right. By passing a sequence of origins with length equal to the number of dimensions of the input array, different shifts can be specified along each axis."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "origin",
+                "type_": "int or sequence, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Sequence of extra positional arguments to pass to passed function."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "extra_arguments",
+                "type_": "sequence, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "dict of extra keyword arguments to pass to passed function."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "extra_keywords",
+                "type_": "dict, optional"
+              }
+            ]
+          },
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Calculate a multidimensional filter using the given function."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null
+  },
+  "item_file": "/scipy/ndimage/_filters.py",
+  "item_line": 1554,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": "generic_filter(input, function, size=None, footprint=None, output=None, mode='reflect', cval=0.0, origin=0, extra_arguments=(), extra_keywords=None)"
+  }
+}

@@ -1,0 +1,1057 @@
+{
+  "aliases": [
+    "scipy.stats.qmc"
+  ],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "argument": "scipy.stats.qmc",
+            "content": "",
+            "name": "currentmodule",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "This module provides Quasi-Monte Carlo generators and associated helper functions."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "Quasi-Monte Carlo submodule (:mod:`scipy.stats.qmc`)"
+    },
+    {
+      "children": [],
+      "level": 1,
+      "target": null,
+      "title": "Quasi-Monte Carlo"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "value": ".. autosummary:: \n    :toctree:generated/\n    QMCEngine\n    Sobol\n    Halton\n    LatinHypercube\n    PoissonDisk\n    MultinomialQMC\n    MultivariateNormalQMC"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Engines"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "value": ".. autosummary:: \n    :toctree:generated/\n    discrepancy\n    update_discrepancy\n    scale"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Helpers"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Quasi-Monte Carlo (QMC) methods , ,  provide an "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "n \\times d"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " array of numbers in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "[0,1]"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": ". They can be used in place of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "n"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " points from the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "U[0,1]^{d}"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " distribution. Compared to random points, QMC points are designed to have fewer gaps and clumps. This is quantified by discrepancy measures . From the Koksma-Hlawka inequality  we know that low discrepancy reduces a bound on integration error. Averaging a function "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "f"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " over "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "n"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " QMC points can achieve an integration error close to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "O(n^{-1})"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " for well behaved functions ."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Most QMC constructions are designed for special values of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "n"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " such as powers of 2 or large primes. Changing the sample size by even one can degrade their performance, even their rate of convergence . For instance "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "n=100"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " points may give less accuracy than "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "n=64"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " if the method was designed for "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "n=2^m"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Some QMC constructions are extensible in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "n"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": ": we can find another special sample size "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "n' > n"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " and often an infinite sequence of increasing special sample sizes. Some QMC constructions are extensible in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "d"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": ": we can increase the dimension, possibly to some upper bound, and typically without requiring special values of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "d"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": ". Some QMC methods are extensible in both "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "n"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "d"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "QMC points are deterministic. That makes it hard to estimate the accuracy of integrals estimated by averages over QMC points. Randomized QMC (RQMC)  points are constructed so that each point is individually "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "U[0,1]^{d}"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " while collectively the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "n"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " points retain their low discrepancy. One can make "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "R"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " independent replications of RQMC points to see how stable a computation is. From "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "R"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " independent values, a t-test (or bootstrap t-test ) then gives approximate confidence intervals on the mean value. Some RQMC methods produce a root mean squared error that is actually "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "o(1/n)"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " and smaller than the rate seen in unrandomized QMC. An intuitive explanation is that the error is a sum of many small ones and random errors cancel in a way that deterministic ones do not. RQMC also has advantages on integrands that are singular or, for other reasons, fail to be Riemann integrable."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "(R)QMC cannot beat Bahkvalov's curse of dimension (see ). For any random or deterministic method, there are worst case functions that will give it poor performance in high dimensions. A worst case function for QMC might be 0 at all n points but very large elsewhere. Worst case analyses get very pessimistic in high dimensions. (R)QMC can bring a great improvement over MC when the functions on which it is used are not worst case. For instance (R)QMC can be especially effective on integrands that are well approximated by sums of functions of some small number of their input variables at a time , . That property is often a surprising finding about those functions."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Also, to see an improvement over IID MC, (R)QMC requires a bit of smoothness of the integrand, roughly the mixed first order derivative in each direction, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "\\partial^d f/\\partial x_1 \\cdots \\partial x_d"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": ", must be integral. For instance, a function that is 1 inside the hypersphere and 0 outside of it has infinite variation in the sense of Hardy and Krause for any dimension "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "d = 2"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Scrambled nets are a kind of RQMC that have some valuable robustness properties . If the integrand is square integrable, they give variance "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "var_{SNET} = o(1/n)"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": ". There is a finite upper bound on "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "var_{SNET} / var_{MC}"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " that holds simultaneously for every square integrable integrand. Scrambled nets satisfy a strong law of large numbers for "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "f"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "L^p"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " when "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "p>1"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": ". In some special cases there is a central limit theorem . For smooth enough integrands they can achieve RMSE nearly "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "O(n^{-3})"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": ". See  for references about these properties."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The main kinds of QMC methods are lattice rules  and digital nets and sequences , . The theories meet up in polynomial lattice rules  which can produce digital nets. Lattice rules require some form of search for good constructions. For digital nets there are widely used default constructions."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The most widely used QMC methods are Sobol' sequences . These are digital nets. They are extensible in both "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "n"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "d"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": ". They can be scrambled. The special sample sizes are powers of 2. Another popular method are Halton sequences . The constructions resemble those of digital nets. The earlier dimensions have much better equidistribution properties than later ones. There are essentially no special sample sizes. They are not thought to be as accurate as Sobol' sequences. They can be scrambled. The nets of Faure  are also widely used. All dimensions are equally good, but the special sample sizes grow rapidly with dimension "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "d"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": ". They can be scrambled. The nets of Niederreiter and Xing  have the best asymptotic properties but have not shown good empirical performance ."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Higher order digital nets are formed by a digit interleaving process in the digits of the constructed points. They can achieve higher levels of asymptotic accuracy given higher smoothness conditions on "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "f"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " and they can be scrambled . There is little or no empirical work showing the improved rate to be attained."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Using QMC is like using the entire period of a small random number generator. The constructions are similar and so therefore are the computational costs ."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "(R)QMC is sometimes improved by passing the points through a baker's transformation (tent function) prior to using them. That function has the form "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "1-2|x-1/2|"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": ". As "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "x"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " goes from 0 to 1, this function goes from 0 to 1 and then back. It is very useful to produce a periodic function for lattice rules , and sometimes it improves the convergence rate ."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "It is not straightforward to apply QMC methods to Markov chain Monte Carlo (MCMC).  We can think of MCMC as using "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "n=1"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " point in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "[0,1]^{d}"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": " for very large "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "d"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": ", with ergodic results corresponding to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "d \\to \\infty"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": ". One proposal is in  and under strong conditions an improved rate of convergence has been shown ."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Returning to Sobol' points: there are many versions depending on what are called direction numbers. Those are the result of searches and are tabulated. A very widely used set of direction numbers come from . It is extensible in dimension up to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": "d=21201"
+                },
+                "type": "Math"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Introduction to Quasi-Monte Carlo"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [1] Owen, Art B. \"Monte Carlo Book: the Quasi-Monte Carlo parts.\" 2019."
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [2] Niederreiter, Harald. \"Random number generation and quasi-Monte Carlo\n   methods.\" Society for Industrial and Applied Mathematics, 1992."
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [3] Dick, Josef, Frances Y. Kuo, and Ian H. Sloan. \"High-dimensional\n   integration: the quasi-Monte Carlo way.\" Acta Numerica no. 22: 133, 2013."
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [4] Aho, A. V., C. Aistleitner, T. Anderson, K. Appel, V. Arnol'd, N.\n   Aronszajn, D. Asotsky et al. \"W. Chen et al.(eds.), \"A Panorama of\n   Discrepancy Theory\", Sringer International Publishing,\n   Switzerland: 679, 2014."
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [5] Hickernell, Fred J. \"Koksma-Hlawka Inequality.\" Wiley StatsRef:\n   Statistics Reference Online, 2014."
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [6] Owen, Art B. \"On dropping the first Sobol' point.\" :arxiv:`2008.08051`,\n   2020."
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [7] L'Ecuyer, Pierre, and Christiane Lemieux. \"Recent advances in randomized\n   quasi-Monte Carlo methods.\" In Modeling uncertainty, pp. 419-474. Springer,\n   New York, NY, 2002."
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [8] DiCiccio, Thomas J., and Bradley Efron. \"Bootstrap confidence\n   intervals.\" Statistical science: 189-212, 1996."
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [9] Dimov, Ivan T. \"Monte Carlo methods for applied scientists.\" World\n   Scientific, 2008."
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [10] Caflisch, Russel E., William J. Morokoff, and Art B. Owen. \"Valuation\n   of mortgage backed securities using Brownian bridges to reduce effective\n   dimension.\" Journal of Computational Finance: no. 1 27-46, 1997."
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [11] Sloan, Ian H., and Henryk Wozniakowski. \"When are quasi-Monte Carlo\n   algorithms efficient for high dimensional integrals?.\" Journal of Complexity\n   14, no. 1 (1998): 1-33."
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [12] Owen, Art B., and Daniel Rudolf, \"A strong law of large numbers for\n   scrambled net integration.\" SIAM Review, to appear."
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [13] Loh, Wei-Liem. \"On the asymptotic distribution of scrambled net\n   quadrature.\" The Annals of Statistics 31, no. 4: 1282-1324, 2003."
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [14] Sloan, Ian H. and S. Joe. \"Lattice methods for multiple integration.\"\n   Oxford University Press, 1994."
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [15] Dick, Josef, and Friedrich Pillichshammer. \"Digital nets and sequences:\n   discrepancy theory and quasi-Monte Carlo integration.\" Cambridge University\n   Press, 2010."
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [16] Dick, Josef, F. Kuo, Friedrich Pillichshammer, and I. Sloan.\n   \"Construction algorithms for polynomial lattice rules for multivariate\n   integration.\" Mathematics of computation 74, no. 252: 1895-1921, 2005."
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [17] Sobol', Il'ya Meerovich. \"On the distribution of points in a cube and\n   the approximate evaluation of integrals.\" Zhurnal Vychislitel'noi Matematiki\n   i Matematicheskoi Fiziki 7, no. 4: 784-802, 1967."
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [18] Halton, John H. \"On the efficiency of certain quasi-random sequences of\n   points in evaluating multi-dimensional integrals.\" Numerische Mathematik 2,\n   no. 1: 84-90, 1960."
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [19] Faure, Henri. \"Discrepance de suites associees a un systeme de\n   numeration (en dimension s).\" Acta arithmetica 41, no. 4: 337-351, 1982."
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [20] Niederreiter, Harold, and Chaoping Xing. \"Low-discrepancy sequences and\n   global function fields with many rational places.\" Finite Fields and their\n   applications 2, no. 3: 241-273, 1996."
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [21] Hong, Hee Sun, and Fred J. Hickernell. \"Algorithm 823: Implementing\n   scrambled digital sequences.\" ACM Transactions on Mathematical Software\n   (TOMS) 29, no. 2: 95-109, 2003."
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [22] Dick, Josef. \"Higher order scrambled digital nets achieve the optimal\n   rate of the root mean square error for smooth integrands.\" The Annals of\n   Statistics 39, no. 3: 1372-1398, 2011."
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [23] Niederreiter, Harald. \"Multidimensional numerical integration using\n   pseudorandom numbers.\" In Stochastic Programming 84 Part I, pp. 17-38.\n   Springer, Berlin, Heidelberg, 1986."
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [24] Hickernell, Fred J. \"Obtaining O (N-2+e) Convergence for Lattice\n   Quadrature Rules.\" In Monte Carlo and Quasi-Monte Carlo Methods 2000,\n   pp. 274-289. Springer, Berlin, Heidelberg, 2002."
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [25] Owen, Art B., and Seth D. Tribble. \"A quasi-Monte Carlo Metropolis\n   algorithm.\" Proceedings of the National Academy of Sciences 102,\n   no. 25: 8844-8849, 2005."
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [26] Chen, Su. \"Consistency and convergence rate of Markov chain quasi Monte\n   Carlo with examples.\" PhD diss., Stanford University, 2011."
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [27] Joe, Stephen, and Frances Y. Kuo. \"Constructing Sobol sequences with\n   better two-dimensional projections.\" SIAM Journal on Scientific Computing\n   30, no. 5: 2635-2654, 2008."
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "References"
+    }
+  ],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "To remove in the future \u2013\u2013 scipy.stats.qmc"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null
+  },
+  "item_file": "/scipy/stats/qmc.py",
+  "item_line": 0,
+  "item_type": "<class 'module'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

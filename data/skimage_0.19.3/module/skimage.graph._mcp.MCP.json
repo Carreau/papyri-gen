@@ -1,0 +1,384 @@
+{
+  "aliases": [
+    "skimage.graph.MCP"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Equivalent to the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "offsets",
+                              "version": null
+                            },
+                            "value": "offsets"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " provided to the constructor, or if none were so provided, the offsets created for the requested n-d neighborhood. These are useful for interpreting the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "module",
+                            "reference": {
+                              "kind": "api",
+                              "module": "traceback",
+                              "path": "traceback",
+                              "version": "*"
+                            },
+                            "value": "traceback"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " array returned by the find_costs() method."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "offsets",
+                "type_": "ndarray"
+              }
+            ]
+          },
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Given an n-d costs array, this class can be used to find the minimum-cost path through that array from any set of points to any other set of points. Basic usage is to initialize the class and call find_costs() with a one or more starting indices (and an optional list of end indices). After that, call traceback() one or more times to find the path from any given end-position to the closest starting index. New paths through the same costs array can be found by calling find_costs() repeatedly."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The cost of a path is calculated simply as the sum of the values of the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "local",
+                  "reference": {
+                    "kind": "local",
+                    "module": null,
+                    "path": "costs",
+                    "version": null
+                  },
+                  "value": "costs"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " array at each point on the path. The class MCP_Geometric, on the other hand, accounts for the fact that diagonal vs. axial moves are of different lengths, and weights the path cost accordingly."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Array elements with infinite or negative costs will simply be ignored, as will paths whose cumulative cost overflows to infinite."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "desc": [],
+                "param": "costs",
+                "type_": "ndarray"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A list of offset tuples: each offset specifies a valid move from a given n-d position. If not provided, offsets corresponding to a singly- or fully-connected n-d neighborhood will be constructed with make_offsets(), using the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "fully_connected",
+                              "version": null
+                            },
+                            "value": "fully_connected"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " parameter value."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "offsets",
+                "type_": "iterable, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "If no "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "offsets",
+                              "version": null
+                            },
+                            "value": "offsets"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " are provided, this determines the connectivity of the generated neighborhood. If true, the path may go along diagonals between elements of the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "anchor": null,
+                            "exists": true,
+                            "kind": "local",
+                            "reference": {
+                              "kind": "local",
+                              "module": null,
+                              "path": "costs",
+                              "version": null
+                            },
+                            "value": "costs"
+                          },
+                          "type": "Link"
+                        },
+                        {
+                          "data": {
+                            "value": " array; otherwise only axial moves are permitted."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "fully_connected",
+                "type_": "bool, optional"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "For each dimension, specifies the distance between two cells/voxels. If not given or None, the distance is assumed unit."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "sampling",
+                "type_": "tuple, optional"
+              }
+            ]
+          },
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "A class for finding the minimum cost path through a given n-d costs array."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null
+  },
+  "item_file": "/skimage/graph/_mcp.cpython-311-darwin.so",
+  "item_line": null,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Signature",
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Attributes"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": "MCP(costs, offsets=None, fully_connected=True, sampling=None)"
+  }
+}

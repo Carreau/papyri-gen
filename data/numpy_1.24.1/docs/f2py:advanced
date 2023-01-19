@@ -1,0 +1,1087 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": "Advanced F2PY use cases"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "User-defined Python C/API functions can be defined inside signature files using "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "usercode"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "pymethoddef"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " statements (they must be used inside the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "python module"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " block). For example, the following signature file "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "spam.pyf"
+                  ]
+                },
+                "type": "Verbatim"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "./code/spam.pyf",
+            "content": "",
+            "name": "include",
+            "options": [
+              [
+                "literal",
+                ""
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "wraps the C library function "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "system()"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ":    "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "f2py -c spam.pyf"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "In Python this can then be used as:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "./code/results/spam_session.dat",
+            "content": "",
+            "name": "literalinclude",
+            "options": [
+              [
+                "language",
+                "python"
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Adding user-defined functions to F2PY generated modules"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The following example illustrates how to add user-defined variables to a F2PY generated extension module by modifying the dictionary of a F2PY generated module. Consider the following signature file (compiled with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "f2py -c var.pyf"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "):"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "./code/var.pyf",
+            "content": "",
+            "name": "literalinclude",
+            "options": [
+              [
+                "language",
+                "fortran"
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Notice that the second "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "usercode"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " statement must be defined inside an "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "interface"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " block and the module dictionary is available through the variable "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "d"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " (see "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "varmodule.c"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " generated by "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "f2py var.pyf"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " for additional details)."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Usage in Python:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "./code/results/var_session.dat",
+            "content": "",
+            "name": "literalinclude",
+            "options": [
+              [
+                "language",
+                "python"
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Adding user-defined variables"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Currently, F2PY can handle only "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "<type spec>(kind=<kindselector>)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " declarations where "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "<kindselector>"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is a numeric integer (e.g. 1, 2, 4,...), but not a function call "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "KIND(..)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " or any other expression. F2PY needs to know what would be the corresponding C type and a general solution for that would be too complicated to implement."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "However, F2PY provides a hook to overcome this difficulty, namely, users can define their own <Fortran type> to <C type> maps. For example, if Fortran 90 code contains:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "REAL(kind=KIND(0.0D0)) ..."
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "then create a mapping file containing a Python dictionary:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "{'real': {'KIND(0.0D0)': 'double'}}"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "for instance."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Use the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "--f2cmap"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " command-line option to pass the file name to F2PY. By default, F2PY assumes file name is "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    ".f2py_f2cmap"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " in the current working directory."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "More generally, the f2cmap file must contain a dictionary with items:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "<Fortran typespec> : {<selector_expr>:<C type>}"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "that defines mapping between Fortran type:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "<Fortran typespec>([kind=]<selector_expr>)"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "and the corresponding <C type>. The <C type> can be one of the following:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "double\nfloat\nlong_double\nchar\nsigned_char\nunsigned_char\nshort\nunsigned_short\nint\nlong\nlong_long\nunsigned\ncomplex_float\ncomplex_double\ncomplex_long_double\nstring"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For example, for a Fortran file "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "func1.f"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " containing:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "./code/f2cmap_demo.f",
+            "content": "",
+            "name": "literalinclude",
+            "options": [
+              [
+                "language",
+                "fortran"
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "In order to convert "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "int64"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "real64"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " to valid "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "C"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " data types, a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    ".f2py_f2cmap"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " file with the following content can be created in the current directory:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "python",
+            "content": "dict(real=dict(real64='double'), integer=dict(int64='long long'))",
+            "name": "code-block",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "and create the module as usual. F2PY checks if a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    ".f2py_f2cmap"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " file is present in the current directory and will use it to map "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "KIND"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " specifiers to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "C"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " data types."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "sh",
+            "content": "f2py -c func1.f -m func1",
+            "name": "code-block",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Alternatively, the mapping file can be saved with any other name, for example  "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "mapfile.txt"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", and this information can be passed to F2PY by using the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "--f2cmap"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " option."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "sh",
+            "content": "f2py -c func1.f -m func1 --f2cmap mapfile.txt",
+            "name": "code-block",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For more information, see F2Py source code "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy/f2py/capi_maps.py"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Dealing with KIND specifiers"
+    },
+    {
+      "children": [],
+      "level": 1,
+      "target": "Character strings",
+      "title": "Character strings"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "In Fortran, assumed length character string arguments are declared as "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "character*(*)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " or "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "character(len=*)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", that is, the length of such arguments are determined by the actual string arguments at runtime. For "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "intent(in)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " arguments, this lack of length information poses no problems for f2py to construct functional wrapper functions. However, for "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "intent(out)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " arguments, the lack of length information is problematic for f2py generated wrappers because there is no size information available for creating memory buffers for such arguments and F2PY assumes the length is 0.  Depending on how the length of assumed length character strings are specified, there exist ways to workaround this problem, as exemplified below."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "If the length of the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "character*(*)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " output argument is determined by the state of other input arguments, the required connection can be established in a signature file or within a f2py-comment by adding an extra declaration for the corresponding argument that specifies the length in character selector part. For example, consider a Fortran file "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "asterisk1.f90"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ":"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "./code/asterisk1.f90",
+            "content": "",
+            "name": "include",
+            "options": [
+              [
+                "literal",
+                ""
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Compile it with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "f2py -c asterisk1.f90 -m asterisk1"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and then in Python:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "./code/results/asterisk1_session.dat",
+            "content": "",
+            "name": "include",
+            "options": [
+              [
+                "literal",
+                ""
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Notice that the extra declaration "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "character(f2py_len=12) s"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is interpreted only by f2py and in the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "f2py_len="
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " specification one can use C-expressions as a length value."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "In the following example:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "./code/asterisk2.f90",
+            "content": "",
+            "name": "include",
+            "options": [
+              [
+                "literal",
+                ""
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "the length of the output assumed length string depends on an input argument "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "n"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", after wrapping with F2PY, in Python:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "./code/results/asterisk2_session.dat",
+            "content": "",
+            "name": "include",
+            "options": [
+              [
+                "literal",
+                ""
+              ]
+            ]
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Assumed length character strings"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

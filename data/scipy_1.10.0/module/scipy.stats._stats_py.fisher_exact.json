@@ -1,0 +1,1506 @@
+{
+  "aliases": [
+    "scipy.stats.fisher_exact"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The null hypothesis is that the true odds ratio of the populations underlying the observations is one, and the observations were sampled from these populations under a condition: the marginals of the resulting table must equal those of the observed table. The statistic returned is the unconditional maximum likelihood estimate of the odds ratio, and the p-value is the probability under the null hypothesis of obtaining a table at least as extreme as the one that was actually observed. There are other possible choices of statistic and two-sided p-value definition associated with Fisher's exact test; please see the Notes for more information."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": {
+                    "value": "Null hypothesis and p-values"
+                  }
+                },
+                "type": "Emph"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The null hypothesis is that the true odds ratio of the populations underlying the observations is one, and the observations were sampled at random from these populations under a condition: the marginals of the resulting table must equal those of the observed table. Equivalently, the null hypothesis is that the input table is from the hypergeometric distribution with parameters (as used in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "hypergeom"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": ") "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "M = a + b + c + d"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "n = a + b"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "N = a + c"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", where the input table is "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "[[a, b], [c, d]]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ".  This distribution has support "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "max(0, N + n - M) <= x <= min(N, n)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", or, in terms of the values in the input table, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "min(0, a - d) <= x <= a + min(b, c)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ".  "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " can be interpreted as the upper-left element of a 2x2 table, so the tables in the distribution have form:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "[  x           n - x     ]\n[N - x    M - (n + N) + x]"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For example, if:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "table = [6  2]\n        [1  4]"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "then the support is "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "2 <= x <= 7"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", and the tables in the distribution are:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "[2 6]   [3 5]   [4 4]   [5 3]   [6 2]  [7 1]\n[5 0]   [4 1]   [3 2]   [2 3]   [1 4]  [0 5]"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The probability of each table is given by the hypergeometric distribution "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "hypergeom.pmf(x, M, n, N)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ".  For this example, these are (rounded to three significant digits):      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "x       2      3      4      5       6        7\np  0.0163  0.163  0.408  0.326  0.0816  0.00466"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "These can be computed with:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> import numpy as np\n>>> from scipy.stats import hypergeom\n>>> table = np.array([[6, 2], [1, 4]])\n>>> M = table.sum()\n>>> n = table[0].sum()\n>>> N = table[:, 0].sum()\n>>> start, end = hypergeom.support(M, n, N)\n>>> hypergeom.pmf(np.arange(start, end+1), M, n, N)\narray([0.01631702, 0.16317016, 0.40792541, 0.32634033, 0.08158508,\n       0.004662  ])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The two-sided p-value is the probability that, under the null hypothesis, a random table would have a probability equal to or less than the probability of the input table.  For our example, the probability of the input table (where "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x = 6"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ") is 0.0816.  The x values where the probability does not exceed this are 2, 6 and 7, so the two-sided p-value is "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "0.0163 + 0.0816 + 0.00466 ~= 0.10256"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ":      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> from scipy.stats import fisher_exact\n>>> res = fisher_exact(table, alternative='two-sided')\n>>> res.pvalue\n0.10256410256410257"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The one-sided p-value for "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "alternative='greater'"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is the probability that a random table has "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x >= a"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", which in our example is "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x >= 6"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", or "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "0.0816 + 0.00466 ~= 0.08626"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ":      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> res = fisher_exact(table, alternative='greater')\n>>> res.pvalue\n0.08624708624708627"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "This is equivalent to computing the survival function of the distribution at "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x = 5"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " (one less than "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " from the input table, because we want to include the probability of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x = 6"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " in the sum):      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> hypergeom.sf(5, M, n, N)\n0.08624708624708627"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "alternative='less'"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", the one-sided p-value is the probability that a random table has "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x <= a"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", (i.e. "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x <= 6"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " in our example), or "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "0.0163 + 0.163 + 0.408 + 0.326 + 0.0816 ~= 0.9949"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ":      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> res = fisher_exact(table, alternative='less')\n>>> res.pvalue\n0.9953379953379957"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "This is equivalent to computing the cumulative distribution function of the distribution at "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "x = 6"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ":"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": ">>> hypergeom.cdf(6, M, n, N)\n0.9953379953379957"
+                },
+                "type": "BlockVerbatim"
+              }
+            ]
+          },
+          "type": "BlockQuote"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": {
+                    "value": "Odds ratio"
+                  }
+                },
+                "type": "Emph"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The calculated odds ratio is different from the value computed by the R function "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "fisher.test"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ".  This implementation returns the \"sample\" or \"unconditional\" maximum likelihood estimate, while "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "fisher.test"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " in R uses the conditional maximum likelihood estimate.  To compute the conditional maximum likelihood estimate of the odds ratio, use "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "scipy",
+                    "path": "scipy.stats._odds_ratio.odds_ratio",
+                    "version": "*"
+                  },
+                  "value": "scipy.stats.contingency.odds_ratio"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A 2x2 contingency table.  Elements must be non-negative integers."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "table",
+                "type_": "array_like of ints"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Defines the alternative hypothesis. The following options are available (default is 'two-sided'):"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "data": {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "value": "'two-sided': the odds ratio of the underlying population is not one"
+                                    },
+                                    "type": "Words"
+                                  }
+                                ]
+                              },
+                              "type": "Paragraph"
+                            }
+                          ]
+                        },
+                        {
+                          "children": [
+                            {
+                              "data": {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "value": "'less': the odds ratio of the underlying population is less than one"
+                                    },
+                                    "type": "Words"
+                                  }
+                                ]
+                              },
+                              "type": "Paragraph"
+                            }
+                          ]
+                        },
+                        {
+                          "children": [
+                            {
+                              "data": {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "value": "'greater': the odds ratio of the underlying population is greater   than one"
+                                    },
+                                    "type": "Words"
+                                  }
+                                ]
+                              },
+                              "type": "Paragraph"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "type": "BulletList"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "See the Notes for more details."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "alternative",
+                "type_": "{'two-sided', 'less', 'greater'}, optional"
+              }
+            ]
+          },
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "An object containing attributes:"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "dd": [
+                            {
+                              "data": {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "value": "statistic"
+                                    },
+                                    "type": "Words"
+                                  }
+                                ]
+                              },
+                              "type": "Paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "statistic"
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "dd": [
+                            {
+                              "data": {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "value": "pvalue"
+                                    },
+                                    "type": "Words"
+                                  }
+                                ]
+                              },
+                              "type": "Paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "pvalue"
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "type": "DefList"
+                  }
+                ],
+                "param": "res",
+                "type_": "SignificanceResult"
+              }
+            ]
+          },
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Perform a Fisher exact test on a 2x2 contingency table."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "children": [
+                  {
+                    "data": {
+                      "value": "Atlantic  Indian"
+                    },
+                    "type": "Words"
+                  }
+                ]
+              },
+              "type": "Paragraph"
+            }
+          ]
+        },
+        "type": "BlockQuote"
+      },
+      {
+        "data": {
+          "children": [
+            {
+              "dd": [
+                {
+                  "data": {
+                    "children": [
+                      {
+                        "data": {
+                          "value": "sharks     1        5"
+                        },
+                        "type": "Words"
+                      }
+                    ]
+                  },
+                  "type": "Paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "data": {
+                      "value": "whales     8        2"
+                    },
+                    "type": "Words"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "type": "DefList"
+      },
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "value": "We use this table to find the p-value:"
+              },
+              "type": "Words"
+            }
+          ]
+        },
+        "type": "Paragraph"
+      },
+      {
+        "data": {
+          "ce_status": "execed",
+          "entries": [
+            {
+              "link": {
+                "data": "from",
+                "type": "str"
+              },
+              "type": "kn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy",
+                    "version": "1.10.0"
+                  },
+                  "value": "scipy"
+                },
+                "type": "Link"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.stats",
+                    "version": "1.10.0"
+                  },
+                  "value": "stats"
+                },
+                "type": "Link"
+              },
+              "type": "nn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "import",
+                "type": "str"
+              },
+              "type": "kn"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.stats._stats_py.fisher_exact",
+                    "version": "1.10.0"
+                  },
+                  "value": "fisher_exact"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": "w"
+            },
+            {
+              "link": {
+                "data": "res",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "=",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.stats._stats_py.fisher_exact",
+                    "version": "1.10.0"
+                  },
+                  "value": "fisher_exact"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "(",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "[",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "[",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "8",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "2",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": "]",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "[",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "1",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": ",",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": " ",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "5",
+                "type": "str"
+              },
+              "type": "mi"
+            },
+            {
+              "link": {
+                "data": "]",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "]",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ")",
+                "type": "str"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": "\n",
+                "type": "str"
+              },
+              "type": "w"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.stats._stats_py.SignificanceResult",
+                    "version": "1.10.0"
+                  },
+                  "value": "res"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            },
+            {
+              "link": {
+                "data": ".",
+                "type": "str"
+              },
+              "type": "o"
+            },
+            {
+              "link": {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "numpy",
+                    "path": "numpy.float64",
+                    "version": "*"
+                  },
+                  "value": "pvalue"
+                },
+                "type": "Link"
+              },
+              "type": ""
+            }
+          ],
+          "out": "0.0349..."
+        },
+        "type": "Code2"
+      },
+      {
+        "data": {
+          "children": [
+            {
+              "data": {
+                "value": "The probability that we would observe this or an even more imbalanced ratio by chance is about 3.5%.  A commonly used significance level is 5%--if we adopt that, we can therefore conclude that our observed imbalance is statistically significant; whales prefer the Atlantic while sharks prefer the Indian ocean."
+              },
+              "type": "Words"
+            }
+          ]
+        },
+        "type": "Paragraph"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null
+  },
+  "item_file": "/scipy/stats/_stats_py.py",
+  "item_line": 4492,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "data": {
+                "value": "Chi-square test of independence of variables in a contingency table.  This can be used as an alternative to "
+              },
+              "type": "Words"
+            },
+            {
+              "data": {
+                "domain": null,
+                "role": null,
+                "value": "fisher_exact"
+              },
+              "type": "Directive"
+            },
+            {
+              "data": {
+                "value": " when the numbers in the table are large."
+              },
+              "type": "Words"
+            }
+          ]
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.stats.contingency.chi2_contingency",
+          "version": "1.10.0"
+        },
+        "value": "chi2_contingency"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "data": {
+                "value": "Compute the odds ratio (sample or conditional MLE) for a 2x2 contingency table."
+              },
+              "type": "Words"
+            }
+          ]
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "contingency.odds_ratio",
+          "version": "current-version"
+        },
+        "value": "contingency.odds_ratio"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "data": {
+                "value": "Barnard's exact test, which is a more powerful alternative than Fisher's exact test for 2x2 contingency tables."
+              },
+              "type": "Words"
+            }
+          ]
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.stats._hypotests.barnard_exact",
+          "version": "1.10.0"
+        },
+        "value": "barnard_exact"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "data": {
+                "value": "Boschloo's exact test, which is a more powerful alternative than Fisher's exact test for 2x2 contingency tables."
+              },
+              "type": "Words"
+            }
+          ]
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.stats._hypotests.boschloo_exact",
+          "version": "1.10.0"
+        },
+        "value": "boschloo_exact"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "value": "fisher_exact(table, alternative='two-sided')"
+  }
+}

@@ -1,0 +1,453 @@
+{
+  "aliases": [
+    "scipy.odr"
+  ],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "argument": "scipy.odr",
+            "content": "",
+            "name": "currentmodule",
+            "options": []
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "Orthogonal distance regression (:mod:`scipy.odr`)"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "value": ".. autosummary:: \n    :toctree:generated/\n    Data          -- The data to fit.\n    RealData      -- Data with weights as actual std. dev.s and/or covariances.\n    Model         -- Stores information about the function to be fit.\n    ODR           -- Gathers all info & manages the main fitting routine.\n    Output        -- Result from the fit.\n    odr           -- Low-level function for ODR.\n\n    OdrWarning    -- Warning about potential problems when running ODR.\n    OdrError      -- Error exception.\n    OdrStop       -- Stop exception.\n\n    polynomial    -- Factory function for a general polynomial model.\n    exponential   -- Exponential model\n    multilinear   -- Arbitrary-dimensional linear model\n    unilinear     -- Univariate linear model\n    quadratic     -- Quadratic model"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Package Content"
+    },
+    {
+      "children": [],
+      "level": 1,
+      "target": null,
+      "title": "Usage information"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Why Orthogonal Distance Regression (ODR)? Sometimes one has measurement errors in the explanatory (a.k.a., \"independent\") variable(s), not just the response (a.k.a., \"dependent\") variable(s). Ordinary Least Squares (OLS) fitting procedures treat the data for explanatory variables as fixed, i.e., not subject to error of any kind. Furthermore, OLS procedures require that the response variables be an explicit function of the explanatory variables; sometimes making the equation explicit is impractical and/or introduces errors.  ODR can handle both of these cases with ease, and can even reduce to the OLS case if that is sufficient for the problem."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "ODRPACK is a FORTRAN-77 library for performing ODR with possibly non-linear fitting functions. It uses a modified trust-region Levenberg-Marquardt-type algorithm  to estimate the function parameters.  The fitting functions are provided by Python functions operating on NumPy arrays. The required derivatives may be provided by Python functions as well, or may be estimated numerically. ODRPACK can do explicit or implicit ODR fits, or it can do OLS. Input and output variables may be multidimensional. Weights can be provided to account for different variances of the observations, and even covariances between dimensions of the variables."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.odr",
+                    "version": "1.10.0"
+                  },
+                  "value": "scipy.odr"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " package offers an object-oriented interface to ODRPACK, in addition to the low-level "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.odr",
+                    "version": "1.10.0"
+                  },
+                  "value": "odr"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " function."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Additional background information about ODRPACK can be found in the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://docs.scipy.org/doc/external/odrpack_guide.pdf",
+                  "value": "ODRPACK User's Guide"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ", reading which is recommended."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Introduction"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Define the function you want to fit against.:         "
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": "def f(B, x):\n    '''Linear function y = m*x + b'''\n    # B is a vector of the parameters.\n    # x is an array of the current x values.\n    # x is in the same format as the x passed to Data or RealData.\n    #\n    # Return an array in the same format as y passed to Data or RealData.\n    return B[0]*x + B[1]"
+                    },
+                    "type": "BlockVerbatim"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Create a Model.:         "
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": "linear = Model(f)"
+                    },
+                    "type": "BlockVerbatim"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Create a Data or RealData instance.:         "
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": "mydata = Data(x, y, wd=1./power(sx,2), we=1./power(sy,2))"
+                    },
+                    "type": "BlockVerbatim"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "or, when the actual covariances are known:         "
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": "mydata = RealData(x, y, sx=sx, sy=sy)"
+                    },
+                    "type": "BlockVerbatim"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Instantiate ODR with your data, model and initial parameter estimate.:         "
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": "myodr = ODR(mydata, linear, beta0=[1., 2.])"
+                    },
+                    "type": "BlockVerbatim"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Run the fit.:         "
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": "myoutput = myodr.run()"
+                    },
+                    "type": "BlockVerbatim"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Examine output.:         "
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "value": "myoutput.pprint()"
+                    },
+                    "type": "BlockVerbatim"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "EnumeratedList"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Basic usage"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "placeholder": "footnote",
+            "value": ".. [1] P. T. Boggs and J. E. Rogers, \"Orthogonal Distance Regression,\"\n   in \"Statistical analysis of measurement error models and\n   applications: proceedings of the AMS-IMS-SIAM joint summer research\n   conference held June 10-16, 1989,\" Contemporary Mathematics,\n   vol. 112, pg. 186, 1990."
+          },
+          "type": "Unimplemented"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "References"
+    }
+  ],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "To remove in the future \u2013\u2013 scipy.odr"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null
+  },
+  "item_file": "/scipy/odr/__init__.py",
+  "item_line": 0,
+  "item_type": "<class 'module'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

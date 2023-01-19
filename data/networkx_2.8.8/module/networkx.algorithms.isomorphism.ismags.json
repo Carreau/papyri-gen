@@ -1,0 +1,617 @@
+{
+  "aliases": [
+    "networkx.isomorphism.ismags"
+  ],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Provides a Python implementation of the ISMAGS algorithm."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "It is capable of finding (subgraph) isomorphisms between two graphs, taking the symmetry of the subgraph into account. In most cases the VF2 algorithm is faster (at least on small graphs) than this implementation, but in some cases there is an exponential number of isomorphisms that are symmetrically equivalent. In that case, the ISMAGS algorithm will provide only one solution per symmetry group."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> petersen = nx.petersen_graph()\n>>> ismags = nx.isomorphism.ISMAGS(petersen, petersen)\n>>> isomorphisms = list(ismags.isomorphisms_iter(symmetry=False))\n>>> len(isomorphisms)\n120\n>>> isomorphisms = list(ismags.isomorphisms_iter(symmetry=True))\n>>> answer = [{0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9}]\n>>> answer == isomorphisms\nTrue"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "In addition, this implementation also provides an interface to find the largest common induced subgraph  between any two graphs, again taking symmetry into account. Given "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.classes.graph",
+                    "version": "2.8.8"
+                  },
+                  "value": "graph"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "subgraph"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " the algorithm will remove nodes from the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "subgraph"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " until "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "subgraph"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " is isomorphic to a subgraph of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.classes.graph",
+                    "version": "2.8.8"
+                  },
+                  "value": "graph"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": ". Since only the symmetry of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "subgraph"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " is taken into account it is worth thinking about how you provide your graphs:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> graph1 = nx.path_graph(4)\n>>> graph2 = nx.star_graph(3)\n>>> ismags = nx.isomorphism.ISMAGS(graph1, graph2)\n>>> ismags.is_isomorphic()\nFalse\n>>> largest_common_subgraph = list(ismags.largest_common_subgraph())\n>>> answer = [{1: 0, 0: 1, 2: 2}, {2: 0, 1: 1, 3: 2}]\n>>> answer == largest_common_subgraph\nTrue\n>>> ismags2 = nx.isomorphism.ISMAGS(graph2, graph1)\n>>> largest_common_subgraph = list(ismags2.largest_common_subgraph())\n>>> answer = [\n...     {1: 0, 0: 1, 2: 2},\n...     {1: 0, 0: 1, 3: 2},\n...     {2: 0, 0: 1, 1: 2},\n...     {2: 0, 0: 1, 3: 2},\n...     {3: 0, 0: 1, 1: 2},\n...     {3: 0, 0: 1, 2: 2},\n... ]\n>>> answer == largest_common_subgraph\nTrue"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "However, when not taking symmetry into account, it doesn't matter:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> largest_common_subgraph = list(ismags.largest_common_subgraph(symmetry=False))\n>>> answer = [\n...     {1: 0, 0: 1, 2: 2},\n...     {1: 0, 2: 1, 0: 2},\n...     {2: 0, 1: 1, 3: 2},\n...     {2: 0, 3: 1, 1: 2},\n...     {1: 0, 0: 1, 2: 3},\n...     {1: 0, 2: 1, 0: 3},\n...     {2: 0, 1: 1, 3: 3},\n...     {2: 0, 3: 1, 1: 3},\n...     {1: 0, 0: 2, 2: 3},\n...     {1: 0, 2: 2, 0: 3},\n...     {2: 0, 1: 2, 3: 3},\n...     {2: 0, 3: 2, 1: 3},\n... ]\n>>> answer == largest_common_subgraph\nTrue\n>>> largest_common_subgraph = list(ismags2.largest_common_subgraph(symmetry=False))\n>>> answer = [\n...     {1: 0, 0: 1, 2: 2},\n...     {1: 0, 0: 1, 3: 2},\n...     {2: 0, 0: 1, 1: 2},\n...     {2: 0, 0: 1, 3: 2},\n...     {3: 0, 0: 1, 1: 2},\n...     {3: 0, 0: 1, 2: 2},\n...     {1: 1, 0: 2, 2: 3},\n...     {1: 1, 0: 2, 3: 3},\n...     {2: 1, 0: 2, 1: 3},\n...     {2: 1, 0: 2, 3: 3},\n...     {3: 1, 0: 2, 1: 3},\n...     {3: 1, 0: 2, 2: 3},\n... ]\n>>> answer == largest_common_subgraph\nTrue"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "ISMAGS Algorithm"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "The current implementation works for undirected graphs only. The algorithm    in general should work for directed graphs as well though."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "children": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "Node keys for both provided graphs need to be fully orderable as well as    hashable."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "children": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "Node and edge equality is assumed to be transitive: if A is equal to B, and    B is equal to C, then A is equal to C."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "type": "BulletList"
+              }
+            ]
+          },
+          "type": "BlockQuote"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Notes"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "placeholder": "footnote",
+                  "value": ".. [1] M. Houbraken, S. Demeyer, T. Michoel, P. Audenaert, D. Colle,\n       M. Pickavet, \"The Index-Based Subgraph Matching Algorithm with General\n       Symmetries (ISMAGS): Exploiting Symmetry for Faster Subgraph\n       Enumeration\", PLoS One 9(5): e97896, 2014.\n       https://doi.org/10.1371/journal.pone.0097896"
+                },
+                "type": "Unimplemented"
+              },
+              {
+                "data": {
+                  "placeholder": "footnote",
+                  "value": ".. [2] https://en.wikipedia.org/wiki/Maximum_common_induced_subgraph"
+                },
+                "type": "Unimplemented"
+              }
+            ]
+          },
+          "type": "BlockQuote"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "References"
+    }
+  ],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Provides a Python implementation of the ISMAGS algorithm."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "It is capable of finding (subgraph) isomorphisms between two graphs, taking the symmetry of the subgraph into account. In most cases the VF2 algorithm is faster (at least on small graphs) than this implementation, but in some cases there is an exponential number of isomorphisms that are symmetrically equivalent. In that case, the ISMAGS algorithm will provide only one solution per symmetry group."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> petersen = nx.petersen_graph()\n>>> ismags = nx.isomorphism.ISMAGS(petersen, petersen)\n>>> isomorphisms = list(ismags.isomorphisms_iter(symmetry=False))\n>>> len(isomorphisms)\n120\n>>> isomorphisms = list(ismags.isomorphisms_iter(symmetry=True))\n>>> answer = [{0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9}]\n>>> answer == isomorphisms\nTrue"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "In addition, this implementation also provides an interface to find the largest common induced subgraph  between any two graphs, again taking symmetry into account. Given "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.classes.graph",
+                    "version": "2.8.8"
+                  },
+                  "value": "graph"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "subgraph"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " the algorithm will remove nodes from the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "subgraph"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " until "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "subgraph"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " is isomorphic to a subgraph of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.classes.graph",
+                    "version": "2.8.8"
+                  },
+                  "value": "graph"
+                },
+                "type": "Link"
+              },
+              {
+                "data": {
+                  "value": ". Since only the symmetry of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "subgraph"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " is taken into account it is worth thinking about how you provide your graphs:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> graph1 = nx.path_graph(4)\n>>> graph2 = nx.star_graph(3)\n>>> ismags = nx.isomorphism.ISMAGS(graph1, graph2)\n>>> ismags.is_isomorphic()\nFalse\n>>> largest_common_subgraph = list(ismags.largest_common_subgraph())\n>>> answer = [{1: 0, 0: 1, 2: 2}, {2: 0, 1: 1, 3: 2}]\n>>> answer == largest_common_subgraph\nTrue\n>>> ismags2 = nx.isomorphism.ISMAGS(graph2, graph1)\n>>> largest_common_subgraph = list(ismags2.largest_common_subgraph())\n>>> answer = [\n...     {1: 0, 0: 1, 2: 2},\n...     {1: 0, 0: 1, 3: 2},\n...     {2: 0, 0: 1, 1: 2},\n...     {2: 0, 0: 1, 3: 2},\n...     {3: 0, 0: 1, 1: 2},\n...     {3: 0, 0: 1, 2: 2},\n... ]\n>>> answer == largest_common_subgraph\nTrue"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "However, when not taking symmetry into account, it doesn't matter:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> largest_common_subgraph = list(ismags.largest_common_subgraph(symmetry=False))\n>>> answer = [\n...     {1: 0, 0: 1, 2: 2},\n...     {1: 0, 2: 1, 0: 2},\n...     {2: 0, 1: 1, 3: 2},\n...     {2: 0, 3: 1, 1: 2},\n...     {1: 0, 0: 1, 2: 3},\n...     {1: 0, 2: 1, 0: 3},\n...     {2: 0, 1: 1, 3: 3},\n...     {2: 0, 3: 1, 1: 3},\n...     {1: 0, 0: 2, 2: 3},\n...     {1: 0, 2: 2, 0: 3},\n...     {2: 0, 1: 2, 3: 3},\n...     {2: 0, 3: 2, 1: 3},\n... ]\n>>> answer == largest_common_subgraph\nTrue\n>>> largest_common_subgraph = list(ismags2.largest_common_subgraph(symmetry=False))\n>>> answer = [\n...     {1: 0, 0: 1, 2: 2},\n...     {1: 0, 0: 1, 3: 2},\n...     {2: 0, 0: 1, 1: 2},\n...     {2: 0, 0: 1, 3: 2},\n...     {3: 0, 0: 1, 1: 2},\n...     {3: 0, 0: 1, 2: 2},\n...     {1: 1, 0: 2, 2: 3},\n...     {1: 1, 0: 2, 3: 3},\n...     {2: 1, 0: 2, 1: 3},\n...     {2: 1, 0: 2, 3: 3},\n...     {3: 1, 0: 2, 1: 3},\n...     {3: 1, 0: 2, 2: 3},\n... ]\n>>> answer == largest_common_subgraph\nTrue"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "The current implementation works for undirected graphs only. The algorithm    in general should work for directed graphs as well though."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "children": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "Node keys for both provided graphs need to be fully orderable as well as    hashable."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    },
+                    {
+                      "children": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "data": {
+                                  "value": "Node and edge equality is assumed to be transitive: if A is equal to B, and    B is equal to C, then A is equal to C."
+                                },
+                                "type": "Words"
+                              }
+                            ]
+                          },
+                          "type": "Paragraph"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "type": "BulletList"
+              }
+            ]
+          },
+          "type": "BlockQuote"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": "ISMAGS Algorithm"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null
+  },
+  "item_file": "/networkx/algorithms/isomorphism/ismags.py",
+  "item_line": 0,
+  "item_type": "<class 'module'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

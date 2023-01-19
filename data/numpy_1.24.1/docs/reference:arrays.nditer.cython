@@ -1,0 +1,197 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Those who want really good performance out of their low level operations should strongly consider directly using the iteration API provided in C, but for those who are not comfortable with C or C++, Cython is a good middle ground with reasonable performance tradeoffs. For the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "~numpy.nditer"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " object, this means letting the iterator take care of broadcasting, dtype conversion, and buffering, while giving the inner loop to Cython."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For our example, we'll create a sum of squares function. To start, let's implement this function in straightforward Python. We want to support an 'axis' parameter similar to the numpy "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "sum"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " function, so we will need to construct a list for the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "domain": null,
+                  "role": null,
+                  "value": "op_axes"
+                },
+                "type": "Directive"
+              },
+              {
+                "data": {
+                  "value": " parameter. Here's how this looks."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "Example",
+            "content": ">>> def axis_to_axeslist(axis, ndim):\n...     if axis is None:\n...         return [-1] * ndim\n...     else:\n...         if type(axis) is not tuple:\n...             axis = (axis,)\n...         axeslist = [1] * ndim\n...         for i in axis:\n...             axeslist[i] = -1\n...         ax = 0\n...         for i in range(ndim):\n...             if axeslist[i] != -1:\n...                 axeslist[i] = ax\n...                 ax += 1\n...         return axeslist\n...\n>>> def sum_squares_py(arr, axis=None, out=None):\n...     axeslist = axis_to_axeslist(axis, arr.ndim)\n...     it = np.nditer([arr, out], flags=['reduce_ok',\n...                                       'buffered', 'delay_bufalloc'],\n...                 op_flags=[['readonly'], ['readwrite', 'allocate']],\n...                 op_axes=[None, axeslist],\n...                 op_dtypes=['float64', 'float64'])\n...     with it:\n...         it.operands[1][...] = 0\n...         it.reset()\n...         for x, y in it:\n...             y[...] += x*x\n...         return it.operands[1]\n...\n>>> a = np.arange(6).reshape(2,3)\n>>> sum_squares_py(a)\narray(55.)\n>>> sum_squares_py(a, axis=-1)\narray([  5.,  50.])",
+            "name": "admonition",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "To Cython-ize this function, we replace the inner loop (y[...] += x*x) with Cython code that's specialized for the float64 dtype. With the 'external_loop' flag enabled, the arrays provided to the inner loop will always be one-dimensional, so very little checking needs to be done."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Here's the listing of sum_squares.pyx:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "import numpy as np\ncimport numpy as np\ncimport cython\n\ndef axis_to_axeslist(axis, ndim):\n    if axis is None:\n        return [-1] * ndim\n    else:\n        if type(axis) is not tuple:\n            axis = (axis,)\n        axeslist = [1] * ndim\n        for i in axis:\n            axeslist[i] = -1\n        ax = 0\n        for i in range(ndim):\n            if axeslist[i] != -1:\n                axeslist[i] = ax\n                ax += 1\n        return axeslist\n\n@cython.boundscheck(False)\ndef sum_squares_cy(arr, axis=None, out=None):\n    cdef np.ndarray[double] x\n    cdef np.ndarray[double] y\n    cdef int size\n    cdef double value\n\n    axeslist = axis_to_axeslist(axis, arr.ndim)\n    it = np.nditer([arr, out], flags=['reduce_ok', 'external_loop',\n                                      'buffered', 'delay_bufalloc'],\n                op_flags=[['readonly'], ['readwrite', 'allocate']],\n                op_axes=[None, axeslist],\n                op_dtypes=['float64', 'float64'])\n    with it:\n        it.operands[1][...] = 0\n        it.reset()\n        for xarr, yarr in it:\n            x = xarr\n            y = yarr\n            size = x.shape[0]\n            for i in range(size):\n               value = x[i]\n               y[i] = y[i] + value * value\n        return it.operands[1]"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "On this machine, building the .pyx file into a module looked like the following, but you may have to find some Cython tutorials to tell you the specifics for your system configuration.:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "$ cython sum_squares.pyx\n$ gcc -shared -pthread -fPIC -fwrapv -O2 -Wall -I/usr/include/python2.7 -fno-strict-aliasing -o sum_squares.so sum_squares.c"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Running this from the Python interpreter produces the same answers as our native Python/NumPy code did."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "Example",
+            "content": ">>> from sum_squares import sum_squares_cy #doctest: +SKIP\n>>> a = np.arange(6).reshape(2,3)\n>>> sum_squares_cy(a) #doctest: +SKIP\narray(55.0)\n>>> sum_squares_cy(a, axis=-1) #doctest: +SKIP\narray([  5.,  50.])",
+            "name": "admonition",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Doing a little timing in IPython shows that the reduced overhead and memory allocation of the Cython inner loop is providing a very nice speedup over both the straightforward Python code and an expression using NumPy's built-in sum function.:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> a = np.random.rand(1000,1000)\n\n>>> timeit sum_squares_py(a, axis=-1)\n10 loops, best of 3: 37.1 ms per loop\n\n>>> timeit np.sum(a*a, axis=-1)\n10 loops, best of 3: 20.9 ms per loop\n\n>>> timeit sum_squares_cy(a, axis=-1)\n100 loops, best of 3: 11.8 ms per loop\n\n>>> np.all(sum_squares_cy(a, axis=-1) == np.sum(a*a, axis=-1))\nTrue\n\n>>> np.all(sum_squares_py(a, axis=-1) == np.sum(a*a, axis=-1))\nTrue"
+          },
+          "type": "BlockVerbatim"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "Putting the Inner Loop in Cython"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

@@ -1,0 +1,1558 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "There is a general need for looping over not only functions on scalars but also over functions on vectors (or arrays). This concept is realized in NumPy by generalizing the universal functions (ufuncs).  In regular ufuncs, the elementary function is limited to element-by-element operations, whereas the generalized version (gufuncs) supports \"sub-array\" by \"sub-array\" operations.  The Perl vector library PDL provides a similar functionality and its terms are re-used in the following."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Each generalized ufunc has information associated with it that states what the \"core\" dimensionality of the inputs is, as well as the corresponding dimensionality of the outputs (the element-wise ufuncs have zero core dimensions).  The list of the core dimensions for all arguments is called the \"signature\" of a ufunc.  For example, the ufunc numpy.add has signature "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(),()->()"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " defining two scalar inputs and one scalar output."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Another example is the function "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "inner1d(a, b)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " with a signature of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(i),(i)->()"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ".  This applies the inner product along the last axis of each input, but keeps the remaining indices intact. For example, where "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "a"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is of shape "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(3, 5, N)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "b"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is of shape "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(5, N)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", this will return an output of shape "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(3,5)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". The underlying elementary function is called "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "3 * 5"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " times.  In the signature, we specify one core dimension "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(i)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " for each input and zero core dimensions "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "()"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " for the output, since it takes two 1-d arrays and returns a scalar.  By using the same name "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "i"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", we specify that the two corresponding dimensions should be of the same size."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The dimensions beyond the core dimensions are called \"loop\" dimensions.  In the above example, this corresponds to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(3, 5)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The signature determines how the dimensions of each input/output array are split into core and loop dimensions:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Each dimension in the signature is matched to a dimension of the    corresponding passed-in array, starting from the end of the shape tuple.    These are the core dimensions, and they must be present in the arrays, or    an error will be raised."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Core dimensions assigned to the same label in the signature (e.g. the    "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "i"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " in "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "inner1d"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "'s "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "(i),(i)->()"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ") must have exactly matching sizes,    no broadcasting is performed."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The core dimensions are removed from all inputs and the remaining    dimensions are broadcast together, defining the loop dimensions."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The shape of each output is determined from the loop dimensions plus the    output's core dimensions"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "EnumeratedList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Typically, the size of all core dimensions in an output will be determined by the size of a core dimension with the same label in an input array. This is not a requirement, and it is possible to define a signature where a label comes up for the first time in an output, although some precautions must be taken when calling such a function. An example would be the function "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "euclidean_pdist(a)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", with signature "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(n,d)->(p)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", that given an array of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "n"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "d"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "-dimensional vectors, computes all unique pairwise Euclidean distances among them. The output dimension "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "p"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " must therefore be equal to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "n * (n - 1) / 2"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", but it is the caller's responsibility to pass in an output array of the right size. If the size of a core dimension of an output cannot be determined from a passed in input or output array, an error will be raised."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Note: Prior to NumPy 1.10.0, less strict checks were in place: missing core dimensions were created by prepending 1's to the shape as necessary, core dimensions with the same label were broadcast together, and undetermined dimensions were created with size 1."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": "c-api.generalized-ufuncs",
+      "title": "Generalized Universal Function API"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Each ufunc consists of an elementary function that performs the     most basic operation on the smallest portion of array arguments     (e.g. adding two numbers is the most basic operation in adding two     arrays).  The ufunc applies the elementary function multiple times     on different parts of the arrays.  The input/output of elementary     functions can be vectors; e.g., the elementary function of inner1d     takes two vectors as input."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Elementary Function"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A signature is a string describing the input/output dimensions of     the elementary function of a ufunc.  See section below for more     details."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Signature"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The dimensionality of each input/output of an elementary function     is defined by its core dimensions (zero core dimensions correspond     to a scalar input/output).  The core dimensions are mapped to the     last dimensions of the input/output arrays."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Core Dimension"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A dimension name represents a core dimension in the signature.     Different dimensions may share a name, indicating that they are of     the same size."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Dimension Name"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A dimension index is an integer representing a dimension name. It     enumerates the dimension names according to the order of the first     occurrence of each name in the signature."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Dimension Index"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Definitions"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The signature defines \"core\" dimensionality of input and output variables, and thereby also defines the contraction of the dimensions.  The signature is represented by a string of the following format:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Core dimensions of each input or output array are represented by a   list of dimension names in parentheses, "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "(i_1,...,i_N)"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "; a scalar   input/output is denoted by "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "()"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ".  Instead of "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "i_1"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "i_2"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ",   etc, one can use any valid Python variable name."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Dimension lists for different arguments are separated by "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "\",\""
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ".   Input/output arguments are separated by "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "\"->\""
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "If one uses the same dimension name in multiple locations, this   enforces the same size of the corresponding dimensions."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The formal syntax of signatures is as follows:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "<Signature>            ::= <Input arguments> \"->\" <Output arguments>\n<Input arguments>      ::= <Argument list>\n<Output arguments>     ::= <Argument list>\n<Argument list>        ::= nil | <Argument> | <Argument> \",\" <Argument list>\n<Argument>             ::= \"(\" <Core dimension list> \")\"\n<Core dimension list>  ::= nil | <Core dimension> |\n                           <Core dimension> \",\" <Core dimension list>\n<Core dimension>       ::= <Dimension name> <Dimension modifier>\n<Dimension name>       ::= valid Python variable name | valid integer\n<Dimension modifier>   ::= nil | \"?\""
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Notes:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "All quotes are for clarity."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Unmodified core dimensions that share the same name must have the same size.    Each dimension name typically corresponds to one level of looping in the    elementary function's implementation."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "White spaces are ignored."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "An integer as a dimension name freezes that dimension to the value."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "If the name is suffixed with the \"?\" modifier, the dimension is a core    dimension only if it exists on all inputs and outputs that share it;    otherwise it is ignored (and replaced by a dimension of size 1 for the    elementary function)."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "EnumeratedList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Here are some examples of signatures:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "+-------------+----------------------------+-----------------------------------+ | name        | signature                  | common usage                      | +=============+============================+===================================+ | add         | "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(),()->()"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "              | binary ufunc                      | +-------------+----------------------------+-----------------------------------+ | sum1d       | "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(i)->()"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "                | reduction                         | +-------------+----------------------------+-----------------------------------+ | inner1d     | "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(i),(i)->()"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "            | vector-vector multiplication      | +-------------+----------------------------+-----------------------------------+ | matmat      | "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(m,n),(n,p)->(m,p)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "     | matrix multiplication             | +-------------+----------------------------+-----------------------------------+ | vecmat      | "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(n),(n,p)->(p)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "         | vector-matrix multiplication      | +-------------+----------------------------+-----------------------------------+ | matvec      | "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(m,n),(n)->(m)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "         | matrix-vector multiplication      | +-------------+----------------------------+-----------------------------------+ | matmul      | "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(m?,n),(n,p?)->(m?,p?)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " | combination of the four above     | +-------------+----------------------------+-----------------------------------+ | outer_inner | "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(i,t),(j,t)->(i,j)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "     | inner over the last dimension,    | |             |                            | outer over the second to last,    | |             |                            | and loop/broadcast over the rest. | +-------------+----------------------------+-----------------------------------+ |  cross1d    | "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(3),(3)->(3)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "           | cross product where the last      | |             |                            | dimension is frozen and must be 3 | +-------------+----------------------------+-----------------------------------+"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "placeholder": "untarget",
+            "value": "_frozen:"
+          },
+          "type": "Unimplemented"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The last is an instance of freezing a core dimension and can be used to improve ufunc performance"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 1,
+      "target": "details-of-signature",
+      "title": "Details of Signature"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The current interface remains unchanged, and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "PyUFunc_FromFuncAndData"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " can still be used to implement (specialized) ufuncs, consisting of scalar elementary functions."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "One can use "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "PyUFunc_FromFuncAndDataAndSignature"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " to declare a more general ufunc.  The argument list is the same as "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "PyUFunc_FromFuncAndData"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", with an additional argument specifying the signature as C string."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Furthermore, the callback function is of the same type as before, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "void (*foo)(char **args, intp *dimensions, intp *steps, void *func)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". When invoked, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "args"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is a list of length "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "nargs"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " containing the data of all input/output arguments.  For a scalar elementary function, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "steps"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is also of length "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "nargs"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", denoting the strides used for the arguments. "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "dimensions"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is a pointer to a single integer defining the size of the axis to be looped over."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For a non-trivial signature, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "dimensions"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " will also contain the sizes of the core dimensions as well, starting at the second entry.  Only one size is provided for each unique dimension name and the sizes are given according to the first occurrence of a dimension name in the signature."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The first "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "nargs"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " elements of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "steps"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " remain the same as for scalar ufuncs.  The following elements contain the strides of all core dimensions for all arguments in order."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For example, consider a ufunc with signature "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "(i,j),(i)->()"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ".  In this case, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "args"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " will contain three pointers to the data of the input/output arrays "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "a"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "b"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "c"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ".  Furthermore, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "dimensions"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " will be "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "[N, I, J]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " to define the size of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "N"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " of the loop and the sizes "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "I"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "J"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " for the core dimensions "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "i"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "j"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ".  Finally, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "steps"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " will be "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "[a_N, b_N, c_N, a_i, a_j, b_i]"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", containing all necessary strides."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "C-API for implementing Elementary Functions"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

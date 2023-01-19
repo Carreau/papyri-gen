@@ -1,0 +1,301 @@
+{
+  "aliases": [
+    "pandas.core.interchange.column.Column"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "A column can contain one or more chunks. Each chunk can contain up to three buffers - a data buffer, a mask buffer (depending on null representation), and an offsets buffer (if variable-size binary; e.g., variable-length strings)."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Instead, it seems to use \"children\" for both columns with a bit mask,      and for nested dtypes. Unclear whether this is elegant or confusing.      This design requires checking the null representation explicitly."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The Arrow design requires checking:      1. the ARROW_FLAG_NULLABLE (for sentinel values)      2. if a column has two children, combined with one of those children         having a null dtype."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Making the mask concept explicit seems useful. One null dtype would      not be enough to cover both bit and byte masks, so that would mean      even more checking if we did it the Arrow way."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "TBD: Arrow has a separate \"null\" dtype, and has no separate mask concept."
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "multiple buffers per array (= column here). Semantically it may make      sense to have both: chunks were meant for example for lazy evaluation      of data which doesn't fit in memory, while multiple buffers per column      could also come from doing a selection operation on a single      contiguous buffer."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Given these concepts, one would expect chunks to be all of the same      size (say a 10,000 row dataframe could have 10 chunks of 1,000 rows),      while multiple buffers could have data-dependent lengths. Not an issue      in pandas if one column is backed by a single NumPy array, but in      Arrow it seems possible.      Are multiple chunks "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": {
+                              "value": "and"
+                            }
+                          },
+                          "type": "Emph"
+                        },
+                        {
+                          "data": {
+                            "value": " multiple buffers per column necessary for      the purposes of this interchange protocol, or must producers either      reuse the chunk concept for this or copy the data?"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "TBD: there's also the \"chunk\" concept here, which is implicit in Arrow as"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              },
+              {
+                "dd": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "doesn't need its own version or "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "__column__"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " protocol."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "dt": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "Note: this Column object can only be produced by "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "__dataframe__"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ", so"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "type": "DefList"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "A column object, with only the methods and properties required by the interchange protocol defined."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null
+  },
+  "item_file": "/pandas/core/interchange/dataframe_protocol.py",
+  "item_line": 172,
+  "item_type": "<class 'abc.ABCMeta'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

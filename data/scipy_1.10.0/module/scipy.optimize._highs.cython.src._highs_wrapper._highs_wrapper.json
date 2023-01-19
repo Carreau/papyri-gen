@@ -1,0 +1,2802 @@
+{
+  "aliases": [
+    "scipy.optimize._linprog_highs._highs_wrapper"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Assume problems of the form:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": "MIN c.T @ x     s.t. lhs <= A @ x <= rhs          lb <= x <= ub"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              }
+            ]
+          },
+          "type": "BlockQuote"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Notes": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "If "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "options['write_solution_to_file']"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "True"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " but "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "options['solution_file']"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is unset or "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "''"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", then the solution will be printed to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "stdout"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "If any iteration limit is reached, no solution will be available."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": [
+                    "OptimizeWarning"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " will be raised if any option value set by the user is found to be incorrect."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Parameters": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Array of objective value coefficients."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "c",
+                "type_": "1-D array, (n,)"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "CSC format index array."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "astart",
+                "type_": "1-D array"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "CSC format index array."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "aindex",
+                "type_": "1-D array"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Data array of the matrix."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "avalue",
+                "type_": "1-D array"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Array of left hand side values of the inequality constraints. If "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "lhs=None"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", then an array of "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "-inf"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " is assumed."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "lhs",
+                "type_": "1-D array (or None), (m,)"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Array of right hand side values of the inequality constraints."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "rhs",
+                "type_": "1-D array, (m,)"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Lower bounds on solution variables x.  If "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "lb=None"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", then an array of all "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "domain": null,
+                            "role": null,
+                            "value": "0"
+                          },
+                          "type": "Directive"
+                        },
+                        {
+                          "data": {
+                            "value": " is assumed."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "lb",
+                "type_": "1-D array (or None), (n,)"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Upper bounds on solution variables x.  If "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "ub=None"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", then an array of "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "inf"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " is assumed."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "ub",
+                "type_": "1-D array (or None), (n,)"
+              },
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A dictionary of solver options with the following fields:"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "allowed_simplex_cost_scale_factor"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "allowed_simplex_cost_scale_factor"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "allowed_simplex_matrix_scale_factor"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "allowed_simplex_matrix_scale_factor"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "dual_feasibility_tolerance"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "dual_feasibility_tolerance"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "dual_objective_value_upper_bound"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "dual_objective_value_upper_bound"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "dual_simplex_cleanup_strategy"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "dual_simplex_cleanup_strategy"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "dual_simplex_cost_perturbation_multiplier"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "dual_simplex_cost_perturbation_multiplier"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "dual_steepest_edge_weight_log_error_threshhold"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "dual_steepest_edge_weight_log_error_threshhold"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "infinite_bound"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "infinite_bound"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "infinite_cost"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "infinite_cost"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "ipm_iteration_limit"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "ipm_iteration_limit"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "ipm_optimality_tolerance"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "ipm_optimality_tolerance"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "keep_n_rows"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "keep_n_rows"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "large_matrix_value"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "large_matrix_value"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "less_infeasible_DSE_check"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "less_infeasible_DSE_check"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "less_infeasible_DSE_choose_row"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "less_infeasible_DSE_choose_row"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "max_threads"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "max_threads"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "message_level"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "message_level"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "min_threads"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "min_threads"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "mps_parser_type_free"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "mps_parser_type_free"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "parallel"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "parallel"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "presolve"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "presolve"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "primal_feasibility_tolerance"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "primal_feasibility_tolerance"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "run_as_hsol"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "run_as_hsol"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "run_crossover"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "run_crossover"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "sense"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "sense"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "simplex_crash_strategy"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "simplex_crash_strategy"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "simplex_dualise_strategy"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "simplex_dualise_strategy"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "simplex_dual_edge_weight_strategy"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "simplex_dual_edge_weight_strategy"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "simplex_initial_condition_check"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "simplex_initial_condition_check"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "simplex_initial_condition_tolerance"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "simplex_initial_condition_tolerance"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "simplex_iteration_limit"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "simplex_iteration_limit"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "simplex_permute_strategy"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "simplex_permute_strategy"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "simplex_price_strategy"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "simplex_price_strategy"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "simplex_primal_edge_weight_strategy"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "simplex_primal_edge_weight_strategy"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "simplex_scale_strategy"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "simplex_scale_strategy"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "simplex_strategy"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "simplex_strategy"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "simplex_update_limit"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "simplex_update_limit"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "small_matrix_value"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "small_matrix_value"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "solution_file"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "solution_file"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "solver"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "solver"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "start_crossover_tolerance"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "start_crossover_tolerance"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "time_limit"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "time_limit"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "use_original_HFactor_logic"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "use_original_HFactor_logic"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "write_solution_to_file"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "write_solution_to_file"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "write_solution_pretty"
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": "write_solution_pretty"
+                                                },
+                                                "type": "Words"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "type": "BulletList"
+                        }
+                      ]
+                    },
+                    "type": "BlockQuote"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "See  for a list of all non-advanced options."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ],
+                "param": "options",
+                "type_": "dict"
+              }
+            ]
+          },
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Returns": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "desc": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "If model_status is one of OPTIMAL, REACHED_DUAL_OBJECTIVE_VALUE_UPPER_BOUND, REACHED_TIME_LIMIT, REACHED_ITERATION_LIMIT:"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": [
+                                                        "status"
+                                                      ]
+                                                    },
+                                                    "type": "Verbatim"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": [
+                                                    "status"
+                                                  ]
+                                                },
+                                                "type": "Verbatim"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": [
+                                                        "message"
+                                                      ]
+                                                    },
+                                                    "type": "Verbatim"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": [
+                                                    "message"
+                                                  ]
+                                                },
+                                                "type": "Verbatim"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": [
+                                                        "x"
+                                                      ]
+                                                    },
+                                                    "type": "Verbatim"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": [
+                                                    "x"
+                                                  ]
+                                                },
+                                                "type": "Verbatim"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": [
+                                                        "slack"
+                                                      ]
+                                                    },
+                                                    "type": "Verbatim"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": [
+                                                    "slack"
+                                                  ]
+                                                },
+                                                "type": "Verbatim"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": [
+                                                        "lambda"
+                                                      ]
+                                                    },
+                                                    "type": "Verbatim"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": [
+                                                    "lambda"
+                                                  ]
+                                                },
+                                                "type": "Verbatim"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": [
+                                                        "s"
+                                                      ]
+                                                    },
+                                                    "type": "Verbatim"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": [
+                                                    "s"
+                                                  ]
+                                                },
+                                                "type": "Verbatim"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": "Final objective value."
+                                                    },
+                                                    "type": "Words"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": [
+                                                    "fun"
+                                                  ]
+                                                },
+                                                "type": "Verbatim"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": [
+                                                        "simplex_nit"
+                                                      ]
+                                                    },
+                                                    "type": "Verbatim"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": [
+                                                    "simplex_nit"
+                                                  ]
+                                                },
+                                                "type": "Verbatim"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": [
+                                                        "ipm_nit"
+                                                      ]
+                                                    },
+                                                    "type": "Verbatim"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": [
+                                                    "ipm_nit"
+                                                  ]
+                                                },
+                                                "type": "Verbatim"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "type": "BulletList"
+                        }
+                      ]
+                    },
+                    "type": "BlockQuote"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "If model_status is not one of the above:"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "children": [
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": [
+                                                        "status"
+                                                      ]
+                                                    },
+                                                    "type": "Verbatim"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": [
+                                                    "status"
+                                                  ]
+                                                },
+                                                "type": "Verbatim"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "data": {
+                                      "children": [
+                                        {
+                                          "dd": [
+                                            {
+                                              "data": {
+                                                "children": [
+                                                  {
+                                                    "data": {
+                                                      "value": [
+                                                        "message"
+                                                      ]
+                                                    },
+                                                    "type": "Verbatim"
+                                                  }
+                                                ]
+                                              },
+                                              "type": "Paragraph"
+                                            }
+                                          ],
+                                          "dt": {
+                                            "children": [
+                                              {
+                                                "data": {
+                                                  "value": [
+                                                    "message"
+                                                  ]
+                                                },
+                                                "type": "Verbatim"
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    },
+                                    "type": "DefList"
+                                  }
+                                ]
+                              }
+                            ]
+                          },
+                          "type": "BulletList"
+                        }
+                      ]
+                    },
+                    "type": "BlockQuote"
+                  }
+                ],
+                "param": "res",
+                "type_": "dict"
+              }
+            ]
+          },
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Summary": {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Solve linear programs using HiGHS ."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": "<class 'builtin_function_or_method'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

@@ -1,0 +1,3774 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "data": {
+            "argument": "numpy",
+            "content": "",
+            "name": "currentmodule",
+            "options": []
+          },
+          "type": "BlockDirective"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The NumPy 1.23.0 release continues the ongoing work to improve the handling and promotion of dtypes, increase the execution speed, clarify the documentation, and expire old deprecations. The highlights are:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Implementation of "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "loadtxt"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " in C, greatly improving its performance."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Exposing DLPack at the Python level for easy data exchange."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Changes to the promotion and comparisons of structured dtypes."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Improvements to f2py."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "See below for the details,"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "NumPy 1.23.0 Release Notes"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "A masked array specialization of "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "ndenumerate"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " is now available as   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "numpy.ma.ndenumerate"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ". It provides an alternative to "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "numpy.ndenumerate"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "   and skips masked values by default."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/numpy/numpy/pull/20020",
+                            "value": "gh-20020"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ")"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              "numpy.from_dlpack"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " has been added to allow easy exchange of data using the   DLPack protocol.  It accepts Python objects that implement the "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "__dlpack__"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "   and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "__dlpack_device__"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " methods and returns a ndarray object which is   generally the view of the data of the input object."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/numpy/numpy/pull/21145",
+                            "value": "gh-21145"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ")"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "New functions"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Setting "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "__array_finalize__"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " to "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "None"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " is deprecated.  It must now be   a method and may wish to call "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "super().__array_finalize__(obj)"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " after   checking for "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "None"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " or if the NumPy version is sufficiently new."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/numpy/numpy/pull/20766",
+                            "value": "gh-20766"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ")"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Using "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "axis=32"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " ("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "axis=np.MAXDIMS"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ") in many cases had the   same meaning as "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "axis=None"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ".  This is deprecated and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "axis=None"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "   must be used instead."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/numpy/numpy/pull/20920",
+                            "value": "gh-20920"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ")"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The hook function "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "PyDataMem_SetEventHook"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " has been deprecated and the   demonstration of its use in tool/allocation_tracking has been removed.  The   ability to track allocations is now built-in to python via "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "tracemalloc"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/numpy/numpy/pull/20394",
+                            "value": "gh-20394"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ")"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              "numpy.distutils"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " has been deprecated, as a result of "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "distutils"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " itself   being deprecated. It will not be present in NumPy for Python >= 3.12, and   will be removed completely 2 years after the release of Python 3.12 For more   details, see "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "distutils-status-migration"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/numpy/numpy/pull/20875",
+                            "value": "gh-20875"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ")"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              "numpy.loadtxt"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " will now give a "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "DeprecationWarning"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " when an integer   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "dtype"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " is requested but the value is formatted as a floating point number."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/numpy/numpy/pull/21663",
+                            "value": "gh-21663"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ")"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Deprecations"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "NpzFile.iteritems()"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "NpzFile.iterkeys()"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " methods have been   removed as part of the continued removal of Python 2 compatibility. This   concludes the deprecation from 1.15."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/numpy/numpy/pull/16830",
+                            "value": "gh-16830"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ")"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "alen"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "asscalar"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " functions have been removed."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/numpy/numpy/pull/20414",
+                            "value": "gh-20414"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ")"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "UPDATEIFCOPY"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " array flag has been removed together with the enum   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "NPY_ARRAY_UPDATEIFCOPY"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ". The associated (and deprecated)   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "PyArray_XDECREF_ERR"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " was also removed. These were all deprecated in 1.14. They   are replaced by "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "WRITEBACKIFCOPY"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", that requires calling   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "PyArray_ResoveWritebackIfCopy"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " before the array is deallocated."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/numpy/numpy/pull/20589",
+                            "value": "gh-20589"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ")"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Exceptions will be raised during array-like creation.  When an object raised   an exception during access of the special attributes "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "__array__"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " or   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "__array_interface__"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ", this exception was usually ignored.  This behaviour   was deprecated in 1.21, and the exception will now be raised."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/numpy/numpy/pull/20835",
+                            "value": "gh-20835"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ")"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Multidimensional indexing with non-tuple values is not allowed.  Previously,   code such as "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "arr[ind]"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " where "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "ind = [[0, 1], [0, 1]]"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " produced a   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "FutureWarning"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " and was interpreted as a multidimensional index (i.e.,   "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "arr[tuple(ind)]"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": "). Now this example is treated like an array index over a   single dimension ("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "arr[array(ind)]"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ").  Multidimensional indexing with   anything but a tuple was deprecated in NumPy 1.15."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/numpy/numpy/pull/21029",
+                            "value": "gh-21029"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ")"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Changing to a dtype of different size in F-contiguous arrays is no longer   permitted. Deprecated since Numpy 1.11.0. See below for an extended   explanation of the effects of this change."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  },
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "("
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "target": "https://github.com/numpy/numpy/pull/20722",
+                            "value": "gh-20722"
+                          },
+                          "type": "ExternalLink"
+                        },
+                        {
+                          "data": {
+                            "value": ")"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Expired deprecations"
+    },
+    {
+      "children": [],
+      "level": 1,
+      "target": null,
+      "title": "New Features"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": [
+                    "crackfortran"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " parser now understands operator and assignment definitions in a module. They are added in the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "body"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " list of the module which contains a new key "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "implementedby"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " listing the names of the subroutines or functions implementing the operator or assignment."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/numpy/numpy/pull/15006",
+                  "value": "gh-15006"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ")"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "crackfortran has support for operator and assignment overloading"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "As a result, one does not need to use "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "public"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " or "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "private"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " statements to specify derived type access properties."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/numpy/numpy/pull/15844",
+                  "value": "gh-15844"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ")"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "f2py supports reading access type attributes from derived type statements"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "This parameter behaves the same as "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ndmin"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " from "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.loadtxt"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/numpy/numpy/pull/20500",
+                  "value": "gh-20500"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ")"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "New parameter ``ndmin`` added to ``genfromtxt``"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": [
+                    "numpy.loadtxt"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " now supports an additional "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "quotechar"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " keyword argument which is not set by default.  Using "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "quotechar='\"'"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " will read quoted fields as used by the Excel CSV dialect."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Further, it is now possible to pass a single callable rather than a dictionary for the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "converters"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " argument."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/numpy/numpy/pull/20580",
+                  "value": "gh-20580"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ")"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "``np.loadtxt`` now supports quote character and single converter function"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Previously, viewing an array with a dtype of a different item size required that the entire array be C-contiguous. This limitation would unnecessarily force the user to make contiguous copies of non-contiguous arrays before being able to change the dtype."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "This change affects not only "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ndarray.view"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", but other construction mechanisms, including the discouraged direct assignment to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ndarray.dtype"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "This change expires the deprecation regarding the viewing of F-contiguous arrays, described elsewhere in the release notes."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/numpy/numpy/pull/20722",
+                  "value": "gh-20722"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ")"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Changing to dtype of a different size now requires contiguity of only the last axis"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For F77 inputs, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "f2py"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " will generate "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "modname-f2pywrappers.f"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " unconditionally, though these may be empty.  For free-form inputs, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "modname-f2pywrappers.f"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "modname-f2pywrappers2.f90"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " will both be generated unconditionally, and may be empty. This allows writing generic output rules in "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "cmake"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " or "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "meson"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and other build systems. Older behavior can be restored by passing "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "--skip-empty-wrappers"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "f2py"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "f2py-meson"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " details usage."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/numpy/numpy/pull/21187",
+                  "value": "gh-21187"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ")"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Deterministic output files for F2PY"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The parameter "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "keepdims"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " was added to the functions "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.average"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.ma.average"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ".  The parameter has the same meaning as it does in reduction functions such as "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.sum"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " or "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.mean"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/numpy/numpy/pull/21485",
+                  "value": "gh-21485"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ")"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "``keepdims`` parameter for ``average``"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": [
+                    "np.unique"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " was changed in 1.21 to treat all "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "NaN"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " values as equal and return a single "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "NaN"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". Setting "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "equal_nan=False"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " will restore pre-1.21 behavior to treat "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "NaNs"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " as unique. Defaults to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "True"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/numpy/numpy/pull/21623",
+                  "value": "gh-21623"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ")"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "New parameter ``equal_nan`` added to ``np.unique``"
+    },
+    {
+      "children": [],
+      "level": 1,
+      "target": null,
+      "title": "Compatibility notes"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Previously, this would promote to "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "float64"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " when the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ord"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " argument was not one of the explicitly listed values, e.g. "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ord=3"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ":      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> f32 = np.float32([1, 2])\n>>> np.linalg.norm(f32, 2).dtype\ndtype('float32')\n>>> np.linalg.norm(f32, 3)\ndtype('float64')  # numpy 1.22\ndtype('float32')  # numpy 1.23"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "This change affects only "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "float32"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "float16"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " vectors with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ord"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " other than "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "-Inf"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "0"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "1"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "2"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "Inf"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/numpy/numpy/pull/17709",
+                  "value": "gh-17709"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ")"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "1D ``np.linalg.norm`` preserves float input types, even for scalar results"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "In general, NumPy now defines correct, but slightly limited, promotion for structured dtypes by promoting the subtypes of each field instead of raising an exception:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": ">>> np.result_type(np.dtype(\"i,i\"), np.dtype(\"i,d\"))\ndtype([('f0', '<i4'), ('f1', '<f8')])"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "For promotion matching field names, order, and titles are enforced, however padding is ignored. Promotion involving structured dtypes now always ensures native byte-order for all fields (which may change the result of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "np.concatenate"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ") and ensures that the result will be \"packed\", i.e. all fields are ordered contiguously and padding is removed. See "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "structured_dtype_comparison_and_promotion"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " for further details."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "repr"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " of aligned structures will now never print the long form including "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "offsets"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "itemsize"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " unless the structure includes padding not guaranteed by "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "align=True"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "In alignment with the above changes to the promotion logic, the casting safety has been updated:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              "\"equiv\""
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " enforces matching names and titles. The itemsize   is allowed to differ due to padding."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": [
+                              "\"safe\""
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " allows mismatching field names and titles"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The cast safety is limited by the cast safety of each included   field."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "The order of fields is used to decide cast safety of each   individual field.  Previously, the field names were used and   only unsafe casts were possible when names mismatched."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The main important change here is that name mismatches are now considered \"safe\" casts."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/numpy/numpy/pull/19226",
+                  "value": "gh-19226"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ")"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Changes to structured (void) dtype promotion and comparisons"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "NumPy cannot be compiled with "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "NPY_RELAXED_STRIDES_CHECKING=0"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " anymore.  Relaxed strides have been the default for many years and the option was initially introduced to allow a smoother transition."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/numpy/numpy/pull/20220",
+                  "value": "gh-20220"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ")"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "``NPY_RELAXED_STRIDES_CHECKING`` has been removed"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The row counting of "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.loadtxt"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " was fixed.  "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "loadtxt"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " ignores fully empty lines in the file, but counted them towards "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "max_rows"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ". When "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "max_rows"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is used and the file contains empty lines, these will now not be counted.  Previously, it was possible that the result contained fewer than "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "max_rows"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " rows even though more data was available to be read. If the old behaviour is required, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "itertools.islice"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " may be used:      "
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "value": "import itertools\nlines = itertools.islice(open(\"file\"), 0, max_rows)\nresult = np.loadtxt(lines, ...)"
+          },
+          "type": "BlockVerbatim"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "While generally much faster and improved, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.loadtxt"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " may now fail to converter certain strings to numbers that were previously successfully read. The most important cases for this are:"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Parsing floating point values such as "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "1.0"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " into integers is now deprecated."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "Parsing hexadecimal floats such as "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "0x3p3"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " will fail"
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              },
+              {
+                "children": [
+                  {
+                    "data": {
+                      "children": [
+                        {
+                          "data": {
+                            "value": "An "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "_"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": " was previously accepted as a thousands delimiter "
+                          },
+                          "type": "Words"
+                        },
+                        {
+                          "data": {
+                            "value": [
+                              "100_000"
+                            ]
+                          },
+                          "type": "Verbatim"
+                        },
+                        {
+                          "data": {
+                            "value": ".   This will now result in an error."
+                          },
+                          "type": "Words"
+                        }
+                      ]
+                    },
+                    "type": "Paragraph"
+                  }
+                ]
+              }
+            ]
+          },
+          "type": "BulletList"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "If you experience these limitations, they can all be worked around by passing appropriate "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "converters="
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ".  NumPy now supports passing a single converter to be used for all columns to make this more convenient. For example, "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "converters=float.fromhex"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " can read hexadecimal float numbers and "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "converters=int"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " will be able to read "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "100_000"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Further, the error messages have been generally improved.  However, this means that error types may differ.  In particularly, a "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ValueError"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is now always raised when parsing of a single entry fails."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/numpy/numpy/pull/20580",
+                  "value": "gh-20580"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ")"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "``np.loadtxt`` has recieved several changes"
+    },
+    {
+      "children": [],
+      "level": 1,
+      "target": null,
+      "title": "Improvements"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "This means subclasses can now use "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "super().__array_finalize__(obj)"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " without worrying whether "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "ndarray"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is their superclass or not. The actual call remains a no-op."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/numpy/numpy/pull/20766",
+                  "value": "gh-20766"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ")"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "``ndarray.__array_finalize__`` is now callable"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "With VSX4/Power10 enablement, the new instructions available in Power ISA 3.1 can be used to accelerate some NumPy operations, e.g., floor_divide, modulo, etc."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/numpy/numpy/pull/20821",
+                  "value": "gh-20821"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ")"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Add support for VSX4/Power10"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "The "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.fromiter"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " function now supports object and subarray dtypes. Please see he function documentation for examples."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/numpy/numpy/pull/20993",
+                  "value": "gh-20993"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ")"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "``np.fromiter`` now accepts objects and subarrays"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Compiling is preceded by a detection phase to determine whether the underlying libc supports certain math operations. Previously this code did not respect the proper signatures. Fixing this enables compilation for the "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "wasm-ld"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " backend (compilation for web assembly) and reduces the number of warnings."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/numpy/numpy/pull/21154",
+                  "value": "gh-21154"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ")"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Math C library feature detection now uses correct signatures"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": [
+                    "np.kron"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " maintains subclass information now such as masked arrays while computing the Kronecker product of the inputs"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "argument": "python",
+            "content": ">>> x = ma.array([[1, 2], [3, 4]], mask=[[0, 1], [1, 0]])\n>>> np.kron(x,x)\nmasked_array(\n  data=[[1, --, --, --],\n        [--, 4, --, --],\n        [--, --, 4, --],\n        [--, --, --, 16]],\n  mask=[[False,  True,  True,  True],\n        [ True, False,  True,  True],\n        [ True,  True, False,  True],\n        [ True,  True,  True, False]],\n  fill_value=999999)",
+            "name": "code-block",
+            "options": []
+          },
+          "type": "BlockDirective"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "children": [
+                    {
+                      "data": {
+                        "value": [
+                          "np.kron"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " output now follows "
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "ufunc"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": " ordering ("
+                      },
+                      "type": "Words"
+                    },
+                    {
+                      "data": {
+                        "value": [
+                          "multiply"
+                        ]
+                      },
+                      "type": "Verbatim"
+                    },
+                    {
+                      "data": {
+                        "value": ") to determine the output class type"
+                      },
+                      "type": "Words"
+                    }
+                  ]
+                },
+                "type": "Paragraph"
+              },
+              {
+                "data": {
+                  "argument": "python",
+                  "content": ">>> class myarr(np.ndarray):\n>>>    __array_priority__ = -1\n>>> a = np.ones([2, 2])\n>>> ma = myarray(a.shape, a.dtype, a.data)\n>>> type(np.kron(a, ma)) == np.ndarray\nFalse # Before it was True\n>>> type(np.kron(a, ma)) == myarr\nTrue",
+                  "name": "code-block",
+                  "options": []
+                },
+                "type": "BlockDirective"
+              }
+            ],
+            "kind": "warning",
+            "title": ""
+          },
+          "type": "Admonition"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/numpy/numpy/pull/21262",
+                  "value": "gh-21262"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ")"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "``np.kron`` now maintains subclass information"
+    },
+    {
+      "children": [],
+      "level": 1,
+      "target": null,
+      "title": "Performance improvements and changes"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": [
+                    "numpy.loadtxt"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is now generally much faster than previously as most of it is now implemented in C."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/numpy/numpy/pull/20580",
+                  "value": "gh-20580"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ")"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Faster ``np.loadtxt``"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Reduction operations like "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.sum"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.prod"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.add.reduce"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": ", "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "numpy.logical_and.reduce"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " on contiguous integer-based arrays are now much faster."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/numpy/numpy/pull/21001",
+                  "value": "gh-21001"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ")"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Faster reduction operators"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": [
+                    "numpy.where"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is now much faster than previously on unpredictable/random input data."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/numpy/numpy/pull/21130",
+                  "value": "gh-21130"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ")"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Faster ``np.where``"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "Many operations on NumPy scalars are now significantly faster, although rare operations (e.g. with 0-D arrays rather than scalars) may be slower in some cases. However, even with these improvements users who want the best performance for their scalars, may want to convert a known NumPy scalar into a Python one using "
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "value": [
+                    "scalar.item()"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": "."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/numpy/numpy/pull/21188",
+                  "value": "gh-21188"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ")"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Faster operations on NumPy scalars"
+    },
+    {
+      "children": [
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": [
+                    "numpy.kron"
+                  ]
+                },
+                "type": "Verbatim"
+              },
+              {
+                "data": {
+                  "value": " is about 80% faster as the product is now computed using broadcasting."
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        },
+        {
+          "data": {
+            "children": [
+              {
+                "data": {
+                  "value": "("
+                },
+                "type": "Words"
+              },
+              {
+                "data": {
+                  "target": "https://github.com/numpy/numpy/pull/21354",
+                  "value": "gh-21354"
+                },
+                "type": "ExternalLink"
+              },
+              {
+                "data": {
+                  "value": ")"
+                },
+                "type": "Words"
+              }
+            ]
+          },
+          "type": "Paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Faster ``np.kron``"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "value": null
+  }
+}

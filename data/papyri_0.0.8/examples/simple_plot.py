@@ -38,84 +38,6 @@
           },
           {
             "link": {
-              "data": "\n",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "import",
-              "type": "str"
-            },
-            "type": "kn"
-          },
-          {
-            "link": {
-              "data": " ",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": {
-                "anchor": null,
-                "exists": true,
-                "kind": "module",
-                "reference": {
-                  "kind": "module",
-                  "module": "papyri",
-                  "path": "papyri",
-                  "version": "*"
-                },
-                "value": "papyri"
-              },
-              "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
-              "data": "\n",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": "import",
-              "type": "str"
-            },
-            "type": "kn"
-          },
-          {
-            "link": {
-              "data": " ",
-              "type": "str"
-            },
-            "type": ""
-          },
-          {
-            "link": {
-              "data": {
-                "anchor": null,
-                "exists": true,
-                "kind": "module",
-                "reference": {
-                  "kind": "module",
-                  "module": "matplotlib",
-                  "path": "matplotlib",
-                  "version": "*"
-                },
-                "value": "matplotlib"
-              },
-              "type": "Link"
-            },
-            "type": "nn"
-          },
-          {
-            "link": {
               "data": ".",
               "type": "str"
             },
@@ -183,7 +105,7 @@
               "data": "\n",
               "type": "str"
             },
-            "type": ""
+            "type": "w"
           },
           {
             "link": {
@@ -261,37 +183,26 @@
               "data": "\n",
               "type": "str"
             },
-            "type": ""
+            "type": "w"
           },
           {
             "link": {
               "data": "\n",
               "type": "str"
             },
-            "type": ""
+            "type": "w"
           },
           {
             "link": {
               "data": "\n",
               "type": "str"
             },
-            "type": ""
+            "type": "w"
           },
           {
             "link": {
-              "data": {
-                "anchor": null,
-                "exists": true,
-                "kind": "module",
-                "reference": {
-                  "kind": "module",
-                  "module": "builtins",
-                  "path": "builtins.int",
-                  "version": "*"
-                },
-                "value": "fig"
-              },
-              "type": "Link"
+              "data": "fig",
+              "type": "str"
             },
             "type": ""
           },
@@ -399,14 +310,14 @@
               "data": "\n",
               "type": "str"
             },
-            "type": ""
+            "type": "w"
           },
           {
             "link": {
               "data": "\n",
               "type": "str"
             },
-            "type": ""
+            "type": "w"
           },
           {
             "link": {
@@ -417,7 +328,7 @@
                 "reference": {
                   "kind": "module",
                   "module": "builtins",
-                  "path": "builtins.NoneType",
+                  "path": "builtins.int",
                   "version": "*"
                 },
                 "value": "x"
@@ -586,7 +497,7 @@
               "data": "\n",
               "type": "str"
             },
-            "type": ""
+            "type": "w"
           },
           {
             "link": {
@@ -675,7 +586,7 @@
                 "reference": {
                   "kind": "module",
                   "module": "builtins",
-                  "path": "builtins.NoneType",
+                  "path": "builtins.int",
                   "version": "*"
                 },
                 "value": "x"
@@ -696,14 +607,14 @@
               "data": "\n",
               "type": "str"
             },
-            "type": ""
+            "type": "w"
           },
           {
             "link": {
               "data": "\n",
               "type": "str"
             },
-            "type": ""
+            "type": "w"
           },
           {
             "link": {
@@ -742,7 +653,7 @@
                 "reference": {
                   "kind": "module",
                   "module": "builtins",
-                  "path": "builtins.NoneType",
+                  "path": "builtins.int",
                   "version": "*"
                 },
                 "value": "x"
@@ -784,7 +695,7 @@
               "data": "\n",
               "type": "str"
             },
-            "type": ""
+            "type": "w"
           },
           {
             "link": {
@@ -844,7 +755,7 @@
                 "reference": {
                   "kind": "module",
                   "module": "builtins",
-                  "path": "builtins.NoneType",
+                  "path": "builtins.int",
                   "version": "*"
                 },
                 "value": "x"
@@ -865,7 +776,7 @@
               "data": "\n",
               "type": "str"
             },
-            "type": ""
+            "type": "w"
           }
         ],
         "out": ""
